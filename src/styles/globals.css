@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/*
+ * Carsens Design Tokens — extracted from the approved mockup
+ * (`carsens-FullPage interactive design (1).html`). Light theme only (mockup has no dark mode).
+ * Token names are semantic; components consume ONLY these — never raw hex.
+ */
+@theme {
+  /* Brand */
+  --color-brand: #23416b;
+  --color-brand-hover: #1b3556;
+  --color-brand-mid: #34619e;
+  --color-brand-light: #e6eef8;
+  --color-brand-surface: #f0f6ff;
+  --color-brand-border: #7f9bc2;
+
+  /* Neutrals */
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-divider: #f3f4f6;
+  --color-page: #f7f8fb;
+  --color-card: #ffffff;
+
+  /* Status */
+  --color-success: #22c55e;
+  --color-success-strong: #15803d;
+  --color-success-soft: #dcfce7;
+  --color-warning: #eab308;
+  --color-warning-strong: #92400e;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fef2f2;
+  --color-info: #3b82f6;
+
+  /* Radii (mockup: --radius:10px, --radius-lg:16px) */
+  --radius-card: 10px;
+  --radius-panel: 16px;
+
+  /* Shadows (mockup verbatim) */
+  --shadow-soft: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --shadow-card: 0 4px 16px rgba(17, 24, 39, 0.06);
+  --shadow-pop: 0 12px 32px rgba(35, 65, 107, 0.12);
+
+  /* Typography — Inter (Latin) + Noto Sans Arabic (RTL), self-hosted via @fontsource */
+  --font-sans: "Inter Variable", "Noto Sans Arabic Variable", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible focus — visible, brand-tinted, never removed (WCAG 2.1 AA baseline, P0-08) */
+:focus-visible {
+  outline: 2px solid var(--color-brand-mid);
+  outline-offset: 2px;
+}
+
+/* Page shell — mockup --container: 1240px */
+.container-shell {
+  margin-inline: auto;
+  max-width: 1240px;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  .container-shell {
+    padding-inline: 1.5rem;
+  }
+}
