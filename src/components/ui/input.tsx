@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       aria-invalid={ariaInvalid ?? (invalid || undefined)}
       className={cn(
         "flex h-10 w-full rounded-card border border-line bg-card px-3 text-sm text-ink",
-        "placeholder:text-muted/70 transition-colors",
+        "placeholder:text-muted transition-colors",
         "hover:border-brand-border focus:border-brand-mid focus:outline-none focus:ring-2 focus:ring-brand-mid/25",
         "disabled:cursor-not-allowed disabled:bg-divider disabled:opacity-70",
         "aria-invalid:border-danger aria-invalid:focus:ring-danger/25",
@@ -32,7 +32,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttribu
       aria-invalid={ariaInvalid ?? (invalid || undefined)}
       className={cn(
         "flex min-h-24 w-full rounded-card border border-line bg-card p-3 text-sm text-ink",
-        "placeholder:text-muted/70 transition-colors",
+        "placeholder:text-muted transition-colors",
         "hover:border-brand-border focus:border-brand-mid focus:outline-none focus:ring-2 focus:ring-brand-mid/25",
         "disabled:cursor-not-allowed disabled:bg-divider disabled:opacity-70",
         "aria-invalid:border-danger aria-invalid:focus:ring-danger/25",

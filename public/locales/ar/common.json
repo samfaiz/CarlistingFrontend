@@ -1,0 +1,14 @@
+{
+  "site": {
+    "name": "carsens",
+    "tagline": "سوق الإمارات للسيارات والدراجات النارية."
+  },
+  "home": {
+    "scaffoldStatus": "واجهة المشروع جاهزة — Next.js 15 (نظام الصفحات) + React 19 + Tailwind v4.",
+    "openUiKit": "افتح مجموعة واجهة المستخدم"
+  },
+  "language": {
+    "label": "اللغة",
+    "switcherLabel": "تغيير اللغة"
+  }
+}

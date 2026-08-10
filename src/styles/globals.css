@@ -17,6 +17,8 @@
   /* Neutrals */
   --color-ink: #111827;
   --color-muted: #6b7280;
+  /* Muted text on tinted surfaces (bg-divider/bg-page) — plain muted falls below 4.5:1 there (axe, P0-13). */
+  --color-muted-strong: #4b5563;
   --color-line: #e5e7eb;
   --color-divider: #f3f4f6;
   --color-page: #f7f8fb;
@@ -30,6 +32,8 @@
   --color-warning-strong: #92400e;
   --color-warning-soft: #fef3c7;
   --color-danger: #dc2626;
+  /* Danger text on danger-soft — plain danger is 4.41:1 there (axe, P0-13); mirrors success/warning-strong. */
+  --color-danger-strong: #b91c1c;
   --color-danger-soft: #fef2f2;
   --color-info: #3b82f6;
 

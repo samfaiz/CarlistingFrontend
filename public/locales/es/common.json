@@ -1,0 +1,14 @@
+{
+  "site": {
+    "name": "carsens",
+    "tagline": "El mercado de coches y motos de los EAU."
+  },
+  "home": {
+    "scaffoldStatus": "Base del frontend lista — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
+    "openUiKit": "Abrir el kit de UI"
+  },
+  "language": {
+    "label": "Idioma",
+    "switcherLabel": "Cambiar de idioma"
+  }
+}

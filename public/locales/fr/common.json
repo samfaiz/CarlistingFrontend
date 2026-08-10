@@ -1,0 +1,14 @@
+{
+  "site": {
+    "name": "carsens",
+    "tagline": "La place de marché des voitures et motos aux Émirats arabes unis."
+  },
+  "home": {
+    "scaffoldStatus": "Socle frontend prêt — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
+    "openUiKit": "Ouvrir le kit UI"
+  },
+  "language": {
+    "label": "Langue",
+    "switcherLabel": "Changer de langue"
+  }
+}

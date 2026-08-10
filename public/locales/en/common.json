@@ -1,0 +1,14 @@
+{
+  "site": {
+    "name": "carsens",
+    "tagline": "The UAE marketplace for cars and bikes."
+  },
+  "home": {
+    "scaffoldStatus": "Frontend scaffold ready — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
+    "openUiKit": "Open the UI Kit"
+  },
+  "language": {
+    "label": "Language",
+    "switcherLabel": "Change language"
+  }
+}
