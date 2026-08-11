@@ -1,0 +1,43 @@
+{
+  "hub": {
+    "title": "Used cars for sale in the UAE | Carsens",
+    "description": "Browse {{formatted}} used cars for sale across the UAE. Explore by make, model or emirate, or open the full search to filter by price, year and mileage.",
+    "h1": "Used cars for sale in the UAE",
+    "intro_one": "There is currently {{formatted}} used car for sale on Carsens. Pick a make or emirate below, or open the full search to filter by price, year, mileage and more.",
+    "intro_other": "There are currently {{formatted}} used cars for sale on Carsens. Pick a make or emirate below, or open the full search to filter by price, year, mileage and more."
+  },
+  "make": {
+    "title": "Used {{make}} cars for sale in the UAE | Carsens",
+    "description": "{{formatted}} used {{make}} cars for sale in the UAE. Compare prices, mileage and specs across all seven emirates and find your next {{make}}.",
+    "h1": "Used {{make}} cars for sale in the UAE",
+    "intro_one": "{{formatted}} used {{make}} car is for sale in the UAE right now. Browse the newest listings below, jump to a specific model, or refine by price, year and mileage in the full search.",
+    "intro_other": "{{formatted}} used {{make}} cars are for sale in the UAE right now. Browse the newest listings below, jump to a specific model, or refine by price, year and mileage in the full search."
+  },
+  "model": {
+    "title": "Used {{make}} {{model}} cars for sale in the UAE | Carsens",
+    "description": "{{formatted}} used {{make}} {{model}} cars for sale in the UAE. Compare prices, years and mileage and find the right {{model}} for you.",
+    "h1": "Used {{make}} {{model}} cars for sale",
+    "intro_one": "{{formatted}} used {{make}} {{model}} is listed on Carsens right now. The newest listings are below — open the full search to compare prices, years and mileage side by side.",
+    "intro_other": "{{formatted}} used {{make}} {{model}} cars are listed on Carsens right now. The newest listings are below — open the full search to compare prices, years and mileage side by side."
+  },
+  "emirate": {
+    "title": "Used cars for sale in {{emirate}} | Carsens",
+    "description": "{{formatted}} used cars for sale in {{emirate}}. Browse the latest listings from private sellers and dealers near you.",
+    "h1": "Used cars for sale in {{emirate}}",
+    "intro_one": "{{formatted}} used car is for sale in {{emirate}} right now. Browse the newest listings below, or open the full search to filter by make, model, price and year.",
+    "intro_other": "{{formatted}} used cars are for sale in {{emirate}} right now. Browse the newest listings below, or open the full search to filter by make, model, price and year."
+  },
+  "viewAll": "View all {{formatted}} in the full search",
+  "newest": "Newest listings",
+  "links": {
+    "modelsOf": "{{make}} models",
+    "otherMakes": "More makes",
+    "makes": "Browse by make",
+    "emirates": "Browse by emirate",
+    "allUsedCars": "All used cars in the UAE"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "usedCars": "Used cars"
+  }
+}

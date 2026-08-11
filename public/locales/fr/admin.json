@@ -1,0 +1,85 @@
+{
+  "layout": {
+    "title": "Administration Carsens",
+    "badge": "Admin",
+    "nav": {
+      "label": "Navigation d'administration",
+      "moderation": "Modération"
+    },
+    "signOut": "Se déconnecter"
+  },
+  "home": {
+    "title": "Espace d'administration",
+    "subtitle": "Outils internes pour l'équipe d'exploitation de Carsens. Cet espace ne fait pas partie du site public.",
+    "moderationCard": "Examinez les annonces en attente : approuvez, rejetez avec un motif et mettez en avant les annonces publiées.",
+    "open": "Ouvrir la modération"
+  },
+  "moderation": {
+    "title": "Modération des annonces",
+    "subtitle": "Annonces en attente, les plus anciennes d'abord. Les annonces approuvées sont publiées pour 60 jours.",
+    "tabs": {
+      "queue": "File d'attente",
+      "live": "Annonces publiées"
+    },
+    "columns": {
+      "photo": "Photo",
+      "listing": "Annonce",
+      "seller": "Vendeur",
+      "submitted": "Soumise",
+      "photos": "Photos",
+      "price": "Prix",
+      "published": "Publiée",
+      "featured": "En avant",
+      "actions": "Actions"
+    },
+    "queueEmpty": "La file de modération est vide — rien n'attend de relecture.",
+    "liveEmpty": "Aucune annonce publiée trouvée.",
+    "loading": "Chargement…",
+    "loadFailed": "Impossible de charger les annonces.",
+    "retry": "Réessayer",
+    "expand": "Afficher les détails",
+    "collapse": "Masquer les détails",
+    "detail": {
+      "photos": "Photos",
+      "noPhotos": "Aucune photo jointe.",
+      "facts": "Informations clés",
+      "specs": "Résumé des caractéristiques",
+      "noSpecs": "Aucun instantané de caractéristiques sur cette annonce.",
+      "moreSpecs": "+{{count}} champs supplémentaires",
+      "description": "Description",
+      "noDescription": "Aucune description fournie.",
+      "price": "Prix",
+      "mileage": "Kilométrage",
+      "vin": "VIN (numéro de châssis)",
+      "exteriorColor": "Couleur extérieure",
+      "interiorColor": "Couleur intérieure",
+      "regionalSpec": "Spécification régionale",
+      "fuel": "Carburant",
+      "transmission": "Transmission",
+      "sellerType": "Type de vendeur"
+    },
+    "actions": {
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "feature": "Mettre en avant",
+      "unfeature": "Retirer la mise en avant"
+    },
+    "rejectDialog": {
+      "title": "Rejeter l'annonce",
+      "description": "Le vendeur voit ce motif sur son annonce. Minimum 5 caractères.",
+      "reasonLabel": "Motif du rejet",
+      "placeholder": "ex. Les photos ne montrent pas le véhicule réel.",
+      "tooShort": "Le motif doit comporter au moins 5 caractères.",
+      "cancel": "Annuler",
+      "confirm": "Rejeter l'annonce"
+    },
+    "toasts": {
+      "approved": "Annonce approuvée — elle est maintenant publiée.",
+      "rejected": "Annonce rejetée.",
+      "featured": "Annonce mise en avant — elle est épinglée dans les résultats de recherche.",
+      "unfeatured": "Badge « en avant » retiré.",
+      "actionFailed": "L'action a échoué"
+    },
+    "featuredBadge": "En avant"
+  }
+}

@@ -22,6 +22,7 @@ import { PricePanel } from "@/components/detail/price-panel";
 import { SimilarRail } from "@/components/detail/similar-rail";
 import { SpecsSection } from "@/components/detail/specs-section";
 import { SiteHeader } from "@/components/home/site-header";
+import { BreadcrumbJsonLd, VehicleJsonLd } from "@/components/seo/json-ld";
 import { ApiError } from "@/lib/api";
 import { formatMileage, formatPrice, mediaUrl } from "@/lib/format";
 import { getListing, type ListingDetail } from "@/lib/marketplace-api";
@@ -44,6 +45,7 @@ interface CarDetailPageProps {
 
 export default function CarDetailPage({ listing }: CarDetailPageProps) {
   const { t } = useTranslation("detail");
+  const { t: tSeo } = useTranslation("seo"); // P1-12 breadcrumb labels
   const router = useRouter();
   const locale = router.locale ?? router.defaultLocale ?? "en";
 
@@ -76,6 +78,20 @@ export default function CarDetailPage({ listing }: CarDetailPageProps) {
         <meta property="og:type" content="website" />
         {ogImage && <meta property="og:image" content={ogImage} />}
       </Head>
+
+      {/* P1-12 structured data (body placement — see json-ld.tsx docs). */}
+      <VehicleJsonLd listing={listing} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: tSeo("breadcrumb.home"), path: "/" },
+          { name: listing.make.name, path: `/used-cars/${listing.make.slug}` },
+          {
+            name: `${listing.make.name} ${listing.model.name}`,
+            path: `/used-cars/${listing.make.slug}/${listing.model.slug}`,
+          },
+          { name: title },
+        ]}
+      />
 
       <SiteHeader />
 
@@ -127,7 +143,7 @@ export const getServerSideProps: GetServerSideProps<CarDetailPageProps> = async 
         listing,
         ...(await serverSideTranslations(
           locale ?? nextI18NextConfig.i18n.defaultLocale,
-          ["common", "home", "listings", "detail"],
+          ["common", "home", "listings", "detail", "seo"],
           nextI18NextConfig,
         )),
       },

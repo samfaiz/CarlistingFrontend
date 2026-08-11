@@ -1,0 +1,85 @@
+{
+  "layout": {
+    "title": "Administración de Carsens",
+    "badge": "Admin",
+    "nav": {
+      "label": "Navegación de administración",
+      "moderation": "Moderación"
+    },
+    "signOut": "Cerrar sesión"
+  },
+  "home": {
+    "title": "Espacio de administración",
+    "subtitle": "Herramientas internas para el equipo de operaciones de Carsens. Esta área no forma parte del sitio público.",
+    "moderationCard": "Revisa los anuncios pendientes: aprueba, rechaza con un motivo y destaca anuncios publicados.",
+    "open": "Abrir moderación"
+  },
+  "moderation": {
+    "title": "Moderación de anuncios",
+    "subtitle": "Anuncios pendientes, los más antiguos primero. Los aprobados se publican durante 60 días.",
+    "tabs": {
+      "queue": "Cola pendiente",
+      "live": "Anuncios publicados"
+    },
+    "columns": {
+      "photo": "Foto",
+      "listing": "Anuncio",
+      "seller": "Vendedor",
+      "submitted": "Enviado",
+      "photos": "Fotos",
+      "price": "Precio",
+      "published": "Publicado",
+      "featured": "Destacado",
+      "actions": "Acciones"
+    },
+    "queueEmpty": "La cola de moderación está vacía: no hay nada pendiente de revisión.",
+    "liveEmpty": "No se encontraron anuncios publicados.",
+    "loading": "Cargando…",
+    "loadFailed": "No se pudieron cargar los anuncios.",
+    "retry": "Reintentar",
+    "expand": "Mostrar detalles",
+    "collapse": "Ocultar detalles",
+    "detail": {
+      "photos": "Fotos",
+      "noPhotos": "Sin fotos adjuntas.",
+      "facts": "Datos clave",
+      "specs": "Resumen de especificaciones",
+      "noSpecs": "Este anuncio no tiene copia de especificaciones.",
+      "moreSpecs": "+{{count}} campos más",
+      "description": "Descripción",
+      "noDescription": "No se proporcionó descripción.",
+      "price": "Precio",
+      "mileage": "Kilometraje",
+      "vin": "VIN (número de bastidor)",
+      "exteriorColor": "Color exterior",
+      "interiorColor": "Color interior",
+      "regionalSpec": "Especificación regional",
+      "fuel": "Combustible",
+      "transmission": "Transmisión",
+      "sellerType": "Tipo de vendedor"
+    },
+    "actions": {
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "feature": "Destacar",
+      "unfeature": "Quitar destacado"
+    },
+    "rejectDialog": {
+      "title": "Rechazar anuncio",
+      "description": "El vendedor verá este motivo en su anuncio. Mínimo 5 caracteres.",
+      "reasonLabel": "Motivo del rechazo",
+      "placeholder": "p. ej., Las fotos no muestran el vehículo real.",
+      "tooShort": "El motivo debe tener al menos 5 caracteres.",
+      "cancel": "Cancelar",
+      "confirm": "Rechazar anuncio"
+    },
+    "toasts": {
+      "approved": "Anuncio aprobado: ya está publicado.",
+      "rejected": "Anuncio rechazado.",
+      "featured": "Anuncio destacado: quedará fijado en los resultados de búsqueda.",
+      "unfeatured": "Se quitó la insignia de destacado.",
+      "actionFailed": "La acción falló"
+    },
+    "featuredBadge": "Destacado"
+  }
+}

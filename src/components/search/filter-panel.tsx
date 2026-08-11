@@ -38,9 +38,11 @@ import {
   TEXT_FILTER_DEBOUNCE_MS,
   TRANSMISSIONS,
   formatNumber,
+  serializeSearchQuery,
   termLabel,
   type SearchFilters,
 } from "@/components/search/filter-state";
+import { SaveSearchButton } from "@/components/saved/save-search-button";
 
 export interface FilterPanelProps {
   filters: SearchFilters;
@@ -495,6 +497,12 @@ export function FilterPanel({
           onCommit={(v) => onChange({ q: v.trim() || undefined })}
         />
       </div>
+
+      {/* P1-09: save the current search (FR-S5). */}
+      <SaveSearchButton
+        query={serializeSearchQuery({ filters, sort: "newest", page: 1 })}
+        className="w-full"
+      />
     </div>
   );
 }

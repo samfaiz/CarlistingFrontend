@@ -76,3 +76,10 @@ export function apiPost<T>(
     token: opts?.token,
   });
 }
+
+export function apiDelete<T>(
+  path: string,
+  opts?: { token?: string },
+): Promise<T> {
+  return request<T>(path, { method: "DELETE", token: opts?.token });
+}

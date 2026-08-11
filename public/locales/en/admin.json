@@ -1,0 +1,85 @@
+{
+  "layout": {
+    "title": "Carsens Admin",
+    "badge": "Admin",
+    "nav": {
+      "label": "Admin navigation",
+      "moderation": "Moderation"
+    },
+    "signOut": "Sign out"
+  },
+  "home": {
+    "title": "Admin workspace",
+    "subtitle": "Internal tools for the Carsens operations team. This area is not part of the public site.",
+    "moderationCard": "Review pending listings: approve, reject with a reason, and feature live listings.",
+    "open": "Open moderation"
+  },
+  "moderation": {
+    "title": "Listing moderation",
+    "subtitle": "Pending listings, oldest first. Approved listings go live for 60 days.",
+    "tabs": {
+      "queue": "Pending queue",
+      "live": "Live listings"
+    },
+    "columns": {
+      "photo": "Photo",
+      "listing": "Listing",
+      "seller": "Seller",
+      "submitted": "Submitted",
+      "photos": "Photos",
+      "price": "Price",
+      "published": "Published",
+      "featured": "Featured",
+      "actions": "Actions"
+    },
+    "queueEmpty": "The moderation queue is empty — nothing is waiting for review.",
+    "liveEmpty": "No live listings found.",
+    "loading": "Loading…",
+    "loadFailed": "Could not load listings.",
+    "retry": "Retry",
+    "expand": "Show details",
+    "collapse": "Hide details",
+    "detail": {
+      "photos": "Photos",
+      "noPhotos": "No photos attached.",
+      "facts": "Key facts",
+      "specs": "Spec summary",
+      "noSpecs": "No spec snapshot on this listing.",
+      "moreSpecs": "+{{count}} more fields",
+      "description": "Description",
+      "noDescription": "No description provided.",
+      "price": "Price",
+      "mileage": "Mileage",
+      "vin": "VIN",
+      "exteriorColor": "Exterior colour",
+      "interiorColor": "Interior colour",
+      "regionalSpec": "Regional spec",
+      "fuel": "Fuel",
+      "transmission": "Transmission",
+      "sellerType": "Seller type"
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "feature": "Feature",
+      "unfeature": "Unfeature"
+    },
+    "rejectDialog": {
+      "title": "Reject listing",
+      "description": "The seller sees this reason on their listing. Minimum 5 characters.",
+      "reasonLabel": "Rejection reason",
+      "placeholder": "e.g. The photos do not show the actual vehicle.",
+      "tooShort": "The reason must be at least 5 characters.",
+      "cancel": "Cancel",
+      "confirm": "Reject listing"
+    },
+    "toasts": {
+      "approved": "Listing approved — it is now live.",
+      "rejected": "Listing rejected.",
+      "featured": "Listing featured — it is pinned in search results.",
+      "unfeatured": "Featured badge removed.",
+      "actionFailed": "The action failed"
+    },
+    "featuredBadge": "Featured"
+  }
+}

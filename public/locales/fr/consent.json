@@ -1,0 +1,28 @@
+{
+  "banner": {
+    "ariaLabel": "Consentement aux cookies",
+    "message": "Nous utilisons des cookies d'analyse facultatifs pour comprendre l'utilisation de Carsens. Rien n'est suivi sans votre accord.",
+    "privacyLink": "Politique de confidentialité",
+    "accept": "Accepter",
+    "decline": "Refuser"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "placeholderNote": "Ceci est un contenu provisoire. La politique de confidentialité complète conforme à la PDPL arrivera avec le système de gestion de contenu.",
+    "sections": {
+      "data": {
+        "title": "Ce que nous collectons",
+        "body": "Les informations de compte que vous fournissez (nom, e-mail, téléphone) et les annonces que vous publiez. Les journaux techniques ne sont conservés que le temps nécessaire au fonctionnement de la plateforme."
+      },
+      "cookies": {
+        "title": "Cookies et analyse",
+        "body": "Les cookies essentiels vous maintiennent connecté et mémorisent votre langue. Les cookies d'analyse facultatifs (Google Analytics 4) ne s'exécutent qu'après votre acceptation via le bandeau de consentement — les refuser laisse l'analyse désactivée, et vous pouvez changer d'avis à tout moment."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "Pour toute question ou demande concernant la confidentialité, contactez l'équipe Carsens via les coordonnées publiées sur ce site."
+      }
+    },
+    "backHome": "Retour à la page d'accueil"
+  }
+}

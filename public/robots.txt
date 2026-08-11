@@ -1,0 +1,28 @@
+# Carsens robots policy — task P1-12 (§13.1).
+# Allow everything public; keep internal/auth surfaces out of the index.
+# Locale-prefixed variants (/ar, /es, /fr) are listed explicitly because
+# robots rules are plain path prefixes.
+# NOTE: the Sitemap URL below is the local dev origin — production deploys
+# rewrite it to the live domain (brand/domain still TBD, PRD §18.1).
+
+User-agent: *
+Disallow: /dev
+Disallow: /account
+Disallow: /sell
+Disallow: /admin
+Disallow: /api
+Disallow: /ar/dev
+Disallow: /ar/account
+Disallow: /ar/sell
+Disallow: /ar/admin
+Disallow: /es/dev
+Disallow: /es/account
+Disallow: /es/sell
+Disallow: /es/admin
+Disallow: /fr/dev
+Disallow: /fr/account
+Disallow: /fr/sell
+Disallow: /fr/admin
+Allow: /
+
+Sitemap: http://localhost:3000/sitemap.xml

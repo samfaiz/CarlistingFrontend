@@ -1,0 +1,28 @@
+{
+  "banner": {
+    "ariaLabel": "Cookie consent",
+    "message": "We use optional analytics cookies to understand how Carsens is used. Nothing is tracked unless you accept.",
+    "privacyLink": "Privacy policy",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "placeholderNote": "This is placeholder content. The full PDPL-compliant privacy policy arrives with the content management system.",
+    "sections": {
+      "data": {
+        "title": "What we collect",
+        "body": "Account details you provide (name, email, phone) and the listings you publish. Technical logs are kept only as long as needed to operate the marketplace."
+      },
+      "cookies": {
+        "title": "Cookies and analytics",
+        "body": "Essential cookies keep you signed in and remember your language. Optional analytics cookies (Google Analytics 4) run only after you accept them on the consent banner — declining keeps analytics off, and you can change your mind at any time."
+      },
+      "contact": {
+        "title": "Contact",
+        "body": "For any privacy question or request, contact the Carsens team through the contact details published on this site."
+      }
+    },
+    "backHome": "Back to the homepage"
+  }
+}

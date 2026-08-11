@@ -21,6 +21,7 @@ import { HomeHero } from "@/components/home/home-hero";
 import { NewlyListedSection } from "@/components/home/newly-listed-section";
 import { SellCta } from "@/components/home/sell-cta";
 import { SiteHeader } from "@/components/home/site-header";
+import { WebSiteJsonLd } from "@/components/seo/json-ld";
 import {
   getTaxonomyMeta,
   searchListings,
@@ -73,6 +74,9 @@ export default function HomePage() {
         <title>{t("seo.title")}</title>
         <meta name="description" content={t("seo.description")} />
       </Head>
+
+      {/* P1-12 WebSite+SearchAction (body placement — see json-ld.tsx docs). */}
+      <WebSiteJsonLd />
 
       <SiteHeader />
 

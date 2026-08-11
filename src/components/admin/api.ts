@@ -1,0 +1,106 @@
+/**
+ * Admin moderation API wrappers — task P1-11 FE.
+ *
+ * Lives under components/admin (admin-lane ownership) rather than in
+ * marketplace-api.ts, which belongs to the customer-facing lanes. All calls
+ * require an ADMIN/SUPER_ADMIN Bearer token (RolesGuard on the backend).
+ *
+ * Response shapes verified against Backend listings.service.ts
+ * `moderationQueue()`: full Listing rows + user/make/model selects + ordered
+ * media rows (variants may be null while the pipeline is processing).
+ */
+import { apiGet, apiPost } from "@/lib/api";
+import type { MediaVariants, SpecGroups } from "@/lib/marketplace-api";
+
+export interface ModerationMedia {
+  id: string;
+  s3Key: string;
+  variants: MediaVariants | null;
+  sortOrder: number;
+  isCover: boolean;
+  scanStatus: string;
+  width: number | null;
+  height: number | null;
+}
+
+export interface ModerationSeller {
+  id: string;
+  name: string;
+  email: string;
+}
+
+/** GET /moderation/listings/queue item — PENDING_REVIEW rows, oldest first. */
+export interface ModerationQueueItem {
+  id: string;
+  slug: string;
+  sellerType: string;
+  vehicleType: string;
+  condition: string;
+  year: number;
+  priceAed: number;
+  isNegotiable: boolean;
+  mileageKm: number;
+  regionalSpec: string;
+  fuelType: string;
+  transmission: string;
+  cylinders: number | null;
+  exteriorColor: string | null;
+  interiorColor: string | null;
+  vin: string | null;
+  status: string;
+  specsSnapshot: SpecGroups | null;
+  badges: string[];
+  rejectReason: string | null;
+  createdAt: string;
+  updatedAt: string;
+  user: ModerationSeller | null;
+  make: { name: string };
+  model: { name: string };
+  media: ModerationMedia[];
+  /** Not included by the current queue payload — kept optional and rendered
+   *  defensively so the UI lights up if the backend adds the relation. */
+  descriptions?: { locale: string; text: string }[];
+}
+
+export function getModerationQueue(
+  accessToken: string,
+): Promise<ModerationQueueItem[]> {
+  return apiGet<ModerationQueueItem[]>("/moderation/listings/queue", {
+    token: accessToken,
+  });
+}
+
+export function approveListing(
+  id: string,
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(`/moderation/listings/${encodeURIComponent(id)}/approve`, {}, {
+    token: accessToken,
+  });
+}
+
+/** Backend DTO: reason 5–500 chars — mirrored client-side in the dialog. */
+export function rejectListing(
+  id: string,
+  reason: string,
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(
+    `/moderation/listings/${encodeURIComponent(id)}/reject`,
+    { reason },
+    { token: accessToken },
+  );
+}
+
+/** Featured toggle → drives FR-S3 pinning until P3-08 boosts supersede it. */
+export function setListingFeatured(
+  id: string,
+  featured: boolean,
+  accessToken: string,
+): Promise<{ id: string; badges: string[] }> {
+  return apiPost(
+    `/moderation/listings/${encodeURIComponent(id)}/feature`,
+    { featured },
+    { token: accessToken },
+  );
+}

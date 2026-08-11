@@ -1,0 +1,28 @@
+{
+  "banner": {
+    "ariaLabel": "Consentimiento de cookies",
+    "message": "Usamos cookies analíticas opcionales para entender cómo se utiliza Carsens. No se rastrea nada a menos que aceptes.",
+    "privacyLink": "Política de privacidad",
+    "accept": "Aceptar",
+    "decline": "Rechazar"
+  },
+  "privacy": {
+    "title": "Política de privacidad",
+    "placeholderNote": "Este es contenido provisional. La política de privacidad completa conforme a la PDPL llegará con el sistema de gestión de contenidos.",
+    "sections": {
+      "data": {
+        "title": "Qué recopilamos",
+        "body": "Los datos de cuenta que proporcionas (nombre, correo electrónico, teléfono) y los anuncios que publicas. Los registros técnicos se conservan solo el tiempo necesario para operar la plataforma."
+      },
+      "cookies": {
+        "title": "Cookies y analítica",
+        "body": "Las cookies esenciales mantienen tu sesión iniciada y recuerdan tu idioma. Las cookies analíticas opcionales (Google Analytics 4) solo se ejecutan después de que las aceptes en el banner de consentimiento: rechazarlas mantiene la analítica desactivada y puedes cambiar de opinión en cualquier momento."
+      },
+      "contact": {
+        "title": "Contacto",
+        "body": "Para cualquier pregunta o solicitud sobre privacidad, contacta con el equipo de Carsens a través de los datos de contacto publicados en este sitio."
+      }
+    },
+    "backHome": "Volver a la página de inicio"
+  }
+}

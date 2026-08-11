@@ -1,0 +1,47 @@
+{
+  "hub": {
+    "title": "Coches usados en venta en los EAU | Carsens",
+    "description": "Explora {{formatted}} coches usados en venta en los EAU por marca, modelo o emirato, o abre la búsqueda completa para filtrar por precio, año y kilometraje.",
+    "h1": "Coches usados en venta en los EAU",
+    "intro_one": "Ahora mismo hay {{formatted}} coche usado en venta en Carsens. Elige una marca o un emirato más abajo, o abre la búsqueda completa para filtrar por precio, año y kilometraje.",
+    "intro_many": "Ahora mismo hay {{formatted}} de coches usados en venta en Carsens. Elige una marca o un emirato más abajo, o abre la búsqueda completa para filtrar por precio, año y kilometraje.",
+    "intro_other": "Ahora mismo hay {{formatted}} coches usados en venta en Carsens. Elige una marca o un emirato más abajo, o abre la búsqueda completa para filtrar por precio, año y kilometraje."
+  },
+  "make": {
+    "title": "Coches {{make}} usados en venta en los EAU | Carsens",
+    "description": "{{formatted}} coches {{make}} usados en venta en los EAU. Compara precios, kilometraje y especificaciones en los siete emiratos y encuentra tu próximo {{make}}.",
+    "h1": "Coches {{make}} usados en venta en los EAU",
+    "intro_one": "Hay {{formatted}} coche {{make}} usado en venta en los EAU ahora mismo. Mira los anuncios más recientes abajo, salta a un modelo concreto o afina por precio, año y kilometraje en la búsqueda completa.",
+    "intro_many": "Hay {{formatted}} de coches {{make}} usados en venta en los EAU ahora mismo. Mira los anuncios más recientes abajo, salta a un modelo concreto o afina por precio, año y kilometraje en la búsqueda completa.",
+    "intro_other": "Hay {{formatted}} coches {{make}} usados en venta en los EAU ahora mismo. Mira los anuncios más recientes abajo, salta a un modelo concreto o afina por precio, año y kilometraje en la búsqueda completa."
+  },
+  "model": {
+    "title": "{{make}} {{model}} usados en venta en los EAU | Carsens",
+    "description": "{{formatted}} {{make}} {{model}} usados en venta en los EAU. Compara precios, años y kilometraje y encuentra el {{model}} adecuado para ti.",
+    "h1": "{{make}} {{model}} usados en venta",
+    "intro_one": "Hay {{formatted}} {{make}} {{model}} usado publicado en Carsens ahora mismo. Los anuncios más recientes están abajo; abre la búsqueda completa para comparar precios, años y kilometraje.",
+    "intro_many": "Hay {{formatted}} de {{make}} {{model}} usados publicados en Carsens ahora mismo. Los anuncios más recientes están abajo; abre la búsqueda completa para comparar precios, años y kilometraje.",
+    "intro_other": "Hay {{formatted}} {{make}} {{model}} usados publicados en Carsens ahora mismo. Los anuncios más recientes están abajo; abre la búsqueda completa para comparar precios, años y kilometraje."
+  },
+  "emirate": {
+    "title": "Coches usados en venta en {{emirate}} | Carsens",
+    "description": "{{formatted}} coches usados en venta en {{emirate}}. Explora los últimos anuncios de particulares y concesionarios cerca de ti.",
+    "h1": "Coches usados en venta en {{emirate}}",
+    "intro_one": "Hay {{formatted}} coche usado en venta en {{emirate}} ahora mismo. Mira los anuncios más recientes abajo o abre la búsqueda completa para filtrar por marca, modelo, precio y año.",
+    "intro_many": "Hay {{formatted}} de coches usados en venta en {{emirate}} ahora mismo. Mira los anuncios más recientes abajo o abre la búsqueda completa para filtrar por marca, modelo, precio y año.",
+    "intro_other": "Hay {{formatted}} coches usados en venta en {{emirate}} ahora mismo. Mira los anuncios más recientes abajo o abre la búsqueda completa para filtrar por marca, modelo, precio y año."
+  },
+  "viewAll": "Ver los {{formatted}} resultados en la búsqueda completa",
+  "newest": "Anuncios más recientes",
+  "links": {
+    "modelsOf": "Modelos de {{make}}",
+    "otherMakes": "Más marcas",
+    "makes": "Explorar por marca",
+    "emirates": "Explorar por emirato",
+    "allUsedCars": "Todos los coches usados en los EAU"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "usedCars": "Coches usados"
+  }
+}

@@ -21,6 +21,7 @@ import {
   Settings2,
   Share2,
 } from "lucide-react";
+import { SaveButton } from "@/components/saved/save-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Panel } from "@/components/ui/card";
@@ -211,10 +212,14 @@ export function PricePanel({ listing, title, emirateName }: PricePanelProps) {
         </p>
       </div>
 
-      <Button variant="outline" onClick={() => void handleShare()}>
-        <Share2 aria-hidden />
-        {t("share.button")}
-      </Button>
+      {/* P1-09: save + share, side by side. */}
+      <div className="grid grid-cols-2 gap-2">
+        <SaveButton listingId={listing.id} variant="panel" />
+        <Button variant="outline" onClick={() => void handleShare()}>
+          <Share2 aria-hidden />
+          {t("share.button")}
+        </Button>
+      </div>
     </Panel>
   );
 }

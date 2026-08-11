@@ -9,7 +9,7 @@
  * NOTE — rate limits: /search/listings is 60 req/min. Debounce any
  * filter-driven calls (300 ms+) in the consuming UI.
  */
-import { apiGet, apiPost } from "@/lib/api";
+import { apiDelete, apiGet, apiPost } from "@/lib/api";
 
 /* ------------------------------------------------------------------ */
 /* Types                                                              */
@@ -354,4 +354,116 @@ export function submitListing(
 
 export function myListings(accessToken: string): Promise<ListingDetail[]> {
   return apiGet<ListingDetail[]>("/listings/mine", { token: accessToken });
+}
+
+/* ------------------------------------------------------------------ */
+/* Saved cars & saved searches — task P1-09 (FR-U1, FR-S5)            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Card-ish listing embedded in GET /saved/cars rows. Narrower than the
+ * search `Card` shape (no badges/_count/publishedAt/sellerType), verified
+ * against the live backend.
+ */
+export interface SavedCarListing {
+  id: string;
+  slug: string;
+  status: string;
+  year: number;
+  priceAed: number;
+  mileageKm: number;
+  fuelType: string | null;
+  transmission: string | null;
+  make: { name: string };
+  model: { name: string };
+  trim: { name: string } | null;
+  emirate: { name: string };
+  media: { variants: MediaVariants }[];
+}
+
+/** Row of GET /saved/cars. */
+export interface SavedCar {
+  savedAt: string;
+  priceAedAtSave: number;
+  priceDropped: boolean;
+  priceDropAed: number;
+  stillLive: boolean;
+  listing: SavedCarListing;
+}
+
+export type SavedSearchFrequency = "INSTANT" | "DAILY" | "WEEKLY" | "OFF";
+
+/** Row of GET /saved/searches. `query` is the /cars query-param object. */
+export interface SavedSearch {
+  id: string;
+  name: string;
+  query: Record<string, string>;
+  frequency: SavedSearchFrequency;
+  lastRunAt: string | null;
+  createdAt: string;
+}
+
+export function getSavedCars(accessToken: string): Promise<SavedCar[]> {
+  return apiGet<SavedCar[]>("/saved/cars", { token: accessToken });
+}
+
+export function saveCar(
+  listingId: string,
+  accessToken: string,
+): Promise<{ id: string; listingId: string; priceAedAtSave: number }> {
+  return apiPost(`/saved/cars/${encodeURIComponent(listingId)}`, {}, {
+    token: accessToken,
+  });
+}
+
+export function unsaveCar(
+  listingId: string,
+  accessToken: string,
+): Promise<unknown> {
+  return apiDelete(`/saved/cars/${encodeURIComponent(listingId)}`, {
+    token: accessToken,
+  });
+}
+
+export function getSavedSearches(accessToken: string): Promise<SavedSearch[]> {
+  return apiGet<SavedSearch[]>("/saved/searches", { token: accessToken });
+}
+
+/** `query` must be an object (the serialized /cars params), not a string. */
+export function createSavedSearch(
+  input: {
+    name: string;
+    query: Record<string, string>;
+    frequency?: SavedSearchFrequency;
+  },
+  accessToken: string,
+): Promise<SavedSearch> {
+  return apiPost<SavedSearch>("/saved/searches", input, { token: accessToken });
+}
+
+export function deleteSavedSearch(
+  id: string,
+  accessToken: string,
+): Promise<unknown> {
+  return apiDelete(`/saved/searches/${encodeURIComponent(id)}`, {
+    token: accessToken,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* Missing-trim request — task P1-03 (FR-VS4)                         */
+/* ------------------------------------------------------------------ */
+
+export interface TrimRequestDetails {
+  make: string;
+  model: string;
+  trim: string;
+  year: number;
+}
+
+export function createTrimRequest(
+  details: TrimRequestDetails,
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(`/taxonomy/trim-requests`, { details }, { token: accessToken });
 }

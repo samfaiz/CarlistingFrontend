@@ -1,0 +1,47 @@
+{
+  "hub": {
+    "title": "Voitures d'occasion à vendre aux Émirats | Carsens",
+    "description": "Parcourez {{formatted}} voitures d'occasion à vendre aux Émirats par marque, modèle ou émirat, ou ouvrez la recherche complète pour filtrer par prix, année et kilométrage.",
+    "h1": "Voitures d'occasion à vendre aux Émirats",
+    "intro_one": "Il y a actuellement {{formatted}} voiture d'occasion à vendre sur Carsens. Choisissez une marque ou un émirat ci-dessous, ou ouvrez la recherche complète pour filtrer par prix, année et kilométrage.",
+    "intro_many": "Il y a actuellement {{formatted}} de voitures d'occasion à vendre sur Carsens. Choisissez une marque ou un émirat ci-dessous, ou ouvrez la recherche complète pour filtrer par prix, année et kilométrage.",
+    "intro_other": "Il y a actuellement {{formatted}} voitures d'occasion à vendre sur Carsens. Choisissez une marque ou un émirat ci-dessous, ou ouvrez la recherche complète pour filtrer par prix, année et kilométrage."
+  },
+  "make": {
+    "title": "Voitures {{make}} d'occasion à vendre aux Émirats | Carsens",
+    "description": "{{formatted}} voitures {{make}} d'occasion à vendre aux Émirats. Comparez les prix, le kilométrage et les caractéristiques dans les sept émirats et trouvez votre prochaine {{make}}.",
+    "h1": "Voitures {{make}} d'occasion à vendre aux Émirats",
+    "intro_one": "{{formatted}} voiture {{make}} d'occasion est à vendre aux Émirats en ce moment. Parcourez les annonces les plus récentes ci-dessous, accédez à un modèle précis ou affinez par prix, année et kilométrage dans la recherche complète.",
+    "intro_many": "{{formatted}} de voitures {{make}} d'occasion sont à vendre aux Émirats en ce moment. Parcourez les annonces les plus récentes ci-dessous, accédez à un modèle précis ou affinez par prix, année et kilométrage dans la recherche complète.",
+    "intro_other": "{{formatted}} voitures {{make}} d'occasion sont à vendre aux Émirats en ce moment. Parcourez les annonces les plus récentes ci-dessous, accédez à un modèle précis ou affinez par prix, année et kilométrage dans la recherche complète."
+  },
+  "model": {
+    "title": "{{make}} {{model}} d'occasion à vendre aux Émirats | Carsens",
+    "description": "{{formatted}} {{make}} {{model}} d'occasion à vendre aux Émirats. Comparez les prix, les années et le kilométrage et trouvez le {{model}} qu'il vous faut.",
+    "h1": "{{make}} {{model}} d'occasion à vendre",
+    "intro_one": "{{formatted}} {{make}} {{model}} d'occasion est en ligne sur Carsens en ce moment. Les annonces les plus récentes sont ci-dessous — ouvrez la recherche complète pour comparer prix, années et kilométrage.",
+    "intro_many": "{{formatted}} de {{make}} {{model}} d'occasion sont en ligne sur Carsens en ce moment. Les annonces les plus récentes sont ci-dessous — ouvrez la recherche complète pour comparer prix, années et kilométrage.",
+    "intro_other": "{{formatted}} {{make}} {{model}} d'occasion sont en ligne sur Carsens en ce moment. Les annonces les plus récentes sont ci-dessous — ouvrez la recherche complète pour comparer prix, années et kilométrage."
+  },
+  "emirate": {
+    "title": "Voitures d'occasion à vendre à {{emirate}} | Carsens",
+    "description": "{{formatted}} voitures d'occasion à vendre à {{emirate}}. Parcourez les dernières annonces de particuliers et de concessionnaires près de chez vous.",
+    "h1": "Voitures d'occasion à vendre à {{emirate}}",
+    "intro_one": "{{formatted}} voiture d'occasion est à vendre à {{emirate}} en ce moment. Parcourez les annonces les plus récentes ci-dessous, ou ouvrez la recherche complète pour filtrer par marque, modèle, prix et année.",
+    "intro_many": "{{formatted}} de voitures d'occasion sont à vendre à {{emirate}} en ce moment. Parcourez les annonces les plus récentes ci-dessous, ou ouvrez la recherche complète pour filtrer par marque, modèle, prix et année.",
+    "intro_other": "{{formatted}} voitures d'occasion sont à vendre à {{emirate}} en ce moment. Parcourez les annonces les plus récentes ci-dessous, ou ouvrez la recherche complète pour filtrer par marque, modèle, prix et année."
+  },
+  "viewAll": "Voir les {{formatted}} annonces dans la recherche complète",
+  "newest": "Annonces les plus récentes",
+  "links": {
+    "modelsOf": "Modèles {{make}}",
+    "otherMakes": "Autres marques",
+    "makes": "Parcourir par marque",
+    "emirates": "Parcourir par émirat",
+    "allUsedCars": "Toutes les voitures d'occasion aux Émirats"
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "usedCars": "Voitures d'occasion"
+  }
+}

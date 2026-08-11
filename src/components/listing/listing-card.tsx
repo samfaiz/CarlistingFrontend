@@ -2,8 +2,10 @@
  * Marketplace listing card (shared foundation for P1-05 search grid,
  * P1-08 home rails and related surfaces).
  *
- * - Whole card is a locale-aware <Link> to /cars/[slug] (next/link keeps the
- *   active locale in Pages Router).
+ * - The card body is one locale-aware <Link> to /cars/[slug]; the P1-09/P1-10
+ *   action buttons (save heart, compare chip) are SIBLINGS of the link inside
+ *   an aspect-matched overlay — interactive elements nested inside an anchor
+ *   would fail the axe nested-interactive gate.
  * - Cover uses next/image (variants.card); bulk-seeded listings may have no
  *   media — those render the branded placeholder (bg-brand-surface + Car icon).
  * - All copy comes from the "listings" catalog; enum values (fuel/transmission/
@@ -15,6 +17,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { Camera, Car, MapPin } from "lucide-react";
+import { CompareChip } from "@/components/compare/compare-chip";
+import { SaveButton } from "@/components/saved/save-button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -57,15 +61,15 @@ export function ListingCard({ listing, compact = false, className }: ListingCard
     t(`enum.${group}.${value}`, { defaultValue: humanize(value) });
 
   return (
-    <Link
-      href={`/cars/${listing.slug}`}
-      className="group block h-full rounded-card focus-visible:outline-2"
+    <Card
+      className={cn(
+        "group relative h-full overflow-hidden transition-shadow focus-within:shadow-card hover:shadow-card",
+        className,
+      )}
     >
-      <Card
-        className={cn(
-          "flex h-full flex-col overflow-hidden transition-shadow group-hover:shadow-card",
-          className,
-        )}
+      <Link
+        href={`/cars/${listing.slug}`}
+        className="flex h-full flex-col focus-visible:outline-2"
       >
         {/* Cover — 4:3, branded placeholder when the listing has no media */}
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-surface">
@@ -87,7 +91,7 @@ export function ListingCard({ listing, compact = false, className }: ListingCard
           )}
 
           {(isFeatured || isVerified) && (
-            <span className="absolute top-2 start-2 flex flex-wrap gap-1">
+            <span className="absolute top-2 start-2 flex flex-wrap gap-1 pe-10">
               {isFeatured && <Badge variant="solid">{t("badge.featured")}</Badge>}
               {isVerified && <Badge variant="green">{t("badge.verified")}</Badge>}
             </span>
@@ -164,7 +168,27 @@ export function ListingCard({ listing, compact = false, className }: ListingCard
             )}
           </p>
         </div>
-      </Card>
-    </Link>
+      </Link>
+
+      {/* P1-09/P1-10 actions — SIBLINGS of the link (axe nested-interactive),
+          positioned over the image via an aspect-matched overlay box. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 aspect-[4/3]">
+        <SaveButton
+          listingId={listing.id}
+          className="pointer-events-auto absolute top-2 end-2"
+        />
+        <CompareChip
+          entry={{
+            id: listing.id,
+            slug: listing.slug,
+            title,
+            year: listing.year,
+            priceAed: listing.priceAed,
+            thumb: cover ? cover.variants.card : null,
+          }}
+          className="pointer-events-auto absolute bottom-2 start-2"
+        />
+      </div>
+    </Card>
   );
 }
