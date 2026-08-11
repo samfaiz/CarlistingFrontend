@@ -1,0 +1,44 @@
+{
+  "badge": {
+    "featured": "Featured",
+    "verified": "Verified"
+  },
+  "negotiable": "Negotiable",
+  "mileageUnit": "km",
+  "photoCount_one": "{{count}} photo",
+  "photoCount_other": "{{count}} photos",
+  "loading": "Loading listings…",
+  "noResults": {
+    "title": "No listings found",
+    "hint": "Try adjusting your filters or widening your search."
+  },
+  "latest": {
+    "title": "Latest listings",
+    "error": "Could not load listings. Please try again."
+  },
+  "enum": {
+    "fuel": {
+      "PETROL": "Petrol",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybrid",
+      "ELECTRIC": "Electric",
+      "PLUGIN_HYBRID": "Plug-in hybrid"
+    },
+    "transmission": {
+      "AUTOMATIC": "Automatic",
+      "MANUAL": "Manual",
+      "CVT": "CVT",
+      "SEMI_AUTOMATIC": "Semi-automatic"
+    },
+    "spec": {
+      "GCC": "GCC specs",
+      "AMERICAN": "American specs",
+      "EUROPEAN": "European specs",
+      "JAPANESE": "Japanese specs",
+      "CANADIAN": "Canadian specs",
+      "KOREAN": "Korean specs",
+      "CHINESE": "Chinese specs",
+      "OTHER": "Other specs"
+    }
+  }
+}

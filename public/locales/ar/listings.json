@@ -1,0 +1,48 @@
+{
+  "badge": {
+    "featured": "مميّز",
+    "verified": "موثّق"
+  },
+  "negotiable": "قابل للتفاوض",
+  "mileageUnit": "كم",
+  "photoCount_zero": "لا توجد صور",
+  "photoCount_one": "صورة واحدة",
+  "photoCount_two": "صورتان",
+  "photoCount_few": "{{count}} صور",
+  "photoCount_many": "{{count}} صورة",
+  "photoCount_other": "{{count}} صورة",
+  "loading": "جارٍ تحميل الإعلانات…",
+  "noResults": {
+    "title": "لا توجد إعلانات مطابقة",
+    "hint": "جرّب تعديل عوامل التصفية أو توسيع نطاق البحث."
+  },
+  "latest": {
+    "title": "أحدث الإعلانات",
+    "error": "تعذّر تحميل الإعلانات. يرجى المحاولة مرة أخرى."
+  },
+  "enum": {
+    "fuel": {
+      "PETROL": "بنزين",
+      "DIESEL": "ديزل",
+      "HYBRID": "هجين",
+      "ELECTRIC": "كهربائي",
+      "PLUGIN_HYBRID": "هجين قابل للشحن"
+    },
+    "transmission": {
+      "AUTOMATIC": "أوتوماتيك",
+      "MANUAL": "يدوي",
+      "CVT": "ناقل حركة CVT",
+      "SEMI_AUTOMATIC": "نصف أوتوماتيك"
+    },
+    "spec": {
+      "GCC": "مواصفات خليجية",
+      "AMERICAN": "مواصفات أمريكية",
+      "EUROPEAN": "مواصفات أوروبية",
+      "JAPANESE": "مواصفات يابانية",
+      "CANADIAN": "مواصفات كندية",
+      "KOREAN": "مواصفات كورية",
+      "CHINESE": "مواصفات صينية",
+      "OTHER": "مواصفات أخرى"
+    }
+  }
+}
