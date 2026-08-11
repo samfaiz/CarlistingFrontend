@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Voitures d'occasion à vendre aux Émirats | Carsens",
+    "description": "Parcourez des milliers de voitures d'occasion à vendre à travers les Émirats. Filtrez par marque, modèle, prix, année, kilométrage, carburant et émirat pour trouver votre prochaine voiture."
+  },
+  "heading": "Voitures d'occasion à vendre aux Émirats",
+  "results": {
+    "count_one": "{{formatted}} voiture d'occasion aux Émirats",
+    "count_many": "{{formatted}} de voitures d'occasion aux Émirats",
+    "count_other": "{{formatted}} voitures d'occasion aux Émirats"
+  },
+  "sort": {
+    "label": "Trier par",
+    "newest": "Plus récentes d'abord",
+    "price_asc": "Prix : croissant",
+    "price_desc": "Prix : décroissant",
+    "mileage_asc": "Kilométrage : croissant",
+    "mileage_desc": "Kilométrage : décroissant",
+    "year_desc": "Année : plus récentes d'abord",
+    "year_asc": "Année : plus anciennes d'abord"
+  },
+  "loadMore": "Afficher plus",
+  "pagination": {
+    "label": "Pagination",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "page": "Page {{page}} sur {{pages}}"
+  },
+  "error": {
+    "title": "La recherche est indisponible",
+    "hint": "Impossible de charger les annonces. Vérifiez votre connexion et réessayez.",
+    "retry": "Réessayer",
+    "rateLimited": {
+      "title": "Trop de recherches",
+      "description": "Vous affinez un peu trop vite — patientez quelques secondes puis réessayez."
+    }
+  },
+  "filters": {
+    "title": "Filtres",
+    "clear": "Tout effacer",
+    "showResults": "Voir les résultats",
+    "dialogHint": "Affinez vos résultats de recherche",
+    "activeCount_one": "{{count}} filtre actif",
+    "activeCount_many": "{{count}} filtres actifs",
+    "activeCount_other": "{{count}} filtres actifs",
+    "keyword": {
+      "label": "Mot-clé",
+      "placeholder": "p. ex. Patrol, toit ouvrant…"
+    },
+    "make": { "label": "Marque", "all": "Toutes les marques" },
+    "model": { "label": "Modèle", "all": "Tous les modèles" },
+    "trim": { "label": "Finition", "all": "Toutes les finitions" },
+    "bodyType": { "label": "Carrosserie" },
+    "price": { "label": "Prix (AED)", "min": "Prix minimum", "max": "Prix maximum" },
+    "year": { "label": "Année", "min": "À partir de (année)", "max": "Jusqu'à (année)" },
+    "mileage": { "label": "Kilométrage maximum (km)", "placeholder": "p. ex. 100000" },
+    "fuelType": { "label": "Carburant" },
+    "transmission": { "label": "Boîte de vitesses" },
+    "regionalSpec": { "label": "Spécification régionale" },
+    "emirate": { "label": "Émirat", "all": "Tous les émirats" },
+    "sellerType": {
+      "label": "Type de vendeur",
+      "all": "Tous les vendeurs",
+      "PRIVATE": "Particulier",
+      "DEALER": "Concessionnaire"
+    }
+  }
+}

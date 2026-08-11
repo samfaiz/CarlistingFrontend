@@ -1,0 +1,140 @@
+{
+  "seo": {
+    "title": "Vendez votre voiture — carsens",
+    "description": "Publiez votre voiture sur carsens gratuitement : choisissez le modèle, ajoutez des photos et passez en ligne après une rapide vérification."
+  },
+  "title": "Vendez votre voiture. Gratuit. Rapide.",
+  "subtitle": "Quelques étapes rapides — la plupart des caractéristiques se remplissent toutes seules.",
+  "stepLabel": "Étape {{current}} sur {{total}}",
+  "steps": {
+    "vehicle": "Véhicule",
+    "specs": "Caractéristiques et prix",
+    "photos": "Photos",
+    "review": "Vérification",
+    "done": "Terminé"
+  },
+  "back": "Retour",
+  "next": "Suivant",
+  "restore": {
+    "title": "Bon retour",
+    "body": "Vous avez une annonce inachevée enregistrée {{time}}.",
+    "resume": "Reprendre le brouillon",
+    "discard": "Recommencer"
+  },
+  "draftLocked": "Votre brouillon est créé — les détails du véhicule et le prix sont désormais verrouillés. Poursuivez avec les photos.",
+  "vehicle": {
+    "title": "Parlez-nous de votre voiture",
+    "subtitle": "Choisissez la marque, le modèle et la finition — nous avons sans doute déjà sa fiche technique complète.",
+    "make": "Marque",
+    "model": "Modèle",
+    "trim": "Finition (facultatif)",
+    "year": "Année",
+    "regionalSpec": "Spécification régionale",
+    "makePlaceholder": "Sélectionnez une marque",
+    "modelPlaceholder": "Sélectionnez un modèle",
+    "trimPlaceholder": "Sélectionnez une finition",
+    "yearPlaceholder": "Sélectionnez une année",
+    "loadError": "Impossible de charger les données du véhicule. Veuillez réessayer."
+  },
+  "autofill": {
+    "loading": "Recherche de la fiche technique de votre voiture…",
+    "title": "Caractéristiques remplies depuis notre base de données",
+    "subtitle": "Ces détails sont joints à votre annonce automatiquement — rien à saisir.",
+    "confidence": {
+      "HIGH": "Confiance élevée",
+      "MEDIUM": "Confiance moyenne",
+      "LOW": "Confiance faible"
+    },
+    "notFoundTitle": "Vous ne trouvez pas votre finition ?",
+    "notFoundBody": "Nous n'avons pas encore de fiche technique pour cette configuration. Vous pouvez continuer et saisir les détails vous-même.",
+    "requestLink": "Demander cette finition — bientôt disponible"
+  },
+  "specs": {
+    "title": "Caractéristiques et prix",
+    "subtitle": "Les détails que les acheteurs demandent toujours.",
+    "mileage": "Kilométrage (km)",
+    "fuelType": "Carburant",
+    "transmission": "Transmission",
+    "cylinders": "Cylindres (facultatif)",
+    "notSpecified": "Non précisé",
+    "exteriorColor": "Couleur extérieure (facultatif)",
+    "interiorColor": "Couleur intérieure (facultatif)",
+    "emirate": "Émirat",
+    "vin": "VIN / numéro de châssis (facultatif)",
+    "vinHint": "17 caractères — inspire confiance aux acheteurs sérieux.",
+    "price": "Prix (AED)",
+    "negotiable": "Prix négociable",
+    "description": "Description",
+    "descriptionHint": "État, historique d'entretien, options — au moins {{min}} caractères.",
+    "charCount": "{{chars}} / {{max}}",
+    "selectPlaceholder": "Sélectionnez",
+    "createCta": "Enregistrer et continuer"
+  },
+  "photos": {
+    "title": "Ajoutez des photos",
+    "subtitle": "Au moins {{min}} photos — la première devient votre couverture.",
+    "dropHint": "Glissez-déposez vos photos ici",
+    "browse": "Parcourir les fichiers",
+    "formats": "JPEG, PNG ou WebP · jusqu'à {{max}} photos",
+    "cover": "Couverture",
+    "queued": "En attente…",
+    "processing": "Préparation…",
+    "uploading": "Envoi {{percent}} %",
+    "attaching": "Enregistrement…",
+    "done": "Envoyée",
+    "failed": "Échec de l'envoi",
+    "retry": "Réessayer",
+    "remove": "Retirer",
+    "restoredTile": "Envoyée précédemment",
+    "counter": "{{done}} sur {{min}} photos requises envoyées",
+    "maxReached": "Vous pouvez ajouter jusqu'à {{max}} photos.",
+    "typeRejected": "Certains fichiers ont été ignorés — seules les images JPEG, PNG et WebP sont acceptées.",
+    "gate": "Ajoutez au moins {{min}} photos pour continuer.",
+    "waitUploads": "Attendez la fin des envois avant de continuer."
+  },
+  "review": {
+    "title": "Vérifiez votre annonce",
+    "subtitle": "Un dernier coup d'œil avant l'envoi à notre équipe de modération.",
+    "regionalSpec": "Spécification régionale",
+    "price": "Prix",
+    "negotiable": "Négociable",
+    "mileage": "Kilométrage",
+    "fuelType": "Carburant",
+    "transmission": "Transmission",
+    "cylinders": "Cylindres",
+    "exteriorColor": "Couleur extérieure",
+    "interiorColor": "Couleur intérieure",
+    "emirate": "Émirat",
+    "vin": "VIN",
+    "description": "Description",
+    "photos": "Photos",
+    "yes": "Oui",
+    "no": "Non",
+    "submit": "Soumettre pour vérification"
+  },
+  "errors": {
+    "quota": "Vous avez atteint votre limite d'annonces. Gérez vos annonces existantes depuis votre compte.",
+    "vinDuplicate": "Une annonce active avec ce VIN existe déjà.",
+    "minPhotos": "Votre annonce nécessite au moins {{min}} photos avant de pouvoir être soumise.",
+    "generic": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "validation": {
+    "makeRequired": "Sélectionnez une marque.",
+    "modelRequired": "Sélectionnez un modèle.",
+    "yearRequired": "Sélectionnez une année.",
+    "mileageInvalid": "Saisissez le kilométrage en nombre entier de kilomètres.",
+    "fuelRequired": "Sélectionnez un carburant.",
+    "transmissionRequired": "Sélectionnez une transmission.",
+    "emirateRequired": "Sélectionnez un émirat.",
+    "priceInvalid": "Saisissez le prix en nombre entier en AED.",
+    "vinInvalid": "Un VIN comporte 17 lettres et chiffres (sans I, O ni Q).",
+    "descriptionMin": "La description doit comporter au moins {{min}} caractères.",
+    "descriptionMax": "La description peut comporter au maximum {{max}} caractères."
+  },
+  "done": {
+    "title": "Votre voiture est en route 🎉",
+    "body": "Notre équipe vérifie chaque annonce sous 24 heures. Vous recevrez un e-mail dès sa mise en ligne.",
+    "account": "Aller à mon compte",
+    "browse": "Parcourir les voitures"
+  }
+}

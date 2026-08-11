@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "{{vehicle}} for sale in {{emirate}} | Carsens",
+    "description": "{{price}} · {{mileage}} · {{emirate}}. View photos, full specifications and seller details on Carsens."
+  },
+  "gallery": {
+    "counter": "{{current}} / {{total}}",
+    "photoAria": "Photo {{current}} of {{total}}",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "thumbAria": "Show photo {{index}}",
+    "noPhotos": "No photos for this listing yet"
+  },
+  "facts": {
+    "year": "Year",
+    "mileage": "Mileage",
+    "regionalSpec": "Regional spec",
+    "fuel": "Fuel type",
+    "transmission": "Transmission",
+    "bodyType": "Body type",
+    "exteriorColor": "Exterior colour",
+    "cylinders": "Cylinders",
+    "location": "Location"
+  },
+  "posted": "Listed {{time}}",
+  "views_one": "{{formatted}} view",
+  "views_other": "{{formatted}} views",
+  "seller": {
+    "heading": "Seller",
+    "type": {
+      "PRIVATE": "Private seller",
+      "DEALER": "Dealer"
+    }
+  },
+  "contact": {
+    "chat": "Chat",
+    "call": "Call",
+    "comingSoon": "Chat and calls are coming soon — contact options unlock in the next release."
+  },
+  "share": {
+    "button": "Share",
+    "copied": "Link copied to clipboard",
+    "failed": "Could not copy the link"
+  },
+  "specs": {
+    "heading": "Specifications",
+    "lowConfidence": "Imported automatically — this value may be inaccurate"
+  },
+  "description": {
+    "heading": "Description",
+    "autoTranslated": "Auto-translated"
+  },
+  "similar": {
+    "heading": "Similar cars"
+  }
+}

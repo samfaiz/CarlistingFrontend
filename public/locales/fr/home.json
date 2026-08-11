@@ -1,0 +1,37 @@
+{
+  "seo": {
+    "title": "Carsens — Achat et vente de voitures aux Émirats",
+    "description": "Parcourez des milliers de voitures et motos à vendre à travers les Émirats. Recherchez par marque, modèle, carrosserie ou émirat — ou publiez votre voiture en quelques minutes."
+  },
+  "nav": {
+    "label": "Navigation principale",
+    "browse": "Parcourir les voitures",
+    "sell": "Vendre votre voiture",
+    "signIn": "Se connecter",
+    "account": "Mon compte"
+  },
+  "hero": {
+    "headline": "Trouvez votre prochaine voiture aux Émirats",
+    "sub": "Des milliers de voitures et motos de vendeurs particuliers et de concessionnaires dans les sept émirats.",
+    "searchLabel": "Rechercher des annonces",
+    "searchPlaceholder": "Recherchez par marque, modèle ou mot-clé…",
+    "searchButton": "Rechercher",
+    "chipsLabel": "Parcourir par carrosserie"
+  },
+  "newlyListed": {
+    "heading": "Nouvelles annonces",
+    "viewAll": "Tout voir",
+    "error": "Impossible de charger les dernières annonces. Veuillez réessayer."
+  },
+  "makes": {
+    "heading": "Parcourir par marque",
+    "count_one": "{{formatted}} annonce",
+    "count_many": "{{formatted}} annonces",
+    "count_other": "{{formatted}} annonces"
+  },
+  "sellCta": {
+    "heading": "Vendez votre voiture sur Carsens",
+    "copy": "Créez une annonce en quelques minutes : ajoutez des photos, fixez votre prix et touchez des milliers d'acheteurs à travers les Émirats.",
+    "button": "Commencer à vendre"
+  }
+}

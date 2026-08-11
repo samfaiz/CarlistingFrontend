@@ -1,0 +1,68 @@
+{
+  "seo": {
+    "title": "Coches usados en venta en los EAU | Carsens",
+    "description": "Explora miles de coches usados en venta en todos los EAU. Filtra por marca, modelo, precio, año, kilometraje, combustible y emirato para encontrar tu próximo coche."
+  },
+  "heading": "Coches usados en venta en los EAU",
+  "results": {
+    "count_one": "{{formatted}} coche usado en los EAU",
+    "count_many": "{{formatted}} de coches usados en los EAU",
+    "count_other": "{{formatted}} coches usados en los EAU"
+  },
+  "sort": {
+    "label": "Ordenar por",
+    "newest": "Más recientes primero",
+    "price_asc": "Precio: de menor a mayor",
+    "price_desc": "Precio: de mayor a menor",
+    "mileage_asc": "Kilometraje: de menor a mayor",
+    "mileage_desc": "Kilometraje: de mayor a menor",
+    "year_desc": "Año: más nuevos primero",
+    "year_asc": "Año: más antiguos primero"
+  },
+  "loadMore": "Cargar más",
+  "pagination": {
+    "label": "Paginación",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {{page}} de {{pages}}"
+  },
+  "error": {
+    "title": "La búsqueda no está disponible",
+    "hint": "No pudimos cargar los anuncios. Comprueba tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "rateLimited": {
+      "title": "Demasiadas búsquedas",
+      "description": "Estás filtrando demasiado rápido — espera unos segundos e inténtalo de nuevo."
+    }
+  },
+  "filters": {
+    "title": "Filtros",
+    "clear": "Borrar todo",
+    "showResults": "Ver resultados",
+    "dialogHint": "Afina los resultados de tu búsqueda",
+    "activeCount_one": "{{count}} filtro activo",
+    "activeCount_many": "{{count}} de filtros activos",
+    "activeCount_other": "{{count}} filtros activos",
+    "keyword": {
+      "label": "Palabra clave",
+      "placeholder": "p. ej. Patrol, techo solar…"
+    },
+    "make": { "label": "Marca", "all": "Todas las marcas" },
+    "model": { "label": "Modelo", "all": "Todos los modelos" },
+    "trim": { "label": "Versión", "all": "Todas las versiones" },
+    "bodyType": { "label": "Tipo de carrocería" },
+    "price": { "label": "Precio (AED)", "min": "Precio mínimo", "max": "Precio máximo" },
+    "year": { "label": "Año", "min": "Desde (año)", "max": "Hasta (año)" },
+    "mileage": { "label": "Kilometraje máximo (km)", "placeholder": "p. ej. 100000" },
+    "fuelType": { "label": "Combustible" },
+    "transmission": { "label": "Cambio" },
+    "regionalSpec": { "label": "Especificación regional" },
+    "emirate": { "label": "Emirato", "all": "Todos los emiratos" },
+    "sellerType": {
+      "label": "Tipo de vendedor",
+      "all": "Todos los vendedores",
+      "PRIVATE": "Particular",
+      "DEALER": "Concesionario"
+    }
+  }
+}

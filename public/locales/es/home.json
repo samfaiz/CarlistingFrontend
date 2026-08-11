@@ -1,0 +1,37 @@
+{
+  "seo": {
+    "title": "Carsens — Compra y venta de coches en los EAU",
+    "description": "Explora miles de coches y motos en venta en todos los EAU. Busca por marca, modelo, tipo de carrocería o emirato — o publica tu coche en minutos."
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "browse": "Ver coches",
+    "sell": "Vende tu coche",
+    "signIn": "Iniciar sesión",
+    "account": "Mi cuenta"
+  },
+  "hero": {
+    "headline": "Encuentra tu próximo coche en los EAU",
+    "sub": "Miles de coches y motos de vendedores particulares y concesionarios en los siete emiratos.",
+    "searchLabel": "Buscar anuncios",
+    "searchPlaceholder": "Busca por marca, modelo o palabra clave…",
+    "searchButton": "Buscar",
+    "chipsLabel": "Explorar por tipo de carrocería"
+  },
+  "newlyListed": {
+    "heading": "Recién publicados",
+    "viewAll": "Ver todos",
+    "error": "No se pudieron cargar los últimos anuncios. Inténtalo de nuevo."
+  },
+  "makes": {
+    "heading": "Explorar por marca",
+    "count_one": "{{formatted}} anuncio",
+    "count_many": "{{formatted}} de anuncios",
+    "count_other": "{{formatted}} anuncios"
+  },
+  "sellCta": {
+    "heading": "Vende tu coche en Carsens",
+    "copy": "Crea un anuncio en minutos: añade fotos, fija tu precio y llega a miles de compradores en todos los EAU.",
+    "button": "Empezar a vender"
+  }
+}

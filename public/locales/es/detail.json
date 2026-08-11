@@ -1,0 +1,57 @@
+{
+  "seo": {
+    "title": "{{vehicle}} en venta en {{emirate}} | Carsens",
+    "description": "{{price}} · {{mileage}} · {{emirate}}. Consulta fotos, especificaciones completas y datos del vendedor en Carsens."
+  },
+  "gallery": {
+    "counter": "{{current}} / {{total}}",
+    "photoAria": "Foto {{current}} de {{total}}",
+    "prev": "Foto anterior",
+    "next": "Foto siguiente",
+    "thumbAria": "Mostrar la foto {{index}}",
+    "noPhotos": "Este anuncio aún no tiene fotos"
+  },
+  "facts": {
+    "year": "Año",
+    "mileage": "Kilometraje",
+    "regionalSpec": "Especificación regional",
+    "fuel": "Combustible",
+    "transmission": "Transmisión",
+    "bodyType": "Carrocería",
+    "exteriorColor": "Color exterior",
+    "cylinders": "Cilindros",
+    "location": "Ubicación"
+  },
+  "posted": "Publicado {{time}}",
+  "views_one": "{{formatted}} visita",
+  "views_many": "{{formatted}} de visitas",
+  "views_other": "{{formatted}} visitas",
+  "seller": {
+    "heading": "Vendedor",
+    "type": {
+      "PRIVATE": "Vendedor particular",
+      "DEALER": "Concesionario"
+    }
+  },
+  "contact": {
+    "chat": "Chatear",
+    "call": "Llamar",
+    "comingSoon": "El chat y las llamadas llegarán pronto — las opciones de contacto se activarán en la próxima versión."
+  },
+  "share": {
+    "button": "Compartir",
+    "copied": "Enlace copiado al portapapeles",
+    "failed": "No se pudo copiar el enlace"
+  },
+  "specs": {
+    "heading": "Especificaciones",
+    "lowConfidence": "Importado automáticamente — este valor puede ser inexacto"
+  },
+  "description": {
+    "heading": "Descripción",
+    "autoTranslated": "Traducción automática"
+  },
+  "similar": {
+    "heading": "Coches similares"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "{{vehicle}} للبيع في {{emirate}} | Carsens",
+    "description": "{{price}} · {{mileage}} · {{emirate}}. شاهد الصور والمواصفات الكاملة وبيانات البائع على Carsens."
+  },
+  "gallery": {
+    "counter": "{{current}} / {{total}}",
+    "photoAria": "الصورة {{current}} من {{total}}",
+    "prev": "الصورة السابقة",
+    "next": "الصورة التالية",
+    "thumbAria": "عرض الصورة {{index}}",
+    "noPhotos": "لا توجد صور لهذا الإعلان بعد"
+  },
+  "facts": {
+    "year": "سنة الصنع",
+    "mileage": "المسافة المقطوعة",
+    "regionalSpec": "المواصفات الإقليمية",
+    "fuel": "نوع الوقود",
+    "transmission": "ناقل الحركة",
+    "bodyType": "نوع الهيكل",
+    "exteriorColor": "اللون الخارجي",
+    "cylinders": "عدد الأسطوانات",
+    "location": "الموقع"
+  },
+  "posted": "أُدرج {{time}}",
+  "views_zero": "لا مشاهدات",
+  "views_one": "مشاهدة واحدة",
+  "views_two": "مشاهدتان",
+  "views_few": "{{formatted}} مشاهدات",
+  "views_many": "{{formatted}} مشاهدة",
+  "views_other": "{{formatted}} مشاهدة",
+  "seller": {
+    "heading": "البائع",
+    "type": {
+      "PRIVATE": "بائع خاص",
+      "DEALER": "وكيل"
+    }
+  },
+  "contact": {
+    "chat": "محادثة",
+    "call": "اتصال",
+    "comingSoon": "المحادثة والاتصال قريبًا — ستتوفر خيارات التواصل في الإصدار القادم."
+  },
+  "share": {
+    "button": "مشاركة",
+    "copied": "تم نسخ الرابط إلى الحافظة",
+    "failed": "تعذّر نسخ الرابط"
+  },
+  "specs": {
+    "heading": "المواصفات",
+    "lowConfidence": "استُورد تلقائيًا — قد تكون هذه القيمة غير دقيقة"
+  },
+  "description": {
+    "heading": "الوصف",
+    "autoTranslated": "مُترجم آليًا"
+  },
+  "similar": {
+    "heading": "سيارات مشابهة"
+  }
+}

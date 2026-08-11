@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Carsens — Buy and sell cars in the UAE",
+    "description": "Browse thousands of cars and bikes for sale across the UAE. Search by make, model, body type or emirate — or list your own car in minutes."
+  },
+  "nav": {
+    "label": "Main navigation",
+    "browse": "Browse cars",
+    "sell": "Sell your car",
+    "signIn": "Sign in",
+    "account": "My account"
+  },
+  "hero": {
+    "headline": "Find your next car in the UAE",
+    "sub": "Thousands of cars and bikes from private sellers and dealers across all seven emirates.",
+    "searchLabel": "Search listings",
+    "searchPlaceholder": "Search by make, model or keyword…",
+    "searchButton": "Search",
+    "chipsLabel": "Browse by body type"
+  },
+  "newlyListed": {
+    "heading": "Newly listed",
+    "viewAll": "View all",
+    "error": "Could not load the latest listings. Please try again."
+  },
+  "makes": {
+    "heading": "Browse by make",
+    "count_one": "{{formatted}} listing",
+    "count_other": "{{formatted}} listings"
+  },
+  "sellCta": {
+    "heading": "Sell your car on Carsens",
+    "copy": "Create a listing in minutes — add photos, set your price and reach thousands of buyers across the UAE.",
+    "button": "Start selling"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "seo": {
+    "title": "Sell your car — carsens",
+    "description": "List your car on carsens for free: pick your model, add photos, and go live after a quick review."
+  },
+  "title": "Sell your car. Free. Fast.",
+  "subtitle": "A few quick steps — most specs fill themselves in.",
+  "stepLabel": "Step {{current}} of {{total}}",
+  "steps": {
+    "vehicle": "Vehicle",
+    "specs": "Specs & price",
+    "photos": "Photos",
+    "review": "Review",
+    "done": "Done"
+  },
+  "back": "Back",
+  "next": "Next",
+  "restore": {
+    "title": "Welcome back",
+    "body": "You have an unfinished listing saved {{time}}.",
+    "resume": "Resume draft",
+    "discard": "Start over"
+  },
+  "draftLocked": "Your draft is created — vehicle and price details are locked from here. Continue with photos.",
+  "vehicle": {
+    "title": "Tell us about your car",
+    "subtitle": "Pick make, model and trim — chances are we already know its full spec sheet.",
+    "make": "Make",
+    "model": "Model",
+    "trim": "Trim (optional)",
+    "year": "Year",
+    "regionalSpec": "Regional spec",
+    "makePlaceholder": "Select a make",
+    "modelPlaceholder": "Select a model",
+    "trimPlaceholder": "Select a trim",
+    "yearPlaceholder": "Select a year",
+    "loadError": "Could not load vehicle data. Please try again."
+  },
+  "autofill": {
+    "loading": "Looking up your car's spec sheet…",
+    "title": "Specs auto-filled from our database",
+    "subtitle": "These details attach to your ad automatically — nothing to type.",
+    "confidence": {
+      "HIGH": "High confidence",
+      "MEDIUM": "Medium confidence",
+      "LOW": "Low confidence"
+    },
+    "notFoundTitle": "Can't find your trim?",
+    "notFoundBody": "We don't have a spec sheet for this configuration yet. You can still continue and fill in the details yourself.",
+    "requestLink": "Request this trim — coming soon"
+  },
+  "specs": {
+    "title": "Specs & price",
+    "subtitle": "The details buyers always ask about.",
+    "mileage": "Mileage (km)",
+    "fuelType": "Fuel type",
+    "transmission": "Transmission",
+    "cylinders": "Cylinders (optional)",
+    "notSpecified": "Not specified",
+    "exteriorColor": "Exterior colour (optional)",
+    "interiorColor": "Interior colour (optional)",
+    "emirate": "Emirate",
+    "vin": "VIN / chassis number (optional)",
+    "vinHint": "17 characters — helps serious buyers trust your ad.",
+    "price": "Price (AED)",
+    "negotiable": "Price is negotiable",
+    "description": "Description",
+    "descriptionHint": "Condition, service history, extras — at least {{min}} characters.",
+    "charCount": "{{chars}} / {{max}}",
+    "selectPlaceholder": "Select",
+    "createCta": "Save & continue"
+  },
+  "photos": {
+    "title": "Add photos",
+    "subtitle": "At least {{min}} photos — the first one becomes your cover.",
+    "dropHint": "Drag & drop your photos here",
+    "browse": "Browse files",
+    "formats": "JPEG, PNG or WebP · up to {{max}} photos",
+    "cover": "Cover",
+    "queued": "Waiting…",
+    "processing": "Preparing…",
+    "uploading": "Uploading {{percent}}%",
+    "attaching": "Saving…",
+    "done": "Uploaded",
+    "failed": "Upload failed",
+    "retry": "Retry",
+    "remove": "Remove",
+    "restoredTile": "Uploaded earlier",
+    "counter": "{{done}} of {{min}} required photos uploaded",
+    "maxReached": "You can add up to {{max}} photos.",
+    "typeRejected": "Some files were skipped — only JPEG, PNG and WebP images are supported.",
+    "gate": "Add at least {{min}} photos to continue.",
+    "waitUploads": "Wait for uploads to finish before continuing."
+  },
+  "review": {
+    "title": "Review your ad",
+    "subtitle": "One last look before it goes to our moderation team.",
+    "regionalSpec": "Regional spec",
+    "price": "Price",
+    "negotiable": "Negotiable",
+    "mileage": "Mileage",
+    "fuelType": "Fuel type",
+    "transmission": "Transmission",
+    "cylinders": "Cylinders",
+    "exteriorColor": "Exterior colour",
+    "interiorColor": "Interior colour",
+    "emirate": "Emirate",
+    "vin": "VIN",
+    "description": "Description",
+    "photos": "Photos",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit for review"
+  },
+  "errors": {
+    "quota": "You have reached your listing limit. Manage your existing listings from your account.",
+    "vinDuplicate": "An active listing with this VIN already exists.",
+    "minPhotos": "Your ad needs at least {{min}} photos before it can be submitted.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "validation": {
+    "makeRequired": "Select a make.",
+    "modelRequired": "Select a model.",
+    "yearRequired": "Select a year.",
+    "mileageInvalid": "Enter the mileage as a whole number of kilometres.",
+    "fuelRequired": "Select a fuel type.",
+    "transmissionRequired": "Select a transmission.",
+    "emirateRequired": "Select an emirate.",
+    "priceInvalid": "Enter the price as a whole number in AED.",
+    "vinInvalid": "A VIN is 17 letters and digits (no I, O or Q).",
+    "descriptionMin": "The description needs at least {{min}} characters.",
+    "descriptionMax": "The description can have at most {{max}} characters."
+  },
+  "done": {
+    "title": "Your car is on its way 🎉",
+    "body": "Our team reviews every ad within 24 hours. You'll get an email as soon as it goes live.",
+    "account": "Go to my account",
+    "browse": "Browse cars"
+  }
+}

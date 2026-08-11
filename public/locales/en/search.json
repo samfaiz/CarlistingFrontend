@@ -1,0 +1,66 @@
+{
+  "seo": {
+    "title": "Used cars for sale in the UAE | Carsens",
+    "description": "Browse thousands of used cars for sale across the UAE. Filter by make, model, price, year, mileage, fuel type and emirate to find your next car."
+  },
+  "heading": "Used cars for sale in the UAE",
+  "results": {
+    "count_one": "{{formatted}} used car in the UAE",
+    "count_other": "{{formatted}} used cars in the UAE"
+  },
+  "sort": {
+    "label": "Sort by",
+    "newest": "Newest first",
+    "price_asc": "Price: low to high",
+    "price_desc": "Price: high to low",
+    "mileage_asc": "Mileage: low to high",
+    "mileage_desc": "Mileage: high to low",
+    "year_desc": "Year: newest first",
+    "year_asc": "Year: oldest first"
+  },
+  "loadMore": "Load more",
+  "pagination": {
+    "label": "Pagination",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {{page}} of {{pages}}"
+  },
+  "error": {
+    "title": "Search is unavailable",
+    "hint": "We couldn't load the listings. Check your connection and try again.",
+    "retry": "Try again",
+    "rateLimited": {
+      "title": "Too many searches",
+      "description": "You're refining a little too fast — give it a few seconds and try again."
+    }
+  },
+  "filters": {
+    "title": "Filters",
+    "clear": "Clear all",
+    "showResults": "Show results",
+    "dialogHint": "Refine your search results",
+    "activeCount_one": "{{count}} active filter",
+    "activeCount_other": "{{count}} active filters",
+    "keyword": {
+      "label": "Keyword",
+      "placeholder": "e.g. Patrol, sunroof…"
+    },
+    "make": { "label": "Make", "all": "All makes" },
+    "model": { "label": "Model", "all": "All models" },
+    "trim": { "label": "Trim", "all": "All trims" },
+    "bodyType": { "label": "Body type" },
+    "price": { "label": "Price (AED)", "min": "Min price", "max": "Max price" },
+    "year": { "label": "Year", "min": "From year", "max": "To year" },
+    "mileage": { "label": "Max mileage (km)", "placeholder": "e.g. 100000" },
+    "fuelType": { "label": "Fuel type" },
+    "transmission": { "label": "Transmission" },
+    "regionalSpec": { "label": "Regional spec" },
+    "emirate": { "label": "Emirate", "all": "All emirates" },
+    "sellerType": {
+      "label": "Seller type",
+      "all": "All sellers",
+      "PRIVATE": "Private seller",
+      "DEALER": "Dealer"
+    }
+  }
+}

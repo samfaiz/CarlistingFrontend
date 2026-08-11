@@ -1,0 +1,140 @@
+{
+  "seo": {
+    "title": "Vende tu coche — carsens",
+    "description": "Publica tu coche en carsens gratis: elige el modelo, añade fotos y sal en línea tras una revisión rápida."
+  },
+  "title": "Vende tu coche. Gratis. Rápido.",
+  "subtitle": "Unos pocos pasos — la mayoría de las especificaciones se rellenan solas.",
+  "stepLabel": "Paso {{current}} de {{total}}",
+  "steps": {
+    "vehicle": "Vehículo",
+    "specs": "Especificaciones y precio",
+    "photos": "Fotos",
+    "review": "Revisión",
+    "done": "Listo"
+  },
+  "back": "Atrás",
+  "next": "Siguiente",
+  "restore": {
+    "title": "Bienvenido de nuevo",
+    "body": "Tienes un anuncio sin terminar guardado {{time}}.",
+    "resume": "Continuar borrador",
+    "discard": "Empezar de nuevo"
+  },
+  "draftLocked": "Tu borrador ya está creado — los datos del vehículo y el precio quedan bloqueados. Continúa con las fotos.",
+  "vehicle": {
+    "title": "Cuéntanos sobre tu coche",
+    "subtitle": "Elige marca, modelo y versión — es probable que ya tengamos su ficha técnica completa.",
+    "make": "Marca",
+    "model": "Modelo",
+    "trim": "Versión (opcional)",
+    "year": "Año",
+    "regionalSpec": "Especificación regional",
+    "makePlaceholder": "Selecciona una marca",
+    "modelPlaceholder": "Selecciona un modelo",
+    "trimPlaceholder": "Selecciona una versión",
+    "yearPlaceholder": "Selecciona un año",
+    "loadError": "No se pudieron cargar los datos del vehículo. Inténtalo de nuevo."
+  },
+  "autofill": {
+    "loading": "Buscando la ficha técnica de tu coche…",
+    "title": "Especificaciones rellenadas desde nuestra base de datos",
+    "subtitle": "Estos datos se adjuntan a tu anuncio automáticamente — no tienes que escribir nada.",
+    "confidence": {
+      "HIGH": "Confianza alta",
+      "MEDIUM": "Confianza media",
+      "LOW": "Confianza baja"
+    },
+    "notFoundTitle": "¿No encuentras tu versión?",
+    "notFoundBody": "Aún no tenemos ficha técnica para esta configuración. Puedes continuar e introducir los datos tú mismo.",
+    "requestLink": "Solicitar esta versión — próximamente"
+  },
+  "specs": {
+    "title": "Especificaciones y precio",
+    "subtitle": "Los datos que los compradores siempre preguntan.",
+    "mileage": "Kilometraje (km)",
+    "fuelType": "Tipo de combustible",
+    "transmission": "Transmisión",
+    "cylinders": "Cilindros (opcional)",
+    "notSpecified": "Sin especificar",
+    "exteriorColor": "Color exterior (opcional)",
+    "interiorColor": "Color interior (opcional)",
+    "emirate": "Emirato",
+    "vin": "VIN / número de chasis (opcional)",
+    "vinHint": "17 caracteres — genera confianza entre los compradores serios.",
+    "price": "Precio (AED)",
+    "negotiable": "Precio negociable",
+    "description": "Descripción",
+    "descriptionHint": "Estado, historial de mantenimiento, extras — al menos {{min}} caracteres.",
+    "charCount": "{{chars}} / {{max}}",
+    "selectPlaceholder": "Selecciona",
+    "createCta": "Guardar y continuar"
+  },
+  "photos": {
+    "title": "Añade fotos",
+    "subtitle": "Al menos {{min}} fotos — la primera será la portada.",
+    "dropHint": "Arrastra y suelta tus fotos aquí",
+    "browse": "Explorar archivos",
+    "formats": "JPEG, PNG o WebP · hasta {{max}} fotos",
+    "cover": "Portada",
+    "queued": "En espera…",
+    "processing": "Preparando…",
+    "uploading": "Subiendo {{percent}}%",
+    "attaching": "Guardando…",
+    "done": "Subida",
+    "failed": "Error al subir",
+    "retry": "Reintentar",
+    "remove": "Quitar",
+    "restoredTile": "Subida anteriormente",
+    "counter": "{{done}} de {{min}} fotos obligatorias subidas",
+    "maxReached": "Puedes añadir hasta {{max}} fotos.",
+    "typeRejected": "Se omitieron algunos archivos — solo se admiten imágenes JPEG, PNG y WebP.",
+    "gate": "Añade al menos {{min}} fotos para continuar.",
+    "waitUploads": "Espera a que terminen las subidas antes de continuar."
+  },
+  "review": {
+    "title": "Revisa tu anuncio",
+    "subtitle": "Un último vistazo antes de enviarlo a nuestro equipo de moderación.",
+    "regionalSpec": "Especificación regional",
+    "price": "Precio",
+    "negotiable": "Negociable",
+    "mileage": "Kilometraje",
+    "fuelType": "Combustible",
+    "transmission": "Transmisión",
+    "cylinders": "Cilindros",
+    "exteriorColor": "Color exterior",
+    "interiorColor": "Color interior",
+    "emirate": "Emirato",
+    "vin": "VIN",
+    "description": "Descripción",
+    "photos": "Fotos",
+    "yes": "Sí",
+    "no": "No",
+    "submit": "Enviar a revisión"
+  },
+  "errors": {
+    "quota": "Has alcanzado tu límite de anuncios. Gestiona tus anuncios actuales desde tu cuenta.",
+    "vinDuplicate": "Ya existe un anuncio activo con este VIN.",
+    "minPhotos": "Tu anuncio necesita al menos {{min}} fotos antes de poder enviarse.",
+    "generic": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "validation": {
+    "makeRequired": "Selecciona una marca.",
+    "modelRequired": "Selecciona un modelo.",
+    "yearRequired": "Selecciona un año.",
+    "mileageInvalid": "Introduce el kilometraje como número entero de kilómetros.",
+    "fuelRequired": "Selecciona un tipo de combustible.",
+    "transmissionRequired": "Selecciona una transmisión.",
+    "emirateRequired": "Selecciona un emirato.",
+    "priceInvalid": "Introduce el precio como número entero en AED.",
+    "vinInvalid": "Un VIN tiene 17 letras y dígitos (sin I, O ni Q).",
+    "descriptionMin": "La descripción necesita al menos {{min}} caracteres.",
+    "descriptionMax": "La descripción puede tener como máximo {{max}} caracteres."
+  },
+  "done": {
+    "title": "Tu coche está en camino 🎉",
+    "body": "Nuestro equipo revisa cada anuncio en un plazo de 24 horas. Recibirás un correo en cuanto se publique.",
+    "account": "Ir a mi cuenta",
+    "browse": "Explorar coches"
+  }
+}

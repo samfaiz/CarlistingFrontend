@@ -7,8 +7,8 @@
  * RTL, and the home page passes the axe serious/critical bar.
  */
 import { test, expect } from "@playwright/test";
-import en from "../public/locales/en/common.json";
-import ar from "../public/locales/ar/common.json";
+import enHome from "../public/locales/en/home.json";
+import arHome from "../public/locales/ar/home.json";
 import { expectNoA11yViolations } from "./helpers/axe";
 
 test.describe("smoke: home page", () => {
@@ -18,7 +18,7 @@ test.describe("smoke: home page", () => {
     await page.goto("/");
 
     const headline = page.getByRole("heading", { level: 1 });
-    await expect(headline).toContainText(en.site.name);
+    await expect(headline).toContainText(enHome.hero.headline);
 
     const html = page.locator("html");
     await expect(html).toHaveAttribute("lang", "en");
@@ -36,6 +36,6 @@ test.describe("smoke: home page", () => {
     await expect(html).toHaveAttribute("dir", "rtl");
     await expect(html).toHaveAttribute("lang", "ar");
 
-    await expect(page.getByRole("heading", { level: 1 })).toContainText(ar.site.name);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(arHome.hero.headline);
   });
 });
