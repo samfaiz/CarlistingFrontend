@@ -47,7 +47,21 @@
     },
     "notFoundTitle": "Vous ne trouvez pas votre finition ?",
     "notFoundBody": "Nous n'avons pas encore de fiche technique pour cette configuration. Vous pouvez continuer et saisir les détails vous-même.",
-    "requestLink": "Demander cette finition — bientôt disponible"
+    "requestLink": "Demander cette finition — bientôt disponible",
+    "request": {
+      "title": "Parlez-nous de votre finition",
+      "body": "Nous l ajouterons à notre base de données, en général sous deux jours.",
+      "make": "Marque",
+      "model": "Modèle",
+      "trim": "Finition",
+      "year": "Année",
+      "submit": "Envoyer la demande",
+      "cancel": "Annuler",
+      "sent": "Merci — nous ajouterons cette finition bientôt.",
+      "failed": "Impossible d envoyer la demande",
+      "required": "La marque et le modèle sont obligatoires.",
+      "signInFirst": "Connectez-vous pour envoyer une demande"
+    }
   },
   "specs": {
     "title": "Caractéristiques et prix",

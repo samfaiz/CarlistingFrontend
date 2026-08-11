@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next/pages";
 import { SurfaceCard } from "@/components/ui/card";
 import type { SpecGroups } from "@/lib/marketplace-api";
 import { cn } from "@/lib/utils";
+import { TrimRequestDialog } from "./trim-request-dialog";
 import { localizedName } from "./types";
 
 export type SpecLookupState = "idle" | "loading" | "found" | "missing";
@@ -25,10 +26,13 @@ export function SpecPreview({
   state,
   spec,
   locale,
+  requestDefaults,
 }: {
   state: SpecLookupState;
   spec: SpecGroups | null;
   locale: string;
+  /** Current wizard selection — prefills the missing-trim request (P1-03). */
+  requestDefaults?: { make?: string; model?: string; trim?: string; year?: number };
 }) {
   const { t } = useTranslation("sell");
 
@@ -58,13 +62,7 @@ export function SpecPreview({
           {t("autofill.notFoundTitle")}
         </p>
         <p className="mt-1 text-sm text-muted">{t("autofill.notFoundBody")}</p>
-        {/* Placeholder — the missing-trim request flow ships with P1-03. */}
-        <span
-          aria-disabled
-          className="mt-2 inline-block cursor-not-allowed text-sm font-semibold text-brand-mid opacity-70"
-        >
-          {t("autofill.requestLink")}
-        </span>
+        <TrimRequestDialog defaults={requestDefaults} />
       </SurfaceCard>
     );
   }

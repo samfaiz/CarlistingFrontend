@@ -1,0 +1,32 @@
+{
+  "meta": { "title": "Compare cars | Carsens" },
+  "heading": "Compare cars",
+  "subheading": "{{count}} of {{max}} cars",
+  "tray": {
+    "label": "Compare",
+    "cta": "Compare ({{count}})",
+    "clear": "Clear",
+    "remove": "Remove {{title}}",
+    "full": "You can compare up to {{max}} cars"
+  },
+  "chip": { "add": "Add to compare", "added": "In compare" },
+  "empty": {
+    "title": "Nothing to compare yet",
+    "hint": "Add cars from search or a car page to see them side by side.",
+    "cta": "Browse cars"
+  },
+  "table": {
+    "differencesOnly": "Show differences only",
+    "remove": "Remove from comparison",
+    "price": "Price",
+    "year": "Year",
+    "mileage": "Mileage",
+    "fuel": "Fuel type",
+    "transmission": "Transmission",
+    "regionalSpec": "Regional spec",
+    "location": "Location",
+    "noValue": "—",
+    "basics": "Basics"
+  },
+  "loading": "Loading comparison…"
+}

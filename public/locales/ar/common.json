@@ -10,5 +10,26 @@
   "language": {
     "label": "اللغة",
     "switcherLabel": "تغيير اللغة"
+  },
+  "compareTray": {
+    "label": "المقارنة",
+    "cta": "قارن ({{count}})",
+    "clear": "مسح",
+    "remove": "إزالة {{title}} من المقارنة"
+  },
+  "saveSearch": {
+    "cta": "احفظ هذا البحث",
+    "title": "حفظ هذا البحث",
+    "description": "اعثر عليه لاحقًا من حسابك. التنبيهات تصل في الإصدار القادم.",
+    "nameLabel": "الاسم",
+    "namePlaceholder": "مثال: لاند كروزر بأقل من 400 ألف",
+    "nameRequired": "أعطِ هذا البحث اسمًا.",
+    "frequencyLabel": "التنبيهات",
+    "frequencyHint": "إرسال التنبيهات يصل في الإصدار القادم.",
+    "submit": "حفظ البحث",
+    "cancel": "إلغاء",
+    "success": "تم حفظ البحث",
+    "error": "تعذّر حفظ هذا البحث",
+    "loginRequired": "سجّل الدخول لحفظ عمليات البحث"
   }
 }

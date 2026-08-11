@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Guardados | Carsens"
+  },
+  "heading": "Guardados",
+  "tabs": {
+    "cars": "Coches guardados",
+    "searches": "Búsquedas guardadas"
+  },
+  "cars": {
+    "empty": {
+      "title": "Aún no hay coches guardados",
+      "hint": "Toca el corazón en cualquier coche para guardarlo aquí."
+    },
+    "browse": "Ver coches",
+    "priceDropped": "Bajó de precio {{amount}}",
+    "unavailable": "Ya no disponible",
+    "unsave": "Quitar de guardados",
+    "savedAt": "Guardado {{when}}",
+    "removed": "Eliminado de guardados",
+    "priceDrop": "Bajó de precio {{amount}}",
+    "notAvailable": "Ya no disponible"
+  },
+  "searches": {
+    "empty": {
+      "title": "Aún no hay búsquedas guardadas",
+      "hint": "Guarda una búsqueda desde los filtros para volver rápido."
+    },
+    "open": "Abrir búsqueda",
+    "delete": "Eliminar",
+    "deleteTitle": "¿Eliminar esta búsqueda guardada?",
+    "deleteBody": "Se eliminará «{{name}}». Esto no se puede deshacer.",
+    "cancel": "Cancelar",
+    "confirmDelete": "Eliminar",
+    "deleted": "Búsqueda guardada eliminada",
+    "frequency": {
+      "label": "Alertas",
+      "INSTANT": "Instantánea",
+      "DAILY": "Diaria",
+      "WEEKLY": "Semanal",
+      "OFF": "Desactivada",
+      "comingSoon": "El envío de alertas llega en la próxima versión"
+    },
+    "createdAt": "Guardada {{when}}"
+  },
+  "saveButton": {
+    "save": "Guardar coche",
+    "saved": "Guardado",
+    "signInFirst": "Inicia sesión para guardar coches"
+  },
+  "saveSearch": {
+    "cta": "Guardar esta búsqueda",
+    "title": "Guardar esta búsqueda",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "p. ej. Land Cruiser por menos de 400k",
+    "summaryLabel": "Filtros",
+    "submit": "Guardar búsqueda",
+    "cancel": "Cancelar",
+    "saved": "Búsqueda guardada",
+    "signInFirst": "Inicia sesión para guardar búsquedas"
+  }
+}

@@ -10,5 +10,26 @@
   "language": {
     "label": "Idioma",
     "switcherLabel": "Cambiar de idioma"
+  },
+  "compareTray": {
+    "label": "Comparar",
+    "cta": "Comparar ({{count}})",
+    "clear": "Limpiar",
+    "remove": "Quitar {{title}} de la comparación"
+  },
+  "saveSearch": {
+    "cta": "Guardar esta búsqueda",
+    "title": "Guardar esta búsqueda",
+    "description": "Vuelve a encontrarla desde tu cuenta. Las alertas llegan en la próxima versión.",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "p. ej. Land Cruiser por menos de 400k",
+    "nameRequired": "Ponle un nombre a esta búsqueda.",
+    "frequencyLabel": "Alertas",
+    "frequencyHint": "El envío de alertas llega en la próxima versión.",
+    "submit": "Guardar búsqueda",
+    "cancel": "Cancelar",
+    "success": "Búsqueda guardada",
+    "error": "No se pudo guardar esta búsqueda",
+    "loginRequired": "Inicia sesión para guardar búsquedas"
   }
 }

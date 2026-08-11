@@ -47,7 +47,21 @@
     },
     "notFoundTitle": "¿No encuentras tu versión?",
     "notFoundBody": "Aún no tenemos ficha técnica para esta configuración. Puedes continuar e introducir los datos tú mismo.",
-    "requestLink": "Solicitar esta versión — próximamente"
+    "requestLink": "Solicitar esta versión — próximamente",
+    "request": {
+      "title": "Cuéntanos sobre tu versión",
+      "body": "La añadiremos a nuestra base de datos, normalmente en un par de días.",
+      "make": "Marca",
+      "model": "Modelo",
+      "trim": "Versión",
+      "year": "Año",
+      "submit": "Enviar solicitud",
+      "cancel": "Cancelar",
+      "sent": "Gracias, añadiremos esta versión pronto.",
+      "failed": "No se pudo enviar la solicitud",
+      "required": "La marca y el modelo son obligatorios.",
+      "signInFirst": "Inicia sesión para enviar una solicitud"
+    }
   },
   "specs": {
     "title": "Especificaciones y precio",

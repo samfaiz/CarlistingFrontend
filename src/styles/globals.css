@@ -65,6 +65,16 @@ body {
   outline-offset: 2px;
 }
 
+/*
+ * Bottom-fixed stacking: the cookie consent banner (z-50) and the compare tray
+ * (z-40) both pin to the bottom. While consent is pending the banner would sit
+ * on top of the tray and swallow its clicks, so the tray lifts above it.
+ * ConsentBanner sets data-consent-open on <body> while it is visible.
+ */
+body[data-consent-open="true"] .compare-tray {
+  bottom: var(--consent-bar-height, 4.5rem);
+}
+
 /* Page shell — mockup --container: 1240px */
 .container-shell {
   margin-inline: auto;

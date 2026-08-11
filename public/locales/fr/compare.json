@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "title": "Comparer des voitures | Carsens"
+  },
+  "heading": "Comparer des voitures",
+  "subheading": "{{count}} sur {{max}} voitures",
+  "tray": {
+    "label": "Comparateur",
+    "cta": "Comparer ({{count}})",
+    "clear": "Effacer",
+    "remove": "Retirer {{title}}",
+    "full": "Vous pouvez comparer jusqu'à {{max}} voitures"
+  },
+  "chip": {
+    "add": "Ajouter au comparateur",
+    "added": "Dans le comparateur"
+  },
+  "empty": {
+    "title": "Rien à comparer pour l'instant",
+    "hint": "Ajoutez des voitures depuis la recherche ou une fiche pour les voir côte à côte.",
+    "cta": "Parcourir les voitures"
+  },
+  "table": {
+    "differencesOnly": "Afficher seulement les différences",
+    "remove": "Retirer de la comparaison",
+    "price": "Prix",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "fuel": "Carburant",
+    "transmission": "Transmission",
+    "regionalSpec": "Spécification régionale",
+    "location": "Emplacement",
+    "noValue": "—",
+    "basics": "Essentiels"
+  },
+  "loading": "Chargement de la comparaison…"
+}

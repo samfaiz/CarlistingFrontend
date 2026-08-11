@@ -41,5 +41,16 @@
       "CHINESE": "Normes chinoises",
       "OTHER": "Autres normes"
     }
+  },
+  "save": {
+    "label": "Enregistrer la voiture",
+    "saved": "Enregistrée",
+    "loginRequired": "Connectez-vous pour enregistrer des voitures",
+    "error": "Impossible de mettre à jour vos voitures enregistrées"
+  },
+  "compare": {
+    "chip": "Comparer",
+    "chipLabel": "Ajouter au comparateur : {{title}}",
+    "full": "Vous pouvez comparer jusqu'à 4 voitures"
   }
 }

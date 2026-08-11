@@ -40,5 +40,16 @@
       "CHINESE": "Chinese specs",
       "OTHER": "Other specs"
     }
+  },
+  "save": {
+    "label": "Save car",
+    "saved": "Saved",
+    "loginRequired": "Sign in to save cars",
+    "error": "Could not update your saved cars"
+  },
+  "compare": {
+    "chip": "Compare",
+    "chipLabel": "Add to compare: {{title}}",
+    "full": "You can compare up to 4 cars"
   }
 }

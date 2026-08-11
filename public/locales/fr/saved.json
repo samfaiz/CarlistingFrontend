@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Enregistrés | Carsens"
+  },
+  "heading": "Enregistrés",
+  "tabs": {
+    "cars": "Voitures enregistrées",
+    "searches": "Recherches enregistrées"
+  },
+  "cars": {
+    "empty": {
+      "title": "Aucune voiture enregistrée",
+      "hint": "Touchez le cœur sur une voiture pour la retrouver ici."
+    },
+    "browse": "Parcourir les voitures",
+    "priceDropped": "Prix en baisse {{amount}}",
+    "unavailable": "Plus disponible",
+    "unsave": "Retirer des enregistrements",
+    "savedAt": "Enregistrée {{when}}",
+    "removed": "Retirée des enregistrements",
+    "priceDrop": "Prix en baisse {{amount}}",
+    "notAvailable": "Plus disponible"
+  },
+  "searches": {
+    "empty": {
+      "title": "Aucune recherche enregistrée",
+      "hint": "Enregistrez une recherche depuis les filtres pour y revenir vite."
+    },
+    "open": "Ouvrir la recherche",
+    "delete": "Supprimer",
+    "deleteTitle": "Supprimer cette recherche enregistrée ?",
+    "deleteBody": "« {{name}} » sera supprimée. Cette action est irréversible.",
+    "cancel": "Annuler",
+    "confirmDelete": "Supprimer",
+    "deleted": "Recherche enregistrée supprimée",
+    "frequency": {
+      "label": "Alertes",
+      "INSTANT": "Instantanée",
+      "DAILY": "Quotidienne",
+      "WEEKLY": "Hebdomadaire",
+      "OFF": "Désactivée",
+      "comingSoon": "L'envoi des alertes arrive dans la prochaine version"
+    },
+    "createdAt": "Enregistrée {{when}}"
+  },
+  "saveButton": {
+    "save": "Enregistrer la voiture",
+    "saved": "Enregistrée",
+    "signInFirst": "Connectez-vous pour enregistrer des voitures"
+  },
+  "saveSearch": {
+    "cta": "Enregistrer cette recherche",
+    "title": "Enregistrer cette recherche",
+    "nameLabel": "Nom",
+    "namePlaceholder": "ex. Land Cruiser sous 400k",
+    "summaryLabel": "Filtres",
+    "submit": "Enregistrer la recherche",
+    "cancel": "Annuler",
+    "saved": "Recherche enregistrée",
+    "signInFirst": "Connectez-vous pour enregistrer des recherches"
+  }
+}

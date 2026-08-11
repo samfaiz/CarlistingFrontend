@@ -53,6 +53,17 @@ export function ConsentBanner() {
     setVisible(getStoredConsent() === null);
   }, [i18n]);
 
+  // Flag the banner on <body> so other bottom-fixed UI (the compare tray) can
+  // lift above it instead of being covered — see globals.css.
+  React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (visible) document.body.dataset.consentOpen = "true";
+    else delete document.body.dataset.consentOpen;
+    return () => {
+      delete document.body.dataset.consentOpen;
+    };
+  }, [visible]);
+
   if (!visible) return null;
 
   const locale = router.locale ?? router.defaultLocale ?? "en";

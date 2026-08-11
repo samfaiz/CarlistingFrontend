@@ -33,19 +33,34 @@ interface ErrorEnvelope {
   message?: string | string[];
 }
 
+/**
+ * Request timeouts. Without one, a hung backend would pin an SSR render (and
+ * with it a Next server worker) indefinitely; the shorter server budget lets
+ * getServerSideProps fall back to its error state and let the client retry.
+ */
+const TIMEOUT_MS = typeof window === "undefined" ? 8_000 : 20_000;
+
 async function request<T>(
   path: string,
   init: RequestInit & { token?: string } = {},
 ): Promise<T> {
-  const { token, headers, ...rest } = init;
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    ...rest,
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...headers,
-    },
-  });
+  const { token, headers, signal, ...rest } = init;
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE_URL}${path}`, {
+      ...rest,
+      signal: signal ?? AbortSignal.timeout(TIMEOUT_MS),
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...headers,
+      },
+    });
+  } catch (cause) {
+    // Timeout/network failure — statusCode 0 keeps the existing failure paths.
+    const reason = cause instanceof Error && cause.name === "TimeoutError" ? "timed out" : "failed";
+    throw new ApiError(0, `Request to ${path} ${reason}`, "NetworkError");
+  }
 
   const text = await res.text();
   const body: unknown = text ? JSON.parse(text) : null;

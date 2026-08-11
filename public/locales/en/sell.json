@@ -47,7 +47,21 @@
     },
     "notFoundTitle": "Can't find your trim?",
     "notFoundBody": "We don't have a spec sheet for this configuration yet. You can still continue and fill in the details yourself.",
-    "requestLink": "Request this trim — coming soon"
+    "requestLink": "Request this trim — coming soon",
+    "request": {
+      "title": "Tell us about your trim",
+      "body": "We will add it to our database — usually within a couple of days.",
+      "make": "Make",
+      "model": "Model",
+      "trim": "Trim",
+      "year": "Year",
+      "submit": "Send request",
+      "cancel": "Cancel",
+      "sent": "Thanks — we will add this trim soon.",
+      "failed": "Could not send the request",
+      "required": "Make and model are required.",
+      "signInFirst": "Sign in to send a request"
+    }
   },
   "specs": {
     "title": "Specs & price",

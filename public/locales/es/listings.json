@@ -41,5 +41,16 @@
       "CHINESE": "Especificaciones chinas",
       "OTHER": "Otras especificaciones"
     }
+  },
+  "save": {
+    "label": "Guardar coche",
+    "saved": "Guardado",
+    "loginRequired": "Inicia sesión para guardar coches",
+    "error": "No se pudieron actualizar tus coches guardados"
+  },
+  "compare": {
+    "chip": "Comparar",
+    "chipLabel": "Añadir a comparar: {{title}}",
+    "full": "Puedes comparar hasta 4 coches"
   }
 }

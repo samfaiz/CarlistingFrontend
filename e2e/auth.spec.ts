@@ -89,6 +89,13 @@ test.describe("auth flows", () => {
   test("register with a unique email reaches the check-your-inbox state", async ({
     page,
   }) => {
+    // Desktop-only: /auth/register shares the 10/min-per-IP auth throttle, so
+    // running it on both viewport projects doubles registrations and trips 429
+    // on back-to-back suite runs.
+    test.skip(
+      test.info().project.name !== "desktop-chromium",
+      "Registration pinned to desktop-chromium (auth rate limit 10/min per IP).",
+    );
     const uniqueEmail = `e2e-reg-${Date.now()}-${Math.random()
       .toString(36)
       .slice(2, 8)}@carsens.test`;

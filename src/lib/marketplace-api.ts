@@ -454,11 +454,16 @@ export function deleteSavedSearch(
 /* Missing-trim request — task P1-03 (FR-VS4)                         */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Free-form payload for POST /taxonomy/trim-requests — the backend stores it as
+ * JSON for admin curation (FR-VS4), so trim/year are optional: a seller may only
+ * know make + model.
+ */
 export interface TrimRequestDetails {
   make: string;
   model: string;
-  trim: string;
-  year: number;
+  trim?: string;
+  year?: number;
 }
 
 export function createTrimRequest(

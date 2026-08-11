@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Saved | Carsens"
+  },
+  "heading": "Saved",
+  "tabs": {
+    "cars": "Saved cars",
+    "searches": "Saved searches"
+  },
+  "cars": {
+    "empty": {
+      "title": "No saved cars yet",
+      "hint": "Tap the heart on any car to keep it here."
+    },
+    "browse": "Browse cars",
+    "priceDropped": "Price dropped {{amount}}",
+    "unavailable": "No longer available",
+    "unsave": "Remove from saved",
+    "savedAt": "Saved {{when}}",
+    "removed": "Removed from saved",
+    "priceDrop": "Price dropped {{amount}}",
+    "notAvailable": "No longer available"
+  },
+  "searches": {
+    "empty": {
+      "title": "No saved searches yet",
+      "hint": "Save a search from the filters to get back to it fast."
+    },
+    "open": "Open search",
+    "delete": "Delete",
+    "deleteTitle": "Delete this saved search?",
+    "deleteBody": "\"{{name}}\" will be removed. This cannot be undone.",
+    "cancel": "Cancel",
+    "confirmDelete": "Delete",
+    "deleted": "Saved search deleted",
+    "frequency": {
+      "label": "Alerts",
+      "INSTANT": "Instant",
+      "DAILY": "Daily",
+      "WEEKLY": "Weekly",
+      "OFF": "Off",
+      "comingSoon": "Alert delivery arrives in the next release"
+    },
+    "createdAt": "Saved {{when}}"
+  },
+  "saveButton": {
+    "save": "Save car",
+    "saved": "Saved",
+    "signInFirst": "Sign in to save cars"
+  },
+  "saveSearch": {
+    "cta": "Save this search",
+    "title": "Save this search",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Land Cruiser under 400k",
+    "summaryLabel": "Filters",
+    "submit": "Save search",
+    "cancel": "Cancel",
+    "saved": "Search saved",
+    "signInFirst": "Sign in to save searches"
+  }
+}

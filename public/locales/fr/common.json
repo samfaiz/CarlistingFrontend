@@ -10,5 +10,26 @@
   "language": {
     "label": "Langue",
     "switcherLabel": "Changer de langue"
+  },
+  "compareTray": {
+    "label": "Comparateur",
+    "cta": "Comparer ({{count}})",
+    "clear": "Effacer",
+    "remove": "Retirer {{title}} de la comparaison"
+  },
+  "saveSearch": {
+    "cta": "Enregistrer cette recherche",
+    "title": "Enregistrer cette recherche",
+    "description": "Retrouvez-la depuis votre compte. Les alertes arrivent dans la prochaine version.",
+    "nameLabel": "Nom",
+    "namePlaceholder": "ex. Land Cruiser sous 400k",
+    "nameRequired": "Donnez un nom à cette recherche.",
+    "frequencyLabel": "Alertes",
+    "frequencyHint": "L'envoi des alertes arrive dans la prochaine version.",
+    "submit": "Enregistrer la recherche",
+    "cancel": "Annuler",
+    "success": "Recherche enregistrée",
+    "error": "Impossible d'enregistrer cette recherche",
+    "loginRequired": "Connectez-vous pour enregistrer des recherches"
   }
 }

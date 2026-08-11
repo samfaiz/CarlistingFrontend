@@ -32,7 +32,9 @@ export function CompareTray() {
       role="region"
       aria-label={t("compareTray.label")}
       data-testid="compare-tray"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-card/95 shadow-pop backdrop-blur-sm"
+      // `compare-tray` lifts this above the consent banner while that is open
+      // (both are bottom-fixed; see globals.css) so its CTA stays clickable.
+      className="compare-tray fixed inset-x-0 bottom-0 z-40 border-t border-line bg-card/95 shadow-pop backdrop-blur-sm transition-[bottom]"
     >
       <div className="container-shell flex items-center gap-3 py-2.5">
         <ul className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto">

@@ -17,7 +17,13 @@ export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 1,
+  /**
+   * Locally the dev box also runs Postgres, Redis, MinIO, the API and the queue
+   * worker; unbounded parallelism starves the Next server and produces timeouts
+   * that look like product bugs. Two workers keeps runs fast and deterministic.
+   */
+  workers: process.env.CI ? 2 : 2,
   reporter: process.env.CI
     ? [["list"], ["html", { open: "never" }]]
     : [["list"]],
