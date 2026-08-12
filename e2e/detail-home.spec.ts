@@ -136,13 +136,15 @@ test.describe("car detail page", () => {
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     await expect(page.getByText(/^AED [\d,.   ]+$/).first()).toBeVisible();
 
-    // Seller contact is explicitly stubbed until P2-03 — both buttons disabled.
+    // P2-03: contact actions are live, and the number is fetched on interaction
+    // only — nothing phone-shaped may be in the delivered HTML (FR-D6).
     await expect(
       page.getByRole("button", { name: enDetail.contact.chat }),
-    ).toBeDisabled();
+    ).toBeEnabled();
     await expect(
-      page.getByRole("button", { name: enDetail.contact.call }),
-    ).toBeDisabled();
+      page.getByRole("button", { name: enDetail.contact.showNumber }),
+    ).toBeEnabled();
+    expect(await page.content()).not.toContain("tel:");
 
     // Specifications section rendered from the specs snapshot.
     await expect(
