@@ -31,5 +31,10 @@
     "success": "Búsqueda guardada",
     "error": "No se pudo guardar esta búsqueda",
     "loginRequired": "Inicia sesión para guardar búsquedas"
+  },
+  "nav": {
+    "messages": "Mensajes",
+    "notifications": "Notificaciones",
+    "myListings": "Mis anuncios"
   }
 }

@@ -1,7 +1,7 @@
 /**
  * Detail price/seller panel (P1-07): prominent price + negotiable badge, the
- * h1 title, key facts, posted time + view count, seller block with disabled
- * Chat/Call (contact wiring lands with P2-03) and a share button
+ * h1 title, key facts, posted time + view count, seller block with live
+ * chat/call/WhatsApp actions (P2-02/P2-03) and a share button
  * (navigator.share with copy-link + toast fallback).
  */
 import * as React from "react";
@@ -15,12 +15,11 @@ import {
   Gauge,
   Globe,
   MapPin,
-  MessageCircle,
   Palette,
-  Phone,
   Settings2,
   Share2,
 } from "lucide-react";
+import { ContactActions } from "@/components/detail/contact-actions";
 import { SaveButton } from "@/components/saved/save-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -193,23 +192,10 @@ export function PricePanel({ listing, title, emirateName }: PricePanelProps) {
         </p>
 
         {/*
-         * TODO(P2-03): wire real chat/call actions. Contact endpoints must be
-         * fetched on interaction only — never present in the HTML source
-         * (plan P1-07 note / FR-D6). Until then both buttons stay disabled.
+         * P2-02/P2-03: contact details are fetched on interaction only — never
+         * present in the HTML source (FR-D6).
          */}
-        <div className="mt-3 grid grid-cols-2 gap-2" title={t("contact.comingSoon")}>
-          <Button disabled aria-describedby="contact-coming-soon">
-            <MessageCircle aria-hidden />
-            {t("contact.chat")}
-          </Button>
-          <Button disabled variant="secondary" aria-describedby="contact-coming-soon">
-            <Phone aria-hidden />
-            {t("contact.call")}
-          </Button>
-        </div>
-        <p id="contact-coming-soon" className="mt-2 text-xs text-muted">
-          {t("contact.comingSoon")}
-        </p>
+        <ContactActions listingId={listing.id} />
       </div>
 
       {/* P1-09: save + share, side by side. */}

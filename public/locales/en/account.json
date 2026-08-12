@@ -1,0 +1,96 @@
+{
+  "listings": {
+    "meta": {
+      "title": "My listings — Carsens"
+    },
+    "heading": "My listings",
+    "total": "{{count}} listing",
+    "total_other": "{{count}} listings",
+    "filterLabel": "Filter by status",
+    "filters": {
+      "all": "All"
+    },
+    "loading": "Loading your listings…",
+    "published": "published {{time}}",
+    "pagination": "Pagination",
+    "prev": "Previous",
+    "next": "Next",
+    "pageOf": "Page {{page}} of {{pages}}",
+    "empty": {
+      "title": "You have no listings yet",
+      "cta": "Sell your car"
+    },
+    "actions": {
+      "pause": "Pause",
+      "resume": "Resume",
+      "sold": "Mark sold",
+      "renew": "Renew",
+      "paused": "Listing paused.",
+      "resumed": "Listing is live again.",
+      "markedSold": "Marked as sold.",
+      "renewed": "Listing renewed for another 60 days."
+    },
+    "errors": {
+      "load": "Could not load your listings.",
+      "action": "That action failed — try again."
+    }
+  },
+  "notifications": {
+    "meta": {
+      "title": "Notifications — Carsens"
+    },
+    "heading": "Notifications",
+    "loading": "Loading…",
+    "markAllRead": "Mark all read",
+    "empty": "Nothing here yet.",
+    "events": {
+      "MESSAGE_RECEIVED": "New message",
+      "LISTING_APPROVED": "Listing approved",
+      "LISTING_REJECTED": "Listing rejected",
+      "LISTING_EXPIRING": "Listing expiring soon",
+      "SAVED_SEARCH_MATCH": "New matches for a saved search",
+      "PRICE_DROP": "Price drop on a saved car",
+      "NEW_LEAD": "A buyer contacted you"
+    },
+    "prefs": {
+      "heading": "What we notify you about",
+      "hint": "Everything is on by default. Turn off anything you do not want.",
+      "event": "Event",
+      "inApp": "In app",
+      "email": "Email",
+      "toggleLabel": "{{event}} — {{channel}}"
+    },
+    "errors": {
+      "load": "Could not load notifications.",
+      "save": "Could not save that preference."
+    }
+  },
+  "privacy": {
+    "heading": "Your data",
+    "body": "Download everything we hold about you, or close your account permanently.",
+    "export": "Download my data",
+    "exportDone": "Your data file has been downloaded.",
+    "exportFailed": "Could not prepare your data. Try again.",
+    "delete": "Delete my account",
+    "deleteTitle": "Delete your account?",
+    "deleteWarning": "This removes your profile, saved cars, searches and alerts, and takes your listings offline. It cannot be undone.",
+    "confirmLabel": "Type {{email}} to confirm",
+    "cancel": "Cancel",
+    "deleteConfirm": "Delete permanently",
+    "deleteDone": "Your account has been closed.",
+    "deleteFailed": "Could not delete the account. Check the email and try again."
+  },
+  "unsubscribe": {
+    "meta": {
+      "title": "Unsubscribe — Carsens"
+    },
+    "heading": "Unsubscribe from emails",
+    "body": "This turns off every notification email. You will still see notifications in the app.",
+    "confirm": "Unsubscribe me",
+    "done": "You are unsubscribed from notification emails.",
+    "doneHint": "You can turn individual emails back on any time.",
+    "managePrefs": "Manage notification settings",
+    "invalid": "This unsubscribe link is not valid or has expired.",
+    "missingLink": "Open this page from the link in your email."
+  }
+}

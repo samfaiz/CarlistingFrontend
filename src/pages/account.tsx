@@ -1,18 +1,22 @@
 /**
- * /account — protected stub, task P0-05. The real User area arrives in P2;
- * this stays a single Panel: name/email/role, email-verified Badge, sign-out.
+ * /account — the User-area hub (P0-05 shell, filled in by P2-05): identity,
+ * links to listings/messages/saved/notifications, PDPL export + erasure,
+ * sign-out.
  *
  * Protection is two-layer: SSR (getServerSession → redirect /login?next=/account,
  * which the promoted RBAC E2E asserts works without JS) + client useSession
  * (required) to catch mid-session expiry/RefreshFailed.
  */
 import type { GetServerSideProps } from "next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { signOut, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import * as React from "react";
+import { BellRing, CarFront, Heart, MessageCircle } from "lucide-react";
+import { PrivacyPanel } from "@/components/account/privacy-panel";
 import { AuthLayout } from "@/components/auth/auth-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -76,6 +80,32 @@ export default function AccountPage() {
             </dd>
           </div>
         </dl>
+        {/* P2-05: the account hub — every user-area surface reachable in one hop. */}
+        <nav aria-label={t("account.sectionsLabel")}>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {[
+              { href: "/account/listings", icon: CarFront, key: "myListings" },
+              { href: "/account/messages", icon: MessageCircle, key: "messages" },
+              { href: "/account/saved", icon: Heart, key: "saved" },
+              { href: "/account/notifications", icon: BellRing, key: "notifications" },
+            ].map(({ href, icon: Icon, key }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="flex items-center gap-2 rounded-card border border-line p-3 text-sm font-semibold text-ink transition-colors hover:bg-page"
+                >
+                  <Icon className="size-4 text-brand-mid" aria-hidden />
+                  {t(`account.sections.${key}`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {session.accessToken && (
+          <PrivacyPanel accessToken={session.accessToken} email={session.user.email} />
+        )}
+
         <Button
           variant="outline"
           className="w-full"
@@ -107,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       session: JSON.parse(JSON.stringify(session)),
       ...(await serverSideTranslations(
         ctx.locale ?? nextI18NextConfig.i18n.defaultLocale,
-        ["common", "auth"],
+        ["common", "auth", "account"],
         nextI18NextConfig,
       )),
     },

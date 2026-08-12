@@ -52,5 +52,14 @@
     "chip": "Comparer",
     "chipLabel": "Ajouter au comparateur : {{title}}",
     "full": "Vous pouvez comparer jusqu'à 4 voitures"
+  },
+  "status": {
+    "DRAFT": "Brouillon",
+    "PENDING_REVIEW": "En révision",
+    "LIVE": "En ligne",
+    "PAUSED": "En pause",
+    "SOLD": "Vendue",
+    "EXPIRED": "Expirée",
+    "REJECTED": "Refusée"
   }
 }

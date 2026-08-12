@@ -1,0 +1,96 @@
+{
+  "listings": {
+    "meta": {
+      "title": "Mes annonces — Carsens"
+    },
+    "heading": "Mes annonces",
+    "total": "{{count}} annonce",
+    "total_other": "{{count}} annonces",
+    "filterLabel": "Filtrer par statut",
+    "filters": {
+      "all": "Toutes"
+    },
+    "loading": "Chargement de vos annonces…",
+    "published": "publiée {{time}}",
+    "pagination": "Pagination",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "pageOf": "Page {{page}} sur {{pages}}",
+    "empty": {
+      "title": "Vous n'avez pas encore d'annonces",
+      "cta": "Vendre ma voiture"
+    },
+    "actions": {
+      "pause": "Mettre en pause",
+      "resume": "Reprendre",
+      "sold": "Marquer vendue",
+      "renew": "Renouveler",
+      "paused": "Annonce mise en pause.",
+      "resumed": "L'annonce est de nouveau en ligne.",
+      "markedSold": "Marquée comme vendue.",
+      "renewed": "Annonce renouvelée pour 60 jours."
+    },
+    "errors": {
+      "load": "Impossible de charger vos annonces.",
+      "action": "L'action a échoué — réessayez."
+    }
+  },
+  "notifications": {
+    "meta": {
+      "title": "Notifications — Carsens"
+    },
+    "heading": "Notifications",
+    "loading": "Chargement…",
+    "markAllRead": "Tout marquer comme lu",
+    "empty": "Rien pour le moment.",
+    "events": {
+      "MESSAGE_RECEIVED": "Nouveau message",
+      "LISTING_APPROVED": "Annonce approuvée",
+      "LISTING_REJECTED": "Annonce refusée",
+      "LISTING_EXPIRING": "L'annonce expire bientôt",
+      "SAVED_SEARCH_MATCH": "Nouveaux résultats pour une recherche enregistrée",
+      "PRICE_DROP": "Baisse de prix sur une voiture enregistrée",
+      "NEW_LEAD": "Un acheteur vous a contacté"
+    },
+    "prefs": {
+      "heading": "Ce que nous vous notifions",
+      "hint": "Tout est activé par défaut. Désactivez ce que vous ne souhaitez pas.",
+      "event": "Événement",
+      "inApp": "Dans l'app",
+      "email": "E-mail",
+      "toggleLabel": "{{event}} — {{channel}}"
+    },
+    "errors": {
+      "load": "Impossible de charger les notifications.",
+      "save": "Impossible d’enregistrer ce réglage."
+    }
+  },
+  "privacy": {
+    "heading": "Vos données",
+    "body": "Téléchargez tout ce que nous conservons sur vous, ou fermez définitivement votre compte.",
+    "export": "Télécharger mes données",
+    "exportDone": "Votre fichier de données a été téléchargé.",
+    "exportFailed": "Impossible de préparer vos données. Réessayez.",
+    "delete": "Supprimer mon compte",
+    "deleteTitle": "Supprimer votre compte ?",
+    "deleteWarning": "Cela supprime votre profil, vos voitures enregistrées, recherches et alertes, et retire vos annonces. Action irréversible.",
+    "confirmLabel": "Saisissez {{email}} pour confirmer",
+    "cancel": "Annuler",
+    "deleteConfirm": "Supprimer définitivement",
+    "deleteDone": "Votre compte a été fermé.",
+    "deleteFailed": "Impossible de supprimer le compte. Vérifiez l’e-mail et réessayez."
+  },
+  "unsubscribe": {
+    "meta": {
+      "title": "Désabonnement — Carsens"
+    },
+    "heading": "Se désabonner des e-mails",
+    "body": "Cela désactive tous les e-mails de notification. Vous verrez toujours les notifications dans l'app.",
+    "confirm": "Me désabonner",
+    "done": "Vous êtes désabonné des e-mails de notification.",
+    "doneHint": "Vous pouvez les réactiver individuellement à tout moment.",
+    "managePrefs": "Gérer les notifications",
+    "invalid": "Ce lien de désabonnement n'est pas valide ou a expiré.",
+    "missingLink": "Ouvrez cette page depuis le lien de votre e-mail."
+  }
+}

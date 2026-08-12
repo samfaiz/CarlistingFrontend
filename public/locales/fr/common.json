@@ -31,5 +31,10 @@
     "success": "Recherche enregistrée",
     "error": "Impossible d'enregistrer cette recherche",
     "loginRequired": "Connectez-vous pour enregistrer des recherches"
+  },
+  "nav": {
+    "messages": "Messages",
+    "notifications": "Notifications",
+    "myListings": "Mes annonces"
   }
 }

@@ -35,7 +35,11 @@
   "contact": {
     "chat": "Chat",
     "call": "Call",
-    "comingSoon": "Chat and calls are coming soon — contact options unlock in the next release."
+    "showNumber": "Show number",
+    "whatsapp": "WhatsApp the seller",
+    "noPhone": "This seller has not added a phone number — use chat instead.",
+    "revealFailed": "Could not load the number. Try again.",
+    "chatFailed": "Could not open the conversation."
   },
   "share": {
     "button": "Share",

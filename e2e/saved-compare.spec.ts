@@ -33,9 +33,8 @@ test.beforeEach(({}, testInfo) => {
  * The backend throttles /auth/login to 10/min per IP, so we log in ONCE per run
  * and replay the session cookies into later tests instead of re-authenticating.
  */
-let sessionCookies: Awaited<ReturnType<Page["context"]>["cookies"]> extends Promise<infer T>
-  ? T | null
-  : null = null;
+type SessionCookies = Awaited<ReturnType<ReturnType<Page["context"]>["cookies"]>>;
+let sessionCookies: SessionCookies | null = null;
 
 async function login(page: Page) {
   if (sessionCookies) {

@@ -1,0 +1,96 @@
+{
+  "listings": {
+    "meta": {
+      "title": "Mis anuncios — Carsens"
+    },
+    "heading": "Mis anuncios",
+    "total": "{{count}} anuncio",
+    "total_other": "{{count}} anuncios",
+    "filterLabel": "Filtrar por estado",
+    "filters": {
+      "all": "Todos"
+    },
+    "loading": "Cargando tus anuncios…",
+    "published": "publicado {{time}}",
+    "pagination": "Paginación",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "pageOf": "Página {{page}} de {{pages}}",
+    "empty": {
+      "title": "Aún no tienes anuncios",
+      "cta": "Vende tu coche"
+    },
+    "actions": {
+      "pause": "Pausar",
+      "resume": "Reanudar",
+      "sold": "Marcar vendido",
+      "renew": "Renovar",
+      "paused": "Anuncio pausado.",
+      "resumed": "El anuncio vuelve a estar activo.",
+      "markedSold": "Marcado como vendido.",
+      "renewed": "Anuncio renovado por 60 días más."
+    },
+    "errors": {
+      "load": "No se pudieron cargar tus anuncios.",
+      "action": "La acción falló: inténtalo de nuevo."
+    }
+  },
+  "notifications": {
+    "meta": {
+      "title": "Notificaciones — Carsens"
+    },
+    "heading": "Notificaciones",
+    "loading": "Cargando…",
+    "markAllRead": "Marcar todo como leído",
+    "empty": "Aún no hay nada.",
+    "events": {
+      "MESSAGE_RECEIVED": "Mensaje nuevo",
+      "LISTING_APPROVED": "Anuncio aprobado",
+      "LISTING_REJECTED": "Anuncio rechazado",
+      "LISTING_EXPIRING": "El anuncio caduca pronto",
+      "SAVED_SEARCH_MATCH": "Nuevos resultados de una búsqueda guardada",
+      "PRICE_DROP": "Bajada de precio en un coche guardado",
+      "NEW_LEAD": "Un comprador te ha contactado"
+    },
+    "prefs": {
+      "heading": "Qué te notificamos",
+      "hint": "Todo está activado por defecto. Desactiva lo que no quieras.",
+      "event": "Evento",
+      "inApp": "En la app",
+      "email": "Correo",
+      "toggleLabel": "{{event}} — {{channel}}"
+    },
+    "errors": {
+      "load": "No se pudieron cargar las notificaciones.",
+      "save": "No se pudo guardar la preferencia."
+    }
+  },
+  "privacy": {
+    "heading": "Tus datos",
+    "body": "Descarga todo lo que guardamos sobre ti o cierra tu cuenta definitivamente.",
+    "export": "Descargar mis datos",
+    "exportDone": "Se ha descargado el archivo con tus datos.",
+    "exportFailed": "No se pudieron preparar tus datos. Inténtalo de nuevo.",
+    "delete": "Eliminar mi cuenta",
+    "deleteTitle": "¿Eliminar tu cuenta?",
+    "deleteWarning": "Esto elimina tu perfil, coches guardados, búsquedas y alertas, y retira tus anuncios. No se puede deshacer.",
+    "confirmLabel": "Escribe {{email}} para confirmar",
+    "cancel": "Cancelar",
+    "deleteConfirm": "Eliminar definitivamente",
+    "deleteDone": "Tu cuenta se ha cerrado.",
+    "deleteFailed": "No se pudo eliminar la cuenta. Revisa el correo e inténtalo de nuevo."
+  },
+  "unsubscribe": {
+    "meta": {
+      "title": "Cancelar suscripción — Carsens"
+    },
+    "heading": "Cancelar los correos",
+    "body": "Esto desactiva todos los correos de notificación. Seguirás viendo las notificaciones en la app.",
+    "confirm": "Cancelar mi suscripción",
+    "done": "Has cancelado la suscripción a los correos de notificación.",
+    "doneHint": "Puedes reactivar cada correo cuando quieras.",
+    "managePrefs": "Gestionar notificaciones",
+    "invalid": "Este enlace no es válido o ha caducado.",
+    "missingLink": "Abre esta página desde el enlace de tu correo."
+  }
+}

@@ -9,7 +9,7 @@
  * NOTE — rate limits: /search/listings is 60 req/min. Debounce any
  * filter-driven calls (300 ms+) in the consuming UI.
  */
-import { apiDelete, apiGet, apiPost } from "@/lib/api";
+import { apiDelete, apiGet, apiPatch, apiPost } from "@/lib/api";
 
 /* ------------------------------------------------------------------ */
 /* Types                                                              */
@@ -352,8 +352,25 @@ export function submitListing(
   );
 }
 
-export function myListings(accessToken: string): Promise<ListingDetail[]> {
-  return apiGet<ListingDetail[]>("/listings/mine", { token: accessToken });
+export interface MyListingsPage {
+  items: ListingDetail[];
+  total: number;
+  limit: number;
+  offset: number;
+}
+
+export function myListings(
+  accessToken: string,
+  params: { status?: string; limit?: number; offset?: number } = {},
+): Promise<MyListingsPage> {
+  const qs = new URLSearchParams();
+  if (params.status) qs.set("status", params.status);
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const suffix = qs.toString() ? `?${qs.toString()}` : "";
+  return apiGet<MyListingsPage>(`/listings/mine${suffix}`, {
+    token: accessToken,
+  });
 }
 
 /* ------------------------------------------------------------------ */
@@ -471,4 +488,254 @@ export function createTrimRequest(
   accessToken: string,
 ): Promise<{ id: string; status: string }> {
   return apiPost(`/taxonomy/trim-requests`, { details }, { token: accessToken });
+}
+
+/* ------------------------------------------------------------------ */
+/* Messaging — task P2-01/P2-02 (FR-U3)                               */
+/* ------------------------------------------------------------------ */
+
+export interface ConversationSummary {
+  id: string;
+  listing: {
+    id: string;
+    slug: string;
+    year: number;
+    priceAed: number;
+    make: { name: string };
+    model: { name: string };
+    media: { variants: unknown }[];
+  };
+  counterpart: { id: string; name: string };
+  role: "BUYER" | "SELLER";
+  lastMessage: { id: string; body: string; senderId: string; createdAt: string } | null;
+  lastMessageAt: string | null;
+  unread: number;
+}
+
+export interface ChatMessage {
+  id: string;
+  senderId: string;
+  body: string;
+  attachmentKey: string | null;
+  createdAt: string;
+  readAt: string | null;
+}
+
+export function openConversation(
+  listingId: string,
+  accessToken: string,
+): Promise<{ id: string; listingId: string; buyerId: string; sellerId: string }> {
+  return apiPost("/conversations", { listingId }, { token: accessToken });
+}
+
+export function getConversations(accessToken: string): Promise<ConversationSummary[]> {
+  return apiGet<ConversationSummary[]>("/conversations", { token: accessToken });
+}
+
+export function getUnreadMessageCount(
+  accessToken: string,
+): Promise<{ unread: number }> {
+  return apiGet("/conversations/unread-count", { token: accessToken });
+}
+
+export function getMessages(
+  conversationId: string,
+  accessToken: string,
+): Promise<{ conversationId: string; messages: ChatMessage[] }> {
+  return apiGet(`/conversations/${encodeURIComponent(conversationId)}/messages`, {
+    token: accessToken,
+  });
+}
+
+export function sendMessage(
+  conversationId: string,
+  body: string,
+  accessToken: string,
+): Promise<ChatMessage> {
+  return apiPost(
+    `/conversations/${encodeURIComponent(conversationId)}/messages`,
+    { body },
+    { token: accessToken },
+  );
+}
+
+export function markConversationRead(
+  conversationId: string,
+  accessToken: string,
+): Promise<{ read: boolean }> {
+  return apiPost(
+    `/conversations/${encodeURIComponent(conversationId)}/read`,
+    {},
+    { token: accessToken },
+  );
+}
+
+export function blockUser(
+  userId: string,
+  accessToken: string,
+  reason?: string,
+): Promise<unknown> {
+  return apiPost("/conversations/block", { userId, reason }, { token: accessToken });
+}
+
+export function unblockUser(userId: string, accessToken: string): Promise<unknown> {
+  return apiPost("/conversations/unblock", { userId }, { token: accessToken });
+}
+
+/* ------------------------------------------------------------------ */
+/* Leads — task P2-03 (FR-D2)                                         */
+/* ------------------------------------------------------------------ */
+
+export interface RevealedContact {
+  type: "CALL" | "WHATSAPP";
+  phone: string | null;
+  whatsappUrl: string | null;
+  sellerName: string | null;
+}
+
+/**
+ * Contact details are fetched on interaction only — they must never appear in
+ * the rendered HTML (FR-D6). Works signed-out; the token, when present, lets
+ * the backend dedupe repeat taps by the same person.
+ */
+export function revealContact(
+  listingId: string,
+  type: "CALL" | "WHATSAPP",
+  opts: { accessToken?: string; source?: string } = {},
+): Promise<RevealedContact> {
+  return apiPost(
+    `/listings/${encodeURIComponent(listingId)}/reveal-contact`,
+    { type, source: opts.source },
+    { token: opts.accessToken },
+  );
+}
+
+export function submitLeadForm(
+  listingId: string,
+  input: { name: string; email?: string; phone?: string; message?: string; source?: string },
+  accessToken?: string,
+): Promise<{ submitted: boolean }> {
+  return apiPost(
+    `/listings/${encodeURIComponent(listingId)}/lead-form`,
+    input,
+    { token: accessToken },
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Notifications — task P2-04 (FR-U4)                                 */
+/* ------------------------------------------------------------------ */
+
+export interface NotificationRow {
+  id: string;
+  type: string;
+  payload: Record<string, string> | null;
+  readAt: string | null;
+  createdAt: string;
+}
+
+export interface NotificationPreference {
+  event: string;
+  mandatory: boolean;
+  channels: { channel: "IN_APP" | "EMAIL"; enabled: boolean }[];
+}
+
+export function getNotifications(accessToken: string): Promise<NotificationRow[]> {
+  return apiGet<NotificationRow[]>("/notifications", { token: accessToken });
+}
+
+export function getUnreadNotificationCount(
+  accessToken: string,
+): Promise<{ unread: number }> {
+  return apiGet("/notifications/unread-count", { token: accessToken });
+}
+
+export function markNotificationsRead(accessToken: string): Promise<{ read: boolean }> {
+  return apiPost("/notifications/read-all", {}, { token: accessToken });
+}
+
+export function getNotificationPreferences(
+  accessToken: string,
+): Promise<NotificationPreference[]> {
+  return apiGet<NotificationPreference[]>("/notifications/preferences", {
+    token: accessToken,
+  });
+}
+
+export function setNotificationPreference(
+  input: { event: string; channel: "IN_APP" | "EMAIL"; enabled: boolean },
+  accessToken: string,
+): Promise<NotificationPreference[]> {
+  return apiPost<NotificationPreference[]>("/notifications/preferences", input, {
+    token: accessToken,
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* My listings actions — task P2-05 (FR-U5, FR-L1)                    */
+/* ------------------------------------------------------------------ */
+
+export function pauseListing(id: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/listings/${encodeURIComponent(id)}/pause`, {}, { token: accessToken });
+}
+
+export function resumeListing(id: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/listings/${encodeURIComponent(id)}/resume`, {}, { token: accessToken });
+}
+
+export function markListingSold(id: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/listings/${encodeURIComponent(id)}/sold`, {}, { token: accessToken });
+}
+
+export function renewListing(id: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/listings/${encodeURIComponent(id)}/renew`, {}, { token: accessToken });
+}
+
+export function getListingLeadStats(
+  id: string,
+  accessToken: string,
+): Promise<Record<string, number>> {
+  return apiGet(`/listings/${encodeURIComponent(id)}/lead-stats`, { token: accessToken });
+}
+
+/* ------------------------------------------------------------------ */
+/* Profile + PDPL rights — task P2-05 (PRD §13.4)                     */
+/* ------------------------------------------------------------------ */
+
+export interface UserProfile {
+  id: string;
+  email: string;
+  name: string;
+  phone: string | null;
+  locale: string;
+  role: string;
+  emailVerifiedAt: string | null;
+  createdAt: string;
+}
+
+export function getProfile(accessToken: string): Promise<UserProfile> {
+  return apiGet<UserProfile>("/users/me", { token: accessToken });
+}
+
+export function updateProfile(
+  input: { name?: string; phone?: string; locale?: string },
+  accessToken: string,
+): Promise<UserProfile> {
+  return apiPatch<UserProfile>("/users/me", input, { token: accessToken });
+}
+
+export function exportMyData(accessToken: string): Promise<Record<string, unknown>> {
+  return apiGet("/users/me/export", { token: accessToken });
+}
+
+export function deleteMyAccount(
+  confirmEmail: string,
+  accessToken: string,
+): Promise<{ deleted: boolean }> {
+  return apiDelete("/users/me", { token: accessToken, body: { confirmEmail } });
+}
+
+/** One-click unsubscribe target — signed link from an email, no session needed. */
+export function unsubscribeAllEmail(u: string, t: string): Promise<{ unsubscribed: boolean }> {
+  return apiPost("/notifications/unsubscribe", { u, t });
 }

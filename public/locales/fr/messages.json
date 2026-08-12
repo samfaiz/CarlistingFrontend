@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Messages — Carsens"
+  },
+  "heading": "Messages",
+  "loading": "Chargement…",
+  "safety": "Gardez la conversation sur Carsens. N'envoyez jamais d'argent et ne partagez pas vos coordonnées bancaires avant d'avoir vu la voiture.",
+  "status": {
+    "live": "En direct",
+    "offline": "Reconnexion…"
+  },
+  "list": {
+    "label": "Conversations",
+    "noMessages": "Pas encore de messages",
+    "unreadCount": "{{count}} non lus"
+  },
+  "thread": {
+    "empty": "Pas encore de messages — dites bonjour.",
+    "pickOne": "Sélectionnez une conversation pour la lire.",
+    "back": "Toutes les conversations"
+  },
+  "composer": {
+    "label": "Écrire un message",
+    "placeholder": "Écrivez un message…",
+    "send": "Envoyer"
+  },
+  "block": {
+    "action": "Bloquer",
+    "done": "Cette personne ne peut plus vous écrire.",
+    "notice": "La messagerie n'est pas disponible dans cette conversation."
+  },
+  "empty": {
+    "title": "Pas encore de conversations",
+    "hint": "Lorsque vous écrivez à un vendeur, la conversation apparaît ici.",
+    "cta": "Voir les voitures"
+  },
+  "errors": {
+    "loadFailed": "Impossible de charger vos messages.",
+    "sendFailed": "Message non envoyé — réessayez.",
+    "blocked": "La messagerie n'est pas disponible entre vous et cette personne.",
+    "blockFailed": "Impossible de bloquer cette personne."
+  }
+}

@@ -31,5 +31,10 @@
     "success": "Search saved",
     "error": "Could not save this search",
     "loginRequired": "Sign in to save searches"
+  },
+  "nav": {
+    "messages": "Messages",
+    "notifications": "Notifications",
+    "myListings": "My listings"
   }
 }

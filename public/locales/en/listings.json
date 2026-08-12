@@ -51,5 +51,14 @@
     "chip": "Compare",
     "chipLabel": "Add to compare: {{title}}",
     "full": "You can compare up to 4 cars"
+  },
+  "status": {
+    "DRAFT": "Draft",
+    "PENDING_REVIEW": "In review",
+    "LIVE": "Live",
+    "PAUSED": "Paused",
+    "SOLD": "Sold",
+    "EXPIRED": "Expired",
+    "REJECTED": "Rejected"
   }
 }

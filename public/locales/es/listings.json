@@ -52,5 +52,14 @@
     "chip": "Comparar",
     "chipLabel": "Añadir a comparar: {{title}}",
     "full": "Puedes comparar hasta 4 coches"
+  },
+  "status": {
+    "DRAFT": "Borrador",
+    "PENDING_REVIEW": "En revisión",
+    "LIVE": "Publicado",
+    "PAUSED": "Pausado",
+    "SOLD": "Vendido",
+    "EXPIRED": "Caducado",
+    "REJECTED": "Rechazado"
   }
 }

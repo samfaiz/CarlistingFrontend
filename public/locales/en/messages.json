@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Messages — Carsens"
+  },
+  "heading": "Messages",
+  "loading": "Loading…",
+  "safety": "Keep the conversation on Carsens. Never send money or share bank details before you have seen the car in person.",
+  "status": {
+    "live": "Live",
+    "offline": "Reconnecting…"
+  },
+  "list": {
+    "label": "Conversations",
+    "noMessages": "No messages yet",
+    "unreadCount": "{{count}} unread"
+  },
+  "thread": {
+    "empty": "No messages yet — say hello.",
+    "pickOne": "Select a conversation to read it.",
+    "back": "All conversations"
+  },
+  "composer": {
+    "label": "Write a message",
+    "placeholder": "Write a message…",
+    "send": "Send"
+  },
+  "block": {
+    "action": "Block",
+    "done": "This person can no longer message you.",
+    "notice": "Messaging is unavailable in this conversation."
+  },
+  "empty": {
+    "title": "No conversations yet",
+    "hint": "When you message a seller about a car, the conversation appears here.",
+    "cta": "Browse cars"
+  },
+  "errors": {
+    "loadFailed": "Could not load your messages.",
+    "sendFailed": "Message not sent — try again.",
+    "blocked": "Messaging is unavailable between you and this person.",
+    "blockFailed": "Could not block this person."
+  }
+}

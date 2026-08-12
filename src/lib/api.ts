@@ -92,9 +92,26 @@ export function apiPost<T>(
   });
 }
 
-export function apiDelete<T>(
+export function apiPatch<T>(
   path: string,
+  body: unknown,
   opts?: { token?: string },
 ): Promise<T> {
-  return request<T>(path, { method: "DELETE", token: opts?.token });
+  return request<T>(path, {
+    method: "PATCH",
+    body: JSON.stringify(body),
+    token: opts?.token,
+  });
+}
+
+/** DELETE carries a body for confirmation-guarded destructive calls (PDPL erasure). */
+export function apiDelete<T>(
+  path: string,
+  opts?: { token?: string; body?: unknown },
+): Promise<T> {
+  return request<T>(path, {
+    method: "DELETE",
+    token: opts?.token,
+    ...(opts?.body !== undefined ? { body: JSON.stringify(opts.body) } : {}),
+  });
 }

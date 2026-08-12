@@ -34,9 +34,13 @@
     }
   },
   "contact": {
-    "chat": "Discuter",
+    "chat": "Chat",
     "call": "Appeler",
-    "comingSoon": "Le chat et les appels arrivent bientôt — les options de contact seront activées dans la prochaine version."
+    "showNumber": "Afficher le numéro",
+    "whatsapp": "WhatsApp au vendeur",
+    "noPhone": "Ce vendeur n'a pas ajouté de numéro — utilisez le chat.",
+    "revealFailed": "Impossible de charger le numéro. Réessayez.",
+    "chatFailed": "Impossible d'ouvrir la conversation."
   },
   "share": {
     "button": "Partager",
