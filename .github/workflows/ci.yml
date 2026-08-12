@@ -17,4 +17,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      # Catalogue keys are invisible to tsc/eslint: a key the catalogue does not
+      # have renders as raw text to users. Guard it in CI.
+      - run: npm run check:locales
       - run: npm run build

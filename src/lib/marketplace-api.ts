@@ -739,3 +739,113 @@ export function deleteMyAccount(
 export function unsubscribeAllEmail(u: string, t: string): Promise<{ unsubscribed: boolean }> {
   return apiPost("/notifications/unsubscribe", { u, t });
 }
+
+/* ------------------------------------------------------------------ */
+/* Compare v2 — task P2-06 (FR-CV2–CV4, CV6)                          */
+/* ------------------------------------------------------------------ */
+
+export type ComparePriority =
+  | "price"
+  | "fuelEconomy"
+  | "performance"
+  | "space"
+  | "tech"
+  | "resale";
+
+export const COMPARE_PRIORITIES: ComparePriority[] = [
+  "price",
+  "fuelEconomy",
+  "performance",
+  "space",
+  "tech",
+  "resale",
+];
+
+export interface CompareMember {
+  kind: "LISTING" | "MODEL";
+  listingSlug?: string;
+  trimId?: string;
+  year?: number;
+  regionalSpec?: string;
+}
+
+export interface CompareColumn {
+  kind: "LISTING" | "MODEL";
+  key: string;
+  title: string;
+  slug: string | null;
+  listingId: string | null;
+  trimId: string | null;
+  year: number;
+  priceAed: number | null;
+  mileageKm: number | null;
+  coverKey: string | null;
+  liveCount?: number;
+}
+
+export interface CompareRow {
+  key: string;
+  group: string;
+  label: string;
+  unit: string | null;
+  values: (string | null)[];
+  winners: number[];
+  identical: boolean;
+}
+
+export interface CompareScores {
+  weights: Record<ComparePriority, number>;
+  breakdown: Record<string, (number | null)[]>;
+  totals: (number | null)[];
+  winner: number;
+}
+
+export interface CompareResult {
+  mode: "LISTING" | "MODEL" | "MIXED";
+  columns: CompareColumn[];
+  rows: CompareRow[];
+  scores: CompareScores;
+  sharedSlug?: string;
+}
+
+export function buildCompare(
+  members: CompareMember[],
+  weights?: Record<string, number>,
+): Promise<CompareResult> {
+  return apiPost<CompareResult>("/compare/build", { members, weights });
+}
+
+export interface QuizAnswers {
+  vehicleType?: "CAR" | "BIKE";
+  bodyTypeId?: string;
+  budgetMin?: number;
+  budgetMax?: number;
+  seats?: number;
+  usage?: string[];
+  priorityRanking?: string[];
+}
+
+export interface QuizResponse {
+  weights: Record<ComparePriority, number>;
+  suggestions: { slug: string; title: string; score: number }[];
+  quizResultId: string | null;
+}
+
+export function submitQuiz(
+  answers: QuizAnswers,
+  accessToken?: string,
+): Promise<QuizResponse> {
+  return apiPost<QuizResponse>("/compare/quiz", answers, { token: accessToken });
+}
+
+export function saveCompareSet(
+  members: CompareMember[],
+  weights?: Record<string, number>,
+  accessToken?: string,
+): Promise<{ id: string; sharedSlug: string; mode: string; createdAt: string }> {
+  return apiPost("/compare/sets", { members, weights }, { token: accessToken });
+}
+
+export function getCompareSet(slug: string): Promise<CompareResult & { sharedSlug: string }> {
+  return apiGet(`/compare/sets/${encodeURIComponent(slug)}`);
+}

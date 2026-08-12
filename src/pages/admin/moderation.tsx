@@ -84,7 +84,7 @@ function QueueRow({
           <p className="truncate font-bold text-ink">{title}</p>
           <p className="text-sm text-muted">
             {formatPrice(item.priceAed, locale)} · {formatMileage(item.mileageKm, locale)} ·{" "}
-            {item.media.length} {t("columns.photos").toLowerCase()}
+            {item.media.length} {t("moderation.columns.photos").toLowerCase()}
           </p>
           <p className="text-xs text-muted">
             {item.user?.email ?? item.sellerType} · {formatRelativeTime(item.updatedAt, locale)}
@@ -94,20 +94,20 @@ function QueueRow({
         <div className="flex shrink-0 flex-wrap items-center gap-2">
           <Button size="sm" variant="ghost" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
             <ChevronDown className={open ? "rotate-180 transition-transform" : "transition-transform"} aria-hidden />
-            {open ? t("collapse") : t("expand")}
+            {open ? t("moderation.collapse") : t("moderation.expand")}
           </Button>
           <Button size="sm" variant="outline" onClick={onReject} disabled={busy}>
-            {t("actions.reject")}
+            {t("moderation.actions.reject")}
           </Button>
           <Button size="sm" onClick={onApprove} loading={busy}>
-            {t("actions.approve")}
+            {t("moderation.actions.approve")}
           </Button>
         </div>
       </div>
 
       {open ? (
         <div className="border-t border-divider bg-page p-4">
-          <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">{t("detail.photos")}</p>
+          <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">{t("moderation.detail.photos")}</p>
           {item.media.length > 0 ? (
             <div className="mb-4 flex flex-wrap gap-2">
               {item.media.map((media) => (
@@ -119,20 +119,20 @@ function QueueRow({
               ))}
             </div>
           ) : (
-            <p className="mb-4 text-sm text-muted">{t("detail.noPhotos")}</p>
+            <p className="mb-4 text-sm text-muted">{t("moderation.detail.noPhotos")}</p>
           )}
 
-          <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">{t("detail.facts")}</p>
+          <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">{t("moderation.detail.facts")}</p>
           <dl className="grid grid-cols-2 gap-x-6 gap-y-1 text-sm sm:grid-cols-3">
             {[
-              [t("detail.price"), formatPrice(item.priceAed, locale)],
-              [t("detail.mileage"), formatMileage(item.mileageKm, locale)],
-              [t("detail.regionalSpec"), item.regionalSpec],
-              [t("detail.fuel"), item.fuelType],
-              [t("detail.transmission"), item.transmission],
-              [t("detail.exteriorColor"), item.exteriorColor ?? "—"],
-              [t("detail.vin"), item.vin ?? "—"],
-              [t("detail.sellerType"), item.sellerType],
+              [t("moderation.detail.price"), formatPrice(item.priceAed, locale)],
+              [t("moderation.detail.mileage"), formatMileage(item.mileageKm, locale)],
+              [t("moderation.detail.regionalSpec"), item.regionalSpec],
+              [t("moderation.detail.fuel"), item.fuelType],
+              [t("moderation.detail.transmission"), item.transmission],
+              [t("moderation.detail.exteriorColor"), item.exteriorColor ?? "—"],
+              [t("moderation.detail.vin"), item.vin ?? "—"],
+              [t("moderation.detail.sellerType"), item.sellerType],
             ].map(([label, value]) => (
               <div key={label}>
                 <dt className="text-xs text-muted">{label}</dt>
@@ -143,7 +143,7 @@ function QueueRow({
 
           {item.specsSnapshot ? (
             <>
-              <p className="mb-1 mt-4 text-xs font-bold uppercase tracking-wide text-muted">{t("detail.specs")}</p>
+              <p className="mb-1 mt-4 text-xs font-bold uppercase tracking-wide text-muted">{t("moderation.detail.specs")}</p>
               <p className="text-sm text-ink">
                 {item.specsSnapshot.groups
                   .flatMap((g) => g.fields.slice(0, 2).map((f) => `${f.name}: ${f.value}`))
@@ -193,10 +193,10 @@ export default function ModerationPage() {
     try {
       await approveListing(item.id, token);
       setQueue((rows) => rows?.filter((row) => row.id !== item.id) ?? rows);
-      toast({ title: t("toasts.approved"), variant: "success" });
+      toast({ title: t("moderation.toasts.approved"), variant: "success" });
     } catch (error) {
       toast({
-        title: t("toasts.actionFailed"),
+        title: t("moderation.toasts.actionFailed"),
         description: error instanceof Error ? error.message : undefined,
         variant: "error",
       });
@@ -212,12 +212,12 @@ export default function ModerationPage() {
     try {
       await rejectListing(target.id, reason.trim(), token);
       setQueue((rows) => rows?.filter((row) => row.id !== target.id) ?? rows);
-      toast({ title: t("toasts.rejected"), variant: "success" });
+      toast({ title: t("moderation.toasts.rejected"), variant: "success" });
       setRejecting(null);
       setReason("");
     } catch (error) {
       toast({
-        title: t("toasts.actionFailed"),
+        title: t("moderation.toasts.actionFailed"),
         description: error instanceof Error ? error.message : undefined,
         variant: "error",
       });
@@ -240,11 +240,11 @@ export default function ModerationPage() {
     );
     try {
       await setListingFeatured(listing.id, featured, token);
-      toast({ title: featured ? t("toasts.featured") : t("toasts.unfeatured"), variant: "success" });
+      toast({ title: featured ? t("moderation.toasts.featured") : t("moderation.toasts.unfeatured"), variant: "success" });
     } catch (error) {
       setLive(previous ?? null);
       toast({
-        title: t("toasts.actionFailed"),
+        title: t("moderation.toasts.actionFailed"),
         description: error instanceof Error ? error.message : undefined,
         variant: "error",
       });

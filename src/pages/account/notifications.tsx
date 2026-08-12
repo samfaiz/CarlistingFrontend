@@ -177,7 +177,7 @@ export default function NotificationsPage() {
                       >
                         <span className="min-w-0">
                           <span className="block text-sm font-bold text-ink">
-                            {t(`notifications.events.${row.type}.title`, {
+                            {t(`notifications.events.${row.type}`, {
                               defaultValue: row.type,
                             })}
                           </span>
@@ -228,7 +228,7 @@ export default function NotificationsPage() {
                   {prefs.map((pref, i) => (
                     <tr key={pref.event} className={i % 2 === 1 ? "bg-page" : undefined}>
                       <th scope="row" className="p-3 text-start font-medium text-ink">
-                        {t(`notifications.events.${pref.event}.title`, {
+                        {t(`notifications.events.${pref.event}`, {
                           defaultValue: pref.event,
                         })}
                       </th>
@@ -244,13 +244,14 @@ export default function NotificationsPage() {
                                 className="size-4 accent-[var(--color-brand)]"
                                 checked={ch.enabled}
                                 disabled={pref.mandatory}
+                                data-saving={savingKey === key || undefined}
                                 onChange={(e) =>
                                   void toggle(pref.event, channel, e.target.checked)
                                 }
                               />
                               <span className="sr-only">
                                 {t("notifications.prefs.toggleLabel", {
-                                  event: t(`notifications.events.${pref.event}.title`, {
+                                  event: t(`notifications.events.${pref.event}`, {
                                     defaultValue: pref.event,
                                   }),
                                   channel: t(

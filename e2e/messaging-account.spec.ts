@@ -190,3 +190,95 @@ test("unsubscribe page refuses a forged signature", async ({ page }) => {
   await page.getByRole("button", { name: /unsubscribe me/i }).click();
   await expect(page.getByText(/not valid|expired/i)).toBeVisible({ timeout: 15_000 });
 });
+
+/* ------------------------------------------------------------------ */
+/* Compare v2 — task P2-06 (FR-CV2–CV4, CV6)                          */
+/* ------------------------------------------------------------------ */
+
+/** Seeds the compare tray directly: the add-to-compare journey is P1-10's spec. */
+async function seedCompareTray(page: Page, count = 2) {
+  await page.goto("/");
+  const entries = await page.evaluate(async (n) => {
+    const res = await fetch(
+      "http://localhost:4000/api/v1/search/listings?limit=6&yearMin=2024&yearMax=2024&regionalSpec=GCC&q=land%20cruiser",
+    );
+    const { items } = await res.json();
+    const picked = items.slice(0, n).map((i: Record<string, never>) => i);
+    localStorage.setItem(
+      "carsens.compare.v1",
+      JSON.stringify(
+        picked.map((i: Record<string, never>) => ({
+          id: i.id,
+          slug: i.slug,
+          title: `${i.year} ${(i.make as unknown as { name: string }).name}`,
+          year: i.year,
+          priceAed: i.priceAed,
+          thumb: null,
+        })),
+      ),
+    );
+    return picked.length;
+  }, count);
+  expect(entries).toBe(count);
+}
+
+test("compare shows aligned rows, per-row winners and a match score", async ({ page }) => {
+  await seedCompareTray(page);
+  // Full load: the provider hydrates from storage once, on mount.
+  await page.goto("/compare");
+
+  await expect(page.getByRole("table")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText(/match score/i).first()).toBeVisible();
+
+  // At least one cell is marked as winning its row.
+  await expect(page.locator("td.bg-success-soft").first()).toBeVisible({ timeout: 20_000 });
+
+  const allRows = await page.locator("tbody tr").count();
+  await page.getByRole("checkbox").first().check();
+  await expect
+    .poll(async () => page.locator("tbody tr").count(), { timeout: 10_000 })
+    .toBeLessThan(allRows);
+});
+
+test("the quiz re-scores the comparison against the user's priorities", async ({ page }) => {
+  await seedCompareTray(page);
+  await page.goto("/compare");
+
+  await expect(page.getByText(/every priority weighted equally/i)).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await page.getByRole("button", { name: /find my match/i }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.getByRole("button", { name: /^family$/i }).click();
+  await page.getByRole("button", { name: /show my matches/i }).click();
+
+  // Full sentence: the success toast says something very similar, and a loose
+  // pattern matches both (strict-mode violation).
+  await expect(page.getByText(/scored against your priorities from the quiz/i)).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(page.getByText(/suggested for you/i)).toBeVisible();
+});
+
+test("a shared compare link opens for a signed-out visitor", async ({ page, context }) => {
+  await seedCompareTray(page);
+  await page.goto("/compare");
+  await expect(page.getByRole("table")).toBeVisible({ timeout: 20_000 });
+
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]).catch(() => {});
+  await page.getByRole("button", { name: /^share$/i }).click();
+
+  const shareLine = page.locator("main p", { hasText: /\/compare\?set=/ });
+  await expect(shareLine).toBeVisible({ timeout: 20_000 });
+  const url = (await shareLine.textContent())?.trim() ?? "";
+  expect(url).toMatch(/\/compare\?set=/);
+
+  // Open it in a clean context: a share link must not depend on local state.
+  const fresh = await context.browser()!.newContext();
+  const freshPage = await fresh.newPage();
+  await freshPage.goto(url);
+  await expect(freshPage.getByRole("table")).toBeVisible({ timeout: 20_000 });
+  await expect(freshPage.getByText(/shared comparison/i)).toBeVisible();
+  await fresh.close();
+});

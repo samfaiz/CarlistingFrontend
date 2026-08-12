@@ -31,7 +31,77 @@
     "regionalSpec": "Spécification régionale",
     "location": "Emplacement",
     "noValue": "—",
-    "basics": "Essentiels"
+    "basics": "Essentiels",
+    "rowHeader": "Caractéristique",
+    "winner": "meilleur sur cette ligne",
+    "modelColumn": "{{count}} en vente actuellement"
   },
-  "loading": "Chargement de la comparaison…"
+  "loading": "Construction de la comparaison…",
+  "sharedNotice": "Vous consultez une comparaison partagée. Les prix sont toujours à jour.",
+  "groups": {
+    "basics": "Essentiel",
+    "engine_performance": "Moteur et performances",
+    "dimensions_capacity": "Dimensions et capacité",
+    "exterior_interior": "Extérieur et intérieur",
+    "safety_technology": "Sécurité et technologie"
+  },
+  "rows": {
+    "price": "Prix",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "condition": "État",
+    "regionalSpec": "Spécification régionale",
+    "transmission": "Boîte de vitesses",
+    "fuelType": "Carburant",
+    "bodyType": "Carrosserie",
+    "emirate": "Emplacement",
+    "sellerType": "Vendeur"
+  },
+  "score": {
+    "label": "Score",
+    "best": "Meilleur choix",
+    "personalised": "Noté selon vos priorités issues du questionnaire.",
+    "defaultWeights": "Noté avec toutes les priorités à poids égal — faites le questionnaire pour personnaliser."
+  },
+  "share": {
+    "button": "Partager",
+    "copied": "Lien copié.",
+    "failed": "Impossible de créer le lien."
+  },
+  "quiz": {
+    "open": "Trouver ma voiture",
+    "title": "Trouvez votre voiture",
+    "intro": "Cinq questions rapides, puis nous classons les voitures selon vos critères.",
+    "budget": "Budget maximum (AED)",
+    "seats": "Places minimum",
+    "usage": "Quel usage ?",
+    "usageOptions": {
+      "city": "En ville",
+      "family": "Famille",
+      "offroad": "Tout-terrain",
+      "longDistance": "Longs trajets"
+    },
+    "priorities": "Classez vos priorités",
+    "prioritiesHint": "Placez votre priorité principale en première position.",
+    "priorityLabels": {
+      "price": "Prix",
+      "fuelEconomy": "Coûts d'usage",
+      "performance": "Performances",
+      "space": "Espace",
+      "tech": "Technologie",
+      "resale": "Valeur de revente"
+    },
+    "moveUp": "Monter {{item}}",
+    "moveDown": "Descendre {{item}}",
+    "submit": "Voir les résultats",
+    "cancel": "Annuler",
+    "applied": "Comparaison recalculée selon vos priorités.",
+    "failed": "Le questionnaire a échoué. Réessayez.",
+    "suggestionsTitle": "Suggestions pour vous — touchez pour ajouter à la comparaison"
+  },
+  "errors": {
+    "buildFailed": "Impossible de construire la comparaison. Réessayez.",
+    "sharedMissing": "Cette comparaison partagée n'est plus disponible.",
+    "addFailed": "Impossible d'ajouter cette voiture."
+  }
 }
