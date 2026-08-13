@@ -2566,3 +2566,8 @@
 .mk .faq-item .faq-chev {transition:transform .18s ease}
 .mk .ac-media-fallback,.mk .nf-media-fallback {width:100%;height:100%;min-height:160px;background:linear-gradient(135deg,var(--brand,#23416B),var(--brand-700,#1a3150))}
 .mk .article-related {margin-top:40px;padding-top:24px;border-top:1px solid var(--divider)}
+
+/* P4-06 — public banner slot */
+.mk .banner-slot {display:block;margin:0 0 16px;border-radius:var(--radius,12px);overflow:hidden}
+.mk .banner-slot img {display:block;width:100%;height:auto}
+.mk .banner-search-top {max-height:160px}

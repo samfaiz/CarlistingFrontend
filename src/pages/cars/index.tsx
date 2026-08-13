@@ -11,6 +11,7 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { BannerSlot } from "@/components/marketplace/banner-slot";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import {
   getMakes,
@@ -73,6 +74,7 @@ export default function MksearchPage({
         <main id="page-search" className="page">
           <div className="listings-wrap">
             <div className="container">
+              <BannerSlot slot="SEARCH_TOP" className="banner-slot banner-search-top" />
               <div className="breadcrumb">
                 <Link href="/">{t("breadcrumb.home")}</Link><span className="sep">›</span>
                 <Link href="/cars">{t("breadcrumb.usedCars")}</Link><span className="sep">›</span>

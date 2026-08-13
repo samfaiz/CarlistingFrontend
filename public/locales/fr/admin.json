@@ -13,7 +13,8 @@
       "reports": "Signalements",
       "support": "Support",
       "content": "Contenu",
-      "legal": "Pages légales"
+      "legal": "Pages légales",
+      "banners": "Bannières"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -343,6 +344,52 @@
     "toast": {
       "saved": "Page légale enregistrée.",
       "failed": "Échec de l’enregistrement."
+    }
+  },
+  "banners": {
+    "title": "Bannières",
+    "new": "Nouvelle bannière",
+    "newTitle": "Nouvelle bannière",
+    "editTitle": "Modifier la bannière",
+    "empty": "Aucune bannière pour l’instant.",
+    "allSlots": "Tous les emplacements",
+    "anyLocale": "Toute langue",
+    "anyEmirate": "Tout émirat",
+    "on": "Actif",
+    "off": "Inactif",
+    "activate": "Activer",
+    "deactivate": "Désactiver",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "needFields": "Le nom, l’image et l’URL de destination sont requis.",
+    "confirmDelete": "Supprimer « {{name}} » ?",
+    "columns": {
+      "name": "Nom",
+      "slot": "Emplacement",
+      "targeting": "Ciblage",
+      "stats": "Vues / clics",
+      "priority": "Priorité",
+      "active": "Actif",
+      "actions": "Actions"
+    },
+    "field": {
+      "name": "Nom",
+      "slot": "Emplacement",
+      "priority": "Priorité",
+      "image": "URL de l’image",
+      "target": "URL de destination",
+      "locale": "Langue",
+      "emirate": "Émirat",
+      "starts": "Début",
+      "ends": "Fin",
+      "active": "Actif"
+    },
+    "toast": {
+      "loadFailed": "Impossible de charger les bannières.",
+      "saved": "Bannière enregistrée.",
+      "failed": "Une erreur est survenue.",
+      "deleted": "Bannière supprimée."
     }
   }
 }

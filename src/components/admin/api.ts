@@ -500,3 +500,61 @@ export function upsertLegalDoc(
 ): Promise<LegalDocRow> {
   return apiPut(`/admin/content/legal/${encodeURIComponent(key)}`, input, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Banners — admin (P4-06, FR-AD7)                                    */
+/* ------------------------------------------------------------------ */
+
+export type BannerSlot = "HOME_HERO" | "HOME_STRIP" | "SEARCH_TOP" | "DETAIL_SIDEBAR";
+
+export interface BannerRow {
+  id: string;
+  name: string;
+  slot: BannerSlot;
+  imageUrl: string;
+  targetUrl: string;
+  locale: string | null;
+  emirateId: string | null;
+  emirate: { name: string; slug: string } | null;
+  startsAt: string | null;
+  endsAt: string | null;
+  active: boolean;
+  priority: number;
+  impressions: number;
+  clicks: number;
+}
+
+export interface BannerInput {
+  name: string;
+  slot: BannerSlot;
+  imageUrl: string;
+  targetUrl: string;
+  locale?: string | null;
+  emirateId?: string | null;
+  startsAt?: string | null;
+  endsAt?: string | null;
+  active?: boolean;
+  priority?: number;
+}
+
+export function getBanners(accessToken: string, params: { slot?: string; active?: boolean } = {}): Promise<BannerRow[]> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/banners${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+
+export function createBanner(input: BannerInput, accessToken: string): Promise<BannerRow> {
+  return apiPost(`/admin/banners`, input, { token: accessToken });
+}
+
+export function updateBanner(id: string, input: BannerInput, accessToken: string): Promise<BannerRow> {
+  return apiPut(`/admin/banners/${encodeURIComponent(id)}`, input, { token: accessToken });
+}
+
+export function setBannerActive(id: string, active: boolean, accessToken: string): Promise<BannerRow> {
+  return apiPost(`/admin/banners/${encodeURIComponent(id)}/active`, { active }, { token: accessToken });
+}
+
+export function deleteBanner(id: string, accessToken: string): Promise<{ deleted: boolean }> {
+  return apiDelete(`/admin/banners/${encodeURIComponent(id)}`, { token: accessToken });
+}

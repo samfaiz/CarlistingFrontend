@@ -14,6 +14,7 @@ import {
   CarFront,
   FileText,
   Flag,
+  Image as ImageIcon,
   Inbox,
   KeyRound,
   LifeBuoy,
@@ -103,6 +104,11 @@ export function AdminLayout({
       href: "/admin/legal",
       label: t("layout.nav.legal"),
       icon: Scale,
+    },
+    {
+      href: "/admin/banners",
+      label: t("layout.nav.banners"),
+      icon: ImageIcon,
     },
     {
       href: "/admin/security",

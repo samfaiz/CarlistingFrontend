@@ -13,7 +13,8 @@
       "reports": "Reportes",
       "support": "Soporte",
       "content": "Contenido",
-      "legal": "Páginas legales"
+      "legal": "Páginas legales",
+      "banners": "Banners"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -343,6 +344,52 @@
     "toast": {
       "saved": "Página legal guardada.",
       "failed": "No se pudo guardar."
+    }
+  },
+  "banners": {
+    "title": "Banners",
+    "new": "Nuevo banner",
+    "newTitle": "Nuevo banner",
+    "editTitle": "Editar banner",
+    "empty": "Aún no hay banners.",
+    "allSlots": "Todos los espacios",
+    "anyLocale": "Cualquier idioma",
+    "anyEmirate": "Cualquier emirato",
+    "on": "Activo",
+    "off": "Inactivo",
+    "activate": "Activar",
+    "deactivate": "Desactivar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "needFields": "Se requieren nombre, imagen y URL de destino.",
+    "confirmDelete": "¿Eliminar \"{{name}}\"?",
+    "columns": {
+      "name": "Nombre",
+      "slot": "Espacio",
+      "targeting": "Segmentación",
+      "stats": "Vistas / clics",
+      "priority": "Prioridad",
+      "active": "Activo",
+      "actions": "Acciones"
+    },
+    "field": {
+      "name": "Nombre",
+      "slot": "Espacio de ubicación",
+      "priority": "Prioridad",
+      "image": "URL de imagen",
+      "target": "URL de destino",
+      "locale": "Idioma",
+      "emirate": "Emirato",
+      "starts": "Inicia",
+      "ends": "Termina",
+      "active": "Activo"
+    },
+    "toast": {
+      "loadFailed": "No se pudieron cargar los banners.",
+      "saved": "Banner guardado.",
+      "failed": "Algo salió mal.",
+      "deleted": "Banner eliminado."
     }
   }
 }

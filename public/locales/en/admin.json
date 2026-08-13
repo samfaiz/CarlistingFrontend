@@ -13,7 +13,8 @@
       "reports": "Reports",
       "support": "Support",
       "content": "Content",
-      "legal": "Legal pages"
+      "legal": "Legal pages",
+      "banners": "Banners"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -343,6 +344,52 @@
     "toast": {
       "saved": "Legal page saved.",
       "failed": "Could not save."
+    }
+  },
+  "banners": {
+    "title": "Banners",
+    "new": "New banner",
+    "newTitle": "New banner",
+    "editTitle": "Edit banner",
+    "empty": "No banners yet.",
+    "allSlots": "All slots",
+    "anyLocale": "Any locale",
+    "anyEmirate": "Any emirate",
+    "on": "On",
+    "off": "Off",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "needFields": "Name, image and target URL are required.",
+    "confirmDelete": "Delete \"{{name}}\"?",
+    "columns": {
+      "name": "Name",
+      "slot": "Slot",
+      "targeting": "Targeting",
+      "stats": "Views / clicks",
+      "priority": "Priority",
+      "active": "Active",
+      "actions": "Actions"
+    },
+    "field": {
+      "name": "Name",
+      "slot": "Placement slot",
+      "priority": "Priority",
+      "image": "Image URL",
+      "target": "Target URL",
+      "locale": "Locale",
+      "emirate": "Emirate",
+      "starts": "Starts",
+      "ends": "Ends",
+      "active": "Active"
+    },
+    "toast": {
+      "loadFailed": "Could not load banners.",
+      "saved": "Banner saved.",
+      "failed": "Something went wrong.",
+      "deleted": "Banner deleted."
     }
   }
 }
