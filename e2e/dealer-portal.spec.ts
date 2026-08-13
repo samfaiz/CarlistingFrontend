@@ -83,8 +83,9 @@ test("dashboard shows the quota meter and role-filtered navigation", async ({ pa
     await expect(nav.getByRole("link", { name: item })).toBeVisible();
   }
 
-  // The unverified banner is present until an admin verifies the dealership.
-  await expect(page.getByText(/not verified/i).first()).toBeVisible();
+  // The fixture dealership completed the P3-01 verification workflow — the
+  // warning banner must be gone for a VERIFIED dealer.
+  await expect(page.getByText(/not verified/i)).toHaveCount(0);
 });
 
 test("inventory renders with status filters and no unbounded fetch", async ({ page }) => {
