@@ -9,7 +9,9 @@
       "security": "Sécurité",
       "users": "Utilisateurs",
       "listings": "Annonces",
-      "leads": "Prospects"
+      "leads": "Prospects",
+      "reports": "Signalements",
+      "support": "Support"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -226,5 +228,45 @@
       "won": "Gagnés"
     },
     "empty": "Aucun prospect de concession sur cette période."
+  },
+  "reports": {
+    "title": "Signalements",
+    "resolve": "Résoudre",
+    "dismiss": "Rejeter",
+    "empty": "Aucun signalement",
+    "columns": {
+      "listing": "Annonce",
+      "reason": "Motif",
+      "details": "Détails",
+      "status": "Statut",
+      "filed": "Déposé",
+      "actions": "Actions"
+    },
+    "toast": {
+      "resolved": "Signalement résolu",
+      "dismissed": "Signalement rejeté",
+      "failed": "Échec de l'action",
+      "loadFailed": "Impossible de charger les signalements"
+    }
+  },
+  "support": {
+    "title": "Support",
+    "open": "Ouvrir",
+    "empty": "Aucun ticket",
+    "notePlaceholder": "Note interne…",
+    "markInProgress": "En cours",
+    "close": "Fermer le ticket",
+    "columns": {
+      "subject": "Objet",
+      "from": "De",
+      "status": "Statut",
+      "received": "Reçu",
+      "actions": "Actions"
+    },
+    "toast": {
+      "updated": "Ticket mis à jour",
+      "failed": "Échec de l'action",
+      "loadFailed": "Impossible de charger les tickets"
+    }
   }
 }

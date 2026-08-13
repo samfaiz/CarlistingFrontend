@@ -9,7 +9,9 @@
       "security": "Seguridad",
       "users": "Usuarios",
       "listings": "Anuncios",
-      "leads": "Leads"
+      "leads": "Leads",
+      "reports": "Reportes",
+      "support": "Soporte"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -226,5 +228,45 @@
       "won": "Ganados"
     },
     "empty": "Sin leads de concesionarios en este período."
+  },
+  "reports": {
+    "title": "Reportes",
+    "resolve": "Resolver",
+    "dismiss": "Descartar",
+    "empty": "Sin reportes",
+    "columns": {
+      "listing": "Anuncio",
+      "reason": "Motivo",
+      "details": "Detalles",
+      "status": "Estado",
+      "filed": "Enviado",
+      "actions": "Acciones"
+    },
+    "toast": {
+      "resolved": "Reporte resuelto",
+      "dismissed": "Reporte descartado",
+      "failed": "Acción fallida",
+      "loadFailed": "No se pudieron cargar los reportes"
+    }
+  },
+  "support": {
+    "title": "Soporte",
+    "open": "Abrir",
+    "empty": "Sin tickets",
+    "notePlaceholder": "Nota interna…",
+    "markInProgress": "En curso",
+    "close": "Cerrar ticket",
+    "columns": {
+      "subject": "Asunto",
+      "from": "De",
+      "status": "Estado",
+      "received": "Recibido",
+      "actions": "Acciones"
+    },
+    "toast": {
+      "updated": "Ticket actualizado",
+      "failed": "Acción fallida",
+      "loadFailed": "No se pudieron cargar los tickets"
+    }
   }
 }

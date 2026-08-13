@@ -9,7 +9,9 @@
       "security": "Security",
       "users": "Users",
       "listings": "Listings",
-      "leads": "Leads"
+      "leads": "Leads",
+      "reports": "Reports",
+      "support": "Support"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -226,5 +228,45 @@
       "won": "Won"
     },
     "empty": "No dealer leads in this period."
+  },
+  "reports": {
+    "title": "Reports",
+    "resolve": "Resolve",
+    "dismiss": "Dismiss",
+    "empty": "No reports",
+    "columns": {
+      "listing": "Listing",
+      "reason": "Reason",
+      "details": "Details",
+      "status": "Status",
+      "filed": "Filed",
+      "actions": "Actions"
+    },
+    "toast": {
+      "resolved": "Report resolved",
+      "dismissed": "Report dismissed",
+      "failed": "Action failed",
+      "loadFailed": "Could not load reports"
+    }
+  },
+  "support": {
+    "title": "Support",
+    "open": "Open",
+    "empty": "No tickets",
+    "notePlaceholder": "Internal note…",
+    "markInProgress": "In progress",
+    "close": "Close ticket",
+    "columns": {
+      "subject": "Subject",
+      "from": "From",
+      "status": "Status",
+      "received": "Received",
+      "actions": "Actions"
+    },
+    "toast": {
+      "updated": "Ticket updated",
+      "failed": "Action failed",
+      "loadFailed": "Could not load tickets"
+    }
   }
 }

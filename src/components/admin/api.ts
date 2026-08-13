@@ -341,3 +341,60 @@ export function setAdminListingPaused(
     { token: accessToken },
   );
 }
+
+/* Reports + support inbox — task P4-04 (FR-AD5/AD8) */
+
+export interface ReportRow {
+  id: string;
+  reason: string;
+  details: string | null;
+  status: string;
+  createdAt: string;
+  listing: { id: string; slug: string; year: number; status: string; make: { name: string }; model: { name: string } } | null;
+}
+
+export function getReports(
+  accessToken: string,
+  params: { status?: string; limit?: number; offset?: number } = {},
+): Promise<{ items: ReportRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/reports${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+
+export function resolveReport(
+  id: string,
+  status: "RESOLVED" | "DISMISSED",
+  resolution: string | undefined,
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(`/admin/reports/${encodeURIComponent(id)}/resolve`, { status, resolution }, { token: accessToken });
+}
+
+export interface TicketRow {
+  id: string;
+  name: string;
+  email: string;
+  subject: string;
+  body: string;
+  status: string;
+  staffNote: string | null;
+  createdAt: string;
+}
+
+export function getTickets(
+  accessToken: string,
+  params: { status?: string; limit?: number; offset?: number } = {},
+): Promise<{ items: TicketRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/support${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+
+export function updateTicket(
+  id: string,
+  input: { status?: string; staffNote?: string },
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(`/admin/support/${encodeURIComponent(id)}`, input, { token: accessToken });
+}

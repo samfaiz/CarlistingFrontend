@@ -1390,3 +1390,16 @@ export function submitDealerVerification(
     { token: accessToken },
   );
 }
+
+/* ------------------------------------------------------------------ */
+/* Support — public contact form (P4-04, FR-AD8)                      */
+/* ------------------------------------------------------------------ */
+
+export function submitSupportTicket(input: {
+  name: string;
+  email: string;
+  subject: string;
+  body: string;
+}): Promise<{ id: string; status: string }> {
+  return apiPost("/support/tickets", input);
+}

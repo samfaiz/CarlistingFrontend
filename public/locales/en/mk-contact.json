@@ -113,5 +113,9 @@
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
     "youtube": "YouTube"
+  },
+  "sent": "Thanks — your message has been sent. We’ll reply by email.",
+  "errors": {
+    "generic": "Could not send your message. Please try again."
   }
 }

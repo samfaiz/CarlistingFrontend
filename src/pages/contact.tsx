@@ -5,10 +5,37 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { submitSupportTicket } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkcontactPage() {
   const { t } = useTranslation("mk-contact");
+  const [done, setDone] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+  const [busy, setBusy] = React.useState(false);
+
+  // Keep the pixel-exact mockup form, but really file a support ticket.
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setBusy(true);
+    const form = new FormData(e.currentTarget);
+    try {
+      await submitSupportTicket({
+        name: String(form.get("name") ?? ""),
+        email: String(form.get("email") ?? ""),
+        subject: String(form.get("subject") ?? "General"),
+        body: String(form.get("message") ?? ""),
+      });
+      setDone(true);
+      (e.currentTarget as HTMLFormElement).reset();
+    } catch {
+      setError(t("errors.generic", { defaultValue: "Could not send your message. Please try again." }));
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -67,11 +94,13 @@ export default function MkcontactPage() {
                   <h2>{t("form.title")}</h2>
                   <p>{t("form.subtitle")}</p>
 
-                  <form>
+                  <form onSubmit={onSubmit}>
+                    {done && <p role="status" style={{ color: "var(--success)", marginBottom: 12 }}>{t("sent", { defaultValue: "Thanks — your message has been sent. We’ll reply by email." })}</p>}
+                    {error && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{error}</p>}
                     <div className="contact-form-grid">
                       <div className="form-group">
                         <label>{t("form.name.label")}</label>
-                        <input className="form-input" placeholder={t("form.name.placeholder")} required />
+                        <input name="name" className="form-input" placeholder={t("form.name.placeholder")} required />
                       </div>
                       <div className="form-group">
                         <label>{t("form.mobile.label")}</label>
@@ -79,11 +108,11 @@ export default function MkcontactPage() {
                       </div>
                       <div className="form-group full">
                         <label>{t("form.email.label")}</label>
-                        <input className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
+                        <input name="email" className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
                       </div>
                       <div className="form-group full">
                         <label>{t("form.subject.label")}</label>
-                        <select className="form-input">
+                        <select name="subject" className="form-input" defaultValue="General">
                           <option>{t("form.subject.options.general")}</option>
                           <option>{t("form.subject.options.listing")}</option>
                           <option>{t("form.subject.options.account")}</option>
@@ -95,7 +124,7 @@ export default function MkcontactPage() {
                       </div>
                       <div className="form-group full">
                         <label>{t("form.message.label")}</label>
-                        <textarea placeholder={t("form.message.placeholder")} required></textarea>
+                        <textarea name="message" minLength={10} placeholder={t("form.message.placeholder")} required></textarea>
                       </div>
                       <div className="form-group full">
                         <label className="terms" style={{ margin: 0 }}>
@@ -104,7 +133,7 @@ export default function MkcontactPage() {
                         </label>
                       </div>
                       <div className="form-group full">
-                        <button className="btn btn-primary btn-lg" type="submit" style={{ marginRight: "8px" }}>
+                        <button className="btn btn-primary btn-lg" type="submit" disabled={busy} style={{ marginInlineEnd: "8px" }}>
                           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
                           {t("form.submit")}
                         </button>
