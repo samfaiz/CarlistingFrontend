@@ -17,7 +17,8 @@
       "banners": "Banners",
       "audit": "Audit log",
       "system": "System",
-      "spec": "Spec DB"
+      "spec": "Spec DB",
+      "analytics": "Analytics"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -543,5 +544,26 @@
       "resolved": "Request resolved",
       "empty": "No requests."
     }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "loading": "Loading…",
+    "loadFailed": "Could not load analytics.",
+    "runReport": "Generate weekly report",
+    "reportSent": "Weekly report {{week}} sent to {{n}} staff",
+    "reportFailed": "Could not generate the report.",
+    "days": "{{n}}d",
+    "kpi": {
+      "newUsers": "New users",
+      "newListings": "New listings",
+      "liveListings": "Live listings",
+      "newDealers": "New dealers",
+      "leads": "Leads",
+      "invoices": "Invoices issued",
+      "revenue": "Revenue"
+    },
+    "dailyActivity": "Daily activity",
+    "topMakes": "Top makes",
+    "noData": "No data yet"
   }
 }

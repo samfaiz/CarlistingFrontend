@@ -13,6 +13,7 @@ import {
   BadgeCheck,
   CarFront,
   FileText,
+  BarChart3,
   Database,
   Flag,
   History,
@@ -112,6 +113,11 @@ export function AdminLayout({
       href: "/admin/banners",
       label: t("layout.nav.banners"),
       icon: ImageIcon,
+    },
+    {
+      href: "/admin/analytics",
+      label: t("layout.nav.analytics"),
+      icon: BarChart3,
     },
     {
       href: "/admin/spec-workbench",

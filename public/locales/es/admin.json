@@ -17,7 +17,8 @@
       "banners": "Banners",
       "audit": "Registro de auditoría",
       "system": "Sistema",
-      "spec": "BD de fichas"
+      "spec": "BD de fichas",
+      "analytics": "Analíticas"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -543,5 +544,26 @@
       "resolved": "Solicitud resuelta",
       "empty": "Sin solicitudes."
     }
+  },
+  "analytics": {
+    "title": "Analíticas",
+    "loading": "Cargando…",
+    "loadFailed": "No se pudieron cargar las analíticas.",
+    "runReport": "Generar informe semanal",
+    "reportSent": "Informe {{week}} enviado a {{n}} del personal",
+    "reportFailed": "No se pudo generar el informe.",
+    "days": "{{n}}d",
+    "kpi": {
+      "newUsers": "Nuevos usuarios",
+      "newListings": "Nuevos anuncios",
+      "liveListings": "Anuncios en vivo",
+      "newDealers": "Nuevos concesionarios",
+      "leads": "Contactos",
+      "invoices": "Facturas emitidas",
+      "revenue": "Ingresos"
+    },
+    "dailyActivity": "Actividad diaria",
+    "topMakes": "Marcas principales",
+    "noData": "Sin datos aún"
   }
 }

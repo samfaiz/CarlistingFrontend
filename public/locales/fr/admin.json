@@ -17,7 +17,8 @@
       "banners": "Bannières",
       "audit": "Journal d’audit",
       "system": "Système",
-      "spec": "BD spécifications"
+      "spec": "BD spécifications",
+      "analytics": "Analytique"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -543,5 +544,26 @@
       "resolved": "Demande résolue",
       "empty": "Aucune demande."
     }
+  },
+  "analytics": {
+    "title": "Analytique",
+    "loading": "Chargement…",
+    "loadFailed": "Impossible de charger l'analytique.",
+    "runReport": "Générer le rapport hebdomadaire",
+    "reportSent": "Rapport {{week}} envoyé à {{n}} membres",
+    "reportFailed": "Impossible de générer le rapport.",
+    "days": "{{n}}j",
+    "kpi": {
+      "newUsers": "Nouveaux utilisateurs",
+      "newListings": "Nouvelles annonces",
+      "liveListings": "Annonces en ligne",
+      "newDealers": "Nouveaux concessionnaires",
+      "leads": "Prospects",
+      "invoices": "Factures émises",
+      "revenue": "Revenus"
+    },
+    "dailyActivity": "Activité quotidienne",
+    "topMakes": "Meilleures marques",
+    "noData": "Pas encore de données"
   }
 }

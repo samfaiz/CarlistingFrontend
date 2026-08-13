@@ -739,3 +739,22 @@ export function bulkVerifySpecs(ids: string[], accessToken: string): Promise<{ v
 export function resolveTrimRequest(id: string, status: "APPROVED" | "REJECTED", accessToken: string): Promise<{ id: string; status: string }> {
   return apiPost(`/admin/spec-workbench/requests/${encodeURIComponent(id)}/resolve`, { status }, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Analytics dashboards + weekly report (P4-09, FR-SA8)               */
+/* ------------------------------------------------------------------ */
+
+export interface AnalyticsReport {
+  from: string;
+  to: string;
+  days: number;
+  totals: { newUsers: number; newListings: number; liveListings: number; newDealers: number; leads: number; invoicesIssued: number; revenueAed: number };
+  series: { date: string; users: number; listings: number; leads: number }[];
+  topMakes: { make: string; listings: number }[];
+}
+export function getAnalytics(days: number, accessToken: string): Promise<AnalyticsReport> {
+  return apiGet(`/super-admin/analytics?days=${days}`, { token: accessToken });
+}
+export function runWeeklyReport(accessToken: string): Promise<{ week: string; recipients: number; pdfBytes: number }> {
+  return apiPost(`/super-admin/analytics/weekly-report/run`, {}, { token: accessToken });
+}
