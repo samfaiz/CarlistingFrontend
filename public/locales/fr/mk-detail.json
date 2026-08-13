@@ -295,7 +295,8 @@
     "tapToView": "— appuyer pour voir",
     "whatsapp": "WhatsApp au concessionnaire",
     "message": "Envoyer un message",
-    "testDrive": "Planifier un essai routier"
+    "testDrive": "Planifier un essai routier",
+    "pdf": "Télécharger la fiche technique (PDF)"
   },
   "finance": {
     "title": "Calculateur de financement",

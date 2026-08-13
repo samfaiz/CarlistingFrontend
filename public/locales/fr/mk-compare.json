@@ -15,7 +15,11 @@
     "save": "Enregistrer",
     "share": "Partager",
     "print": "Imprimer",
-    "addCar": "Ajouter une voiture"
+    "addCar": "Ajouter une voiture",
+    "exportPdf": "Exporter en PDF",
+    "exporting": "Export en cours…",
+    "aiVerdict": "Verdict IA",
+    "thinking": "Réflexion…"
   },
   "cars": {
     "heading": "Comparer 3 voitures",

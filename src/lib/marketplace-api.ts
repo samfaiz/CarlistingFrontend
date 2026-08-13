@@ -790,6 +790,8 @@ export interface CompareColumn {
   mileageKm: number | null;
   coverKey: string | null;
   liveCount?: number;
+  /** Flat fieldKey → value map from the spec snapshot (used by the AI verdict). */
+  specs?: Record<string, string>;
 }
 
 export interface CompareRow {

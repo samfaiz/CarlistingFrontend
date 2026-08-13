@@ -14,6 +14,7 @@ import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { useCompare } from "@/components/compare/compare-provider";
 import { formatPrice, mediaUrl } from "@/lib/format";
 import { buildCompare, type CompareResult } from "@/lib/marketplace-api";
+import { API_BASE_URL, apiPost } from "@/lib/api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkcomparePage() {
@@ -21,6 +22,39 @@ export default function MkcomparePage() {
   const { items, remove } = useCompare();
   const [result, setResult] = React.useState<CompareResult | null>(null);
   const [loading, setLoading] = React.useState(false);
+  const [pdfBusy, setPdfBusy] = React.useState(false);
+  const [verdictBusy, setVerdictBusy] = React.useState(false);
+  const [verdict, setVerdict] = React.useState<{ text: string; disclaimer: string } | null>(null);
+
+  // P5-05 compare export — fetch the PDF and open it in a new tab.
+  const exportPdf = async () => {
+    setPdfBusy(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/pdf/compare`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ members: items.map((i) => ({ kind: "LISTING", listingSlug: i.slug })) }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const blob = await res.blob();
+      window.open(URL.createObjectURL(blob), "_blank");
+    } catch { /* toast-free page; button re-enables */ }
+    finally { setPdfBusy(false); }
+  };
+
+  // P5-04 AI verdict — built from the already-computed compare table only.
+  const getVerdict = async () => {
+    if (!result) return;
+    setVerdictBusy(true);
+    try {
+      const v = await apiPost<{ text: string; disclaimer: string }>("/ai/compare-verdict", {
+        columns: result.columns.map((c) => ({ title: c.title, priceAed: c.priceAed, mileageKm: c.mileageKm, year: c.year, specs: c.specs ?? {} })),
+        rows: result.rows.map((r) => ({ label: r.label, values: r.values, winners: r.winners })),
+      });
+      setVerdict(v);
+    } catch { /* silently keep the page usable */ }
+    finally { setVerdictBusy(false); }
+  };
 
   React.useEffect(() => {
     if (items.length < 2) { setResult(null); return; }
@@ -53,6 +87,22 @@ export default function MkcomparePage() {
               <div className="compare-head">
                 <h1>{t("head.title")}</h1>
                 <p>{t("head.sub")}</p>
+                {items.length >= 2 && (
+                  <div style={{ display: "flex", gap: 10, marginTop: 12, flexWrap: "wrap" }}>
+                    <button type="button" className="btn btn-outline" onClick={() => void exportPdf()} disabled={pdfBusy}>
+                      📄 {pdfBusy ? t("actions.exporting", { defaultValue: "Exporting…" }) : t("actions.exportPdf", { defaultValue: "Export PDF" })}
+                    </button>
+                    <button type="button" className="btn btn-outline" onClick={() => void getVerdict()} disabled={verdictBusy}>
+                      ✨ {verdictBusy ? t("actions.thinking", { defaultValue: "Thinking…" }) : t("actions.aiVerdict", { defaultValue: "AI verdict" })}
+                    </button>
+                  </div>
+                )}
+                {verdict && (
+                  <div style={{ marginTop: 14, padding: "12px 16px", background: "var(--surface-2, #f2f5fa)", borderRadius: 10, maxWidth: 720 }}>
+                    <p style={{ fontSize: 14, lineHeight: 1.55 }}>{verdict.text}</p>
+                    <p style={{ fontSize: 11.5, color: "var(--text-3)", marginTop: 6 }}>{verdict.disclaimer}</p>
+                  </div>
+                )}
               </div>
 
               {items.length < 2 ? (

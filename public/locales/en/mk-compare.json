@@ -15,7 +15,11 @@
     "save": "Save",
     "share": "Share",
     "print": "Print",
-    "addCar": "Add a car"
+    "addCar": "Add a car",
+    "exportPdf": "Export PDF",
+    "exporting": "Exporting…",
+    "aiVerdict": "AI verdict",
+    "thinking": "Thinking…"
   },
   "cars": {
     "heading": "Compare 3 cars",

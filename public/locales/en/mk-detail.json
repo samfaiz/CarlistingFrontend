@@ -295,7 +295,8 @@
     "tapToView": "— tap to view",
     "whatsapp": "WhatsApp dealer",
     "message": "Send a message",
-    "testDrive": "Schedule a test drive"
+    "testDrive": "Schedule a test drive",
+    "pdf": "Download spec sheet (PDF)"
   },
   "finance": {
     "title": "Finance calculator",
