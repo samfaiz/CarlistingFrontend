@@ -18,7 +18,8 @@
     "openNow": "Open now until 9 PM",
     "contact": "Contact dealer",
     "follow": "Follow",
-    "share": "Share"
+    "share": "Share",
+    "memberSinceYears": "{{count}} years on Carsens"
   },
   "stats": {
     "activeVal": "432",
@@ -30,7 +31,9 @@
     "replyVal": "~2 hrs",
     "replyLabel": "Avg. reply time",
     "soldVal": "12,400+",
-    "soldLabel": "Cars sold"
+    "soldLabel": "Cars sold",
+    "locationsLabel": "Locations",
+    "brandsLabel": "Brands"
   },
   "tabs": {
     "inventory": "All cars (432)",
@@ -49,7 +52,7 @@
       "6": "Reduced (18)"
     },
     "toolbarCount": "432 cars",
-    "toolbarFrom": "from Al Tayer Motors",
+    "toolbarFrom": "cars in stock",
     "sortBy": "Sort by",
     "sort": {
       "relevant": "Most relevant",
@@ -146,7 +149,8 @@
         "spec1": "Petrol",
         "spec2": "Auto"
       }
-    }
+    },
+    "empty": "No cars listed right now."
   },
   "about": {
     "heading": "About Al Tayer Motors",
@@ -179,7 +183,8 @@
         "title": "Free inspection at home",
         "desc": "Not sure? Book a free 200-point inspection at your location before signing anything."
       }
-    }
+    },
+    "title": "About"
   },
   "reviews": {
     "summaryNum": "4.8",
@@ -272,7 +277,8 @@
         "hours0": "Mon–Sat: 9 AM – 9 PM (closed Friday)",
         "phone": "+971 6 555 9012"
       }
-    }
+    },
+    "title": "Locations"
   },
   "sidebar": {
     "contact": {
@@ -319,6 +325,7 @@
         "4": "Financing from 7 UAE banks",
         "5": "Free delivery in UAE"
       }
-    }
+    },
+    "brands": "Brands"
   }
 }

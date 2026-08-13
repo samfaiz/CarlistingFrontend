@@ -18,7 +18,8 @@
     "openNow": "Ouvert maintenant jusqu'à 21 h",
     "contact": "Contacter le concessionnaire",
     "follow": "Suivre",
-    "share": "Partager"
+    "share": "Partager",
+    "memberSinceYears": "{{count}} ans sur Carsens"
   },
   "stats": {
     "activeVal": "432",
@@ -30,7 +31,9 @@
     "replyVal": "~2 h",
     "replyLabel": "Délai de réponse moyen",
     "soldVal": "12,400+",
-    "soldLabel": "Voitures vendues"
+    "soldLabel": "Voitures vendues",
+    "locationsLabel": "Emplacements",
+    "brandsLabel": "Marques"
   },
   "tabs": {
     "inventory": "Toutes les voitures (432)",
@@ -49,7 +52,7 @@
       "6": "Réduites (18)"
     },
     "toolbarCount": "432 voitures",
-    "toolbarFrom": "de Al Tayer Motors",
+    "toolbarFrom": "voitures en stock",
     "sortBy": "Trier par",
     "sort": {
       "relevant": "Plus pertinent",
@@ -146,7 +149,8 @@
         "spec1": "Essence",
         "spec2": "Automatique"
       }
-    }
+    },
+    "empty": "Aucune voiture listée pour le moment."
   },
   "about": {
     "heading": "À propos de Al Tayer Motors",
@@ -179,7 +183,8 @@
         "title": "Inspection gratuite à domicile",
         "desc": "Vous hésitez ? Réservez une inspection gratuite en 200 points à votre emplacement avant de signer quoi que ce soit."
       }
-    }
+    },
+    "title": "À propos"
   },
   "reviews": {
     "summaryNum": "4.8",
@@ -272,7 +277,8 @@
         "hours0": "Lun–Sam : 9 h – 21 h (fermé le vendredi)",
         "phone": "+971 6 555 9012"
       }
-    }
+    },
+    "title": "Emplacements"
   },
   "sidebar": {
     "contact": {
@@ -319,6 +325,7 @@
         "4": "Financement de 7 banques des ÉAU",
         "5": "Livraison gratuite aux ÉAU"
       }
-    }
+    },
+    "brands": "Marques"
   }
 }
