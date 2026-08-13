@@ -5,9 +5,11 @@
     "nav": {
       "label": "Admin navigation",
       "moderation": "Moderation",
-      "verification": "Verification"
+      "verification": "Verification",
+      "security": "Security"
     },
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "stepUpRedirect": "Redirecting to the passkey step-up…"
   },
   "home": {
     "title": "Admin workspace",
@@ -112,6 +114,24 @@
       "failed": "The action could not be completed",
       "loadFailed": "Could not load the queue",
       "licenceFailed": "Could not open the licence"
+    }
+  },
+  "security": {
+    "title": "Security",
+    "heading": "Passkey step-up",
+    "active": "Stepped up",
+    "explainer": "Admin actions require a passkey in addition to your password. The step-up lasts 12 hours.",
+    "unsupported": "This browser does not support passkeys (WebAuthn). Use a current Chrome, Edge, Safari or Firefox.",
+    "unnamedKey": "Unnamed passkey",
+    "lastUsed": "Used {{time}}",
+    "labelField": "Passkey name",
+    "labelPlaceholder": "e.g. Work laptop",
+    "enrol": "Create passkey",
+    "stepUp": "Verify with passkey",
+    "toast": {
+      "enrolled": "Passkey created — you are stepped up",
+      "steppedUp": "Step-up verified",
+      "failed": "The passkey ceremony did not complete"
     }
   }
 }

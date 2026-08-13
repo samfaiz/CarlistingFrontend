@@ -5,9 +5,11 @@
     "nav": {
       "label": "Navegación de administración",
       "moderation": "Moderación",
-      "verification": "Verificación"
+      "verification": "Verificación",
+      "security": "Seguridad"
     },
-    "signOut": "Cerrar sesión"
+    "signOut": "Cerrar sesión",
+    "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
   },
   "home": {
     "title": "Espacio de administración",
@@ -112,6 +114,24 @@
       "failed": "No se pudo completar la acción",
       "loadFailed": "No se pudo cargar la cola",
       "licenceFailed": "No se pudo abrir la licencia"
+    }
+  },
+  "security": {
+    "title": "Seguridad",
+    "heading": "Verificación con passkey",
+    "active": "Verificado",
+    "explainer": "Las acciones de administración requieren una passkey además de tu contraseña. La verificación dura 12 horas.",
+    "unsupported": "Este navegador no admite passkeys (WebAuthn). Usa una versión actual de Chrome, Edge, Safari o Firefox.",
+    "unnamedKey": "Passkey sin nombre",
+    "lastUsed": "Usada {{time}}",
+    "labelField": "Nombre de la passkey",
+    "labelPlaceholder": "p. ej., Portátil del trabajo",
+    "enrol": "Crear passkey",
+    "stepUp": "Verificar con passkey",
+    "toast": {
+      "enrolled": "Passkey creada — verificación completada",
+      "steppedUp": "Verificación completada",
+      "failed": "La ceremonia de la passkey no se completó"
     }
   }
 }

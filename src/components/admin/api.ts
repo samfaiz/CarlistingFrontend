@@ -161,3 +161,73 @@ export function rejectDealerVerification(
     { token: accessToken },
   );
 }
+
+/* Staff WebAuthn (P4-01, AC-AUTH-04) — enrolment + step-up */
+
+export interface WebAuthnCredentialRow {
+  id: string;
+  label: string | null;
+  createdAt: string;
+  lastUsedAt: string | null;
+}
+
+export function getWebAuthnCredentials(
+  accessToken: string,
+): Promise<WebAuthnCredentialRow[]> {
+  return apiGet("/auth/webauthn/credentials", { token: accessToken });
+}
+
+export function getRegistrationOptions(accessToken: string): Promise<unknown> {
+  return apiPost("/auth/webauthn/registration/options", {}, { token: accessToken });
+}
+
+export function verifyRegistration(
+  response: unknown,
+  label: string,
+  accessToken: string,
+): Promise<{ accessToken: string; refreshToken: string }> {
+  return apiPost(
+    "/auth/webauthn/registration/verify",
+    { response, label },
+    { token: accessToken },
+  );
+}
+
+export function getAuthenticationOptions(accessToken: string): Promise<unknown> {
+  return apiPost("/auth/webauthn/authentication/options", {}, { token: accessToken });
+}
+
+export function verifyAuthentication(
+  response: unknown,
+  accessToken: string,
+): Promise<{ verified: boolean; accessToken: string; refreshToken: string }> {
+  return apiPost(
+    "/auth/webauthn/authentication/verify",
+    { response },
+    { token: accessToken },
+  );
+}
+
+/**
+ * Decode the backend access token's payload (amr/wvat) without verifying —
+ * the API is the enforcement point; this only decides which screen to show.
+ */
+export function decodeStaffStepUp(accessToken: string | undefined): {
+  isSteppedUp: boolean;
+  hasWebAuthnAmr: boolean;
+} {
+  if (!accessToken) return { isSteppedUp: false, hasWebAuthnAmr: false };
+  try {
+    const payload = JSON.parse(
+      atob(accessToken.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")),
+    ) as { amr?: string[]; wvat?: number };
+    const hasAmr = payload.amr?.includes("webauthn") ?? false;
+    // Mirror of the backend's 12h max age — the guard is authoritative.
+    const fresh =
+      typeof payload.wvat === "number" &&
+      Date.now() / 1000 - payload.wvat < 12 * 3600;
+    return { isSteppedUp: hasAmr && fresh, hasWebAuthnAmr: hasAmr };
+  } catch {
+    return { isSteppedUp: false, hasWebAuthnAmr: false };
+  }
+}

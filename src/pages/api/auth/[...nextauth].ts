@@ -132,7 +132,7 @@ export const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       // Initial sign-in: seed the NextAuth JWT from authorize()'s result.
       if (user) {
         return {
@@ -145,6 +145,23 @@ export const authOptions: AuthOptions = {
           accessToken: user.accessToken,
           refreshToken: user.refreshToken,
           accessTokenExpires: user.accessTokenExpires,
+        };
+      }
+      // WebAuthn step-up (P4-01): the backend minted a fresh pair carrying
+      // amr=webauthn; the client hands it over via useSession().update(). A
+      // forged pair is harmless — the API verifies signatures on every call.
+      if (
+        trigger === "update" &&
+        typeof (session as { accessToken?: unknown })?.accessToken === "string" &&
+        typeof (session as { refreshToken?: unknown })?.refreshToken === "string"
+      ) {
+        const pair = session as { accessToken: string; refreshToken: string };
+        return {
+          ...token,
+          accessToken: pair.accessToken,
+          refreshToken: pair.refreshToken,
+          accessTokenExpires: decodeAccessTokenExpiry(pair.accessToken),
+          error: undefined,
         };
       }
       // Still comfortably valid — reuse.

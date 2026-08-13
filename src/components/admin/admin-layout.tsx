@@ -8,7 +8,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
-import { BadgeCheck, LogOut, ShieldCheck } from "lucide-react";
+import * as React from "react";
+import { BadgeCheck, KeyRound, LogOut, ShieldCheck } from "lucide-react";
+import { decodeStaffStepUp } from "@/components/admin/api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,15 +18,33 @@ import { cn } from "@/lib/utils";
 export function AdminLayout({
   title,
   children,
+  skipStepUpGate = false,
 }: {
   /** Localized page title (browser tab: "<title> — Carsens Admin"). */
   title: string;
   children: React.ReactNode;
+  /** Only /admin/security sets this — the airlock cannot gate itself. */
+  skipStepUpGate?: boolean;
 }) {
   const { t } = useTranslation("admin");
   const { t: tCommon } = useTranslation("common");
   const router = useRouter();
   const { data: session } = useSession();
+
+  // AC-AUTH-04: every staff surface requires a fresh WebAuthn step-up. The
+  // API guard is authoritative; this decode only routes to the airlock early
+  // instead of letting every fetch 403.
+  const needsStepUp =
+    !skipStepUpGate &&
+    Boolean(session?.accessToken) &&
+    !decodeStaffStepUp(session?.accessToken).isSteppedUp;
+  React.useEffect(() => {
+    if (needsStepUp) {
+      void router.replace(
+        `/admin/security?next=${encodeURIComponent(router.asPath)}`,
+      );
+    }
+  }, [needsStepUp, router]);
 
   const nav = [
     {
@@ -36,6 +56,11 @@ export function AdminLayout({
       href: "/admin/verification",
       label: t("layout.nav.verification"),
       icon: BadgeCheck,
+    },
+    {
+      href: "/admin/security",
+      label: t("layout.nav.security"),
+      icon: KeyRound,
     },
   ];
 
@@ -111,7 +136,15 @@ export function AdminLayout({
           </div>
         </aside>
 
-        <main className="min-w-0 flex-1 p-4 sm:p-6">{children}</main>
+        <main className="min-w-0 flex-1 p-4 sm:p-6">
+          {needsStepUp ? (
+            <p className="p-8 text-center text-sm text-muted">
+              {t("layout.stepUpRedirect")}
+            </p>
+          ) : (
+            children
+          )}
+        </main>
       </div>
     </>
   );
