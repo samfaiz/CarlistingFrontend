@@ -385,6 +385,15 @@
     "note": "Enregistré en brouillon — ajoutez des photos depuis votre compte pour publier."
   },
   "errors": {
-    "generic": "Impossible de créer l'annonce. Vérifiez les champs et réessayez."
+    "generic": "Impossible de créer l'annonce. Vérifiez les champs et réessayez.",
+    "ai": "L'IA est indisponible pour le moment."
+  },
+  "ai": {
+    "generate": "Générer avec l'IA",
+    "working": "En cours…",
+    "descHint": "L'IA rédige uniquement à partir de vos données ; relisez avant publication.",
+    "suggestPrice": "Suggérer un prix juste",
+    "confidence": "confiance",
+    "comparables": "comparables"
   }
 }

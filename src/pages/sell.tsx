@@ -20,9 +20,12 @@ import {
   getModels,
   getMakes,
   getTaxonomyMeta,
+  generateDescription,
+  getValuation,
   type TaxonomyMake,
   type TaxonomyModel,
   type TaxonomyTerm,
+  type ValuationResult,
 } from "@/lib/marketplace-api";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import nextI18NextConfig from "../../next-i18next.config.js";
@@ -52,11 +55,46 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   });
 
   const set = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }));
+  const [aiBusy, setAiBusy] = React.useState(false);
+  const [valuation, setValuation] = React.useState<ValuationResult | null>(null);
 
   const onMake = async (makeId: string) => {
     set("makeId", makeId);
     set("modelId", "");
     setModels(makeId ? await getModels(makeId).catch(() => []) : []);
+  };
+
+  const makeName = makes.find((m) => m.id === form.makeId)?.name ?? "";
+  const modelName = models.find((m) => m.id === form.modelId)?.name ?? "";
+  const canAssist = Boolean(form.makeId && form.modelId && form.year);
+
+  const onGenerateDescription = async () => {
+    if (!canAssist) return;
+    setAiBusy(true);
+    try {
+      const res = await generateDescription({
+        make: makeName, model: modelName, year: Number(form.year),
+        mileageKm: form.mileageKm ? Number(form.mileageKm) : undefined,
+        fuelType: form.fuelType, transmission: form.transmission,
+        regionalSpec: form.regionalSpec, tone: "professional",
+        locale: router.locale ?? "en",
+      });
+      set("description", res.text);
+    } catch { setError(t("errors.ai", { defaultValue: "AI is unavailable right now." })); }
+    finally { setAiBusy(false); }
+  };
+
+  const onSuggestPrice = async () => {
+    if (!canAssist) return;
+    setAiBusy(true);
+    try {
+      setValuation(await getValuation({
+        makeId: form.makeId, modelId: form.modelId, year: Number(form.year),
+        mileageKm: form.mileageKm ? Number(form.mileageKm) : undefined,
+        locale: router.locale ?? "en",
+      }));
+    } catch { setError(t("errors.ai", { defaultValue: "AI is unavailable right now." })); }
+    finally { setAiBusy(false); }
   };
 
   const canSubmit = form.makeId && form.modelId && form.year && form.priceAed && form.mileageKm && form.emirateId;
@@ -187,9 +225,29 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                       </div>
                     </div>
                     <div className="ds-field full" style={{ marginTop: 12 }}>
-                      <label>{t("step3.descLabel", { defaultValue: "Description" })}</label>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                        <label>{t("step3.descLabel", { defaultValue: "Description" })}</label>
+                        <button type="button" className="btn btn-outline btn-sm" disabled={!canAssist || aiBusy} onClick={() => void onGenerateDescription()}>
+                          ✨ {aiBusy ? t("ai.working", { defaultValue: "Working…" }) : t("ai.generate", { defaultValue: "Generate with AI" })}
+                        </button>
+                      </div>
                       <textarea className="form-input" rows={4} value={form.description} onChange={(e) => set("description", e.target.value)} placeholder={t("step3.descPlaceholder", { defaultValue: "Tell buyers about the car (min 20 characters)…" })} />
+                      <p style={{ color: "var(--text-3)", fontSize: 12, marginTop: 4 }}>{t("ai.descHint", { defaultValue: "AI drafts from your specs only — review before publishing." })}</p>
                     </div>
+                    {canAssist && (
+                      <div className="ds-field full" style={{ marginTop: 8 }}>
+                        <button type="button" className="btn btn-outline btn-sm" disabled={aiBusy} onClick={() => void onSuggestPrice()}>
+                          {t("ai.suggestPrice", { defaultValue: "Suggest a fair price" })}
+                        </button>
+                        {valuation && (
+                          <div style={{ marginTop: 8, padding: "10px 12px", background: "var(--surface-2, #f6f8fc)", borderRadius: 8, fontSize: 13 }}>
+                            <strong>AED {valuation.low.toLocaleString()} – {valuation.high.toLocaleString()}</strong>{" "}
+                            <span style={{ color: "var(--text-3)" }}>({t("ai.confidence", { defaultValue: "confidence" })}: {valuation.confidence}, {valuation.comparableCount} {t("ai.comparables", { defaultValue: "comparables" })})</span>
+                            <div style={{ color: "var(--text-3)", marginTop: 4 }}>{valuation.disclaimer}</div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
 
                   <button type="submit" className="btn btn-primary btn-xl" disabled={!canSubmit || busy}>

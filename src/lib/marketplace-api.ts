@@ -1484,3 +1484,25 @@ export function getHelpArticle(slug: string, locale: string): Promise<ArticleDet
 export function getLegalDoc(key: string, locale: string): Promise<LegalDoc> {
   return apiGet(`/content/legal/${encodeURIComponent(key)}?locale=${locale}`);
 }
+
+/* ------------------------------------------------------------------ */
+/* AI features — public (P5-03, FR-AI2/AI3/AI4)                       */
+/* ------------------------------------------------------------------ */
+
+export interface DescriptionResult { text: string; provider: string; model: string; guardrailCorrected: boolean; }
+export function generateDescription(input: {
+  listingId?: string; make: string; model: string; year: number; trim?: string; bodyType?: string;
+  mileageKm?: number; fuelType?: string; transmission?: string; regionalSpec?: string;
+  exteriorColor?: string; interiorColor?: string; condition?: string; features?: string[];
+  tone?: "professional" | "enthusiastic" | "concise"; locale?: string;
+}): Promise<DescriptionResult> {
+  return apiPost("/ai/description", input);
+}
+
+export interface ValuationResult {
+  low: number; mid: number; high: number; comparableCount: number; currency: string;
+  confidence: "low" | "medium" | "high"; context: string; provider: string; disclaimer: string;
+}
+export function getValuation(input: { makeId: string; modelId: string; year: number; mileageKm?: number; locale?: string }): Promise<ValuationResult> {
+  return apiPost("/ai/valuation", input);
+}

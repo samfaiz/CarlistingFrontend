@@ -385,6 +385,15 @@
     "note": "Guardado como borrador — añade fotos desde tu cuenta para publicar."
   },
   "errors": {
-    "generic": "No se pudo crear el anuncio. Revisa los campos e inténtalo de nuevo."
+    "generic": "No se pudo crear el anuncio. Revisa los campos e inténtalo de nuevo.",
+    "ai": "La IA no está disponible ahora."
+  },
+  "ai": {
+    "generate": "Generar con IA",
+    "working": "Trabajando…",
+    "descHint": "La IA redacta solo a partir de tus datos; revísalo antes de publicar.",
+    "suggestPrice": "Sugerir un precio justo",
+    "confidence": "confianza",
+    "comparables": "comparables"
   }
 }

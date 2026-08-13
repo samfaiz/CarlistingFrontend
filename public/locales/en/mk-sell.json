@@ -385,6 +385,15 @@
     "note": "Saved as a draft — add photos from your account to publish."
   },
   "errors": {
-    "generic": "Could not create the listing. Check the fields and try again."
+    "generic": "Could not create the listing. Check the fields and try again.",
+    "ai": "AI is unavailable right now."
+  },
+  "ai": {
+    "generate": "Generate with AI",
+    "working": "Working…",
+    "descHint": "AI drafts from your specs only — review before publishing.",
+    "suggestPrice": "Suggest a fair price",
+    "confidence": "confidence",
+    "comparables": "comparables"
   }
 }
