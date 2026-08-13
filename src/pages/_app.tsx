@@ -1,6 +1,7 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-sans-arabic";
 import "@/styles/globals.css";
+import "@/styles/marketplace-mockup.css";
 import type { AppProps } from "next/app";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
