@@ -14,7 +14,9 @@
       "support": "Support",
       "content": "Contenu",
       "legal": "Pages légales",
-      "banners": "Bannières"
+      "banners": "Bannières",
+      "audit": "Journal d’audit",
+      "system": "Système"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -390,6 +392,110 @@
       "saved": "Bannière enregistrée.",
       "failed": "Une erreur est survenue.",
       "deleted": "Bannière supprimée."
+    }
+  },
+  "audit": {
+    "title": "Journal d’audit",
+    "empty": "Aucun événement d’audit.",
+    "system": "système",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "filter": {
+      "action": "Action",
+      "entity": "Type d’entité"
+    },
+    "columns": {
+      "when": "Quand",
+      "action": "Action",
+      "entity": "Entité",
+      "actor": "Acteur",
+      "ip": "IP"
+    },
+    "toast": {
+      "loadFailed": "Impossible de charger le journal."
+    }
+  },
+  "system": {
+    "title": "Système",
+    "loading": "Chargement…",
+    "refresh": "Actualiser",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "error": "Une erreur est survenue",
+    "on": "Actif",
+    "off": "Inactif",
+    "tabs": {
+      "health": "État",
+      "staff": "Équipe",
+      "packages": "Forfaits",
+      "settings": "Paramètres",
+      "translations": "Traductions",
+      "taxonomy": "Taxonomie"
+    },
+    "health": {
+      "database": "Base de données",
+      "mediaQueue": "File média",
+      "emailQueue": "File e-mail",
+      "users": "Utilisateurs",
+      "listings": "Annonces en ligne / total",
+      "pendingReview": "En attente de revue",
+      "dealers": "Concessionnaires"
+    },
+    "staff": {
+      "new": "Nouveau membre",
+      "name": "Nom",
+      "email": "E-mail",
+      "role": "Rôle",
+      "permissions": "Permissions",
+      "actions": "Actions",
+      "editPerms": "Modifier les permissions",
+      "roleDefaults": "Valeurs par défaut du rôle",
+      "permsSaved": "Permissions enregistrées",
+      "created": "Compte créé",
+      "create": "Créer",
+      "resetNote": "Le compte est activé via un e-mail de réinitialisation — aucun mot de passe n’est défini ici."
+    },
+    "packages": {
+      "new": "Nouveau forfait",
+      "edit": "Modifier le forfait",
+      "tier": "Palier",
+      "name": "Nom",
+      "price": "Prix",
+      "priceFils": "Prix (fils)",
+      "quota": "Quota d’annonces",
+      "boostCredits": "Crédits boost",
+      "termMonths": "Durée (mois)",
+      "subs": "Abonn. actifs",
+      "active": "Actif",
+      "saved": "Forfait enregistré",
+      "grandfatherNote": "Les changements de prix s’appliquent aux nouveaux abonnements — les durées en cours gardent leur instantané."
+    },
+    "settings": {
+      "new": "Nouveau paramètre",
+      "edit": "Modifier le paramètre",
+      "key": "Clé",
+      "category": "Catégorie",
+      "value": "Valeur",
+      "valueJson": "Valeur (JSON)",
+      "empty": "Aucun paramètre.",
+      "saved": "Paramètre enregistré",
+      "badJson": "La valeur doit être un JSON valide."
+    },
+    "translations": {
+      "namespace": "Espace",
+      "key": "Clé",
+      "empty": "Aucune traduction dans cet espace.",
+      "saved": "Traduction enregistrée"
+    },
+    "taxonomy": {
+      "intro": "Renommez ou activez une marque puis réindexez ses annonces pour que la recherche reflète le changement.",
+      "make": "Marque",
+      "models": "Modèles",
+      "listings": "Annonces",
+      "active": "Actif",
+      "reindex": "Réindexer",
+      "reindexed": "{{n}} annonces réindexées"
     }
   }
 }

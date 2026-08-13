@@ -558,3 +558,128 @@ export function setBannerActive(id: string, active: boolean, accessToken: string
 export function deleteBanner(id: string, accessToken: string): Promise<{ deleted: boolean }> {
   return apiDelete(`/admin/banners/${encodeURIComponent(id)}`, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Super Admin suite + audit viewer (P4-07)                           */
+/* ------------------------------------------------------------------ */
+
+export interface AuditRow {
+  id: string;
+  actorId: string | null;
+  action: string;
+  entityType: string;
+  entityId: string | null;
+  ip: string | null;
+  createdAt: string;
+  before?: unknown;
+  after?: unknown;
+}
+
+export function getAuditLog(
+  accessToken: string,
+  params: { action?: string; entityType?: string; cursor?: string; limit?: number } = {},
+): Promise<{ items: AuditRow[]; nextCursor: string | null }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/audit${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+
+export interface StaffRow {
+  id: string;
+  email: string;
+  name: string;
+  role: "USER" | "ADMIN" | "SUPER_ADMIN";
+  status: string;
+  permissions: string[];
+  createdAt: string;
+}
+
+export function getPermissionCatalogue(accessToken: string): Promise<string[]> {
+  return apiGet(`/super-admin/permissions`, { token: accessToken });
+}
+export function getStaff(accessToken: string): Promise<StaffRow[]> {
+  return apiGet(`/super-admin/staff`, { token: accessToken });
+}
+export function createStaff(input: { email: string; name: string; role: "ADMIN" | "SUPER_ADMIN"; permissions?: string[] }, accessToken: string): Promise<StaffRow & { mustResetPassword: boolean }> {
+  return apiPost(`/super-admin/staff`, input, { token: accessToken });
+}
+export function setStaffRole(id: string, role: "USER" | "ADMIN" | "SUPER_ADMIN", accessToken: string): Promise<{ id: string; role: string }> {
+  return apiPost(`/super-admin/staff/${encodeURIComponent(id)}/role`, { role }, { token: accessToken });
+}
+export function setStaffPermissions(id: string, permissions: string[], accessToken: string): Promise<{ id: string; permissions: string[] }> {
+  return apiPost(`/super-admin/staff/${encodeURIComponent(id)}/permissions`, { permissions }, { token: accessToken });
+}
+
+export interface PackageRow {
+  id: string;
+  tier: string;
+  name: string;
+  listingQuota: number;
+  boostCredits: number;
+  priceAed: number;
+  termMonths: number;
+  isActive: boolean;
+  activeSubscriptions: number;
+}
+export interface PackageInput {
+  id?: string;
+  tier: string;
+  name: string;
+  listingQuota: number;
+  boostCredits: number;
+  priceAed: number;
+  termMonths: number;
+  isActive: boolean;
+}
+export function getPackages(accessToken: string): Promise<PackageRow[]> {
+  return apiGet(`/super-admin/packages`, { token: accessToken });
+}
+export function upsertPackage(input: PackageInput, accessToken: string): Promise<PackageRow> {
+  return apiPut(`/super-admin/packages`, input, { token: accessToken });
+}
+
+export interface SettingRow { key: string; value: unknown; category: string; updatedAt: string; updatedBy: string | null; }
+export function getSettings(accessToken: string): Promise<SettingRow[]> {
+  return apiGet(`/super-admin/settings`, { token: accessToken });
+}
+export function upsertSetting(key: string, value: Record<string, unknown>, category: string, accessToken: string): Promise<SettingRow> {
+  return apiPut(`/super-admin/settings/${encodeURIComponent(key)}`, { value, category }, { token: accessToken });
+}
+
+export interface TranslationRow { namespace: string; key: string; values: Record<string, string>; }
+export function getTranslationNamespaces(accessToken: string): Promise<string[]> {
+  return apiGet(`/super-admin/translations/namespaces`, { token: accessToken });
+}
+export function getTranslations(namespace: string, accessToken: string): Promise<TranslationRow[]> {
+  return apiGet(`/super-admin/translations?namespace=${encodeURIComponent(namespace)}`, { token: accessToken });
+}
+export function upsertTranslation(input: { namespace: string; key: string; values: Record<string, string> }, accessToken: string): Promise<TranslationRow> {
+  return apiPut(`/super-admin/translations`, input, { token: accessToken });
+}
+
+export interface SystemHealth {
+  database: { status: string };
+  queues: { media: Record<string, number> | null; email: Record<string, number> | null };
+  counts: { users: number; listings: number; dealers: number; liveListings: number; pendingReview: number };
+}
+export function getSystemHealth(accessToken: string): Promise<SystemHealth> {
+  return apiGet(`/super-admin/health`, { token: accessToken });
+}
+
+export interface AdminTaxonomy {
+  makes: { id: string; slug: string; name: string; isActive: boolean; vehicleTypes: string[]; sortOrder: number; _count: { models: number; listings: number } }[];
+  emirates: { id: string; slug: string; name: string }[];
+  bodyTypes: { id: string; slug: string; name: string }[];
+}
+export function getAdminTaxonomy(accessToken: string): Promise<AdminTaxonomy> {
+  return apiGet(`/taxonomy/admin/all`, { token: accessToken });
+}
+export function upsertMake(input: { id?: string; slug: string; name: string; vehicleTypes: string[]; isActive: boolean; sortOrder?: number }, accessToken: string): Promise<{ id: string; slug: string }> {
+  return apiPut(`/taxonomy/admin/makes`, input, { token: accessToken });
+}
+export function renameEmirate(id: string, name: string, accessToken: string): Promise<{ id: string; name: string }> {
+  return apiPut(`/taxonomy/admin/emirates/${encodeURIComponent(id)}`, { name }, { token: accessToken });
+}
+export function reindexMake(id: string, accessToken: string): Promise<{ reindexed: number }> {
+  return apiPost(`/taxonomy/admin/makes/${encodeURIComponent(id)}/reindex`, {}, { token: accessToken });
+}

@@ -14,6 +14,7 @@ import {
   CarFront,
   FileText,
   Flag,
+  History,
   Image as ImageIcon,
   Inbox,
   KeyRound,
@@ -21,6 +22,7 @@ import {
   LogOut,
   Scale,
   ShieldCheck,
+  SlidersHorizontal,
   Users,
 } from "lucide-react";
 import { decodeStaffStepUp } from "@/components/admin/api";
@@ -109,6 +111,16 @@ export function AdminLayout({
       href: "/admin/banners",
       label: t("layout.nav.banners"),
       icon: ImageIcon,
+    },
+    {
+      href: "/admin/audit",
+      label: t("layout.nav.audit"),
+      icon: History,
+    },
+    {
+      href: "/admin/system",
+      label: t("layout.nav.system"),
+      icon: SlidersHorizontal,
     },
     {
       href: "/admin/security",

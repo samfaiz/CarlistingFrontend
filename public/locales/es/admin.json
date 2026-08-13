@@ -14,7 +14,9 @@
       "support": "Soporte",
       "content": "Contenido",
       "legal": "Páginas legales",
-      "banners": "Banners"
+      "banners": "Banners",
+      "audit": "Registro de auditoría",
+      "system": "Sistema"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -390,6 +392,110 @@
       "saved": "Banner guardado.",
       "failed": "Algo salió mal.",
       "deleted": "Banner eliminado."
+    }
+  },
+  "audit": {
+    "title": "Registro de auditoría",
+    "empty": "Sin eventos de auditoría.",
+    "system": "sistema",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "filter": {
+      "action": "Acción",
+      "entity": "Tipo de entidad"
+    },
+    "columns": {
+      "when": "Cuándo",
+      "action": "Acción",
+      "entity": "Entidad",
+      "actor": "Actor",
+      "ip": "IP"
+    },
+    "toast": {
+      "loadFailed": "No se pudo cargar el registro."
+    }
+  },
+  "system": {
+    "title": "Sistema",
+    "loading": "Cargando…",
+    "refresh": "Actualizar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "error": "Algo salió mal",
+    "on": "Activo",
+    "off": "Inactivo",
+    "tabs": {
+      "health": "Estado",
+      "staff": "Personal",
+      "packages": "Paquetes",
+      "settings": "Ajustes",
+      "translations": "Traducciones",
+      "taxonomy": "Taxonomía"
+    },
+    "health": {
+      "database": "Base de datos",
+      "mediaQueue": "Cola de medios",
+      "emailQueue": "Cola de correo",
+      "users": "Usuarios",
+      "listings": "Anuncios en vivo / total",
+      "pendingReview": "Pendientes de revisión",
+      "dealers": "Concesionarios"
+    },
+    "staff": {
+      "new": "Nuevo personal",
+      "name": "Nombre",
+      "email": "Correo",
+      "role": "Rol",
+      "permissions": "Permisos",
+      "actions": "Acciones",
+      "editPerms": "Editar permisos",
+      "roleDefaults": "Predeterminados del rol",
+      "permsSaved": "Permisos guardados",
+      "created": "Cuenta creada",
+      "create": "Crear",
+      "resetNote": "La cuenta se reclama con un correo de restablecimiento — aquí no se define contraseña."
+    },
+    "packages": {
+      "new": "Nuevo paquete",
+      "edit": "Editar paquete",
+      "tier": "Nivel",
+      "name": "Nombre",
+      "price": "Precio",
+      "priceFils": "Precio (fils)",
+      "quota": "Cuota de anuncios",
+      "boostCredits": "Créditos de impulso",
+      "termMonths": "Plazo (meses)",
+      "subs": "Subs activas",
+      "active": "Activo",
+      "saved": "Paquete guardado",
+      "grandfatherNote": "Los cambios de precio se aplican solo a nuevas suscripciones — los plazos vigentes mantienen su instantánea."
+    },
+    "settings": {
+      "new": "Nuevo ajuste",
+      "edit": "Editar ajuste",
+      "key": "Clave",
+      "category": "Categoría",
+      "value": "Valor",
+      "valueJson": "Valor (JSON)",
+      "empty": "Sin ajustes aún.",
+      "saved": "Ajuste guardado",
+      "badJson": "El valor debe ser JSON válido."
+    },
+    "translations": {
+      "namespace": "Espacio",
+      "key": "Clave",
+      "empty": "Sin traducciones en este espacio.",
+      "saved": "Traducción guardada"
+    },
+    "taxonomy": {
+      "intro": "Renombra o activa una marca y reindexa sus anuncios para que la búsqueda refleje el cambio.",
+      "make": "Marca",
+      "models": "Modelos",
+      "listings": "Anuncios",
+      "active": "Activo",
+      "reindex": "Reindexar",
+      "reindexed": "Reindexados {{n}} anuncios"
     }
   }
 }

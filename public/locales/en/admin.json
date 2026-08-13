@@ -14,7 +14,9 @@
       "support": "Support",
       "content": "Content",
       "legal": "Legal pages",
-      "banners": "Banners"
+      "banners": "Banners",
+      "audit": "Audit log",
+      "system": "System"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -390,6 +392,110 @@
       "saved": "Banner saved.",
       "failed": "Something went wrong.",
       "deleted": "Banner deleted."
+    }
+  },
+  "audit": {
+    "title": "Audit log",
+    "empty": "No audit events.",
+    "system": "system",
+    "prev": "Previous",
+    "next": "Next",
+    "filter": {
+      "action": "Action",
+      "entity": "Entity type"
+    },
+    "columns": {
+      "when": "When",
+      "action": "Action",
+      "entity": "Entity",
+      "actor": "Actor",
+      "ip": "IP"
+    },
+    "toast": {
+      "loadFailed": "Could not load the audit log."
+    }
+  },
+  "system": {
+    "title": "System",
+    "loading": "Loading…",
+    "refresh": "Refresh",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "error": "Something went wrong",
+    "on": "On",
+    "off": "Off",
+    "tabs": {
+      "health": "Health",
+      "staff": "Staff",
+      "packages": "Packages",
+      "settings": "Settings",
+      "translations": "Translations",
+      "taxonomy": "Taxonomy"
+    },
+    "health": {
+      "database": "Database",
+      "mediaQueue": "Media queue",
+      "emailQueue": "Email queue",
+      "users": "Users",
+      "listings": "Live / total listings",
+      "pendingReview": "Pending review",
+      "dealers": "Dealers"
+    },
+    "staff": {
+      "new": "New staff",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "permissions": "Permissions",
+      "actions": "Actions",
+      "editPerms": "Edit permissions",
+      "roleDefaults": "Role defaults",
+      "permsSaved": "Permissions saved",
+      "created": "Staff account created",
+      "create": "Create",
+      "resetNote": "The account is claimed via a password-reset email — no password is set here."
+    },
+    "packages": {
+      "new": "New package",
+      "edit": "Edit package",
+      "tier": "Tier",
+      "name": "Name",
+      "price": "Price",
+      "priceFils": "Price (fils)",
+      "quota": "Listing quota",
+      "boostCredits": "Boost credits",
+      "termMonths": "Term (months)",
+      "subs": "Active subs",
+      "active": "Active",
+      "saved": "Package saved",
+      "grandfatherNote": "Price changes apply to new subscriptions only — running terms keep their snapshot (grandfathering)."
+    },
+    "settings": {
+      "new": "New setting",
+      "edit": "Edit setting",
+      "key": "Key",
+      "category": "Category",
+      "value": "Value",
+      "valueJson": "Value (JSON)",
+      "empty": "No settings yet.",
+      "saved": "Setting saved",
+      "badJson": "Value must be valid JSON."
+    },
+    "translations": {
+      "namespace": "Namespace",
+      "key": "Key",
+      "empty": "No translations in this namespace.",
+      "saved": "Translation saved"
+    },
+    "taxonomy": {
+      "intro": "Rename or toggle a make, then reindex its listings so search reflects the change.",
+      "make": "Make",
+      "models": "Models",
+      "listings": "Listings",
+      "active": "Active",
+      "reindex": "Reindex",
+      "reindexed": "Reindexed {{n}} listings"
     }
   }
 }
