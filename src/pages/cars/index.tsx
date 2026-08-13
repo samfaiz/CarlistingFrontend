@@ -243,8 +243,24 @@ export default function MksearchPage({
 export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, query }) => {
   const q = query as Record<string, string>;
   const page = Math.max(1, Number(q.page) || 1);
+
+  // Taxonomy first (Redis-cached, fast) so human-readable deep-links from the
+  // home page — ?make=toyota, ?bodyType=suv — resolve to the ids the search
+  // filters actually use. Without this those shortcut links silently no-op.
+  const [meta, makes] = await Promise.all([
+    getTaxonomyMeta().catch(() => ({ bodyTypes: [], bikeTypes: [], emirates: [], specGroups: [] })),
+    getMakes("CAR").catch(() => []),
+  ]);
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "-");
+  const makeId =
+    q.makeId ??
+    (q.make ? makes.find((m) => m.slug === norm(q.make) || norm(m.name) === norm(q.make))?.id : undefined);
+  const bodyTypeId =
+    q.bodyTypeId ??
+    (q.bodyType ? meta.bodyTypes.find((b) => b.slug === norm(q.bodyType) || norm(b.name) === norm(q.bodyType))?.id : undefined);
+
   const params = {
-    q: q.q, makeId: q.makeId, modelId: q.modelId, bodyTypeId: q.bodyTypeId,
+    q: q.q, makeId, modelId: q.modelId, bodyTypeId,
     emirateId: q.emirateId,
     priceMin: q.priceMin ? Number(q.priceMin) : undefined,
     priceMax: q.priceMax ? Number(q.priceMax) : undefined,
@@ -253,11 +269,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, qu
     page, limit: PAGE_SIZE, facets: true,
   };
 
-  const [res, meta, makes] = await Promise.all([
-    searchListings(params).catch(() => ({ items: [], total: 0, hasMore: false, facets: undefined })),
-    getTaxonomyMeta().catch(() => ({ bodyTypes: [], bikeTypes: [], emirates: [], specGroups: [] })),
-    getMakes("CAR").catch(() => []),
-  ]);
+  const res = await searchListings(params).catch(() => ({ items: [], total: 0, hasMore: false, facets: undefined }));
 
   return {
     props: {
@@ -272,7 +284,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, qu
       makes,
       bodyTypes: meta.bodyTypes,
       emirates: meta.emirates,
-      query: Object.fromEntries(Object.entries(q).filter(([, v]) => typeof v === "string")) as Record<string, string>,
+      // Reflect resolved ids back to the UI so the matching facet shows selected.
+      query: {
+        ...(Object.fromEntries(Object.entries(q).filter(([, v]) => typeof v === "string")) as Record<string, string>),
+        ...(makeId ? { makeId } : {}),
+        ...(bodyTypeId ? { bodyTypeId } : {}),
+      },
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
         ["common", "mk-search"],
