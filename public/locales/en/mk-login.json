@@ -25,5 +25,8 @@
   "switch": {
     "prompt": "Don't have an account?",
     "link": "Sign up free →"
+  },
+  "errors": {
+    "invalid": "Invalid email or password"
   }
 }

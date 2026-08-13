@@ -1,7 +1,9 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as React from "react";
+import { signIn } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
@@ -9,6 +11,28 @@ import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkloginPage() {
   const { t } = useTranslation("mk-login");
+  const router = useRouter();
+  const [error, setError] = React.useState<string | null>(null);
+  const [busy, setBusy] = React.useState(false);
+
+  // Keep the pixel-exact mockup form, but make it actually authenticate.
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setBusy(true);
+    const form = new FormData(e.currentTarget);
+    const next = typeof router.query.next === "string" && router.query.next.startsWith("/")
+      ? router.query.next : "/account";
+    const res = await signIn("credentials", {
+      email: String(form.get("email") ?? ""),
+      password: String(form.get("password") ?? ""),
+      redirect: false,
+    });
+    setBusy(false);
+    if (res?.error) setError(t("errors.invalid", { defaultValue: "Invalid email or password" }));
+    else void router.push(next);
+  };
+
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -22,15 +46,18 @@ export default function MkloginPage() {
               <h1>{t("hero.title")}</h1>
               <p className="auth-sub">{t("hero.subtitle")}</p>
 
-              <form>
+              <form onSubmit={onSubmit}>
+                {error && (
+                  <p className="form-error" role="alert" style={{ color: "var(--error)", fontSize: 13, margin: "0 0 12px" }}>{error}</p>
+                )}
                 <div className="form-group">
                   <label>{t("form.emailLabel")}</label>
-                  <input className="form-input" type="email" placeholder={t("form.emailPlaceholder")} autoComplete="email" />
+                  <input name="email" required className="form-input" type="email" placeholder={t("form.emailPlaceholder")} autoComplete="email" />
                 </div>
                 <div className="form-group">
                   <label>{t("form.passwordLabel")}</label>
                   <div className="pwd-wrap">
-                    <input className="form-input" type="password" id="loginPwd" placeholder="••••••••" autoComplete="current-password" />
+                    <input name="password" required className="form-input" type="password" id="loginPwd" placeholder="••••••••" autoComplete="current-password" />
                     <button className="pwd-toggle" type="button" data-target="loginPwd" title={t("form.togglePassword")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                     </button>
@@ -38,9 +65,9 @@ export default function MkloginPage() {
                 </div>
                 <div className="form-row">
                   <label className="remember"><input type="checkbox" defaultChecked /> {t("form.rememberMe")}</label>
-                  <a href="#" className="forgot-link">{t("form.forgotPassword")}</a>
+                  <Link href="/forgot-password" className="forgot-link">{t("form.forgotPassword")}</Link>
                 </div>
-                <button className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
+                <button type="submit" disabled={busy} className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
               </form>
 
               <div className="divider">{t("divider")}</div>

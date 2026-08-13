@@ -56,5 +56,10 @@
   "switch": {
     "text": "Already have an account?",
     "link": "Log in"
+  },
+  "success": "Account created — check your inbox to verify your email.",
+  "errors": {
+    "exists": "That email is already registered",
+    "generic": "Could not create the account"
   }
 }

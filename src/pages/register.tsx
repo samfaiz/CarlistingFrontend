@@ -1,14 +1,48 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { ApiError, apiPost } from "@/lib/api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkregisterPage() {
   const { t } = useTranslation("mk-register");
+  const router = useRouter();
+  const [error, setError] = React.useState<string | null>(null);
+  const [done, setDone] = React.useState(false);
+  const [busy, setBusy] = React.useState(false);
+
+  // Keep the pixel-exact mockup form, but really create the account
+  // (POST /auth/register → e-mail verification, matching the P0-05 contract).
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setBusy(true);
+    const form = new FormData(e.currentTarget);
+    try {
+      await apiPost("/auth/register", {
+        name: String(form.get("name") ?? ""),
+        email: String(form.get("email") ?? ""),
+        password: String(form.get("password") ?? ""),
+        phone: String(form.get("phone") ?? "") || undefined,
+        locale: router.locale ?? "en",
+      });
+      setDone(true);
+    } catch (err) {
+      setError(
+        err instanceof ApiError && err.statusCode === 409
+          ? t("errors.exists", { defaultValue: "That email is already registered" })
+          : t("errors.generic", { defaultValue: "Could not create the account" }),
+      );
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -40,24 +74,30 @@ export default function MkregisterPage() {
                 </button>
               </div>
 
-              <form>
+              <form onSubmit={onSubmit}>
+                {done && (
+                  <p role="status" style={{ color: "var(--success)", fontSize: 14, margin: "0 0 12px" }}>{t("success", { defaultValue: "Account created — check your inbox to verify your email." })}</p>
+                )}
+                {error && (
+                  <p role="alert" style={{ color: "var(--error)", fontSize: 13, margin: "0 0 12px" }}>{error}</p>
+                )}
                 <div className="profile-grid">
                   <div className="form-group">
                     <label>{t("form.fullName.label")}</label>
-                    <input className="form-input" placeholder={t("form.fullName.placeholder")} autoComplete="name" />
+                    <input name="name" required className="form-input" placeholder={t("form.fullName.placeholder")} autoComplete="name" />
                   </div>
                   <div className="form-group">
                     <label>{t("form.mobile.label")}</label>
-                    <input className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
+                    <input name="phone" className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
                   </div>
                   <div className="form-group full">
                     <label>{t("form.email.label")}</label>
-                    <input className="form-input" type="email" placeholder={t("form.email.placeholder")} autoComplete="email" />
+                    <input name="email" required className="form-input" type="email" placeholder={t("form.email.placeholder")} autoComplete="email" />
                   </div>
                   <div className="form-group full">
                     <label>{t("form.password.label")}</label>
                     <div className="pwd-wrap">
-                      <input className="form-input" type="password" id="regPwd" placeholder={t("form.password.placeholder")} autoComplete="new-password" />
+                      <input name="password" required minLength={8} className="form-input" type="password" id="regPwd" placeholder={t("form.password.placeholder")} autoComplete="new-password" />
                       <button className="pwd-toggle" type="button" data-target="regPwd">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
@@ -77,7 +117,7 @@ export default function MkregisterPage() {
                   <span>{t("terms.pre")} <a href="#">{t("terms.tos")}</a> {t("terms.and")} <a href="#">{t("terms.privacy")}</a>{t("terms.post")}</span>
                 </label>
 
-                <button className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
+                <button type="submit" disabled={busy} className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
               </form>
 
               <div className="divider">{t("divider")}</div>

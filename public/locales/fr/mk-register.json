@@ -56,5 +56,10 @@
   "switch": {
     "text": "Vous avez déjà un compte ?",
     "link": "Se connecter"
+  },
+  "success": "Compte créé — vérifiez votre boîte mail pour confirmer votre adresse.",
+  "errors": {
+    "exists": "Cet e-mail est déjà enregistré",
+    "generic": "Impossible de créer le compte"
   }
 }

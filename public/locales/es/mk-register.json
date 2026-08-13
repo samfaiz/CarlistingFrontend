@@ -56,5 +56,10 @@
   "switch": {
     "text": "¿Ya tienes una cuenta?",
     "link": "Iniciar sesión"
+  },
+  "success": "Cuenta creada: revisa tu bandeja para verificar tu correo.",
+  "errors": {
+    "exists": "Ese correo ya está registrado",
+    "generic": "No se pudo crear la cuenta"
   }
 }
