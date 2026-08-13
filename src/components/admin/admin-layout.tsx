@@ -9,7 +9,14 @@ import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import * as React from "react";
-import { BadgeCheck, KeyRound, LogOut, ShieldCheck } from "lucide-react";
+import {
+  BadgeCheck,
+  CarFront,
+  KeyRound,
+  LogOut,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { decodeStaffStepUp } from "@/components/admin/api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -56,6 +63,16 @@ export function AdminLayout({
       href: "/admin/verification",
       label: t("layout.nav.verification"),
       icon: BadgeCheck,
+    },
+    {
+      href: "/admin/users",
+      label: t("layout.nav.users"),
+      icon: Users,
+    },
+    {
+      href: "/admin/listings",
+      label: t("layout.nav.listings"),
+      icon: CarFront,
     },
     {
       href: "/admin/security",

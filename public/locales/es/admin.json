@@ -6,7 +6,9 @@
       "label": "Navegación de administración",
       "moderation": "Moderación",
       "verification": "Verificación",
-      "security": "Seguridad"
+      "security": "Seguridad",
+      "users": "Usuarios",
+      "listings": "Anuncios"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -149,6 +151,62 @@
       "enrolled": "Passkey creada — verificación completada",
       "steppedUp": "Verificación completada",
       "failed": "La ceremonia de la passkey no se completó"
+    }
+  },
+  "users": {
+    "title": "Usuarios",
+    "filters": {
+      "all": "Todos"
+    },
+    "columns": {
+      "user": "Usuario",
+      "role": "Rol",
+      "status": "Estado",
+      "listings": "Anuncios",
+      "joined": "Alta",
+      "actions": "Acciones"
+    },
+    "suspend": "Suspender",
+    "ban": "Bloquear",
+    "reinstate": "Restaurar",
+    "impersonate": "Suplantar",
+    "empty": "Sin usuarios coincidentes",
+    "toast": {
+      "suspend": "Suspendido — {{count}} sesión(es) revocadas",
+      "ban": "Bloqueado — {{count}} sesión(es) revocadas",
+      "reinstate": "Restaurado",
+      "failed": "No se pudo completar la acción",
+      "loadFailed": "No se pudieron cargar los usuarios"
+    },
+    "impersonationDialog": {
+      "title": "Sesión de suplantación (1 hora)",
+      "body": "Ahora tienes un token de {{email}}. Esta acción queda auditada. Úsalo solo en herramientas de API.",
+      "copy": "Copiar token",
+      "copied": "Copiado",
+      "close": "Cerrar"
+    }
+  },
+  "listingsManager": {
+    "title": "Anuncios",
+    "filters": {
+      "all": "Todos"
+    },
+    "columns": {
+      "listing": "Anuncio",
+      "seller": "Vendedor",
+      "price": "Precio",
+      "status": "Estado",
+      "updated": "Actualizado",
+      "actions": "Acciones"
+    },
+    "pause": "Pausar",
+    "unpause": "Restaurar",
+    "empty": "Sin anuncios coincidentes",
+    "toast": {
+      "paused": "Anuncio pausado",
+      "unpaused": "Anuncio restaurado",
+      "failed": "No se pudo completar la acción",
+      "loadFailed": "No se pudieron cargar los anuncios"
     }
   }
 }

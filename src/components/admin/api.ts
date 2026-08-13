@@ -249,3 +249,95 @@ export function decodeStaffStepUp(accessToken: string | undefined): {
     return { isSteppedUp: false, hasWebAuthnAmr: false };
   }
 }
+
+/* Users + listings managers — task P4-03 (FR-AD2/AD3) */
+
+export interface AdminUserRow {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  status: string;
+  locale: string;
+  emailVerifiedAt: string | null;
+  createdAt: string;
+  _count: { listings: number; sessions: number };
+}
+
+export function getAdminUsers(
+  accessToken: string,
+  params: { search?: string; role?: string; status?: string; limit?: number; offset?: number } = {},
+): Promise<{ items: AdminUserRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value != null && value !== "") qs.set(key, String(value));
+  }
+  const suffix = qs.toString() ? `?${qs}` : "";
+  return apiGet(`/admin/users${suffix}`, { token: accessToken });
+}
+
+export function setAdminUserStatus(
+  id: string,
+  action: "suspend" | "ban" | "reinstate",
+  reason: string | undefined,
+  accessToken: string,
+): Promise<{ id: string; status: string; sessionsRevoked: number }> {
+  return apiPost(
+    `/admin/users/${encodeURIComponent(id)}/${action}`,
+    reason ? { reason } : {},
+    { token: accessToken },
+  );
+}
+
+export function impersonateUser(
+  id: string,
+  accessToken: string,
+): Promise<{
+  accessToken: string;
+  refreshToken: string;
+  target: { id: string; email: string; name: string };
+  expiresInMinutes: number;
+}> {
+  return apiPost(`/admin/users/${encodeURIComponent(id)}/impersonate`, {}, { token: accessToken });
+}
+
+export interface AdminListingRow {
+  id: string;
+  slug: string;
+  year: number;
+  priceAed: number;
+  status: string;
+  sellerType: string;
+  badges: string[];
+  publishedAt: string | null;
+  updatedAt: string;
+  make: { name: string };
+  model: { name: string };
+  user: { id: string; email: string } | null;
+  dealer: { id: string; name: string } | null;
+}
+
+export function getAdminListings(
+  accessToken: string,
+  params: { search?: string; status?: string; limit?: number; offset?: number } = {},
+): Promise<{ items: AdminListingRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value != null && value !== "") qs.set(key, String(value));
+  }
+  const suffix = qs.toString() ? `?${qs}` : "";
+  return apiGet(`/admin/listings${suffix}`, { token: accessToken });
+}
+
+export function setAdminListingPaused(
+  id: string,
+  paused: boolean,
+  reason: string | undefined,
+  accessToken: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(
+    `/admin/listings/${encodeURIComponent(id)}/${paused ? "pause" : "unpause"}`,
+    reason ? { reason } : {},
+    { token: accessToken },
+  );
+}

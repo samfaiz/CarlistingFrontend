@@ -6,7 +6,9 @@
       "label": "Navigation d'administration",
       "moderation": "Modération",
       "verification": "Vérification",
-      "security": "Sécurité"
+      "security": "Sécurité",
+      "users": "Utilisateurs",
+      "listings": "Annonces"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -149,6 +151,62 @@
       "enrolled": "Passkey créée — vérification effectuée",
       "steppedUp": "Vérification effectuée",
       "failed": "La cérémonie de passkey ne s'est pas terminée"
+    }
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "filters": {
+      "all": "Tous"
+    },
+    "columns": {
+      "user": "Utilisateur",
+      "role": "Rôle",
+      "status": "Statut",
+      "listings": "Annonces",
+      "joined": "Inscription",
+      "actions": "Actions"
+    },
+    "suspend": "Suspendre",
+    "ban": "Bannir",
+    "reinstate": "Rétablir",
+    "impersonate": "Emprunter l'identité",
+    "empty": "Aucun utilisateur correspondant",
+    "toast": {
+      "suspend": "Suspendu — {{count}} session(s) révoquées",
+      "ban": "Banni — {{count}} session(s) révoquées",
+      "reinstate": "Rétabli",
+      "failed": "L'action n'a pas pu être effectuée",
+      "loadFailed": "Impossible de charger les utilisateurs"
+    },
+    "impersonationDialog": {
+      "title": "Session d'emprunt d'identité (1 heure)",
+      "body": "Vous détenez maintenant un jeton pour {{email}}. Cet acte est audité. À utiliser uniquement dans des outils d'API.",
+      "copy": "Copier le jeton",
+      "copied": "Copié",
+      "close": "Fermer"
+    }
+  },
+  "listingsManager": {
+    "title": "Annonces",
+    "filters": {
+      "all": "Toutes"
+    },
+    "columns": {
+      "listing": "Annonce",
+      "seller": "Vendeur",
+      "price": "Prix",
+      "status": "Statut",
+      "updated": "Mise à jour",
+      "actions": "Actions"
+    },
+    "pause": "Suspendre",
+    "unpause": "Restaurer",
+    "empty": "Aucune annonce correspondante",
+    "toast": {
+      "paused": "Annonce suspendue",
+      "unpaused": "Annonce restaurée",
+      "failed": "L'action n'a pas pu être effectuée",
+      "loadFailed": "Impossible de charger les annonces"
     }
   }
 }
