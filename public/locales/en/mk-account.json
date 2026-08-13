@@ -35,32 +35,106 @@
     "viewAllMsg": "View all →"
   },
   "stats": {
-    "saved": { "val": "12", "label": "Saved cars", "trend": "↑ 3 this week" },
-    "searches": { "val": "3", "label": "Active searches", "trend": "↑ 23 new matches" },
-    "messages": { "val": "2", "label": "Unread messages", "trend": "2 new" },
-    "listings": { "val": "5", "label": "Active listings", "trend": "↑ 142 views today" }
+    "saved": {
+      "val": "12",
+      "label": "Saved cars",
+      "trend": "↑ 3 this week"
+    },
+    "searches": {
+      "val": "3",
+      "label": "Active searches",
+      "trend": "↑ 23 new matches"
+    },
+    "messages": {
+      "val": "2",
+      "label": "Unread messages",
+      "trend": "2 new"
+    },
+    "listings": {
+      "val": "5",
+      "label": "Active listings",
+      "trend": "↑ 142 views today"
+    }
   },
   "recent": {
-    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • Abu Dhabi", "price": "AED 365,000", "badge": "Featured" },
-    "1": { "title": "BMW X5 xDrive40i M-Sport", "sub": "2023 • Dubai", "price": "AED 285,000" },
-    "2": { "title": "Porsche 911 Carrera S", "sub": "2023 • Dubai", "price": "AED 545,000" }
+    "0": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • Abu Dhabi",
+      "price": "AED 365,000",
+      "badge": "Featured"
+    },
+    "1": {
+      "title": "BMW X5 xDrive40i M-Sport",
+      "sub": "2023 • Dubai",
+      "price": "AED 285,000"
+    },
+    "2": {
+      "title": "Porsche 911 Carrera S",
+      "sub": "2023 • Dubai",
+      "price": "AED 545,000"
+    }
   },
   "latest": {
-    "0": { "av": "AT", "name": "Al Tayer Motors", "time": "2 hrs ago", "car": "Toyota Land Cruiser GR-Sport · AED 365,000", "preview": "Hi Faisal, the car is still available. We're open until 9 PM today if you'd like to come by…" },
-    "1": { "av": "SM", "name": "Star Motors", "time": "Yesterday", "car": "Ford Mustang GT Premium · AED 162,500", "preview": "We've reduced the price by AED 8,000 — let me know if you'd still like to view it this week." },
-    "2": { "av": "NM", "name": "Nasser Motors", "time": "3 days ago", "car": "Toyota Fortuner VX · AED 138,000", "preview": "Thanks for your interest. The test drive is confirmed for Saturday at 4 PM." }
+    "0": {
+      "av": "AT",
+      "name": "Al Tayer Motors",
+      "time": "2 hrs ago",
+      "car": "Toyota Land Cruiser GR-Sport · AED 365,000",
+      "preview": "Hi Faisal, the car is still available. We're open until 9 PM today if you'd like to come by…"
+    },
+    "1": {
+      "av": "SM",
+      "name": "Star Motors",
+      "time": "Yesterday",
+      "car": "Ford Mustang GT Premium · AED 162,500",
+      "preview": "We've reduced the price by AED 8,000 — let me know if you'd still like to view it this week."
+    },
+    "2": {
+      "av": "NM",
+      "name": "Nasser Motors",
+      "time": "3 days ago",
+      "car": "Toyota Fortuner VX · AED 138,000",
+      "preview": "Thanks for your interest. The test drive is confirmed for Saturday at 4 PM."
+    }
   },
   "saved": {
     "title": "Saved cars",
     "sub": "12 cars you've shortlisted — we'll let you know if their prices drop"
   },
   "savedCars": {
-    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • Abu Dhabi", "price": "AED 365,000", "badge": "Featured" },
-    "1": { "title": "BMW X5 xDrive40i", "sub": "2023 • Dubai", "price": "AED 285,000" },
-    "2": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • Abu Dhabi", "price": "AED 985,000" },
-    "3": { "title": "Ford Mustang GT Premium", "sub": "2022 • Sharjah", "price": "AED 154,500", "priceOld": "AED 162,500", "badgeWarning": "Price dropped" },
-    "4": { "title": "Porsche 911 Carrera S", "sub": "2023 • Dubai", "price": "AED 545,000" },
-    "5": { "title": "Range Rover Vogue Autobiography", "sub": "2022 • Dubai", "price": "AED 485,000" }
+    "0": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • Abu Dhabi",
+      "price": "AED 365,000",
+      "badge": "Featured"
+    },
+    "1": {
+      "title": "BMW X5 xDrive40i",
+      "sub": "2023 • Dubai",
+      "price": "AED 285,000"
+    },
+    "2": {
+      "title": "Mercedes-Benz G63 AMG",
+      "sub": "2024 • Abu Dhabi",
+      "price": "AED 985,000"
+    },
+    "3": {
+      "title": "Ford Mustang GT Premium",
+      "sub": "2022 • Sharjah",
+      "price": "AED 154,500",
+      "priceOld": "AED 162,500",
+      "badgeWarning": "Price dropped"
+    },
+    "4": {
+      "title": "Porsche 911 Carrera S",
+      "sub": "2023 • Dubai",
+      "price": "AED 545,000"
+    },
+    "5": {
+      "title": "Range Rover Vogue Autobiography",
+      "sub": "2022 • Dubai",
+      "price": "AED 485,000"
+    }
   },
   "searches": {
     "title": "Saved searches",
@@ -70,9 +144,21 @@
     "removeTitle": "Remove"
   },
   "searchRows": {
-    "0": { "name": "Toyota SUVs under AED 200K", "crit": "Make: Toyota · Body: SUV · Price: under AED 200,000 · Year: 2020+", "matches": "12 new matches since you last visited" },
-    "1": { "name": "BMW M-Series 2020+", "crit": "Make: BMW · Variants: M3, M5, M-Sport · Year: 2020+", "matches": "7 new matches since you last visited" },
-    "2": { "name": "Electric & Hybrid SUVs", "crit": "Fuel: Electric, Hybrid · Body: SUV · Price: up to AED 400,000", "matches": "4 new matches since you last visited" }
+    "0": {
+      "name": "Toyota SUVs under AED 200K",
+      "crit": "Make: Toyota · Body: SUV · Price: under AED 200,000 · Year: 2020+",
+      "matches": "12 new matches since you last visited"
+    },
+    "1": {
+      "name": "BMW M-Series 2020+",
+      "crit": "Make: BMW · Variants: M3, M5, M-Sport · Year: 2020+",
+      "matches": "7 new matches since you last visited"
+    },
+    "2": {
+      "name": "Electric & Hybrid SUVs",
+      "crit": "Fuel: Electric, Hybrid · Body: SUV · Price: up to AED 400,000",
+      "matches": "4 new matches since you last visited"
+    }
   },
   "messages": {
     "title": "Messages",
@@ -86,11 +172,43 @@
     }
   },
   "conv": {
-    "1": { "av": "AT", "name": "Al Tayer Motors", "time": "2 hrs", "car": "Toyota Land Cruiser GR-Sport", "preview": "Also brought the inspection report you asked about — looks like you'll be happy", "badge": "2" },
-    "2": { "av": "SM", "name": "Star Motors", "time": "Yesterday", "car": "Ford Mustang GT Premium", "preview": "We've actually reduced it to AED 154,500 today", "badge": "1" },
-    "3": { "av": "NM", "name": "Nasser Motors", "time": "3 days", "car": "Toyota Fortuner VX", "preview": "Confirmed for Saturday at 4 PM. See you then!" },
-    "4": { "av": "EM", "name": "Emirates Auto", "time": "1 week", "car": "Mercedes-Benz G63 AMG", "preview": "You: Yes please, notify me on similar G-Class" },
-    "5": { "av": "PA", "name": "Premier Auto", "time": "2 weeks", "car": "Range Rover Vogue Autobiography", "preview": "Thanks for stopping by today. Let us know if you have any questions." }
+    "1": {
+      "av": "AT",
+      "name": "Al Tayer Motors",
+      "time": "2 hrs",
+      "car": "Toyota Land Cruiser GR-Sport",
+      "preview": "Also brought the inspection report you asked about — looks like you'll be happy",
+      "badge": "2"
+    },
+    "2": {
+      "av": "SM",
+      "name": "Star Motors",
+      "time": "Yesterday",
+      "car": "Ford Mustang GT Premium",
+      "preview": "We've actually reduced it to AED 154,500 today",
+      "badge": "1"
+    },
+    "3": {
+      "av": "NM",
+      "name": "Nasser Motors",
+      "time": "3 days",
+      "car": "Toyota Fortuner VX",
+      "preview": "Confirmed for Saturday at 4 PM. See you then!"
+    },
+    "4": {
+      "av": "EM",
+      "name": "Emirates Auto",
+      "time": "1 week",
+      "car": "Mercedes-Benz G63 AMG",
+      "preview": "You: Yes please, notify me on similar G-Class"
+    },
+    "5": {
+      "av": "PA",
+      "name": "Premier Auto",
+      "time": "2 weeks",
+      "car": "Range Rover Vogue Autobiography",
+      "preview": "Thanks for stopping by today. Let us know if you have any questions."
+    }
   },
   "threadActions": {
     "call": "Call",
@@ -110,7 +228,11 @@
     "verifiedTitle": "Verified dealer",
     "online": "Online",
     "statusText": "usually replies in ~2 hours",
-    "car": { "title": "Toyota Land Cruiser GR-Sport", "meta": "2023 · 18,200 km · ", "price": "AED 365,000" },
+    "car": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "meta": "2023 · 18,200 km · ",
+      "price": "AED 365,000"
+    },
     "day1": "Yesterday",
     "day2": "Today",
     "m1": "Hi, is this Land Cruiser still available? I'm interested in booking a viewing.",
@@ -125,7 +247,11 @@
     "m5time": "10:12 AM",
     "m6": "Sending it now 📎",
     "m6meta": "11:48 AM · Khalid",
-    "share": { "title": "📋 Inspection report — 98/100", "meta": "200-point inspection · May 8, 2026", "link": "View full PDF →" },
+    "share": {
+      "title": "📋 Inspection report — 98/100",
+      "meta": "200-point inspection · May 8, 2026",
+      "link": "View full PDF →"
+    },
     "m7meta": "11:49 AM · Khalid",
     "m8": "Also brought the service records — single-owner, all stamps from Al Tayer Toyota. Looks like you'll be happy with what you see.",
     "m8meta": "11:51 AM · Khalid",
@@ -140,14 +266,24 @@
     "av": "SM",
     "name": "Star Motors",
     "status": "Last seen 30 min ago",
-    "car": { "title": "Ford Mustang GT Premium", "meta": "2022 · 22,400 km · ", "price": "AED 154,500" },
+    "car": {
+      "title": "Ford Mustang GT Premium",
+      "meta": "2022 · 22,400 km · ",
+      "price": "AED 154,500"
+    },
     "day1": "3 days ago",
     "day2": "Today",
     "m1": "Hi, is this Mustang still available? What's the best price you can do?",
     "m1time": "3:14 PM",
     "m2": "Hi! Yes, still here. Asking is AED 162,500 — we've already discounted it from 168K. I could go to 158K if you're ready this week.",
     "m2meta": "3:42 PM · Omar",
-    "offer": { "label": "Dealer offer", "amt": "AED 158,000", "orig": "From AED 162,500", "accept": "Accept", "counter": "Counter" },
+    "offer": {
+      "label": "Dealer offer",
+      "amt": "AED 158,000",
+      "orig": "From AED 162,500",
+      "accept": "Accept",
+      "counter": "Counter"
+    },
     "offermeta": "3:43 PM · Omar",
     "m3": "Let me think about it — 152K cash today?",
     "m3time": "5:08 PM",
@@ -167,7 +303,11 @@
     "name": "Nasser Motors",
     "online": "Online",
     "statusText": "Mussafah branch",
-    "car": { "title": "Toyota Fortuner VX", "meta": "2022 · 42,800 km · ", "price": "AED 138,000" },
+    "car": {
+      "title": "Toyota Fortuner VX",
+      "meta": "2022 · 42,800 km · ",
+      "price": "AED 138,000"
+    },
     "day1": "3 days ago",
     "m1": "Hello, can I book a test drive this Saturday?",
     "m1time": "11:08 AM",
@@ -191,7 +331,12 @@
     "av": "EM",
     "name": "Emirates Auto",
     "status": "Last seen 2 days ago",
-    "car": { "title": "Mercedes-Benz G63 AMG", "sold": "SOLD", "meta": "2024 · 4,800 km · ", "price": "AED 985,000" },
+    "car": {
+      "title": "Mercedes-Benz G63 AMG",
+      "sold": "SOLD",
+      "meta": "2024 · 4,800 km · ",
+      "price": "AED 985,000"
+    },
     "day1": "1 week ago",
     "m1": "Hi, is the G63 still available?",
     "m1time": "2:34 PM",
@@ -206,7 +351,11 @@
     "av": "PA",
     "name": "Premier Auto",
     "status": "Last seen yesterday",
-    "car": { "title": "Range Rover Vogue Autobiography", "meta": "2022 · 31,200 km · ", "price": "AED 485,000" },
+    "car": {
+      "title": "Range Rover Vogue Autobiography",
+      "meta": "2022 · 31,200 km · ",
+      "price": "AED 485,000"
+    },
     "day1": "2 weeks ago",
     "m1": "Visited today. Beautiful car. Let me discuss with my wife and come back to you this week.",
     "m1time": "5:24 PM",
@@ -216,14 +365,46 @@
   "listings": {
     "title": "My listings",
     "sub": "Cars you have listed on Carsens",
-    "chips": { "all": "All (5)", "active": "Active (4)", "pending": "Pending (1)", "sold": "Sold (3)" },
-    "newCar": "List a new car"
+    "chips": {
+      "all": "All (5)",
+      "active": "Active (4)",
+      "pending": "Pending (1)",
+      "sold": "Sold (3)"
+    },
+    "newCar": "List a new car",
+    "empty": "You have no listings yet."
   },
   "myListings": {
-    "0": { "title": "Toyota Camry SE", "sub": "2021 • Dubai", "price": "AED 78,000", "status": "● Active", "spec1": "👁 1,242 views", "spec2": "8 enquiries" },
-    "1": { "title": "Nissan Patrol Platinum", "sub": "2020 • Dubai", "price": "AED 195,000", "status": "● Active", "spec1": "👁 624 views", "spec2": "3 enquiries" },
-    "2": { "title": "Lexus LX 600 Ultra", "sub": "2024 • Dubai", "price": "AED 595,000", "status": "● Pending review", "spec1": "Posted 2 hours ago" },
-    "3": { "title": "Tesla Model 3 Long Range", "sub": "2022 • Dubai", "price": "AED 142,000", "status": "Sold", "spec1": "Sold Apr 28" }
+    "0": {
+      "title": "Toyota Camry SE",
+      "sub": "2021 • Dubai",
+      "price": "AED 78,000",
+      "status": "● Active",
+      "spec1": "👁 1,242 views",
+      "spec2": "8 enquiries"
+    },
+    "1": {
+      "title": "Nissan Patrol Platinum",
+      "sub": "2020 • Dubai",
+      "price": "AED 195,000",
+      "status": "● Active",
+      "spec1": "👁 624 views",
+      "spec2": "3 enquiries"
+    },
+    "2": {
+      "title": "Lexus LX 600 Ultra",
+      "sub": "2024 • Dubai",
+      "price": "AED 595,000",
+      "status": "● Pending review",
+      "spec1": "Posted 2 hours ago"
+    },
+    "3": {
+      "title": "Tesla Model 3 Long Range",
+      "sub": "2022 • Dubai",
+      "price": "AED 142,000",
+      "status": "Sold",
+      "spec1": "Sold Apr 28"
+    }
   },
   "alerts": {
     "title": "Price alerts",
@@ -231,8 +412,14 @@
     "removeTitle": "Remove"
   },
   "alertRows": {
-    "0": { "name": "Toyota Land Cruiser GR-Sport", "crit": "Notify me when price drops below AED 350,000 (currently 365,000)" },
-    "1": { "name": "BMW M5 (any year ≥ 2020)", "crit": "Notify me when price drops below AED 280,000" }
+    "0": {
+      "name": "Toyota Land Cruiser GR-Sport",
+      "crit": "Notify me when price drops below AED 350,000 (currently 365,000)"
+    },
+    "1": {
+      "name": "BMW M5 (any year ≥ 2020)",
+      "crit": "Notify me when price drops below AED 280,000"
+    }
   },
   "profile": {
     "title": "Profile settings",
@@ -244,9 +431,16 @@
     "email": "Email address",
     "emailVal": "faisal@example.com",
     "city": "City",
-    "cityOptions": { "0": "Dubai", "1": "Abu Dhabi", "2": "Sharjah" },
+    "cityOptions": {
+      "0": "Dubai",
+      "1": "Abu Dhabi",
+      "2": "Sharjah"
+    },
     "language": "Preferred language",
-    "langOptions": { "0": "English", "1": "العربية" },
+    "langOptions": {
+      "0": "English",
+      "1": "العربية"
+    },
     "bio": "Short bio (optional)",
     "bioPlaceholder": "A quick intro to share with sellers/buyers",
     "save": "Save changes",
@@ -256,12 +450,30 @@
     "title": "Notification preferences",
     "sub": "Choose what you'd like to be notified about",
     "rows": {
-      "0": { "title": "New matches on saved searches", "desc": "Get notified when cars matching your saved searches are listed" },
-      "1": { "title": "Price drops on saved cars", "desc": "Be the first to know when a car you saved goes down in price" },
-      "2": { "title": "Dealer messages", "desc": "Receive messages and replies from dealers" },
-      "3": { "title": "Weekly market digest", "desc": "A weekly summary of price trends and new launches in your interests" },
-      "4": { "title": "Promotional offers", "desc": "Special deals and offers from partner dealers" },
-      "5": { "title": "SMS notifications", "desc": "Send urgent alerts (price drops, dealer replies) via SMS" }
+      "0": {
+        "title": "New matches on saved searches",
+        "desc": "Get notified when cars matching your saved searches are listed"
+      },
+      "1": {
+        "title": "Price drops on saved cars",
+        "desc": "Be the first to know when a car you saved goes down in price"
+      },
+      "2": {
+        "title": "Dealer messages",
+        "desc": "Receive messages and replies from dealers"
+      },
+      "3": {
+        "title": "Weekly market digest",
+        "desc": "A weekly summary of price trends and new launches in your interests"
+      },
+      "4": {
+        "title": "Promotional offers",
+        "desc": "Special deals and offers from partner dealers"
+      },
+      "5": {
+        "title": "SMS notifications",
+        "desc": "Send urgent alerts (price drops, dealer replies) via SMS"
+      }
     }
   },
   "security": {

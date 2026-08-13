@@ -1,13 +1,22 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import * as React from "react";
+import { getServerSession } from "next-auth/next";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { MarketplaceCard } from "@/components/marketplace/listing-card";
+import { myListings, type Card } from "@/lib/marketplace-api";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
-export default function MkaccountPage() {
+interface AccountProps {
+  user: { name: string; email: string; initials: string };
+  listings: Card[];
+}
+
+export default function MkaccountPage({ user, listings }: AccountProps) {
   const { t } = useTranslation("mk-account");
   return (
     <>
@@ -21,10 +30,9 @@ export default function MkaccountPage() {
                 {/* ============ SIDEBAR ============ */}
                 <aside className="account-sidebar">
                   <div className="acc-user">
-                    <div className="acc-avatar">{t("user.initials")}</div>
-                    <h3>{t("user.name")}</h3>
-                    <div className="acc-email-text">{t("user.email")}</div>
-                    <div className="acc-since">{t("user.since")}</div>
+                    <div className="acc-avatar">{user.initials}</div>
+                    <h3>{user.name}</h3>
+                    <div className="acc-email-text">{user.email}</div>
                     <span className="acc-tier">{t("user.tier")}</span>
                   </div>
                   <div className="acc-menu" id="accMenu">
@@ -725,36 +733,13 @@ export default function MkaccountPage() {
                     </div>
 
                     <div className="activity-block" style={{ padding: "18px" }}>
-                      <div className="cards" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-                        <Link href="/cars/demo" className="card">
-                          <div className="media">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=720&q=80&auto=format" alt="" />
-                          <span className="listing-status active">{t("myListings.0.status")}</span></div>
-                          <div className="card-body"><h3 className="card-title">{t("myListings.0.title")}</h3><p className="card-sub">{t("myListings.0.sub")}</p><div className="price">{t("myListings.0.price")}</div><div className="specs"><span className="spec">{t("myListings.0.spec1")}</span><span className="spec">{t("myListings.0.spec2")}</span></div></div>
-                        </Link>
-                        <Link href="/cars/demo" className="card">
-                          <div className="media">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=720&q=80&auto=format" alt="" />
-                          <span className="listing-status active">{t("myListings.1.status")}</span></div>
-                          <div className="card-body"><h3 className="card-title">{t("myListings.1.title")}</h3><p className="card-sub">{t("myListings.1.sub")}</p><div className="price">{t("myListings.1.price")}</div><div className="specs"><span className="spec">{t("myListings.1.spec1")}</span><span className="spec">{t("myListings.1.spec2")}</span></div></div>
-                        </Link>
-                        <Link href="/cars/demo" className="card">
-                          <div className="media">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=720&q=80&auto=format" alt="" />
-                          <span className="listing-status pending">{t("myListings.2.status")}</span></div>
-                          <div className="card-body"><h3 className="card-title">{t("myListings.2.title")}</h3><p className="card-sub">{t("myListings.2.sub")}</p><div className="price">{t("myListings.2.price")}</div><div className="specs"><span className="spec">{t("myListings.2.spec1")}</span></div></div>
-                        </Link>
-                        <Link href="/cars/demo" className="card">
-                          <div className="media">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="https://images.unsplash.com/photo-1568844293986-8d0400bd4745?w=720&q=80&auto=format" alt="" />
-                          <span className="listing-status sold">{t("myListings.3.status")}</span></div>
-                          <div className="card-body"><h3 className="card-title">{t("myListings.3.title")}</h3><p className="card-sub">{t("myListings.3.sub")}</p><div className="price">{t("myListings.3.price")}</div><div className="specs"><span className="spec">{t("myListings.3.spec1")}</span></div></div>
-                        </Link>
-                      </div>
+                      {listings.length === 0 ? (
+                        <p style={{ textAlign: "center", color: "var(--text-3)", padding: "24px 0" }}>{t("listings.empty", { defaultValue: "You have no listings yet." })}</p>
+                      ) : (
+                        <div className="cards" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+                          {listings.map((car) => <MarketplaceCard key={car.id} car={car} />)}
+                        </div>
+                      )}
                     </div>
                   </section>
 
@@ -888,12 +873,30 @@ export default function MkaccountPage() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(
-      locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "mk-account"],
-      nextI18NextConfig,
-    )),
-  },
-});
+export const getServerSideProps: GetServerSideProps<AccountProps> = async (ctx) => {
+  const { locale } = ctx;
+  const session = await getServerSession(ctx.req, ctx.res, authOptions);
+  if (!session) {
+    const prefix = locale === nextI18NextConfig.i18n.defaultLocale ? "" : `/${locale}`;
+    return { redirect: { destination: `${prefix}/login?next=/account`, permanent: false } };
+  }
+
+  const token = session.accessToken;
+  const mine = token
+    ? await myListings(token, { limit: 12 }).catch(() => ({ items: [] as Card[], total: 0 }))
+    : { items: [] as Card[], total: 0 };
+  const name = session.user?.name ?? session.user?.email ?? "You";
+  const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+
+  return {
+    props: {
+      user: { name, email: session.user?.email ?? "", initials },
+      listings: mine.items,
+      ...(await serverSideTranslations(
+        locale ?? nextI18NextConfig.i18n.defaultLocale,
+        ["common", "mk-account"],
+        nextI18NextConfig,
+      )),
+    },
+  };
+};

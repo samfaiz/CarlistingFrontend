@@ -20,9 +20,12 @@ function initials(name: string): string {
 }
 
 export function MarketplaceCard({ car }: { car: Card }) {
-  const cover = car.media[0]?.variants?.card;
-  const title = `${car.year} ${car.make.name} ${car.model.name}${car.trim ? ` ${car.trim.name}` : ""}`;
-  const dealer = car.sellerType === "DEALER" ? car.make.name : "Private seller";
+  // Defensive: some callers (e.g. /listings/mine) pass a leaner shape than the
+  // search Card and may omit emirate / _count.
+  const cover = car.media?.[0]?.variants?.card;
+  const title = `${car.year} ${car.make?.name ?? ""} ${car.model?.name ?? ""}${car.trim ? ` ${car.trim.name}` : ""}`.trim();
+  const dealer = car.sellerType === "DEALER" ? (car.make?.name ?? "Dealer") : "Private seller";
+  const photoCount = car._count?.media ?? car.media?.length ?? 0;
   const isFeatured = car.badges?.includes("featured");
 
   return (
@@ -42,12 +45,12 @@ export function MarketplaceCard({ car }: { car: Card }) {
         </button>
         <span className="photo-count">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="12" cy="12" r="3" /></svg>{" "}
-          {car._count.media}
+          {photoCount}
         </span>
       </div>
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
-        <p className="card-sub">{car.year} • {car.emirate.name}</p>
+        <p className="card-sub">{car.year} • {car.emirate?.name ?? ""}</p>
         <div className="price">{formatPrice(car.priceAed, "en")}</div>
         <div className="specs">
           <span className="spec">

@@ -35,32 +35,106 @@
     "viewAllMsg": "عرض الكل →"
   },
   "stats": {
-    "saved": { "val": "12", "label": "السيارات المحفوظة", "trend": "↑ 3 هذا الأسبوع" },
-    "searches": { "val": "3", "label": "عمليات بحث نشطة", "trend": "↑ 23 تطابقًا جديدًا" },
-    "messages": { "val": "2", "label": "رسائل غير مقروءة", "trend": "2 جديدة" },
-    "listings": { "val": "5", "label": "إعلانات نشطة", "trend": "↑ 142 مشاهدة اليوم" }
+    "saved": {
+      "val": "12",
+      "label": "السيارات المحفوظة",
+      "trend": "↑ 3 هذا الأسبوع"
+    },
+    "searches": {
+      "val": "3",
+      "label": "عمليات بحث نشطة",
+      "trend": "↑ 23 تطابقًا جديدًا"
+    },
+    "messages": {
+      "val": "2",
+      "label": "رسائل غير مقروءة",
+      "trend": "2 جديدة"
+    },
+    "listings": {
+      "val": "5",
+      "label": "إعلانات نشطة",
+      "trend": "↑ 142 مشاهدة اليوم"
+    }
   },
   "recent": {
-    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • أبوظبي", "price": "AED 365,000", "badge": "مميّزة" },
-    "1": { "title": "BMW X5 xDrive40i M-Sport", "sub": "2023 • دبي", "price": "AED 285,000" },
-    "2": { "title": "Porsche 911 Carrera S", "sub": "2023 • دبي", "price": "AED 545,000" }
+    "0": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • أبوظبي",
+      "price": "AED 365,000",
+      "badge": "مميّزة"
+    },
+    "1": {
+      "title": "BMW X5 xDrive40i M-Sport",
+      "sub": "2023 • دبي",
+      "price": "AED 285,000"
+    },
+    "2": {
+      "title": "Porsche 911 Carrera S",
+      "sub": "2023 • دبي",
+      "price": "AED 545,000"
+    }
   },
   "latest": {
-    "0": { "av": "AT", "name": "Al Tayer Motors", "time": "قبل ساعتين", "car": "Toyota Land Cruiser GR-Sport · AED 365,000", "preview": "مرحبًا فيصل، السيارة لا تزال متوفرة. نحن مفتوحون حتى الساعة 9 مساءً اليوم إن أردت زيارتنا…" },
-    "1": { "av": "SM", "name": "Star Motors", "time": "أمس", "car": "Ford Mustang GT Premium · AED 162,500", "preview": "خفّضنا السعر بمقدار AED 8,000 — أخبرني إن كنت لا تزال ترغب في معاينتها هذا الأسبوع." },
-    "2": { "av": "NM", "name": "Nasser Motors", "time": "قبل 3 أيام", "car": "Toyota Fortuner VX · AED 138,000", "preview": "شكرًا لاهتمامك. تم تأكيد تجربة القيادة يوم السبت الساعة 4 مساءً." }
+    "0": {
+      "av": "AT",
+      "name": "Al Tayer Motors",
+      "time": "قبل ساعتين",
+      "car": "Toyota Land Cruiser GR-Sport · AED 365,000",
+      "preview": "مرحبًا فيصل، السيارة لا تزال متوفرة. نحن مفتوحون حتى الساعة 9 مساءً اليوم إن أردت زيارتنا…"
+    },
+    "1": {
+      "av": "SM",
+      "name": "Star Motors",
+      "time": "أمس",
+      "car": "Ford Mustang GT Premium · AED 162,500",
+      "preview": "خفّضنا السعر بمقدار AED 8,000 — أخبرني إن كنت لا تزال ترغب في معاينتها هذا الأسبوع."
+    },
+    "2": {
+      "av": "NM",
+      "name": "Nasser Motors",
+      "time": "قبل 3 أيام",
+      "car": "Toyota Fortuner VX · AED 138,000",
+      "preview": "شكرًا لاهتمامك. تم تأكيد تجربة القيادة يوم السبت الساعة 4 مساءً."
+    }
   },
   "saved": {
     "title": "السيارات المحفوظة",
     "sub": "12 سيارة أدرجتها في قائمتك المختصرة — سنُعلمك إذا انخفضت أسعارها"
   },
   "savedCars": {
-    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • أبوظبي", "price": "AED 365,000", "badge": "مميّزة" },
-    "1": { "title": "BMW X5 xDrive40i", "sub": "2023 • دبي", "price": "AED 285,000" },
-    "2": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • أبوظبي", "price": "AED 985,000" },
-    "3": { "title": "Ford Mustang GT Premium", "sub": "2022 • الشارقة", "price": "AED 154,500", "priceOld": "AED 162,500", "badgeWarning": "انخفض السعر" },
-    "4": { "title": "Porsche 911 Carrera S", "sub": "2023 • دبي", "price": "AED 545,000" },
-    "5": { "title": "Range Rover Vogue Autobiography", "sub": "2022 • دبي", "price": "AED 485,000" }
+    "0": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • أبوظبي",
+      "price": "AED 365,000",
+      "badge": "مميّزة"
+    },
+    "1": {
+      "title": "BMW X5 xDrive40i",
+      "sub": "2023 • دبي",
+      "price": "AED 285,000"
+    },
+    "2": {
+      "title": "Mercedes-Benz G63 AMG",
+      "sub": "2024 • أبوظبي",
+      "price": "AED 985,000"
+    },
+    "3": {
+      "title": "Ford Mustang GT Premium",
+      "sub": "2022 • الشارقة",
+      "price": "AED 154,500",
+      "priceOld": "AED 162,500",
+      "badgeWarning": "انخفض السعر"
+    },
+    "4": {
+      "title": "Porsche 911 Carrera S",
+      "sub": "2023 • دبي",
+      "price": "AED 545,000"
+    },
+    "5": {
+      "title": "Range Rover Vogue Autobiography",
+      "sub": "2022 • دبي",
+      "price": "AED 485,000"
+    }
   },
   "searches": {
     "title": "عمليات البحث المحفوظة",
@@ -70,9 +144,21 @@
     "removeTitle": "إزالة"
   },
   "searchRows": {
-    "0": { "name": "سيارات تويوتا الرياضية متعددة الاستخدامات بأقل من 200 ألف درهم", "crit": "الماركة: Toyota · الفئة: SUV · السعر: أقل من AED 200,000 · السنة: 2020+", "matches": "12 تطابقًا جديدًا منذ زيارتك الأخيرة" },
-    "1": { "name": "BMW فئة M من 2020 فصاعدًا", "crit": "الماركة: BMW · الطُرز: M3، M5، M-Sport · السنة: 2020+", "matches": "7 تطابقات جديدة منذ زيارتك الأخيرة" },
-    "2": { "name": "سيارات SUV كهربائية وهجينة", "crit": "الوقود: كهربائي، هجين · الفئة: SUV · السعر: حتى AED 400,000", "matches": "4 تطابقات جديدة منذ زيارتك الأخيرة" }
+    "0": {
+      "name": "سيارات تويوتا الرياضية متعددة الاستخدامات بأقل من 200 ألف درهم",
+      "crit": "الماركة: Toyota · الفئة: SUV · السعر: أقل من AED 200,000 · السنة: 2020+",
+      "matches": "12 تطابقًا جديدًا منذ زيارتك الأخيرة"
+    },
+    "1": {
+      "name": "BMW فئة M من 2020 فصاعدًا",
+      "crit": "الماركة: BMW · الطُرز: M3، M5، M-Sport · السنة: 2020+",
+      "matches": "7 تطابقات جديدة منذ زيارتك الأخيرة"
+    },
+    "2": {
+      "name": "سيارات SUV كهربائية وهجينة",
+      "crit": "الوقود: كهربائي، هجين · الفئة: SUV · السعر: حتى AED 400,000",
+      "matches": "4 تطابقات جديدة منذ زيارتك الأخيرة"
+    }
   },
   "messages": {
     "title": "الرسائل",
@@ -86,11 +172,43 @@
     }
   },
   "conv": {
-    "1": { "av": "AT", "name": "Al Tayer Motors", "time": "ساعتان", "car": "Toyota Land Cruiser GR-Sport", "preview": "أحضرت أيضًا تقرير الفحص الذي سألت عنه — يبدو أنك ستكون سعيدًا", "badge": "2" },
-    "2": { "av": "SM", "name": "Star Motors", "time": "أمس", "car": "Ford Mustang GT Premium", "preview": "لقد خفّضناها فعليًا إلى AED 154,500 اليوم", "badge": "1" },
-    "3": { "av": "NM", "name": "Nasser Motors", "time": "3 أيام", "car": "Toyota Fortuner VX", "preview": "تم التأكيد للسبت الساعة 4 مساءً. أراك حينها!" },
-    "4": { "av": "EM", "name": "Emirates Auto", "time": "أسبوع", "car": "Mercedes-Benz G63 AMG", "preview": "أنت: نعم من فضلك، أعلمني بسيارات G-Class مماثلة" },
-    "5": { "av": "PA", "name": "Premier Auto", "time": "أسبوعان", "car": "Range Rover Vogue Autobiography", "preview": "شكرًا لزيارتك اليوم. أخبرنا إن كان لديك أي أسئلة." }
+    "1": {
+      "av": "AT",
+      "name": "Al Tayer Motors",
+      "time": "ساعتان",
+      "car": "Toyota Land Cruiser GR-Sport",
+      "preview": "أحضرت أيضًا تقرير الفحص الذي سألت عنه — يبدو أنك ستكون سعيدًا",
+      "badge": "2"
+    },
+    "2": {
+      "av": "SM",
+      "name": "Star Motors",
+      "time": "أمس",
+      "car": "Ford Mustang GT Premium",
+      "preview": "لقد خفّضناها فعليًا إلى AED 154,500 اليوم",
+      "badge": "1"
+    },
+    "3": {
+      "av": "NM",
+      "name": "Nasser Motors",
+      "time": "3 أيام",
+      "car": "Toyota Fortuner VX",
+      "preview": "تم التأكيد للسبت الساعة 4 مساءً. أراك حينها!"
+    },
+    "4": {
+      "av": "EM",
+      "name": "Emirates Auto",
+      "time": "أسبوع",
+      "car": "Mercedes-Benz G63 AMG",
+      "preview": "أنت: نعم من فضلك، أعلمني بسيارات G-Class مماثلة"
+    },
+    "5": {
+      "av": "PA",
+      "name": "Premier Auto",
+      "time": "أسبوعان",
+      "car": "Range Rover Vogue Autobiography",
+      "preview": "شكرًا لزيارتك اليوم. أخبرنا إن كان لديك أي أسئلة."
+    }
   },
   "threadActions": {
     "call": "اتصال",
@@ -110,7 +228,11 @@
     "verifiedTitle": "تاجر موثّق",
     "online": "متصل",
     "statusText": "يرد عادةً خلال ~ساعتين",
-    "car": { "title": "Toyota Land Cruiser GR-Sport", "meta": "2023 · 18,200 كم · ", "price": "AED 365,000" },
+    "car": {
+      "title": "Toyota Land Cruiser GR-Sport",
+      "meta": "2023 · 18,200 كم · ",
+      "price": "AED 365,000"
+    },
     "day1": "أمس",
     "day2": "اليوم",
     "m1": "مرحبًا، هل لا تزال سيارة Land Cruiser متوفرة؟ أرغب في حجز موعد للمعاينة.",
@@ -125,7 +247,11 @@
     "m5time": "10:12 ص",
     "m6": "أرسله الآن 📎",
     "m6meta": "11:48 ص · خالد",
-    "share": { "title": "📋 تقرير الفحص — 98/100", "meta": "فحص من 200 نقطة · 8 مايو 2026", "link": "عرض ملف PDF كامل →" },
+    "share": {
+      "title": "📋 تقرير الفحص — 98/100",
+      "meta": "فحص من 200 نقطة · 8 مايو 2026",
+      "link": "عرض ملف PDF كامل →"
+    },
     "m7meta": "11:49 ص · خالد",
     "m8": "أحضرت أيضًا سجلات الصيانة — مالك واحد، جميع الأختام من Al Tayer Toyota. يبدو أنك ستكون سعيدًا بما ستراه.",
     "m8meta": "11:51 ص · خالد",
@@ -140,14 +266,24 @@
     "av": "SM",
     "name": "Star Motors",
     "status": "آخر ظهور قبل 30 دقيقة",
-    "car": { "title": "Ford Mustang GT Premium", "meta": "2022 · 22,400 كم · ", "price": "AED 154,500" },
+    "car": {
+      "title": "Ford Mustang GT Premium",
+      "meta": "2022 · 22,400 كم · ",
+      "price": "AED 154,500"
+    },
     "day1": "قبل 3 أيام",
     "day2": "اليوم",
     "m1": "مرحبًا، هل لا تزال سيارة Mustang متوفرة؟ ما أفضل سعر يمكنك تقديمه؟",
     "m1time": "3:14 م",
     "m2": "مرحبًا! نعم، لا تزال هنا. السعر المطلوب AED 162,500 — وقد خفّضناه فعلاً من 168 ألفًا. يمكنني النزول إلى 158 ألفًا إن كنت مستعدًا هذا الأسبوع.",
     "m2meta": "3:42 م · عمر",
-    "offer": { "label": "عرض التاجر", "amt": "AED 158,000", "orig": "من AED 162,500", "accept": "قبول", "counter": "عرض مضاد" },
+    "offer": {
+      "label": "عرض التاجر",
+      "amt": "AED 158,000",
+      "orig": "من AED 162,500",
+      "accept": "قبول",
+      "counter": "عرض مضاد"
+    },
     "offermeta": "3:43 م · عمر",
     "m3": "دعني أفكّر في الأمر — 152 ألفًا نقدًا اليوم؟",
     "m3time": "5:08 م",
@@ -167,7 +303,11 @@
     "name": "Nasser Motors",
     "online": "متصل",
     "statusText": "فرع مصفح",
-    "car": { "title": "Toyota Fortuner VX", "meta": "2022 · 42,800 كم · ", "price": "AED 138,000" },
+    "car": {
+      "title": "Toyota Fortuner VX",
+      "meta": "2022 · 42,800 كم · ",
+      "price": "AED 138,000"
+    },
     "day1": "قبل 3 أيام",
     "m1": "مرحبًا، هل يمكنني حجز تجربة قيادة هذا السبت؟",
     "m1time": "11:08 ص",
@@ -191,7 +331,12 @@
     "av": "EM",
     "name": "Emirates Auto",
     "status": "آخر ظهور قبل يومين",
-    "car": { "title": "Mercedes-Benz G63 AMG", "sold": "مُباعة", "meta": "2024 · 4,800 كم · ", "price": "AED 985,000" },
+    "car": {
+      "title": "Mercedes-Benz G63 AMG",
+      "sold": "مُباعة",
+      "meta": "2024 · 4,800 كم · ",
+      "price": "AED 985,000"
+    },
     "day1": "قبل أسبوع",
     "m1": "مرحبًا، هل لا تزال سيارة G63 متوفرة؟",
     "m1time": "2:34 م",
@@ -206,7 +351,11 @@
     "av": "PA",
     "name": "Premier Auto",
     "status": "آخر ظهور أمس",
-    "car": { "title": "Range Rover Vogue Autobiography", "meta": "2022 · 31,200 كم · ", "price": "AED 485,000" },
+    "car": {
+      "title": "Range Rover Vogue Autobiography",
+      "meta": "2022 · 31,200 كم · ",
+      "price": "AED 485,000"
+    },
     "day1": "قبل أسبوعين",
     "m1": "زرتكم اليوم. سيارة رائعة. دعني أناقش الأمر مع زوجتي وأعود إليكم هذا الأسبوع.",
     "m1time": "5:24 م",
@@ -216,14 +365,46 @@
   "listings": {
     "title": "إعلاناتي",
     "sub": "السيارات التي أدرجتها على Carsens",
-    "chips": { "all": "الكل (5)", "active": "نشطة (4)", "pending": "قيد المراجعة (1)", "sold": "مُباعة (3)" },
-    "newCar": "أدرج سيارة جديدة"
+    "chips": {
+      "all": "الكل (5)",
+      "active": "نشطة (4)",
+      "pending": "قيد المراجعة (1)",
+      "sold": "مُباعة (3)"
+    },
+    "newCar": "أدرج سيارة جديدة",
+    "empty": "ليس لديك أي إعلانات بعد."
   },
   "myListings": {
-    "0": { "title": "Toyota Camry SE", "sub": "2021 • دبي", "price": "AED 78,000", "status": "● نشطة", "spec1": "👁 1,242 مشاهدة", "spec2": "8 استفسارات" },
-    "1": { "title": "Nissan Patrol Platinum", "sub": "2020 • دبي", "price": "AED 195,000", "status": "● نشطة", "spec1": "👁 624 مشاهدة", "spec2": "3 استفسارات" },
-    "2": { "title": "Lexus LX 600 Ultra", "sub": "2024 • دبي", "price": "AED 595,000", "status": "● قيد المراجعة", "spec1": "نُشرت قبل ساعتين" },
-    "3": { "title": "Tesla Model 3 Long Range", "sub": "2022 • دبي", "price": "AED 142,000", "status": "مُباعة", "spec1": "بيعت في 28 أبريل" }
+    "0": {
+      "title": "Toyota Camry SE",
+      "sub": "2021 • دبي",
+      "price": "AED 78,000",
+      "status": "● نشطة",
+      "spec1": "👁 1,242 مشاهدة",
+      "spec2": "8 استفسارات"
+    },
+    "1": {
+      "title": "Nissan Patrol Platinum",
+      "sub": "2020 • دبي",
+      "price": "AED 195,000",
+      "status": "● نشطة",
+      "spec1": "👁 624 مشاهدة",
+      "spec2": "3 استفسارات"
+    },
+    "2": {
+      "title": "Lexus LX 600 Ultra",
+      "sub": "2024 • دبي",
+      "price": "AED 595,000",
+      "status": "● قيد المراجعة",
+      "spec1": "نُشرت قبل ساعتين"
+    },
+    "3": {
+      "title": "Tesla Model 3 Long Range",
+      "sub": "2022 • دبي",
+      "price": "AED 142,000",
+      "status": "مُباعة",
+      "spec1": "بيعت في 28 أبريل"
+    }
   },
   "alerts": {
     "title": "تنبيهات الأسعار",
@@ -231,8 +412,14 @@
     "removeTitle": "إزالة"
   },
   "alertRows": {
-    "0": { "name": "Toyota Land Cruiser GR-Sport", "crit": "أعلمني عند انخفاض السعر دون AED 350,000 (حاليًا 365,000)" },
-    "1": { "name": "BMW M5 (أي سنة ≥ 2020)", "crit": "أعلمني عند انخفاض السعر دون AED 280,000" }
+    "0": {
+      "name": "Toyota Land Cruiser GR-Sport",
+      "crit": "أعلمني عند انخفاض السعر دون AED 350,000 (حاليًا 365,000)"
+    },
+    "1": {
+      "name": "BMW M5 (أي سنة ≥ 2020)",
+      "crit": "أعلمني عند انخفاض السعر دون AED 280,000"
+    }
   },
   "profile": {
     "title": "إعدادات الملف الشخصي",
@@ -244,9 +431,16 @@
     "email": "عنوان البريد الإلكتروني",
     "emailVal": "faisal@example.com",
     "city": "المدينة",
-    "cityOptions": { "0": "دبي", "1": "أبوظبي", "2": "الشارقة" },
+    "cityOptions": {
+      "0": "دبي",
+      "1": "أبوظبي",
+      "2": "الشارقة"
+    },
     "language": "اللغة المفضّلة",
-    "langOptions": { "0": "English", "1": "العربية" },
+    "langOptions": {
+      "0": "English",
+      "1": "العربية"
+    },
     "bio": "نبذة مختصرة (اختياري)",
     "bioPlaceholder": "تعريف سريع تشاركه مع البائعين/المشترين",
     "save": "حفظ التغييرات",
@@ -256,12 +450,30 @@
     "title": "تفضيلات الإشعارات",
     "sub": "اختر ما ترغب في تلقّي إشعارات بشأنه",
     "rows": {
-      "0": { "title": "تطابقات جديدة على عمليات البحث المحفوظة", "desc": "احصل على إشعار عند إدراج سيارات تطابق عمليات بحثك المحفوظة" },
-      "1": { "title": "انخفاض أسعار السيارات المحفوظة", "desc": "كن أول من يعلم عند انخفاض سعر سيارة حفظتها" },
-      "2": { "title": "رسائل التجار", "desc": "استقبل الرسائل والردود من التجار" },
-      "3": { "title": "الملخّص الأسبوعي للسوق", "desc": "ملخّص أسبوعي لاتجاهات الأسعار والإطلاقات الجديدة ضمن اهتماماتك" },
-      "4": { "title": "العروض الترويجية", "desc": "صفقات وعروض خاصة من التجار الشركاء" },
-      "5": { "title": "إشعارات الرسائل النصية", "desc": "إرسال التنبيهات العاجلة (انخفاض الأسعار، ردود التجار) عبر الرسائل النصية" }
+      "0": {
+        "title": "تطابقات جديدة على عمليات البحث المحفوظة",
+        "desc": "احصل على إشعار عند إدراج سيارات تطابق عمليات بحثك المحفوظة"
+      },
+      "1": {
+        "title": "انخفاض أسعار السيارات المحفوظة",
+        "desc": "كن أول من يعلم عند انخفاض سعر سيارة حفظتها"
+      },
+      "2": {
+        "title": "رسائل التجار",
+        "desc": "استقبل الرسائل والردود من التجار"
+      },
+      "3": {
+        "title": "الملخّص الأسبوعي للسوق",
+        "desc": "ملخّص أسبوعي لاتجاهات الأسعار والإطلاقات الجديدة ضمن اهتماماتك"
+      },
+      "4": {
+        "title": "العروض الترويجية",
+        "desc": "صفقات وعروض خاصة من التجار الشركاء"
+      },
+      "5": {
+        "title": "إشعارات الرسائل النصية",
+        "desc": "إرسال التنبيهات العاجلة (انخفاض الأسعار، ردود التجار) عبر الرسائل النصية"
+      }
     }
   },
   "security": {
