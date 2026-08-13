@@ -8,7 +8,8 @@
   },
   "head": {
     "title": "Comparar coches",
-    "subtitle": "Especificaciones, características y precios lado a lado. El mejor valor de cada fila se resalta en verde."
+    "subtitle": "Especificaciones, características y precios lado a lado. El mejor valor de cada fila se resalta en verde.",
+    "sub": "Ve las especificaciones lado a lado y encuentra el mejor."
   },
   "actions": {
     "save": "Guardar",
@@ -51,82 +52,326 @@
   },
   "glance": {
     "title": "De un vistazo",
-    "year": { "label": "Año", "v1": "2023", "v2": "2023", "v3": "2021" },
-    "body": { "label": "Tipo de carrocería", "v1": "SUV", "v2": "SUV", "v3": "SUV" },
-    "mileage": { "label": "Kilometraje", "v1": "18,200 km", "v2": "38,200 km", "v3": "62,000 km" },
-    "specs": { "label": "Especificaciones", "v1": "GCC", "v2": "GCC", "v3": "GCC" },
-    "color": { "label": "Color exterior", "v1": "Negro", "v2": "Blanco", "v3": "Plata" },
-    "price": { "label": "Precio solicitado", "v1": "AED 365,000", "v2": "AED 285,000", "v3": "AED 215,000" },
-    "monthly": { "label": "Mensual est. (60 meses)", "v1": "AED 5,440", "v2": "AED 4,250", "v3": "AED 3,200" },
-    "location": { "label": "Ubicación", "v1": "Abu Dhabi", "v2": "Dubái", "v3": "Sharjah" }
+    "year": {
+      "label": "Año",
+      "v1": "2023",
+      "v2": "2023",
+      "v3": "2021"
+    },
+    "body": {
+      "label": "Tipo de carrocería",
+      "v1": "SUV",
+      "v2": "SUV",
+      "v3": "SUV"
+    },
+    "mileage": {
+      "label": "Kilometraje",
+      "v1": "18,200 km",
+      "v2": "38,200 km",
+      "v3": "62,000 km"
+    },
+    "specs": {
+      "label": "Especificaciones",
+      "v1": "GCC",
+      "v2": "GCC",
+      "v3": "GCC"
+    },
+    "color": {
+      "label": "Color exterior",
+      "v1": "Negro",
+      "v2": "Blanco",
+      "v3": "Plata"
+    },
+    "price": {
+      "label": "Precio solicitado",
+      "v1": "AED 365,000",
+      "v2": "AED 285,000",
+      "v3": "AED 215,000"
+    },
+    "monthly": {
+      "label": "Mensual est. (60 meses)",
+      "v1": "AED 5,440",
+      "v2": "AED 4,250",
+      "v3": "AED 3,200"
+    },
+    "location": {
+      "label": "Ubicación",
+      "v1": "Abu Dhabi",
+      "v2": "Dubái",
+      "v3": "Sharjah"
+    }
   },
   "engine": {
     "title": "Motor y rendimiento",
-    "engine": { "label": "Motor", "v1": "3.5L Twin-Turbo V6", "v2": "3.0L Twin-Turbo I6", "v3": "5.6L V8" },
-    "hp": { "label": "Potencia", "v1": "409 CV", "v2": "375 CV", "v3": "400 CV" },
-    "torque": { "label": "Par motor", "v1": "650 Nm", "v2": "520 Nm", "v3": "560 Nm" },
-    "accel": { "label": "0–100 km/h", "v1": "6.7 s", "v2": "5.4 s", "v3": "6.6 s" },
-    "topSpeed": { "label": "Velocidad máxima", "v1": "210 km/h", "v2": "243 km/h", "v3": "210 km/h" },
-    "trans": { "label": "Transmisión", "v1": "Automática de 10 velocidades", "v2": "Automática ZF de 8 velocidades", "v3": "Automática de 7 velocidades" },
-    "drive": { "label": "Tracción", "v1": "4WD permanente", "v2": "AWD (xDrive)", "v3": "4WD parcial" }
+    "engine": {
+      "label": "Motor",
+      "v1": "3.5L Twin-Turbo V6",
+      "v2": "3.0L Twin-Turbo I6",
+      "v3": "5.6L V8"
+    },
+    "hp": {
+      "label": "Potencia",
+      "v1": "409 CV",
+      "v2": "375 CV",
+      "v3": "400 CV"
+    },
+    "torque": {
+      "label": "Par motor",
+      "v1": "650 Nm",
+      "v2": "520 Nm",
+      "v3": "560 Nm"
+    },
+    "accel": {
+      "label": "0–100 km/h",
+      "v1": "6.7 s",
+      "v2": "5.4 s",
+      "v3": "6.6 s"
+    },
+    "topSpeed": {
+      "label": "Velocidad máxima",
+      "v1": "210 km/h",
+      "v2": "243 km/h",
+      "v3": "210 km/h"
+    },
+    "trans": {
+      "label": "Transmisión",
+      "v1": "Automática de 10 velocidades",
+      "v2": "Automática ZF de 8 velocidades",
+      "v3": "Automática de 7 velocidades"
+    },
+    "drive": {
+      "label": "Tracción",
+      "v1": "4WD permanente",
+      "v2": "AWD (xDrive)",
+      "v3": "4WD parcial"
+    }
   },
   "fuel": {
     "title": "Combustible y autonomía",
-    "type": { "label": "Tipo de combustible", "v1": "Gasolina (95)", "v2": "Gasolina (95)", "v3": "Gasolina (95)" },
-    "consumption": { "label": "Consumo (combinado)", "v1": "13.1 L/100km", "v2": "10.4 L/100km", "v3": "14.8 L/100km" },
-    "tank": { "label": "Depósito de combustible", "v1": "110 L", "v2": "83 L", "v3": "98 L" },
-    "range": { "label": "Autonomía teórica", "v1": "~840 km", "v2": "~800 km", "v3": "~660 km" },
-    "annualCost": { "label": "Coste anual de combustible est.", "v1": "AED 8,500", "v2": "AED 6,750", "v3": "AED 9,600" },
-    "co2": { "label": "Emisiones de CO₂", "v1": "301 g/km", "v2": "236 g/km", "v3": "348 g/km" }
+    "type": {
+      "label": "Tipo de combustible",
+      "v1": "Gasolina (95)",
+      "v2": "Gasolina (95)",
+      "v3": "Gasolina (95)"
+    },
+    "consumption": {
+      "label": "Consumo (combinado)",
+      "v1": "13.1 L/100km",
+      "v2": "10.4 L/100km",
+      "v3": "14.8 L/100km"
+    },
+    "tank": {
+      "label": "Depósito de combustible",
+      "v1": "110 L",
+      "v2": "83 L",
+      "v3": "98 L"
+    },
+    "range": {
+      "label": "Autonomía teórica",
+      "v1": "~840 km",
+      "v2": "~800 km",
+      "v3": "~660 km"
+    },
+    "annualCost": {
+      "label": "Coste anual de combustible est.",
+      "v1": "AED 8,500",
+      "v2": "AED 6,750",
+      "v3": "AED 9,600"
+    },
+    "co2": {
+      "label": "Emisiones de CO₂",
+      "v1": "301 g/km",
+      "v2": "236 g/km",
+      "v3": "348 g/km"
+    }
   },
   "dimensions": {
     "title": "Dimensiones y capacidad",
-    "length": { "label": "Longitud", "v1": "4,985 mm", "v2": "4,922 mm", "v3": "5,316 mm" },
-    "width": { "label": "Anchura", "v1": "1,990 mm", "v2": "2,004 mm", "v3": "2,030 mm" },
-    "height": { "label": "Altura", "v1": "1,925 mm", "v2": "1,745 mm", "v3": "1,955 mm" },
-    "wheelbase": { "label": "Distancia entre ejes", "v1": "2,850 mm", "v2": "2,975 mm", "v3": "3,075 mm" },
-    "clearance": { "label": "Altura libre al suelo", "v1": "235 mm", "v2": "214 mm", "v3": "232 mm" },
-    "seating": { "label": "Plazas", "v1": "7 pasajeros", "v2": "5 pasajeros", "v3": "8 pasajeros" },
-    "cargo": { "label": "Maletero (asientos traseros arriba)", "v1": "1,004 L", "v2": "650 L", "v3": "467 L" },
-    "towing": { "label": "Capacidad de remolque", "v1": "3,500 kg", "v2": "3,500 kg", "v3": "3,500 kg" }
+    "length": {
+      "label": "Longitud",
+      "v1": "4,985 mm",
+      "v2": "4,922 mm",
+      "v3": "5,316 mm"
+    },
+    "width": {
+      "label": "Anchura",
+      "v1": "1,990 mm",
+      "v2": "2,004 mm",
+      "v3": "2,030 mm"
+    },
+    "height": {
+      "label": "Altura",
+      "v1": "1,925 mm",
+      "v2": "1,745 mm",
+      "v3": "1,955 mm"
+    },
+    "wheelbase": {
+      "label": "Distancia entre ejes",
+      "v1": "2,850 mm",
+      "v2": "2,975 mm",
+      "v3": "3,075 mm"
+    },
+    "clearance": {
+      "label": "Altura libre al suelo",
+      "v1": "235 mm",
+      "v2": "214 mm",
+      "v3": "232 mm"
+    },
+    "seating": {
+      "label": "Plazas",
+      "v1": "7 pasajeros",
+      "v2": "5 pasajeros",
+      "v3": "8 pasajeros"
+    },
+    "cargo": {
+      "label": "Maletero (asientos traseros arriba)",
+      "v1": "1,004 L",
+      "v2": "650 L",
+      "v3": "467 L"
+    },
+    "towing": {
+      "label": "Capacidad de remolque",
+      "v1": "3,500 kg",
+      "v2": "3,500 kg",
+      "v3": "3,500 kg"
+    }
   },
   "features": {
     "title": "Confort y características",
-    "moonroof": { "label": "Techo panorámico" },
-    "leather": { "label": "Asientos de cuero" },
-    "heatedCooled": { "label": "Asientos con calefacción/ventilación", "v3": "Solo calefacción" },
-    "carplay": { "label": "Apple CarPlay / Android Auto", "v1": "Inalámbrico", "v2": "Inalámbrico", "v3": "Solo con cable" },
-    "audio": { "label": "Audio premium", "v1": "JBL de 14 altavoces", "v2": "Harman Kardon de 16 altavoces", "v3": "Bose de 13 altavoces" },
-    "charging": { "label": "Carga inalámbrica" },
-    "hud": { "label": "Head-up display" },
-    "camera": { "label": "Cámara 360°" },
-    "terrain": { "label": "Modos multiterreno", "v1": "6 modos + crawl", "v2": "4 modos", "v3": "5 modos" }
+    "moonroof": {
+      "label": "Techo panorámico"
+    },
+    "leather": {
+      "label": "Asientos de cuero"
+    },
+    "heatedCooled": {
+      "label": "Asientos con calefacción/ventilación",
+      "v3": "Solo calefacción"
+    },
+    "carplay": {
+      "label": "Apple CarPlay / Android Auto",
+      "v1": "Inalámbrico",
+      "v2": "Inalámbrico",
+      "v3": "Solo con cable"
+    },
+    "audio": {
+      "label": "Audio premium",
+      "v1": "JBL de 14 altavoces",
+      "v2": "Harman Kardon de 16 altavoces",
+      "v3": "Bose de 13 altavoces"
+    },
+    "charging": {
+      "label": "Carga inalámbrica"
+    },
+    "hud": {
+      "label": "Head-up display"
+    },
+    "camera": {
+      "label": "Cámara 360°"
+    },
+    "terrain": {
+      "label": "Modos multiterreno",
+      "v1": "6 modos + crawl",
+      "v2": "4 modos",
+      "v3": "5 modos"
+    }
   },
   "safety": {
     "title": "Seguridad y tecnología",
-    "airbags": { "label": "Airbags", "v1": "10", "v2": "8", "v3": "6" },
-    "precollision": { "label": "Sistema anticolisión" },
-    "acc": { "label": "Control de crucero adaptativo", "v1": "A toda velocidad", "v2": "A toda velocidad", "v3": "Por encima de 30 km/h" },
-    "lka": { "label": "Asistente de mantenimiento de carril" },
-    "bsm": { "label": "Monitor de ángulo muerto" },
-    "aeb": { "label": "Frenado automático de emergencia" },
-    "ncap": { "label": "Calificación NCAP", "v1": "★★★★★ (5)", "v2": "★★★★★ (5)", "v3": "★★★★☆ (4)" }
+    "airbags": {
+      "label": "Airbags",
+      "v1": "10",
+      "v2": "8",
+      "v3": "6"
+    },
+    "precollision": {
+      "label": "Sistema anticolisión"
+    },
+    "acc": {
+      "label": "Control de crucero adaptativo",
+      "v1": "A toda velocidad",
+      "v2": "A toda velocidad",
+      "v3": "Por encima de 30 km/h"
+    },
+    "lka": {
+      "label": "Asistente de mantenimiento de carril"
+    },
+    "bsm": {
+      "label": "Monitor de ángulo muerto"
+    },
+    "aeb": {
+      "label": "Frenado automático de emergencia"
+    },
+    "ncap": {
+      "label": "Calificación NCAP",
+      "v1": "★★★★★ (5)",
+      "v2": "★★★★★ (5)",
+      "v3": "★★★★☆ (4)"
+    }
   },
   "pricing": {
     "title": "Precio y propiedad",
-    "asking": { "label": "Precio solicitado", "v1": "AED 365,000", "v2": "AED 285,000", "v3": "AED 215,000" },
-    "monthly": { "label": "Mensual est. al 4.5%", "v1": "AED 5,440", "v2": "AED 4,250", "v3": "AED 3,200" },
-    "warranty": { "label": "Garantía del fabricante", "v1": "Hasta ago. 2028", "v2": "Hasta jun. 2028", "v3": "Caducada" },
-    "service": { "label": "Intervalo de servicio", "v1": "Cada 10,000 km", "v2": "Cada 25,000 km", "v3": "Cada 10,000 km" },
-    "annualService": { "label": "Servicio anual est.", "v1": "AED 3,200", "v2": "AED 2,800", "v3": "AED 3,400" },
-    "insurance": { "label": "Banda de seguro", "v1": "8 / 10", "v2": "7 / 10", "v3": "7 / 10" },
-    "depreciation": { "label": "Depreciación est. a 5 años", "v1": "~32%", "v2": "~48%", "v3": "~52%" },
-    "inspection": { "label": "Informe de inspección", "v1": "98/100", "v2": "96/100", "v3": "88/100" }
+    "asking": {
+      "label": "Precio solicitado",
+      "v1": "AED 365,000",
+      "v2": "AED 285,000",
+      "v3": "AED 215,000"
+    },
+    "monthly": {
+      "label": "Mensual est. al 4.5%",
+      "v1": "AED 5,440",
+      "v2": "AED 4,250",
+      "v3": "AED 3,200"
+    },
+    "warranty": {
+      "label": "Garantía del fabricante",
+      "v1": "Hasta ago. 2028",
+      "v2": "Hasta jun. 2028",
+      "v3": "Caducada"
+    },
+    "service": {
+      "label": "Intervalo de servicio",
+      "v1": "Cada 10,000 km",
+      "v2": "Cada 25,000 km",
+      "v3": "Cada 10,000 km"
+    },
+    "annualService": {
+      "label": "Servicio anual est.",
+      "v1": "AED 3,200",
+      "v2": "AED 2,800",
+      "v3": "AED 3,400"
+    },
+    "insurance": {
+      "label": "Banda de seguro",
+      "v1": "8 / 10",
+      "v2": "7 / 10",
+      "v3": "7 / 10"
+    },
+    "depreciation": {
+      "label": "Depreciación est. a 5 años",
+      "v1": "~32%",
+      "v2": "~48%",
+      "v3": "~52%"
+    },
+    "inspection": {
+      "label": "Informe de inspección",
+      "v1": "98/100",
+      "v2": "96/100",
+      "v3": "88/100"
+    }
   },
   "foot": {
     "pickLabel": "La elección de Carsens:",
     "pickText": "Toyota Land Cruiser GR-Sport — gana en garantía, depreciación e inspección. BMW X5 gana en rendimiento y economía de combustible. El Patrol es la opción de valor si el presupuesto es ajustado.",
     "downloadPdf": "Descargar PDF",
     "saveAccount": "Guardar en mi cuenta"
+  },
+  "empty": {
+    "text": "Añade al menos dos coches para comparar — usa el botón ⚖ en cualquier anuncio.",
+    "cta": "Explorar coches"
+  },
+  "loading": "Comparando…",
+  "verdict": {
+    "title": "Mejor en general"
   }
 }
