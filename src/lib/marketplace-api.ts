@@ -103,6 +103,10 @@ export interface ListingDetail extends Omit<Card, "media"> {
   cylinders: number | null;
   vin: string | null;
   createdAt: string;
+  /** Present on owner-scoped reads (/listings/mine); null before publication. */
+  expiresAt?: string | null;
+  dealerId?: string | null;
+  userId?: string | null;
 }
 
 export interface FacetCount {
@@ -135,6 +139,7 @@ export interface SearchListingsParams {
   bodyTypeId?: string;
   emirateId?: string;
   sellerType?: string;
+  dealerId?: string;
   condition?: string;
   priceMin?: number;
   priceMax?: number;
@@ -848,4 +853,250 @@ export function saveCompareSet(
 
 export function getCompareSet(slug: string): Promise<CompareResult & { sharedSlug: string }> {
   return apiGet(`/compare/sets/${encodeURIComponent(slug)}`);
+}
+
+/* ------------------------------------------------------------------ */
+/* Dealer portal — tasks P3-01/02/03/06/09                            */
+/* ------------------------------------------------------------------ */
+
+export type DealerMemberRole = "OWNER" | "MANAGER" | "SALES";
+
+export interface DealerPermissions {
+  dealerId: string;
+  role: DealerMemberRole | null;
+  isStaff: boolean;
+  canSeeAllLeads: boolean;
+  canManageTeam: boolean;
+  canManageBilling: boolean;
+}
+
+export interface DealerBranch {
+  id: string;
+  name: string;
+  address: string | null;
+  phone: string | null;
+  lat: number | null;
+  lng: number | null;
+  hours: Record<string, string> | null;
+  emirate: { name: string; slug?: string };
+}
+
+export interface DealerMemberRow {
+  id: string;
+  role: DealerMemberRole;
+  createdAt: string;
+  user: { id: string; name: string; email: string };
+}
+
+export interface DealerProfile {
+  id: string;
+  slug: string;
+  name: string;
+  aboutI18n: Record<string, string> | null;
+  logoKey: string | null;
+  coverKey: string | null;
+  verificationStatus: "UNVERIFIED" | "PENDING" | "VERIFIED" | "REJECTED";
+  brands: string[];
+  services: string[];
+  createdAt: string;
+  branches: DealerBranch[];
+  members?: DealerMemberRow[];
+}
+
+export interface DealerContextResponse {
+  dealer: DealerProfile | null;
+  role?: DealerMemberRole | null;
+  permissions?: DealerPermissions;
+}
+
+export function getMyDealer(
+  accessToken: string,
+  dealerId?: string,
+): Promise<DealerContextResponse> {
+  const suffix = dealerId ? `?dealerId=${encodeURIComponent(dealerId)}` : "";
+  return apiGet<DealerContextResponse>(`/dealers/me${suffix}`, { token: accessToken });
+}
+
+export function getPublicDealer(
+  slug: string,
+): Promise<DealerProfile & { liveListings: number; _count: { listings: number } }> {
+  return apiGet(`/dealers/by-slug/${encodeURIComponent(slug)}`);
+}
+
+export function createDealer(
+  input: { name: string; about?: string; trn?: string; brands?: string[] },
+  accessToken: string,
+): Promise<DealerProfile> {
+  return apiPost<DealerProfile>("/dealers", input, { token: accessToken });
+}
+
+export function updateDealer(
+  dealerId: string,
+  input: Partial<{
+    name: string;
+    about: string;
+    trn: string;
+    brands: string[];
+    services: string[];
+    logoKey: string;
+    coverKey: string;
+  }>,
+  accessToken: string,
+): Promise<DealerProfile> {
+  return apiPatch<DealerProfile>(`/dealers/${encodeURIComponent(dealerId)}`, input, {
+    token: accessToken,
+  });
+}
+
+export function getDealerMembers(
+  dealerId: string,
+  accessToken: string,
+): Promise<DealerMemberRow[]> {
+  return apiGet<DealerMemberRow[]>(
+    `/dealers/${encodeURIComponent(dealerId)}/members`,
+    { token: accessToken },
+  );
+}
+
+export function setDealerMemberRole(
+  dealerId: string,
+  memberId: string,
+  role: DealerMemberRole,
+  accessToken: string,
+): Promise<DealerMemberRow> {
+  return apiPatch(
+    `/dealers/${encodeURIComponent(dealerId)}/members/${encodeURIComponent(memberId)}`,
+    { role },
+    { token: accessToken },
+  );
+}
+
+export function removeDealerMember(
+  dealerId: string,
+  memberId: string,
+  accessToken: string,
+): Promise<{ removed: boolean }> {
+  return apiDelete(
+    `/dealers/${encodeURIComponent(dealerId)}/members/${encodeURIComponent(memberId)}`,
+    { token: accessToken },
+  );
+}
+
+export function addDealerBranch(
+  dealerId: string,
+  input: {
+    name: string;
+    emirateId: string;
+    address?: string;
+    phone?: string;
+    hours?: Record<string, string>;
+  },
+  accessToken: string,
+): Promise<DealerBranch> {
+  return apiPost(`/dealers/${encodeURIComponent(dealerId)}/branches`, input, {
+    token: accessToken,
+  });
+}
+
+export function removeDealerBranch(
+  dealerId: string,
+  branchId: string,
+  accessToken: string,
+): Promise<{ deleted: boolean }> {
+  return apiDelete(
+    `/dealers/${encodeURIComponent(dealerId)}/branches/${encodeURIComponent(branchId)}`,
+    { token: accessToken },
+  );
+}
+
+/* Subscription + quota */
+
+export interface QuotaState {
+  dealerId: string;
+  subscriptionId: string | null;
+  status: string | null;
+  quota: number;
+  occupied: number;
+  remaining: number;
+  canPublish: boolean;
+  reason?: "NO_SUBSCRIPTION" | "SUBSCRIPTION_IN_GRACE" | "QUOTA_EXCEEDED";
+}
+
+export interface SubscriptionRow {
+  id: string;
+  status: "PENDING_PAYMENT" | "ACTIVE" | "GRACE" | "EXPIRED" | "CANCELLED";
+  startsAt: string;
+  endsAt: string;
+  graceEndsAt: string | null;
+  quotaGraceEndsAt: string | null;
+  cancelAtPeriodEnd: boolean;
+  terms: {
+    tier: string;
+    name: string;
+    listingQuota: number;
+    boostCredits: number;
+    priceAed: number;
+    termMonths: number;
+  } | null;
+  package: { tier: string; name: string; priceAed?: number };
+}
+
+export interface DealerInvoiceRow {
+  id: string;
+  number: string | null;
+  status: "ISSUED" | "PAID";
+  issueDate: string | null;
+  dueDate: string | null;
+  currency: string;
+  grandTotalAed: string;
+  creditedTotalAed: string;
+  paidAt: string | null;
+  pdfKey: string | null;
+}
+
+export function getDealerQuota(
+  dealerId: string,
+  accessToken: string,
+): Promise<QuotaState> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/subscription/quota`, {
+    token: accessToken,
+  });
+}
+
+export function getDealerSubscription(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ current: SubscriptionRow | null; history: SubscriptionRow[]; quota: QuotaState }> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/subscription`, {
+    token: accessToken,
+  });
+}
+
+export function getDealerInvoices(
+  dealerId: string,
+  accessToken: string,
+  params: { limit?: number; offset?: number } = {},
+): Promise<{ items: DealerInvoiceRow[]; total: number; limit: number; offset: number }> {
+  const qs = new URLSearchParams();
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const suffix = qs.toString() ? `?${qs}` : "";
+  return apiGet(
+    `/dealers/${encodeURIComponent(dealerId)}/subscription/invoices${suffix}`,
+    { token: accessToken },
+  );
+}
+
+export interface PackageRow {
+  id: string;
+  tier: string;
+  name: string;
+  listingQuota: number;
+  boostCredits: number;
+  priceAed: number;
+  termMonths: number;
+}
+
+export function getPackages(): Promise<PackageRow[]> {
+  return apiGet<PackageRow[]>("/packages");
 }

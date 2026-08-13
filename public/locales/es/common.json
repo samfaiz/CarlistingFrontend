@@ -35,6 +35,21 @@
   "nav": {
     "messages": "Mensajes",
     "notifications": "Notificaciones",
-    "myListings": "Mis anuncios"
+    "myListings": "Mis anuncios",
+    "workspace": "Navegación del espacio",
+    "toggle": "Mostrar/ocultar navegación"
+  },
+  "actions": {
+    "search": "Buscar…",
+    "retry": "Reintentar"
+  },
+  "states": {
+    "loading": "Cargando…"
+  },
+  "pagination": {
+    "label": "Paginación",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "pageOf": "Página {{page}} de {{pages}}"
   }
 }

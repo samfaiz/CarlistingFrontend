@@ -1,0 +1,166 @@
+{
+  "kind": "Dealer",
+  "nav": {
+    "dashboard": "Dashboard",
+    "inventory": "Inventory",
+    "leads": "Leads",
+    "messages": "Messages",
+    "analytics": "Analytics",
+    "team": "Branches & team",
+    "subscription": "Subscription",
+    "publicProfile": "Public profile"
+  },
+  "quota": {
+    "label": "Listings",
+    "tooltip": "Active listings against your package quota",
+    "aria": "{{occupied}} of {{quota}} listing slots in use"
+  },
+  "verification": {
+    "status": {
+      "UNVERIFIED": "Not verified",
+      "PENDING": "In review",
+      "REJECTED": "Rejected"
+    },
+    "message": {
+      "UNVERIFIED": "Upload your trade licence to get verified — verified dealers publish instantly.",
+      "PENDING": "We are reviewing your documents. Listings are moderated until this completes.",
+      "REJECTED": "Your verification was rejected. Check the reason and submit again."
+    },
+    "cta": "Get verified"
+  },
+  "onboarding": {
+    "title": "Set up your dealership",
+    "hint": "Create a dealer profile to manage inventory, leads and your team in one place.",
+    "nameLabel": "Dealership name",
+    "trnLabel": "Tax Registration Number (15 digits)",
+    "trnHint": "Needed before we can invoice you. You can add it later.",
+    "aboutLabel": "About",
+    "submit": "Create dealership",
+    "created": "Your dealership is ready.",
+    "failed": "Could not create the dealership."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "liveListings": "Live listings",
+    "quotaHint": "of {{quota}} in your package",
+    "leads7": "Leads · 7 days",
+    "views7": "Views · 7 days",
+    "expiring": "Expiring in 7 days",
+    "expiringHint": "renew to keep them live",
+    "recentTitle": "Recently updated",
+    "empty": {
+      "title": "No listings yet",
+      "hint": "Add your first car to start receiving leads.",
+      "cta": "Add a listing"
+    }
+  },
+  "inventory": {
+    "title": "Inventory",
+    "total": "{{count}} listing",
+    "total_other": "{{count}} listings",
+    "columns": {
+      "listing": "Listing",
+      "price": "Price",
+      "status": "Status",
+      "views": "Views",
+      "expires": "Expires",
+      "actions": "Actions"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "empty": {
+      "title": "Nothing here yet",
+      "hint": "Listings you add appear here.",
+      "cta": "Add a listing"
+    },
+    "actions": {
+      "pause": "Pause",
+      "resume": "Resume",
+      "sold": "Mark sold",
+      "renew": "Renew"
+    },
+    "toast": {
+      "paused": "Listing paused.",
+      "resumed": "Listing is live again.",
+      "sold": "Marked as sold.",
+      "renewed": "Renewed for another 60 days.",
+      "failed": "That action failed — try again."
+    },
+    "quotaBlocked": "You are at your package limit. Pause a listing or upgrade to publish another."
+  },
+  "subscription": {
+    "title": "Subscription",
+    "current": "Current package",
+    "none": "No active package",
+    "noneHint": "Your listings cannot go live without one. Talk to us to get set up.",
+    "quota": "Listing quota",
+    "renews": "Renews {{date}}",
+    "grace": "Payment overdue — existing listings stay live until {{date}}",
+    "pendingPayment": "Waiting for payment. Quota starts once the invoice is settled.",
+    "cancelScheduled": "Cancels at the end of the term",
+    "invoices": "Invoices",
+    "invoiceColumns": {
+      "number": "Number",
+      "issued": "Issued",
+      "due": "Due",
+      "total": "Total",
+      "status": "Status"
+    },
+    "noInvoices": "No invoices yet.",
+    "history": "Package history"
+  },
+  "team": {
+    "title": "Branches & team",
+    "branches": "Branches",
+    "addBranch": "Add branch",
+    "branchName": "Branch name",
+    "branchEmirate": "Emirate",
+    "branchAddress": "Address",
+    "branchPhone": "Phone",
+    "lastBranch": "A dealership must keep at least one branch.",
+    "members": "Team",
+    "memberColumns": {
+      "name": "Member",
+      "email": "Email",
+      "role": "Role",
+      "actions": ""
+    },
+    "roles": {
+      "OWNER": "Owner",
+      "MANAGER": "Manager",
+      "SALES": "Sales"
+    },
+    "remove": "Remove",
+    "lastOwner": "A dealership must keep at least one owner.",
+    "saved": "Saved.",
+    "failed": "That change failed.",
+    "cancel": "Cancel"
+  },
+  "leads": {
+    "title": "Leads",
+    "comingSoon": "The unified leads inbox arrives with the next release."
+  },
+  "analytics": {
+    "title": "Analytics",
+    "comingSoon": "Dealer analytics arrive with the next release."
+  },
+  "directory": {
+    "title": "Car dealers in the UAE",
+    "subtitle": "Verified showrooms and their live stock.",
+    "verified": "Verified",
+    "listings": "{{count}} car for sale",
+    "listings_other": "{{count}} cars for sale",
+    "empty": "No dealers listed yet."
+  },
+  "profile": {
+    "stock": "Cars for sale",
+    "about": "About",
+    "branches": "Showrooms",
+    "noStock": "This dealer has no live listings right now.",
+    "verifiedBadge": "Verified dealer"
+  },
+  "errors": {
+    "load": "Could not load your dealership."
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "kind": "Concessionnaire",
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "inventory": "Stock",
+    "leads": "Contacts",
+    "messages": "Messages",
+    "analytics": "Analyses",
+    "team": "Agences et équipe",
+    "subscription": "Abonnement",
+    "publicProfile": "Profil public"
+  },
+  "quota": {
+    "label": "Annonces",
+    "tooltip": "Annonces actives par rapport au quota de votre forfait",
+    "aria": "{{occupied}} sur {{quota}} emplacements utilisés"
+  },
+  "verification": {
+    "status": {
+      "UNVERIFIED": "Non vérifié",
+      "PENDING": "En cours de vérification",
+      "REJECTED": "Refusé"
+    },
+    "message": {
+      "UNVERIFIED": "Téléversez votre licence commerciale — les concessionnaires vérifiés publient immédiatement.",
+      "PENDING": "Nous vérifions vos documents. Les annonces sont modérées en attendant.",
+      "REJECTED": "Votre vérification a été refusée. Consultez le motif et renvoyez-la."
+    },
+    "cta": "Me faire vérifier"
+  },
+  "onboarding": {
+    "title": "Configurez votre concession",
+    "hint": "Créez un profil pour gérer stock, contacts et équipe au même endroit.",
+    "nameLabel": "Nom de la concession",
+    "trnLabel": "Numéro d'enregistrement fiscal (15 chiffres)",
+    "trnHint": "Nécessaire pour la facturation. Vous pouvez l’ajouter plus tard.",
+    "aboutLabel": "À propos",
+    "submit": "Créer la concession",
+    "created": "Votre concession est prête.",
+    "failed": "Impossible de créer la concession."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "liveListings": "Annonces en ligne",
+    "quotaHint": "sur {{quota}} dans votre forfait",
+    "leads7": "Contacts · 7 jours",
+    "views7": "Vues · 7 jours",
+    "expiring": "Expirent sous 7 jours",
+    "expiringHint": "renouvelez pour les garder en ligne",
+    "recentTitle": "Récemment mises à jour",
+    "empty": {
+      "title": "Pas encore d’annonces",
+      "hint": "Ajoutez votre première voiture pour recevoir des contacts.",
+      "cta": "Ajouter une annonce"
+    }
+  },
+  "inventory": {
+    "title": "Stock",
+    "total": "{{count}} annonce",
+    "total_other": "{{count}} annonces",
+    "columns": {
+      "listing": "Annonce",
+      "price": "Prix",
+      "status": "Statut",
+      "views": "Vues",
+      "expires": "Expire",
+      "actions": "Actions"
+    },
+    "filters": {
+      "all": "Toutes"
+    },
+    "empty": {
+      "title": "Rien ici pour l’instant",
+      "hint": "Les annonces que vous ajoutez apparaissent ici.",
+      "cta": "Ajouter une annonce"
+    },
+    "actions": {
+      "pause": "Mettre en pause",
+      "resume": "Reprendre",
+      "sold": "Marquer vendue",
+      "renew": "Renouveler"
+    },
+    "toast": {
+      "paused": "Annonce mise en pause.",
+      "resumed": "L’annonce est de nouveau en ligne.",
+      "sold": "Marquée comme vendue.",
+      "renewed": "Renouvelée pour 60 jours.",
+      "failed": "L’action a échoué — réessayez."
+    },
+    "quotaBlocked": "Vous avez atteint la limite de votre forfait. Mettez une annonce en pause ou passez à un forfait supérieur."
+  },
+  "subscription": {
+    "title": "Abonnement",
+    "current": "Forfait actuel",
+    "none": "Aucun forfait actif",
+    "noneHint": "Vos annonces ne peuvent pas être publiées sans forfait. Contactez-nous.",
+    "quota": "Quota d’annonces",
+    "renews": "Renouvellement le {{date}}",
+    "grace": "Paiement en retard — les annonces restent en ligne jusqu’au {{date}}",
+    "pendingPayment": "En attente de paiement. Le quota démarre au règlement de la facture.",
+    "cancelScheduled": "Résiliation à la fin de la période",
+    "invoices": "Factures",
+    "invoiceColumns": {
+      "number": "Numéro",
+      "issued": "Émise",
+      "due": "Échéance",
+      "total": "Total",
+      "status": "Statut"
+    },
+    "noInvoices": "Pas encore de factures.",
+    "history": "Historique des forfaits"
+  },
+  "team": {
+    "title": "Agences et équipe",
+    "branches": "Agences",
+    "addBranch": "Ajouter une agence",
+    "branchName": "Nom",
+    "branchEmirate": "Émirat",
+    "branchAddress": "Adresse",
+    "branchPhone": "Téléphone",
+    "lastBranch": "Une concession doit conserver au moins une agence.",
+    "members": "Équipe",
+    "memberColumns": {
+      "name": "Membre",
+      "email": "E-mail",
+      "role": "Rôle",
+      "actions": ""
+    },
+    "roles": {
+      "OWNER": "Propriétaire",
+      "MANAGER": "Responsable",
+      "SALES": "Commercial"
+    },
+    "remove": "Retirer",
+    "lastOwner": "Une concession doit conserver au moins un propriétaire.",
+    "saved": "Enregistré.",
+    "failed": "La modification a échoué.",
+    "cancel": "Annuler"
+  },
+  "leads": {
+    "title": "Contacts",
+    "comingSoon": "La boîte de réception unifiée arrive dans la prochaine version."
+  },
+  "analytics": {
+    "title": "Analyses",
+    "comingSoon": "Les analyses arrivent dans la prochaine version."
+  },
+  "directory": {
+    "title": "Concessionnaires aux Émirats",
+    "subtitle": "Concessionnaires vérifiés et leur stock disponible.",
+    "verified": "Vérifié",
+    "listings": "{{count}} voiture à vendre",
+    "listings_other": "{{count}} voitures à vendre",
+    "empty": "Aucun concessionnaire pour le moment."
+  },
+  "profile": {
+    "stock": "Voitures à vendre",
+    "about": "À propos",
+    "branches": "Showrooms",
+    "noStock": "Ce concessionnaire n’a aucune annonce en ligne actuellement.",
+    "verifiedBadge": "Concessionnaire vérifié"
+  },
+  "errors": {
+    "load": "Impossible de charger votre concession."
+  }
+}

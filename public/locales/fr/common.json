@@ -35,6 +35,21 @@
   "nav": {
     "messages": "Messages",
     "notifications": "Notifications",
-    "myListings": "Mes annonces"
+    "myListings": "Mes annonces",
+    "workspace": "Navigation de l'espace",
+    "toggle": "Afficher/masquer la navigation"
+  },
+  "actions": {
+    "search": "Rechercher…",
+    "retry": "Réessayer"
+  },
+  "states": {
+    "loading": "Chargement…"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "pageOf": "Page {{page}} sur {{pages}}"
   }
 }

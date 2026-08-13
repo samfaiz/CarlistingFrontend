@@ -1,0 +1,166 @@
+{
+  "kind": "Concesionario",
+  "nav": {
+    "dashboard": "Panel",
+    "inventory": "Inventario",
+    "leads": "Contactos",
+    "messages": "Mensajes",
+    "analytics": "Analíticas",
+    "team": "Sucursales y equipo",
+    "subscription": "Suscripción",
+    "publicProfile": "Perfil público"
+  },
+  "quota": {
+    "label": "Anuncios",
+    "tooltip": "Anuncios activos frente a la cuota de tu paquete",
+    "aria": "{{occupied}} de {{quota}} plazas en uso"
+  },
+  "verification": {
+    "status": {
+      "UNVERIFIED": "Sin verificar",
+      "PENDING": "En revisión",
+      "REJECTED": "Rechazado"
+    },
+    "message": {
+      "UNVERIFIED": "Sube tu licencia comercial para verificarte: los verificados publican al instante.",
+      "PENDING": "Estamos revisando tus documentos. Mientras tanto, los anuncios se moderan.",
+      "REJECTED": "Tu verificación fue rechazada. Revisa el motivo y vuelve a enviarla."
+    },
+    "cta": "Verificarme"
+  },
+  "onboarding": {
+    "title": "Configura tu concesionario",
+    "hint": "Crea un perfil para gestionar inventario, contactos y equipo en un solo sitio.",
+    "nameLabel": "Nombre del concesionario",
+    "trnLabel": "Número de registro fiscal (15 dígitos)",
+    "trnHint": "Necesario para facturarte. Puedes añadirlo más tarde.",
+    "aboutLabel": "Descripción",
+    "submit": "Crear concesionario",
+    "created": "Tu concesionario está listo.",
+    "failed": "No se pudo crear el concesionario."
+  },
+  "dashboard": {
+    "title": "Panel",
+    "liveListings": "Anuncios activos",
+    "quotaHint": "de {{quota}} en tu paquete",
+    "leads7": "Contactos · 7 días",
+    "views7": "Visitas · 7 días",
+    "expiring": "Caducan en 7 días",
+    "expiringHint": "renueva para mantenerlos activos",
+    "recentTitle": "Actualizados recientemente",
+    "empty": {
+      "title": "Aún no hay anuncios",
+      "hint": "Añade tu primer coche para recibir contactos.",
+      "cta": "Añadir anuncio"
+    }
+  },
+  "inventory": {
+    "title": "Inventario",
+    "total": "{{count}} anuncio",
+    "total_other": "{{count}} anuncios",
+    "columns": {
+      "listing": "Anuncio",
+      "price": "Precio",
+      "status": "Estado",
+      "views": "Visitas",
+      "expires": "Caduca",
+      "actions": "Acciones"
+    },
+    "filters": {
+      "all": "Todos"
+    },
+    "empty": {
+      "title": "Nada por aquí",
+      "hint": "Los anuncios que añadas aparecerán aquí.",
+      "cta": "Añadir anuncio"
+    },
+    "actions": {
+      "pause": "Pausar",
+      "resume": "Reanudar",
+      "sold": "Marcar vendido",
+      "renew": "Renovar"
+    },
+    "toast": {
+      "paused": "Anuncio pausado.",
+      "resumed": "El anuncio vuelve a estar activo.",
+      "sold": "Marcado como vendido.",
+      "renewed": "Renovado por 60 días más.",
+      "failed": "La acción falló: inténtalo de nuevo."
+    },
+    "quotaBlocked": "Has alcanzado el límite de tu paquete. Pausa un anuncio o mejora el plan."
+  },
+  "subscription": {
+    "title": "Suscripción",
+    "current": "Paquete actual",
+    "none": "Sin paquete activo",
+    "noneHint": "Tus anuncios no pueden publicarse sin uno. Habla con nosotros.",
+    "quota": "Cuota de anuncios",
+    "renews": "Se renueva el {{date}}",
+    "grace": "Pago vencido: los anuncios siguen activos hasta el {{date}}",
+    "pendingPayment": "Esperando el pago. La cuota empieza al liquidar la factura.",
+    "cancelScheduled": "Se cancela al final del periodo",
+    "invoices": "Facturas",
+    "invoiceColumns": {
+      "number": "Número",
+      "issued": "Emitida",
+      "due": "Vence",
+      "total": "Total",
+      "status": "Estado"
+    },
+    "noInvoices": "Aún no hay facturas.",
+    "history": "Historial de paquetes"
+  },
+  "team": {
+    "title": "Sucursales y equipo",
+    "branches": "Sucursales",
+    "addBranch": "Añadir sucursal",
+    "branchName": "Nombre",
+    "branchEmirate": "Emirato",
+    "branchAddress": "Dirección",
+    "branchPhone": "Teléfono",
+    "lastBranch": "Un concesionario debe conservar al menos una sucursal.",
+    "members": "Equipo",
+    "memberColumns": {
+      "name": "Miembro",
+      "email": "Correo",
+      "role": "Rol",
+      "actions": ""
+    },
+    "roles": {
+      "OWNER": "Propietario",
+      "MANAGER": "Gerente",
+      "SALES": "Ventas"
+    },
+    "remove": "Quitar",
+    "lastOwner": "Un concesionario debe conservar al menos un propietario.",
+    "saved": "Guardado.",
+    "failed": "El cambio falló.",
+    "cancel": "Cancelar"
+  },
+  "leads": {
+    "title": "Contactos",
+    "comingSoon": "La bandeja unificada llega en la próxima versión."
+  },
+  "analytics": {
+    "title": "Analíticas",
+    "comingSoon": "Las analíticas llegan en la próxima versión."
+  },
+  "directory": {
+    "title": "Concesionarios en los EAU",
+    "subtitle": "Concesionarios verificados y su stock disponible.",
+    "verified": "Verificado",
+    "listings": "{{count}} coche a la venta",
+    "listings_other": "{{count}} coches a la venta",
+    "empty": "Aún no hay concesionarios."
+  },
+  "profile": {
+    "stock": "Coches a la venta",
+    "about": "Sobre nosotros",
+    "branches": "Salas de exposición",
+    "noStock": "Este concesionario no tiene anuncios activos ahora mismo.",
+    "verifiedBadge": "Concesionario verificado"
+  },
+  "errors": {
+    "load": "No se pudo cargar tu concesionario."
+  }
+}

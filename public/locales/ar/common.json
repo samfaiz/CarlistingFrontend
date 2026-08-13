@@ -35,6 +35,21 @@
   "nav": {
     "messages": "الرسائل",
     "notifications": "الإشعارات",
-    "myListings": "إعلاناتي"
+    "myListings": "إعلاناتي",
+    "workspace": "تنقّل مساحة العمل",
+    "toggle": "إظهار/إخفاء التنقل"
+  },
+  "actions": {
+    "search": "بحث…",
+    "retry": "إعادة المحاولة"
+  },
+  "states": {
+    "loading": "جارٍ التحميل…"
+  },
+  "pagination": {
+    "label": "ترقيم الصفحات",
+    "previous": "السابق",
+    "next": "التالي",
+    "pageOf": "صفحة {{page}} من {{pages}}"
   }
 }
