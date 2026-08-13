@@ -18,7 +18,8 @@
       "audit": "Journal d’audit",
       "system": "Système",
       "spec": "BD spécifications",
-      "analytics": "Analytique"
+      "analytics": "Analytique",
+      "integrations": "Intégrations"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -565,5 +566,59 @@
     "dailyActivity": "Activité quotidienne",
     "topMakes": "Meilleures marques",
     "noData": "Pas encore de données"
+  },
+  "integrations": {
+    "securityNote": "Les clés sont chiffrées (scrypt + AES-256-GCM + HMAC) et jamais réaffichées — seulement un indice masqué. Saisissez une valeur uniquement pour la définir ou la remplacer.",
+    "configured": "Configurée",
+    "notSet": "Non définie",
+    "set": "Définir",
+    "update": "Mettre à jour",
+    "remove": "Retirer",
+    "addCustom": "Ajouter une clé personnalisée",
+    "keyName": "Nom de la clé",
+    "value": "Valeur",
+    "writeOnly": "En écriture seule — chiffrée à l'enregistrement, jamais renvoyée au navigateur.",
+    "needKeyValue": "Un nom et une valeur sont requis.",
+    "confirmRemove": "Retirer « {{key}} » ?",
+    "saved": "Enregistré",
+    "removed": "Retiré",
+    "error": "Une erreur est survenue",
+    "loading": "Chargement…",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "title": "Intégrations & IA",
+    "tabs": {
+      "secrets": "Coffre à secrets",
+      "ai": "IA"
+    },
+    "ai": {
+      "provider": "Fournisseur d'IA",
+      "live": "En direct (clé configurée)",
+      "localOnly": "Repli local uniquement",
+      "test": "Tester la connexion",
+      "testOk": "Fournisseur OK ({{provider}})",
+      "testFail": "Échec de la vérification : {{detail}}",
+      "addKeyHint": "Ajoutez une clé Anthropic dans l'onglet Secrets pour activer l'IA en direct.",
+      "features": "Interrupteurs de fonctions",
+      "caps": "Plafonds d'usage",
+      "perUser": "Par utilisateur / jour",
+      "global": "Global / jour",
+      "usage": "Usage & coût (30 jours)",
+      "usageFeature": "Fonction",
+      "usageProvider": "Fournisseur",
+      "usageCalls": "Appels",
+      "usageTokens": "Jetons",
+      "usageCost": "Coût",
+      "noUsage": "Aucun usage d'IA.",
+      "feature": {
+        "assistant": "Assistant d'achat",
+        "description": "Rédacteur de description",
+        "valuation": "Estimation du prix",
+        "translation": "Traduction auto",
+        "compare_verdict": "Verdict de comparaison",
+        "trim_draft": "Brouillon de finition",
+        "spec_enrich": "Enrichissement des fiches"
+      }
+    }
   }
 }

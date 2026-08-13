@@ -18,7 +18,8 @@
       "audit": "Audit log",
       "system": "System",
       "spec": "Spec DB",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "integrations": "Integrations"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -565,5 +566,59 @@
     "dailyActivity": "Daily activity",
     "topMakes": "Top makes",
     "noData": "No data yet"
+  },
+  "integrations": {
+    "securityNote": "Keys are encrypted (scrypt + AES-256-GCM + HMAC) and never shown again — only a masked hint. Enter a value only to set or replace it.",
+    "configured": "Configured",
+    "notSet": "Not set",
+    "set": "Set",
+    "update": "Update",
+    "remove": "Remove",
+    "addCustom": "Add a custom key",
+    "keyName": "Key name",
+    "value": "Value",
+    "writeOnly": "Write-only — this is encrypted on save and never returned to the browser.",
+    "needKeyValue": "A key name and value are required.",
+    "confirmRemove": "Remove \"{{key}}\"?",
+    "saved": "Saved",
+    "removed": "Removed",
+    "error": "Something went wrong",
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "save": "Save",
+    "title": "Integrations & AI",
+    "tabs": {
+      "secrets": "Secrets vault",
+      "ai": "AI"
+    },
+    "ai": {
+      "provider": "AI provider",
+      "live": "Live (key configured)",
+      "localOnly": "Local fallback only",
+      "test": "Test connection",
+      "testOk": "Provider OK ({{provider}})",
+      "testFail": "Provider check failed: {{detail}}",
+      "addKeyHint": "Add an Anthropic key in the Secrets tab to enable live AI.",
+      "features": "Feature kill switches",
+      "caps": "Usage caps",
+      "perUser": "Per user / day",
+      "global": "Global / day",
+      "usage": "Usage & cost (30 days)",
+      "usageFeature": "Feature",
+      "usageProvider": "Provider",
+      "usageCalls": "Calls",
+      "usageTokens": "Tokens",
+      "usageCost": "Cost",
+      "noUsage": "No AI usage yet.",
+      "feature": {
+        "assistant": "Buying assistant",
+        "description": "Description writer",
+        "valuation": "Price valuation",
+        "translation": "Auto-translation",
+        "compare_verdict": "Compare verdict",
+        "trim_draft": "Trim drafting",
+        "spec_enrich": "Spec enrichment"
+      }
+    }
   }
 }

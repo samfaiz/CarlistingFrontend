@@ -758,3 +758,40 @@ export function getAnalytics(days: number, accessToken: string): Promise<Analyti
 export function runWeeklyReport(accessToken: string): Promise<{ week: string; recipients: number; pdfBytes: number }> {
   return apiPost(`/super-admin/analytics/weekly-report/run`, {}, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Secrets vault + AI config (P5-01) — SUPER_ADMIN                     */
+/* ------------------------------------------------------------------ */
+
+export interface SecretRow { key: string; hint: string; category: string; updatedBy: string | null; updatedAt: string; configured: boolean; }
+export function getSecrets(accessToken: string): Promise<SecretRow[]> {
+  return apiGet(`/super-admin/secrets`, { token: accessToken });
+}
+export function setSecret(key: string, value: string, category: string, accessToken: string): Promise<SecretRow> {
+  return apiPut(`/super-admin/secrets/${encodeURIComponent(key)}`, { value, category }, { token: accessToken });
+}
+export function deleteSecret(key: string, accessToken: string): Promise<{ deleted: boolean }> {
+  return apiDelete(`/super-admin/secrets/${encodeURIComponent(key)}`, { token: accessToken });
+}
+
+export interface AiConfig {
+  flags: Record<string, boolean>;
+  caps: { perUserPerDay: number; globalPerDay: number };
+  providerConfigured: boolean;
+}
+export interface AiUsageRow { feature: string; provider: string; calls: number; inputTokens: number; outputTokens: number; costUsd: number; }
+export function getAiConfig(accessToken: string): Promise<AiConfig> {
+  return apiGet(`/super-admin/ai/config`, { token: accessToken });
+}
+export function setAiFlag(feature: string, enabled: boolean, accessToken: string): Promise<{ feature: string; enabled: boolean }> {
+  return apiPut(`/super-admin/ai/flags/${encodeURIComponent(feature)}`, { enabled }, { token: accessToken });
+}
+export function setAiCaps(caps: { perUserPerDay: number; globalPerDay: number }, accessToken: string): Promise<{ perUserPerDay: number; globalPerDay: number }> {
+  return apiPut(`/super-admin/ai/caps`, caps, { token: accessToken });
+}
+export function getAiUsage(days: number, accessToken: string): Promise<AiUsageRow[]> {
+  return apiGet(`/super-admin/ai/usage?days=${days}`, { token: accessToken });
+}
+export function testAiProvider(accessToken: string): Promise<{ ok: boolean; provider: string; model?: string; detail?: string }> {
+  return apiPost(`/super-admin/ai/test-provider`, {}, { token: accessToken });
+}

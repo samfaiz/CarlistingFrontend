@@ -18,7 +18,8 @@
       "audit": "Registro de auditoría",
       "system": "Sistema",
       "spec": "BD de fichas",
-      "analytics": "Analíticas"
+      "analytics": "Analíticas",
+      "integrations": "Integraciones"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -565,5 +566,59 @@
     "dailyActivity": "Actividad diaria",
     "topMakes": "Marcas principales",
     "noData": "Sin datos aún"
+  },
+  "integrations": {
+    "securityNote": "Las claves se cifran (scrypt + AES-256-GCM + HMAC) y no se muestran de nuevo, solo una pista enmascarada. Introduce un valor solo para establecerlo o reemplazarlo.",
+    "configured": "Configurada",
+    "notSet": "Sin configurar",
+    "set": "Establecer",
+    "update": "Actualizar",
+    "remove": "Quitar",
+    "addCustom": "Añadir clave personalizada",
+    "keyName": "Nombre de la clave",
+    "value": "Valor",
+    "writeOnly": "Solo escritura — se cifra al guardar y nunca se devuelve al navegador.",
+    "needKeyValue": "Se requieren nombre y valor.",
+    "confirmRemove": "¿Quitar \"{{key}}\"?",
+    "saved": "Guardado",
+    "removed": "Eliminado",
+    "error": "Algo salió mal",
+    "loading": "Cargando…",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "title": "Integraciones e IA",
+    "tabs": {
+      "secrets": "Bóveda de secretos",
+      "ai": "IA"
+    },
+    "ai": {
+      "provider": "Proveedor de IA",
+      "live": "En vivo (clave configurada)",
+      "localOnly": "Solo respaldo local",
+      "test": "Probar conexión",
+      "testOk": "Proveedor OK ({{provider}})",
+      "testFail": "Fallo de verificación: {{detail}}",
+      "addKeyHint": "Añade una clave de Anthropic en Secretos para habilitar la IA en vivo.",
+      "features": "Interruptores de funciones",
+      "caps": "Límites de uso",
+      "perUser": "Por usuario / día",
+      "global": "Global / día",
+      "usage": "Uso y coste (30 días)",
+      "usageFeature": "Función",
+      "usageProvider": "Proveedor",
+      "usageCalls": "Llamadas",
+      "usageTokens": "Tokens",
+      "usageCost": "Coste",
+      "noUsage": "Sin uso de IA aún.",
+      "feature": {
+        "assistant": "Asistente de compra",
+        "description": "Redactor de descripciones",
+        "valuation": "Valoración de precio",
+        "translation": "Traducción automática",
+        "compare_verdict": "Veredicto de comparación",
+        "trim_draft": "Borrador de versiones",
+        "spec_enrich": "Enriquecimiento de fichas"
+      }
+    }
   }
 }

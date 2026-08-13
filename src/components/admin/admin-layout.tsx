@@ -22,6 +22,7 @@ import {
   KeyRound,
   LifeBuoy,
   LogOut,
+  Plug,
   Scale,
   ShieldCheck,
   SlidersHorizontal,
@@ -133,6 +134,11 @@ export function AdminLayout({
       href: "/admin/system",
       label: t("layout.nav.system"),
       icon: SlidersHorizontal,
+    },
+    {
+      href: "/admin/integrations",
+      label: t("layout.nav.integrations"),
+      icon: Plug,
     },
     {
       href: "/admin/security",
