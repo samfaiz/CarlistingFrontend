@@ -4,7 +4,8 @@
     "badge": "Admin",
     "nav": {
       "label": "Navegación de administración",
-      "moderation": "Moderación"
+      "moderation": "Moderación",
+      "verification": "Verificación"
     },
     "signOut": "Cerrar sesión"
   },
@@ -81,5 +82,36 @@
       "actionFailed": "La acción falló"
     },
     "featuredBadge": "Destacado"
+  },
+  "verification": {
+    "title": "Verificación de concesionarios",
+    "count": "{{count}} pendientes",
+    "open": "Abrir licencia",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "columns": {
+      "dealer": "Concesionario",
+      "trn": "TRN",
+      "submitted": "Enviado",
+      "licence": "Licencia",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "Cola vacía",
+      "hint": "Las nuevas solicitudes de verificación aparecen aquí."
+    },
+    "rejectDialog": {
+      "title": "Rechazar {{name}}",
+      "placeholder": "Motivo mostrado al concesionario (mín. 5 caracteres)…",
+      "cancel": "Cancelar",
+      "confirm": "Rechazar"
+    },
+    "toast": {
+      "approved": "Concesionario verificado",
+      "rejected": "Verificación rechazada",
+      "failed": "No se pudo completar la acción",
+      "loadFailed": "No se pudo cargar la cola",
+      "licenceFailed": "No se pudo abrir la licencia"
+    }
   }
 }

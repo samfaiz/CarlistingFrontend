@@ -26,7 +26,20 @@
       "PENDING": "Estamos revisando tus documentos. Mientras tanto, los anuncios se moderan.",
       "REJECTED": "Tu verificación fue rechazada. Revisa el motivo y vuelve a enviarla."
     },
-    "cta": "Verificarme"
+    "cta": "Verificarme",
+    "page": {
+      "title": "Verificación",
+      "statusHeading": "Verificación del concesionario",
+      "verified": "Verificado",
+      "verifiedHint": "Tu concesionario está verificado: los anuncios nuevos se publican al instante, sin moderación.",
+      "upload": "Subir licencia comercial",
+      "formats": "PDF, JPG, PNG o WebP — máx. 15 MB.",
+      "submitted": "Licencia enviada — la revisaremos en breve.",
+      "infected": "El archivo no pasó el análisis de malware y fue eliminado.",
+      "failed": "No se pudo completar la subida.",
+      "badType": "Tipo de archivo no compatible.",
+      "ownerOnly": "Solo el propietario del concesionario puede enviar documentos de verificación."
+    }
   },
   "onboarding": {
     "title": "Configura tu concesionario",
@@ -138,12 +151,81 @@
     "cancel": "Cancelar"
   },
   "leads": {
-    "title": "Contactos",
-    "comingSoon": "La bandeja unificada llega en la próxima versión."
+    "title": "Leads",
+    "exportCsv": "Exportar CSV",
+    "anonymous": "Sin nombre",
+    "open": "Abrir",
+    "unassigned": "Sin asignar",
+    "assignedOther": "Miembro del equipo",
+    "columns": {
+      "buyer": "Comprador",
+      "listing": "Anuncio",
+      "type": "Tipo",
+      "status": "Estado",
+      "assignee": "Asignado a",
+      "received": "Recibido",
+      "notes": "Notas",
+      "actions": "Acciones"
+    },
+    "status": {
+      "NEW": "Nuevo",
+      "CONTACTED": "Contactado",
+      "WON": "Ganado",
+      "LOST": "Perdido"
+    },
+    "type": {
+      "CALL": "Llamada",
+      "WHATSAPP": "WhatsApp",
+      "CHAT": "Chat",
+      "FORM": "Formulario"
+    },
+    "filters": {
+      "all": "Todos",
+      "allTypes": "Todos los tipos",
+      "type": "Tipo"
+    },
+    "moveTo": {
+      "NEW": "Reabrir",
+      "CONTACTED": "Marcar contactado",
+      "WON": "Marcar ganado",
+      "LOST": "Marcar perdido"
+    },
+    "empty": {
+      "title": "Aún no hay leads",
+      "hint": "Cuando los compradores pregunten por tus anuncios, sus consultas aparecerán aquí."
+    },
+    "notes": {
+      "title": "Notas",
+      "empty": "Aún no hay notas.",
+      "placeholder": "Añade una nota para el equipo…",
+      "add": "Añadir"
+    },
+    "toast": {
+      "failed": "No se pudo completar la acción",
+      "exportFailed": "Error al exportar"
+    }
   },
   "analytics": {
-    "title": "Analíticas",
-    "comingSoon": "Las analíticas llegan en la próxima versión."
+    "title": "Analítica",
+    "range": "{{count}} días",
+    "totals": {
+      "views": "Vistas",
+      "leads": "Leads",
+      "liveListings": "Anuncios activos"
+    },
+    "viewsChart": "Vistas por día",
+    "leadsChart": "Leads por día",
+    "sourceSplit": "Leads por canal",
+    "topListings": "Mejores anuncios",
+    "noLeads": "Sin leads en este período.",
+    "noListings": "Aún no hay anuncios.",
+    "columns": {
+      "listing": "Anuncio",
+      "status": "Estado",
+      "price": "Precio",
+      "views": "Vistas",
+      "leads": "Leads"
+    }
   },
   "directory": {
     "title": "Concesionarios en los EAU",
@@ -162,5 +244,35 @@
   },
   "errors": {
     "load": "No se pudo cargar tu concesionario."
+  },
+  "boosts": {
+    "title": "Impulsos",
+    "action": "Impulsar",
+    "activeIndicator": "Impulso activo",
+    "dialogTitle": "Impulsar este anuncio",
+    "duration": "{{days}} días",
+    "credits": "{{count}} crédito",
+    "credits_other": "{{count}} créditos",
+    "balance": "Cartera: {{count}} crédito",
+    "balance_other": "Cartera: {{count}} créditos",
+    "insufficient": "Créditos insuficientes",
+    "apply": "Aplicar impulso",
+    "cancel": "Cancelar",
+    "none": "Sin impulsos activos. Impulsa un anuncio desde el inventario.",
+    "stop": "Detener",
+    "slot": {
+      "TOP_OF_SEARCH": "Arriba en búsqueda",
+      "HOME_FEATURED": "Destacado en portada",
+      "HIGHLIGHT": "Resaltado"
+    },
+    "status": {
+      "ACTIVE": "Activo",
+      "SCHEDULED": "Programado"
+    },
+    "toast": {
+      "applied": "Impulso aplicado",
+      "cancelled": "Impulso detenido",
+      "failed": "No se pudo actualizar el impulso"
+    }
   }
 }

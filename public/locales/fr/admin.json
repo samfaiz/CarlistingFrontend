@@ -4,7 +4,8 @@
     "badge": "Admin",
     "nav": {
       "label": "Navigation d'administration",
-      "moderation": "Modération"
+      "moderation": "Modération",
+      "verification": "Vérification"
     },
     "signOut": "Se déconnecter"
   },
@@ -81,5 +82,36 @@
       "actionFailed": "L'action a échoué"
     },
     "featuredBadge": "En avant"
+  },
+  "verification": {
+    "title": "Vérification des concessions",
+    "count": "{{count}} en attente",
+    "open": "Ouvrir la licence",
+    "approve": "Approuver",
+    "reject": "Rejeter",
+    "columns": {
+      "dealer": "Concession",
+      "trn": "TRN",
+      "submitted": "Envoyé",
+      "licence": "Licence",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "File d'attente vide",
+      "hint": "Les nouvelles demandes de vérification apparaissent ici."
+    },
+    "rejectDialog": {
+      "title": "Rejeter {{name}}",
+      "placeholder": "Motif affiché à la concession (min. 5 caractères)…",
+      "cancel": "Annuler",
+      "confirm": "Rejeter"
+    },
+    "toast": {
+      "approved": "Concession vérifiée",
+      "rejected": "Vérification rejetée",
+      "failed": "L'action n'a pas pu être effectuée",
+      "loadFailed": "Impossible de charger la file",
+      "licenceFailed": "Impossible d'ouvrir la licence"
+    }
   }
 }

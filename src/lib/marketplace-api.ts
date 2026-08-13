@@ -242,7 +242,11 @@ export interface PresignedUpload {
   maxBytes: number;
 }
 
-export type UploadContentType = "image/jpeg" | "image/png" | "image/webp";
+export type UploadContentType =
+  | "image/jpeg"
+  | "image/png"
+  | "image/webp"
+  | "application/pdf";
 
 /* ------------------------------------------------------------------ */
 /* Query-string helper                                                */
@@ -896,6 +900,7 @@ export interface DealerProfile {
   logoKey: string | null;
   coverKey: string | null;
   verificationStatus: "UNVERIFIED" | "PENDING" | "VERIFIED" | "REJECTED";
+  verificationNote?: string | null;
   brands: string[];
   services: string[];
   createdAt: string;
@@ -1099,4 +1104,289 @@ export interface PackageRow {
 
 export function getPackages(): Promise<PackageRow[]> {
   return apiGet<PackageRow[]>("/packages");
+}
+
+/* ------------------------------------------------------------------ */
+/* Dealer leads inbox — task P3-04 (FR-DP4)                           */
+/* ------------------------------------------------------------------ */
+
+export type LeadStatus = "NEW" | "CONTACTED" | "WON" | "LOST";
+export type LeadType = "CALL" | "WHATSAPP" | "CHAT" | "FORM";
+
+/** Allowed moves per status — mirrors the backend LEAD_TRANSITIONS map. */
+export const LEAD_TRANSITIONS: Record<LeadStatus, LeadStatus[]> = {
+  NEW: ["CONTACTED", "WON", "LOST"],
+  CONTACTED: ["WON", "LOST", "NEW"],
+  WON: ["CONTACTED"],
+  LOST: ["CONTACTED"],
+};
+
+export interface LeadBuyer {
+  name: string | null;
+  email: string | null;
+  phone: string | null;
+  message: string | null;
+}
+
+export interface LeadListingRef {
+  id: string;
+  slug: string;
+  year: number;
+  priceAed: number;
+  make: { name: string };
+  model: { name: string };
+}
+
+export interface LeadRow {
+  id: string;
+  type: LeadType;
+  status: LeadStatus;
+  source: string;
+  createdAt: string;
+  statusChangedAt: string | null;
+  assigneeId: string | null;
+  listing: LeadListingRef | null;
+  buyer: LeadBuyer;
+  noteCount: number;
+}
+
+export interface LeadNoteRow {
+  id: string;
+  body: string;
+  createdAt: string;
+  author: { id: string; name: string | null };
+}
+
+export interface LeadDetail extends Omit<LeadRow, "noteCount"> {
+  notes: LeadNoteRow[];
+}
+
+export interface LeadFeedParams {
+  status?: LeadStatus;
+  type?: LeadType;
+  assigneeId?: string;
+  listingId?: string;
+  limit?: number;
+  offset?: number;
+}
+
+const leadQs = (params: LeadFeedParams) => {
+  const qs = new URLSearchParams();
+  if (params.status) qs.set("status", params.status);
+  if (params.type) qs.set("type", params.type);
+  if (params.assigneeId) qs.set("assigneeId", params.assigneeId);
+  if (params.listingId) qs.set("listingId", params.listingId);
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  return qs.toString() ? `?${qs}` : "";
+};
+
+export function getLeadSummary(
+  dealerId: string,
+  accessToken: string,
+): Promise<Record<LeadStatus, number>> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/leads/summary`, {
+    token: accessToken,
+  });
+}
+
+export function getLeadFeed(
+  dealerId: string,
+  params: LeadFeedParams,
+  accessToken: string,
+): Promise<{ items: LeadRow[]; total: number; limit: number; offset: number }> {
+  return apiGet(
+    `/dealers/${encodeURIComponent(dealerId)}/leads${leadQs(params)}`,
+    { token: accessToken },
+  );
+}
+
+export function getLead(
+  dealerId: string,
+  leadId: string,
+  accessToken: string,
+): Promise<LeadDetail> {
+  return apiGet(
+    `/dealers/${encodeURIComponent(dealerId)}/leads/${encodeURIComponent(leadId)}`,
+    { token: accessToken },
+  );
+}
+
+export function setLeadStatus(
+  dealerId: string,
+  leadId: string,
+  status: LeadStatus,
+  accessToken: string,
+): Promise<LeadDetail> {
+  return apiPatch(
+    `/dealers/${encodeURIComponent(dealerId)}/leads/${encodeURIComponent(leadId)}/status`,
+    { status },
+    { token: accessToken },
+  );
+}
+
+export function assignLead(
+  dealerId: string,
+  leadId: string,
+  assigneeId: string | null,
+  accessToken: string,
+): Promise<LeadDetail> {
+  return apiPatch(
+    `/dealers/${encodeURIComponent(dealerId)}/leads/${encodeURIComponent(leadId)}/assign`,
+    { assigneeId },
+    { token: accessToken },
+  );
+}
+
+export function addLeadNote(
+  dealerId: string,
+  leadId: string,
+  body: string,
+  accessToken: string,
+): Promise<LeadNoteRow> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/leads/${encodeURIComponent(leadId)}/notes`,
+    { body },
+    { token: accessToken },
+  );
+}
+
+/**
+ * CSV export needs the Authorization header, so it cannot be a plain <a href>.
+ * Fetch the blob and hand it to the browser as a download.
+ */
+export async function downloadLeadsCsv(
+  dealerId: string,
+  params: LeadFeedParams,
+  accessToken: string,
+): Promise<Blob> {
+  const { API_BASE_URL } = await import("@/lib/api");
+  const res = await fetch(
+    `${API_BASE_URL}/dealers/${encodeURIComponent(dealerId)}/leads/export.csv${leadQs(params)}`,
+    { headers: { authorization: `Bearer ${accessToken}` } },
+  );
+  if (!res.ok) throw new Error(`CSV export failed (${res.status})`);
+  return res.blob();
+}
+
+/* ------------------------------------------------------------------ */
+/* Boosts — task P3-08 (FR-DP6)                                       */
+/* ------------------------------------------------------------------ */
+
+export interface BoostProductRow {
+  id: string;
+  key: string;
+  name: string;
+  slot: "TOP_OF_SEARCH" | "HOME_FEATURED" | "HIGHLIGHT";
+  durationDays: number;
+  creditCost: number;
+}
+
+export interface BoostRow {
+  id: string;
+  listingId: string;
+  slot: BoostProductRow["slot"];
+  status: "SCHEDULED" | "ACTIVE" | "EXPIRED" | "CANCELLED";
+  startsAt: string;
+  endsAt: string;
+  product: { key: string; name: string; slot: BoostProductRow["slot"] };
+  listing: {
+    slug: string;
+    year: number;
+    make: { name: string };
+    model: { name: string };
+  };
+}
+
+export interface BoostCreditLotRow {
+  id: string;
+  source: string;
+  remaining: number;
+  expiresAt: string | null;
+}
+
+export function getBoostProducts(): Promise<BoostProductRow[]> {
+  return apiGet<BoostProductRow[]>("/boost-products");
+}
+
+export function getDealerBoosts(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ boosts: BoostRow[]; balance: number; lots: BoostCreditLotRow[] }> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/boosts`, {
+    token: accessToken,
+  });
+}
+
+export function applyBoost(
+  dealerId: string,
+  input: { listingId: string; productKey: string; startsAt?: string },
+  accessToken: string,
+): Promise<BoostRow> {
+  return apiPost(`/dealers/${encodeURIComponent(dealerId)}/boosts`, input, {
+    token: accessToken,
+  });
+}
+
+export function cancelBoost(
+  dealerId: string,
+  boostId: string,
+  accessToken: string,
+): Promise<BoostRow> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/boosts/${encodeURIComponent(boostId)}/cancel`,
+    {},
+    { token: accessToken },
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Dealer analytics — task P3-05 (FR-DP5)                             */
+/* ------------------------------------------------------------------ */
+
+export interface DealerAnalytics {
+  rangeDays: number;
+  totals: { views: number; leads: number; liveListings: number };
+  viewsSeries: { date: string; views: number }[];
+  leadsSeries: { date: string; leads: number }[];
+  sourceSplit: { type: string; count: number }[];
+  topListings: {
+    id: string;
+    slug: string;
+    year: number;
+    makeName: string;
+    modelName: string;
+    priceAed: number;
+    status: string;
+    views: number;
+    leads: number;
+  }[];
+}
+
+export function getDealerAnalytics(
+  dealerId: string,
+  days: number,
+  accessToken: string,
+): Promise<DealerAnalytics> {
+  return apiGet(
+    `/dealers/${encodeURIComponent(dealerId)}/analytics?days=${days}`,
+    { token: accessToken },
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Dealer verification — task P3-01 (FR-DP9)                          */
+/* ------------------------------------------------------------------ */
+
+/** Submit an uploaded licence key; the backend ClamAV-gates it synchronously. */
+export function submitDealerVerification(
+  dealerId: string,
+  tradeLicenseKey: string,
+  accessToken: string,
+): Promise<{ verificationStatus: string; scanVerdict: string }> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/verification`,
+    { tradeLicenseKey },
+    { token: accessToken },
+  );
 }

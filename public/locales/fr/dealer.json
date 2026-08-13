@@ -26,7 +26,20 @@
       "PENDING": "Nous vérifions vos documents. Les annonces sont modérées en attendant.",
       "REJECTED": "Votre vérification a été refusée. Consultez le motif et renvoyez-la."
     },
-    "cta": "Me faire vérifier"
+    "cta": "Me faire vérifier",
+    "page": {
+      "title": "Vérification",
+      "statusHeading": "Vérification de la concession",
+      "verified": "Vérifié",
+      "verifiedHint": "Votre concession est vérifiée — les nouvelles annonces sont publiées instantanément, sans modération.",
+      "upload": "Téléverser la licence commerciale",
+      "formats": "PDF, JPG, PNG ou WebP — 15 Mo max.",
+      "submitted": "Licence envoyée — nous l'examinerons rapidement.",
+      "infected": "Le fichier a échoué à l'analyse antivirus et a été supprimé.",
+      "failed": "Le téléversement n'a pas pu être effectué.",
+      "badType": "Type de fichier non pris en charge.",
+      "ownerOnly": "Seul le propriétaire de la concession peut envoyer les documents de vérification."
+    }
   },
   "onboarding": {
     "title": "Configurez votre concession",
@@ -138,12 +151,81 @@
     "cancel": "Annuler"
   },
   "leads": {
-    "title": "Contacts",
-    "comingSoon": "La boîte de réception unifiée arrive dans la prochaine version."
+    "title": "Prospects",
+    "exportCsv": "Exporter en CSV",
+    "anonymous": "Sans nom",
+    "open": "Ouvrir",
+    "unassigned": "Non attribué",
+    "assignedOther": "Membre de l'équipe",
+    "columns": {
+      "buyer": "Acheteur",
+      "listing": "Annonce",
+      "type": "Type",
+      "status": "Statut",
+      "assignee": "Attribué à",
+      "received": "Reçu",
+      "notes": "Notes",
+      "actions": "Actions"
+    },
+    "status": {
+      "NEW": "Nouveau",
+      "CONTACTED": "Contacté",
+      "WON": "Gagné",
+      "LOST": "Perdu"
+    },
+    "type": {
+      "CALL": "Appel",
+      "WHATSAPP": "WhatsApp",
+      "CHAT": "Chat",
+      "FORM": "Formulaire"
+    },
+    "filters": {
+      "all": "Tous",
+      "allTypes": "Tous les types",
+      "type": "Type"
+    },
+    "moveTo": {
+      "NEW": "Rouvrir",
+      "CONTACTED": "Marquer contacté",
+      "WON": "Marquer gagné",
+      "LOST": "Marquer perdu"
+    },
+    "empty": {
+      "title": "Aucun prospect pour le moment",
+      "hint": "Lorsque des acheteurs vous contactent au sujet de vos annonces, leurs demandes apparaissent ici."
+    },
+    "notes": {
+      "title": "Notes",
+      "empty": "Aucune note pour le moment.",
+      "placeholder": "Ajouter une note pour l'équipe…",
+      "add": "Ajouter"
+    },
+    "toast": {
+      "failed": "L'action n'a pas pu être effectuée",
+      "exportFailed": "Échec de l'export"
+    }
   },
   "analytics": {
-    "title": "Analyses",
-    "comingSoon": "Les analyses arrivent dans la prochaine version."
+    "title": "Statistiques",
+    "range": "{{count}} jours",
+    "totals": {
+      "views": "Vues",
+      "leads": "Prospects",
+      "liveListings": "Annonces en ligne"
+    },
+    "viewsChart": "Vues par jour",
+    "leadsChart": "Prospects par jour",
+    "sourceSplit": "Prospects par canal",
+    "topListings": "Meilleures annonces",
+    "noLeads": "Aucun prospect sur cette période.",
+    "noListings": "Aucune annonce pour le moment.",
+    "columns": {
+      "listing": "Annonce",
+      "status": "Statut",
+      "price": "Prix",
+      "views": "Vues",
+      "leads": "Prospects"
+    }
   },
   "directory": {
     "title": "Concessionnaires aux Émirats",
@@ -162,5 +244,35 @@
   },
   "errors": {
     "load": "Impossible de charger votre concession."
+  },
+  "boosts": {
+    "title": "Boosts",
+    "action": "Booster",
+    "activeIndicator": "Boost actif",
+    "dialogTitle": "Booster cette annonce",
+    "duration": "{{days}} jours",
+    "credits": "{{count}} crédit",
+    "credits_other": "{{count}} crédits",
+    "balance": "Portefeuille : {{count}} crédit",
+    "balance_other": "Portefeuille : {{count}} crédits",
+    "insufficient": "Crédits insuffisants",
+    "apply": "Appliquer le boost",
+    "cancel": "Annuler",
+    "none": "Aucun boost actif. Boostez une annonce depuis l'inventaire.",
+    "stop": "Arrêter",
+    "slot": {
+      "TOP_OF_SEARCH": "Haut de recherche",
+      "HOME_FEATURED": "En vedette accueil",
+      "HIGHLIGHT": "Mise en avant"
+    },
+    "status": {
+      "ACTIVE": "Actif",
+      "SCHEDULED": "Programmé"
+    },
+    "toast": {
+      "applied": "Boost appliqué",
+      "cancelled": "Boost arrêté",
+      "failed": "Le boost n'a pas pu être mis à jour"
+    }
   }
 }

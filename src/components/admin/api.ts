@@ -104,3 +104,60 @@ export function setListingFeatured(
     { token: accessToken },
   );
 }
+
+/* Dealer verification queue — task P3-01 (minimal screen; full queue in P4-03) */
+
+export interface VerificationQueueItem {
+  id: string;
+  slug: string;
+  name: string;
+  trn: string | null;
+  tradeLicenseKey: string | null;
+  verificationStatus: string;
+  updatedAt: string;
+  createdAt: string;
+}
+
+export function getVerificationQueue(
+  accessToken: string,
+  params: { limit?: number; offset?: number } = {},
+): Promise<{ items: VerificationQueueItem[]; total: number; limit: number; offset: number }> {
+  const qs = new URLSearchParams();
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const suffix = qs.toString() ? `?${qs}` : "";
+  return apiGet(`/admin/dealer-verification/queue${suffix}`, { token: accessToken });
+}
+
+export function getLicenceUrl(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ url: string; expiresIn: number }> {
+  return apiGet(
+    `/admin/dealer-verification/${encodeURIComponent(dealerId)}/licence-url`,
+    { token: accessToken },
+  );
+}
+
+export function approveDealerVerification(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ verificationStatus: string }> {
+  return apiPost(
+    `/admin/dealer-verification/${encodeURIComponent(dealerId)}/approve`,
+    {},
+    { token: accessToken },
+  );
+}
+
+export function rejectDealerVerification(
+  dealerId: string,
+  reason: string,
+  accessToken: string,
+): Promise<{ verificationStatus: string }> {
+  return apiPost(
+    `/admin/dealer-verification/${encodeURIComponent(dealerId)}/reject`,
+    { reason },
+    { token: accessToken },
+  );
+}

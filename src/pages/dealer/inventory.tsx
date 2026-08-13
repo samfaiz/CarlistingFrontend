@@ -12,7 +12,8 @@ import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { getServerSession } from "next-auth/next";
 import * as React from "react";
-import { Loader2, Pause, Play, RefreshCw, Tag } from "lucide-react";
+import { Loader2, Pause, Play, RefreshCw, Tag, Zap } from "lucide-react";
+import { BoostDialog } from "@/components/dealer/boost-dialog";
 import { DealerLayout } from "@/components/dealer/dealer-layout";
 import { DealerOnboarding } from "@/components/dealer/dealer-onboarding";
 import { useDealer } from "@/components/dealer/use-dealer";
@@ -28,6 +29,7 @@ import { toast } from "@/components/ui/toast";
 import { ApiError } from "@/lib/api";
 import { formatPrice, formatRelativeTime } from "@/lib/format";
 import {
+  getDealerBoosts,
   markListingSold,
   myListings,
   pauseListing,
@@ -64,6 +66,22 @@ export default function DealerInventoryPage() {
   const [listLoading, setListLoading] = React.useState(true);
   const [listError, setListError] = React.useState<string | null>(null);
   const [busyId, setBusyId] = React.useState<string | null>(null);
+  const [boostTarget, setBoostTarget] = React.useState<{ id: string; label: string } | null>(null);
+  const [boostedIds, setBoostedIds] = React.useState<Set<string>>(new Set());
+
+  const loadBoosts = React.useCallback(async () => {
+    if (!accessToken || !context?.dealer) return;
+    try {
+      const { boosts } = await getDealerBoosts(context.dealer.id, accessToken);
+      setBoostedIds(new Set(boosts.map((b) => b.listingId)));
+    } catch {
+      // Non-fatal: rows simply lose the lightning indicator.
+    }
+  }, [accessToken, context?.dealer]);
+
+  React.useEffect(() => {
+    void loadBoosts();
+  }, [loadBoosts]);
 
   const load = React.useCallback(async () => {
     if (!accessToken) return;
@@ -129,10 +147,18 @@ export default function DealerInventoryPage() {
       header: t("inventory.columns.listing"),
       isRowHeader: true,
       render: (row) => (
-        <Link href={`/cars/${row.slug}`} className="hover:underline">
-          {row.year} {row.make.name} {row.model.name}
-          {row.trim ? ` ${row.trim.name}` : ""}
-        </Link>
+        <span className="inline-flex items-center gap-1.5">
+          <Link href={`/cars/${row.slug}`} className="hover:underline">
+            {row.year} {row.make.name} {row.model.name}
+            {row.trim ? ` ${row.trim.name}` : ""}
+          </Link>
+          {boostedIds.has(row.id) && (
+            <Zap
+              className="size-3.5 text-brand-mid"
+              aria-label={t("boosts.activeIndicator")}
+            />
+          )}
+        </span>
       ),
     },
     {
@@ -171,6 +197,20 @@ export default function DealerInventoryPage() {
           <span className="flex justify-end gap-1.5">
             {row.status === "LIVE" && (
               <>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={busy || boostedIds.has(row.id)}
+                  onClick={() =>
+                    setBoostTarget({
+                      id: row.id,
+                      label: `${row.year} ${row.make.name} ${row.model.name}`,
+                    })
+                  }
+                >
+                  <Zap aria-hidden />
+                  {t("boosts.action")}
+                </Button>
                 <Button
                   size="sm"
                   variant="outline"
@@ -279,6 +319,18 @@ export default function DealerInventoryPage() {
         }}
         pagination={{ total, limit: PAGE_SIZE, offset, onChange: setOffset }}
       />
+
+      {context.dealer && accessToken && (
+        <BoostDialog
+          dealerId={context.dealer.id}
+          accessToken={accessToken}
+          listing={boostTarget}
+          onOpenChange={(open) => {
+            if (!open) setBoostTarget(null);
+          }}
+          onApplied={() => void loadBoosts()}
+        />
+      )}
     </DealerLayout>
   );
 }

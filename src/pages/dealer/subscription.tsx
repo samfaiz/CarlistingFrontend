@@ -12,17 +12,22 @@ import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { getServerSession } from "next-auth/next";
 import * as React from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, Zap } from "lucide-react";
 import { DealerLayout } from "@/components/dealer/dealer-layout";
 import { DealerOnboarding } from "@/components/dealer/dealer-onboarding";
 import { useDealer } from "@/components/dealer/use-dealer";
 import { DataTable, StatCard, type Column } from "@/components/workspace/data-table";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, Panel } from "@/components/ui/card";
+import { toast } from "@/components/ui/toast";
 import { formatPrice } from "@/lib/format";
 import {
+  cancelBoost,
+  getDealerBoosts,
   getDealerInvoices,
   getDealerSubscription,
+  type BoostRow,
   type DealerInvoiceRow,
   type SubscriptionRow,
 } from "@/lib/marketplace-api";
@@ -43,8 +48,22 @@ export default function DealerSubscriptionPage() {
   const [invoiceTotal, setInvoiceTotal] = React.useState(0);
   const [offset, setOffset] = React.useState(0);
   const [pageLoading, setPageLoading] = React.useState(true);
+  const [boosts, setBoosts] = React.useState<BoostRow[]>([]);
+  const [boostBalance, setBoostBalance] = React.useState(0);
+  const [boostBusyId, setBoostBusyId] = React.useState<string | null>(null);
 
   const dealerId = context?.dealer?.id;
+
+  const loadBoosts = React.useCallback(async () => {
+    if (!accessToken || !dealerId) return;
+    try {
+      const wallet = await getDealerBoosts(dealerId, accessToken);
+      setBoosts(wallet.boosts);
+      setBoostBalance(wallet.balance);
+    } catch {
+      // Non-fatal: the boosts panel simply stays empty.
+    }
+  }, [accessToken, dealerId]);
 
   React.useEffect(() => {
     if (!accessToken || !dealerId) return;
@@ -53,6 +72,7 @@ export default function DealerSubscriptionPage() {
         const [subscription, invoicePage] = await Promise.all([
           getDealerSubscription(dealerId, accessToken),
           getDealerInvoices(dealerId, accessToken, { limit: 10, offset }),
+          loadBoosts(),
         ]);
         setCurrent(subscription.current);
         setHistory(subscription.history);
@@ -62,7 +82,21 @@ export default function DealerSubscriptionPage() {
         setPageLoading(false);
       }
     })();
-  }, [accessToken, dealerId, offset]);
+  }, [accessToken, dealerId, offset, loadBoosts]);
+
+  const stopBoost = async (id: string) => {
+    if (!accessToken || !dealerId) return;
+    setBoostBusyId(id);
+    try {
+      await cancelBoost(dealerId, id, accessToken);
+      toast({ title: t("boosts.toast.cancelled"), variant: "success" });
+      await loadBoosts();
+    } catch {
+      toast({ title: t("boosts.toast.failed"), variant: "warning" });
+    } finally {
+      setBoostBusyId(null);
+    }
+  };
 
   if (loading) {
     return (
@@ -165,6 +199,46 @@ export default function DealerSubscriptionPage() {
           tone={quota && !quota.canPublish ? "down" : "neutral"}
         />
       </div>
+
+      <h2 className="mb-2 mt-6 flex items-center gap-1.5 text-sm font-bold text-ink">
+        <Zap className="size-4 text-brand-mid" aria-hidden />
+        {t("boosts.title")}
+      </h2>
+      <Card className="p-3">
+        <p className="mb-2 text-sm text-muted">
+          {t("boosts.balance", { count: boostBalance })}
+        </p>
+        {boosts.length === 0 ? (
+          <p className="text-sm text-muted">{t("boosts.none")}</p>
+        ) : (
+          <ul className="flex flex-col gap-1.5 text-sm">
+            {boosts.map((row) => (
+              <li key={row.id} className="flex flex-wrap items-center justify-between gap-3">
+                <span className="text-ink">
+                  {row.listing.year} {row.listing.make.name} {row.listing.model.name}
+                </span>
+                <span className="text-xs text-muted">
+                  {row.product.name} · {t(`boosts.slot.${row.slot}`)} ·{" "}
+                  {formatDate(row.startsAt)} → {formatDate(row.endsAt)}
+                </span>
+                <span className="flex items-center gap-2">
+                  <Badge variant={row.status === "ACTIVE" ? "green" : "neutral"}>
+                    {t(`boosts.status.${row.status}`)}
+                  </Badge>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    disabled={boostBusyId === row.id}
+                    onClick={() => void stopBoost(row.id)}
+                  >
+                    {t("boosts.stop")}
+                  </Button>
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Card>
 
       <h2 className="mb-2 mt-6 text-sm font-bold text-ink">
         {t("subscription.invoices")}

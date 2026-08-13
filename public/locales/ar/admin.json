@@ -4,7 +4,8 @@
     "badge": "الإدارة",
     "nav": {
       "label": "تنقّل الإدارة",
-      "moderation": "الإشراف"
+      "moderation": "الإشراف",
+      "verification": "التوثيق"
     },
     "signOut": "تسجيل الخروج"
   },
@@ -81,5 +82,36 @@
       "actionFailed": "فشل الإجراء"
     },
     "featuredBadge": "مميّز"
+  },
+  "verification": {
+    "title": "توثيق المعارض",
+    "count": "{{count}} قيد الانتظار",
+    "open": "فتح الرخصة",
+    "approve": "اعتماد",
+    "reject": "رفض",
+    "columns": {
+      "dealer": "المعرض",
+      "trn": "الرقم الضريبي",
+      "submitted": "تاريخ الإرسال",
+      "licence": "الرخصة",
+      "actions": "إجراءات"
+    },
+    "empty": {
+      "title": "لا توجد طلبات",
+      "hint": "تظهر طلبات التوثيق الجديدة هنا."
+    },
+    "rejectDialog": {
+      "title": "رفض {{name}}",
+      "placeholder": "السبب الذي سيظهر للمعرض (5 أحرف على الأقل)…",
+      "cancel": "إلغاء",
+      "confirm": "رفض"
+    },
+    "toast": {
+      "approved": "تم توثيق المعرض",
+      "rejected": "تم رفض التوثيق",
+      "failed": "تعذر تنفيذ الإجراء",
+      "loadFailed": "تعذر تحميل القائمة",
+      "licenceFailed": "تعذر فتح الرخصة"
+    }
   }
 }

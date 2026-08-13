@@ -4,7 +4,8 @@
     "badge": "Admin",
     "nav": {
       "label": "Admin navigation",
-      "moderation": "Moderation"
+      "moderation": "Moderation",
+      "verification": "Verification"
     },
     "signOut": "Sign out"
   },
@@ -81,5 +82,36 @@
       "actionFailed": "The action failed"
     },
     "featuredBadge": "Featured"
+  },
+  "verification": {
+    "title": "Dealer verification",
+    "count": "{{count}} pending",
+    "open": "Open licence",
+    "approve": "Approve",
+    "reject": "Reject",
+    "columns": {
+      "dealer": "Dealership",
+      "trn": "TRN",
+      "submitted": "Submitted",
+      "licence": "Licence",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Queue is clear",
+      "hint": "New verification submissions appear here."
+    },
+    "rejectDialog": {
+      "title": "Reject {{name}}",
+      "placeholder": "Reason shown to the dealer (min 5 characters)…",
+      "cancel": "Cancel",
+      "confirm": "Reject"
+    },
+    "toast": {
+      "approved": "Dealership verified",
+      "rejected": "Verification rejected",
+      "failed": "The action could not be completed",
+      "loadFailed": "Could not load the queue",
+      "licenceFailed": "Could not open the licence"
+    }
   }
 }

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
-import { LogOut, ShieldCheck } from "lucide-react";
+import { BadgeCheck, LogOut, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -31,6 +31,11 @@ export function AdminLayout({
       href: "/admin/moderation",
       label: t("layout.nav.moderation"),
       icon: ShieldCheck,
+    },
+    {
+      href: "/admin/verification",
+      label: t("layout.nav.verification"),
+      icon: BadgeCheck,
     },
   ];
 
