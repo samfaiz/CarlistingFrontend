@@ -9,10 +9,22 @@
     "title": "Vendez votre voiture. Gratuit. Rapide.",
     "subtitle": "Publiez votre voiture en moins de 3 minutes et touchez plus de 2 millions d'acheteurs mensuels dans tous les Émirats.",
     "stats": [
-      { "value": "14 jours", "label": "Délai moyen de vente" },
-      { "value": "GRATUIT", "label": "Pour les vendeurs particuliers" },
-      { "value": "2,4 M+", "label": "Acheteurs mensuels" },
-      { "value": "1 250 AED", "label": "Vente la plus élevée aujourd'hui" }
+      {
+        "value": "14 jours",
+        "label": "Délai moyen de vente"
+      },
+      {
+        "value": "GRATUIT",
+        "label": "Pour les vendeurs particuliers"
+      },
+      {
+        "value": "2,4 M+",
+        "label": "Acheteurs mensuels"
+      },
+      {
+        "value": "1 250 AED",
+        "label": "Vente la plus élevée aujourd'hui"
+      }
     ]
   },
   "stepper": [
@@ -23,62 +35,178 @@
     "Publier"
   ],
   "step1": {
-    "title": "Parlez-nous de votre voiture",
+    "title": "Détails du véhicule",
     "sub": "Nous l'utiliserons pour estimer la valeur de votre voiture et vous mettre en relation avec les bons acheteurs.",
     "plateLabel": "⚡ Le moyen le plus rapide — recherchez votre voiture par plaque",
-    "emirates": ["Dubaï", "Abou Dabi", "Sharjah", "Ajman", "RAK", "Fujairah", "UAQ"],
+    "emirates": [
+      "Dubaï",
+      "Abou Dabi",
+      "Sharjah",
+      "Ajman",
+      "RAK",
+      "Fujairah",
+      "UAQ"
+    ],
     "platePlaceholder": "Numéro de plaque (ex. A 12345)",
     "autofill": "Remplissage auto",
     "plateHelper": "Nous remplirons automatiquement la marque, le modèle, l'année et les spécifications à partir des registres de la RTA.",
     "plateHelperLink": "Comment cela fonctionne-t-il ?",
     "divider": "ou saisissez les détails manuellement",
-    "makeLabel": "Marque *",
-    "modelLabel": "Modèle *",
-    "yearLabel": "Année *",
+    "makeLabel": "Marque",
+    "modelLabel": "Modèle",
+    "yearLabel": "Année",
     "trimLabel": "Finition / Version",
-    "bodyLabel": "Type de carrosserie *",
+    "bodyLabel": "Carrosserie",
     "colorLabel": "Couleur extérieure *",
     "selectMake": "Sélectionnez la marque",
     "selectModel": "Sélectionnez le modèle",
     "selectYear": "Sélectionnez l'année",
     "selectBody": "Sélectionnez la carrosserie",
     "selectColor": "Sélectionnez la couleur",
-    "makes": ["Toyota", "Nissan", "BMW", "Mercedes-Benz", "Lexus", "Honda", "Audi", "Ford", "Porsche", "Range Rover", "Hyundai", "Kia"],
-    "models": ["Land Cruiser", "Camry", "Corolla", "Fortuner", "RAV4", "Hilux", "Prado"],
+    "makes": [
+      "Toyota",
+      "Nissan",
+      "BMW",
+      "Mercedes-Benz",
+      "Lexus",
+      "Honda",
+      "Audi",
+      "Ford",
+      "Porsche",
+      "Range Rover",
+      "Hyundai",
+      "Kia"
+    ],
+    "models": [
+      "Land Cruiser",
+      "Camry",
+      "Corolla",
+      "Fortuner",
+      "RAV4",
+      "Hilux",
+      "Prado"
+    ],
     "trimPlaceholder": "ex. GR-Sport, VXR, M-Sport",
-    "bodies": ["SUV", "Berline", "Coupé", "Hatchback", "Pick-up", "Cabriolet", "Fourgon"],
-    "colors": ["Noir", "Blanc", "Argent", "Gris", "Bleu", "Rouge", "Vert", "Marron", "Autre"],
+    "bodies": [
+      "SUV",
+      "Berline",
+      "Coupé",
+      "Hatchback",
+      "Pick-up",
+      "Cabriolet",
+      "Fourgon"
+    ],
+    "colors": [
+      "Noir",
+      "Blanc",
+      "Argent",
+      "Gris",
+      "Bleu",
+      "Rouge",
+      "Vert",
+      "Marron",
+      "Autre"
+    ],
     "required": "Tous les champs marqués d'un * sont obligatoires",
-    "continue": "Continuer vers les spécifications"
+    "continue": "Continuer vers les spécifications",
+    "makePlaceholder": "Choisir la marque",
+    "modelPlaceholder": "Choisir le modèle",
+    "yearPlaceholder": "Choisir l'année",
+    "bodyPlaceholder": "Toute"
   },
   "step2": {
-    "title": "Spécifications et état",
+    "title": "Caractéristiques",
     "sub": "Aux Émirats, les acheteurs se soucient surtout du kilométrage, de la spécification GCC et de l'état. Soyez précis — cela inspire confiance.",
-    "mileageLabel": "Kilométrage (km) *",
-    "mileagePlaceholder": "ex. 45 000",
-    "transmissionLabel": "Transmission *",
-    "transmissions": ["Automatique", "Manuelle", "CVT", "Semi-auto"],
-    "fuelLabel": "Type de carburant *",
-    "fuels": ["Essence", "Diesel", "Hybride", "Électrique", "PHEV"],
+    "mileageLabel": "Kilométrage (km)",
+    "mileagePlaceholder": "ex. 45000",
+    "transmissionLabel": "Transmission",
+    "transmissions": [
+      "Automatique",
+      "Manuelle",
+      "CVT",
+      "Semi-auto"
+    ],
+    "fuelLabel": "Carburant",
+    "fuels": [
+      "Essence",
+      "Diesel",
+      "Hybride",
+      "Électrique",
+      "PHEV"
+    ],
     "cylindersLabel": "Cylindres",
-    "cylinders": ["4", "6", "8", "12", "Électrique"],
-    "regionalLabel": "Spécification régionale *",
-    "regionals": ["Spécification GCC", "Américaine", "Européenne", "Japonaise", "Autre"],
+    "cylinders": [
+      "4",
+      "6",
+      "8",
+      "12",
+      "Électrique"
+    ],
+    "regionalLabel": "Spécification régionale",
+    "regionals": [
+      "Spécification GCC",
+      "Américaine",
+      "Européenne",
+      "Japonaise",
+      "Autre"
+    ],
     "ownersLabel": "Propriétaires précédents",
-    "owners": ["1 (Propriétaire d'origine)", "2", "3", "4+"],
+    "owners": [
+      "1 (Propriétaire d'origine)",
+      "2",
+      "3",
+      "4+"
+    ],
     "doorsLabel": "Portes",
-    "doors": ["4", "2", "3", "5"],
+    "doors": [
+      "4",
+      "2",
+      "3",
+      "5"
+    ],
     "warrantyLabel": "Garantie",
-    "warranties": ["Aucune garantie", "Garantie constructeur", "Garantie étendue"],
+    "warranties": [
+      "Aucune garantie",
+      "Garantie constructeur",
+      "Garantie étendue"
+    ],
     "dividerCondition": "état général",
     "conditions": [
-      { "name": "Excellent", "desc": "Comme neuf, sans bosses" },
-      { "name": "Bon", "desc": "Usure mineure, bien entretenu" },
-      { "name": "Correct", "desc": "Quelques traces d'usure visibles" },
-      { "name": "À réparer", "desc": "Réparations importantes nécessaires" }
+      {
+        "name": "Excellent",
+        "desc": "Comme neuf, sans bosses"
+      },
+      {
+        "name": "Bon",
+        "desc": "Usure mineure, bien entretenu"
+      },
+      {
+        "name": "Correct",
+        "desc": "Quelques traces d'usure visibles"
+      },
+      {
+        "name": "À réparer",
+        "desc": "Réparations importantes nécessaires"
+      }
     ],
     "dividerFeatures": "équipements inclus",
-    "features": ["Toit ouvrant", "Toit panoramique", "Sièges en cuir", "Sièges chauffants", "Sièges ventilés", "Sièges à mémoire", "Caméra 360°", "Régulateur adaptatif", "Aide au maintien de voie", "Apple CarPlay", "Chargeur sans fil", "Audio premium", "Vitres teintées", "Jantes alliage", "Démarrage sans clé"],
+    "features": [
+      "Toit ouvrant",
+      "Toit panoramique",
+      "Sièges en cuir",
+      "Sièges chauffants",
+      "Sièges ventilés",
+      "Sièges à mémoire",
+      "Caméra 360°",
+      "Régulateur adaptatif",
+      "Aide au maintien de voie",
+      "Apple CarPlay",
+      "Chargeur sans fil",
+      "Audio premium",
+      "Vitres teintées",
+      "Jantes alliage",
+      "Démarrage sans clé"
+    ],
     "continue": "Continuer vers les photos"
   },
   "step3": {
@@ -89,12 +217,23 @@
     "dzTypes": "JPG · PNG · WebP · HEIC · max 10 Mo par image",
     "recTitle": "Prises de vue recommandées (cliquez sur une tuile pour \"téléverser\")",
     "primary": "PRINCIPALE",
-    "recs": ["Vue avant 3/4", "Vue arrière 3/4", "Profil latéral", "Intérieur — tableau de bord", "Sièges avant", "Sièges arrière", "Compartiment moteur", "Compteur kilométrique"],
+    "recs": [
+      "Vue avant 3/4",
+      "Vue arrière 3/4",
+      "Profil latéral",
+      "Intérieur — tableau de bord",
+      "Sièges avant",
+      "Sièges arrière",
+      "Compartiment moteur",
+      "Compteur kilométrique"
+    ],
     "photosCount": "/ 30 photos téléversées",
-    "continue": "Continuer vers le prix"
+    "continue": "Continuer vers le prix",
+    "descLabel": "Description",
+    "descPlaceholder": "Décrivez la voiture aux acheteurs (20 caractères min.)…"
   },
   "step4": {
-    "title": "Fixez votre prix demandé",
+    "title": "Prix et lieu",
     "sub": "Les voitures dont le prix se situe dans la fourchette recommandée se vendent ~40% plus vite. L'estimation du marché repose sur des voitures similaires sur Carsens.",
     "marketEstimate": "Estimation du marché",
     "estBasedOnPre": "Basé sur",
@@ -106,11 +245,32 @@
     "boostDivider": "Boostez votre annonce",
     "boostOptional": "— facultatif",
     "boost": [
-      { "name": "Standard", "price": "GRATUIT", "period": "30 jours", "desc": "Votre annonce apparaît dans les résultats de recherche normaux.", "badge": "" },
-      { "name": "En vedette", "price": "AED 99", "period": "30 jours", "desc": "Badge jaune « En vedette », placement prioritaire, sur la page d'accueil.", "badge": "3× plus de vues" },
-      { "name": "Premium", "price": "AED 249", "period": "30 jours", "desc": "Toujours #1 dans les recherches, notifications push, en haut des pages de catégorie.", "badge": "Première place" }
+      {
+        "name": "Standard",
+        "price": "GRATUIT",
+        "period": "30 jours",
+        "desc": "Votre annonce apparaît dans les résultats de recherche normaux.",
+        "badge": ""
+      },
+      {
+        "name": "En vedette",
+        "price": "AED 99",
+        "period": "30 jours",
+        "desc": "Badge jaune « En vedette », placement prioritaire, sur la page d'accueil.",
+        "badge": "3× plus de vues"
+      },
+      {
+        "name": "Premium",
+        "price": "AED 249",
+        "period": "30 jours",
+        "desc": "Toujours #1 dans les recherches, notifications push, en haut des pages de catégorie.",
+        "badge": "Première place"
+      }
     ],
-    "continue": "Continuer vers la publication"
+    "continue": "Continuer vers la publication",
+    "priceLabel": "Prix demandé (AED)",
+    "emirateLabel": "Émirat",
+    "emiratePlaceholder": "Choisir l'émirat"
   },
   "step5": {
     "title": "Détails finaux et publication",
@@ -128,7 +288,11 @@
     "showMessages": "Messages in-app",
     "showEmail": "E-mail (faisal@example.com)",
     "durationLabel": "Durée de l'annonce",
-    "durations": ["30 jours (gratuit)", "60 jours (gratuit)", "90 jours (gratuit)"],
+    "durations": [
+      "30 jours (gratuit)",
+      "60 jours (gratuit)",
+      "90 jours (gratuit)"
+    ],
     "termsPre": "Je confirme être le propriétaire légal de ce véhicule et que les détails ci-dessus sont exacts. J'accepte les",
     "termsLink": "Conditions du vendeur",
     "termsPost": "de Carsens et je comprends que les annonces trompeuses peuvent être retirées.",
@@ -139,10 +303,22 @@
     "sub": "Votre Toyota Land Cruiser GR-Sport 2023 a été publiée. Les acheteurs peuvent désormais la trouver dans les résultats de recherche et vous contacter directement.",
     "summaryTitle": "Récapitulatif de l'annonce",
     "rows": [
-      { "label": "ID de l'annonce", "value": "#CR-248,924" },
-      { "label": "Prix demandé", "value": "AED 105,000" },
-      { "label": "Active jusqu'au", "value": "11 juin 2026" },
-      { "label": "Vues estimées dans les 24 premières heures", "value": "200 – 400" }
+      {
+        "label": "ID de l'annonce",
+        "value": "#CR-248,924"
+      },
+      {
+        "label": "Prix demandé",
+        "value": "AED 105,000"
+      },
+      {
+        "label": "Active jusqu'au",
+        "value": "11 juin 2026"
+      },
+      {
+        "label": "Vues estimées dans les 24 premières heures",
+        "value": "200 – 400"
+      }
     ],
     "viewListing": "Voir mon annonce",
     "dashboard": "Aller à mon tableau de bord",
@@ -164,10 +340,26 @@
       "title": "Voitures similaires vendues récemment",
       "period": "90 derniers jours",
       "rows": [
-        { "name": "Toyota Camry SE", "spec": "2022 • 38 000 km", "price": "AED 92,000" },
-        { "name": "Toyota Camry Grande", "spec": "2023 • 22 500 km", "price": "AED 108,500" },
-        { "name": "Toyota Camry Hybrid", "spec": "2022 • 41 200 km", "price": "AED 98,000" },
-        { "name": "Toyota Camry SE", "spec": "2023 • 18 400 km", "price": "AED 115,000" }
+        {
+          "name": "Toyota Camry SE",
+          "spec": "2022 • 38 000 km",
+          "price": "AED 92,000"
+        },
+        {
+          "name": "Toyota Camry Grande",
+          "spec": "2023 • 22 500 km",
+          "price": "AED 108,500"
+        },
+        {
+          "name": "Toyota Camry Hybrid",
+          "spec": "2022 • 41 200 km",
+          "price": "AED 98,000"
+        },
+        {
+          "name": "Toyota Camry SE",
+          "spec": "2023 • 18 400 km",
+          "price": "AED 115,000"
+        }
       ]
     },
     "tips": {
@@ -177,6 +369,22 @@
         "Les acheteurs des Émirats accordent beaucoup d'importance au GCC par rapport à l'importé — soyez exact.",
         "Les annonces avec la combinaison complète marque + modèle + année obtiennent 5× plus de vues."
       ]
-    }
+    },
+    "title": "Pourquoi vendre sur Carsens",
+    "p1": "Gratuit pour les particuliers",
+    "p2": "Plus de 2M d'acheteurs/mois",
+    "p3": "Vendez en 14 jours"
+  },
+  "head": {
+    "title": "Vendez votre voiture",
+    "sub": "Publiez en quelques minutes — gratuit pour les particuliers."
+  },
+  "submit": {
+    "cta": "Créer l'annonce",
+    "busy": "Création…",
+    "note": "Enregistré en brouillon — ajoutez des photos depuis votre compte pour publier."
+  },
+  "errors": {
+    "generic": "Impossible de créer l'annonce. Vérifiez les champs et réessayez."
   }
 }

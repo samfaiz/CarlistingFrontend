@@ -9,10 +9,22 @@
     "title": "Sell your car. Free. Fast.",
     "subtitle": "List your car in under 3 minutes and reach over 2 million monthly buyers across the UAE.",
     "stats": [
-      { "value": "14 days", "label": "Average time to sell" },
-      { "value": "FREE", "label": "For private sellers" },
-      { "value": "2.4M+", "label": "Monthly buyers" },
-      { "value": "1,250 AED", "label": "Highest sold today" }
+      {
+        "value": "14 days",
+        "label": "Average time to sell"
+      },
+      {
+        "value": "FREE",
+        "label": "For private sellers"
+      },
+      {
+        "value": "2.4M+",
+        "label": "Monthly buyers"
+      },
+      {
+        "value": "1,250 AED",
+        "label": "Highest sold today"
+      }
     ]
   },
   "stepper": [
@@ -23,62 +35,178 @@
     "Publish"
   ],
   "step1": {
-    "title": "Tell us about your car",
+    "title": "Car details",
     "sub": "We'll use this to estimate your car's value and connect you with the right buyers.",
     "plateLabel": "⚡ Quickest way — look up your car by plate",
-    "emirates": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "RAK", "Fujairah", "UAQ"],
+    "emirates": [
+      "Dubai",
+      "Abu Dhabi",
+      "Sharjah",
+      "Ajman",
+      "RAK",
+      "Fujairah",
+      "UAQ"
+    ],
     "platePlaceholder": "Plate number (e.g. A 12345)",
     "autofill": "Auto-fill",
     "plateHelper": "We'll auto-fill make, model, year, and specs from RTA records.",
     "plateHelperLink": "How does this work?",
     "divider": "or enter details manually",
-    "makeLabel": "Make *",
-    "modelLabel": "Model *",
-    "yearLabel": "Year *",
+    "makeLabel": "Make",
+    "modelLabel": "Model",
+    "yearLabel": "Year",
     "trimLabel": "Trim / Variant",
-    "bodyLabel": "Body type *",
+    "bodyLabel": "Body type",
     "colorLabel": "Exterior color *",
     "selectMake": "Select make",
     "selectModel": "Select model",
     "selectYear": "Select year",
     "selectBody": "Select body",
     "selectColor": "Select color",
-    "makes": ["Toyota", "Nissan", "BMW", "Mercedes-Benz", "Lexus", "Honda", "Audi", "Ford", "Porsche", "Range Rover", "Hyundai", "Kia"],
-    "models": ["Land Cruiser", "Camry", "Corolla", "Fortuner", "RAV4", "Hilux", "Prado"],
+    "makes": [
+      "Toyota",
+      "Nissan",
+      "BMW",
+      "Mercedes-Benz",
+      "Lexus",
+      "Honda",
+      "Audi",
+      "Ford",
+      "Porsche",
+      "Range Rover",
+      "Hyundai",
+      "Kia"
+    ],
+    "models": [
+      "Land Cruiser",
+      "Camry",
+      "Corolla",
+      "Fortuner",
+      "RAV4",
+      "Hilux",
+      "Prado"
+    ],
     "trimPlaceholder": "e.g. GR-Sport, VXR, M-Sport",
-    "bodies": ["SUV", "Sedan", "Coupe", "Hatchback", "Pickup", "Convertible", "Van"],
-    "colors": ["Black", "White", "Silver", "Grey", "Blue", "Red", "Green", "Brown", "Other"],
+    "bodies": [
+      "SUV",
+      "Sedan",
+      "Coupe",
+      "Hatchback",
+      "Pickup",
+      "Convertible",
+      "Van"
+    ],
+    "colors": [
+      "Black",
+      "White",
+      "Silver",
+      "Grey",
+      "Blue",
+      "Red",
+      "Green",
+      "Brown",
+      "Other"
+    ],
     "required": "All fields marked * are required",
-    "continue": "Continue to Specs"
+    "continue": "Continue to Specs",
+    "makePlaceholder": "Select make",
+    "modelPlaceholder": "Select model",
+    "yearPlaceholder": "Select year",
+    "bodyPlaceholder": "Any"
   },
   "step2": {
-    "title": "Specs & condition",
+    "title": "Specs",
     "sub": "Buyers in the UAE care most about mileage, GCC spec, and condition. Be accurate — it builds trust.",
-    "mileageLabel": "Mileage (km) *",
-    "mileagePlaceholder": "e.g. 45,000",
-    "transmissionLabel": "Transmission *",
-    "transmissions": ["Automatic", "Manual", "CVT", "Semi-auto"],
-    "fuelLabel": "Fuel type *",
-    "fuels": ["Petrol", "Diesel", "Hybrid", "Electric", "PHEV"],
+    "mileageLabel": "Mileage (km)",
+    "mileagePlaceholder": "e.g. 45000",
+    "transmissionLabel": "Transmission",
+    "transmissions": [
+      "Automatic",
+      "Manual",
+      "CVT",
+      "Semi-auto"
+    ],
+    "fuelLabel": "Fuel",
+    "fuels": [
+      "Petrol",
+      "Diesel",
+      "Hybrid",
+      "Electric",
+      "PHEV"
+    ],
     "cylindersLabel": "Cylinders",
-    "cylinders": ["4", "6", "8", "12", "Electric"],
-    "regionalLabel": "Regional specs *",
-    "regionals": ["GCC Specs", "American", "European", "Japanese", "Other"],
+    "cylinders": [
+      "4",
+      "6",
+      "8",
+      "12",
+      "Electric"
+    ],
+    "regionalLabel": "Regional spec",
+    "regionals": [
+      "GCC Specs",
+      "American",
+      "European",
+      "Japanese",
+      "Other"
+    ],
     "ownersLabel": "Previous owners",
-    "owners": ["1 (Original owner)", "2", "3", "4+"],
+    "owners": [
+      "1 (Original owner)",
+      "2",
+      "3",
+      "4+"
+    ],
     "doorsLabel": "Doors",
-    "doors": ["4", "2", "3", "5"],
+    "doors": [
+      "4",
+      "2",
+      "3",
+      "5"
+    ],
     "warrantyLabel": "Warranty",
-    "warranties": ["No warranty", "Manufacturer warranty", "Extended warranty"],
+    "warranties": [
+      "No warranty",
+      "Manufacturer warranty",
+      "Extended warranty"
+    ],
     "dividerCondition": "overall condition",
     "conditions": [
-      { "name": "Excellent", "desc": "Like new, no dents" },
-      { "name": "Good", "desc": "Minor wear, well kept" },
-      { "name": "Fair", "desc": "Some visible wear" },
-      { "name": "Needs work", "desc": "Major repairs needed" }
+      {
+        "name": "Excellent",
+        "desc": "Like new, no dents"
+      },
+      {
+        "name": "Good",
+        "desc": "Minor wear, well kept"
+      },
+      {
+        "name": "Fair",
+        "desc": "Some visible wear"
+      },
+      {
+        "name": "Needs work",
+        "desc": "Major repairs needed"
+      }
     ],
     "dividerFeatures": "features included",
-    "features": ["Sunroof", "Panoramic moonroof", "Leather seats", "Heated seats", "Cooled seats", "Memory seats", "360° camera", "Adaptive cruise", "Lane keep assist", "Apple CarPlay", "Wireless charger", "Premium audio", "Tinted windows", "Alloy wheels", "Push-to-start"],
+    "features": [
+      "Sunroof",
+      "Panoramic moonroof",
+      "Leather seats",
+      "Heated seats",
+      "Cooled seats",
+      "Memory seats",
+      "360° camera",
+      "Adaptive cruise",
+      "Lane keep assist",
+      "Apple CarPlay",
+      "Wireless charger",
+      "Premium audio",
+      "Tinted windows",
+      "Alloy wheels",
+      "Push-to-start"
+    ],
     "continue": "Continue to Photos"
   },
   "step3": {
@@ -89,12 +217,23 @@
     "dzTypes": "JPG · PNG · WebP · HEIC · max 10 MB per image",
     "recTitle": "Recommended shots (click any tile to \"upload\")",
     "primary": "PRIMARY",
-    "recs": ["Front 3/4 view", "Rear 3/4 view", "Side profile", "Interior — dashboard", "Front seats", "Rear seats", "Engine bay", "Odometer"],
+    "recs": [
+      "Front 3/4 view",
+      "Rear 3/4 view",
+      "Side profile",
+      "Interior — dashboard",
+      "Front seats",
+      "Rear seats",
+      "Engine bay",
+      "Odometer"
+    ],
     "photosCount": "/ 30 photos uploaded",
-    "continue": "Continue to Price"
+    "continue": "Continue to Price",
+    "descLabel": "Description",
+    "descPlaceholder": "Tell buyers about the car (min 20 characters)…"
   },
   "step4": {
-    "title": "Set your asking price",
+    "title": "Price & location",
     "sub": "Cars priced within the recommended range sell ~40% faster. The market estimate is based on similar cars on Carsens.",
     "marketEstimate": "Market estimate",
     "estBasedOnPre": "Based on",
@@ -106,11 +245,32 @@
     "boostDivider": "Boost your listing",
     "boostOptional": "— optional",
     "boost": [
-      { "name": "Standard", "price": "FREE", "period": "30 days", "desc": "Your listing appears in normal search results.", "badge": "" },
-      { "name": "Featured", "price": "AED 99", "period": "30 days", "desc": "Yellow \"Featured\" badge, priority placement, on home page.", "badge": "3× more views" },
-      { "name": "Premium", "price": "AED 249", "period": "30 days", "desc": "Always #1 in searches, push notifications, on top of category pages.", "badge": "Top spot" }
+      {
+        "name": "Standard",
+        "price": "FREE",
+        "period": "30 days",
+        "desc": "Your listing appears in normal search results.",
+        "badge": ""
+      },
+      {
+        "name": "Featured",
+        "price": "AED 99",
+        "period": "30 days",
+        "desc": "Yellow \"Featured\" badge, priority placement, on home page.",
+        "badge": "3× more views"
+      },
+      {
+        "name": "Premium",
+        "price": "AED 249",
+        "period": "30 days",
+        "desc": "Always #1 in searches, push notifications, on top of category pages.",
+        "badge": "Top spot"
+      }
     ],
-    "continue": "Continue to Publish"
+    "continue": "Continue to Publish",
+    "priceLabel": "Asking price (AED)",
+    "emirateLabel": "Emirate",
+    "emiratePlaceholder": "Select emirate"
   },
   "step5": {
     "title": "Final details & publish",
@@ -128,7 +288,11 @@
     "showMessages": "In-app messages",
     "showEmail": "Email (faisal@example.com)",
     "durationLabel": "Listing duration",
-    "durations": ["30 days (free)", "60 days (free)", "90 days (free)"],
+    "durations": [
+      "30 days (free)",
+      "60 days (free)",
+      "90 days (free)"
+    ],
     "termsPre": "I confirm I'm the legal owner of this vehicle and the details above are accurate. I accept Carsens'",
     "termsLink": "Seller Terms",
     "termsPost": "and understand that misleading listings may be removed.",
@@ -139,10 +303,22 @@
     "sub": "Your 2023 Toyota Land Cruiser GR-Sport has been published. Buyers can now find it in search results and contact you directly.",
     "summaryTitle": "Listing summary",
     "rows": [
-      { "label": "Listing ID", "value": "#CR-248,924" },
-      { "label": "Asking price", "value": "AED 105,000" },
-      { "label": "Active until", "value": "June 11, 2026" },
-      { "label": "Estimated views in first 24 hrs", "value": "200 – 400" }
+      {
+        "label": "Listing ID",
+        "value": "#CR-248,924"
+      },
+      {
+        "label": "Asking price",
+        "value": "AED 105,000"
+      },
+      {
+        "label": "Active until",
+        "value": "June 11, 2026"
+      },
+      {
+        "label": "Estimated views in first 24 hrs",
+        "value": "200 – 400"
+      }
     ],
     "viewListing": "View my listing",
     "dashboard": "Go to my dashboard",
@@ -164,10 +340,26 @@
       "title": "Similar cars sold recently",
       "period": "last 90 days",
       "rows": [
-        { "name": "Toyota Camry SE", "spec": "2022 • 38,000 km", "price": "AED 92,000" },
-        { "name": "Toyota Camry Grande", "spec": "2023 • 22,500 km", "price": "AED 108,500" },
-        { "name": "Toyota Camry Hybrid", "spec": "2022 • 41,200 km", "price": "AED 98,000" },
-        { "name": "Toyota Camry SE", "spec": "2023 • 18,400 km", "price": "AED 115,000" }
+        {
+          "name": "Toyota Camry SE",
+          "spec": "2022 • 38,000 km",
+          "price": "AED 92,000"
+        },
+        {
+          "name": "Toyota Camry Grande",
+          "spec": "2023 • 22,500 km",
+          "price": "AED 108,500"
+        },
+        {
+          "name": "Toyota Camry Hybrid",
+          "spec": "2022 • 41,200 km",
+          "price": "AED 98,000"
+        },
+        {
+          "name": "Toyota Camry SE",
+          "spec": "2023 • 18,400 km",
+          "price": "AED 115,000"
+        }
       ]
     },
     "tips": {
@@ -177,6 +369,22 @@
         "UAE buyers care a lot about GCC vs imported — get this right.",
         "Listings with full make + model + year combinations get 5× more views."
       ]
-    }
+    },
+    "title": "Why sell on Carsens",
+    "p1": "Free for individuals",
+    "p2": "2M+ monthly buyers",
+    "p3": "Sell within 14 days"
+  },
+  "head": {
+    "title": "Sell your car",
+    "sub": "List in minutes — free for individuals."
+  },
+  "submit": {
+    "cta": "Create listing",
+    "busy": "Creating…",
+    "note": "Saved as a draft — add photos from your account to publish."
+  },
+  "errors": {
+    "generic": "Could not create the listing. Check the fields and try again."
   }
 }
