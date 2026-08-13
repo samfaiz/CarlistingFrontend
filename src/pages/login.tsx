@@ -87,6 +87,10 @@ export default function LoginPage() {
       <CardContent>
         <form
           onSubmit={onSubmit}
+          // Pre-hydration fallback: a native submit must never GET the
+          // password into the query string / server logs. POST to self is a
+          // harmless no-op page reload until React attaches onSubmit.
+          method="post"
           noValidate
           aria-label={t("login.title")}
           className="flex flex-col gap-4"
