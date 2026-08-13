@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "title": "Vende tu coche"
+  },
+  "common": {
+    "back": "‹ Atrás"
+  },
+  "hero": {
+    "title": "Vende tu coche. Gratis. Rápido.",
+    "subtitle": "Publica tu coche en menos de 3 minutos y llega a más de 2 millones de compradores mensuales en todos los EAU.",
+    "stats": [
+      { "value": "14 días", "label": "Tiempo medio de venta" },
+      { "value": "GRATIS", "label": "Para vendedores particulares" },
+      { "value": "2,4M+", "label": "Compradores mensuales" },
+      { "value": "1.250 AED", "label": "Venta más alta de hoy" }
+    ]
+  },
+  "stepper": [
+    "Datos del coche",
+    "Especificaciones y estado",
+    "Fotos",
+    "Precio",
+    "Publicar"
+  ],
+  "step1": {
+    "title": "Cuéntanos sobre tu coche",
+    "sub": "Usaremos esto para estimar el valor de tu coche y conectarte con los compradores adecuados.",
+    "plateLabel": "⚡ La forma más rápida: busca tu coche por matrícula",
+    "emirates": ["Dubái", "Abu Dabi", "Sharjah", "Ajman", "RAK", "Fujairah", "UAQ"],
+    "platePlaceholder": "Número de matrícula (ej. A 12345)",
+    "autofill": "Autocompletar",
+    "plateHelper": "Autocompletaremos marca, modelo, año y especificaciones desde los registros de la RTA.",
+    "plateHelperLink": "¿Cómo funciona esto?",
+    "divider": "o introduce los datos manualmente",
+    "makeLabel": "Marca *",
+    "modelLabel": "Modelo *",
+    "yearLabel": "Año *",
+    "trimLabel": "Acabado / Versión",
+    "bodyLabel": "Tipo de carrocería *",
+    "colorLabel": "Color exterior *",
+    "selectMake": "Selecciona la marca",
+    "selectModel": "Selecciona el modelo",
+    "selectYear": "Selecciona el año",
+    "selectBody": "Selecciona la carrocería",
+    "selectColor": "Selecciona el color",
+    "makes": ["Toyota", "Nissan", "BMW", "Mercedes-Benz", "Lexus", "Honda", "Audi", "Ford", "Porsche", "Range Rover", "Hyundai", "Kia"],
+    "models": ["Land Cruiser", "Camry", "Corolla", "Fortuner", "RAV4", "Hilux", "Prado"],
+    "trimPlaceholder": "ej. GR-Sport, VXR, M-Sport",
+    "bodies": ["SUV", "Sedán", "Coupé", "Hatchback", "Pickup", "Descapotable", "Furgoneta"],
+    "colors": ["Negro", "Blanco", "Plata", "Gris", "Azul", "Rojo", "Verde", "Marrón", "Otro"],
+    "required": "Todos los campos marcados con * son obligatorios",
+    "continue": "Continuar a Especificaciones"
+  },
+  "step2": {
+    "title": "Especificaciones y estado",
+    "sub": "A los compradores en los EAU les importan sobre todo el kilometraje, la especificación GCC y el estado. Sé preciso: genera confianza.",
+    "mileageLabel": "Kilometraje (km) *",
+    "mileagePlaceholder": "ej. 45.000",
+    "transmissionLabel": "Transmisión *",
+    "transmissions": ["Automática", "Manual", "CVT", "Semiautomática"],
+    "fuelLabel": "Tipo de combustible *",
+    "fuels": ["Gasolina", "Diésel", "Híbrido", "Eléctrico", "PHEV"],
+    "cylindersLabel": "Cilindros",
+    "cylinders": ["4", "6", "8", "12", "Eléctrico"],
+    "regionalLabel": "Especificación regional *",
+    "regionals": ["Especificación GCC", "Americana", "Europea", "Japonesa", "Otra"],
+    "ownersLabel": "Propietarios anteriores",
+    "owners": ["1 (Propietario original)", "2", "3", "4+"],
+    "doorsLabel": "Puertas",
+    "doors": ["4", "2", "3", "5"],
+    "warrantyLabel": "Garantía",
+    "warranties": ["Sin garantía", "Garantía del fabricante", "Garantía extendida"],
+    "dividerCondition": "estado general",
+    "conditions": [
+      { "name": "Excelente", "desc": "Como nuevo, sin abolladuras" },
+      { "name": "Bueno", "desc": "Desgaste mínimo, bien cuidado" },
+      { "name": "Aceptable", "desc": "Algo de desgaste visible" },
+      { "name": "Necesita trabajo", "desc": "Requiere reparaciones importantes" }
+    ],
+    "dividerFeatures": "equipamiento incluido",
+    "features": ["Techo solar", "Techo panorámico", "Asientos de cuero", "Asientos calefactados", "Asientos ventilados", "Asientos con memoria", "Cámara 360°", "Control de crucero adaptativo", "Asistente de mantenimiento de carril", "Apple CarPlay", "Cargador inalámbrico", "Audio premium", "Lunas tintadas", "Llantas de aleación", "Arranque por botón"],
+    "continue": "Continuar a Fotos"
+  },
+  "step3": {
+    "title": "Añade fotos de tu coche",
+    "sub": "Los anuncios con 8 o más buenas fotos se venden hasta 3× más rápido. Busca luz natural y ángulos limpios.",
+    "dzTitle": "Arrastra las fotos aquí, o haz clic para explorar",
+    "dzSub": "Puedes subir hasta 30 fotos. Tamaño recomendado: 1600px de ancho.",
+    "dzTypes": "JPG · PNG · WebP · HEIC · máx 10 MB por imagen",
+    "recTitle": "Tomas recomendadas (haz clic en cualquier casilla para \"subir\")",
+    "primary": "PRINCIPAL",
+    "recs": ["Vista frontal 3/4", "Vista trasera 3/4", "Perfil lateral", "Interior — salpicadero", "Asientos delanteros", "Asientos traseros", "Vano motor", "Cuentakilómetros"],
+    "photosCount": "/ 30 fotos subidas",
+    "continue": "Continuar a Precio"
+  },
+  "step4": {
+    "title": "Fija tu precio de venta",
+    "sub": "Los coches con precio dentro del rango recomendado se venden ~40% más rápido. La estimación de mercado se basa en coches similares en Carsens.",
+    "marketEstimate": "Estimación de mercado",
+    "estBasedOnPre": "Basado en",
+    "estBasedOnPost": "coches similares vendidos en Carsens en los últimos 90 días.",
+    "askingLabel": "Tu precio de venta (AED) *",
+    "priceAdvice": "✓ Dentro del rango recomendado — espera interés rápido",
+    "bestOffer": "Se acepta mejor oferta",
+    "hidePrice": "Ocultar el precio (negociable a petición)",
+    "boostDivider": "Impulsa tu anuncio",
+    "boostOptional": "— opcional",
+    "boost": [
+      { "name": "Estándar", "price": "GRATIS", "period": "30 días", "desc": "Tu anuncio aparece en los resultados de búsqueda normales.", "badge": "" },
+      { "name": "Destacado", "price": "AED 99", "period": "30 días", "desc": "Insignia amarilla \"Destacado\", colocación prioritaria, en la página de inicio.", "badge": "3× más vistas" },
+      { "name": "Premium", "price": "AED 249", "period": "30 días", "desc": "Siempre #1 en las búsquedas, notificaciones push, en lo alto de las páginas de categoría.", "badge": "Primer puesto" }
+    ],
+    "continue": "Continuar a Publicar"
+  },
+  "step5": {
+    "title": "Detalles finales y publicar",
+    "sub": "Añade una descripción breve, elige cómo pueden contactarte los compradores y estarás en línea.",
+    "descLabel": "Descripción (opcional pero recomendada)",
+    "descPlaceholder": "Menciona el historial de servicio, el mantenimiento reciente, qué hace especial a tu coche, el motivo de la venta…",
+    "descValue": "Toyota Land Cruiser GR-Sport 2023. Único propietario, historial de servicio completo en Al Tayer Toyota. Siempre guardado en garaje y mantenido con esmero. Paquete opcional de acentos negros GR-Sport, llantas negras mate de 18″, techo panorámico, audio premium JBL. Motivo de la venta: cambio a un modelo nuevo.",
+    "charCount": "368 / 1.000 caracteres · ✓ Buen detalle",
+    "contactDivider": "¿cómo deben contactarte los compradores?",
+    "contactNameLabel": "Nombre de contacto",
+    "mobileLabel": "Número de móvil",
+    "showOnListing": "Mostrar en el anuncio",
+    "showPhone": "Llamadas telefónicas",
+    "showWhatsapp": "WhatsApp",
+    "showMessages": "Mensajes in-app",
+    "showEmail": "Correo (faisal@example.com)",
+    "durationLabel": "Duración del anuncio",
+    "durations": ["30 días (gratis)", "60 días (gratis)", "90 días (gratis)"],
+    "termsPre": "Confirmo que soy el propietario legal de este vehículo y que los datos anteriores son correctos. Acepto las",
+    "termsLink": "Condiciones del vendedor",
+    "termsPost": "de Carsens y entiendo que los anuncios engañosos pueden ser retirados.",
+    "publish": "Publicar mi anuncio"
+  },
+  "step6": {
+    "title": "¡Tu coche está en línea! 🎉",
+    "sub": "Tu Toyota Land Cruiser GR-Sport 2023 ha sido publicado. Los compradores ya pueden encontrarlo en los resultados de búsqueda y contactarte directamente.",
+    "summaryTitle": "Resumen del anuncio",
+    "rows": [
+      { "label": "ID del anuncio", "value": "#CR-248,924" },
+      { "label": "Precio de venta", "value": "AED 105,000" },
+      { "label": "Activo hasta", "value": "11 de junio de 2026" },
+      { "label": "Vistas estimadas en las primeras 24 h", "value": "200 – 400" }
+    ],
+    "viewListing": "Ver mi anuncio",
+    "dashboard": "Ir a mi panel",
+    "share": "Compartir anuncio"
+  },
+  "sidebar": {
+    "valuation": {
+      "label": "Valoración instantánea",
+      "range": "AED 95,000 – 115,000",
+      "medianLabel": "Mediana:",
+      "medianValue": "AED 105,000",
+      "confidence": "Confianza:",
+      "confidenceLevel": "Alta",
+      "tipPre": "Los coches en este rango suelen venderse en",
+      "tipDays": "10–18 días",
+      "tipPost": "en Carsens."
+    },
+    "compare": {
+      "title": "Coches similares vendidos recientemente",
+      "period": "últimos 90 días",
+      "rows": [
+        { "name": "Toyota Camry SE", "spec": "2022 • 38.000 km", "price": "AED 92,000" },
+        { "name": "Toyota Camry Grande", "spec": "2023 • 22.500 km", "price": "AED 108,500" },
+        { "name": "Toyota Camry Hybrid", "spec": "2022 • 41.200 km", "price": "AED 98,000" },
+        { "name": "Toyota Camry SE", "spec": "2023 • 18.400 km", "price": "AED 115,000" }
+      ]
+    },
+    "tips": {
+      "title": "Consejo para este paso",
+      "items": [
+        "Un año y acabado precisos dan la valoración correcta: trae tu Mulkiya si no estás seguro.",
+        "A los compradores de los EAU les importa mucho GCC frente a importado: acierta con esto.",
+        "Los anuncios con la combinación completa de marca + modelo + año reciben 5× más vistas."
+      ]
+    }
+  }
+}

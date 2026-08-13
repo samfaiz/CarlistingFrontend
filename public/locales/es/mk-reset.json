@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Restablecer contraseña"
+  },
+  "form": {
+    "title": "Crea una nueva contraseña",
+    "subtitle": "Elige una contraseña segura que no hayas usado antes en Carsens.",
+    "newPassword": {
+      "label": "Nueva contraseña",
+      "placeholder": "Al menos 8 caracteres"
+    },
+    "confirmPassword": {
+      "label": "Confirmar nueva contraseña",
+      "placeholder": "Vuelve a introducir la contraseña"
+    },
+    "togglePassword": "Mostrar/ocultar contraseña",
+    "strengthHint": "Usa 8 o más caracteres con letras y números",
+    "submit": "Actualizar contraseña",
+    "tip": "Se cerrará tu sesión en todos tus demás dispositivos después de actualizar.",
+    "backToLogin": "Volver al inicio de sesión"
+  },
+  "success": {
+    "title": "Contraseña actualizada 🔒",
+    "subtitle": "Tu contraseña se ha restablecido correctamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
+    "continue": "Continuar al inicio de sesión",
+    "tip": "Se ha cerrado tu sesión en todos los demás dispositivos por seguridad. Usa tu nueva contraseña para volver a iniciar sesión."
+  }
+}

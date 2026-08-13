@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "title": "Mon compte"
+  },
+  "user": {
+    "initials": "FK",
+    "name": "Faisal Khan",
+    "email": "faisal@example.com",
+    "since": "Membre depuis mai 2025",
+    "tier": "★ Acheteur vérifié"
+  },
+  "menu": {
+    "dashboard": "Tableau de bord",
+    "saved": "Voitures enregistrées",
+    "savedCount": "12",
+    "searches": "Recherches enregistrées",
+    "searchesCount": "3",
+    "messages": "Messages",
+    "messagesCount": "2",
+    "listings": "Mes annonces",
+    "listingsCount": "5",
+    "alerts": "Alertes de prix",
+    "alertsCount": "4",
+    "profile": "Paramètres du profil",
+    "notifications": "Notifications",
+    "security": "Sécurité",
+    "signout": "Se déconnecter"
+  },
+  "dashboard": {
+    "welcome": "Bon retour, Faisal 👋",
+    "sub": "Voici ce qui s'est passé sur votre compte",
+    "savedTitle": "Voitures enregistrées récemment",
+    "viewAllSaved": "Tout voir (12) →",
+    "msgTitle": "Derniers messages",
+    "viewAllMsg": "Tout voir →"
+  },
+  "stats": {
+    "saved": { "val": "12", "label": "Voitures enregistrées", "trend": "↑ 3 cette semaine" },
+    "searches": { "val": "3", "label": "Recherches actives", "trend": "↑ 23 nouvelles correspondances" },
+    "messages": { "val": "2", "label": "Messages non lus", "trend": "2 nouveaux" },
+    "listings": { "val": "5", "label": "Annonces actives", "trend": "↑ 142 vues aujourd'hui" }
+  },
+  "recent": {
+    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • Abu Dhabi", "price": "AED 365,000", "badge": "En vedette" },
+    "1": { "title": "BMW X5 xDrive40i M-Sport", "sub": "2023 • Dubaï", "price": "AED 285,000" },
+    "2": { "title": "Porsche 911 Carrera S", "sub": "2023 • Dubaï", "price": "AED 545,000" }
+  },
+  "latest": {
+    "0": { "av": "AT", "name": "Al Tayer Motors", "time": "il y a 2 h", "car": "Toyota Land Cruiser GR-Sport · AED 365,000", "preview": "Bonjour Faisal, la voiture est toujours disponible. Nous sommes ouverts jusqu'à 21 h aujourd'hui si vous souhaitez passer…" },
+    "1": { "av": "SM", "name": "Star Motors", "time": "Hier", "car": "Ford Mustang GT Premium · AED 162,500", "preview": "Nous avons baissé le prix de AED 8,000 — dites-moi si vous souhaitez toujours la voir cette semaine." },
+    "2": { "av": "NM", "name": "Nasser Motors", "time": "il y a 3 jours", "car": "Toyota Fortuner VX · AED 138,000", "preview": "Merci de votre intérêt. L'essai est confirmé pour samedi à 16 h." }
+  },
+  "saved": {
+    "title": "Voitures enregistrées",
+    "sub": "12 voitures que vous avez présélectionnées — nous vous préviendrons si leur prix baisse"
+  },
+  "savedCars": {
+    "0": { "title": "Toyota Land Cruiser GR-Sport", "sub": "2023 • Abu Dhabi", "price": "AED 365,000", "badge": "En vedette" },
+    "1": { "title": "BMW X5 xDrive40i", "sub": "2023 • Dubaï", "price": "AED 285,000" },
+    "2": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • Abu Dhabi", "price": "AED 985,000" },
+    "3": { "title": "Ford Mustang GT Premium", "sub": "2022 • Charjah", "price": "AED 154,500", "priceOld": "AED 162,500", "badgeWarning": "Prix baissé" },
+    "4": { "title": "Porsche 911 Carrera S", "sub": "2023 • Dubaï", "price": "AED 545,000" },
+    "5": { "title": "Range Rover Vogue Autobiography", "sub": "2022 • Dubaï", "price": "AED 485,000" }
+  },
+  "searches": {
+    "title": "Recherches enregistrées",
+    "sub": "Soyez averti lorsque de nouvelles voitures correspondent à ces critères",
+    "viewResults": "Voir les résultats",
+    "editTitle": "Modifier",
+    "removeTitle": "Supprimer"
+  },
+  "searchRows": {
+    "0": { "name": "SUV Toyota à moins de 200 000 AED", "crit": "Marque : Toyota · Carrosserie : SUV · Prix : moins de AED 200,000 · Année : 2020+", "matches": "12 nouvelles correspondances depuis votre dernière visite" },
+    "1": { "name": "BMW Série M 2020+", "crit": "Marque : BMW · Variantes : M3, M5, M-Sport · Année : 2020+", "matches": "7 nouvelles correspondances depuis votre dernière visite" },
+    "2": { "name": "SUV électriques et hybrides", "crit": "Carburant : électrique, hybride · Carrosserie : SUV · Prix : jusqu'à AED 400,000", "matches": "4 nouvelles correspondances depuis votre dernière visite" }
+  },
+  "messages": {
+    "title": "Messages",
+    "sub": "Conversations avec les concessionnaires et les acheteurs",
+    "searchPlaceholder": "Rechercher des conversations…",
+    "chips": {
+      "all": "Tous",
+      "unread": "Non lus (2)",
+      "buying": "Achat",
+      "selling": "Vente"
+    }
+  },
+  "conv": {
+    "1": { "av": "AT", "name": "Al Tayer Motors", "time": "2 h", "car": "Toyota Land Cruiser GR-Sport", "preview": "J'ai aussi apporté le rapport d'inspection que vous avez demandé — vous devriez être satisfait", "badge": "2" },
+    "2": { "av": "SM", "name": "Star Motors", "time": "Hier", "car": "Ford Mustang GT Premium", "preview": "Nous l'avons en fait baissée à AED 154,500 aujourd'hui", "badge": "1" },
+    "3": { "av": "NM", "name": "Nasser Motors", "time": "3 jours", "car": "Toyota Fortuner VX", "preview": "Confirmé pour samedi à 16 h. À bientôt !" },
+    "4": { "av": "EM", "name": "Emirates Auto", "time": "1 semaine", "car": "Mercedes-Benz G63 AMG", "preview": "Vous : Oui, prévenez-moi pour les G-Class similaires" },
+    "5": { "av": "PA", "name": "Premier Auto", "time": "2 semaines", "car": "Range Rover Vogue Autobiography", "preview": "Merci de votre passage aujourd'hui. Faites-nous savoir si vous avez des questions." }
+  },
+  "threadActions": {
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "more": "Plus",
+    "viewListing": "Voir l'annonce"
+  },
+  "compose": {
+    "placeholder": "Écrivez un message…",
+    "attach": "Joindre un fichier",
+    "photo": "Envoyer une photo",
+    "send": "Envoyer"
+  },
+  "t1": {
+    "av": "AT",
+    "name": "Al Tayer Motors",
+    "verifiedTitle": "Concessionnaire vérifié",
+    "online": "En ligne",
+    "statusText": "répond généralement en ~2 heures",
+    "car": { "title": "Toyota Land Cruiser GR-Sport", "meta": "2023 · 18,200 km · ", "price": "AED 365,000" },
+    "day1": "Hier",
+    "day2": "Aujourd'hui",
+    "m1": "Bonjour, ce Land Cruiser est-il toujours disponible ? Je souhaite réserver une visite.",
+    "m1time": "14:34",
+    "m2": "Bonjour Faisal, oui il est toujours disponible ! 👋 Nous sommes ouverts jusqu'à 21 h aujourd'hui. Souhaitez-vous passer ?",
+    "m2meta": "14:41 · Khalid",
+    "m3": "Puis-je venir demain vers 18 h ? J'amène mon frère.",
+    "m3time": "16:22",
+    "m4": "Parfait ! Je serai au showroom de Mussafah. Dois-je aussi préparer la voiture pour un essai ? C'est une boucle de 20 min sur Sheikh Zayed Bin Sultan.",
+    "m4meta": "16:48 · Khalid",
+    "m5": "Oui, un essai serait super. Avez-vous aussi le rapport d'inspection ? Je veux le consulter ce soir.",
+    "m5time": "10:12",
+    "m6": "Je l'envoie tout de suite 📎",
+    "m6meta": "11:48 · Khalid",
+    "share": { "title": "📋 Rapport d'inspection — 98/100", "meta": "Inspection en 200 points · 8 mai 2026", "link": "Voir le PDF complet →" },
+    "m7meta": "11:49 · Khalid",
+    "m8": "J'ai aussi apporté le carnet d'entretien — un seul propriétaire, tous les tampons d'Al Tayer Toyota. Vous devriez être satisfait de ce que vous verrez.",
+    "m8meta": "11:51 · Khalid",
+    "qr": {
+      "0": "Oui, ça m'intéresse 👍",
+      "1": "Quel est votre meilleur prix ?",
+      "2": "Pouvez-vous me la réserver ?",
+      "3": "📍 Envoyer la localisation"
+    }
+  },
+  "t2": {
+    "av": "SM",
+    "name": "Star Motors",
+    "status": "Vu il y a 30 min",
+    "car": { "title": "Ford Mustang GT Premium", "meta": "2022 · 22,400 km · ", "price": "AED 154,500" },
+    "day1": "il y a 3 jours",
+    "day2": "Aujourd'hui",
+    "m1": "Bonjour, cette Mustang est-elle toujours disponible ? Quel est le meilleur prix que vous puissiez faire ?",
+    "m1time": "15:14",
+    "m2": "Bonjour ! Oui, toujours là. Le prix demandé est de AED 162,500 — nous l'avons déjà baissé depuis 168K. Je pourrais descendre à 158K si vous êtes prêt cette semaine.",
+    "m2meta": "15:42 · Omar",
+    "offer": { "label": "Offre du concessionnaire", "amt": "AED 158,000", "orig": "À partir de AED 162,500", "accept": "Accepter", "counter": "Contre-offre" },
+    "offermeta": "15:43 · Omar",
+    "m3": "Laissez-moi réfléchir — 152K en espèces aujourd'hui ?",
+    "m3time": "17:08",
+    "m4": "155K en espèces est mon minimum — c'est déjà en dessous de tout autre concessionnaire aux EAU pour cette version/ce kilométrage exacts.",
+    "m4meta": "Hier · 10:22",
+    "m5": "Bonne nouvelle — nous avons baissé le prix demandé à AED 154,500. Si vous êtes toujours intéressé, c'est le mieux que je puisse faire.",
+    "m5meta": "9:15 · Omar",
+    "qr": {
+      "0": "Accepter 154,500 👍",
+      "1": "Pouvez-vous faire 150K ?",
+      "2": "Quand puis-je la voir ?",
+      "3": "Je dois réfléchir"
+    }
+  },
+  "t3": {
+    "av": "NM",
+    "name": "Nasser Motors",
+    "online": "En ligne",
+    "statusText": "Agence de Mussafah",
+    "car": { "title": "Toyota Fortuner VX", "meta": "2022 · 42,800 km · ", "price": "AED 138,000" },
+    "day1": "il y a 3 jours",
+    "m1": "Bonjour, puis-je réserver un essai ce samedi ?",
+    "m1time": "11:08",
+    "m2": "Bonjour Faisal — oui, samedi est libre. Quelle heure vous conviendrait ?",
+    "m2meta": "11:42 · Tariq",
+    "m3": "16 h si possible",
+    "m3time": "12:14",
+    "m4": "Parfait — 16 h est à vous. Nous sommes dans la Zone industrielle 13, Charjah. Merci d'apporter votre permis de conduire. J'aurai les clés et une eau fraîche 😉",
+    "m4meta": "12:48 · Tariq",
+    "m5": "Merci ! À samedi.",
+    "m5time": "13:02",
+    "m6": "Confirmé pour samedi à 16 h. À bientôt ! 🚗",
+    "m6meta": "13:04 · Tariq",
+    "qr": {
+      "0": "📅 Ajouter au calendrier",
+      "1": "Changer l'heure",
+      "2": "📍 Obtenir l'itinéraire"
+    }
+  },
+  "t4": {
+    "av": "EM",
+    "name": "Emirates Auto",
+    "status": "Vu il y a 2 jours",
+    "car": { "title": "Mercedes-Benz G63 AMG", "sold": "VENDUE", "meta": "2024 · 4,800 km · ", "price": "AED 985,000" },
+    "day1": "il y a 1 semaine",
+    "m1": "Bonjour, la G63 est-elle toujours disponible ?",
+    "m1time": "14:34",
+    "m2": "Désolé, ce véhicule a été vendu hier. Souhaitez-vous que nous vous prévenions lorsque des modèles G-Class similaires seront disponibles ?",
+    "m2meta": "15:12 · Hamad",
+    "m3": "Oui, s'il vous plaît — prévenez-moi pour toute G63 2023-2024 à moins de 1 M AED.",
+    "m3time": "15:25",
+    "m4": "C'est fait — l'alerte est active. Nous recevons généralement 1-2 annonces de G63 par mois. Je vous écrirai personnellement dès que quelque chose correspond.",
+    "m4meta": "15:48 · Hamad"
+  },
+  "t5": {
+    "av": "PA",
+    "name": "Premier Auto",
+    "status": "Vu hier",
+    "car": { "title": "Range Rover Vogue Autobiography", "meta": "2022 · 31,200 km · ", "price": "AED 485,000" },
+    "day1": "il y a 2 semaines",
+    "m1": "J'ai visité aujourd'hui. Magnifique voiture. Laissez-moi en discuter avec mon épouse et je reviens vers vous cette semaine.",
+    "m1time": "17:24",
+    "m2": "Bien sûr Faisal — prenez votre temps. Merci de votre passage aujourd'hui. Faites-nous savoir si vous avez des questions, et nous pouvons aussi organiser un essai plus long ce week-end si cela peut aider.",
+    "m2meta": "18:08 · Yusef"
+  },
+  "listings": {
+    "title": "Mes annonces",
+    "sub": "Voitures que vous avez publiées sur Carsens",
+    "chips": { "all": "Toutes (5)", "active": "Actives (4)", "pending": "En attente (1)", "sold": "Vendues (3)" },
+    "newCar": "Publier une nouvelle voiture"
+  },
+  "myListings": {
+    "0": { "title": "Toyota Camry SE", "sub": "2021 • Dubaï", "price": "AED 78,000", "status": "● Active", "spec1": "👁 1,242 vues", "spec2": "8 demandes" },
+    "1": { "title": "Nissan Patrol Platinum", "sub": "2020 • Dubaï", "price": "AED 195,000", "status": "● Active", "spec1": "👁 624 vues", "spec2": "3 demandes" },
+    "2": { "title": "Lexus LX 600 Ultra", "sub": "2024 • Dubaï", "price": "AED 595,000", "status": "● En attente de révision", "spec1": "Publiée il y a 2 heures" },
+    "3": { "title": "Tesla Model 3 Long Range", "sub": "2022 • Dubaï", "price": "AED 142,000", "status": "Vendue", "spec1": "Vendue le 28 avr." }
+  },
+  "alerts": {
+    "title": "Alertes de prix",
+    "sub": "Nous vous préviendrons lorsque ces voitures ou modèles baisseront de prix",
+    "removeTitle": "Supprimer"
+  },
+  "alertRows": {
+    "0": { "name": "Toyota Land Cruiser GR-Sport", "crit": "Me prévenir lorsque le prix descend sous AED 350,000 (actuellement 365,000)" },
+    "1": { "name": "BMW M5 (toute année ≥ 2020)", "crit": "Me prévenir lorsque le prix descend sous AED 280,000" }
+  },
+  "profile": {
+    "title": "Paramètres du profil",
+    "sub": "Mettez à jour vos informations personnelles",
+    "fullName": "Nom complet",
+    "fullNameVal": "Faisal Khan",
+    "mobile": "Numéro de mobile",
+    "mobileVal": "+971 50 247 9842",
+    "email": "Adresse e-mail",
+    "emailVal": "faisal@example.com",
+    "city": "Ville",
+    "cityOptions": { "0": "Dubaï", "1": "Abu Dhabi", "2": "Charjah" },
+    "language": "Langue préférée",
+    "langOptions": { "0": "English", "1": "العربية" },
+    "bio": "Courte bio (facultatif)",
+    "bioPlaceholder": "Une brève présentation à partager avec les vendeurs/acheteurs",
+    "save": "Enregistrer les modifications",
+    "cancel": "Annuler"
+  },
+  "notif": {
+    "title": "Préférences de notification",
+    "sub": "Choisissez ce dont vous souhaitez être notifié",
+    "rows": {
+      "0": { "title": "Nouvelles correspondances sur les recherches enregistrées", "desc": "Soyez averti lorsque des voitures correspondant à vos recherches enregistrées sont publiées" },
+      "1": { "title": "Baisses de prix sur les voitures enregistrées", "desc": "Soyez le premier informé lorsqu'une voiture que vous avez enregistrée baisse de prix" },
+      "2": { "title": "Messages des concessionnaires", "desc": "Recevez les messages et réponses des concessionnaires" },
+      "3": { "title": "Résumé hebdomadaire du marché", "desc": "Un résumé hebdomadaire des tendances de prix et des nouveautés selon vos centres d'intérêt" },
+      "4": { "title": "Offres promotionnelles", "desc": "Offres et promotions spéciales des concessionnaires partenaires" },
+      "5": { "title": "Notifications par SMS", "desc": "Envoyer les alertes urgentes (baisses de prix, réponses des concessionnaires) par SMS" }
+    }
+  },
+  "security": {
+    "title": "Sécurité et connexion",
+    "sub": "Gérez votre mot de passe et la sécurité de votre compte",
+    "changePw": "Changer le mot de passe",
+    "current": "Mot de passe actuel",
+    "currentPh": "••••••••",
+    "new": "Nouveau mot de passe",
+    "newPh": "Au moins 8 caractères",
+    "confirm": "Confirmer le nouveau mot de passe",
+    "updatePw": "Mettre à jour le mot de passe",
+    "twofa": "Authentification à deux facteurs",
+    "authApp": "Application d'authentification (recommandé)",
+    "authAppDesc": "Utilisez Google Authenticator, Authy ou 1Password pour générer des codes",
+    "enable": "Activer",
+    "sms": "Vérification par SMS",
+    "smsDesc": "Recevez un code par SMS lors d'une connexion depuis un nouvel appareil",
+    "sessions": "Sessions actives",
+    "thisDevice": "Cet appareil — Chrome sur Windows",
+    "thisDeviceDesc": "Dubaï, EAU · Actif maintenant",
+    "current2": "● Actuel",
+    "iphone": "iPhone — Safari",
+    "iphoneDesc": "Dubaï, EAU · il y a 2 jours",
+    "signoutDevice": "Se déconnecter de cet appareil"
+  }
+}

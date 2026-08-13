@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "Annonces de motos"
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "bikes": "Motos",
+    "current": "Toutes les annonces"
+  },
+  "title": {
+    "heading": "Motos à vendre aux EAU",
+    "count": "12,432",
+    "meta": "Affichage de 1–12 sur 12,432 motos",
+    "saveSearch": "Enregistrer cette recherche"
+  },
+  "compact": {
+    "make": "Marque",
+    "makeOpts": ["Toute marque", "Ducati", "BMW Motorrad", "Harley-Davidson", "Kawasaki", "Yamaha", "Honda", "KTM"],
+    "model": "Modèle",
+    "modelOpts": ["Tout modèle"],
+    "engine": "Moteur (cc)",
+    "engineOpts": ["Toute cylindrée", "Moins de 250cc", "250 – 500cc", "500 – 800cc", "800 – 1000cc", "1000cc+"],
+    "year": "Année",
+    "yearOpts": ["Toute année", "2024", "2023", "2022", "2021"],
+    "emirate": "Émirat",
+    "emirateOpts": ["Tous les émirats", "Dubaï", "Abou Dhabi", "Charjah"],
+    "update": "Mettre à jour"
+  },
+  "filters": {
+    "title": "Filtres",
+    "reset": "Tout réinitialiser",
+    "min": "Min",
+    "max": "Max",
+    "keyword": {
+      "title": "Recherche par mot-clé",
+      "placeholder": "p. ex. 'faible kilométrage', 'akrapovic'"
+    },
+    "body": {
+      "title": "Type de carrosserie",
+      "all": "Toutes",
+      "sport": "Sportive",
+      "cruiser": "Cruiser",
+      "adventure": "Adventure",
+      "naked": "Roadster",
+      "standard": "Standard",
+      "offRoad": "Tout-terrain",
+      "touring": "Touring",
+      "scooter": "Scooter"
+    },
+    "make": {
+      "title": "Marque",
+      "ducati": "Ducati",
+      "bmw": "BMW Motorrad",
+      "harley": "Harley-Davidson",
+      "kawasaki": "Kawasaki",
+      "yamaha": "Yamaha",
+      "honda": "Honda",
+      "ktm": "KTM",
+      "suzuki": "Suzuki",
+      "triumph": "Triumph",
+      "more": "+ Afficher 15 de plus"
+    },
+    "engine": {
+      "title": "Cylindrée (cc)",
+      "any": "Toute",
+      "u250": "< 250cc",
+      "r250": "250–500cc",
+      "r500": "500–800cc",
+      "r800": "800–1000cc",
+      "o1000": "1000cc+",
+      "unit": "cc"
+    },
+    "price": {
+      "title": "Prix (AED)"
+    },
+    "year": {
+      "title": "Année"
+    },
+    "mileage": {
+      "title": "Kilométrage (km)"
+    },
+    "transmission": {
+      "title": "Transmission",
+      "m6": "Manuelle 6 vitesses",
+      "m5": "Manuelle 5 vitesses",
+      "dct": "Semi-automatique (DCT)",
+      "cvt": "CVT (scooter)"
+    },
+    "license": {
+      "title": "Catégorie de permis",
+      "a1": "A1 (jusqu'à 125cc)",
+      "a2": "A2 (jusqu'à 35kW)",
+      "a": "A (sans restriction)"
+    },
+    "aids": {
+      "title": "Aides à la conduite",
+      "abs": "ABS",
+      "traction": "Contrôle de traction",
+      "wheelie": "Contrôle anti-wheeling",
+      "quickshifter": "Shifter",
+      "imu": "IMU (6 axes)",
+      "modes": "Modes de conduite"
+    },
+    "color": {
+      "title": "Couleur",
+      "white": "Blanc",
+      "black": "Noir",
+      "red": "Rouge",
+      "blue": "Bleu",
+      "green": "Vert",
+      "yellow": "Jaune",
+      "orange": "Orange",
+      "silver": "Argent",
+      "purple": "Violet",
+      "other": "Autre"
+    },
+    "seller": {
+      "title": "Type de vendeur",
+      "dealer": "Concessionnaire",
+      "private": "Particulier"
+    },
+    "location": {
+      "title": "Emplacement",
+      "dubai": "Dubaï",
+      "abudhabi": "Abou Dhabi",
+      "sharjah": "Charjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "fujairah": "Fujaïrah"
+    }
+  },
+  "active": {
+    "sport": "Sportive",
+    "ducati": "Ducati",
+    "abs": "ABS",
+    "black": "Noir",
+    "remove": "retirer",
+    "clearAll": "Tout effacer"
+  },
+  "toolbar": {
+    "count": "12,432 motos",
+    "match": "correspondent à vos filtres",
+    "sortBy": "Trier par",
+    "sort": {
+      "relevant": "Plus pertinent",
+      "newest": "Plus récent d'abord",
+      "priceLow": "Prix : croissant",
+      "priceHigh": "Prix : décroissant",
+      "mileage": "Kilométrage le plus bas",
+      "power": "Puissance la plus élevée (hp)"
+    },
+    "gridView": "Vue en grille",
+    "listView": "Vue en liste"
+  },
+  "badges": {
+    "featured": "En vedette",
+    "new": "Neuf",
+    "reduced": "Réduit"
+  },
+  "cards": {
+    "0": {
+      "title": "Ducati Panigale V4 SP2",
+      "sub": "2023 • Dubaï • 1,103cc",
+      "price": "AED 168,000",
+      "mo": "ou 2,500/mois",
+      "s1": "2,800 km",
+      "s2": "Sportive",
+      "s3": "215 hp",
+      "dealer": "RS Motorcycles",
+      "verified": "✓ Vérifié"
+    },
+    "1": {
+      "title": "Kawasaki Ninja ZX-10R",
+      "sub": "2022 • Dubaï • 998cc",
+      "price": "AED 68,000",
+      "s1": "6,800 km",
+      "s2": "Sportive",
+      "s3": "200 hp",
+      "dealer": "Kawasaki Motors"
+    },
+    "2": {
+      "title": "BMW S1000RR",
+      "sub": "2023 • Abou Dhabi • 999cc",
+      "price": "AED 118,000",
+      "s1": "4,200 km",
+      "s2": "Sportive",
+      "s3": "210 hp",
+      "dealer": "Motorrad Dubai"
+    },
+    "3": {
+      "title": "Aprilia RSV4 Factory",
+      "sub": "2023 • Dubaï • 1,099cc",
+      "price": "AED 142,000",
+      "s1": "1,800 km",
+      "s2": "Sportive",
+      "s3": "217 hp",
+      "dealer": "Aprilia Performance"
+    },
+    "4": {
+      "title": "BMW R1250GS Adventure",
+      "sub": "2023 • Abou Dhabi • 1,254cc",
+      "price": "AED 92,000",
+      "s1": "12,400 km",
+      "s2": "ADV",
+      "s3": "136 hp",
+      "dealer": "Motorrad Dubai"
+    },
+    "5": {
+      "title": "Harley-Davidson Street Glide",
+      "sub": "2022 • Charjah • 1,868cc",
+      "price": "AED 78,000",
+      "was": "AED 88,000",
+      "s1": "8,200 km",
+      "s2": "Touring",
+      "s3": "90 hp",
+      "dealer": "H-D Sharjah"
+    },
+    "6": {
+      "title": "Triumph Bonneville T120",
+      "sub": "2022 • Abou Dhabi • 1,200cc",
+      "price": "AED 52,000",
+      "s1": "9,400 km",
+      "s2": "Classique",
+      "s3": "80 hp",
+      "dealer": "Triumph Concession"
+    },
+    "7": {
+      "title": "Honda Africa Twin Adventure Sports",
+      "sub": "2023 • Charjah • 1,084cc",
+      "price": "AED 75,000",
+      "s1": "7,800 km",
+      "s2": "ADV",
+      "s3": "102 hp",
+      "dealer": "Honda Motors AD"
+    },
+    "8": {
+      "title": "KTM 1290 Super Duke RR",
+      "sub": "2023 • Dubaï • 1,301cc",
+      "price": "AED 95,000",
+      "s1": "3,200 km",
+      "s2": "Roadster",
+      "s3": "180 hp",
+      "dealer": "KTM Orange Dubai"
+    },
+    "9": {
+      "title": "Yamaha MT-09 SP",
+      "sub": "2023 • Dubaï • 890cc",
+      "price": "AED 48,500",
+      "s1": "4,200 km",
+      "s2": "Roadster",
+      "s3": "119 hp",
+      "dealer": "Yamaha Motors UAE"
+    },
+    "10": {
+      "title": "Ducati Multistrada V4 S",
+      "sub": "2022 • Dubaï • 1,158cc",
+      "price": "AED 102,000",
+      "s1": "11,200 km",
+      "s2": "ADV",
+      "s3": "170 hp",
+      "dealer": "Ducati Center"
+    }
+  },
+  "promo": {
+    "title": "Obtenez un financement moto pré-approuvé en 2 minutes",
+    "body": "Comparez les offres de prêt de 5 banques des EAU. Sans impact sur votre score de crédit.",
+    "cta": "Vérifier l'éligibilité"
+  },
+  "pagination": {
+    "prev": "‹ Préc.",
+    "next": "Suivant ›"
+  }
+}

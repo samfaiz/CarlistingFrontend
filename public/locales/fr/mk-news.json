@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "Actualités"
+  },
+  "hero": {
+    "title": "Actualités et essais Carsens",
+    "subtitle": "Essais d'experts, analyses du marché et guides d'achat pour les automobilistes et motards des Émirats. Mis à jour chaque jour."
+  },
+  "tabs": {
+    "all": "Tous les articles",
+    "reviews": "Essais",
+    "buyingGuides": "Guides d'achat",
+    "market": "Marché",
+    "comparisons": "Comparatifs",
+    "news": "Actualités",
+    "bikes": "Motos",
+    "longTerm": "Long terme",
+    "finance": "Financement"
+  },
+  "featured": {
+    "tag": "Premier essai",
+    "title": "Toyota Land Cruiser GR-Sport 2025 : nous l'avons conduit à travers le désert de Liwa",
+    "excerpt": "Le nouveau GR-Sport reçoit un V6 biturbo de 409 ch, un différentiel à déconnexion hydraulique et un châssis affûté par GR. Après 800 km sur asphalte et dunes, mérite-t-il encore la couronne de roi du désert ? Un essai de fond, sur le terrain.",
+    "author": "Khalid Al Mansouri",
+    "role": "Rédacteur automobile senior",
+    "date": "11 mai 2026",
+    "read": "12 min de lecture"
+  },
+  "topPicks": {
+    "title": "Coups de cœur de la semaine",
+    "viewLink": "Toutes les sélections de la rédaction",
+    "0": {
+      "tag": "Marché",
+      "title": "Les prix des voitures d'occasion aux Émirats ont chuté de 3,2 % en avril — voici pourquoi",
+      "excerpt": "L'augmentation de l'offre issue des retours de flottes d'entreprise, la baisse des taux d'intérêt et un segment du luxe en repli ont tous joué un rôle. En plus : ce qu'il faut attendre en mai et juin.",
+      "author": "Sara Ahmed",
+      "date": "9 mai 2026",
+      "read": "6 min de lecture"
+    },
+    "1": {
+      "tag": "Comparatif VE",
+      "title": "Tesla Model Y vs Mercedes EQE SUV : quel VE l'emporte aux Émirats ?",
+      "excerpt": "Nous avons testé les deux par 47°C, sur de longs trajets sur la Sheikh Zayed, en circulation urbaine et lors de sessions de charge rapide. Autonomie, recharge, confort de l'habitacle, logiciel — voici comment ils se comparent.",
+      "author": "Khalid Al Mansouri",
+      "date": "8 mai 2026",
+      "read": "11 min de lecture"
+    }
+  },
+  "latest": {
+    "title": "Derniers articles",
+    "viewLink": "Voir tout"
+  },
+  "articles": {
+    "0": {
+      "tag": "Guide d'achat",
+      "title": "10 points que tout acheteur aux Émirats devrait vérifier avant de signer un contrat de voiture d'occasion",
+      "excerpt": "De l'historique de la mulkiya à la correspondance du numéro de châssis, voici la liste pratique que tout acheteur devrait parcourir avant de verser le moindre dirham.",
+      "author": "Khalid Al Mansouri",
+      "date": "10 mai 2026",
+      "read": "6 min de lecture"
+    },
+    "1": {
+      "tag": "Motos",
+      "title": "BMW R1250GS vs Ducati Multistrada V4 : quel roi de l'aventure gagne dans les dunes des Émirats ?",
+      "excerpt": "Bicylindre boxer contre V4. Nous avons roulé sur les deux de Dubaï à Hatta puis dans les Hajar pour voir comment elles gèrent la chaleur du désert, le sable et les longs trajets.",
+      "author": "Omar Hassan",
+      "date": "9 mai 2026",
+      "read": "9 min de lecture"
+    },
+    "2": {
+      "tag": "Guide d'achat",
+      "title": "Les meilleurs SUV familiaux à moins de 200K AED en 2026",
+      "excerpt": "Praticité sept places, réseaux de service du CCG et bonne valeur de revente. Notre sélection des meilleurs SUV familiaux intermédiaires que vous pouvez acheter neufs pour moins de 200K cette année.",
+      "author": "Sara Ahmed",
+      "date": "7 mai 2026",
+      "read": "8 min de lecture"
+    },
+    "3": {
+      "tag": "Essai longue durée",
+      "title": "Porsche 911 Carrera S : six mois dans l'été de Dubaï",
+      "excerpt": "Fiabilité du PDK par 47°C, consommation réelle, usure des pneus sur la Sheikh Zayed Road et coûts d'entretien surprises après l'expiration de la garantie.",
+      "author": "Khalid Al Mansouri",
+      "date": "6 mai 2026",
+      "read": "14 min de lecture"
+    },
+    "4": {
+      "tag": "Financement",
+      "title": "Financement à 0 % vs achat comptant : lequel est le plus malin avec les taux des Émirats en 2026 ?",
+      "excerpt": "Avec des taux bancaires aux Émirats entre 5,5 % et 7 %, le « financement à 0 % » est-il vraiment la meilleure affaire qu'il paraît ? Nous avons fait les calculs sur une voiture à 180 000 AED dans quatre banques.",
+      "author": "Sara Ahmed",
+      "date": "5 mai 2026",
+      "read": "7 min de lecture"
+    },
+    "5": {
+      "tag": "Comparatif",
+      "title": "Audi RS6 vs BMW M5 : quelle super-berline règne sur la Sheikh Zayed Road ?",
+      "excerpt": "Deux super-berlines de plus de 600 ch, toutes deux des breaks déguisés utilisables au quotidien. Performances, qualité de l'habitacle, consommation réelle et laquelle vieillit le mieux.",
+      "author": "Khalid Al Mansouri",
+      "date": "4 mai 2026",
+      "read": "11 min de lecture"
+    },
+    "6": {
+      "tag": "Marché",
+      "title": "5 voitures d'occasion sous-estimées qui conservent le mieux leur valeur aux Émirats",
+      "excerpt": "Oubliez les choix évidents. Ces cinq options moins flashy perdent moins à la dépréciation sur 3 ans que n'importe quelle autre voiture de leur segment, d'après les données Carsens.",
+      "author": "Sara Ahmed",
+      "date": "3 mai 2026",
+      "read": "6 min de lecture"
+    },
+    "7": {
+      "tag": "Motos",
+      "title": "Acheter une moto sportive aux Émirats : 8 points que tout nouveau motard devrait vérifier",
+      "excerpt": "Des limites du permis de catégorie A2 aux pièges de l'assurance, à l'historique des accidents et à la disponibilité des pièces — ce qu'un premier acheteur de moto sportive aux Émirats doit savoir.",
+      "author": "Omar Hassan",
+      "date": "2 mai 2026",
+      "read": "7 min de lecture"
+    }
+  },
+  "pagination": {
+    "prev": "‹ Préc.",
+    "next": "Suiv. ›"
+  },
+  "popular": {
+    "title": "Les plus populaires cette semaine",
+    "0": {
+      "title": "Tesla Model Y vs Mercedes EQE SUV : quel VE l'emporte aux Émirats ?",
+      "meta": "12,4K vues · 11 min de lecture"
+    },
+    "1": {
+      "title": "Les prix des voitures d'occasion aux Émirats ont chuté de 3,2 % en avril — voici pourquoi",
+      "meta": "9,8K vues · 6 min de lecture"
+    },
+    "2": {
+      "title": "Toyota Land Cruiser GR-Sport 2025 : nous l'avons conduit à travers le désert de Liwa",
+      "meta": "8,2K vues · 12 min de lecture"
+    },
+    "3": {
+      "title": "10 points que tout acheteur aux Émirats devrait vérifier avant de signer un contrat de voiture d'occasion",
+      "meta": "7,1K vues · 6 min de lecture"
+    },
+    "4": {
+      "title": "BMW R1250GS vs Ducati Multistrada V4 : comparatif des trails",
+      "meta": "5,6K vues · 9 min de lecture"
+    }
+  },
+  "newsletter": {
+    "title": "🚗 Restez informé",
+    "body": "Recevez le résumé hebdomadaire de Carsens. Nouvelles annonces, mouvements du marché et les meilleures lectures, chaque vendredi.",
+    "placeholder": "votre.email@exemple.com",
+    "button": "Abonnez-vous — c'est gratuit",
+    "perk1": "Hebdomadaire · 5 min de lecture",
+    "perk2": "Désabonnement à tout moment"
+  },
+  "topics": {
+    "title": "Parcourir par thème",
+    "tags": {
+      "0": "Toyota",
+      "1": "BMW",
+      "2": "Mercedes",
+      "3": "Porsche",
+      "4": "Voitures d'occasion",
+      "5": "Voitures neuves",
+      "6": "Électriques",
+      "7": "Hybrides",
+      "8": "SUV",
+      "9": "Berline",
+      "10": "Sportives",
+      "11": "Motos",
+      "12": "Marché des Émirats",
+      "13": "Financement",
+      "14": "Assurance",
+      "15": "Entretien",
+      "16": "Luxe",
+      "17": "Tout-terrain"
+    }
+  },
+  "writers": {
+    "title": "Rédacteurs à la une",
+    "0": {
+      "name": "Khalid Al Mansouri",
+      "role": "Rédacteur automobile senior",
+      "articles": "84 articles",
+      "reads": "1,2M lectures"
+    },
+    "1": {
+      "name": "Sara Ahmed",
+      "role": "Analyste de marché",
+      "articles": "52 articles",
+      "reads": "680K lectures"
+    },
+    "2": {
+      "name": "Omar Hassan",
+      "role": "Testeur de motos",
+      "articles": "38 articles",
+      "reads": "412K lectures"
+    }
+  }
+}

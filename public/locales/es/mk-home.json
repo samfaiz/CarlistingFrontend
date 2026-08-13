@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Comprar y vender coches en EAU",
+    "desc": "Más de 60.000 coches nuevos y usados de 1.200 concesionarios de confianza en Dubái, Abu Dabi, Sharjah y más."
+  },
+  "hero": {
+    "title": "Encuentra tu coche perfecto en los EAU",
+    "sub": "Más de 60.000 coches nuevos y usados de 1.200 concesionarios de confianza en Dubái, Abu Dabi, Sharjah y más.",
+    "tabUsed": "Coches usados",
+    "tabNew": "Coches nuevos",
+    "tabBikes": "Motos",
+    "tabDealers": "Concesionarios",
+    "make": "Marca",
+    "anyMake": "Cualquier marca",
+    "model": "Modelo",
+    "anyModel": "Cualquier modelo",
+    "price": "Precio (AED)",
+    "anyPrice": "Cualquier precio",
+    "year": "Año",
+    "anyYear": "Cualquier año",
+    "search": "Buscar coches"
+  },
+  "stats": {
+    "listed": "coches listados",
+    "dealers": "concesionarios verificados",
+    "rating": "valoración media",
+    "daily": "coches añadidos al día"
+  },
+  "body": {
+    "title": "Explorar por carrocería",
+    "sub": "Encuentra coches que se ajusten a tu estilo de vida",
+    "viewAll": "Ver todo",
+    "cars": "coches"
+  },
+  "featured": {
+    "title": "Coches destacados",
+    "sub": "Anuncios premium seleccionados de concesionarios verificados",
+    "seeAll": "Ver todos los destacados"
+  },
+  "make": {
+    "title": "Explorar por marca",
+    "sub": "Compra las marcas más populares de los EAU",
+    "all": "Todas las marcas"
+  },
+  "fresh": {
+    "title": "Recién listados",
+    "sub": "Los últimos coches añadidos en los EAU",
+    "browse": "Ver todo"
+  },
+  "sell": {
+    "title": "Vende tu coche. Rápido.",
+    "sub": "Llega a más de 2 millones de compradores mensuales en los EAU. Publica en menos de 3 minutos, gratis para particulares.",
+    "perk1": "Anuncios gratis para particulares",
+    "perk2": "Más de 2M de visitantes al mes",
+    "perk3": "Vende en 14 días",
+    "cta1": "Publica tu coche gratis",
+    "cta2": "Obtén una tasación instantánea"
+  },
+  "why": {
+    "title": "¿Por qué comprar y vender en Carsens?",
+    "sub": "Creado para el mercado del automóvil de los EAU con la confianza y rapidez que esperas.",
+    "t1": "Concesionarios verificados",
+    "b1": "Cada concesionario está verificado y valorado por compradores reales de los EAU.",
+    "t2": "Inventario en tiempo real",
+    "b2": "Los anuncios se actualizan cada 5 minutos. Sin stock caducado ni llamadas perdidas.",
+    "t3": "Inspección a domicilio",
+    "b3": "Reserva una inspección gratuita de 200 puntos en tu ubicación antes de comprar.",
+    "t4": "Financiación fácil",
+    "b4": "Préstamos preaprobados de 7 bancos de los EAU. Decisión en minutos."
+  },
+  "bt": {
+    "SUV": "SUV",
+    "Sedan": "Sedán",
+    "Coupe": "Cupé",
+    "Hatchback": "Utilitario",
+    "Pickup": "Pickup",
+    "Convertible": "Descapotable",
+    "Van": "Furgoneta",
+    "Wagon": "Familiar"
+  }
+}

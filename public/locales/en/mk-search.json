@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "title": "Search cars"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "usedCars": "Used Cars",
+    "uae": "UAE"
+  },
+  "title": {
+    "heading": "Used cars in UAE",
+    "count": "24,318",
+    "resultsMeta": "Showing 1–12 of 24,318 results",
+    "saveSearch": "Save this search"
+  },
+  "compact": {
+    "makeLabel": "Make",
+    "makeOpt0": "Toyota",
+    "makeOpt1": "Any make",
+    "makeOpt2": "BMW",
+    "makeOpt3": "Mercedes-Benz",
+    "makeOpt4": "Nissan",
+    "modelLabel": "Model",
+    "modelOpt0": "Any model",
+    "modelOpt1": "Land Cruiser",
+    "modelOpt2": "Corolla",
+    "modelOpt3": "Camry",
+    "priceLabel": "Price (AED)",
+    "priceOpt0": "Any price",
+    "priceOpt1": "Under 50,000",
+    "priceOpt2": "50,000 – 100,000",
+    "priceOpt3": "100,000 – 200,000",
+    "yearLabel": "Year",
+    "yearOpt0": "Any year",
+    "yearOpt1": "2024",
+    "yearOpt2": "2023",
+    "yearOpt3": "2022",
+    "emirateLabel": "Emirate",
+    "emirateOpt0": "All Emirates",
+    "emirateOpt1": "Dubai",
+    "emirateOpt2": "Abu Dhabi",
+    "emirateOpt3": "Sharjah",
+    "update": "Update"
+  },
+  "filters": {
+    "title": "Filters",
+    "reset": "Reset all"
+  },
+  "fg": {
+    "keyword": {
+      "title": "Keyword search",
+      "placeholder": "e.g. 'low mileage', 'sunroof'"
+    },
+    "body": {
+      "title": "Body type",
+      "all": "All",
+      "suv": "SUV",
+      "sedan": "Sedan",
+      "coupe": "Coupe",
+      "hatchback": "Hatchback",
+      "pickup": "Pickup",
+      "convertible": "Convertible",
+      "van": "Van"
+    },
+    "make": {
+      "title": "Make",
+      "toyota": "Toyota",
+      "nissan": "Nissan",
+      "mercedes": "Mercedes-Benz",
+      "bmw": "BMW",
+      "lexus": "Lexus",
+      "honda": "Honda",
+      "audi": "Audi",
+      "ford": "Ford",
+      "hyundai": "Hyundai",
+      "more": "+ Show 72 more"
+    },
+    "model": {
+      "title": "Model",
+      "opt0": "Any model",
+      "opt1": "Land Cruiser",
+      "opt2": "Camry",
+      "opt3": "Corolla",
+      "opt4": "RAV4"
+    },
+    "price": {
+      "title": "Price (AED)",
+      "min": "Min",
+      "max": "Max"
+    },
+    "year": {
+      "title": "Year"
+    },
+    "mileage": {
+      "title": "Mileage (km)"
+    },
+    "transmission": {
+      "title": "Transmission",
+      "automatic": "Automatic",
+      "manual": "Manual"
+    },
+    "fuel": {
+      "title": "Fuel type",
+      "petrol": "Petrol",
+      "diesel": "Diesel",
+      "hybrid": "Hybrid",
+      "electric": "Electric"
+    },
+    "color": {
+      "title": "Exterior color",
+      "white": "White",
+      "black": "Black",
+      "silver": "Silver",
+      "grey": "Grey",
+      "red": "Red",
+      "blue": "Blue",
+      "yellow": "Yellow",
+      "green": "Green",
+      "brown": "Brown",
+      "orange": "Orange",
+      "purple": "Purple",
+      "other": "Other"
+    },
+    "seller": {
+      "title": "Seller type",
+      "dealer": "Dealer",
+      "owner": "Owner"
+    },
+    "location": {
+      "title": "Location",
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "fujairah": "Fujairah"
+    },
+    "regional": {
+      "title": "Regional spec",
+      "gcc": "GCC Specs",
+      "american": "American",
+      "european": "European",
+      "japanese": "Japanese"
+    }
+  },
+  "active": {
+    "toyota": "Toyota",
+    "suv": "SUV",
+    "automatic": "Automatic",
+    "black": "Black",
+    "clearAll": "Clear all",
+    "remove": "remove"
+  },
+  "toolbar": {
+    "count": "24,318 cars",
+    "match": "match your filters",
+    "sortBy": "Sort by",
+    "sort0": "Most relevant",
+    "sort1": "Newest first",
+    "sort2": "Price: low to high",
+    "sort3": "Price: high to low",
+    "sort4": "Lowest mileage",
+    "sort5": "Year: newest",
+    "gridView": "Grid view",
+    "listView": "List view"
+  },
+  "common": {
+    "verified": "✓ Verified"
+  },
+  "cards": {
+    "0": {
+      "badge": "Featured",
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • Abu Dhabi • GCC Specs",
+      "price": "AED 365,000",
+      "small": "or 5,440/mo",
+      "spec0": "18,200 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Al Tayer Motors"
+    },
+    "1": {
+      "badge": "Hot Deal",
+      "title": "Toyota Fortuner VX",
+      "sub": "2022 • Sharjah • GCC Specs",
+      "price": "AED 138,000",
+      "small": "AED 152,000",
+      "spec0": "42,800 km",
+      "spec1": "Diesel",
+      "spec2": "Auto",
+      "dealer": "Nasser Motors"
+    },
+    "2": {
+      "title": "Toyota Prado VXR",
+      "sub": "2021 • Dubai • GCC Specs",
+      "price": "AED 195,000",
+      "small": "or 2,910/mo",
+      "spec0": "68,400 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Premier Auto"
+    },
+    "3": {
+      "badge": "New listing",
+      "title": "Toyota RAV4 Adventure",
+      "sub": "2023 • Dubai • GCC Specs",
+      "price": "AED 128,000",
+      "small": "or 1,910/mo",
+      "spec0": "22,800 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Al Manar Motors"
+    },
+    "4": {
+      "title": "Toyota Hilux Adventure",
+      "sub": "2022 • Ras Al Khaimah",
+      "price": "AED 142,000",
+      "spec0": "36,800 km",
+      "spec1": "Diesel",
+      "spec2": "Auto",
+      "dealer": "RS Garage"
+    },
+    "5": {
+      "badge": "Featured",
+      "title": "Toyota Highlander Limited",
+      "sub": "2023 • Dubai • American Specs",
+      "price": "AED 168,000",
+      "small": "or 2,510/mo",
+      "spec0": "14,200 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Star Motors"
+    },
+    "6": {
+      "title": "Toyota 4Runner TRD Pro",
+      "sub": "2021 • Abu Dhabi",
+      "price": "AED 178,500",
+      "spec0": "52,400 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Emirates Auto"
+    },
+    "7": {
+      "badge": "Reduced",
+      "title": "Toyota Sequoia Platinum",
+      "sub": "2020 • Sharjah",
+      "price": "AED 152,000",
+      "small": "AED 168,000",
+      "spec0": "78,200 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Luxury Cars UAE"
+    },
+    "8": {
+      "title": "Toyota C-HR Hybrid GR",
+      "sub": "2023 • Dubai • GCC Specs",
+      "price": "AED 92,000",
+      "spec0": "11,400 km",
+      "spec1": "Hybrid",
+      "spec2": "CVT",
+      "dealer": "Al Tayer"
+    },
+    "9": {
+      "title": "Toyota Land Cruiser VXR",
+      "sub": "2020 • Dubai • GCC Specs",
+      "price": "AED 248,000",
+      "small": "or 3,690/mo",
+      "spec0": "86,400 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Premier Auto"
+    },
+    "10": {
+      "title": "Toyota Camry Grande",
+      "sub": "2022 • Ajman • GCC Specs",
+      "price": "AED 86,500",
+      "spec0": "48,200 km",
+      "spec1": "Petrol",
+      "spec2": "Auto",
+      "dealer": "Nasser Motors"
+    }
+  },
+  "promo": {
+    "title": "Get pre-approved finance in 2 minutes",
+    "text": "Compare offers from 7 UAE banks. No impact on your credit score.",
+    "cta": "Check eligibility"
+  },
+  "pagination": {
+    "prev": "‹ Prev",
+    "next": "Next ›"
+  }
+}

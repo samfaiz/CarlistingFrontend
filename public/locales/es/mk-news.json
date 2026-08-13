@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "Noticias"
+  },
+  "hero": {
+    "title": "Noticias y reseñas de Carsens",
+    "subtitle": "Reseñas de expertos, análisis del mercado y guías de compra para conductores y motociclistas de los EAU. Actualizado a diario."
+  },
+  "tabs": {
+    "all": "Todos los artículos",
+    "reviews": "Reseñas",
+    "buyingGuides": "Guías de compra",
+    "market": "Mercado",
+    "comparisons": "Comparativas",
+    "news": "Noticias",
+    "bikes": "Motos",
+    "longTerm": "Largo plazo",
+    "finance": "Financiación"
+  },
+  "featured": {
+    "tag": "Primera prueba",
+    "title": "Toyota Land Cruiser GR-Sport 2025: lo condujimos por el desierto de Liwa",
+    "excerpt": "El nuevo GR-Sport monta un V6 biturbo de 409 CV, desconexión hidráulica del diferencial y un chasis afinado por GR. Tras 800 km entre asfalto y dunas, ¿sigue mereciendo la corona de rey del desierto? Una reseña de fondo, sobre el terreno.",
+    "author": "Khalid Al Mansouri",
+    "role": "Editor sénior de automoción",
+    "date": "11 may 2026",
+    "read": "12 min de lectura"
+  },
+  "topPicks": {
+    "title": "Selecciones destacadas de la semana",
+    "viewLink": "Todas las selecciones del editor",
+    "0": {
+      "tag": "Mercado",
+      "title": "Los precios de los coches usados en los EAU cayeron un 3,2% en abril: aquí está el porqué",
+      "excerpt": "El aumento de oferta por las devoluciones de flotas corporativas, la bajada de tipos de interés y un segmento de lujo más flojo influyeron. Además: qué esperar en mayo y junio.",
+      "author": "Sara Ahmed",
+      "date": "9 may 2026",
+      "read": "6 min de lectura"
+    },
+    "1": {
+      "tag": "Comparativa EV",
+      "title": "Tesla Model Y vs Mercedes EQE SUV: ¿qué EV gana en los EAU?",
+      "excerpt": "Probamos ambos con 47°C de calor, en largos trayectos por la Sheikh Zayed, en tráfico urbano y en sesiones de carga rápida. Autonomía, carga, confort de habitáculo, software: así se comparan.",
+      "author": "Khalid Al Mansouri",
+      "date": "8 may 2026",
+      "read": "11 min de lectura"
+    }
+  },
+  "latest": {
+    "title": "Artículos recientes",
+    "viewLink": "Ver todos"
+  },
+  "articles": {
+    "0": {
+      "tag": "Guía de compra",
+      "title": "10 cosas que todo comprador en los EAU debería revisar antes de firmar un contrato de coche usado",
+      "excerpt": "Del historial de la mulkiya a la coincidencia del grabado del chasis, aquí está la lista práctica que todo comprador debería repasar antes de entregar un solo dírham.",
+      "author": "Khalid Al Mansouri",
+      "date": "10 may 2026",
+      "read": "6 min de lectura"
+    },
+    "1": {
+      "tag": "Motos",
+      "title": "BMW R1250GS vs Ducati Multistrada V4: ¿qué rey trail gana en las dunas de los EAU?",
+      "excerpt": "Bóxer bicilíndrico contra V4. Condujimos ambas de Dubái a Hatta y hacia los Hajar para ver cómo aguantan el calor del desierto, la arena y las rutas de larga distancia.",
+      "author": "Omar Hassan",
+      "date": "9 may 2026",
+      "read": "9 min de lectura"
+    },
+    "2": {
+      "tag": "Guía de compra",
+      "title": "Los mejores SUV familiares por menos de 200K AED en 2026",
+      "excerpt": "Practicidad de siete plazas, redes de servicio del CCG y fortaleza de reventa. Nuestra lista de los mejores SUV familiares medianos que puedes comprar nuevos por menos de 200K este año.",
+      "author": "Sara Ahmed",
+      "date": "7 may 2026",
+      "read": "8 min de lectura"
+    },
+    "3": {
+      "tag": "Reseña a largo plazo",
+      "title": "Porsche 911 Carrera S: seis meses en el verano de Dubái",
+      "excerpt": "Fiabilidad del PDK con 47°C de calor, consumo real, desgaste de neumáticos en la Sheikh Zayed Road y costes de mantenimiento sorpresa tras expirar la garantía.",
+      "author": "Khalid Al Mansouri",
+      "date": "6 may 2026",
+      "read": "14 min de lectura"
+    },
+    "4": {
+      "tag": "Financiación",
+      "title": "Financiación al 0% vs compra al contado: ¿qué es más inteligente con los tipos de los EAU en 2026?",
+      "excerpt": "Con los tipos bancarios de los EAU entre 5,5% y 7%, ¿es la \"financiación al 0%\" realmente el mejor trato que parece? Hicimos los cálculos sobre un coche de 180.000 AED en cuatro bancos.",
+      "author": "Sara Ahmed",
+      "date": "5 may 2026",
+      "read": "7 min de lectura"
+    },
+    "5": {
+      "tag": "Comparativa",
+      "title": "Audi RS6 vs BMW M5: ¿qué superberlina reina en la Sheikh Zayed Road?",
+      "excerpt": "Dos superberlinas de más de 600 CV, ambas familiares camufladas de uso diario. Prestaciones, calidad de habitáculo, consumo real y cuál envejece mejor.",
+      "author": "Khalid Al Mansouri",
+      "date": "4 may 2026",
+      "read": "11 min de lectura"
+    },
+    "6": {
+      "tag": "Mercado",
+      "title": "5 coches usados infravalorados que mejor mantienen su valor en los EAU",
+      "excerpt": "Olvida las opciones obvias. Estas cinco elecciones menos llamativas pierden menos por depreciación en 3 años que cualquier otro coche de su segmento, según los datos de Carsens.",
+      "author": "Sara Ahmed",
+      "date": "3 may 2026",
+      "read": "6 min de lectura"
+    },
+    "7": {
+      "tag": "Motos",
+      "title": "Comprar una moto deportiva en los EAU: 8 cosas que todo motero novel debería revisar",
+      "excerpt": "De los límites del carné de clase A2 a las trampas del seguro, el historial de accidentes y la disponibilidad de piezas: lo que un comprador primerizo de moto deportiva en los EAU necesita saber.",
+      "author": "Omar Hassan",
+      "date": "2 may 2026",
+      "read": "7 min de lectura"
+    }
+  },
+  "pagination": {
+    "prev": "‹ Anterior",
+    "next": "Siguiente ›"
+  },
+  "popular": {
+    "title": "Lo más popular esta semana",
+    "0": {
+      "title": "Tesla Model Y vs Mercedes EQE SUV: ¿qué EV gana en los EAU?",
+      "meta": "12.4K vistas · 11 min de lectura"
+    },
+    "1": {
+      "title": "Los precios de los coches usados en los EAU cayeron un 3,2% en abril: aquí está el porqué",
+      "meta": "9.8K vistas · 6 min de lectura"
+    },
+    "2": {
+      "title": "Toyota Land Cruiser GR-Sport 2025: lo condujimos por el desierto de Liwa",
+      "meta": "8.2K vistas · 12 min de lectura"
+    },
+    "3": {
+      "title": "10 cosas que todo comprador en los EAU debería revisar antes de firmar un contrato de coche usado",
+      "meta": "7.1K vistas · 6 min de lectura"
+    },
+    "4": {
+      "title": "BMW R1250GS vs Ducati Multistrada V4: comparativa de motos trail",
+      "meta": "5.6K vistas · 9 min de lectura"
+    }
+  },
+  "newsletter": {
+    "title": "🚗 Mantente informado",
+    "body": "Recibe el resumen semanal de Carsens. Nuevos anuncios, movimientos del mercado y las mejores lecturas, cada viernes.",
+    "placeholder": "tu.correo@ejemplo.com",
+    "button": "Suscríbete — es gratis",
+    "perk1": "Semanal · 5 min de lectura",
+    "perk2": "Cancela cuando quieras"
+  },
+  "topics": {
+    "title": "Explorar por tema",
+    "tags": {
+      "0": "Toyota",
+      "1": "BMW",
+      "2": "Mercedes",
+      "3": "Porsche",
+      "4": "Coches usados",
+      "5": "Coches nuevos",
+      "6": "Eléctricos",
+      "7": "Híbridos",
+      "8": "SUV",
+      "9": "Sedán",
+      "10": "Deportivos",
+      "11": "Motos",
+      "12": "Mercado EAU",
+      "13": "Financiación",
+      "14": "Seguros",
+      "15": "Mantenimiento",
+      "16": "Lujo",
+      "17": "Todoterreno"
+    }
+  },
+  "writers": {
+    "title": "Escritores destacados",
+    "0": {
+      "name": "Khalid Al Mansouri",
+      "role": "Editor sénior de automoción",
+      "articles": "84 artículos",
+      "reads": "1,2M lecturas"
+    },
+    "1": {
+      "name": "Sara Ahmed",
+      "role": "Analista de mercado",
+      "articles": "52 artículos",
+      "reads": "680K lecturas"
+    },
+    "2": {
+      "name": "Omar Hassan",
+      "role": "Analista de motos",
+      "articles": "38 artículos",
+      "reads": "412K lecturas"
+    }
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "قوائم الدراجات النارية"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "bikes": "الدراجات النارية",
+    "current": "جميع القوائم"
+  },
+  "title": {
+    "heading": "دراجات نارية للبيع في الإمارات",
+    "count": "12,432",
+    "meta": "عرض 1–12 من 12,432 دراجة نارية",
+    "saveSearch": "حفظ هذا البحث"
+  },
+  "compact": {
+    "make": "الماركة",
+    "makeOpts": ["أي ماركة", "Ducati", "BMW Motorrad", "Harley-Davidson", "Kawasaki", "Yamaha", "Honda", "KTM"],
+    "model": "الموديل",
+    "modelOpts": ["أي موديل"],
+    "engine": "المحرك (سي سي)",
+    "engineOpts": ["أي حجم", "أقل من 250 سي سي", "250 – 500 سي سي", "500 – 800 سي سي", "800 – 1000 سي سي", "1000 سي سي وأكثر"],
+    "year": "السنة",
+    "yearOpts": ["أي سنة", "2024", "2023", "2022", "2021"],
+    "emirate": "الإمارة",
+    "emirateOpts": ["كل الإمارات", "دبي", "أبوظبي", "الشارقة"],
+    "update": "تحديث"
+  },
+  "filters": {
+    "title": "عوامل التصفية",
+    "reset": "إعادة تعيين الكل",
+    "min": "الأدنى",
+    "max": "الأقصى",
+    "keyword": {
+      "title": "البحث بالكلمات المفتاحية",
+      "placeholder": "مثال: 'مسافة قليلة'، 'akrapovic'"
+    },
+    "body": {
+      "title": "نوع الهيكل",
+      "all": "الكل",
+      "sport": "رياضية",
+      "cruiser": "كروزر",
+      "adventure": "مغامرة",
+      "naked": "مكشوفة",
+      "standard": "قياسية",
+      "offRoad": "طرق وعرة",
+      "touring": "سياحية",
+      "scooter": "سكوتر"
+    },
+    "make": {
+      "title": "الماركة",
+      "ducati": "Ducati",
+      "bmw": "BMW Motorrad",
+      "harley": "Harley-Davidson",
+      "kawasaki": "Kawasaki",
+      "yamaha": "Yamaha",
+      "honda": "Honda",
+      "ktm": "KTM",
+      "suzuki": "Suzuki",
+      "triumph": "Triumph",
+      "more": "+ عرض 15 المزيد"
+    },
+    "engine": {
+      "title": "حجم المحرك (سي سي)",
+      "any": "أي",
+      "u250": "< 250 سي سي",
+      "r250": "250–500 سي سي",
+      "r500": "500–800 سي سي",
+      "r800": "800–1000 سي سي",
+      "o1000": "1000 سي سي وأكثر",
+      "unit": "سي سي"
+    },
+    "price": {
+      "title": "السعر (درهم)"
+    },
+    "year": {
+      "title": "السنة"
+    },
+    "mileage": {
+      "title": "المسافة المقطوعة (كم)"
+    },
+    "transmission": {
+      "title": "ناقل الحركة",
+      "m6": "يدوي 6 سرعات",
+      "m5": "يدوي 5 سرعات",
+      "dct": "نصف أوتوماتيكي (DCT)",
+      "cvt": "CVT (سكوتر)"
+    },
+    "license": {
+      "title": "فئة الرخصة",
+      "a1": "A1 (حتى 125 سي سي)",
+      "a2": "A2 (حتى 35 كيلوواط)",
+      "a": "A (بدون قيود)"
+    },
+    "aids": {
+      "title": "مساعدات القيادة",
+      "abs": "ABS",
+      "traction": "التحكم بالجر",
+      "wheelie": "التحكم بالرفع",
+      "quickshifter": "مبدّل سريع",
+      "imu": "IMU (6 محاور)",
+      "modes": "أوضاع القيادة"
+    },
+    "color": {
+      "title": "اللون",
+      "white": "أبيض",
+      "black": "أسود",
+      "red": "أحمر",
+      "blue": "أزرق",
+      "green": "أخضر",
+      "yellow": "أصفر",
+      "orange": "برتقالي",
+      "silver": "فضي",
+      "purple": "بنفسجي",
+      "other": "أخرى"
+    },
+    "seller": {
+      "title": "نوع البائع",
+      "dealer": "تاجر",
+      "private": "مالك خاص"
+    },
+    "location": {
+      "title": "الموقع",
+      "dubai": "دبي",
+      "abudhabi": "أبوظبي",
+      "sharjah": "الشارقة",
+      "ajman": "عجمان",
+      "rak": "رأس الخيمة",
+      "fujairah": "الفجيرة"
+    }
+  },
+  "active": {
+    "sport": "رياضية",
+    "ducati": "Ducati",
+    "abs": "ABS",
+    "black": "أسود",
+    "remove": "إزالة",
+    "clearAll": "مسح الكل"
+  },
+  "toolbar": {
+    "count": "12,432 دراجة",
+    "match": "تطابق عوامل التصفية",
+    "sortBy": "ترتيب حسب",
+    "sort": {
+      "relevant": "الأكثر صلة",
+      "newest": "الأحدث أولاً",
+      "priceLow": "السعر: من الأقل إلى الأعلى",
+      "priceHigh": "السعر: من الأعلى إلى الأقل",
+      "mileage": "أقل مسافة مقطوعة",
+      "power": "أعلى قوة (حصان)"
+    },
+    "gridView": "عرض شبكي",
+    "listView": "عرض قائمة"
+  },
+  "badges": {
+    "featured": "مميّز",
+    "new": "جديد",
+    "reduced": "مخفّض"
+  },
+  "cards": {
+    "0": {
+      "title": "Ducati Panigale V4 SP2",
+      "sub": "2023 • دبي • 1,103cc",
+      "price": "168,000 درهم",
+      "mo": "أو 2,500/شهر",
+      "s1": "2,800 كم",
+      "s2": "رياضية",
+      "s3": "215 حصان",
+      "dealer": "RS Motorcycles",
+      "verified": "✓ موثّق"
+    },
+    "1": {
+      "title": "Kawasaki Ninja ZX-10R",
+      "sub": "2022 • دبي • 998cc",
+      "price": "68,000 درهم",
+      "s1": "6,800 كم",
+      "s2": "رياضية",
+      "s3": "200 حصان",
+      "dealer": "Kawasaki Motors"
+    },
+    "2": {
+      "title": "BMW S1000RR",
+      "sub": "2023 • أبوظبي • 999cc",
+      "price": "118,000 درهم",
+      "s1": "4,200 كم",
+      "s2": "رياضية",
+      "s3": "210 حصان",
+      "dealer": "Motorrad Dubai"
+    },
+    "3": {
+      "title": "Aprilia RSV4 Factory",
+      "sub": "2023 • دبي • 1,099cc",
+      "price": "142,000 درهم",
+      "s1": "1,800 كم",
+      "s2": "رياضية",
+      "s3": "217 حصان",
+      "dealer": "Aprilia Performance"
+    },
+    "4": {
+      "title": "BMW R1250GS Adventure",
+      "sub": "2023 • أبوظبي • 1,254cc",
+      "price": "92,000 درهم",
+      "s1": "12,400 كم",
+      "s2": "مغامرة",
+      "s3": "136 حصان",
+      "dealer": "Motorrad Dubai"
+    },
+    "5": {
+      "title": "Harley-Davidson Street Glide",
+      "sub": "2022 • الشارقة • 1,868cc",
+      "price": "78,000 درهم",
+      "was": "88,000 درهم",
+      "s1": "8,200 كم",
+      "s2": "سياحية",
+      "s3": "90 حصان",
+      "dealer": "H-D Sharjah"
+    },
+    "6": {
+      "title": "Triumph Bonneville T120",
+      "sub": "2022 • أبوظبي • 1,200cc",
+      "price": "52,000 درهم",
+      "s1": "9,400 كم",
+      "s2": "كلاسيكية",
+      "s3": "80 حصان",
+      "dealer": "Triumph Concession"
+    },
+    "7": {
+      "title": "Honda Africa Twin Adventure Sports",
+      "sub": "2023 • الشارقة • 1,084cc",
+      "price": "75,000 درهم",
+      "s1": "7,800 كم",
+      "s2": "مغامرة",
+      "s3": "102 حصان",
+      "dealer": "Honda Motors AD"
+    },
+    "8": {
+      "title": "KTM 1290 Super Duke RR",
+      "sub": "2023 • دبي • 1,301cc",
+      "price": "95,000 درهم",
+      "s1": "3,200 كم",
+      "s2": "مكشوفة",
+      "s3": "180 حصان",
+      "dealer": "KTM Orange Dubai"
+    },
+    "9": {
+      "title": "Yamaha MT-09 SP",
+      "sub": "2023 • دبي • 890cc",
+      "price": "48,500 درهم",
+      "s1": "4,200 كم",
+      "s2": "مكشوفة",
+      "s3": "119 حصان",
+      "dealer": "Yamaha Motors UAE"
+    },
+    "10": {
+      "title": "Ducati Multistrada V4 S",
+      "sub": "2022 • دبي • 1,158cc",
+      "price": "102,000 درهم",
+      "s1": "11,200 كم",
+      "s2": "مغامرة",
+      "s3": "170 حصان",
+      "dealer": "Ducati Center"
+    }
+  },
+  "promo": {
+    "title": "احصل على تمويل معتمد مسبقًا للدراجة في دقيقتين",
+    "body": "قارن عروض القروض من 5 بنوك إماراتية. دون أي تأثير على تصنيفك الائتماني.",
+    "cta": "تحقق من الأهلية"
+  },
+  "pagination": {
+    "prev": "‹ السابق",
+    "next": "التالي ›"
+  }
+}

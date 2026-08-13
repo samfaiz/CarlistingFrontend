@@ -1,244 +1,104 @@
-/**
- * /register — task P0-05 (FR-A1). POST /auth/register; locale preselected
- * from router.locale; success → "check your inbox" state (no auto-login);
- * 409 (email exists) shown inline under the email field.
- */
-import { zodResolver } from "@hookform/resolvers/zod";
 import type { GetStaticProps } from "next";
+import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
-import * as React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { AuthLayout, FormAlert } from "@/components/auth/auth-layout";
-import { Button } from "@/components/ui/button";
-import {
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { FieldMessage, Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { ApiError, apiPost } from "@/lib/api";
-import {
-  emailSchema,
-  passwordSchema,
-  withPasswordConfirmation,
-} from "@/lib/auth-validation";
+import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
-interface RegisterValues {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-/** Endonyms (proper nouns, identical in every locale) — same as LanguageSwitcher. */
-const LOCALE_NAMES: Record<string, string> = {
-  en: "English",
-  ar: "العربية",
-  es: "Español",
-  fr: "Français",
-};
-
-export default function RegisterPage() {
-  const router = useRouter();
-  const { t } = useTranslation("auth");
-  const [formError, setFormError] = React.useState<string | null>(null);
-  /** Non-null once registration succeeded → "check your inbox" state. */
-  const [submittedEmail, setSubmittedEmail] = React.useState<string | null>(null);
-  // Account locale, preselected from the active site locale.
-  const [accountLocale, setAccountLocale] = React.useState(
-    router.locale ?? router.defaultLocale ?? "en",
-  );
-  const locales = router.locales ?? ["en", "ar", "es", "fr"];
-
-  const schema = React.useMemo(
-    () =>
-      withPasswordConfirmation(t, {
-        name: z.string().trim().min(1, t("validation.nameRequired")),
-        email: emailSchema(t),
-        password: passwordSchema(t),
-      }),
-    [t],
-  );
-
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm<RegisterValues>({ resolver: zodResolver(schema) });
-
-  const onSubmit = handleSubmit(async (values) => {
-    setFormError(null);
-    try {
-      await apiPost("/auth/register", {
-        email: values.email,
-        password: values.password,
-        name: values.name,
-        locale: accountLocale,
-      });
-      setSubmittedEmail(values.email);
-    } catch (err) {
-      if (err instanceof ApiError && err.statusCode === 409) {
-        setError("email", { type: "server", message: t("register.emailExists") });
-      } else {
-        setFormError(
-          err instanceof ApiError ? err.message : t("errors.generic"),
-        );
-      }
-    }
-  });
-
-  if (submittedEmail) {
-    return (
-      <AuthLayout title={t("register.successTitle")}>
-        <CardHeader>
-          <CardTitle className="text-xl">{t("register.successTitle")}</CardTitle>
-          <CardDescription>
-            {t("register.successBody", { email: submittedEmail })}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild variant="secondary" className="w-full">
-            <Link href="/login">{t("register.successLogin")}</Link>
-          </Button>
-        </CardContent>
-      </AuthLayout>
-    );
-  }
-
+export default function MkregisterPage() {
+  const { t } = useTranslation("mk-register");
   return (
-    <AuthLayout title={t("register.title")}>
-      <CardHeader>
-        <CardTitle className="text-xl">{t("register.title")}</CardTitle>
-        <CardDescription>{t("register.subtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form
-          onSubmit={onSubmit}
-          noValidate
-          aria-label={t("register.title")}
-          className="flex flex-col gap-4"
-        >
-          {formError ? <FormAlert>{formError}</FormAlert> : null}
-          <div>
-            <Label htmlFor="name" required>
-              {t("fields.name")}
-            </Label>
-            <Input
-              id="name"
-              autoComplete="name"
-              invalid={!!errors.name}
-              aria-describedby={errors.name ? "name-error" : undefined}
-              {...register("name")}
-            />
-            {errors.name ? (
-              <FieldMessage id="name-error" error>
-                {errors.name.message}
-              </FieldMessage>
-            ) : null}
+    <>
+      <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
+      <MockupLayout>
+        <main id="page-register" className="page">
+          <div className="auth-wrap">
+            <div className="auth-card" style={{ maxWidth: "520px" }}>
+              <div className="brand-mark">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2M9 11l1-3h4l1 3" /></svg>
+              </div>
+              <h1>{t("hero.title")}</h1>
+              <p className="auth-sub">{t("hero.subtitle")}</p>
+
+              <div className="acc-type" id="accType">
+                <button type="button" className="acc-type-btn active">
+                  <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg></div>
+                  <span className="at-label">{t("accType.buyer.label")}</span>
+                  <span className="at-sub">{t("accType.buyer.sub")}</span>
+                </button>
+                <button type="button" className="acc-type-btn">
+                  <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2" /></svg></div>
+                  <span className="at-label">{t("accType.seller.label")}</span>
+                  <span className="at-sub">{t("accType.seller.sub")}</span>
+                </button>
+                <button type="button" className="acc-type-btn">
+                  <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><path d="M9 22V12h6v10" /></svg></div>
+                  <span className="at-label">{t("accType.dealer.label")}</span>
+                  <span className="at-sub">{t("accType.dealer.sub")}</span>
+                </button>
+              </div>
+
+              <form>
+                <div className="profile-grid">
+                  <div className="form-group">
+                    <label>{t("form.fullName.label")}</label>
+                    <input className="form-input" placeholder={t("form.fullName.placeholder")} autoComplete="name" />
+                  </div>
+                  <div className="form-group">
+                    <label>{t("form.mobile.label")}</label>
+                    <input className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
+                  </div>
+                  <div className="form-group full">
+                    <label>{t("form.email.label")}</label>
+                    <input className="form-input" type="email" placeholder={t("form.email.placeholder")} autoComplete="email" />
+                  </div>
+                  <div className="form-group full">
+                    <label>{t("form.password.label")}</label>
+                    <div className="pwd-wrap">
+                      <input className="form-input" type="password" id="regPwd" placeholder={t("form.password.placeholder")} autoComplete="new-password" />
+                      <button className="pwd-toggle" type="button" data-target="regPwd">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                      </button>
+                    </div>
+                    <div className="strength" id="strength">
+                      <div className="strength-bar"></div>
+                      <div className="strength-bar"></div>
+                      <div className="strength-bar"></div>
+                      <div className="strength-bar"></div>
+                    </div>
+                    <div className="strength-text" id="strengthText">{t("form.password.hint")}</div>
+                  </div>
+                </div>
+
+                <label className="terms">
+                  <input type="checkbox" required />
+                  <span>{t("terms.pre")} <a href="#">{t("terms.tos")}</a> {t("terms.and")} <a href="#">{t("terms.privacy")}</a>{t("terms.post")}</span>
+                </label>
+
+                <button className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
+              </form>
+
+              <div className="divider">{t("divider")}</div>
+
+              <div className="social-row">
+                <button className="social-btn">
+                  <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z" /><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6 29.3 4 24 4 16.3 4 9.6 8.3 6.3 14.7z" /><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.1 35 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.6 5.1C9.4 39.6 16.1 44 24 44z" /><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.1 4.1-3.9 5.5l6.2 5.2C40.7 35 44 30 44 24c0-1.3-.1-2.6-.4-3.9z" /></svg>
+                  {t("social.google")}
+                </button>
+                <button className="social-btn">
+                  <span style={{ fontWeight: 800, color: "#000", fontSize: "13px" }}>{t("social.uaePassBadge")}</span>
+                  {t("social.uaePass")}
+                </button>
+              </div>
+
+              <p className="auth-switch">{t("switch.text")} <Link href="/login">{t("switch.link")}</Link></p>
+            </div>
           </div>
-          <div>
-            <Label htmlFor="email" required>
-              {t("fields.email")}
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              autoComplete="email"
-              invalid={!!errors.email}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              {...register("email")}
-            />
-            {errors.email ? (
-              <FieldMessage id="email-error" error>
-                {errors.email.message}
-              </FieldMessage>
-            ) : null}
-          </div>
-          <div>
-            <Label htmlFor="password" required>
-              {t("fields.password")}
-            </Label>
-            <Input
-              id="password"
-              type="password"
-              autoComplete="new-password"
-              invalid={!!errors.password}
-              aria-describedby={errors.password ? "password-error" : "password-hint"}
-              {...register("password")}
-            />
-            {errors.password ? (
-              <FieldMessage id="password-error" error>
-                {errors.password.message}
-              </FieldMessage>
-            ) : (
-              <FieldMessage id="password-hint">{t("fields.passwordHint")}</FieldMessage>
-            )}
-          </div>
-          <div>
-            <Label htmlFor="confirmPassword" required>
-              {t("fields.confirmPassword")}
-            </Label>
-            <Input
-              id="confirmPassword"
-              type="password"
-              autoComplete="new-password"
-              invalid={!!errors.confirmPassword}
-              aria-describedby={
-                errors.confirmPassword ? "confirm-password-error" : undefined
-              }
-              {...register("confirmPassword")}
-            />
-            {errors.confirmPassword ? (
-              <FieldMessage id="confirm-password-error" error>
-                {errors.confirmPassword.message}
-              </FieldMessage>
-            ) : null}
-          </div>
-          <div>
-            <Label id="locale-label">{t("fields.locale")}</Label>
-            <Select value={accountLocale} onValueChange={setAccountLocale}>
-              <SelectTrigger aria-labelledby="locale-label" className="w-full">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {locales.map((locale) => (
-                  <SelectItem key={locale} value={locale}>
-                    {LOCALE_NAMES[locale] ?? locale}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <Button type="submit" loading={isSubmitting} className="w-full">
-            {t("register.submit")}
-          </Button>
-          <p className="text-center text-sm text-muted">
-            {t("register.haveAccount")}{" "}
-            <Link
-              href="/login"
-              className="font-semibold text-brand-mid hover:underline"
-            >
-              {t("register.loginLink")}
-            </Link>
-          </p>
-        </form>
-      </CardContent>
-    </AuthLayout>
+        </main>
+      </MockupLayout>
+    </>
   );
 }
 
@@ -246,7 +106,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(
       locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "auth"],
+      ["common", "mk-register"],
       nextI18NextConfig,
     )),
   },

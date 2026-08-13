@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "title": "Compare"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Compare cars"
+  },
+  "head": {
+    "title": "Compare cars",
+    "subtitle": "Side-by-side specs, features, and pricing. Best value per row is highlighted in green."
+  },
+  "actions": {
+    "save": "Save",
+    "share": "Share",
+    "print": "Print",
+    "addCar": "Add a car"
+  },
+  "cars": {
+    "heading": "Compare 3 cars",
+    "hint": "Tap any spec section to expand or collapse",
+    "limit": "3 of 4 max",
+    "remove": "Remove from comparison",
+    "viewDetails": "View details"
+  },
+  "car1": {
+    "brand": "Toyota",
+    "name": "Land Cruiser GR-Sport",
+    "meta": "2023 • 18,200 km",
+    "price": "AED 365,000",
+    "dealer": "Al Tayer Motors"
+  },
+  "car2": {
+    "brand": "BMW",
+    "name": "X5 xDrive40i M-Sport",
+    "meta": "2023 • 38,200 km",
+    "price": "AED 285,000",
+    "dealer": "Al Manar Motors"
+  },
+  "car3": {
+    "brand": "Nissan",
+    "name": "Patrol Titanium",
+    "meta": "2021 • 62,000 km",
+    "price": "AED 215,000",
+    "dealer": "Nasser Motors"
+  },
+  "add": {
+    "title": "Add another car",
+    "subtitle1": "Pick from your saved cars,",
+    "subtitle2": "or browse listings"
+  },
+  "glance": {
+    "title": "At a glance",
+    "year": { "label": "Year", "v1": "2023", "v2": "2023", "v3": "2021" },
+    "body": { "label": "Body type", "v1": "SUV", "v2": "SUV", "v3": "SUV" },
+    "mileage": { "label": "Mileage", "v1": "18,200 km", "v2": "38,200 km", "v3": "62,000 km" },
+    "specs": { "label": "Specifications", "v1": "GCC", "v2": "GCC", "v3": "GCC" },
+    "color": { "label": "Exterior color", "v1": "Black", "v2": "White", "v3": "Silver" },
+    "price": { "label": "Asking price", "v1": "AED 365,000", "v2": "AED 285,000", "v3": "AED 215,000" },
+    "monthly": { "label": "Est. monthly (60-mo)", "v1": "AED 5,440", "v2": "AED 4,250", "v3": "AED 3,200" },
+    "location": { "label": "Location", "v1": "Abu Dhabi", "v2": "Dubai", "v3": "Sharjah" }
+  },
+  "engine": {
+    "title": "Engine & performance",
+    "engine": { "label": "Engine", "v1": "3.5L Twin-Turbo V6", "v2": "3.0L Twin-Turbo I6", "v3": "5.6L V8" },
+    "hp": { "label": "Horsepower", "v1": "409 hp", "v2": "375 hp", "v3": "400 hp" },
+    "torque": { "label": "Torque", "v1": "650 Nm", "v2": "520 Nm", "v3": "560 Nm" },
+    "accel": { "label": "0–100 km/h", "v1": "6.7 sec", "v2": "5.4 sec", "v3": "6.6 sec" },
+    "topSpeed": { "label": "Top speed", "v1": "210 km/h", "v2": "243 km/h", "v3": "210 km/h" },
+    "trans": { "label": "Transmission", "v1": "10-speed auto", "v2": "8-speed ZF auto", "v3": "7-speed auto" },
+    "drive": { "label": "Drivetrain", "v1": "Full-time 4WD", "v2": "AWD (xDrive)", "v3": "Part-time 4WD" }
+  },
+  "fuel": {
+    "title": "Fuel & range",
+    "type": { "label": "Fuel type", "v1": "Petrol (95)", "v2": "Petrol (95)", "v3": "Petrol (95)" },
+    "consumption": { "label": "Consumption (combined)", "v1": "13.1 L/100km", "v2": "10.4 L/100km", "v3": "14.8 L/100km" },
+    "tank": { "label": "Fuel tank", "v1": "110 L", "v2": "83 L", "v3": "98 L" },
+    "range": { "label": "Theoretical range", "v1": "~840 km", "v2": "~800 km", "v3": "~660 km" },
+    "annualCost": { "label": "Est. annual fuel cost", "v1": "AED 8,500", "v2": "AED 6,750", "v3": "AED 9,600" },
+    "co2": { "label": "CO₂ emissions", "v1": "301 g/km", "v2": "236 g/km", "v3": "348 g/km" }
+  },
+  "dimensions": {
+    "title": "Dimensions & capacity",
+    "length": { "label": "Length", "v1": "4,985 mm", "v2": "4,922 mm", "v3": "5,316 mm" },
+    "width": { "label": "Width", "v1": "1,990 mm", "v2": "2,004 mm", "v3": "2,030 mm" },
+    "height": { "label": "Height", "v1": "1,925 mm", "v2": "1,745 mm", "v3": "1,955 mm" },
+    "wheelbase": { "label": "Wheelbase", "v1": "2,850 mm", "v2": "2,975 mm", "v3": "3,075 mm" },
+    "clearance": { "label": "Ground clearance", "v1": "235 mm", "v2": "214 mm", "v3": "232 mm" },
+    "seating": { "label": "Seating", "v1": "7 passengers", "v2": "5 passengers", "v3": "8 passengers" },
+    "cargo": { "label": "Cargo (rear up)", "v1": "1,004 L", "v2": "650 L", "v3": "467 L" },
+    "towing": { "label": "Towing capacity", "v1": "3,500 kg", "v2": "3,500 kg", "v3": "3,500 kg" }
+  },
+  "features": {
+    "title": "Comfort & features",
+    "moonroof": { "label": "Panoramic moonroof" },
+    "leather": { "label": "Leather seats" },
+    "heatedCooled": { "label": "Heated/cooled seats", "v3": "Heated only" },
+    "carplay": { "label": "Apple CarPlay / Android Auto", "v1": "Wireless", "v2": "Wireless", "v3": "Wired only" },
+    "audio": { "label": "Premium audio", "v1": "JBL 14-speaker", "v2": "Harman Kardon 16-speaker", "v3": "Bose 13-speaker" },
+    "charging": { "label": "Wireless charging" },
+    "hud": { "label": "Heads-up display" },
+    "camera": { "label": "360° camera" },
+    "terrain": { "label": "Multi-terrain modes", "v1": "6 modes + crawl", "v2": "4 modes", "v3": "5 modes" }
+  },
+  "safety": {
+    "title": "Safety & technology",
+    "airbags": { "label": "Airbags", "v1": "10", "v2": "8", "v3": "6" },
+    "precollision": { "label": "Pre-collision system" },
+    "acc": { "label": "Adaptive cruise control", "v1": "Full-speed", "v2": "Full-speed", "v3": "Above 30 km/h" },
+    "lka": { "label": "Lane keep assist" },
+    "bsm": { "label": "Blind-spot monitor" },
+    "aeb": { "label": "Auto emergency braking" },
+    "ncap": { "label": "NCAP rating", "v1": "★★★★★ (5)", "v2": "★★★★★ (5)", "v3": "★★★★☆ (4)" }
+  },
+  "pricing": {
+    "title": "Pricing & ownership",
+    "asking": { "label": "Asking price", "v1": "AED 365,000", "v2": "AED 285,000", "v3": "AED 215,000" },
+    "monthly": { "label": "Est. monthly @ 4.5%", "v1": "AED 5,440", "v2": "AED 4,250", "v3": "AED 3,200" },
+    "warranty": { "label": "Manufacturer warranty", "v1": "Until Aug 2028", "v2": "Until Jun 2028", "v3": "Expired" },
+    "service": { "label": "Service interval", "v1": "Every 10,000 km", "v2": "Every 25,000 km", "v3": "Every 10,000 km" },
+    "annualService": { "label": "Est. annual service", "v1": "AED 3,200", "v2": "AED 2,800", "v3": "AED 3,400" },
+    "insurance": { "label": "Insurance band", "v1": "8 / 10", "v2": "7 / 10", "v3": "7 / 10" },
+    "depreciation": { "label": "5-yr depreciation est.", "v1": "~32%", "v2": "~48%", "v3": "~52%" },
+    "inspection": { "label": "Inspection report", "v1": "98/100", "v2": "96/100", "v3": "88/100" }
+  },
+  "foot": {
+    "pickLabel": "Carsens' pick:",
+    "pickText": "Toyota Land Cruiser GR-Sport — wins on warranty, depreciation, and inspection. BMW X5 wins on performance and fuel economy. Patrol is the value pick if budget is tight.",
+    "downloadPdf": "Download PDF",
+    "saveAccount": "Save to my account"
+  }
+}

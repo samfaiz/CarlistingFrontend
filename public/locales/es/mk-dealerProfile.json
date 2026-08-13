@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "title": "Perfil del concesionario"
+  },
+  "cover": {
+    "alt": ""
+  },
+  "header": {
+    "name": "Al Tayer Motors",
+    "verified": "Concesionario verificado",
+    "premium": "★ Socio premium",
+    "rating": "★ 4.8",
+    "reviews": "248 reseñas",
+    "location": "Mussafah, Abu Dabi",
+    "carsListedValue": "432",
+    "carsListedLabel": "coches publicados",
+    "memberSince": "Miembro desde 2018",
+    "openNow": "Abierto ahora hasta las 21:00",
+    "contact": "Contactar concesionario",
+    "follow": "Seguir",
+    "share": "Compartir"
+  },
+  "stats": {
+    "activeVal": "432",
+    "activeLabel": "Anuncios activos",
+    "yearsVal": "7 años",
+    "yearsLabel": "En Carsens",
+    "responseVal": "98%",
+    "responseLabel": "Tasa de respuesta",
+    "replyVal": "~2 h",
+    "replyLabel": "Tiempo medio de respuesta",
+    "soldVal": "12,400+",
+    "soldLabel": "Coches vendidos"
+  },
+  "tabs": {
+    "inventory": "Todos los coches (432)",
+    "about": "Acerca de",
+    "reviews": "Reseñas (248)",
+    "locations": "Ubicaciones (3)"
+  },
+  "inventory": {
+    "chips": {
+      "0": "Todos (432)",
+      "1": "SUV (218)",
+      "2": "Sedanes (98)",
+      "3": "Cupés (42)",
+      "4": "Híbrido/EV (36)",
+      "5": "Destacados (24)",
+      "6": "Rebajados (18)"
+    },
+    "toolbarCount": "432 coches",
+    "toolbarFrom": "de Al Tayer Motors",
+    "sortBy": "Ordenar por",
+    "sort": {
+      "relevant": "Más relevante",
+      "newest": "Más recientes primero",
+      "priceLow": "Precio: de menor a mayor",
+      "priceHigh": "Precio: de mayor a menor"
+    },
+    "prev": "‹ Anterior",
+    "next": "Siguiente ›",
+    "cards": {
+      "0": {
+        "title": "Toyota Land Cruiser GR-Sport",
+        "sub": "2023 • Especificaciones GCC",
+        "price": "AED 365,000",
+        "badge": "Destacado",
+        "photos": "22",
+        "spec0": "18,200 km",
+        "spec1": "Gasolina",
+        "spec2": "Automático"
+      },
+      "1": {
+        "title": "Mercedes-Benz G63 AMG",
+        "sub": "2024 • Especificaciones GCC",
+        "price": "AED 985,000",
+        "badge": "Destacado",
+        "photos": "32",
+        "spec0": "4,800 km",
+        "spec1": "Gasolina",
+        "spec2": "Automático"
+      },
+      "2": {
+        "title": "BMW X5 xDrive40i M-Sport",
+        "sub": "2023 • Dubái",
+        "price": "AED 285,000",
+        "photos": "24",
+        "spec0": "38,200 km",
+        "spec1": "Gasolina",
+        "spec2": "Automático"
+      },
+      "3": {
+        "title": "Porsche 911 Carrera S",
+        "sub": "2023 • Dubái",
+        "price": "AED 545,000",
+        "badge": "Nuevo",
+        "photos": "21",
+        "spec0": "12,600 km",
+        "spec1": "Gasolina",
+        "spec2": "PDK"
+      },
+      "4": {
+        "title": "Range Rover Vogue Autobiography",
+        "sub": "2022 • Dubái",
+        "price": "AED 485,000",
+        "photos": "16",
+        "spec0": "31,200 km",
+        "spec1": "Gasolina",
+        "spec2": "Automático"
+      },
+      "5": {
+        "title": "Toyota Fortuner VX",
+        "sub": "2022 • Sharjah",
+        "price": "AED 138,000",
+        "priceOld": "AED 152,000",
+        "badge": "Rebajado",
+        "photos": "19",
+        "spec0": "42,800 km",
+        "spec1": "Diésel",
+        "spec2": "Automático"
+      },
+      "6": {
+        "title": "Toyota C-HR Hybrid GR",
+        "sub": "2023 • Dubái • GCC",
+        "price": "AED 92,000",
+        "photos": "15",
+        "spec0": "11,400 km",
+        "spec1": "Híbrido",
+        "spec2": "CVT"
+      },
+      "7": {
+        "title": "Toyota Camry Grande Hybrid",
+        "sub": "2022 • Abu Dabi",
+        "price": "AED 96,500",
+        "photos": "14",
+        "spec0": "28,200 km",
+        "spec1": "Híbrido",
+        "spec2": "Automático"
+      },
+      "8": {
+        "title": "Ford Mustang GT Premium",
+        "sub": "2022 • Abu Dabi",
+        "price": "AED 162,500",
+        "photos": "18",
+        "spec0": "22,400 km",
+        "spec1": "Gasolina",
+        "spec2": "Automático"
+      }
+    }
+  },
+  "about": {
+    "heading": "Acerca de Al Tayer Motors",
+    "p1": "Al Tayer Motors es un nombre de confianza en el mercado automovilístico de los EAU desde 2018, con tres salas de exposición premium en Abu Dabi que han atendido a más de 12,400 clientes satisfechos. Nos especializamos en vehículos de lujo y alto rendimiento de Toyota, Mercedes-Benz, BMW, Range Rover, Porsche y Lexus.",
+    "p2": "Cada vehículo de nuestro inventario se inspecciona a fondo y viene con una garantía gratuita de 30 días, historial de servicio completo y nuestro característico precio \"sin sorpresas\": lo que ves es lo que pagas, con todas las tasas de la RTA y la matriculación incluidas.",
+    "p3": "Nuestro equipo habla inglés, árabe, urdu e hindi, y ofrecemos soporte posventa multilingüe durante toda la vida útil de tu vehículo.",
+    "servicesHeading": "Servicios que ofrecemos",
+    "services": {
+      "0": {
+        "title": "Se acepta permuta",
+        "desc": "Trae tu coche actual y lo tasaremos en el momento — aplícalo al instante a tu nueva compra."
+      },
+      "1": {
+        "title": "Socios de financiación",
+        "desc": "Financiación preaprobada de Emirates NBD, ADCB, Mashreq y otros 4 bancos de los EAU. Financiación al 0% disponible en modelos seleccionados."
+      },
+      "2": {
+        "title": "Garantía de 30 días",
+        "desc": "Garantía gratuita de 30 días en cada coche usado, con cobertura ampliada opcional de hasta 2 años."
+      },
+      "3": {
+        "title": "Entrega a domicilio gratuita",
+        "desc": "Entrega gratuita en Abu Dabi y Dubái. AED 250 al resto de emiratos. El vehículo llega detallado y con el depósito lleno."
+      },
+      "4": {
+        "title": "Historial de servicio completo",
+        "desc": "Cada vehículo viene con registros de servicio documentados y un informe verificado del historial de la Mulkiya de la RTA."
+      },
+      "5": {
+        "title": "Inspección gratuita a domicilio",
+        "desc": "¿No estás seguro? Reserva una inspección gratuita de 200 puntos en tu ubicación antes de firmar nada."
+      }
+    }
+  },
+  "reviews": {
+    "summaryNum": "4.8",
+    "summaryCount": "Basado en 248 reseñas",
+    "bars": {
+      "5": "5 estrellas",
+      "4": "4 estrellas",
+      "3": "3 estrellas",
+      "2": "2 estrellas",
+      "1": "1 estrella"
+    },
+    "filters": {
+      "0": "Todas las reseñas",
+      "1": "5 ★",
+      "2": "4 ★",
+      "3": "Recientes",
+      "4": "Con fotos"
+    },
+    "sort": {
+      "relevant": "Más relevante",
+      "recent": "Más recientes",
+      "highest": "Mejor valoradas"
+    },
+    "verifiedBuyer": "Comprador verificado",
+    "replyFrom": "Respuesta de Al Tayer Motors",
+    "reply": "Responder",
+    "report": "Denunciar",
+    "loadMore": "Cargar 244 reseñas más",
+    "items": {
+      "0": {
+        "name": "Sara K.",
+        "time": "hace 3 días",
+        "body": "Un servicio absolutamente excepcional de principio a fin. Vine buscando un Land Cruiser de 2023 y el equipo — mención especial a Khalid — fue paciente, transparente y nunca insistente. Incluso organizaron que me lo llevara a casa una noche antes de comprometerme. El papeleo fue sencillo y el coche llegó impecable a mi oficina. Volvería a comprarles.",
+        "carTag": "Toyota Land Cruiser GR-Sport · 2023",
+        "reply": "¡Gracias, Sara! Fue un placer ayudarte a encontrar el Land Cruiser adecuado. ¡Disfruta de cada kilómetro y no olvides que tu primer servicio gratuito corre de nuestra cuenta!",
+        "helpful": "Útil (24)"
+      },
+      "1": {
+        "name": "Ahmed H.",
+        "time": "hace 1 semana",
+        "body": "Compré un BMW X5 aquí después de mirar en otros cuatro concesionarios. El precio de Al Tayer era AED 12,000 más bajo que la siguiente mejor oferta por un coche idéntico, y el informe de inspección que proporcionaron fue increíblemente minucioso — incluso detalles menores como la alineación de las ruedas estaban anotados. Probé tres coches en una tarde, sin presión. Lo recomendaré a la familia.",
+        "carTag": "BMW X5 xDrive40i · 2023",
+        "helpful": "Útil (18)"
+      },
+      "2": {
+        "name": "Fatima R.",
+        "time": "hace 2 semanas",
+        "body": "Buena experiencia en general. Los precios son justos y el equipo es profesional. Le quité una estrella porque la aprobación de la financiación tardó 4 días cuando habían dicho 24 horas — pero una vez llegó, el resto fue fluido. El coche se entregó a domicilio como se prometió.",
+        "carTag": "Toyota Camry · 2022",
+        "reply": "Hola Fatima — ¡disculpa la demora en la financiación! Fue un problema por parte del banco, pero desde entonces hemos reestructurado nuestro proceso para escalar cualquier aprobación que supere las 48 horas. ¡Nos alegra que disfrutes del coche!",
+        "helpful": "Útil (9)"
+      },
+      "3": {
+        "name": "Mohamed J.",
+        "time": "hace 3 semanas",
+        "body": "Compré mi segundo coche con ellos este mes. La oferta de permuta por mi vehículo antiguo fue AED 8,000 más alta que la de cualquier otro concesionario. El G63 que me llevé estaba en condición de sala de exposición absoluta. Khalid es honesto, atento y me recordó de mi última compra hace 2 años. Así es como debería gestionarse un concesionario.",
+        "carTag": "Mercedes-Benz G63 AMG · 2024",
+        "helpful": "Útil (32)"
+      }
+    }
+  },
+  "locations": {
+    "heading": "Nuestras salas de exposición (3)",
+    "getDirections": "Cómo llegar",
+    "call": "Llamar",
+    "legendFlagship": "Sede principal",
+    "legendBranches": "Sucursales",
+    "items": {
+      "0": {
+        "name": "Sala de exposición principal de Mussafah",
+        "addr": "Sheikh Zayed Bin Sultan Street, Zona Industrial de Mussafah, Abu Dabi",
+        "openStrong": "Abierto ahora",
+        "openUntil": "· hasta las 21:00",
+        "hours0": "Lun–Jue: 9:00 – 21:00",
+        "hours1": "Vie: 14:00 – 22:00",
+        "phone": "+971 2 555 1234"
+      },
+      "1": {
+        "name": "Sala de exposición de Dubai Marina",
+        "addr": "Sheikh Zayed Road, frente al Dubai Marina Mall, Dubái",
+        "openStrong": "Abierto ahora",
+        "openUntil": "· hasta las 21:00",
+        "hours0": "Lun–Dom: 10:00 – 21:00",
+        "phone": "+971 4 555 5678"
+      },
+      "2": {
+        "name": "Sucursal de la Zona Industrial de Sharjah",
+        "addr": "Zona Industrial 13, Sharjah",
+        "closingSoon": "Cierra pronto · 21:00",
+        "hours0": "Lun–Sáb: 9:00 – 21:00 (cerrado los viernes)",
+        "phone": "+971 6 555 9012"
+      }
+    }
+  },
+  "sidebar": {
+    "contact": {
+      "heading": "Ponte en contacto",
+      "subtitle": "Normalmente responde en ~2 horas",
+      "phone": "052 ••• 9842",
+      "whatsapp": "WhatsApp",
+      "sendMessage": "Enviar mensaje",
+      "getDirections": "Cómo llegar"
+    },
+    "miniMap": {
+      "heading": "Ubicación de la sede principal",
+      "name": "Sede principal de Mussafah",
+      "addrLine1": "Sheikh Zayed Bin Sultan St,",
+      "addrLine2": "Mussafah, Abu Dabi",
+      "link": "Cómo llegar →"
+    },
+    "hours": {
+      "heading": "Horario de atención",
+      "openNow": "Abierto ahora",
+      "today": "HOY",
+      "mon": "Lunes",
+      "monTime": "9:00 – 21:00",
+      "tue": "Martes",
+      "tueTime": "9:00 – 21:00",
+      "wed": "Miércoles",
+      "wedTime": "9:00 – 21:00",
+      "thu": "Jueves",
+      "thuTime": "9:00 – 21:00",
+      "fri": "Viernes",
+      "friTime": "14:00 – 22:00",
+      "sat": "Sábado",
+      "satTime": "10:00 – 21:00",
+      "sun": "Domingo",
+      "sunTime": "10:00 – 21:00"
+    },
+    "trust": {
+      "heading": "Por qué elegirnos",
+      "items": {
+        "0": "Concesionario verificado con licencia de la RTA",
+        "1": "Garantía de 30 días en cada coche",
+        "2": "Inspección gratuita de 200 puntos",
+        "3": "Se acepta permuta",
+        "4": "Financiación de 7 bancos de los EAU",
+        "5": "Entrega gratuita en los EAU"
+      }
+    }
+  }
+}

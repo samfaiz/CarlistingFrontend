@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "title": "Vendez votre voiture"
+  },
+  "common": {
+    "back": "‹ Retour"
+  },
+  "hero": {
+    "title": "Vendez votre voiture. Gratuit. Rapide.",
+    "subtitle": "Publiez votre voiture en moins de 3 minutes et touchez plus de 2 millions d'acheteurs mensuels dans tous les Émirats.",
+    "stats": [
+      { "value": "14 jours", "label": "Délai moyen de vente" },
+      { "value": "GRATUIT", "label": "Pour les vendeurs particuliers" },
+      { "value": "2,4 M+", "label": "Acheteurs mensuels" },
+      { "value": "1 250 AED", "label": "Vente la plus élevée aujourd'hui" }
+    ]
+  },
+  "stepper": [
+    "Infos voiture",
+    "Spécifications et état",
+    "Photos",
+    "Prix",
+    "Publier"
+  ],
+  "step1": {
+    "title": "Parlez-nous de votre voiture",
+    "sub": "Nous l'utiliserons pour estimer la valeur de votre voiture et vous mettre en relation avec les bons acheteurs.",
+    "plateLabel": "⚡ Le moyen le plus rapide — recherchez votre voiture par plaque",
+    "emirates": ["Dubaï", "Abou Dabi", "Sharjah", "Ajman", "RAK", "Fujairah", "UAQ"],
+    "platePlaceholder": "Numéro de plaque (ex. A 12345)",
+    "autofill": "Remplissage auto",
+    "plateHelper": "Nous remplirons automatiquement la marque, le modèle, l'année et les spécifications à partir des registres de la RTA.",
+    "plateHelperLink": "Comment cela fonctionne-t-il ?",
+    "divider": "ou saisissez les détails manuellement",
+    "makeLabel": "Marque *",
+    "modelLabel": "Modèle *",
+    "yearLabel": "Année *",
+    "trimLabel": "Finition / Version",
+    "bodyLabel": "Type de carrosserie *",
+    "colorLabel": "Couleur extérieure *",
+    "selectMake": "Sélectionnez la marque",
+    "selectModel": "Sélectionnez le modèle",
+    "selectYear": "Sélectionnez l'année",
+    "selectBody": "Sélectionnez la carrosserie",
+    "selectColor": "Sélectionnez la couleur",
+    "makes": ["Toyota", "Nissan", "BMW", "Mercedes-Benz", "Lexus", "Honda", "Audi", "Ford", "Porsche", "Range Rover", "Hyundai", "Kia"],
+    "models": ["Land Cruiser", "Camry", "Corolla", "Fortuner", "RAV4", "Hilux", "Prado"],
+    "trimPlaceholder": "ex. GR-Sport, VXR, M-Sport",
+    "bodies": ["SUV", "Berline", "Coupé", "Hatchback", "Pick-up", "Cabriolet", "Fourgon"],
+    "colors": ["Noir", "Blanc", "Argent", "Gris", "Bleu", "Rouge", "Vert", "Marron", "Autre"],
+    "required": "Tous les champs marqués d'un * sont obligatoires",
+    "continue": "Continuer vers les spécifications"
+  },
+  "step2": {
+    "title": "Spécifications et état",
+    "sub": "Aux Émirats, les acheteurs se soucient surtout du kilométrage, de la spécification GCC et de l'état. Soyez précis — cela inspire confiance.",
+    "mileageLabel": "Kilométrage (km) *",
+    "mileagePlaceholder": "ex. 45 000",
+    "transmissionLabel": "Transmission *",
+    "transmissions": ["Automatique", "Manuelle", "CVT", "Semi-auto"],
+    "fuelLabel": "Type de carburant *",
+    "fuels": ["Essence", "Diesel", "Hybride", "Électrique", "PHEV"],
+    "cylindersLabel": "Cylindres",
+    "cylinders": ["4", "6", "8", "12", "Électrique"],
+    "regionalLabel": "Spécification régionale *",
+    "regionals": ["Spécification GCC", "Américaine", "Européenne", "Japonaise", "Autre"],
+    "ownersLabel": "Propriétaires précédents",
+    "owners": ["1 (Propriétaire d'origine)", "2", "3", "4+"],
+    "doorsLabel": "Portes",
+    "doors": ["4", "2", "3", "5"],
+    "warrantyLabel": "Garantie",
+    "warranties": ["Aucune garantie", "Garantie constructeur", "Garantie étendue"],
+    "dividerCondition": "état général",
+    "conditions": [
+      { "name": "Excellent", "desc": "Comme neuf, sans bosses" },
+      { "name": "Bon", "desc": "Usure mineure, bien entretenu" },
+      { "name": "Correct", "desc": "Quelques traces d'usure visibles" },
+      { "name": "À réparer", "desc": "Réparations importantes nécessaires" }
+    ],
+    "dividerFeatures": "équipements inclus",
+    "features": ["Toit ouvrant", "Toit panoramique", "Sièges en cuir", "Sièges chauffants", "Sièges ventilés", "Sièges à mémoire", "Caméra 360°", "Régulateur adaptatif", "Aide au maintien de voie", "Apple CarPlay", "Chargeur sans fil", "Audio premium", "Vitres teintées", "Jantes alliage", "Démarrage sans clé"],
+    "continue": "Continuer vers les photos"
+  },
+  "step3": {
+    "title": "Ajoutez des photos de votre voiture",
+    "sub": "Les annonces avec 8 bonnes photos ou plus se vendent jusqu'à 3× plus vite. Privilégiez la lumière naturelle et des angles nets.",
+    "dzTitle": "Glissez les photos ici, ou cliquez pour parcourir",
+    "dzSub": "Vous pouvez téléverser jusqu'à 30 photos. Taille recommandée : 1600px de large.",
+    "dzTypes": "JPG · PNG · WebP · HEIC · max 10 Mo par image",
+    "recTitle": "Prises de vue recommandées (cliquez sur une tuile pour \"téléverser\")",
+    "primary": "PRINCIPALE",
+    "recs": ["Vue avant 3/4", "Vue arrière 3/4", "Profil latéral", "Intérieur — tableau de bord", "Sièges avant", "Sièges arrière", "Compartiment moteur", "Compteur kilométrique"],
+    "photosCount": "/ 30 photos téléversées",
+    "continue": "Continuer vers le prix"
+  },
+  "step4": {
+    "title": "Fixez votre prix demandé",
+    "sub": "Les voitures dont le prix se situe dans la fourchette recommandée se vendent ~40% plus vite. L'estimation du marché repose sur des voitures similaires sur Carsens.",
+    "marketEstimate": "Estimation du marché",
+    "estBasedOnPre": "Basé sur",
+    "estBasedOnPost": "voitures similaires vendues sur Carsens au cours des 90 derniers jours.",
+    "askingLabel": "Votre prix demandé (AED) *",
+    "priceAdvice": "✓ Dans la fourchette recommandée — attendez-vous à un intérêt rapide",
+    "bestOffer": "Meilleure offre acceptée",
+    "hidePrice": "Masquer le prix (négociable sur demande)",
+    "boostDivider": "Boostez votre annonce",
+    "boostOptional": "— facultatif",
+    "boost": [
+      { "name": "Standard", "price": "GRATUIT", "period": "30 jours", "desc": "Votre annonce apparaît dans les résultats de recherche normaux.", "badge": "" },
+      { "name": "En vedette", "price": "AED 99", "period": "30 jours", "desc": "Badge jaune « En vedette », placement prioritaire, sur la page d'accueil.", "badge": "3× plus de vues" },
+      { "name": "Premium", "price": "AED 249", "period": "30 jours", "desc": "Toujours #1 dans les recherches, notifications push, en haut des pages de catégorie.", "badge": "Première place" }
+    ],
+    "continue": "Continuer vers la publication"
+  },
+  "step5": {
+    "title": "Détails finaux et publication",
+    "sub": "Ajoutez une courte description, choisissez comment les acheteurs peuvent vous joindre, et vous êtes en ligne.",
+    "descLabel": "Description (facultative mais recommandée)",
+    "descPlaceholder": "Mentionnez l'historique d'entretien, la maintenance récente, ce qui rend votre voiture spéciale, la raison de la vente…",
+    "descValue": "Toyota Land Cruiser GR-Sport 2023. Un seul propriétaire, historique d'entretien complet chez Al Tayer Toyota. Toujours garée au garage et méticuleusement entretenue. Pack d'accents noirs GR-Sport en option, jantes noir mat de 18″, toit panoramique, audio premium JBL. Raison de la vente : passage à un nouveau modèle.",
+    "charCount": "368 / 1 000 caractères · ✓ Bon niveau de détail",
+    "contactDivider": "comment les acheteurs doivent-ils vous contacter ?",
+    "contactNameLabel": "Nom de contact",
+    "mobileLabel": "Numéro de mobile",
+    "showOnListing": "Afficher sur l'annonce",
+    "showPhone": "Appels téléphoniques",
+    "showWhatsapp": "WhatsApp",
+    "showMessages": "Messages in-app",
+    "showEmail": "E-mail (faisal@example.com)",
+    "durationLabel": "Durée de l'annonce",
+    "durations": ["30 jours (gratuit)", "60 jours (gratuit)", "90 jours (gratuit)"],
+    "termsPre": "Je confirme être le propriétaire légal de ce véhicule et que les détails ci-dessus sont exacts. J'accepte les",
+    "termsLink": "Conditions du vendeur",
+    "termsPost": "de Carsens et je comprends que les annonces trompeuses peuvent être retirées.",
+    "publish": "Publier mon annonce"
+  },
+  "step6": {
+    "title": "Votre voiture est en ligne ! 🎉",
+    "sub": "Votre Toyota Land Cruiser GR-Sport 2023 a été publiée. Les acheteurs peuvent désormais la trouver dans les résultats de recherche et vous contacter directement.",
+    "summaryTitle": "Récapitulatif de l'annonce",
+    "rows": [
+      { "label": "ID de l'annonce", "value": "#CR-248,924" },
+      { "label": "Prix demandé", "value": "AED 105,000" },
+      { "label": "Active jusqu'au", "value": "11 juin 2026" },
+      { "label": "Vues estimées dans les 24 premières heures", "value": "200 – 400" }
+    ],
+    "viewListing": "Voir mon annonce",
+    "dashboard": "Aller à mon tableau de bord",
+    "share": "Partager l'annonce"
+  },
+  "sidebar": {
+    "valuation": {
+      "label": "Estimation instantanée",
+      "range": "AED 95,000 – 115,000",
+      "medianLabel": "Médiane :",
+      "medianValue": "AED 105,000",
+      "confidence": "Confiance :",
+      "confidenceLevel": "Élevée",
+      "tipPre": "Les voitures dans cette fourchette se vendent généralement en",
+      "tipDays": "10–18 jours",
+      "tipPost": "sur Carsens."
+    },
+    "compare": {
+      "title": "Voitures similaires vendues récemment",
+      "period": "90 derniers jours",
+      "rows": [
+        { "name": "Toyota Camry SE", "spec": "2022 • 38 000 km", "price": "AED 92,000" },
+        { "name": "Toyota Camry Grande", "spec": "2023 • 22 500 km", "price": "AED 108,500" },
+        { "name": "Toyota Camry Hybrid", "spec": "2022 • 41 200 km", "price": "AED 98,000" },
+        { "name": "Toyota Camry SE", "spec": "2023 • 18 400 km", "price": "AED 115,000" }
+      ]
+    },
+    "tips": {
+      "title": "Conseil pour cette étape",
+      "items": [
+        "Une année et une finition exactes donnent la bonne estimation — apportez votre Mulkiya en cas de doute.",
+        "Les acheteurs des Émirats accordent beaucoup d'importance au GCC par rapport à l'importé — soyez exact.",
+        "Les annonces avec la combinaison complète marque + modèle + année obtiennent 5× plus de vues."
+      ]
+    }
+  }
+}

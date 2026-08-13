@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "Bike listings"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "bikes": "Bikes",
+    "current": "All listings"
+  },
+  "title": {
+    "heading": "Bikes for sale in UAE",
+    "count": "12,432",
+    "meta": "Showing 1–12 of 12,432 motorcycles",
+    "saveSearch": "Save this search"
+  },
+  "compact": {
+    "make": "Make",
+    "makeOpts": ["Any make", "Ducati", "BMW Motorrad", "Harley-Davidson", "Kawasaki", "Yamaha", "Honda", "KTM"],
+    "model": "Model",
+    "modelOpts": ["Any model"],
+    "engine": "Engine (cc)",
+    "engineOpts": ["Any size", "Under 250cc", "250 – 500cc", "500 – 800cc", "800 – 1000cc", "1000cc+"],
+    "year": "Year",
+    "yearOpts": ["Any year", "2024", "2023", "2022", "2021"],
+    "emirate": "Emirate",
+    "emirateOpts": ["All Emirates", "Dubai", "Abu Dhabi", "Sharjah"],
+    "update": "Update"
+  },
+  "filters": {
+    "title": "Filters",
+    "reset": "Reset all",
+    "min": "Min",
+    "max": "Max",
+    "keyword": {
+      "title": "Keyword search",
+      "placeholder": "e.g. 'low mileage', 'akrapovic'"
+    },
+    "body": {
+      "title": "Body type",
+      "all": "All",
+      "sport": "Sport",
+      "cruiser": "Cruiser",
+      "adventure": "Adventure",
+      "naked": "Naked",
+      "standard": "Standard",
+      "offRoad": "Off-road",
+      "touring": "Touring",
+      "scooter": "Scooter"
+    },
+    "make": {
+      "title": "Make",
+      "ducati": "Ducati",
+      "bmw": "BMW Motorrad",
+      "harley": "Harley-Davidson",
+      "kawasaki": "Kawasaki",
+      "yamaha": "Yamaha",
+      "honda": "Honda",
+      "ktm": "KTM",
+      "suzuki": "Suzuki",
+      "triumph": "Triumph",
+      "more": "+ Show 15 more"
+    },
+    "engine": {
+      "title": "Engine size (cc)",
+      "any": "Any",
+      "u250": "< 250cc",
+      "r250": "250–500cc",
+      "r500": "500–800cc",
+      "r800": "800–1000cc",
+      "o1000": "1000cc+",
+      "unit": "cc"
+    },
+    "price": {
+      "title": "Price (AED)"
+    },
+    "year": {
+      "title": "Year"
+    },
+    "mileage": {
+      "title": "Mileage (km)"
+    },
+    "transmission": {
+      "title": "Transmission",
+      "m6": "6-speed manual",
+      "m5": "5-speed manual",
+      "dct": "Semi-automatic (DCT)",
+      "cvt": "CVT (scooter)"
+    },
+    "license": {
+      "title": "License class",
+      "a1": "A1 (up to 125cc)",
+      "a2": "A2 (up to 35kW)",
+      "a": "A (unrestricted)"
+    },
+    "aids": {
+      "title": "Riding aids",
+      "abs": "ABS",
+      "traction": "Traction control",
+      "wheelie": "Wheelie control",
+      "quickshifter": "Quickshifter",
+      "imu": "IMU (6-axis)",
+      "modes": "Riding modes"
+    },
+    "color": {
+      "title": "Color",
+      "white": "White",
+      "black": "Black",
+      "red": "Red",
+      "blue": "Blue",
+      "green": "Green",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "silver": "Silver",
+      "purple": "Purple",
+      "other": "Other"
+    },
+    "seller": {
+      "title": "Seller type",
+      "dealer": "Dealer",
+      "private": "Private owner"
+    },
+    "location": {
+      "title": "Location",
+      "dubai": "Dubai",
+      "abudhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "fujairah": "Fujairah"
+    }
+  },
+  "active": {
+    "sport": "Sport",
+    "ducati": "Ducati",
+    "abs": "ABS",
+    "black": "Black",
+    "remove": "remove",
+    "clearAll": "Clear all"
+  },
+  "toolbar": {
+    "count": "12,432 bikes",
+    "match": "match your filters",
+    "sortBy": "Sort by",
+    "sort": {
+      "relevant": "Most relevant",
+      "newest": "Newest first",
+      "priceLow": "Price: low to high",
+      "priceHigh": "Price: high to low",
+      "mileage": "Lowest mileage",
+      "power": "Highest power (hp)"
+    },
+    "gridView": "Grid view",
+    "listView": "List view"
+  },
+  "badges": {
+    "featured": "Featured",
+    "new": "New",
+    "reduced": "Reduced"
+  },
+  "cards": {
+    "0": {
+      "title": "Ducati Panigale V4 SP2",
+      "sub": "2023 • Dubai • 1,103cc",
+      "price": "AED 168,000",
+      "mo": "or 2,500/mo",
+      "s1": "2,800 km",
+      "s2": "Sport",
+      "s3": "215 hp",
+      "dealer": "RS Motorcycles",
+      "verified": "✓ Verified"
+    },
+    "1": {
+      "title": "Kawasaki Ninja ZX-10R",
+      "sub": "2022 • Dubai • 998cc",
+      "price": "AED 68,000",
+      "s1": "6,800 km",
+      "s2": "Sport",
+      "s3": "200 hp",
+      "dealer": "Kawasaki Motors"
+    },
+    "2": {
+      "title": "BMW S1000RR",
+      "sub": "2023 • Abu Dhabi • 999cc",
+      "price": "AED 118,000",
+      "s1": "4,200 km",
+      "s2": "Sport",
+      "s3": "210 hp",
+      "dealer": "Motorrad Dubai"
+    },
+    "3": {
+      "title": "Aprilia RSV4 Factory",
+      "sub": "2023 • Dubai • 1,099cc",
+      "price": "AED 142,000",
+      "s1": "1,800 km",
+      "s2": "Sport",
+      "s3": "217 hp",
+      "dealer": "Aprilia Performance"
+    },
+    "4": {
+      "title": "BMW R1250GS Adventure",
+      "sub": "2023 • Abu Dhabi • 1,254cc",
+      "price": "AED 92,000",
+      "s1": "12,400 km",
+      "s2": "ADV",
+      "s3": "136 hp",
+      "dealer": "Motorrad Dubai"
+    },
+    "5": {
+      "title": "Harley-Davidson Street Glide",
+      "sub": "2022 • Sharjah • 1,868cc",
+      "price": "AED 78,000",
+      "was": "AED 88,000",
+      "s1": "8,200 km",
+      "s2": "Touring",
+      "s3": "90 hp",
+      "dealer": "H-D Sharjah"
+    },
+    "6": {
+      "title": "Triumph Bonneville T120",
+      "sub": "2022 • Abu Dhabi • 1,200cc",
+      "price": "AED 52,000",
+      "s1": "9,400 km",
+      "s2": "Classic",
+      "s3": "80 hp",
+      "dealer": "Triumph Concession"
+    },
+    "7": {
+      "title": "Honda Africa Twin Adventure Sports",
+      "sub": "2023 • Sharjah • 1,084cc",
+      "price": "AED 75,000",
+      "s1": "7,800 km",
+      "s2": "ADV",
+      "s3": "102 hp",
+      "dealer": "Honda Motors AD"
+    },
+    "8": {
+      "title": "KTM 1290 Super Duke RR",
+      "sub": "2023 • Dubai • 1,301cc",
+      "price": "AED 95,000",
+      "s1": "3,200 km",
+      "s2": "Naked",
+      "s3": "180 hp",
+      "dealer": "KTM Orange Dubai"
+    },
+    "9": {
+      "title": "Yamaha MT-09 SP",
+      "sub": "2023 • Dubai • 890cc",
+      "price": "AED 48,500",
+      "s1": "4,200 km",
+      "s2": "Naked",
+      "s3": "119 hp",
+      "dealer": "Yamaha Motors UAE"
+    },
+    "10": {
+      "title": "Ducati Multistrada V4 S",
+      "sub": "2022 • Dubai • 1,158cc",
+      "price": "AED 102,000",
+      "s1": "11,200 km",
+      "s2": "ADV",
+      "s3": "170 hp",
+      "dealer": "Ducati Center"
+    }
+  },
+  "promo": {
+    "title": "Get pre-approved bike finance in 2 minutes",
+    "body": "Compare loan offers from 5 UAE banks. No impact on your credit score.",
+    "cta": "Check eligibility"
+  },
+  "pagination": {
+    "prev": "‹ Prev",
+    "next": "Next ›"
+  }
+}

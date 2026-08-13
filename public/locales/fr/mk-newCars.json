@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "title": "Voitures neuves"
+  },
+  "hero": {
+    "eyebrow": "Millésimes 2024 et 2025",
+    "title": "Voitures neuves aux Émirats",
+    "sub": "Découvrez les derniers modèles de plus de 40 constructeurs. Comparez les finitions, réservez un essai, trouvez le showroom le plus proche."
+  },
+  "qf": {
+    "brand": {
+      "label": "Marque",
+      "options": ["Toutes les marques", "Toyota", "BMW", "Mercedes-Benz", "Audi", "Lexus"]
+    },
+    "model": {
+      "label": "Modèle",
+      "options": ["Tout modèle"]
+    },
+    "body": {
+      "label": "Type de carrosserie",
+      "options": ["Toute carrosserie", "SUV", "Berline", "Coupé"]
+    },
+    "budget": {
+      "label": "Budget (AED)",
+      "options": ["Tout budget", "Moins de 100 000", "100K – 200K", "200K – 400K", "400K+"]
+    },
+    "cta": "Parcourir les voitures neuves",
+    "tags": ["Derniers lancements 2025", "Hybride et électrique", "SUV familiaux", "Bientôt disponible", "Offres spéciales de mai"]
+  },
+  "brands": {
+    "title": "Achetez des voitures neuves par marque",
+    "sub": "Concessionnaires agréés • Garantie officielle • Derniers millésimes",
+    "viewAll": "Les 42 marques",
+    "cards": [
+      { "name": "Toyota", "models": "18 nouveaux modèles", "from": "À partir de AED 56,900" },
+      { "name": "Nissan", "models": "14 nouveaux modèles", "from": "À partir de AED 49,500" },
+      { "name": "Honda", "models": "9 nouveaux modèles", "from": "À partir de AED 62,400" },
+      { "name": "Lexus", "models": "12 nouveaux modèles", "from": "À partir de AED 168,000" },
+      { "name": "BMW", "models": "22 nouveaux modèles", "from": "À partir de AED 178,000" },
+      { "name": "Mercedes-Benz", "models": "26 nouveaux modèles", "from": "À partir de AED 198,000" },
+      { "name": "Audi", "models": "16 nouveaux modèles", "from": "À partir de AED 174,000" },
+      { "name": "Hyundai", "models": "11 nouveaux modèles", "from": "À partir de AED 52,900" },
+      { "name": "Kia", "models": "10 nouveaux modèles", "from": "À partir de AED 54,000" },
+      { "name": "Porsche", "models": "9 nouveaux modèles", "from": "À partir de AED 285,000" },
+      { "name": "Range Rover", "models": "7 nouveaux modèles", "from": "À partir de AED 295,000" },
+      { "name": "Tesla", "models": "4 nouveaux modèles", "from": "À partir de AED 169,000" }
+    ]
+  },
+  "browse": {
+    "title": "Parcourez toutes les voitures neuves",
+    "sub": "Filtrez par marque, carrosserie, budget — millésimes 2024 et 2025",
+    "viewAll": "Voir les 1 420 modèles"
+  },
+  "filters": {
+    "title": "Filtres",
+    "reset": "Tout réinitialiser",
+    "keyword": {
+      "label": "Recherche par mot-clé",
+      "placeholder": "ex. « GR-Sport », « hybride »"
+    },
+    "bodyType": {
+      "label": "Type de carrosserie",
+      "chips": ["Tous", "SUV", "Berline", "Coupé", "Compacte", "Pick-up", "Cabriolet"]
+    },
+    "make": {
+      "label": "Marque",
+      "more": "+ Afficher 34 de plus",
+      "items": [
+        { "name": "Toyota", "count": "18" },
+        { "name": "Nissan", "count": "14" },
+        { "name": "Mercedes-Benz", "count": "26" },
+        { "name": "BMW", "count": "22" },
+        { "name": "Lexus", "count": "12" },
+        { "name": "Honda", "count": "9" },
+        { "name": "Audi", "count": "16" },
+        { "name": "Hyundai", "count": "11" }
+      ]
+    },
+    "model": {
+      "label": "Modèle",
+      "options": ["Tout modèle", "Land Cruiser", "Camry", "RAV4", "Corolla"]
+    },
+    "price": {
+      "label": "Prix (AED)",
+      "min": "Min",
+      "max": "Max"
+    },
+    "year": {
+      "label": "Millésime",
+      "items": [
+        { "name": "2025", "count": "684" },
+        { "name": "2024", "count": "736" }
+      ]
+    },
+    "trim": {
+      "label": "Niveau de finition",
+      "items": [
+        { "name": "Base", "count": "412" },
+        { "name": "Intermédiaire", "count": "624" },
+        { "name": "Premium", "count": "298" },
+        { "name": "Sport / Performance", "count": "86" }
+      ]
+    },
+    "transmission": {
+      "label": "Boîte de vitesses",
+      "items": [
+        { "name": "Automatique", "count": "1,348" },
+        { "name": "CVT", "count": "186" },
+        { "name": "Manuelle", "count": "42" }
+      ]
+    },
+    "fuel": {
+      "label": "Type de carburant",
+      "items": [
+        { "name": "Essence", "count": "1,180" },
+        { "name": "Hybride", "count": "186" },
+        { "name": "Électrique (EV)", "count": "98" },
+        { "name": "Hybride rechargeable", "count": "42" },
+        { "name": "Diesel", "count": "14" }
+      ]
+    },
+    "drive": {
+      "label": "Type de transmission",
+      "items": [
+        { "name": "Traction avant", "count": "412" },
+        { "name": "Propulsion arrière", "count": "298" },
+        { "name": "Transmission intégrale", "count": "486" },
+        { "name": "Quatre roues motrices", "count": "224" }
+      ]
+    },
+    "seating": {
+      "label": "Places",
+      "chips": ["Toutes", "2", "4", "5", "7", "8+"]
+    },
+    "color": {
+      "label": "Couleur extérieure",
+      "titles": ["Blanc", "Noir", "Argent", "Gris", "Rouge", "Bleu", "Jaune", "Vert", "Marron", "Orange", "Violet", "Autre"]
+    },
+    "offers": {
+      "label": "Offres et promotions",
+      "items": [
+        { "name": "Financement à 0% disponible", "count": "248" },
+        { "name": "Forfait entretien offert", "count": "186" },
+        { "name": "Immatriculation offerte", "count": "98" },
+        { "name": "Prime de reprise", "count": "142" }
+      ]
+    },
+    "location": {
+      "label": "Emplacement",
+      "items": [
+        { "name": "Dubaï", "count": "820" },
+        { "name": "Abou Dabi", "count": "412" },
+        { "name": "Sharjah", "count": "128" },
+        { "name": "Ajman", "count": "42" },
+        { "name": "Autres émirats", "count": "18" }
+      ]
+    }
+  },
+  "activeFilters": {
+    "chips": ["SUV", "Toyota", "2024–2025", "7 places"],
+    "clearAll": "Tout effacer",
+    "removeLabel": "retirer"
+  },
+  "toolbar": {
+    "countStrong": "1 420 voitures neuves",
+    "countRest": "correspondent à vos filtres",
+    "sortBy": "Trier par",
+    "sort": ["Les plus populaires", "Modèle le plus récent", "Prix : croissant", "Prix : décroissant", "Dernières sorties"],
+    "gridTitle": "Grille",
+    "listTitle": "Liste"
+  },
+  "models": {
+    "badge2025": "Modèle 2025",
+    "badgeHybrid": "Hybride",
+    "badgeElectric": "Électrique",
+    "startingFrom": "À partir de",
+    "viewTrims": "Voir les finitions →",
+    "brochure": "Brochure",
+    "cards": [
+      { "brand": "Toyota", "name": "Land Cruiser", "meta": "SUV • 7 finitions disponibles", "price": "AED 285,900" },
+      { "brand": "Mercedes-Benz", "name": "G-Class", "meta": "SUV • 4 finitions disponibles", "price": "AED 745,000" },
+      { "brand": "BMW", "name": "X5", "meta": "SUV • 6 finitions • PHEV disponible", "price": "AED 298,000" },
+      { "brand": "Porsche", "name": "911 Carrera", "meta": "Coupé • 8 finitions disponibles", "price": "AED 485,000" },
+      { "brand": "Range Rover", "name": "Velar", "meta": "SUV • 5 finitions • EV disponible", "price": "AED 318,000" },
+      { "brand": "Toyota", "name": "Camry", "meta": "Berline • 5 finitions • Hybride uniquement", "price": "AED 118,900" },
+      { "brand": "Tesla", "name": "Model Y", "meta": "SUV • 3 finitions • 533 km d'autonomie", "price": "AED 192,990" },
+      { "brand": "Nissan", "name": "Patrol", "meta": "SUV • 6 finitions disponibles", "price": "AED 248,500" }
+    ]
+  },
+  "pagination": {
+    "prev": "‹ Préc.",
+    "next": "Suiv. ›"
+  },
+  "categories": {
+    "title": "Achetez par catégorie",
+    "sub": "Trouvez le type de voiture adapté à votre conduite",
+    "cards": [
+      { "title": "SUV familiaux", "desc": "Confort et espace 7 places", "count": "82 modèles" },
+      { "title": "Sportives et coupés", "desc": "Machines de performance", "count": "38 modèles" },
+      { "title": "Berlines de luxe", "desc": "Confort exécutif", "count": "26 modèles" },
+      { "title": "Électriques et hybrides", "desc": "Coûts d'usage réduits", "count": "47 modèles" },
+      { "title": "Moins de AED 100K", "desc": "Le meilleur rapport qualité-prix", "count": "34 modèles" },
+      { "title": "Cabriolets", "desc": "Conduite à ciel ouvert", "count": "14 modèles" },
+      { "title": "Pick-ups", "desc": "Travail et week-end", "count": "11 modèles" },
+      { "title": "Premium AED 250K+", "desc": "Performance et luxe", "count": "128 modèles" }
+    ]
+  },
+  "coming": {
+    "title": "Bientôt dans les showrooms des Émirats",
+    "sub": "Lancements à venir et précommandes — soyez le premier",
+    "viewAll": "Tous les modèles à venir",
+    "notify": "Être averti au lancement",
+    "cards": [
+      { "brand": "BMW", "name": "Neue Klasse iX3", "desc": "Nouveau SUV tout électrique — plus de 500 km d'autonomie WLTP", "eta": "T3 2026" },
+      { "brand": "Mercedes-Benz", "name": "CLA EV 2026", "desc": "EV nouvelle génération avec 750 km d'autonomie", "eta": "Août 2026" },
+      { "brand": "Toyota", "name": "FT-Se Concept", "desc": "EV sportive — attendue fin 2026", "eta": "T4 2026" },
+      { "brand": "Range Rover", "name": "Electric Range Rover", "desc": "Premier vaisseau amiral 100% électrique", "eta": "Juil. 2026" }
+    ]
+  },
+  "deals": {
+    "eyebrow": "Spécial mai 2026",
+    "title": "Offres voitures neuves — économisez jusqu'à AED 35,000",
+    "text": "Offres exclusives des concessionnaires agréés à travers les Émirats. Financement à 0%, forfaits d'entretien offerts, packs d'accessoires et immatriculation prise en charge.",
+    "cta": "Voir les 247 offres",
+    "stats": [
+      { "value": "247", "label": "Offres actives" },
+      { "value": "0%", "label": "Financement disponible" },
+      { "value": "5 ans", "label": "Garantie incluse" },
+      { "value": "Offerts", "label": "Immatriculation et assurance" }
+    ]
+  },
+  "reviews": {
+    "title": "Essais et comparatifs de voitures neuves",
+    "sub": "Essais d'experts et comparatifs côte à côte",
+    "viewAll": "Tous les essais",
+    "cards": [
+      { "tag": "Premier essai", "title": "Toyota Land Cruiser GR-Sport 2025 : toujours le roi du désert ?", "date": "11 mai 2026", "read": "8 min de lecture" },
+      { "tag": "Comparatif", "title": "Tesla Model Y vs Mercedes EQE SUV : quel EV l'emporte aux Émirats ?", "date": "9 mai 2026", "read": "11 min de lecture" },
+      { "tag": "Essai", "title": "BMW X5 PHEV essai longue durée : 6 mois sous la chaleur de Dubaï", "date": "6 mai 2026", "read": "9 min de lecture" }
+    ]
+  }
+}

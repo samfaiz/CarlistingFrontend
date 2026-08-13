@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Iniciar sesión"
+  },
+  "hero": {
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Inicia sesión en tu cuenta de Carsens"
+  },
+  "form": {
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "passwordLabel": "Contraseña",
+    "togglePassword": "Mostrar/ocultar contraseña",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "submit": "Iniciar sesión"
+  },
+  "divider": "o continúa con",
+  "social": {
+    "google": "Continuar con Google",
+    "apple": "Continuar con Apple",
+    "uaePassBadge": "UAE",
+    "uaePass": "Continuar con UAE Pass"
+  },
+  "switch": {
+    "prompt": "¿No tienes una cuenta?",
+    "link": "Regístrate gratis →"
+  }
+}

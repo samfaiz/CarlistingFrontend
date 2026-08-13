@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Buy & Sell Cars in UAE",
+    "desc": "Over 60,000 new & used cars from 1,200 trusted dealers across Dubai, Abu Dhabi, Sharjah and beyond."
+  },
+  "hero": {
+    "title": "Find your perfect car in the UAE",
+    "sub": "Over 60,000 new & used cars from 1,200 trusted dealers across Dubai, Abu Dhabi, Sharjah and beyond.",
+    "tabUsed": "Used Cars",
+    "tabNew": "New Cars",
+    "tabBikes": "Bikes",
+    "tabDealers": "Dealers",
+    "make": "Make",
+    "anyMake": "Any make",
+    "model": "Model",
+    "anyModel": "Any model",
+    "price": "Price (AED)",
+    "anyPrice": "Any price",
+    "year": "Year",
+    "anyYear": "Any year",
+    "search": "Search cars"
+  },
+  "stats": {
+    "listed": "cars listed",
+    "dealers": "verified dealers",
+    "rating": "average rating",
+    "daily": "cars added daily"
+  },
+  "body": {
+    "title": "Browse by body type",
+    "sub": "Find cars that match your lifestyle",
+    "viewAll": "View all",
+    "cars": "cars"
+  },
+  "featured": {
+    "title": "Featured cars",
+    "sub": "Hand-picked premium listings from verified dealers",
+    "seeAll": "See all featured"
+  },
+  "make": {
+    "title": "Browse by make",
+    "sub": "Shop the UAE's most popular brands",
+    "all": "All makes"
+  },
+  "fresh": {
+    "title": "Newly listed",
+    "sub": "The latest cars added across the UAE",
+    "browse": "Browse all"
+  },
+  "sell": {
+    "title": "Sell your car. Fast.",
+    "sub": "Reach over 2 million monthly buyers across the UAE. List in under 3 minutes — free for individuals.",
+    "perk1": "Free listings for individuals",
+    "perk2": "2M+ monthly visitors",
+    "perk3": "Sell within 14 days",
+    "cta1": "List your car free",
+    "cta2": "Get instant valuation"
+  },
+  "why": {
+    "title": "Why buy & sell on Carsens?",
+    "sub": "Built for the UAE auto market with the trust and speed you expect.",
+    "t1": "Verified dealers",
+    "b1": "Every dealer is background-checked and rated by real buyers in the UAE.",
+    "t2": "Real-time inventory",
+    "b2": "Listings update every 5 minutes. No expired stock, no wasted phone calls.",
+    "t3": "Inspection at home",
+    "b3": "Book a free 200-point inspection at your location before you commit.",
+    "t4": "Easy financing",
+    "b4": "Pre-approved loans from 7 UAE banks. Get a decision in minutes."
+  },
+  "bt": {
+    "SUV": "SUV",
+    "Sedan": "Sedan",
+    "Coupe": "Coupe",
+    "Hatchback": "Hatchback",
+    "Pickup": "Pickup",
+    "Convertible": "Convertible",
+    "Van": "Van",
+    "Wagon": "Wagon"
+  }
+}

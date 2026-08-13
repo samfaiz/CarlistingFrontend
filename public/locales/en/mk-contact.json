@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Contact"
+  },
+  "hero": {
+    "title": "Contact Carsens",
+    "subtitle": "Reach our UAE team directly — we typically reply in under 2 hours, 7 days a week."
+  },
+  "channels": {
+    "call": {
+      "title": "Call us",
+      "desc": "Speak with our team directly — Sunday to Saturday, 9 AM – 9 PM.",
+      "value": "+971 4 555 1234",
+      "status": "Open now · until 9 PM"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "desc": "Quick messages, get a fast reply. Most questions answered in under 30 minutes.",
+      "value": "+971 50 247 5555",
+      "status": "Avg reply: 18 min"
+    },
+    "email": {
+      "title": "Email us",
+      "desc": "For detailed questions, complaints, or business enquiries. We reply within 4 hours.",
+      "value": "hello@carsens.ae",
+      "status": "Avg reply: 2-4 hrs"
+    }
+  },
+  "form": {
+    "title": "Send us a message",
+    "subtitle": "Fill in the form below — we'll route your message to the right team.",
+    "name": {
+      "label": "Your name",
+      "placeholder": "Ahmed Al Mansouri"
+    },
+    "mobile": {
+      "label": "Mobile number",
+      "placeholder": "+971 50 000 0000"
+    },
+    "email": {
+      "label": "Email address",
+      "placeholder": "you@example.com"
+    },
+    "subject": {
+      "label": "What's this about?",
+      "options": {
+        "general": "General enquiry",
+        "listing": "Help with a listing",
+        "account": "Account or login",
+        "safety": "Safety / report a scam",
+        "dealer": "Dealer enquiry",
+        "partnerships": "Partnerships & press",
+        "other": "Other"
+      }
+    },
+    "message": {
+      "label": "Your message",
+      "placeholder": "Tell us how we can help…"
+    },
+    "consent": "I agree to Carsens' privacy policy and consent to being contacted about my enquiry.",
+    "submit": "Send message",
+    "reset": "Reset",
+    "success": {
+      "title": "Message sent — thank you!",
+      "desc": "We've received your message and will reply within 2-4 hours. Check your email for our response."
+    }
+  },
+  "offices": {
+    "title": "Our offices",
+    "dubai": {
+      "name": "Dubai HQ",
+      "line1": "Boulevard Plaza Tower 2, 18th Floor",
+      "line2": "Sheikh Mohammed bin Rashid Blvd, Downtown Dubai",
+      "phone": "+971 4 555 1234"
+    },
+    "abudhabi": {
+      "name": "Abu Dhabi",
+      "line1": "Sky Tower, 22nd Floor",
+      "line2": "Al Reem Island, Abu Dhabi",
+      "phone": "+971 2 555 5678"
+    },
+    "sharjah": {
+      "name": "Sharjah",
+      "line1": "Al Khan Lagoon Tower, 9th Floor",
+      "line2": "Al Khan, Sharjah",
+      "phone": "+971 6 555 9012"
+    }
+  },
+  "hours": {
+    "title": "Support hours",
+    "open": "● Open",
+    "monThu": {
+      "day": "Mon – Thu",
+      "time": "9 AM – 9 PM"
+    },
+    "today": {
+      "day": "Tue (today)",
+      "time": "9 AM – 9 PM"
+    },
+    "friday": {
+      "day": "Friday",
+      "time": "2 PM – 10 PM"
+    },
+    "satSun": {
+      "day": "Sat – Sun",
+      "time": "10 AM – 8 PM"
+    }
+  },
+  "social": {
+    "title": "Follow Carsens",
+    "instagram": "Instagram",
+    "twitter": "Twitter / X",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  }
+}

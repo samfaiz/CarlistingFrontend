@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Forgot password"
+  },
+  "enter": {
+    "title": "Forgot your password?",
+    "subtitle": "No worries — enter the email on your account and we'll send you a reset link.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "sendBtn": "Send reset link",
+    "tip": "For security, we'll send the link even if no account exists — so check your inbox and spam folder.",
+    "rememberPrefix": "Remember it now?",
+    "backToLogin": "Back to login"
+  },
+  "sent": {
+    "title": "Check your inbox",
+    "subtitle": "We sent a password reset link to:",
+    "email": "you@example.com",
+    "instructionPrefix": "Click the link in the email to reset your password. The link is valid for ",
+    "validity": "1 hour",
+    "instructionSuffix": ".",
+    "openResetBtn": "Open reset page (demo)",
+    "resendPrefix": "Didn't receive the email?",
+    "resendPart1": "Resend in ",
+    "resendPart2": "s",
+    "backToLogin": "Back to login"
+  }
+}

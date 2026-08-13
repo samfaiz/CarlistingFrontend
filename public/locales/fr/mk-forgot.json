@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Mot de passe oublié"
+  },
+  "enter": {
+    "title": "Mot de passe oublié ?",
+    "subtitle": "Pas d'inquiétude — saisissez l'adresse e-mail de votre compte et nous vous enverrons un lien de réinitialisation.",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "sendBtn": "Envoyer le lien de réinitialisation",
+    "tip": "Pour des raisons de sécurité, nous enverrons le lien même si aucun compte n'existe — vérifiez donc votre boîte de réception et vos spams.",
+    "rememberPrefix": "Vous vous en souvenez maintenant ?",
+    "backToLogin": "Retour à la connexion"
+  },
+  "sent": {
+    "title": "Vérifiez votre boîte de réception",
+    "subtitle": "Nous avons envoyé un lien de réinitialisation du mot de passe à :",
+    "email": "vous@exemple.com",
+    "instructionPrefix": "Cliquez sur le lien dans l'e-mail pour réinitialiser votre mot de passe. Le lien est valable pendant ",
+    "validity": "1 heure",
+    "instructionSuffix": ".",
+    "openResetBtn": "Ouvrir la page de réinitialisation (démo)",
+    "resendPrefix": "Vous n'avez pas reçu l'e-mail ?",
+    "resendPart1": "Renvoyer dans ",
+    "resendPart2": " s",
+    "backToLogin": "Retour à la connexion"
+  }
+}

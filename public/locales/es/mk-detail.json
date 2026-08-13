@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "title": "Toyota Land Cruiser GR-Sport"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "usedCars": "Coches usados",
+    "make": "Toyota",
+    "model": "Land Cruiser",
+    "current": "GR-Sport 2023"
+  },
+  "head": {
+    "title": "Toyota Land Cruiser GR-Sport",
+    "year": "2023",
+    "body": "SUV",
+    "mileage": "18,200 km",
+    "location": "Abu Dabi",
+    "tag": "Especificación GCC"
+  },
+  "actions": {
+    "share": "Compartir",
+    "save": "Guardar",
+    "compare": "Comparar",
+    "print": "Imprimir"
+  },
+  "gallery": {
+    "featured": "Destacado",
+    "photoNum": "1 / 6",
+    "viewAll": "Ver las 22 fotos"
+  },
+  "quickSpecs": {
+    "year": { "label": "Año", "val": "2023" },
+    "mileage": { "label": "Kilometraje", "val": "18,200 km" },
+    "transmission": { "label": "Transmisión", "val": "Automática" },
+    "fuel": { "label": "Combustible", "val": "Gasolina" },
+    "body": { "label": "Carrocería", "val": "SUV" },
+    "specs": { "label": "Especificación", "val": "GCC" }
+  },
+  "description": {
+    "title": "Sobre este coche",
+    "p1": "Impecable Toyota Land Cruiser GR-Sport 2023 con historial de servicio completo en Al Tayer Toyota. Especificación GCC original, un único propietario desde nuevo, guardado en garaje y meticulosamente mantenido durante toda su vida.",
+    "p2": "Equipado con el nuevo V6 biturbo de 3.5L que produce 409 hp, suspensión afinada GR, diferenciales de bloqueo electrónico delante y detrás, selección multiterreno con control de arrastre y el paquete completo Toyota Safety Sense 3.0. Recientemente revisado y listo para conducir.",
+    "p3": "Los extras opcionales incluyen el paquete de acentos negros GR-Sport, llantas de aleación negro mate de 18″, interior premium de cuero negro con costuras rojas, techo panorámico y el sistema de audio premium JBL de 14 altavoces.",
+    "readMore": "Leer más ↓"
+  },
+  "features": {
+    "title": "Características principales",
+    "moonroof": "Techo solar panorámico",
+    "hud": "Pantalla head-up",
+    "cam360": "Cámara 360°",
+    "cruise": "Control de crucero adaptativo",
+    "lanekeep": "Asistente de mantenimiento de carril",
+    "jbl": "Audio JBL de 14 altavoces",
+    "ventilated": "Asientos ventilados",
+    "heatedSteering": "Volante calefactado",
+    "carplay": "CarPlay inalámbrico",
+    "terrain": "Selección multiterreno",
+    "crawl": "Control de arrastre",
+    "diff": "Desconexión hidráulica del diferencial",
+    "lockers": "Bloqueos delantero y trasero",
+    "matrix": "Faros LED matriciales"
+  },
+  "inspect": {
+    "title": "Inspección de 200 puntos superada",
+    "subtitle": "Inspeccionado por Carsens Certified el 8 de mayo de 2026",
+    "score": "98",
+    "outOf": "de 100",
+    "bars": {
+      "engine": { "label": "Motor y transmisión", "pct": "96%" },
+      "body": { "label": "Carrocería y pintura", "pct": "100%" },
+      "interior": { "label": "Interior", "pct": "98%" },
+      "electronics": { "label": "Electrónica", "pct": "95%" },
+      "tires": { "label": "Neumáticos y frenos", "pct": "92%" },
+      "underbody": { "label": "Bajos", "pct": "100%" }
+    },
+    "reportButton": "Ver el informe completo de inspección (PDF)"
+  },
+  "specs": {
+    "title": "Especificaciones completas",
+    "engine": {
+      "title": "Motor y rendimiento",
+      "engine": { "label": "Motor", "value": "3.5L Twin-Turbo V6" },
+      "hp": { "label": "Potencia", "value": "409 hp @ 5,200 rpm" },
+      "torque": { "label": "Par", "value": "650 Nm" },
+      "accel": { "label": "0–100 km/h", "value": "6.7 seg" },
+      "topSpeed": { "label": "Velocidad máxima", "value": "210 km/h" },
+      "economy": { "label": "Consumo", "value": "13.1 L/100km" },
+      "drivetrain": { "label": "Tracción", "value": "4WD permanente" },
+      "transmission": { "label": "Transmisión", "value": "Automática de 10 velocidades" }
+    },
+    "dimensions": {
+      "title": "Dimensiones y capacidad",
+      "length": { "label": "Longitud", "value": "4,985 mm" },
+      "width": { "label": "Anchura", "value": "1,990 mm" },
+      "height": { "label": "Altura", "value": "1,925 mm" },
+      "wheelbase": { "label": "Distancia entre ejes", "value": "2,850 mm" },
+      "clearance": { "label": "Altura libre al suelo", "value": "235 mm" },
+      "seating": { "label": "Plazas", "value": "7 pasajeros" },
+      "cargo": { "label": "Maletero", "value": "1,004 L (asientos arriba)" },
+      "tank": { "label": "Depósito de combustible", "value": "110 L" }
+    },
+    "exterior": {
+      "title": "Exterior e interior",
+      "extColor": { "label": "Color exterior", "value": "Negro Perla Precious" },
+      "intColor": { "label": "Color interior", "value": "Cuero negro / costura roja" },
+      "wheels": { "label": "Llantas", "value": "Aleación negro mate de 18″" },
+      "headlights": { "label": "Faros", "value": "LED matriciales adaptativos" },
+      "sunroof": { "label": "Techo solar", "value": "Techo solar panorámico" },
+      "doors": { "label": "Puertas", "value": "5" }
+    },
+    "safety": {
+      "title": "Seguridad y tecnología",
+      "airbags": { "label": "Airbags", "value": "10 (incl. airbags de rodilla)" },
+      "preCollision": { "label": "Sistema anticolisión", "value": "Sí — Toyota Safety Sense 3.0" },
+      "adaptive": { "label": "Control de crucero adaptativo", "value": "Sí, a plena velocidad" },
+      "lanekeep": { "label": "Asistente de mantenimiento de carril", "value": "Sí" },
+      "blindspot": { "label": "Monitor de ángulo muerto", "value": "Sí, con tráfico cruzado" },
+      "cam360": { "label": "Cámara 360°", "value": "Sí, con vista bajo el suelo" },
+      "infotainment": { "label": "Sistema multimedia", "value": "Pantalla táctil de 14″, audio JBL" },
+      "carplay": { "label": "CarPlay / AA inalámbrico", "value": "Sí" }
+    }
+  },
+  "history": {
+    "title": "Historial del vehículo",
+    "owner": { "title": "Único propietario", "text": "Propietario original desde nuevo" },
+    "accident": { "title": "Sin historial de accidentes", "text": "Registro RTA limpio" },
+    "service": { "title": "Historial de servicio", "text": "5 registros en Al Tayer Toyota" },
+    "warranty": { "title": "Garantía del fabricante", "text": "Hasta agosto de 2028 o 120,000 km" },
+    "gcc": { "title": "Especificación GCC", "text": "Vendido originalmente en EAU" },
+    "mulkiya": { "title": "Mulkiya RTA válida", "text": "Hasta marzo de 2027" }
+  },
+  "price": {
+    "currency": "AED",
+    "amount": "365,000",
+    "subPre": "o",
+    "subMonthly": "AED 5,440 / mes",
+    "subPost": "durante 60 meses"
+  },
+  "dealer": {
+    "logo": "AT",
+    "name": "Al Tayer Motors",
+    "rating": "★ 4.8",
+    "reviews": "248 reseñas",
+    "stats": "432 coches listados • Abu Dabi",
+    "viewAll": "Ver todos los anuncios de este concesionario →"
+  },
+  "contact": {
+    "phone": "050 ••• 9842",
+    "tapToView": "— toca para ver",
+    "whatsapp": "WhatsApp al concesionario",
+    "message": "Enviar un mensaje",
+    "testDrive": "Programar una prueba de conducción"
+  },
+  "finance": {
+    "title": "Calculadora de financiación",
+    "subtitle": "Estima tu cuota mensual",
+    "currency": "AED",
+    "vehiclePrice": "Precio del vehículo",
+    "priceAmt": "365,000",
+    "downPayment": "Entrada",
+    "dpPct": "20",
+    "dpAmt": "73,000",
+    "loanTerm": "Plazo del préstamo",
+    "term12": "12 meses",
+    "term24": "24 meses",
+    "term36": "36 meses",
+    "term48": "48 meses",
+    "term60": "60 meses",
+    "term72": "72 meses",
+    "interestRate": "Tipo de interés",
+    "rateLbl": "4.5",
+    "monthlyPayment": "Cuota mensual",
+    "monthlyAmt": "5,440",
+    "loanAmount": "Importe del préstamo",
+    "loanAmt": "292,000",
+    "totalInterest": "Interés total",
+    "totalIntAmt": "34,400",
+    "totalCost": "Coste total",
+    "totalAmt": "399,400",
+    "preApproved": "Obtener preaprobación"
+  },
+  "safety": {
+    "title": "Mantente seguro al comprar",
+    "tip1": "Inspecciona siempre el coche en persona antes de pagar",
+    "tip2": "Paga solo a través de canales seguros",
+    "tip3": "Nunca envíes dinero a desconocidos",
+    "tip4": "Usa la Inspección Carsens si tienes dudas",
+    "guide": "Leer la guía de seguridad completa →"
+  },
+  "similar": {
+    "title": "Coches similares que podrían gustarte",
+    "subtitle": "Mismo tipo de carrocería y rango de precio",
+    "seeAll": "Ver todos",
+    "cars": {
+      "0": { "title": "Toyota Fortuner VX", "sub": "2022 • Sharjah", "price": "AED 138,000", "spec1": "42,800 km", "spec2": "Diésel" },
+      "1": { "title": "Toyota Prado VXR", "sub": "2021 • Dubái", "price": "AED 195,000", "spec1": "68,400 km", "spec2": "Gasolina" },
+      "2": { "title": "Toyota Land Cruiser VXR", "sub": "2020 • Dubái", "price": "AED 248,000", "spec1": "86,400 km", "spec2": "Gasolina" },
+      "3": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • Abu Dabi", "price": "AED 985,000", "spec1": "4,800 km", "spec2": "Gasolina" }
+    }
+  }
+}

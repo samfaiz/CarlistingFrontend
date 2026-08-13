@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "title": "البحث عن السيارات"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "usedCars": "سيارات مستعملة",
+    "uae": "الإمارات"
+  },
+  "title": {
+    "heading": "سيارات مستعملة في الإمارات",
+    "count": "24,318",
+    "resultsMeta": "عرض 1–12 من 24,318 نتيجة",
+    "saveSearch": "حفظ هذا البحث"
+  },
+  "compact": {
+    "makeLabel": "الماركة",
+    "makeOpt0": "Toyota",
+    "makeOpt1": "أي ماركة",
+    "makeOpt2": "BMW",
+    "makeOpt3": "Mercedes-Benz",
+    "makeOpt4": "Nissan",
+    "modelLabel": "الطراز",
+    "modelOpt0": "أي طراز",
+    "modelOpt1": "Land Cruiser",
+    "modelOpt2": "Corolla",
+    "modelOpt3": "Camry",
+    "priceLabel": "السعر (درهم)",
+    "priceOpt0": "أي سعر",
+    "priceOpt1": "أقل من 50,000",
+    "priceOpt2": "50,000 – 100,000",
+    "priceOpt3": "100,000 – 200,000",
+    "yearLabel": "السنة",
+    "yearOpt0": "أي سنة",
+    "yearOpt1": "2024",
+    "yearOpt2": "2023",
+    "yearOpt3": "2022",
+    "emirateLabel": "الإمارة",
+    "emirateOpt0": "كل الإمارات",
+    "emirateOpt1": "دبي",
+    "emirateOpt2": "أبوظبي",
+    "emirateOpt3": "الشارقة",
+    "update": "تحديث"
+  },
+  "filters": {
+    "title": "عوامل التصفية",
+    "reset": "إعادة تعيين الكل"
+  },
+  "fg": {
+    "keyword": {
+      "title": "البحث بالكلمات",
+      "placeholder": "مثال: 'ممشى قليل'، 'فتحة سقف'"
+    },
+    "body": {
+      "title": "نوع الهيكل",
+      "all": "الكل",
+      "suv": "دفع رباعي",
+      "sedan": "سيدان",
+      "coupe": "كوبيه",
+      "hatchback": "هاتشباك",
+      "pickup": "بيك أب",
+      "convertible": "قابل للكشف",
+      "van": "فان"
+    },
+    "make": {
+      "title": "الماركة",
+      "toyota": "Toyota",
+      "nissan": "Nissan",
+      "mercedes": "Mercedes-Benz",
+      "bmw": "BMW",
+      "lexus": "Lexus",
+      "honda": "Honda",
+      "audi": "Audi",
+      "ford": "Ford",
+      "hyundai": "Hyundai",
+      "more": "+ عرض 72 أخرى"
+    },
+    "model": {
+      "title": "الطراز",
+      "opt0": "أي طراز",
+      "opt1": "Land Cruiser",
+      "opt2": "Camry",
+      "opt3": "Corolla",
+      "opt4": "RAV4"
+    },
+    "price": {
+      "title": "السعر (درهم)",
+      "min": "الأدنى",
+      "max": "الأقصى"
+    },
+    "year": {
+      "title": "السنة"
+    },
+    "mileage": {
+      "title": "المسافة المقطوعة (كم)"
+    },
+    "transmission": {
+      "title": "ناقل الحركة",
+      "automatic": "أوتوماتيك",
+      "manual": "يدوي"
+    },
+    "fuel": {
+      "title": "نوع الوقود",
+      "petrol": "بنزين",
+      "diesel": "ديزل",
+      "hybrid": "هايبرد",
+      "electric": "كهربائي"
+    },
+    "color": {
+      "title": "اللون الخارجي",
+      "white": "أبيض",
+      "black": "أسود",
+      "silver": "فضي",
+      "grey": "رمادي",
+      "red": "أحمر",
+      "blue": "أزرق",
+      "yellow": "أصفر",
+      "green": "أخضر",
+      "brown": "بني",
+      "orange": "برتقالي",
+      "purple": "بنفسجي",
+      "other": "أخرى"
+    },
+    "seller": {
+      "title": "نوع البائع",
+      "dealer": "معرض",
+      "owner": "مالك"
+    },
+    "location": {
+      "title": "الموقع",
+      "dubai": "دبي",
+      "abuDhabi": "أبوظبي",
+      "sharjah": "الشارقة",
+      "ajman": "عجمان",
+      "rak": "رأس الخيمة",
+      "fujairah": "الفجيرة"
+    },
+    "regional": {
+      "title": "المواصفات الإقليمية",
+      "gcc": "مواصفات خليجية",
+      "american": "أمريكية",
+      "european": "أوروبية",
+      "japanese": "يابانية"
+    }
+  },
+  "active": {
+    "toyota": "Toyota",
+    "suv": "دفع رباعي",
+    "automatic": "أوتوماتيك",
+    "black": "أسود",
+    "clearAll": "مسح الكل",
+    "remove": "إزالة"
+  },
+  "toolbar": {
+    "count": "24,318 سيارة",
+    "match": "تطابق عوامل التصفية",
+    "sortBy": "ترتيب حسب",
+    "sort0": "الأكثر صلة",
+    "sort1": "الأحدث أولاً",
+    "sort2": "السعر: من الأقل للأعلى",
+    "sort3": "السعر: من الأعلى للأقل",
+    "sort4": "الأقل مسافة",
+    "sort5": "السنة: الأحدث",
+    "gridView": "عرض شبكي",
+    "listView": "عرض قائمة"
+  },
+  "common": {
+    "verified": "✓ موثّق"
+  },
+  "cards": {
+    "0": {
+      "badge": "مميّز",
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • أبوظبي • مواصفات خليجية",
+      "price": "365,000 درهم",
+      "small": "أو 5,440/شهر",
+      "spec0": "18,200 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Al Tayer Motors"
+    },
+    "1": {
+      "badge": "عرض ساخن",
+      "title": "Toyota Fortuner VX",
+      "sub": "2022 • الشارقة • مواصفات خليجية",
+      "price": "138,000 درهم",
+      "small": "152,000 درهم",
+      "spec0": "42,800 كم",
+      "spec1": "ديزل",
+      "spec2": "أوتوماتيك",
+      "dealer": "Nasser Motors"
+    },
+    "2": {
+      "title": "Toyota Prado VXR",
+      "sub": "2021 • دبي • مواصفات خليجية",
+      "price": "195,000 درهم",
+      "small": "أو 2,910/شهر",
+      "spec0": "68,400 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Premier Auto"
+    },
+    "3": {
+      "badge": "إعلان جديد",
+      "title": "Toyota RAV4 Adventure",
+      "sub": "2023 • دبي • مواصفات خليجية",
+      "price": "128,000 درهم",
+      "small": "أو 1,910/شهر",
+      "spec0": "22,800 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Al Manar Motors"
+    },
+    "4": {
+      "title": "Toyota Hilux Adventure",
+      "sub": "2022 • رأس الخيمة",
+      "price": "142,000 درهم",
+      "spec0": "36,800 كم",
+      "spec1": "ديزل",
+      "spec2": "أوتوماتيك",
+      "dealer": "RS Garage"
+    },
+    "5": {
+      "badge": "مميّز",
+      "title": "Toyota Highlander Limited",
+      "sub": "2023 • دبي • مواصفات أمريكية",
+      "price": "168,000 درهم",
+      "small": "أو 2,510/شهر",
+      "spec0": "14,200 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Star Motors"
+    },
+    "6": {
+      "title": "Toyota 4Runner TRD Pro",
+      "sub": "2021 • أبوظبي",
+      "price": "178,500 درهم",
+      "spec0": "52,400 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Emirates Auto"
+    },
+    "7": {
+      "badge": "مخفّض",
+      "title": "Toyota Sequoia Platinum",
+      "sub": "2020 • الشارقة",
+      "price": "152,000 درهم",
+      "small": "168,000 درهم",
+      "spec0": "78,200 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Luxury Cars UAE"
+    },
+    "8": {
+      "title": "Toyota C-HR Hybrid GR",
+      "sub": "2023 • دبي • مواصفات خليجية",
+      "price": "92,000 درهم",
+      "spec0": "11,400 كم",
+      "spec1": "هايبرد",
+      "spec2": "CVT",
+      "dealer": "Al Tayer"
+    },
+    "9": {
+      "title": "Toyota Land Cruiser VXR",
+      "sub": "2020 • دبي • مواصفات خليجية",
+      "price": "248,000 درهم",
+      "small": "أو 3,690/شهر",
+      "spec0": "86,400 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Premier Auto"
+    },
+    "10": {
+      "title": "Toyota Camry Grande",
+      "sub": "2022 • عجمان • مواصفات خليجية",
+      "price": "86,500 درهم",
+      "spec0": "48,200 كم",
+      "spec1": "بنزين",
+      "spec2": "أوتوماتيك",
+      "dealer": "Nasser Motors"
+    }
+  },
+  "promo": {
+    "title": "احصل على تمويل معتمد مسبقًا خلال دقيقتين",
+    "text": "قارن العروض من 7 بنوك إماراتية. دون أي تأثير على تصنيفك الائتماني.",
+    "cta": "تحقّق من الأهلية"
+  },
+  "pagination": {
+    "prev": "‹ السابق",
+    "next": "التالي ›"
+  }
+}

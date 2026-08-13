@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Register"
+  },
+  "hero": {
+    "title": "Create your account",
+    "subtitle": "Join 2.4M users buying & selling cars in the UAE"
+  },
+  "accType": {
+    "buyer": {
+      "label": "Buyer",
+      "sub": "Looking to buy"
+    },
+    "seller": {
+      "label": "Seller",
+      "sub": "Sell my car"
+    },
+    "dealer": {
+      "label": "Dealer",
+      "sub": "Showroom/agent"
+    }
+  },
+  "form": {
+    "fullName": {
+      "label": "Full name",
+      "placeholder": "Ahmed Al Mansouri"
+    },
+    "mobile": {
+      "label": "Mobile number",
+      "placeholder": "+971 50 000 0000"
+    },
+    "email": {
+      "label": "Email address",
+      "placeholder": "you@example.com"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "At least 8 characters",
+      "hint": "Use 8+ characters with letters & numbers"
+    },
+    "submit": "Create account"
+  },
+  "terms": {
+    "pre": "I agree to Carsens'",
+    "tos": "Terms of Service",
+    "and": "and",
+    "privacy": "Privacy Policy",
+    "post": ", and consent to receiving relevant marketing emails (optional, can unsubscribe anytime)."
+  },
+  "divider": "or sign up with",
+  "social": {
+    "google": "Sign up with Google",
+    "uaePassBadge": "UAE",
+    "uaePass": "Sign up with UAE Pass"
+  },
+  "switch": {
+    "text": "Already have an account?",
+    "link": "Log in"
+  }
+}

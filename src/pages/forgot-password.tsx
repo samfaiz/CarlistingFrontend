@@ -1,117 +1,85 @@
-/**
- * /forgot-password — task P0-05. POST /auth/forgot-password always answers
- * {sent:true} (no account enumeration), so the page always lands on the
- * success state after submitting.
- */
-import { zodResolver } from "@hookform/resolvers/zod";
 import type { GetStaticProps } from "next";
+import Head from "next/head";
 import Link from "next/link";
+import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
-import * as React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { AuthLayout } from "@/components/auth/auth-layout";
-import { Button } from "@/components/ui/button";
-import {
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { FieldMessage, Label } from "@/components/ui/label";
-import { apiPost } from "@/lib/api";
-import { emailSchema } from "@/lib/auth-validation";
+import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
-interface ForgotValues {
-  email: string;
-}
-
-export default function ForgotPasswordPage() {
-  const { t } = useTranslation("auth");
-  const [submittedEmail, setSubmittedEmail] = React.useState<string | null>(null);
-
-  const schema = React.useMemo(() => z.object({ email: emailSchema(t) }), [t]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<ForgotValues>({ resolver: zodResolver(schema) });
-
-  const onSubmit = handleSubmit(async (values) => {
-    try {
-      await apiPost("/auth/forgot-password", { email: values.email });
-    } catch {
-      // Deliberate: the contract always answers {sent:true}; never reveal
-      // whether an account exists, even if the request itself hiccupped.
-    }
-    setSubmittedEmail(values.email);
-  });
-
-  if (submittedEmail) {
-    return (
-      <AuthLayout title={t("forgot.successTitle")}>
-        <CardHeader>
-          <CardTitle className="text-xl">{t("forgot.successTitle")}</CardTitle>
-          <CardDescription>
-            {t("forgot.successBody", { email: submittedEmail })}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild variant="secondary" className="w-full">
-            <Link href="/login">{t("forgot.backToLogin")}</Link>
-          </Button>
-        </CardContent>
-      </AuthLayout>
-    );
-  }
-
+export default function MkforgotPage() {
+  const { t } = useTranslation("mk-forgot");
   return (
-    <AuthLayout title={t("forgot.title")}>
-      <CardHeader>
-        <CardTitle className="text-xl">{t("forgot.title")}</CardTitle>
-        <CardDescription>{t("forgot.subtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form
-          onSubmit={onSubmit}
-          noValidate
-          aria-label={t("forgot.title")}
-          className="flex flex-col gap-4"
-        >
-          <div>
-            <Label htmlFor="email">{t("fields.email")}</Label>
-            <Input
-              id="email"
-              type="email"
-              autoComplete="email"
-              invalid={!!errors.email}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              {...register("email")}
-            />
-            {errors.email ? (
-              <FieldMessage id="email-error" error>
-                {errors.email.message}
-              </FieldMessage>
-            ) : null}
+    <>
+      <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
+      <MockupLayout>
+        <main id="page-forgot" className="page">
+          <div className="auth-wrap">
+            <div className="auth-card">
+
+              {/* STATE A: Email entry */}
+              <div className="auth-state active" data-fstate="enter">
+                <div className="brand-mark">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </div>
+                <h1>{t("enter.title")}</h1>
+                <p className="auth-sub">{t("enter.subtitle")}</p>
+
+                <form id="forgotForm" onSubmit={(e) => e.preventDefault()}>
+                  <div className="form-group">
+                    <label>{t("enter.emailLabel")}</label>
+                    <input className="form-input" type="email" id="forgotEmail" placeholder={t("enter.emailPlaceholder")} autoComplete="email" required />
+                  </div>
+                  <button type="submit" className="btn btn-primary btn-lg btn-block" id="sendResetBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    {t("enter.sendBtn")}
+                  </button>
+                </form>
+
+                <div className="auth-tip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  {t("enter.tip")}
+                </div>
+
+                <p className="auth-switch">
+                  {t("enter.rememberPrefix")} <Link href="/login">{t("enter.backToLogin")}</Link>
+                </p>
+              </div>
+
+              {/* STATE B: Sent confirmation */}
+              <div className="auth-state" data-fstate="sent">
+                <div className="sent-icon">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h1>{t("sent.title")}</h1>
+                <p className="auth-sub">{t("sent.subtitle")}</p>
+                <div style={{ textAlign: "center", margin: "14px 0 18px" }}>
+                  <span className="sent-email-tag" id="sentEmailLabel">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    {t("sent.email")}
+                  </span>
+                </div>
+                <p className="auth-sub" style={{ marginBottom: "18px" }}>{t("sent.instructionPrefix")} <strong>{t("sent.validity")}</strong>{t("sent.instructionSuffix")}</p>
+
+                <Link href="/reset-password" className="btn btn-primary btn-lg btn-block">
+                  {t("sent.openResetBtn")}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </Link>
+
+                <div className="resend-timer" id="resendTimer">
+                  {t("sent.resendPrefix")} <button id="resendBtn" disabled>{t("sent.resendPart1")}<span id="resendCount">60</span>{t("sent.resendPart2")}</button>
+                </div>
+
+                <p className="auth-switch" style={{ marginTop: "14px" }}>
+                  <Link href="/login">{t("sent.backToLogin")}</Link>
+                </p>
+              </div>
+
+            </div>
           </div>
-          <Button type="submit" loading={isSubmitting} className="w-full">
-            {t("forgot.submit")}
-          </Button>
-          <p className="text-center text-sm">
-            <Link
-              href="/login"
-              className="font-semibold text-brand-mid hover:underline"
-            >
-              {t("forgot.backToLogin")}
-            </Link>
-          </p>
-        </form>
-      </CardContent>
-    </AuthLayout>
+        </main>
+      </MockupLayout>
+    </>
   );
 }
 
@@ -119,7 +87,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(
       locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "auth"],
+      ["common", "mk-forgot"],
       nextI18NextConfig,
     )),
   },

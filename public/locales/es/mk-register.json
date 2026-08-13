@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Registro"
+  },
+  "hero": {
+    "title": "Crea tu cuenta",
+    "subtitle": "Únete a 2,4 M de usuarios que compran y venden coches en los EAU"
+  },
+  "accType": {
+    "buyer": {
+      "label": "Comprador",
+      "sub": "Busco comprar"
+    },
+    "seller": {
+      "label": "Vendedor",
+      "sub": "Vender mi coche"
+    },
+    "dealer": {
+      "label": "Concesionario",
+      "sub": "Showroom/agente"
+    }
+  },
+  "form": {
+    "fullName": {
+      "label": "Nombre completo",
+      "placeholder": "Ahmed Al Mansouri"
+    },
+    "mobile": {
+      "label": "Número de móvil",
+      "placeholder": "+971 50 000 0000"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "tu@ejemplo.com"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "Al menos 8 caracteres",
+      "hint": "Usa 8+ caracteres con letras y números"
+    },
+    "submit": "Crear cuenta"
+  },
+  "terms": {
+    "pre": "Acepto los",
+    "tos": "Términos del servicio",
+    "and": "y la",
+    "privacy": "Política de privacidad",
+    "post": " de Carsens, y consiento recibir correos de marketing relevantes (opcional, puedes darte de baja en cualquier momento)."
+  },
+  "divider": "o regístrate con",
+  "social": {
+    "google": "Registrarse con Google",
+    "uaePassBadge": "UAE",
+    "uaePass": "Registrarse con UAE Pass"
+  },
+  "switch": {
+    "text": "¿Ya tienes una cuenta?",
+    "link": "Iniciar sesión"
+  }
+}

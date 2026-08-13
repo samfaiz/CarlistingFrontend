@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "Motos"
+  },
+  "hero": {
+    "title": "Encuentra tu moto perfecta en los EAU",
+    "sub": "Más de 12,400 motocicletas de 380 vendedores de confianza en todos los Emiratos — deportivas, cruiser, aventura y más.",
+    "searchCta": "Buscar 12,400 motos",
+    "tabs": {
+      "all": "Todas las motos",
+      "sport": "Deportiva",
+      "cruiser": "Cruiser",
+      "adventure": "Aventura",
+      "offroad": "Todoterreno"
+    }
+  },
+  "filters": {
+    "make": "Marca",
+    "anyMake": "Cualquier marca",
+    "model": "Modelo",
+    "anyModel": "Cualquier modelo",
+    "price": "Precio (AED)",
+    "anyPrice": "Cualquier precio",
+    "priceUnder20": "Menos de 20,000",
+    "price2050": "20,000 – 50,000",
+    "price50100": "50,000 – 100,000",
+    "price100plus": "100,000+",
+    "engine": "Motor",
+    "anySize": "Cualquier tamaño",
+    "engineUnder250": "Menos de 250cc",
+    "engine250500": "250 – 500cc",
+    "engine500800": "500 – 800cc",
+    "engine8001000": "800 – 1000cc",
+    "engine1000plus": "1000cc+"
+  },
+  "stats": {
+    "listed": "motos publicadas",
+    "sellers": "vendedores verificados",
+    "rating": "valoración media",
+    "weekly": "motos añadidas por semana"
+  },
+  "common": {
+    "viewAll": "Ver todo",
+    "seeAll": "Ver todo",
+    "verified": "✓ Verificado"
+  },
+  "types": {
+    "title": "Explorar por tipo de moto",
+    "sub": "Encuentra la moto adecuada para tu estilo",
+    "sport": { "name": "Deportiva", "count": "3,420 motos" },
+    "cruiser": { "name": "Cruiser", "count": "1,890 motos" },
+    "adventure": { "name": "Aventura", "count": "2,140 motos" },
+    "naked": { "name": "Naked", "count": "1,650 motos" },
+    "standard": { "name": "Estándar", "count": "980 motos" },
+    "offroad": { "name": "Todoterreno", "count": "620 motos" },
+    "touring": { "name": "Touring", "count": "420 motos" },
+    "scooter": { "name": "Scooter", "count": "1,180 motos" }
+  },
+  "featured": {
+    "title": "Motos destacadas",
+    "sub": "Motocicletas premium seleccionadas de vendedores verificados",
+    "seeAll": "Ver todas las destacadas",
+    "cards": {
+      "0": { "badge": "Destacada", "sub": "2023 • Dubái • 1,103cc", "finance": "o 2,500/mes", "km": "2,800 km", "type": "Deportiva", "power": "215 cv" },
+      "1": { "badge": "Destacada", "sub": "2023 • Abu Dabi • 1,254cc", "finance": "o 1,372/mes", "km": "12,400 km", "type": "Aventura", "power": "136 cv" },
+      "2": { "badge": "Oferta", "sub": "2022 • Sharjah • 1,868cc", "km": "8,200 km", "type": "Touring", "power": "90 cv" },
+      "3": { "badge": "Nuevo anuncio", "sub": "2022 • Dubái • 998cc", "finance": "o 1,015/mes", "km": "6,800 km", "type": "Deportiva", "power": "200 cv" }
+    }
+  },
+  "makes": {
+    "title": "Explorar por marca",
+    "sub": "Explora el inventario de tus marcas de motos favoritas",
+    "allBrands": "Las 24+ marcas",
+    "viewAll": "Ver todo",
+    "viewAllCount": "24+ marcas"
+  },
+  "categories": {
+    "title": "Comprar por categoría",
+    "sub": "Sea cual sea tu estilo de conducción, tenemos la moto adecuada",
+    "sport": { "title": "Motos deportivas", "count": "3,420 anuncios" },
+    "cruisers": { "title": "Cruisers", "count": "1,890 anuncios" },
+    "adventure": { "title": "Aventura", "count": "2,140 anuncios" },
+    "classic": { "title": "Clásicas y Retro", "count": "980 anuncios" }
+  },
+  "newly": {
+    "title": "Motos recién publicadas",
+    "sub": "Anuncios nuevos añadidos en los últimos 7 días",
+    "cards": {
+      "0": { "badge": "Nuevo", "photos": "14 fotos", "sub": "2023 • Dubái • 1,301cc", "km": "3,200 km", "type": "Naked", "power": "180 cv" },
+      "1": { "photos": "18 fotos", "sub": "2022 • Abu Dabi • 1,200cc", "km": "9,400 km", "type": "Clásica", "power": "80 cv" },
+      "2": { "photos": "16 fotos", "sub": "2023 • Dubái • 890cc", "km": "4,200 km", "type": "Naked", "power": "119 cv" },
+      "3": { "badge": "Rebajada", "photos": "22 fotos", "sub": "2023 • Sharjah • 1,084cc", "km": "7,800 km", "type": "Aventura", "power": "102 cv" }
+    }
+  },
+  "gear": {
+    "title": "Equipamiento y accesorios",
+    "sub": "Cascos, chaquetas, guantes, botas y piezas de moto — de minoristas de confianza de los EAU. Envío gratis en pedidos superiores a AED 500.",
+    "perk1": "Equipo certificado DOT/ECE",
+    "perk2": "Envío gratis en los EAU",
+    "perk3": "Devoluciones en 30 días",
+    "shop": "Comprar equipo",
+    "browse": "Ver accesorios"
+  },
+  "news": {
+    "title": "Lo último de Carsens Bikes",
+    "sub": "Reseñas, guías e información del mercado de motos",
+    "allArticles": "Todos los artículos",
+    "articles": {
+      "0": { "tag": "Aventura", "title": "BMW R1250GS vs Ducati Multistrada V4: ¿qué rey de la aventura gana en las dunas de los EAU?", "date": "11 may 2026", "read": "9 min de lectura" },
+      "1": { "tag": "Guía de compra", "title": "Comprar una moto deportiva en los EAU: 8 cosas que todo nuevo motorista debe revisar primero", "date": "9 may 2026", "read": "7 min de lectura" },
+      "2": { "tag": "Reseña", "title": "Harley-Davidson Street Glide ST 2024: una reseña a largo plazo de Dubái a Hatta", "date": "7 may 2026", "read": "11 min de lectura" }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "title": "Bike detail"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "bikes": "Bikes",
+    "sportBikes": "Sport bikes",
+    "ducati": "Ducati",
+    "current": "Panigale V4 SP2 2023"
+  },
+  "head": {
+    "title": "Ducati Panigale V4 SP2",
+    "year": "2023",
+    "body": "Sport",
+    "engine": "1,103cc",
+    "mileage": "2,800 km",
+    "location": "Dubai",
+    "tag": "GCC Specs"
+  },
+  "actions": {
+    "share": "Share",
+    "save": "Save",
+    "compare": "Compare"
+  },
+  "gallery": {
+    "featured": "Featured",
+    "photoNum": "1 / 6",
+    "viewAll": "View all 18 photos"
+  },
+  "quickSpecs": {
+    "year": { "label": "Year", "val": "2023" },
+    "mileage": { "label": "Mileage", "val": "2,800 km" },
+    "engine": { "label": "Engine", "val": "1,103cc V4" },
+    "power": { "label": "Power", "val": "215 hp" },
+    "body": { "label": "Body", "val": "Sport" },
+    "gears": { "label": "Gears", "val": "6-speed" }
+  },
+  "about": {
+    "title": "About this bike",
+    "p1": "Pristine 2023 Ducati Panigale V4 SP2 with full service history at the Ducati Dubai service center. Single rider from new, low mileage (2,800 km), garage-kept, and immaculate condition throughout.",
+    "p2": "The SP2 is the most track-focused Panigale ever — equipped with the 1,103cc Desmosedici Stradale V4 producing 215 hp at 13,000 rpm, dry STM-EVO clutch, carbon-fiber wheels, Brembo Stylema R brakes, and the full Ducati Performance accessory kit including Akrapovic full-titanium exhaust (race-only).",
+    "p3": "Latest IMU-based electronics suite: cornering ABS EVO, Ducati Wheelie Control EVO, Ducati Slide Control, Ducati Power Launch, Ducati Quick Shift EVO 2, and 8-axis IMU traction control.",
+    "readMore": "Read more ↓"
+  },
+  "features": {
+    "title": "Key features",
+    "items": {
+      "0": "Akrapovic titanium exhaust",
+      "1": "Carbon-fiber wheels",
+      "2": "Brembo Stylema R brakes",
+      "3": "STM-EVO dry clutch",
+      "4": "Öhlins NPX-25 forks",
+      "5": "Öhlins TTX36 shock",
+      "6": "4 riding modes + 4 power maps",
+      "7": "5\" TFT colour dashboard",
+      "8": "Cornering ABS EVO",
+      "9": "Wheelie control EVO",
+      "10": "Quickshifter EVO 2 (up/down)"
+    }
+  },
+  "inspect": {
+    "title": "120-point inspection passed",
+    "by": "Inspected by Carsens Certified on May 10, 2026",
+    "score": "99",
+    "outOf": "out of 100",
+    "bars": {
+      "0": { "label": "Engine & drivetrain", "value": "100%" },
+      "1": { "label": "Frame & paint", "value": "98%" },
+      "2": { "label": "Brakes & suspension", "value": "100%" },
+      "3": { "label": "Electronics", "value": "100%" },
+      "4": { "label": "Tires", "value": "96%" }
+    },
+    "report": "View full inspection report (PDF)"
+  },
+  "specs": {
+    "title": "Full specifications",
+    "groups": {
+      "engine": {
+        "title": "Engine & performance",
+        "rows": {
+          "0": { "label": "Engine type", "value": "Desmosedici Stradale 90° V4" },
+          "1": { "label": "Displacement", "value": "1,103 cc" },
+          "2": { "label": "Power", "value": "215 hp @ 13,000 rpm" },
+          "3": { "label": "Torque", "value": "124 Nm @ 9,500 rpm" },
+          "4": { "label": "Compression ratio", "value": "14.0 : 1" },
+          "5": { "label": "Cooling", "value": "Liquid" },
+          "6": { "label": "Bore × stroke", "value": "81 × 53.5 mm" },
+          "7": { "label": "Valve train", "value": "Desmodromic, 4 valves/cyl" },
+          "8": { "label": "Top speed", "value": "305 km/h (est.)" },
+          "9": { "label": "0–100 km/h", "value": "2.9 sec" }
+        }
+      },
+      "transmission": {
+        "title": "Transmission & final drive",
+        "rows": {
+          "0": { "label": "Gearbox", "value": "6-speed" },
+          "1": { "label": "Clutch", "value": "STM-EVO dry hydraulic, slipper" },
+          "2": { "label": "Quickshifter", "value": "DQS EVO 2 (up/down)" },
+          "3": { "label": "Final drive", "value": "520 chain" }
+        }
+      },
+      "dimensions": {
+        "title": "Dimensions & weight",
+        "rows": {
+          "0": { "label": "Wet weight", "value": "196 kg" },
+          "1": { "label": "Dry weight", "value": "175 kg" },
+          "2": { "label": "Wheelbase", "value": "1,469 mm" },
+          "3": { "label": "Seat height", "value": "835 mm" },
+          "4": { "label": "Rake / trail", "value": "24.5° / 100 mm" },
+          "5": { "label": "Fuel tank", "value": "16 L" },
+          "6": { "label": "Length × width × height", "value": "2,090 × 815 × 1,140 mm" }
+        }
+      },
+      "wheels": {
+        "title": "Wheels, brakes & suspension",
+        "rows": {
+          "0": { "label": "Front suspension", "value": "Öhlins NPX-25/30 (43 mm)" },
+          "1": { "label": "Rear suspension", "value": "Öhlins TTX36 mono-shock" },
+          "2": { "label": "Front brake", "value": "2× 330 mm Brembo Stylema R, 4-pot" },
+          "3": { "label": "Rear brake", "value": "245 mm, Brembo 2-pot" },
+          "4": { "label": "Front wheel", "value": "Carbon fibre 3.5″ × 17″" },
+          "5": { "label": "Rear wheel", "value": "Carbon fibre 6.0″ × 17″" },
+          "6": { "label": "Tires (F/R)", "value": "120/70 ZR17 / 200/60 ZR17" }
+        }
+      },
+      "electronics": {
+        "title": "Electronics & rider aids",
+        "rows": {
+          "0": { "label": "IMU", "value": "8-axis Bosch" },
+          "1": { "label": "ABS", "value": "Cornering ABS EVO (3 levels)" },
+          "2": { "label": "Traction control", "value": "DTC EVO 3 (8 levels)" },
+          "3": { "label": "Wheelie control", "value": "DWC EVO (8 levels)" },
+          "4": { "label": "Slide control", "value": "DSC (2 levels)" },
+          "5": { "label": "Launch control", "value": "Ducati Power Launch (3 levels)" },
+          "6": { "label": "Engine brake control", "value": "EBC EVO (3 levels)" },
+          "7": { "label": "Riding modes", "value": "Race A, Race B, Sport, Street" },
+          "8": { "label": "Display", "value": "5″ TFT colour" },
+          "9": { "label": "Data logging", "value": "Ducati Data Analyser+ GPS" }
+        }
+      }
+    }
+  },
+  "history": {
+    "title": "Bike history",
+    "items": {
+      "0": { "title": "Single rider", "desc": "Original owner from new" },
+      "1": { "title": "No accident history", "desc": "Clean record, no drops" },
+      "2": { "title": "Service history", "desc": "2 records at Ducati Dubai" },
+      "3": { "title": "Manufacturer warranty", "desc": "Until Sep 2027 or 24,000 km" },
+      "4": { "title": "GCC specifications", "desc": "Originally sold in UAE" },
+      "5": { "title": "Mulkiya valid", "desc": "Until Mar 2027" }
+    }
+  },
+  "price": {
+    "currency": "AED",
+    "amt": "168,000",
+    "subPre": "or",
+    "subEm": "AED 2,500 / mo",
+    "subPost": "for 60 months"
+  },
+  "dealer": {
+    "logo": "RS",
+    "name": "RS Motorcycles",
+    "rating": "★ 4.8",
+    "reviews": "74 reviews",
+    "meta2": "64 bikes listed • Al Quoz, Dubai",
+    "link": "View all bikes from this dealer →"
+  },
+  "contact": {
+    "phone": "052 ••• 4218",
+    "phoneHint": "— tap to view",
+    "whatsapp": "WhatsApp dealer",
+    "message": "Send a message",
+    "schedule": "Schedule a viewing"
+  },
+  "finance": {
+    "title": "Finance calculator",
+    "subtitle": "Estimate your monthly payment",
+    "currency": "AED",
+    "price": { "label": "Bike price", "val": "168,000" },
+    "downPayment": { "label": "Down payment", "pct": "25", "amt": "42,000" },
+    "loanTerm": {
+      "label": "Loan term",
+      "opt12": "12 months",
+      "opt24": "24 months",
+      "opt36": "36 months",
+      "opt48": "48 months",
+      "opt60": "60 months"
+    },
+    "interestRate": { "label": "Interest rate", "val": "5.5" },
+    "result": {
+      "monthly": "Monthly payment",
+      "monthlyVal": "2,406",
+      "loanAmount": "Loan amount",
+      "loanAmountVal": "126,000",
+      "totalInterest": "Total interest",
+      "totalInterestVal": "18,360",
+      "totalCost": "Total cost",
+      "totalCostVal": "186,360"
+    },
+    "getPreApproved": "Get pre-approved"
+  },
+  "safety": {
+    "title": "Stay safe when buying",
+    "items": {
+      "0": "Inspect the bike in person and verify VIN before paying",
+      "1": "Check tire age (DOT code) and chain condition",
+      "2": "Pay through secure UAE bank channels only",
+      "3": "Use Carsens Bike Inspection if unsure (AED 350)"
+    },
+    "link": "Read full safety guide →"
+  },
+  "similar": {
+    "title": "Similar bikes you might like",
+    "subtitle": "Same body type & engine range",
+    "seeAll": "See all",
+    "cards": {
+      "0": { "title": "Kawasaki Ninja ZX-10R", "sub": "2022 • Dubai • 998cc", "price": "AED 68,000", "spec1": "6,800 km", "spec2": "200 hp" },
+      "1": { "title": "BMW S1000RR", "sub": "2023 • Abu Dhabi • 999cc", "price": "AED 118,000", "spec1": "4,200 km", "spec2": "210 hp" },
+      "2": { "title": "Aprilia RSV4 Factory", "sub": "2023 • Dubai • 1,099cc", "price": "AED 142,000", "spec1": "1,800 km", "spec2": "217 hp" },
+      "3": { "title": "Ducati Panigale V2", "sub": "2022 • Dubai • 955cc", "price": "AED 82,000", "spec1": "8,400 km", "spec2": "155 hp" }
+    }
+  }
+}

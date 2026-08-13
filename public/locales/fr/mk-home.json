@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Acheter et vendre des voitures aux EAU",
+    "desc": "Plus de 60 000 voitures neuves et d'occasion de 1 200 concessionnaires de confiance à Dubaï, Abu Dhabi, Sharjah et au-delà."
+  },
+  "hero": {
+    "title": "Trouvez la voiture idéale aux EAU",
+    "sub": "Plus de 60 000 voitures neuves et d'occasion de 1 200 concessionnaires de confiance à Dubaï, Abu Dhabi, Sharjah et au-delà.",
+    "tabUsed": "Voitures d'occasion",
+    "tabNew": "Voitures neuves",
+    "tabBikes": "Motos",
+    "tabDealers": "Concessionnaires",
+    "make": "Marque",
+    "anyMake": "Toute marque",
+    "model": "Modèle",
+    "anyModel": "Tout modèle",
+    "price": "Prix (AED)",
+    "anyPrice": "Tout prix",
+    "year": "Année",
+    "anyYear": "Toute année",
+    "search": "Rechercher"
+  },
+  "stats": {
+    "listed": "voitures listées",
+    "dealers": "concessionnaires vérifiés",
+    "rating": "note moyenne",
+    "daily": "voitures ajoutées/jour"
+  },
+  "body": {
+    "title": "Parcourir par carrosserie",
+    "sub": "Trouvez des voitures adaptées à votre style de vie",
+    "viewAll": "Tout voir",
+    "cars": "voitures"
+  },
+  "featured": {
+    "title": "Voitures en vedette",
+    "sub": "Annonces premium sélectionnées de concessionnaires vérifiés",
+    "seeAll": "Voir toutes les vedettes"
+  },
+  "make": {
+    "title": "Parcourir par marque",
+    "sub": "Achetez les marques les plus populaires des EAU",
+    "all": "Toutes les marques"
+  },
+  "fresh": {
+    "title": "Nouveautés",
+    "sub": "Les dernières voitures ajoutées aux EAU",
+    "browse": "Tout parcourir"
+  },
+  "sell": {
+    "title": "Vendez votre voiture. Vite.",
+    "sub": "Atteignez plus de 2 millions d'acheteurs par mois aux EAU. Publiez en moins de 3 minutes — gratuit pour les particuliers.",
+    "perk1": "Annonces gratuites pour les particuliers",
+    "perk2": "Plus de 2M de visiteurs/mois",
+    "perk3": "Vendez en 14 jours",
+    "cta1": "Publiez votre voiture gratuitement",
+    "cta2": "Obtenez une estimation instantanée"
+  },
+  "why": {
+    "title": "Pourquoi acheter et vendre sur Carsens ?",
+    "sub": "Conçu pour le marché automobile des EAU avec la confiance et la rapidité attendues.",
+    "t1": "Concessionnaires vérifiés",
+    "b1": "Chaque concessionnaire est contrôlé et noté par de vrais acheteurs aux EAU.",
+    "t2": "Inventaire en temps réel",
+    "b2": "Les annonces se mettent à jour toutes les 5 minutes. Aucun stock périmé, aucun appel inutile.",
+    "t3": "Inspection à domicile",
+    "b3": "Réservez une inspection gratuite en 200 points chez vous avant de vous engager.",
+    "t4": "Financement facile",
+    "b4": "Prêts préapprouvés de 7 banques des EAU. Décision en quelques minutes."
+  },
+  "bt": {
+    "SUV": "SUV",
+    "Sedan": "Berline",
+    "Coupe": "Coupé",
+    "Hatchback": "Compacte",
+    "Pickup": "Pick-up",
+    "Convertible": "Cabriolet",
+    "Van": "Fourgon",
+    "Wagon": "Break"
+  }
+}

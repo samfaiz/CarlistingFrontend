@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "title": "Rechercher des voitures"
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "usedCars": "Voitures d'occasion",
+    "uae": "EAU"
+  },
+  "title": {
+    "heading": "Voitures d'occasion aux EAU",
+    "count": "24,318",
+    "resultsMeta": "Affichage de 1–12 sur 24,318 résultats",
+    "saveSearch": "Enregistrer cette recherche"
+  },
+  "compact": {
+    "makeLabel": "Marque",
+    "makeOpt0": "Toyota",
+    "makeOpt1": "Toute marque",
+    "makeOpt2": "BMW",
+    "makeOpt3": "Mercedes-Benz",
+    "makeOpt4": "Nissan",
+    "modelLabel": "Modèle",
+    "modelOpt0": "Tout modèle",
+    "modelOpt1": "Land Cruiser",
+    "modelOpt2": "Corolla",
+    "modelOpt3": "Camry",
+    "priceLabel": "Prix (AED)",
+    "priceOpt0": "Tout prix",
+    "priceOpt1": "Moins de 50,000",
+    "priceOpt2": "50,000 – 100,000",
+    "priceOpt3": "100,000 – 200,000",
+    "yearLabel": "Année",
+    "yearOpt0": "Toute année",
+    "yearOpt1": "2024",
+    "yearOpt2": "2023",
+    "yearOpt3": "2022",
+    "emirateLabel": "Émirat",
+    "emirateOpt0": "Tous les émirats",
+    "emirateOpt1": "Dubaï",
+    "emirateOpt2": "Abou Dabi",
+    "emirateOpt3": "Sharjah",
+    "update": "Mettre à jour"
+  },
+  "filters": {
+    "title": "Filtres",
+    "reset": "Tout réinitialiser"
+  },
+  "fg": {
+    "keyword": {
+      "title": "Recherche par mot-clé",
+      "placeholder": "ex. 'faible kilométrage', 'toit ouvrant'"
+    },
+    "body": {
+      "title": "Type de carrosserie",
+      "all": "Tous",
+      "suv": "SUV",
+      "sedan": "Berline",
+      "coupe": "Coupé",
+      "hatchback": "Compacte",
+      "pickup": "Pick-up",
+      "convertible": "Cabriolet",
+      "van": "Fourgon"
+    },
+    "make": {
+      "title": "Marque",
+      "toyota": "Toyota",
+      "nissan": "Nissan",
+      "mercedes": "Mercedes-Benz",
+      "bmw": "BMW",
+      "lexus": "Lexus",
+      "honda": "Honda",
+      "audi": "Audi",
+      "ford": "Ford",
+      "hyundai": "Hyundai",
+      "more": "+ Afficher 72 de plus"
+    },
+    "model": {
+      "title": "Modèle",
+      "opt0": "Tout modèle",
+      "opt1": "Land Cruiser",
+      "opt2": "Camry",
+      "opt3": "Corolla",
+      "opt4": "RAV4"
+    },
+    "price": {
+      "title": "Prix (AED)",
+      "min": "Min",
+      "max": "Max"
+    },
+    "year": {
+      "title": "Année"
+    },
+    "mileage": {
+      "title": "Kilométrage (km)"
+    },
+    "transmission": {
+      "title": "Transmission",
+      "automatic": "Automatique",
+      "manual": "Manuelle"
+    },
+    "fuel": {
+      "title": "Type de carburant",
+      "petrol": "Essence",
+      "diesel": "Diesel",
+      "hybrid": "Hybride",
+      "electric": "Électrique"
+    },
+    "color": {
+      "title": "Couleur extérieure",
+      "white": "Blanc",
+      "black": "Noir",
+      "silver": "Argent",
+      "grey": "Gris",
+      "red": "Rouge",
+      "blue": "Bleu",
+      "yellow": "Jaune",
+      "green": "Vert",
+      "brown": "Marron",
+      "orange": "Orange",
+      "purple": "Violet",
+      "other": "Autre"
+    },
+    "seller": {
+      "title": "Type de vendeur",
+      "dealer": "Concessionnaire",
+      "owner": "Particulier"
+    },
+    "location": {
+      "title": "Emplacement",
+      "dubai": "Dubaï",
+      "abuDhabi": "Abou Dabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "fujairah": "Fujairah"
+    },
+    "regional": {
+      "title": "Spécification régionale",
+      "gcc": "Spécification CCG",
+      "american": "Américaine",
+      "european": "Européenne",
+      "japanese": "Japonaise"
+    }
+  },
+  "active": {
+    "toyota": "Toyota",
+    "suv": "SUV",
+    "automatic": "Automatique",
+    "black": "Noir",
+    "clearAll": "Tout effacer",
+    "remove": "retirer"
+  },
+  "toolbar": {
+    "count": "24,318 voitures",
+    "match": "correspondent à vos filtres",
+    "sortBy": "Trier par",
+    "sort0": "Plus pertinent",
+    "sort1": "Plus récentes d'abord",
+    "sort2": "Prix : croissant",
+    "sort3": "Prix : décroissant",
+    "sort4": "Kilométrage le plus bas",
+    "sort5": "Année : plus récente",
+    "gridView": "Vue en grille",
+    "listView": "Vue en liste"
+  },
+  "common": {
+    "verified": "✓ Vérifié"
+  },
+  "cards": {
+    "0": {
+      "badge": "En vedette",
+      "title": "Toyota Land Cruiser GR-Sport",
+      "sub": "2023 • Abou Dabi • Spécification CCG",
+      "price": "AED 365,000",
+      "small": "ou 5,440/mois",
+      "spec0": "18,200 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Al Tayer Motors"
+    },
+    "1": {
+      "badge": "Bonne affaire",
+      "title": "Toyota Fortuner VX",
+      "sub": "2022 • Sharjah • Spécification CCG",
+      "price": "AED 138,000",
+      "small": "AED 152,000",
+      "spec0": "42,800 km",
+      "spec1": "Diesel",
+      "spec2": "Auto",
+      "dealer": "Nasser Motors"
+    },
+    "2": {
+      "title": "Toyota Prado VXR",
+      "sub": "2021 • Dubaï • Spécification CCG",
+      "price": "AED 195,000",
+      "small": "ou 2,910/mois",
+      "spec0": "68,400 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Premier Auto"
+    },
+    "3": {
+      "badge": "Nouvelle annonce",
+      "title": "Toyota RAV4 Adventure",
+      "sub": "2023 • Dubaï • Spécification CCG",
+      "price": "AED 128,000",
+      "small": "ou 1,910/mois",
+      "spec0": "22,800 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Al Manar Motors"
+    },
+    "4": {
+      "title": "Toyota Hilux Adventure",
+      "sub": "2022 • Ras Al Khaimah",
+      "price": "AED 142,000",
+      "spec0": "36,800 km",
+      "spec1": "Diesel",
+      "spec2": "Auto",
+      "dealer": "RS Garage"
+    },
+    "5": {
+      "badge": "En vedette",
+      "title": "Toyota Highlander Limited",
+      "sub": "2023 • Dubaï • Spécification Américaine",
+      "price": "AED 168,000",
+      "small": "ou 2,510/mois",
+      "spec0": "14,200 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Star Motors"
+    },
+    "6": {
+      "title": "Toyota 4Runner TRD Pro",
+      "sub": "2021 • Abou Dabi",
+      "price": "AED 178,500",
+      "spec0": "52,400 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Emirates Auto"
+    },
+    "7": {
+      "badge": "Réduit",
+      "title": "Toyota Sequoia Platinum",
+      "sub": "2020 • Sharjah",
+      "price": "AED 152,000",
+      "small": "AED 168,000",
+      "spec0": "78,200 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Luxury Cars UAE"
+    },
+    "8": {
+      "title": "Toyota C-HR Hybrid GR",
+      "sub": "2023 • Dubaï • Spécification CCG",
+      "price": "AED 92,000",
+      "spec0": "11,400 km",
+      "spec1": "Hybride",
+      "spec2": "CVT",
+      "dealer": "Al Tayer"
+    },
+    "9": {
+      "title": "Toyota Land Cruiser VXR",
+      "sub": "2020 • Dubaï • Spécification CCG",
+      "price": "AED 248,000",
+      "small": "ou 3,690/mois",
+      "spec0": "86,400 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Premier Auto"
+    },
+    "10": {
+      "title": "Toyota Camry Grande",
+      "sub": "2022 • Ajman • Spécification CCG",
+      "price": "AED 86,500",
+      "spec0": "48,200 km",
+      "spec1": "Essence",
+      "spec2": "Auto",
+      "dealer": "Nasser Motors"
+    }
+  },
+  "promo": {
+    "title": "Obtenez un financement pré-approuvé en 2 minutes",
+    "text": "Comparez les offres de 7 banques des EAU. Sans impact sur votre score de crédit.",
+    "cta": "Vérifier l'éligibilité"
+  },
+  "pagination": {
+    "prev": "‹ Préc.",
+    "next": "Suivant ›"
+  }
+}

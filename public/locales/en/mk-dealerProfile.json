@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "title": "Dealer profile"
+  },
+  "cover": {
+    "alt": ""
+  },
+  "header": {
+    "name": "Al Tayer Motors",
+    "verified": "Verified dealer",
+    "premium": "★ Premium partner",
+    "rating": "★ 4.8",
+    "reviews": "248 reviews",
+    "location": "Mussafah, Abu Dhabi",
+    "carsListedValue": "432",
+    "carsListedLabel": "cars listed",
+    "memberSince": "Member since 2018",
+    "openNow": "Open now until 9 PM",
+    "contact": "Contact dealer",
+    "follow": "Follow",
+    "share": "Share"
+  },
+  "stats": {
+    "activeVal": "432",
+    "activeLabel": "Active listings",
+    "yearsVal": "7 yrs",
+    "yearsLabel": "On Carsens",
+    "responseVal": "98%",
+    "responseLabel": "Response rate",
+    "replyVal": "~2 hrs",
+    "replyLabel": "Avg. reply time",
+    "soldVal": "12,400+",
+    "soldLabel": "Cars sold"
+  },
+  "tabs": {
+    "inventory": "All cars (432)",
+    "about": "About",
+    "reviews": "Reviews (248)",
+    "locations": "Locations (3)"
+  },
+  "inventory": {
+    "chips": {
+      "0": "All (432)",
+      "1": "SUVs (218)",
+      "2": "Sedans (98)",
+      "3": "Coupes (42)",
+      "4": "Hybrid/EV (36)",
+      "5": "Featured (24)",
+      "6": "Reduced (18)"
+    },
+    "toolbarCount": "432 cars",
+    "toolbarFrom": "from Al Tayer Motors",
+    "sortBy": "Sort by",
+    "sort": {
+      "relevant": "Most relevant",
+      "newest": "Newest first",
+      "priceLow": "Price: low to high",
+      "priceHigh": "Price: high to low"
+    },
+    "prev": "‹ Prev",
+    "next": "Next ›",
+    "cards": {
+      "0": {
+        "title": "Toyota Land Cruiser GR-Sport",
+        "sub": "2023 • GCC Specs",
+        "price": "AED 365,000",
+        "badge": "Featured",
+        "photos": "22",
+        "spec0": "18,200 km",
+        "spec1": "Petrol",
+        "spec2": "Auto"
+      },
+      "1": {
+        "title": "Mercedes-Benz G63 AMG",
+        "sub": "2024 • GCC Specs",
+        "price": "AED 985,000",
+        "badge": "Featured",
+        "photos": "32",
+        "spec0": "4,800 km",
+        "spec1": "Petrol",
+        "spec2": "Auto"
+      },
+      "2": {
+        "title": "BMW X5 xDrive40i M-Sport",
+        "sub": "2023 • Dubai",
+        "price": "AED 285,000",
+        "photos": "24",
+        "spec0": "38,200 km",
+        "spec1": "Petrol",
+        "spec2": "Auto"
+      },
+      "3": {
+        "title": "Porsche 911 Carrera S",
+        "sub": "2023 • Dubai",
+        "price": "AED 545,000",
+        "badge": "New",
+        "photos": "21",
+        "spec0": "12,600 km",
+        "spec1": "Petrol",
+        "spec2": "PDK"
+      },
+      "4": {
+        "title": "Range Rover Vogue Autobiography",
+        "sub": "2022 • Dubai",
+        "price": "AED 485,000",
+        "photos": "16",
+        "spec0": "31,200 km",
+        "spec1": "Petrol",
+        "spec2": "Auto"
+      },
+      "5": {
+        "title": "Toyota Fortuner VX",
+        "sub": "2022 • Sharjah",
+        "price": "AED 138,000",
+        "priceOld": "AED 152,000",
+        "badge": "Reduced",
+        "photos": "19",
+        "spec0": "42,800 km",
+        "spec1": "Diesel",
+        "spec2": "Auto"
+      },
+      "6": {
+        "title": "Toyota C-HR Hybrid GR",
+        "sub": "2023 • Dubai • GCC",
+        "price": "AED 92,000",
+        "photos": "15",
+        "spec0": "11,400 km",
+        "spec1": "Hybrid",
+        "spec2": "CVT"
+      },
+      "7": {
+        "title": "Toyota Camry Grande Hybrid",
+        "sub": "2022 • Abu Dhabi",
+        "price": "AED 96,500",
+        "photos": "14",
+        "spec0": "28,200 km",
+        "spec1": "Hybrid",
+        "spec2": "Auto"
+      },
+      "8": {
+        "title": "Ford Mustang GT Premium",
+        "sub": "2022 • Abu Dhabi",
+        "price": "AED 162,500",
+        "photos": "18",
+        "spec0": "22,400 km",
+        "spec1": "Petrol",
+        "spec2": "Auto"
+      }
+    }
+  },
+  "about": {
+    "heading": "About Al Tayer Motors",
+    "p1": "Al Tayer Motors has been a trusted name in the UAE automotive market since 2018, with three premium showrooms across Abu Dhabi serving over 12,400 happy customers. We specialize in luxury and high-performance vehicles from Toyota, Mercedes-Benz, BMW, Range Rover, Porsche, and Lexus.",
+    "p2": "Every vehicle in our inventory is thoroughly inspected and comes with a complimentary 30-day warranty, full service history, and our signature \"no surprises\" pricing — what you see is what you pay, with all RTA fees and registration included.",
+    "p3": "Our team speaks English, Arabic, Urdu, and Hindi, and we offer multilingual after-sales support for the lifetime of your vehicle.",
+    "servicesHeading": "Services we offer",
+    "services": {
+      "0": {
+        "title": "Trade-in accepted",
+        "desc": "Bring your current car and we'll appraise it on the spot — apply it instantly toward your new purchase."
+      },
+      "1": {
+        "title": "Financing partners",
+        "desc": "Pre-approved finance from Emirates NBD, ADCB, Mashreq, and 4 other UAE banks. 0% finance available on select models."
+      },
+      "2": {
+        "title": "30-day warranty",
+        "desc": "Complimentary 30-day warranty on every used car, with optional extended coverage up to 2 years."
+      },
+      "3": {
+        "title": "Free home delivery",
+        "desc": "Free delivery within Abu Dhabi and Dubai. AED 250 to other Emirates. Vehicle arrives detailed and full of fuel."
+      },
+      "4": {
+        "title": "Full service history",
+        "desc": "Every vehicle comes with documented service records and a verified RTA Mulkiya history report."
+      },
+      "5": {
+        "title": "Free inspection at home",
+        "desc": "Not sure? Book a free 200-point inspection at your location before signing anything."
+      }
+    }
+  },
+  "reviews": {
+    "summaryNum": "4.8",
+    "summaryCount": "Based on 248 reviews",
+    "bars": {
+      "5": "5 stars",
+      "4": "4 stars",
+      "3": "3 stars",
+      "2": "2 stars",
+      "1": "1 star"
+    },
+    "filters": {
+      "0": "All reviews",
+      "1": "5 ★",
+      "2": "4 ★",
+      "3": "Recent",
+      "4": "With photos"
+    },
+    "sort": {
+      "relevant": "Most relevant",
+      "recent": "Most recent",
+      "highest": "Highest rated"
+    },
+    "verifiedBuyer": "Verified buyer",
+    "replyFrom": "Reply from Al Tayer Motors",
+    "reply": "Reply",
+    "report": "Report",
+    "loadMore": "Load 244 more reviews",
+    "items": {
+      "0": {
+        "name": "Sara K.",
+        "time": "3 days ago",
+        "body": "Absolutely outstanding service from start to finish. I came in looking at a 2023 Land Cruiser and the team — special shoutout to Khalid — was patient, transparent, and never pushy. They even arranged for me to take it home overnight before I committed. Paperwork was painless and the car was delivered to my office spotless. I'd buy from them again.",
+        "carTag": "Toyota Land Cruiser GR-Sport · 2023",
+        "reply": "Thank you Sara! It was a pleasure helping you find the right Land Cruiser. Enjoy every mile — and don't forget your first free service is on us!",
+        "helpful": "Helpful (24)"
+      },
+      "1": {
+        "name": "Ahmed H.",
+        "time": "1 week ago",
+        "body": "Bought a BMW X5 here after looking at four other dealerships. Al Tayer's price was AED 12,000 lower than the next-best offer for an identical car, and the inspection report they provided was incredibly thorough — even minor stuff like wheel alignment was noted. Test drove three cars in one afternoon, no pressure. Will recommend to family.",
+        "carTag": "BMW X5 xDrive40i · 2023",
+        "helpful": "Helpful (18)"
+      },
+      "2": {
+        "name": "Fatima R.",
+        "time": "2 weeks ago",
+        "body": "Good overall experience. Pricing is fair and the team is professional. Took off one star because the financing approval took 4 days when they had said 24 hours — but once that came through, the rest was smooth. The car was delivered home as promised.",
+        "carTag": "Toyota Camry · 2022",
+        "reply": "Hi Fatima — apologies for the financing delay! That was an issue at the bank's end, but we've since restructured our process to escalate any approval taking over 48 hours. Glad you enjoyed the car!",
+        "helpful": "Helpful (9)"
+      },
+      "3": {
+        "name": "Mohamed J.",
+        "time": "3 weeks ago",
+        "body": "Bought my second car from them this month. The trade-in offer on my old vehicle was AED 8,000 more than any other dealer quoted. The G63 I picked up was in absolutely showroom condition. Khalid is honest, accommodating, and remembered me from my last purchase 2 years ago. This is how a dealership should be run.",
+        "carTag": "Mercedes-Benz G63 AMG · 2024",
+        "helpful": "Helpful (32)"
+      }
+    }
+  },
+  "locations": {
+    "heading": "Our showrooms (3)",
+    "getDirections": "Get directions",
+    "call": "Call",
+    "legendFlagship": "Flagship",
+    "legendBranches": "Branches",
+    "items": {
+      "0": {
+        "name": "Mussafah Flagship Showroom",
+        "addr": "Sheikh Zayed Bin Sultan Street, Mussafah Industrial Area, Abu Dhabi",
+        "openStrong": "Open now",
+        "openUntil": "· until 9:00 PM",
+        "hours0": "Mon–Thu: 9 AM – 9 PM",
+        "hours1": "Fri: 2 PM – 10 PM",
+        "phone": "+971 2 555 1234"
+      },
+      "1": {
+        "name": "Dubai Marina Showroom",
+        "addr": "Sheikh Zayed Road, opposite Dubai Marina Mall, Dubai",
+        "openStrong": "Open now",
+        "openUntil": "· until 9:00 PM",
+        "hours0": "Mon–Sun: 10 AM – 9 PM",
+        "phone": "+971 4 555 5678"
+      },
+      "2": {
+        "name": "Sharjah Industrial Area Branch",
+        "addr": "Industrial Area 13, Sharjah",
+        "closingSoon": "Closing soon · 9:00 PM",
+        "hours0": "Mon–Sat: 9 AM – 9 PM (closed Friday)",
+        "phone": "+971 6 555 9012"
+      }
+    }
+  },
+  "sidebar": {
+    "contact": {
+      "heading": "Get in touch",
+      "subtitle": "Usually replies within ~2 hours",
+      "phone": "052 ••• 9842",
+      "whatsapp": "WhatsApp",
+      "sendMessage": "Send message",
+      "getDirections": "Get directions"
+    },
+    "miniMap": {
+      "heading": "Flagship location",
+      "name": "Mussafah Flagship",
+      "addrLine1": "Sheikh Zayed Bin Sultan St,",
+      "addrLine2": "Mussafah, Abu Dhabi",
+      "link": "Get directions →"
+    },
+    "hours": {
+      "heading": "Working hours",
+      "openNow": "Open now",
+      "today": "TODAY",
+      "mon": "Monday",
+      "monTime": "9:00 AM – 9:00 PM",
+      "tue": "Tuesday",
+      "tueTime": "9:00 AM – 9:00 PM",
+      "wed": "Wednesday",
+      "wedTime": "9:00 AM – 9:00 PM",
+      "thu": "Thursday",
+      "thuTime": "9:00 AM – 9:00 PM",
+      "fri": "Friday",
+      "friTime": "2:00 PM – 10:00 PM",
+      "sat": "Saturday",
+      "satTime": "10:00 AM – 9:00 PM",
+      "sun": "Sunday",
+      "sunTime": "10:00 AM – 9:00 PM"
+    },
+    "trust": {
+      "heading": "Why choose us",
+      "items": {
+        "0": "Verified RTA-licensed dealer",
+        "1": "30-day warranty on every car",
+        "2": "Free 200-point inspection",
+        "3": "Trade-in accepted",
+        "4": "Financing from 7 UAE banks",
+        "5": "Free delivery in UAE"
+      }
+    }
+  }
+}

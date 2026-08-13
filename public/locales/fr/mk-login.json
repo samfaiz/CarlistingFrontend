@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Connexion"
+  },
+  "hero": {
+    "title": "Bon retour",
+    "subtitle": "Connectez-vous à votre compte Carsens"
+  },
+  "form": {
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "passwordLabel": "Mot de passe",
+    "togglePassword": "Afficher/masquer le mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "submit": "Se connecter"
+  },
+  "divider": "ou continuer avec",
+  "social": {
+    "google": "Continuer avec Google",
+    "apple": "Continuer avec Apple",
+    "uaePassBadge": "UAE",
+    "uaePass": "Continuer avec UAE Pass"
+  },
+  "switch": {
+    "prompt": "Vous n'avez pas de compte ?",
+    "link": "Inscrivez-vous gratuitement →"
+  }
+}

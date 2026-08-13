@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Help center"
+  },
+  "hero": {
+    "title": "How can we help?",
+    "subtitle": "Find answers to common questions, or get in touch with our team. We typically reply in under 2 hours.",
+    "searchPlaceholder": "Search help articles — e.g. 'how to verify my account'",
+    "searchButton": "Search",
+    "popular": "Popular:",
+    "suggestions": {
+      "0": "How to sell my car",
+      "1": "Listing fees",
+      "2": "Account verification",
+      "3": "Payment safety"
+    }
+  },
+  "cats": {
+    "heading": "Browse help by topic",
+    "0": {
+      "title": "Buying a car",
+      "desc": "Searching, viewing, financing, paperwork & more.",
+      "count": "28 articles"
+    },
+    "1": {
+      "title": "Selling your car",
+      "desc": "Listing your car, photos, pricing, and reaching buyers.",
+      "count": "22 articles"
+    },
+    "2": {
+      "title": "Account & profile",
+      "desc": "Sign-in, verification, profile, password, and 2FA.",
+      "count": "18 articles"
+    },
+    "3": {
+      "title": "Safety & trust",
+      "desc": "Spotting scams, secure payment, dealer verification.",
+      "count": "14 articles"
+    },
+    "4": {
+      "title": "Finance & insurance",
+      "desc": "Loan options, pre-approval, insurance partners & quotes.",
+      "count": "16 articles"
+    },
+    "5": {
+      "title": "For dealers",
+      "desc": "Dealer onboarding, inventory uploads, premium plans.",
+      "count": "12 articles"
+    },
+    "6": {
+      "title": "Inspections & history",
+      "desc": "200-point inspections, RTA records, accident reports.",
+      "count": "10 articles"
+    },
+    "7": {
+      "title": "Contact us",
+      "desc": "Reach the team — phone, WhatsApp, email, or live chat.",
+      "count": "Direct support"
+    }
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "viewAll": "View all 120 FAQs →",
+    "items": {
+      "0": {
+        "q": "How do I list my car on Carsens for free?",
+        "a": {
+          "0": "Click \"Sell Your Car\" in the top-right of any page, then follow the 5-step listing flow: car info → specs → photos → price → publish. Private sellers can list for free. Your car appears live within minutes of being published.",
+          "1": "You'll get unlimited photos, 30 days of standard listing time, and full access to direct buyer messages. Upgrade to Featured (AED 99) or Premium (AED 249) for more visibility."
+        }
+      },
+      "1": {
+        "q": "What's the difference between Featured and Premium listings?",
+        "a": {
+          "0": {
+            "label": "Standard (FREE)",
+            "text": " — your listing appears in normal search results for 30 days."
+          },
+          "1": {
+            "label": "Featured (AED 99)",
+            "text": " — a yellow \"Featured\" badge, priority placement in results, and rotation on the homepage. Typically gets 3× more views."
+          },
+          "2": {
+            "label": "Premium (AED 249)",
+            "text": " — always ranked #1 in searches, sent in push notifications to matched buyers, and pinned to the top of category pages."
+          }
+        }
+      },
+      "2": {
+        "q": "How do I know if a dealer is verified?",
+        "a": {
+          "0": "Verified dealers have a green ✓ checkmark next to their name. We verify their trade license, physical showroom, and a track record of at least 6 months on Carsens.",
+          "1": {
+            "label": "Premium partners",
+            "text": " additionally have a gold star — these dealers meet a higher standard for response time, customer reviews, and verified RTA registration."
+          }
+        }
+      },
+      "3": {
+        "q": "Can I book a test drive directly through Carsens?",
+        "a": {
+          "0": "Yes — on any car detail page, click \"Schedule a test drive\" in the dealer contact card. The dealer typically confirms within 2 hours during business hours. You'll receive an SMS reminder the day before."
+        }
+      },
+      "4": {
+        "q": "How does the Carsens 200-point inspection work?",
+        "a": {
+          "0": "For AED 350, a Carsens-certified inspector comes to the seller's location (anywhere in the UAE) and runs a 200-point check covering engine, body, interior, electronics, brakes, and tires. You get a PDF report within 24 hours, before any commitment.",
+          "1": "Many dealer listings already include a recent Carsens Inspection — look for the green inspection badge on the car detail page."
+        }
+      },
+      "5": {
+        "q": "What payment methods are safe for car purchases in the UAE?",
+        "a": {
+          "0": "For dealer purchases, always pay via UAE bank transfer to the dealer's registered business account — never to a personal account. Verify the trade license number matches.",
+          "1": "For private purchases, complete the transaction at an RTA office or bank branch — never wire money before transferring the Mulkiya. Avoid cash deals for high-value cars."
+        }
+      },
+      "6": {
+        "q": "Can I get my listing removed if my car sold elsewhere?",
+        "a": {
+          "0": {
+            "pre": "Yes — go to ",
+            "link": "My Account → My Listings",
+            "post": ", find the car, and click \"Mark as sold\" or \"Remove listing.\" This takes effect immediately. You'll keep your listing history for your records."
+          }
+        }
+      },
+      "7": {
+        "q": "How do I report a suspicious listing or buyer?",
+        "a": {
+          "0": "On any listing page, click the ⋮ menu and select \"Report listing.\" For suspicious messages, open the message thread and click \"Report user.\" Our trust & safety team reviews every report within 4 hours.",
+          "1": {
+            "pre": "For urgent scam attempts, email ",
+            "link": "safety@carsens.ae",
+            "post": " with screenshots — we respond within 30 minutes."
+          }
+        }
+      }
+    }
+  },
+  "contactBar": {
+    "title": "Can't find what you're looking for?",
+    "subtitle": "Our support team typically replies within 2 hours. Reach us via the channel that works for you.",
+    "contactBtn": "Contact us →",
+    "whatsapp": "WhatsApp",
+    "stats": {
+      "0": {
+        "value": "~2 hrs",
+        "label": "Average reply time"
+      },
+      "1": {
+        "value": "98%",
+        "label": "Issues resolved"
+      },
+      "2": {
+        "value": "7 days",
+        "label": "Support per week"
+      },
+      "3": {
+        "value": "4 languages",
+        "label": "EN · AR · UR · HI"
+      }
+    }
+  }
+}

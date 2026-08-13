@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Contraseña olvidada"
+  },
+  "enter": {
+    "title": "¿Olvidaste tu contraseña?",
+    "subtitle": "No te preocupes — introduce el correo de tu cuenta y te enviaremos un enlace para restablecerla.",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "sendBtn": "Enviar enlace de restablecimiento",
+    "tip": "Por seguridad, enviaremos el enlace aunque no exista ninguna cuenta — así que revisa tu bandeja de entrada y la carpeta de spam.",
+    "rememberPrefix": "¿Ya la recuerdas?",
+    "backToLogin": "Volver al inicio de sesión"
+  },
+  "sent": {
+    "title": "Revisa tu bandeja de entrada",
+    "subtitle": "Enviamos un enlace para restablecer la contraseña a:",
+    "email": "tu@ejemplo.com",
+    "instructionPrefix": "Haz clic en el enlace del correo para restablecer tu contraseña. El enlace es válido durante ",
+    "validity": "1 hora",
+    "instructionSuffix": ".",
+    "openResetBtn": "Abrir página de restablecimiento (demo)",
+    "resendPrefix": "¿No recibiste el correo?",
+    "resendPart1": "Reenviar en ",
+    "resendPart2": " s",
+    "backToLogin": "Volver al inicio de sesión"
+  }
+}

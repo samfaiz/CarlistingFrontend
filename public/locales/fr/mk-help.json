@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Centre d'aide"
+  },
+  "hero": {
+    "title": "Comment pouvons-nous vous aider ?",
+    "subtitle": "Trouvez des réponses aux questions fréquentes ou contactez notre équipe. Nous répondons généralement en moins de 2 heures.",
+    "searchPlaceholder": "Rechercher des articles d'aide — p. ex. 'comment vérifier mon compte'",
+    "searchButton": "Rechercher",
+    "popular": "Populaire :",
+    "suggestions": {
+      "0": "Comment vendre ma voiture",
+      "1": "Frais d'annonce",
+      "2": "Vérification du compte",
+      "3": "Sécurité des paiements"
+    }
+  },
+  "cats": {
+    "heading": "Parcourir l'aide par thème",
+    "0": {
+      "title": "Acheter une voiture",
+      "desc": "Recherche, consultation, financement, démarches et plus.",
+      "count": "28 articles"
+    },
+    "1": {
+      "title": "Vendre votre voiture",
+      "desc": "Publier votre voiture, photos, tarification et toucher les acheteurs.",
+      "count": "22 articles"
+    },
+    "2": {
+      "title": "Compte et profil",
+      "desc": "Connexion, vérification, profil, mot de passe et 2FA.",
+      "count": "18 articles"
+    },
+    "3": {
+      "title": "Sécurité et confiance",
+      "desc": "Repérer les arnaques, paiement sécurisé, vérification des concessionnaires.",
+      "count": "14 articles"
+    },
+    "4": {
+      "title": "Financement et assurance",
+      "desc": "Options de prêt, pré-approbation, partenaires d'assurance et devis.",
+      "count": "16 articles"
+    },
+    "5": {
+      "title": "Pour les concessionnaires",
+      "desc": "Intégration des concessionnaires, téléversement d'inventaire, forfaits premium.",
+      "count": "12 articles"
+    },
+    "6": {
+      "title": "Inspections et historique",
+      "desc": "Inspections en 200 points, registres RTA, rapports d'accident.",
+      "count": "10 articles"
+    },
+    "7": {
+      "title": "Contactez-nous",
+      "desc": "Contactez l'équipe — téléphone, WhatsApp, e-mail ou chat en direct.",
+      "count": "Support direct"
+    }
+  },
+  "faq": {
+    "heading": "Questions fréquentes",
+    "viewAll": "Voir les 120 questions fréquentes →",
+    "items": {
+      "0": {
+        "q": "Comment publier ma voiture gratuitement sur Carsens ?",
+        "a": {
+          "0": "Cliquez sur « Vendez votre voiture » en haut à droite de n'importe quelle page, puis suivez le parcours de publication en 5 étapes : infos voiture → caractéristiques → photos → prix → publier. Les vendeurs particuliers peuvent publier gratuitement. Votre voiture apparaît en ligne quelques minutes après sa publication.",
+          "1": "Vous bénéficierez de photos illimitées, de 30 jours de durée d'annonce standard et d'un accès complet aux messages directs des acheteurs. Passez à Sponsorisé (99 AED) ou Premium (249 AED) pour plus de visibilité."
+        }
+      },
+      "1": {
+        "q": "Quelle est la différence entre les annonces Sponsorisé et Premium ?",
+        "a": {
+          "0": {
+            "label": "Standard (GRATUIT)",
+            "text": " — votre annonce apparaît dans les résultats de recherche normaux pendant 30 jours."
+          },
+          "1": {
+            "label": "Sponsorisé (99 AED)",
+            "text": " — un badge jaune « Sponsorisé », un placement prioritaire dans les résultats et une rotation sur la page d'accueil. Génère généralement 3× plus de vues."
+          },
+          "2": {
+            "label": "Premium (249 AED)",
+            "text": " — toujours classé n° 1 dans les recherches, envoyé dans des notifications push aux acheteurs correspondants et épinglé en haut des pages de catégorie."
+          }
+        }
+      },
+      "2": {
+        "q": "Comment savoir si un concessionnaire est vérifié ?",
+        "a": {
+          "0": "Les concessionnaires vérifiés ont une coche ✓ verte à côté de leur nom. Nous vérifions leur licence commerciale, leur showroom physique et un historique d'au moins 6 mois sur Carsens.",
+          "1": {
+            "label": "Les partenaires Premium",
+            "text": " ont en plus une étoile dorée — ces concessionnaires respectent une norme plus élevée en matière de temps de réponse, d'avis clients et d'enregistrement RTA vérifié."
+          }
+        }
+      },
+      "3": {
+        "q": "Puis-je réserver un essai directement via Carsens ?",
+        "a": {
+          "0": "Oui — sur n'importe quelle page de détails de voiture, cliquez sur « Planifier un essai » dans la carte de contact du concessionnaire. Le concessionnaire confirme généralement dans un délai de 2 heures pendant les heures d'ouverture. Vous recevrez un rappel par SMS la veille."
+        }
+      },
+      "4": {
+        "q": "Comment fonctionne l'inspection en 200 points de Carsens ?",
+        "a": {
+          "0": "Pour 350 AED, un inspecteur certifié Carsens se rend chez le vendeur (partout aux EAU) et effectue une vérification en 200 points couvrant le moteur, la carrosserie, l'intérieur, l'électronique, les freins et les pneus. Vous recevez un rapport PDF sous 24 heures, avant tout engagement.",
+          "1": "De nombreuses annonces de concessionnaires incluent déjà une inspection Carsens récente — cherchez le badge d'inspection vert sur la page de détails de la voiture."
+        }
+      },
+      "5": {
+        "q": "Quels moyens de paiement sont sûrs pour acheter une voiture aux EAU ?",
+        "a": {
+          "0": "Pour les achats auprès de concessionnaires, payez toujours par virement bancaire des EAU sur le compte professionnel enregistré du concessionnaire — jamais sur un compte personnel. Vérifiez que le numéro de licence commerciale correspond.",
+          "1": "Pour les achats entre particuliers, effectuez la transaction dans un bureau de la RTA ou une agence bancaire — ne virez jamais d'argent avant le transfert de la Mulkiya. Évitez les transactions en espèces pour les voitures de grande valeur."
+        }
+      },
+      "6": {
+        "q": "Puis-je faire retirer mon annonce si ma voiture a été vendue ailleurs ?",
+        "a": {
+          "0": {
+            "pre": "Oui — allez dans ",
+            "link": "Mon compte → Mes annonces",
+            "post": ", trouvez la voiture et cliquez sur « Marquer comme vendue » ou « Retirer l'annonce ». Cela prend effet immédiatement. Vous conserverez l'historique de vos annonces pour vos archives."
+          }
+        }
+      },
+      "7": {
+        "q": "Comment signaler une annonce ou un acheteur suspect ?",
+        "a": {
+          "0": "Sur n'importe quelle page d'annonce, cliquez sur le menu ⋮ et sélectionnez « Signaler l'annonce ». Pour les messages suspects, ouvrez le fil de discussion et cliquez sur « Signaler l'utilisateur ». Notre équipe de confiance et de sécurité examine chaque signalement sous 4 heures.",
+          "1": {
+            "pre": "Pour les tentatives d'arnaque urgentes, envoyez un e-mail à ",
+            "link": "safety@carsens.ae",
+            "post": " avec des captures d'écran — nous répondons sous 30 minutes."
+          }
+        }
+      }
+    }
+  },
+  "contactBar": {
+    "title": "Vous ne trouvez pas ce que vous cherchez ?",
+    "subtitle": "Notre équipe de support répond généralement sous 2 heures. Contactez-nous via le canal qui vous convient.",
+    "contactBtn": "Contactez-nous →",
+    "whatsapp": "WhatsApp",
+    "stats": {
+      "0": {
+        "value": "~2 h",
+        "label": "Temps de réponse moyen"
+      },
+      "1": {
+        "value": "98%",
+        "label": "Problèmes résolus"
+      },
+      "2": {
+        "value": "7 jours",
+        "label": "Support par semaine"
+      },
+      "3": {
+        "value": "4 langues",
+        "label": "EN · AR · UR · HI"
+      }
+    }
+  }
+}

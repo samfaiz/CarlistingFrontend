@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "title": "Détail de la moto"
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "bikes": "Motos",
+    "sportBikes": "Motos sportives",
+    "ducati": "Ducati",
+    "current": "Panigale V4 SP2 2023"
+  },
+  "head": {
+    "title": "Ducati Panigale V4 SP2",
+    "year": "2023",
+    "body": "Sportive",
+    "engine": "1 103 cm³",
+    "mileage": "2 800 km",
+    "location": "Dubaï",
+    "tag": "Spécifications CCG"
+  },
+  "actions": {
+    "share": "Partager",
+    "save": "Enregistrer",
+    "compare": "Comparer"
+  },
+  "gallery": {
+    "featured": "En vedette",
+    "photoNum": "1 / 6",
+    "viewAll": "Voir les 18 photos"
+  },
+  "quickSpecs": {
+    "year": { "label": "Année", "val": "2023" },
+    "mileage": { "label": "Kilométrage", "val": "2 800 km" },
+    "engine": { "label": "Moteur", "val": "1 103 cm³ V4" },
+    "power": { "label": "Puissance", "val": "215 ch" },
+    "body": { "label": "Type", "val": "Sportive" },
+    "gears": { "label": "Vitesses", "val": "6 rapports" }
+  },
+  "about": {
+    "title": "À propos de cette moto",
+    "p1": "Superbe Ducati Panigale V4 SP2 de 2023 avec historique d'entretien complet au centre de service Ducati Dubaï. Un seul pilote depuis neuve, faible kilométrage (2 800 km), remisée au garage et en état impeccable.",
+    "p2": "La SP2 est la Panigale la plus orientée piste jamais produite — équipée du V4 Desmosedici Stradale de 1 103 cm³ développant 215 ch à 13 000 tr/min, embrayage à sec STM-EVO, roues en fibre de carbone, freins Brembo Stylema R et le kit complet d'accessoires Ducati Performance, dont l'échappement Akrapovic tout titane (piste uniquement).",
+    "p3": "Dernière suite électronique basée sur l'IMU : ABS EVO en virage, Ducati Wheelie Control EVO, Ducati Slide Control, Ducati Power Launch, Ducati Quick Shift EVO 2 et contrôle de traction par IMU à 8 axes.",
+    "readMore": "Lire la suite ↓"
+  },
+  "features": {
+    "title": "Caractéristiques clés",
+    "items": {
+      "0": "Échappement titane Akrapovic",
+      "1": "Roues en fibre de carbone",
+      "2": "Freins Brembo Stylema R",
+      "3": "Embrayage à sec STM-EVO",
+      "4": "Fourche Öhlins NPX-25",
+      "5": "Amortisseur Öhlins TTX36",
+      "6": "4 modes de conduite + 4 cartographies",
+      "7": "Tableau de bord TFT couleur 5\"",
+      "8": "ABS EVO en virage",
+      "9": "Contrôle de wheeling EVO",
+      "10": "Shifter EVO 2 (montée/descente)"
+    }
+  },
+  "inspect": {
+    "title": "Inspection en 120 points réussie",
+    "by": "Inspectée par Carsens Certified le 10 mai 2026",
+    "score": "99",
+    "outOf": "sur 100",
+    "bars": {
+      "0": { "label": "Moteur et transmission", "value": "100%" },
+      "1": { "label": "Cadre et peinture", "value": "98%" },
+      "2": { "label": "Freins et suspension", "value": "100%" },
+      "3": { "label": "Électronique", "value": "100%" },
+      "4": { "label": "Pneus", "value": "96%" }
+    },
+    "report": "Voir le rapport d'inspection complet (PDF)"
+  },
+  "specs": {
+    "title": "Spécifications complètes",
+    "groups": {
+      "engine": {
+        "title": "Moteur et performances",
+        "rows": {
+          "0": { "label": "Type de moteur", "value": "Desmosedici Stradale 90° V4" },
+          "1": { "label": "Cylindrée", "value": "1 103 cm³" },
+          "2": { "label": "Puissance", "value": "215 ch @ 13 000 tr/min" },
+          "3": { "label": "Couple", "value": "124 Nm @ 9 500 tr/min" },
+          "4": { "label": "Taux de compression", "value": "14,0 : 1" },
+          "5": { "label": "Refroidissement", "value": "Liquide" },
+          "6": { "label": "Alésage × course", "value": "81 × 53,5 mm" },
+          "7": { "label": "Distribution", "value": "Desmodromique, 4 soupapes/cyl." },
+          "8": { "label": "Vitesse maxi", "value": "305 km/h (est.)" },
+          "9": { "label": "0–100 km/h", "value": "2,9 s" }
+        }
+      },
+      "transmission": {
+        "title": "Transmission et entraînement final",
+        "rows": {
+          "0": { "label": "Boîte de vitesses", "value": "6 rapports" },
+          "1": { "label": "Embrayage", "value": "STM-EVO à sec hydraulique, antidribble" },
+          "2": { "label": "Shifter", "value": "DQS EVO 2 (montée/descente)" },
+          "3": { "label": "Entraînement final", "value": "Chaîne 520" }
+        }
+      },
+      "dimensions": {
+        "title": "Dimensions et poids",
+        "rows": {
+          "0": { "label": "Poids tous pleins faits", "value": "196 kg" },
+          "1": { "label": "Poids à sec", "value": "175 kg" },
+          "2": { "label": "Empattement", "value": "1 469 mm" },
+          "3": { "label": "Hauteur de selle", "value": "835 mm" },
+          "4": { "label": "Angle de chasse / chasse", "value": "24,5° / 100 mm" },
+          "5": { "label": "Réservoir de carburant", "value": "16 L" },
+          "6": { "label": "Longueur × largeur × hauteur", "value": "2 090 × 815 × 1 140 mm" }
+        }
+      },
+      "wheels": {
+        "title": "Roues, freins et suspension",
+        "rows": {
+          "0": { "label": "Suspension avant", "value": "Öhlins NPX-25/30 (43 mm)" },
+          "1": { "label": "Suspension arrière", "value": "Öhlins TTX36 mono-amortisseur" },
+          "2": { "label": "Frein avant", "value": "2× 330 mm Brembo Stylema R, 4 pistons" },
+          "3": { "label": "Frein arrière", "value": "245 mm, Brembo 2 pistons" },
+          "4": { "label": "Roue avant", "value": "Fibre de carbone 3,5″ × 17″" },
+          "5": { "label": "Roue arrière", "value": "Fibre de carbone 6,0″ × 17″" },
+          "6": { "label": "Pneus (AV/AR)", "value": "120/70 ZR17 / 200/60 ZR17" }
+        }
+      },
+      "electronics": {
+        "title": "Électronique et aides à la conduite",
+        "rows": {
+          "0": { "label": "IMU", "value": "Bosch 8 axes" },
+          "1": { "label": "ABS", "value": "ABS EVO en virage (3 niveaux)" },
+          "2": { "label": "Contrôle de traction", "value": "DTC EVO 3 (8 niveaux)" },
+          "3": { "label": "Contrôle de wheeling", "value": "DWC EVO (8 niveaux)" },
+          "4": { "label": "Contrôle de glisse", "value": "DSC (2 niveaux)" },
+          "5": { "label": "Contrôle de départ", "value": "Ducati Power Launch (3 niveaux)" },
+          "6": { "label": "Contrôle de frein moteur", "value": "EBC EVO (3 niveaux)" },
+          "7": { "label": "Modes de conduite", "value": "Race A, Race B, Sport, Street" },
+          "8": { "label": "Écran", "value": "TFT couleur 5″" },
+          "9": { "label": "Enregistrement de données", "value": "Ducati Data Analyser+ GPS" }
+        }
+      }
+    }
+  },
+  "history": {
+    "title": "Historique de la moto",
+    "items": {
+      "0": { "title": "Un seul pilote", "desc": "Propriétaire d'origine depuis neuve" },
+      "1": { "title": "Aucun historique d'accident", "desc": "Dossier propre, sans chute" },
+      "2": { "title": "Historique d'entretien", "desc": "2 relevés chez Ducati Dubaï" },
+      "3": { "title": "Garantie constructeur", "desc": "Jusqu'à sep 2027 ou 24 000 km" },
+      "4": { "title": "Spécifications CCG", "desc": "Vendue à l'origine aux EAU" },
+      "5": { "title": "Mulkiya valide", "desc": "Jusqu'à mars 2027" }
+    }
+  },
+  "price": {
+    "currency": "AED",
+    "amt": "168 000",
+    "subPre": "ou",
+    "subEm": "AED 2 500 / mois",
+    "subPost": "sur 60 mois"
+  },
+  "dealer": {
+    "logo": "RS",
+    "name": "RS Motorcycles",
+    "rating": "★ 4,8",
+    "reviews": "74 avis",
+    "meta2": "64 motos en vente • Al Quoz, Dubaï",
+    "link": "Voir toutes les motos de ce concessionnaire →"
+  },
+  "contact": {
+    "phone": "052 ••• 4218",
+    "phoneHint": "— toucher pour afficher",
+    "whatsapp": "WhatsApp au concessionnaire",
+    "message": "Envoyer un message",
+    "schedule": "Planifier une visite"
+  },
+  "finance": {
+    "title": "Calculateur de financement",
+    "subtitle": "Estimez votre mensualité",
+    "currency": "AED",
+    "price": { "label": "Prix de la moto", "val": "168 000" },
+    "downPayment": { "label": "Apport initial", "pct": "25", "amt": "42 000" },
+    "loanTerm": {
+      "label": "Durée du prêt",
+      "opt12": "12 mois",
+      "opt24": "24 mois",
+      "opt36": "36 mois",
+      "opt48": "48 mois",
+      "opt60": "60 mois"
+    },
+    "interestRate": { "label": "Taux d'intérêt", "val": "5,5" },
+    "result": {
+      "monthly": "Mensualité",
+      "monthlyVal": "2 406",
+      "loanAmount": "Montant du prêt",
+      "loanAmountVal": "126 000",
+      "totalInterest": "Intérêts totaux",
+      "totalInterestVal": "18 360",
+      "totalCost": "Coût total",
+      "totalCostVal": "186 360"
+    },
+    "getPreApproved": "Obtenir un pré-accord"
+  },
+  "safety": {
+    "title": "Restez prudent lors de l'achat",
+    "items": {
+      "0": "Inspectez la moto en personne et vérifiez le VIN avant de payer",
+      "1": "Vérifiez l'âge des pneus (code DOT) et l'état de la chaîne",
+      "2": "Payez uniquement via des canaux bancaires sécurisés des EAU",
+      "3": "Utilisez l'Inspection Moto Carsens en cas de doute (AED 350)"
+    },
+    "link": "Lire le guide de sécurité complet →"
+  },
+  "similar": {
+    "title": "Motos similaires qui pourraient vous plaire",
+    "subtitle": "Même type et gamme de moteur",
+    "seeAll": "Voir tout",
+    "cards": {
+      "0": { "title": "Kawasaki Ninja ZX-10R", "sub": "2022 • Dubaï • 998 cm³", "price": "AED 68 000", "spec1": "6 800 km", "spec2": "200 ch" },
+      "1": { "title": "BMW S1000RR", "sub": "2023 • Abou Dabi • 999 cm³", "price": "AED 118 000", "spec1": "4 200 km", "spec2": "210 ch" },
+      "2": { "title": "Aprilia RSV4 Factory", "sub": "2023 • Dubaï • 1 099 cm³", "price": "AED 142 000", "spec1": "1 800 km", "spec2": "217 ch" },
+      "3": { "title": "Ducati Panigale V2", "sub": "2022 • Dubaï • 955 cm³", "price": "AED 82 000", "spec1": "8 400 km", "spec2": "155 ch" }
+    }
+  }
+}

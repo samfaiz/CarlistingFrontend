@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "Reset password"
+  },
+  "form": {
+    "title": "Create a new password",
+    "subtitle": "Choose a strong password you haven't used on Carsens before.",
+    "newPassword": {
+      "label": "New password",
+      "placeholder": "At least 8 characters"
+    },
+    "confirmPassword": {
+      "label": "Confirm new password",
+      "placeholder": "Re-enter password"
+    },
+    "togglePassword": "Show/hide password",
+    "strengthHint": "Use 8+ characters with letters & numbers",
+    "submit": "Update password",
+    "tip": "You'll be signed out on all your other devices after updating.",
+    "backToLogin": "Back to login"
+  },
+  "success": {
+    "title": "Password updated 🔒",
+    "subtitle": "Your password has been reset successfully. You can now log in with your new password.",
+    "continue": "Continue to login",
+    "tip": "You've been signed out on all other devices for security. Use your new password to sign back in."
+  }
+}

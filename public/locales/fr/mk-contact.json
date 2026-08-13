@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Contact"
+  },
+  "hero": {
+    "title": "Contactez Carsens",
+    "subtitle": "Contactez directement notre équipe aux Émirats — nous répondons généralement en moins de 2 heures, 7 jours sur 7."
+  },
+  "channels": {
+    "call": {
+      "title": "Appelez-nous",
+      "desc": "Parlez directement à notre équipe — du dimanche au samedi, de 9 h à 21 h.",
+      "value": "+971 4 555 1234",
+      "status": "Ouvert maintenant · jusqu'à 21 h"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "desc": "Messages rapides, réponse rapide. La plupart des questions sont traitées en moins de 30 minutes.",
+      "value": "+971 50 247 5555",
+      "status": "Réponse moyenne : 18 min"
+    },
+    "email": {
+      "title": "Écrivez-nous",
+      "desc": "Pour les questions détaillées, les réclamations ou les demandes professionnelles. Nous répondons sous 4 heures.",
+      "value": "hello@carsens.ae",
+      "status": "Réponse moyenne : 2-4 h"
+    }
+  },
+  "form": {
+    "title": "Envoyez-nous un message",
+    "subtitle": "Remplissez le formulaire ci-dessous — nous transmettrons votre message à la bonne équipe.",
+    "name": {
+      "label": "Votre nom",
+      "placeholder": "Ahmed Al Mansouri"
+    },
+    "mobile": {
+      "label": "Numéro de mobile",
+      "placeholder": "+971 50 000 0000"
+    },
+    "email": {
+      "label": "Adresse e-mail",
+      "placeholder": "vous@exemple.com"
+    },
+    "subject": {
+      "label": "De quoi s'agit-il ?",
+      "options": {
+        "general": "Demande générale",
+        "listing": "Aide pour une annonce",
+        "account": "Compte ou connexion",
+        "safety": "Sécurité / signaler une arnaque",
+        "dealer": "Demande de concessionnaire",
+        "partnerships": "Partenariats et presse",
+        "other": "Autre"
+      }
+    },
+    "message": {
+      "label": "Votre message",
+      "placeholder": "Dites-nous comment nous pouvons vous aider…"
+    },
+    "consent": "J'accepte la politique de confidentialité de Carsens et je consens à être contacté au sujet de ma demande.",
+    "submit": "Envoyer le message",
+    "reset": "Réinitialiser",
+    "success": {
+      "title": "Message envoyé — merci !",
+      "desc": "Nous avons bien reçu votre message et vous répondrons sous 2-4 heures. Consultez votre e-mail pour notre réponse."
+    }
+  },
+  "offices": {
+    "title": "Nos bureaux",
+    "dubai": {
+      "name": "Siège de Dubaï",
+      "line1": "Boulevard Plaza Tower 2, 18e étage",
+      "line2": "Sheikh Mohammed bin Rashid Blvd, Downtown Dubaï",
+      "phone": "+971 4 555 1234"
+    },
+    "abudhabi": {
+      "name": "Abou Dabi",
+      "line1": "Sky Tower, 22e étage",
+      "line2": "Île d'Al Reem, Abou Dabi",
+      "phone": "+971 2 555 5678"
+    },
+    "sharjah": {
+      "name": "Sharjah",
+      "line1": "Al Khan Lagoon Tower, 9e étage",
+      "line2": "Al Khan, Sharjah",
+      "phone": "+971 6 555 9012"
+    }
+  },
+  "hours": {
+    "title": "Heures d'assistance",
+    "open": "● Ouvert",
+    "monThu": {
+      "day": "Lun – Jeu",
+      "time": "9 h – 21 h"
+    },
+    "today": {
+      "day": "Mar (aujourd'hui)",
+      "time": "9 h – 21 h"
+    },
+    "friday": {
+      "day": "Vendredi",
+      "time": "14 h – 22 h"
+    },
+    "satSun": {
+      "day": "Sam – Dim",
+      "time": "10 h – 20 h"
+    }
+  },
+  "social": {
+    "title": "Suivez Carsens",
+    "instagram": "Instagram",
+    "twitter": "Twitter / X",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  }
+}

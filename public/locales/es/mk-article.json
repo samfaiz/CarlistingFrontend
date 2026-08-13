@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "Artículo"
+  },
+  "aside": {
+    "like": "Me gusta el artículo",
+    "likeCount": "428",
+    "save": "Guardar para después",
+    "share": "Compartir",
+    "comments": "Ir a los comentarios",
+    "commentCount": "52"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "news": "Noticias",
+    "reviews": "Reseñas",
+    "current": "Toyota Land Cruiser GR-Sport"
+  },
+  "hero": {
+    "category": "Primera conducción · Reseña",
+    "title": "Toyota Land Cruiser GR-Sport 2025: la condujimos por el desierto de Liwa",
+    "dek": "El nuevo GR-Sport estrena un V6 biturbo de 409 CV, desconexión hidráulica del diferencial y un chasis correctamente afinado. Tras 800 km entre la arena de Liwa y la carretera Sheikh Zayed, ¿sigue mereciendo la corona de rey del desierto?",
+    "authorInitials": "KA",
+    "authorName": "Khalid Al Mansouri",
+    "authorRole": "Editor sénior de automoción",
+    "date": "11 de mayo de 2026",
+    "readTime": "12 min de lectura",
+    "actions": {
+      "save": "Guardar",
+      "tweet": "Tuitear",
+      "whatsapp": "WhatsApp",
+      "copyLink": "Copiar enlace"
+    },
+    "imageCaption": "El Toyota Land Cruiser GR-Sport 2025 en Liwa, fotografiado al amanecer.",
+    "imageCredit": "Imagen: Khalid Al Mansouri / Carsens."
+  },
+  "body": {
+    "lead": "El Toyota Land Cruiser GR-Sport tiene una tarea difícil. Debe estar a la altura de setenta años de credibilidad todoterreno, satisfacer a un comprador de los EAU que espera confort de lujo junto con capacidad desértica y justificar un precio cercano a los 300.000 AED. Tras 800 km de conducción mixta entre el desierto de Liwa y la carretera Sheikh Zayed, así es como se comporta.",
+    "p1a": "La insignia Gazoo Racing de Toyota lleva una década transformando la marca en silencio. Desde el GR Yaris pasando por el GR Supra y ahora el Hilux GR-Sport, la fórmula es la misma: toma un modelo conocido, afila su carácter y añade el tipo de hardware que hace que los entusiastas presten atención. El nuevo ",
+    "p1Link": "Land Cruiser GR-Sport",
+    "p1b": " sigue el mismo manual, pero para un SUV que ya es un icono en los EAU, la pregunta es si afilarlo tiene realmente sentido.",
+    "h2_1": "Un nuevo V6 con un carácter sorprendente",
+    "p2a": "El cambio protagonista del GR-Sport es el V6 biturbo de 3,5 litros que produce ",
+    "p2Strong": "409 CV y 650 Nm",
+    "p2b": " de par. Sobre el papel, es un salto importante respecto al viejo V8 de 4,6 litros al que sustituye, y en carretera se nota. La respuesta del acelerador es más aguda, la caja cambia con más nitidez y adelantar en la Emirates Road requiere bastante menos planificación que en la generación anterior.",
+    "p3": "Los ingenieros de Toyota afinaron el escape para imitar el carácter del V8 a bajas cargas, y a media apertura casi lo logra: hay un borboteo grave y perezoso que se desvanece en un ladrido más agresivo cuando pides los 409 caballos completos. Por encima de las 5.000 rpm el V6 compone su propia música: más alta, más afilada y más urgente de lo que jamás fue el viejo V8. Si eso es una mejora es cuestión de gustos, pero es difícil discutir la diferencia de prestaciones.",
+    "blockquote1": "\"Los ingenieros de Toyota afinaron el escape para imitar el carácter del V8. A media apertura casi lo logra, pero por encima de las 5.000 rpm el V6 compone su propia música.\"",
+    "p4": "La nueva automática de 10 velocidades también merece mención. Donde la vieja de 8 velocidades del Land Cruiser anterior podía sentirse dubitativa en modo manual, esta encadena los cambios a un ritmo casi de WRX. Incluso el arranque desde parado tiene una seriedad que ningún Land Cruiser anterior había mostrado.",
+    "inlineCaption1": "El GR-Sport se sitúa 12 mm más bajo que el VX estándar, sobre sus propios muelles y amortiguadores afinados por GR.",
+    "h2_2": "Fuera de la carretera, en el hábitat natural del GR-Sport",
+    "p5": "La verdadera prueba de cualquier Land Cruiser es la tierra. Lo apuntamos hacia las dunas de Liwa —el mismo lugar donde hemos probado cada generación de Land Cruiser desde la serie 80— y fuimos recorriendo los distintos modos.",
+    "p6": "La nueva suspensión afinada por GR es más firme que la del VX estándar, con muelles más rígidos y amortiguadores exclusivos. Sobre arena suelta, esto al principio parece un retroceso: la marcha más blanda del coche estándar le permite ir alto sobre las crestas, mientras que el GR-Sport golpea y tiembla un poco más. Pero cuando te comprometes con un ritmo más alto, el reglaje más firme empieza a cobrar sentido. El control de la carrocería sobre las grandes crestas es más agudo y la recuperación entre dunas es notablemente más rápida.",
+    "h3_1": "La función de desconexión del diferencial es la verdadera historia",
+    "p7a": "El truco todoterreno estrella del GR-Sport es la ",
+    "p7Strong": "desconexión hidráulica del diferencial delantero",
+    "p7b": " —básicamente una forma de pasar el eje delantero de abierto a bloqueado activamente, sobre la marcha, según el terreno. Combinado con el bloqueo trasero estándar y el Multi-Terrain Select, esto le da al GR-Sport una sorprendente capacidad de gateo a baja velocidad para un SUV de lujo de 7 plazas.",
+    "p8": "Lo probamos en una subida empinada y arenosa donde el Land Cruiser del año pasado tuvo que retroceder y volver a intentarlo. El GR-Sport la subió a la primera, con el diferencial repartiendo activamente el par entre las ruedas delanteras mientras las traseras rascaban por agarre. Toyota no exagera cuando dice que es el Land Cruiser más capaz que jamás ha fabricado.",
+    "pullQuote1": "Si el Land Cruiser estándar es una habitación de hotel de cinco estrellas, el GR-Sport es la misma habitación con un kit de frenos Brembo incluido.",
+    "pullQuoteAttr1": "— Khalid Al Mansouri",
+    "h2_3": "Por dentro: toques GR, sin renunciar al lujo",
+    "p9": "Abre la puerta y el habitáculo recibe todos los lujos estándar del Land Cruiser: audio JBL de 14 altavoces, techo panorámico, cuero ventilado, climatización multizona y una pantalla táctil central de 14 pulgadas con el último infoentretenimiento de Toyota. El GR-Sport añade:",
+    "list1": {
+      "0": { "strong": "Pespunte de contraste rojo", "text": " en los asientos, el salpicadero y el volante" },
+      "1": { "strong": "Distintivos GR", "text": " en los reposacabezas, las molduras de umbral y el cuadro de instrumentos" },
+      "2": { "pre": "Un ", "strong": "cuadro digital de 12,3 pulgadas", "text": " más deportivo con tres diseños de pantalla específicos de GR" },
+      "3": { "strong": "Volante forrado en Alcántara", "text": " con marca roja a las 12 en punto" },
+      "4": { "text": "Insertos del salpicadero con efecto carbono (el carbono real es opcional)" }
+    },
+    "p10": "Está hecho con buen gusto, sin caer en lo caricaturesco. Si has pasado algo de tiempo en los productos GR recientes de Toyota, el lenguaje es coherente: rojo, negro, Alcántara y justo la insignia suficiente para recordarte qué estás conduciendo.",
+    "specBox": {
+      "title": "📋 Especificaciones clave",
+      "rows": {
+        "0": { "term": "Motor", "value": "V6 biturbo 3,5 L" },
+        "1": { "term": "Potencia", "value": "409 CV a 5.200 rpm" },
+        "2": { "term": "Par", "value": "650 Nm" },
+        "3": { "term": "Transmisión", "value": "Automática de 10 velocidades" },
+        "4": { "term": "0–100 km/h", "value": "6,7 s" },
+        "5": { "term": "Velocidad máxima", "value": "210 km/h" },
+        "6": { "term": "Consumo", "value": "13,1 L/100km" },
+        "7": { "term": "Distancia entre ejes", "value": "2.850 mm" },
+        "8": { "term": "Altura libre al suelo", "value": "235 mm" },
+        "9": { "term": "Precio de salida", "value": "AED 285,900" }
+      }
+    },
+    "h2_4": "En carretera: sorprendentemente afilado",
+    "p11": "Donde el GR-Sport realmente se gana su nombre es en el asfalto. La suspensión más firme y la relación de dirección más rápida transforman lo que normalmente es un crucero blando estilo Cadillac en algo abordable como un SUV rápido. Sigue siendo un siete plazas de bastidor sobre chasis de 2,5 toneladas —la física no se ha suspendido—, pero las respuestas son más agudas, el balanceo está mejor controlado y puedes usar de verdad la potencia del V6 sin sentir que conduces un edificio.",
+    "p12": "En la carretera Sheikh Zayed a 140 km/h, va relajado y silencioso, con la caja de 10 velocidades fijada en una relación final larga. Por las curvas de la montaña de Hatta, fluye de verdad de una manera que el viejo Land Cruiser V8 nunca pudo. Y en el tráfico urbano, el stop-start del V6 es suave, la dirección es lo bastante ligera y la visibilidad es excelente gracias a las proporciones angulosas.",
+    "h3_2": "El inconveniente: el confort de marcha",
+    "p13": "La suspensión más firme tiene un coste. Por la ciudad y sobre las juntas de dilatación de Dubái, el GR-Sport golpea donde el VX estándar flotaría. No es castigador —siguen siendo amortiguadores adaptativos en su ajuste más blando—, pero si lo comparas con un Lexus LX o un Range Rover, el GR-Sport parecerá la opción más dura de la sala.",
+    "p14": "Que eso te importe depende por completo de para qué lo vayas a usar. Si tus fines de semana son de todoterreno o de atacar carreteras de montaña, el compromiso merece la pena. Si lo usas principalmente como coche familiar y vehículo desértico que nunca va a más de 80 km/h sobre arena, el VX estándar es probablemente la compra más inteligente.",
+    "verdict": {
+      "title": "Veredicto de Carsens",
+      "summary": "El GR-Sport es el mejor Land Cruiser jamás fabricado y el más divisivo. Si querías un SUV más rápido, más afilado y más capaz fuera del asfalto que el V8, aquí lo tienes. Si querías el crucero orientado al confort que definió la placa durante sesenta años, este no lo es.",
+      "prosTitle": "Lo que nos encantó",
+      "pros": {
+        "0": "El nuevo V6 biturbo: más afilado y con más carácter de lo esperado",
+        "1": "La desconexión hidráulica del diferencial transforma la capacidad todoterreno a baja velocidad",
+        "2": "La automática de 10 velocidades es rápida e inteligente",
+        "3": "Los toques GR del habitáculo se sienten merecidos, no artificiales",
+        "4": "El valor de reventa en los EAU debería liderar la categoría",
+        "5": "Genuinamente divertido en una carretera de montaña para un SUV de 7 plazas"
+      },
+      "consTitle": "Lo que no",
+      "cons": {
+        "0": "Marcha más firme que el VX estándar, perceptible por la ciudad",
+        "1": "El sobreprecio sobre el VX es significativo (unos 35.000 AED)",
+        "2": "El maletero es limitado con las 7 plazas en uso",
+        "3": "El V6 no tiene del todo el encanto perezoso del viejo V8 a bajas rpm"
+      }
+    },
+    "rating": {
+      "label": "Puntuación de Carsens",
+      "name": "Toyota Land Cruiser GR-Sport 2025",
+      "score": "9,1",
+      "scoreMax": "/10"
+    },
+    "h2_5": "¿Deberías comprarte uno?",
+    "p15": "Sí, si quieres un Land Cruiser sustancialmente mejor de conducir que cualquiera anterior y estás dispuesto a convivir con el compromiso de la marcha. El GR-Sport es de verdad uno de los SUV más logrados del mercado de los EAU ahora mismo, y a 285.900 AED también es una ganga frente a cualquier cosa de Land Rover o Mercedes-AMG.",
+    "p16": "El sobreprecio de 35.000 sobre un VX es real, pero recibes un coche mensurablemente más rápido, más afilado y más capaz. Para un comprador que de verdad usa su Land Cruiser como un Land Cruiser, es dinero bien invertido.",
+    "p17": "El VX estándar sigue siendo la compra más inteligente para el uso puro de familia y desierto. Pero si has leído hasta aquí, probablemente ya sabes cuál quieres.",
+    "p18a": "El Toyota Land Cruiser GR-Sport ya está disponible en los concesionarios Toyota autorizados de todo los EAU. ",
+    "p18Link1": "Ver anuncios de coches nuevos →",
+    "p18mid": " o ",
+    "p18Link2": "encuentra un concesionario cerca de ti →"
+  },
+  "tags": {
+    "label": "Etiquetado",
+    "items": {
+      "0": "Toyota",
+      "1": "Land Cruiser",
+      "2": "Primera conducción",
+      "3": "SUV",
+      "4": "Todoterreno",
+      "5": "GR-Sport",
+      "6": "2025",
+      "7": "Mercado EAU"
+    }
+  },
+  "authorBio": {
+    "initials": "KA",
+    "name": "Khalid Al Mansouri",
+    "role": "Editor sénior de automoción · 84 artículos · 1,2 M de lecturas",
+    "description": "Khalid lleva más de 15 años escribiendo sobre coches en los EAU. Exinstructor de pista en el Dubai Autodrome y actual editor sénior de Carsens. Especializado en reseñas de formato largo, pruebas todoterreno y el mercado de lujo del CCG. Reside en Dubái.",
+    "follow": "+ Seguir al autor",
+    "allArticles": "Todos los artículos (84)"
+  },
+  "related": {
+    "title": "Artículos relacionados",
+    "cards": {
+      "0": {
+        "tag": "Comparativa eléctrica",
+        "title": "Tesla Model Y frente a Mercedes EQE SUV: ¿qué eléctrico gana en los EAU?",
+        "excerpt": "Probamos ambos con 47 °C de calor, en largos trayectos por la Sheikh Zayed, en tráfico urbano y en sesiones de carga rápida.",
+        "authorInitials": "KA",
+        "author": "Khalid Al Mansouri",
+        "readTime": "11 min de lectura"
+      },
+      "1": {
+        "tag": "Guía de compra",
+        "title": "Los mejores SUV familiares por menos de 200.000 AED en 2026",
+        "excerpt": "Practicidad de siete plazas, redes de servicio del CCG y solidez de reventa. Nuestra selección de los mejores SUV familiares medianos.",
+        "authorInitials": "SA",
+        "author": "Sara Ahmed",
+        "readTime": "8 min de lectura"
+      },
+      "2": {
+        "tag": "Guía de compra",
+        "title": "10 cosas que todo comprador de los EAU debería revisar antes de firmar un contrato de coche usado",
+        "excerpt": "Desde el historial del mulkiya hasta la coincidencia del troquel del chasis, la lista práctica que todo comprador debería repasar.",
+        "authorInitials": "KA",
+        "author": "Khalid Al Mansouri",
+        "readTime": "6 min de lectura"
+      }
+    }
+  },
+  "comments": {
+    "title": "Comentarios",
+    "count": "52",
+    "sort": {
+      "top": "Comentarios destacados",
+      "recent": "Más recientes",
+      "oldest": "Más antiguos primero"
+    },
+    "form": {
+      "avatar": "FK",
+      "placeholder": "Únete a la conversación: comparte tu opinión sobre esta reseña…",
+      "bold": "Negrita",
+      "italic": "Cursiva",
+      "link": "Enlace",
+      "emoji": "Emoji",
+      "cancel": "Cancelar",
+      "post": "Publicar comentario"
+    },
+    "actions": {
+      "reply": "Responder",
+      "share": "Compartir",
+      "report": "Denunciar"
+    },
+    "list": {
+      "0": {
+        "avatar": "RS",
+        "name": "Rashed S.",
+        "badge": "Comprador verificado",
+        "time": "hace 2 días",
+        "text": "Reseña brillante. Recogí mi GR-Sport en febrero y tras 4.000 km confirmo cada punto: el carácter del V6 es increíblemente parecido al del viejo V8 a bajas rpm, pero el empuje en la zona alta está en otro planeta. La desconexión del diferencial en las dunas de Liwa vale por sí sola el sobreprecio de la mejora. Bravo, Toyota.",
+        "likes": "87 me gusta",
+        "reply": {
+          "avatar": "KA",
+          "name": "Khalid Al Mansouri",
+          "badge": "Autor",
+          "time": "hace 2 días",
+          "text": "Me alegra saber que la propiedad en el mundo real coincide con la prueba, y estoy totalmente de acuerdo sobre la desconexión del diferencial. Es la clase de función que no aprecias hasta que ves a las ruedas haciéndolo de verdad. ¡Disfruta de tu GR-Sport, Rashed!",
+          "likes": "24 me gusta"
+        }
+      },
+      "1": {
+        "avatar": "FH",
+        "name": "Fatima H.",
+        "time": "hace 3 días",
+        "text": "Una pregunta para el autor: ¿cómo se compara la marcha con la del Lexus LX 600? Llevo tiempo comparando ambos y el LX me parece notablemente más blando. ¿Es el GR-Sport significativamente más duro que un VX, o solo un poco?",
+        "likes": "32 me gusta",
+        "reply": {
+          "avatar": "KA",
+          "name": "Khalid Al Mansouri",
+          "badge": "Autor",
+          "time": "hace 3 días",
+          "text": "Hola Fatima: sí, el LX es notablemente más blando. Describiría la diferencia entre el GR-Sport y el VX como «la notarás en carreteras bacheadas pero no es desagradable», mientras que la diferencia entre el LX y el GR-Sport es mayor: el LX está en una liga de confort completamente distinta. Si la marcha es tu prioridad absoluta, LX. Si quieres un manejo más afilado y las partes todoterreno, GR-Sport. Tenemos una comparativa completa que sale el mes que viene.",
+          "likes": "18 me gusta"
+        }
+      },
+      "2": {
+        "avatar": "AM",
+        "name": "Ahmed M.",
+        "time": "hace 4 días",
+        "text": "Discrepo con respeto sobre la firmeza. He tenido tanto un VX de 2022 como ahora un GR-Sport de 2025 y la diferencia apenas se nota en las carreteras de los EAU. Quizá sobre las juntas de dilatación de Dubái hay un pelín más de golpeteo, pero nunca lo describiría como «duro». Por lo demás, gran artículo, muy justo.",
+        "likes": "21 me gusta"
+      },
+      "3": {
+        "avatar": "YK",
+        "name": "Yusef K.",
+        "time": "hace 5 días",
+        "text": "La mejor reseña de un Land Cruiser que he leído este año. El detalle sobre la caja de 10 velocidades es exactamente el tipo de cosa que otras publicaciones se saltan. Me he suscrito al boletín.",
+        "likes": "14 me gusta"
+      },
+      "4": {
+        "avatar": "SM",
+        "name": "Salem M.",
+        "time": "hace 1 semana",
+        "text": "¿Es este coche adecuado para el trayecto diario de Dubái a Abu Dabi? Ahora mismo lo hago con un Patrol Titanium y estoy pensando en la mejora.",
+        "likes": "7 me gusta"
+      }
+    },
+    "loadMore": "Cargar 47 comentarios más"
+  }
+}

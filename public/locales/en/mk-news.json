@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "News"
+  },
+  "hero": {
+    "title": "Carsens News & Reviews",
+    "subtitle": "Expert reviews, market insights, and buying guides for UAE drivers and riders. Updated daily."
+  },
+  "tabs": {
+    "all": "All articles",
+    "reviews": "Reviews",
+    "buyingGuides": "Buying Guides",
+    "market": "Market",
+    "comparisons": "Comparisons",
+    "news": "News",
+    "bikes": "Bikes",
+    "longTerm": "Long-term",
+    "finance": "Finance"
+  },
+  "featured": {
+    "tag": "First Drive",
+    "title": "2025 Toyota Land Cruiser GR-Sport: we drove it across the Liwa desert",
+    "excerpt": "The new GR-Sport gets a 409 hp twin-turbo V6, hydraulic diff-disconnect, and a GR-tuned chassis. After 800 km on tarmac and dunes, does it still deserve the desert king crown? A long-form, on-the-ground review.",
+    "author": "Khalid Al Mansouri",
+    "role": "Senior automotive editor",
+    "date": "May 11, 2026",
+    "read": "12 min read"
+  },
+  "topPicks": {
+    "title": "Top picks this week",
+    "viewLink": "All editor picks",
+    "0": {
+      "tag": "Market",
+      "title": "UAE used-car prices dropped 3.2% in April — here's why",
+      "excerpt": "Increased supply from corporate fleet returns, falling interest rates, and a softening luxury segment all played a part. Plus: what to expect in May and June.",
+      "author": "Sara Ahmed",
+      "date": "May 9, 2026",
+      "read": "6 min read"
+    },
+    "1": {
+      "tag": "EV Comparison",
+      "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins in the UAE?",
+      "excerpt": "We tested both in 47°C heat, on long Sheikh Zayed runs, in city traffic, and in fast-charge sessions. Range, charging, cabin comfort, software — here's how they compare.",
+      "author": "Khalid Al Mansouri",
+      "date": "May 8, 2026",
+      "read": "11 min read"
+    }
+  },
+  "latest": {
+    "title": "Latest articles",
+    "viewLink": "View all"
+  },
+  "articles": {
+    "0": {
+      "tag": "Buying Guide",
+      "title": "10 things every UAE buyer should check before signing a used-car contract",
+      "excerpt": "From mulkiya history to chassis-stamp matches, here's the practical checklist every buyer should run through before handing over a single dirham.",
+      "author": "Khalid Al Mansouri",
+      "date": "May 10, 2026",
+      "read": "6 min read"
+    },
+    "1": {
+      "tag": "Bikes",
+      "title": "BMW R1250GS vs Ducati Multistrada V4: which adventure king wins the UAE dunes?",
+      "excerpt": "Twin-cylinder boxer vs V4. We rode both from Dubai to Hatta and into the Hajars to see how they handle desert heat, sand, and long-haul touring.",
+      "author": "Omar Hassan",
+      "date": "May 9, 2026",
+      "read": "9 min read"
+    },
+    "2": {
+      "tag": "Buying Guide",
+      "title": "Best family SUVs under AED 200K in 2026",
+      "excerpt": "Seven-seat practicality, GCC service networks, and resale strength. Our shortlist of the best mid-size family SUVs you can buy new for under 200K this year.",
+      "author": "Sara Ahmed",
+      "date": "May 7, 2026",
+      "read": "8 min read"
+    },
+    "3": {
+      "tag": "Long-term Review",
+      "title": "Porsche 911 Carrera S: six months in the Dubai summer",
+      "excerpt": "PDK reliability in 47°C heat, real-world fuel economy, tire wear on Sheikh Zayed Road, and surprise running costs after the warranty expired.",
+      "author": "Khalid Al Mansouri",
+      "date": "May 6, 2026",
+      "read": "14 min read"
+    },
+    "4": {
+      "tag": "Finance",
+      "title": "0% finance vs cash purchase: which is smarter in 2026 UAE rates?",
+      "excerpt": "With UAE bank rates at 5.5–7%, is \"0% finance\" really the better deal it sounds? We did the math on a AED 180,000 car across four banks.",
+      "author": "Sara Ahmed",
+      "date": "May 5, 2026",
+      "read": "7 min read"
+    },
+    "5": {
+      "tag": "Comparison",
+      "title": "Audi RS6 vs BMW M5: which super-sedan rules Sheikh Zayed Road?",
+      "excerpt": "Two 600+ hp super-sedans, both wagons-in-disguise daily drivers. Performance, cabin quality, real-world economy, and which one ages better.",
+      "author": "Khalid Al Mansouri",
+      "date": "May 4, 2026",
+      "read": "11 min read"
+    },
+    "6": {
+      "tag": "Market",
+      "title": "5 underrated used cars that hold value best in the UAE",
+      "excerpt": "Forget the obvious choices. These five less-flashy picks lose less to depreciation over 3 years than any other car in their segment, based on Carsens data.",
+      "author": "Sara Ahmed",
+      "date": "May 3, 2026",
+      "read": "6 min read"
+    },
+    "7": {
+      "tag": "Bikes",
+      "title": "Buying a sport bike in the UAE: 8 things every new rider should check",
+      "excerpt": "From license class A2 limits to insurance pitfalls, accident history, and parts availability — what a first-time UAE sport-bike buyer needs to know.",
+      "author": "Omar Hassan",
+      "date": "May 2, 2026",
+      "read": "7 min read"
+    }
+  },
+  "pagination": {
+    "prev": "‹ Prev",
+    "next": "Next ›"
+  },
+  "popular": {
+    "title": "Most popular this week",
+    "0": {
+      "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins in the UAE?",
+      "meta": "12.4K views · 11 min read"
+    },
+    "1": {
+      "title": "UAE used-car prices dropped 3.2% in April — here's why",
+      "meta": "9.8K views · 6 min read"
+    },
+    "2": {
+      "title": "2025 Toyota Land Cruiser GR-Sport: we drove it across the Liwa desert",
+      "meta": "8.2K views · 12 min read"
+    },
+    "3": {
+      "title": "10 things every UAE buyer should check before signing a used-car contract",
+      "meta": "7.1K views · 6 min read"
+    },
+    "4": {
+      "title": "BMW R1250GS vs Ducati Multistrada V4: adventure bike comparison",
+      "meta": "5.6K views · 9 min read"
+    }
+  },
+  "newsletter": {
+    "title": "🚗 Stay informed",
+    "body": "Get the weekly Carsens digest. New listings, market moves, and the best reads, every Friday.",
+    "placeholder": "your.email@example.com",
+    "button": "Subscribe — it's free",
+    "perk1": "Weekly · 5 min read",
+    "perk2": "Unsubscribe anytime"
+  },
+  "topics": {
+    "title": "Browse by topic",
+    "tags": {
+      "0": "Toyota",
+      "1": "BMW",
+      "2": "Mercedes",
+      "3": "Porsche",
+      "4": "Used Cars",
+      "5": "New Cars",
+      "6": "Electric",
+      "7": "Hybrid",
+      "8": "SUV",
+      "9": "Sedan",
+      "10": "Sports",
+      "11": "Bikes",
+      "12": "UAE Market",
+      "13": "Financing",
+      "14": "Insurance",
+      "15": "Maintenance",
+      "16": "Luxury",
+      "17": "Off-road"
+    }
+  },
+  "writers": {
+    "title": "Featured writers",
+    "0": {
+      "name": "Khalid Al Mansouri",
+      "role": "Senior automotive editor",
+      "articles": "84 articles",
+      "reads": "1.2M reads"
+    },
+    "1": {
+      "name": "Sara Ahmed",
+      "role": "Market analyst",
+      "articles": "52 articles",
+      "reads": "680K reads"
+    },
+    "2": {
+      "name": "Omar Hassan",
+      "role": "Bike reviewer",
+      "articles": "38 articles",
+      "reads": "412K reads"
+    }
+  }
+}

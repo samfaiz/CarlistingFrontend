@@ -13,8 +13,13 @@ const compat = new FlatCompat({
 // spacing/positioning utilities are banned everywhere. Use logical ones:
 //   ml-/mr- -> ms-/me-, pl-/pr- -> ps-/pe-,
 //   text-left/text-right -> text-start/text-end, left-N/right-N -> start-N/end-N.
+// Match only real Tailwind physical utilities — a directional prefix followed
+// by a Tailwind modifier (digit, px, auto, full, or an arbitrary-value bracket).
+// This deliberately does NOT match bespoke `.mk` design-layer class names such
+// as `pl-info` / `pr-remove` (mockup CSS classes, RTL handled at the CSS layer
+// via logical properties), which are letters after the dash.
 const PHYSICAL_CLASS_REGEX =
-  "\\b(ml|mr|pl|pr)-|\\btext-left\\b|\\btext-right\\b|\\bleft-[0-9]|\\bright-[0-9]";
+  "\\b(ml|mr|pl|pr)-(?:\\d|px|auto|full|\\[)|\\btext-left\\b|\\btext-right\\b|\\bleft-[0-9]|\\bright-[0-9]";
 
 const PHYSICAL_CLASS_MESSAGE =
   "Physical spacing/positioning utility detected. RTL support requires logical properties (CLAUDE.md convention #2): use ms-/me- instead of ml-/mr-, ps-/pe- instead of pl-/pr-, text-start/text-end instead of text-left/text-right, start-*/end-* instead of left-*/right-*.";

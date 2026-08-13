@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Login"
+  },
+  "hero": {
+    "title": "Welcome back",
+    "subtitle": "Log in to your Carsens account"
+  },
+  "form": {
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "togglePassword": "Show/hide password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "submit": "Log in"
+  },
+  "divider": "or continue with",
+  "social": {
+    "google": "Continue with Google",
+    "apple": "Continue with Apple",
+    "uaePassBadge": "UAE",
+    "uaePass": "Continue with UAE Pass"
+  },
+  "switch": {
+    "prompt": "Don't have an account?",
+    "link": "Sign up free →"
+  }
+}
