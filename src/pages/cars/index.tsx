@@ -12,6 +12,7 @@ import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { BannerSlot } from "@/components/marketplace/banner-slot";
+import { AssistantWidget } from "@/components/marketplace/assistant-widget";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import {
   getMakes,
@@ -235,6 +236,7 @@ export default function MksearchPage({
             </div>
           </div>
         </main>
+        <AssistantWidget />
       </MockupLayout>
     </>
   );
@@ -292,7 +294,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, qu
       },
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
-        ["common", "mk-search"],
+        ["common", "mk-search", "mk-assistant"],
         nextI18NextConfig,
       )),
     },

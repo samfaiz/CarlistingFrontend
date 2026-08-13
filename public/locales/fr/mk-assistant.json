@@ -1,0 +1,14 @@
+{
+  "title": "Assistant d'achat",
+  "subtitle": "Décrivez la voiture souhaitée",
+  "open": "Demander à l'assistant",
+  "hint": "Essayez :",
+  "example": "SUV familial sous 150K, faible kilométrage",
+  "placeholder": "ex. Toyota SUV sous 120K à Dubaï",
+  "send": "Envoyer",
+  "found": "{{count}} résultats",
+  "seeAll": "Voir tous →",
+  "compare": "Comparer le top 3 →",
+  "helpLink": "Ouvrir le centre d'aide →",
+  "error": "L'assistant est occupé — réessayez dans une minute."
+}

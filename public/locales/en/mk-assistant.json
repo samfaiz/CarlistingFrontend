@@ -1,0 +1,14 @@
+{
+  "title": "Buying assistant",
+  "subtitle": "Describe the car you want",
+  "open": "Ask the buying assistant",
+  "hint": "Try:",
+  "example": "family SUV under 150K, low mileage",
+  "placeholder": "e.g. Toyota SUV under 120K in Dubai",
+  "send": "Send",
+  "found": "Found {{count}} matches",
+  "seeAll": "See all results →",
+  "compare": "Compare top 3 →",
+  "helpLink": "Open the help centre →",
+  "error": "The assistant is busy — try again in a minute."
+}

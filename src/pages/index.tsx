@@ -13,6 +13,7 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { AssistantWidget } from "@/components/marketplace/assistant-widget";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import { searchListings, type Card } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
@@ -244,6 +245,7 @@ export default function HomePage() {
             </div>
           </section>
         </main>
+        <AssistantWidget />
       </MockupLayout>
     </>
   );
@@ -253,7 +255,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(
       locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "mk-home"],
+      ["common", "mk-home", "mk-assistant"],
       nextI18NextConfig,
     )),
   },
