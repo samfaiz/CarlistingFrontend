@@ -16,7 +16,8 @@
       "legal": "Páginas legales",
       "banners": "Banners",
       "audit": "Registro de auditoría",
-      "system": "Sistema"
+      "system": "Sistema",
+      "spec": "BD de fichas"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -496,6 +497,51 @@
       "active": "Activo",
       "reindex": "Reindexar",
       "reindexed": "Reindexados {{n}} anuncios"
+    }
+  },
+  "spec": {
+    "title": "BD de fichas",
+    "loading": "Cargando…",
+    "error": "Algo salió mal",
+    "tabs": {
+      "coverage": "Cobertura",
+      "queue": "Cola de revisión",
+      "requests": "Solicitudes"
+    },
+    "coverage": {
+      "pct": "Cobertura",
+      "trims": "versiones",
+      "published": "Fichas publicadas",
+      "draft": "borrador",
+      "lowFields": "Campos de baja confianza",
+      "verified": "verificados",
+      "high": "alta",
+      "openRequests": "Solicitudes abiertas",
+      "byMake": "Cobertura por marca",
+      "make": "Marca",
+      "covered": "Cubiertas",
+      "progress": "Progreso"
+    },
+    "queue": {
+      "count": "{{n}} fichas por revisar",
+      "bulkVerify": "Verificar selección ({{n}})",
+      "bulkVerified": "{{n}} fichas verificadas",
+      "verified": "Ficha verificada",
+      "spec": "Ficha",
+      "year": "Año",
+      "lowFields": "Campos bajos",
+      "verifyPublish": "Verificar y publicar",
+      "empty": "Nada en la cola de revisión.",
+      "empty2": ""
+    },
+    "requests": {
+      "details": "Solicitud",
+      "status": "Estado",
+      "when": "Cuándo",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "resolved": "Solicitud resuelta",
+      "empty": "Sin solicitudes."
     }
   }
 }

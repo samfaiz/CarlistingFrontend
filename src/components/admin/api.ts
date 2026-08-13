@@ -683,3 +683,59 @@ export function renameEmirate(id: string, name: string, accessToken: string): Pr
 export function reindexMake(id: string, accessToken: string): Promise<{ reindexed: number }> {
   return apiPost(`/taxonomy/admin/makes/${encodeURIComponent(id)}/reindex`, {}, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Spec DB curation workbench (P4-08, FR-VS7/VS2b)                    */
+/* ------------------------------------------------------------------ */
+
+export interface SpecCoverage {
+  trimsTotal: number;
+  trimsWithSpecs: number;
+  coveragePct: number;
+  publishedSpecs: number;
+  draftSpecs: number;
+  fields: { VERIFIED: number; HIGH: number; LOW: number };
+  openRequests: number;
+  byMake: { make: string; trims: number; covered: number }[];
+}
+export interface ReviewSpec {
+  id: string;
+  year: number;
+  regionalSpec: string;
+  status: string;
+  trim: string;
+  model: string;
+  make: string;
+  lowFields: { fieldKey: string; value: string; source: string; confidence: string }[];
+  lowCount: number;
+}
+export interface TrimRequestRow {
+  id: string;
+  userId: string | null;
+  details: Record<string, unknown>;
+  status: string;
+  createdAt: string;
+}
+
+export function getSpecCoverage(accessToken: string): Promise<SpecCoverage> {
+  return apiGet(`/admin/spec-workbench/coverage`, { token: accessToken });
+}
+export function getSpecReviewQueue(accessToken: string, params: { confidence?: string; limit?: number; offset?: number } = {}): Promise<{ items: ReviewSpec[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/spec-workbench/review-queue${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+export function getSpecRequests(accessToken: string, params: { status?: string; limit?: number; offset?: number } = {}): Promise<{ items: TrimRequestRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/spec-workbench/requests${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+export function verifyTrimSpec(id: string, opts: { confidence?: string; publish?: boolean }, accessToken: string): Promise<{ id: string; published: boolean }> {
+  return apiPost(`/admin/spec-workbench/trim-specs/${encodeURIComponent(id)}/verify`, opts, { token: accessToken });
+}
+export function bulkVerifySpecs(ids: string[], accessToken: string): Promise<{ verified: number }> {
+  return apiPost(`/admin/spec-workbench/bulk-verify`, { ids }, { token: accessToken });
+}
+export function resolveTrimRequest(id: string, status: "APPROVED" | "REJECTED", accessToken: string): Promise<{ id: string; status: string }> {
+  return apiPost(`/admin/spec-workbench/requests/${encodeURIComponent(id)}/resolve`, { status }, { token: accessToken });
+}

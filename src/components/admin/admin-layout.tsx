@@ -13,6 +13,7 @@ import {
   BadgeCheck,
   CarFront,
   FileText,
+  Database,
   Flag,
   History,
   Image as ImageIcon,
@@ -111,6 +112,11 @@ export function AdminLayout({
       href: "/admin/banners",
       label: t("layout.nav.banners"),
       icon: ImageIcon,
+    },
+    {
+      href: "/admin/spec-workbench",
+      label: t("layout.nav.spec"),
+      icon: Database,
     },
     {
       href: "/admin/audit",

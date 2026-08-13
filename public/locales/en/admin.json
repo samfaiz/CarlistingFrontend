@@ -16,7 +16,8 @@
       "legal": "Legal pages",
       "banners": "Banners",
       "audit": "Audit log",
-      "system": "System"
+      "system": "System",
+      "spec": "Spec DB"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -496,6 +497,51 @@
       "active": "Active",
       "reindex": "Reindex",
       "reindexed": "Reindexed {{n}} listings"
+    }
+  },
+  "spec": {
+    "title": "Spec DB",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "tabs": {
+      "coverage": "Coverage",
+      "queue": "Review queue",
+      "requests": "Requests"
+    },
+    "coverage": {
+      "pct": "Coverage",
+      "trims": "trims",
+      "published": "Published specs",
+      "draft": "draft",
+      "lowFields": "Low-confidence fields",
+      "verified": "verified",
+      "high": "high",
+      "openRequests": "Open requests",
+      "byMake": "Coverage by make",
+      "make": "Make",
+      "covered": "Covered",
+      "progress": "Progress"
+    },
+    "queue": {
+      "count": "{{n}} specs need review",
+      "bulkVerify": "Verify selected ({{n}})",
+      "bulkVerified": "Verified {{n}} specs",
+      "verified": "Spec verified",
+      "spec": "Spec",
+      "year": "Year",
+      "lowFields": "Low fields",
+      "verifyPublish": "Verify & publish",
+      "empty": "Nothing in the review queue.",
+      "empty2": ""
+    },
+    "requests": {
+      "details": "Request",
+      "status": "Status",
+      "when": "When",
+      "approve": "Approve",
+      "reject": "Reject",
+      "resolved": "Request resolved",
+      "empty": "No requests."
     }
   }
 }

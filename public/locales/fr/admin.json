@@ -16,7 +16,8 @@
       "legal": "Pages légales",
       "banners": "Bannières",
       "audit": "Journal d’audit",
-      "system": "Système"
+      "system": "Système",
+      "spec": "BD spécifications"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -496,6 +497,51 @@
       "active": "Actif",
       "reindex": "Réindexer",
       "reindexed": "{{n}} annonces réindexées"
+    }
+  },
+  "spec": {
+    "title": "BD spécifications",
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue",
+    "tabs": {
+      "coverage": "Couverture",
+      "queue": "File de revue",
+      "requests": "Demandes"
+    },
+    "coverage": {
+      "pct": "Couverture",
+      "trims": "finitions",
+      "published": "Fiches publiées",
+      "draft": "brouillon",
+      "lowFields": "Champs à faible confiance",
+      "verified": "vérifiés",
+      "high": "élevée",
+      "openRequests": "Demandes ouvertes",
+      "byMake": "Couverture par marque",
+      "make": "Marque",
+      "covered": "Couvertes",
+      "progress": "Progression"
+    },
+    "queue": {
+      "count": "{{n}} fiches à revoir",
+      "bulkVerify": "Vérifier la sélection ({{n}})",
+      "bulkVerified": "{{n}} fiches vérifiées",
+      "verified": "Fiche vérifiée",
+      "spec": "Fiche",
+      "year": "Année",
+      "lowFields": "Champs faibles",
+      "verifyPublish": "Vérifier et publier",
+      "empty": "Rien dans la file de revue.",
+      "empty2": ""
+    },
+    "requests": {
+      "details": "Demande",
+      "status": "Statut",
+      "when": "Quand",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "resolved": "Demande résolue",
+      "empty": "Aucune demande."
     }
   }
 }
