@@ -8,7 +8,8 @@
       "verification": "Verification",
       "security": "Security",
       "users": "Users",
-      "listings": "Listings"
+      "listings": "Listings",
+      "leads": "Leads"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -208,5 +209,22 @@
       "failed": "The action could not be completed",
       "loadFailed": "Could not load listings"
     }
+  },
+  "leadsOverview": {
+    "title": "Leads overview",
+    "range": "{{count}} days",
+    "totals": {
+      "leads": "Leads",
+      "dealers": "Dealers with leads"
+    },
+    "chart": "Leads per day (platform)",
+    "byChannel": "By channel",
+    "topDealers": "Top dealerships",
+    "columns": {
+      "dealer": "Dealership",
+      "leads": "Leads",
+      "won": "Won"
+    },
+    "empty": "No dealer leads in this period."
   }
 }

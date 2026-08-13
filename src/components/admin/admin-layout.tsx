@@ -12,6 +12,7 @@ import * as React from "react";
 import {
   BadgeCheck,
   CarFront,
+  Inbox,
   KeyRound,
   LogOut,
   ShieldCheck,
@@ -73,6 +74,11 @@ export function AdminLayout({
       href: "/admin/listings",
       label: t("layout.nav.listings"),
       icon: CarFront,
+    },
+    {
+      href: "/admin/leads",
+      label: t("layout.nav.leads"),
+      icon: Inbox,
     },
     {
       href: "/admin/security",

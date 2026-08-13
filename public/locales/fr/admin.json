@@ -8,7 +8,8 @@
       "verification": "Vérification",
       "security": "Sécurité",
       "users": "Utilisateurs",
-      "listings": "Annonces"
+      "listings": "Annonces",
+      "leads": "Prospects"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -208,5 +209,22 @@
       "failed": "L'action n'a pas pu être effectuée",
       "loadFailed": "Impossible de charger les annonces"
     }
+  },
+  "leadsOverview": {
+    "title": "Vue d'ensemble des prospects",
+    "range": "{{count}} jours",
+    "totals": {
+      "leads": "Prospects",
+      "dealers": "Concessions avec prospects"
+    },
+    "chart": "Prospects par jour (plateforme)",
+    "byChannel": "Par canal",
+    "topDealers": "Meilleures concessions",
+    "columns": {
+      "dealer": "Concession",
+      "leads": "Prospects",
+      "won": "Gagnés"
+    },
+    "empty": "Aucun prospect de concession sur cette période."
   }
 }

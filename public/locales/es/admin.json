@@ -8,7 +8,8 @@
       "verification": "Verificación",
       "security": "Seguridad",
       "users": "Usuarios",
-      "listings": "Anuncios"
+      "listings": "Anuncios",
+      "leads": "Leads"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -208,5 +209,22 @@
       "failed": "No se pudo completar la acción",
       "loadFailed": "No se pudieron cargar los anuncios"
     }
+  },
+  "leadsOverview": {
+    "title": "Resumen de leads",
+    "range": "{{count}} días",
+    "totals": {
+      "leads": "Leads",
+      "dealers": "Concesionarios con leads"
+    },
+    "chart": "Leads por día (plataforma)",
+    "byChannel": "Por canal",
+    "topDealers": "Mejores concesionarios",
+    "columns": {
+      "dealer": "Concesionario",
+      "leads": "Leads",
+      "won": "Ganados"
+    },
+    "empty": "Sin leads de concesionarios en este período."
   }
 }
