@@ -137,6 +137,7 @@ export interface SearchListingsParams {
   modelId?: string;
   trimId?: string;
   bodyTypeId?: string;
+  bikeTypeId?: string;
   emirateId?: string;
   sellerType?: string;
   dealerId?: string;

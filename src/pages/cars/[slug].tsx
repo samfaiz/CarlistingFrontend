@@ -11,10 +11,15 @@ import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { API_BASE_URL } from "@/lib/api";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import { formatMileage, formatPrice, mediaUrl } from "@/lib/format";
+import { useCurrency } from "@/components/marketplace/currency-provider";
 import {
   getListing,
+  openConversation,
+  revealContact,
   searchListings,
   type Card,
   type ListingDetail,
@@ -27,6 +32,40 @@ const TRANS: Record<string, string> = { AUTOMATIC: "Automatic", MANUAL: "Manual"
 export default function MkdetailPage({ listing, similar }: { listing: ListingDetail; similar: Card[] }) {
   const { t } = useTranslation("mk-detail");
   const [active, setActive] = React.useState(0);
+  const router = useRouter();
+  const { data: session } = useSession();
+  const [phone, setPhone] = React.useState<string | null>(null);
+  const { currency, format } = useCurrency();
+  const [leadBusy, setLeadBusy] = React.useState<string | null>(null);
+
+  // P6-02: contact buttons record REAL leads (CALL/WHATSAPP reveal + CHAT).
+  const onCall = async () => {
+    if (phone) { window.location.href = `tel:${phone}`; return; }
+    setLeadBusy("call");
+    try {
+      const r = await revealContact(listing.id, "CALL", { accessToken: session?.accessToken, source: "detail" });
+      if (r.phone) setPhone(r.phone);
+    } catch { /* keep button usable */ }
+    finally { setLeadBusy(null); }
+  };
+  const onWhatsApp = async () => {
+    setLeadBusy("wa");
+    try {
+      const r = await revealContact(listing.id, "WHATSAPP", { accessToken: session?.accessToken, source: "detail" });
+      const url = r.whatsappUrl ?? (r.phone ? `https://wa.me/${r.phone.replace(/[^\d]/g, "")}` : null);
+      if (url) window.open(url, "_blank");
+    } catch { /* noop */ }
+    finally { setLeadBusy(null); }
+  };
+  const onMessage = async () => {
+    if (!session?.accessToken) { void router.push(`/login?next=/cars/${listing.slug}`); return; }
+    setLeadBusy("msg");
+    try {
+      const convo = await openConversation(listing.id, session.accessToken);
+      void router.push(`/account/messages?c=${convo.id}`);
+    } catch { /* noop */ }
+    finally { setLeadBusy(null); }
+  };
 
   const title = `${listing.year} ${listing.make.name} ${listing.model.name}${listing.trim ? ` ${listing.trim.name}` : ""}`;
   const photos = listing.media.map((m) => m.variants?.card).filter(Boolean) as string[];
@@ -124,7 +163,7 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                 <aside className="detail-sidebar">
                   <div className="card-sidebar">
                     <div className="price-block">
-                      <div className="price-tag">{formatPrice(listing.priceAed, "en")}</div>
+                      <div className="price-tag">{formatPrice(listing.priceAed, "en")}{currency !== "AED" && <span style={{ display: "block", fontSize: 14, color: "var(--text-2)", fontWeight: 600 }}>{format(listing.priceAed)}</span>}</div>
                       {listing.isNegotiable && <div className="price-sub">{t("price.negotiable", { defaultValue: "Negotiable" })}</div>}
                     </div>
 
@@ -147,15 +186,15 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                     </div>
 
                     <div className="contact-buttons">
-                      <button type="button" className="btn btn-primary btn-block btn-lg">
+                      <button type="button" className="btn btn-primary btn-block btn-lg" disabled={leadBusy === "call"} onClick={() => void onCall()}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z" /></svg>
-                        <span>{t("contact.phone")}</span>
+                        <span>{phone ?? t("contact.phone")}</span>
                       </button>
-                      <button type="button" className="btn btn-whatsapp btn-block">
+                      <button type="button" className="btn btn-whatsapp btn-block" disabled={leadBusy === "wa"} onClick={() => void onWhatsApp()}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1s-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.1-.2-.2-.5-.4z" /></svg>
                         {t("contact.whatsapp")}
                       </button>
-                      <button type="button" className="btn btn-outline btn-block">
+                      <button type="button" className="btn btn-outline btn-block" disabled={leadBusy === "msg"} onClick={() => void onMessage()}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                         {t("contact.message")}
                       </button>

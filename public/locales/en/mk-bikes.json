@@ -47,24 +47,75 @@
   "types": {
     "title": "Browse by bike type",
     "sub": "Find the right ride for your style",
-    "sport": { "name": "Sport", "count": "3,420 bikes" },
-    "cruiser": { "name": "Cruiser", "count": "1,890 bikes" },
-    "adventure": { "name": "Adventure", "count": "2,140 bikes" },
-    "naked": { "name": "Naked", "count": "1,650 bikes" },
-    "standard": { "name": "Standard", "count": "980 bikes" },
-    "offroad": { "name": "Off-road", "count": "620 bikes" },
-    "touring": { "name": "Touring", "count": "420 bikes" },
-    "scooter": { "name": "Scooter", "count": "1,180 bikes" }
+    "sport": {
+      "name": "Sport",
+      "count": "3,420 bikes"
+    },
+    "cruiser": {
+      "name": "Cruiser",
+      "count": "1,890 bikes"
+    },
+    "adventure": {
+      "name": "Adventure",
+      "count": "2,140 bikes"
+    },
+    "naked": {
+      "name": "Naked",
+      "count": "1,650 bikes"
+    },
+    "standard": {
+      "name": "Standard",
+      "count": "980 bikes"
+    },
+    "offroad": {
+      "name": "Off-road",
+      "count": "620 bikes"
+    },
+    "touring": {
+      "name": "Touring",
+      "count": "420 bikes"
+    },
+    "scooter": {
+      "name": "Scooter",
+      "count": "1,180 bikes"
+    }
   },
   "featured": {
     "title": "Featured bikes",
     "sub": "Hand-picked premium motorcycles from verified sellers",
     "seeAll": "See all featured",
     "cards": {
-      "0": { "badge": "Featured", "sub": "2023 • Dubai • 1,103cc", "finance": "or 2,500/mo", "km": "2,800 km", "type": "Sport", "power": "215 hp" },
-      "1": { "badge": "Featured", "sub": "2023 • Abu Dhabi • 1,254cc", "finance": "or 1,372/mo", "km": "12,400 km", "type": "Adventure", "power": "136 hp" },
-      "2": { "badge": "Hot Deal", "sub": "2022 • Sharjah • 1,868cc", "km": "8,200 km", "type": "Touring", "power": "90 hp" },
-      "3": { "badge": "New listing", "sub": "2022 • Dubai • 998cc", "finance": "or 1,015/mo", "km": "6,800 km", "type": "Sport", "power": "200 hp" }
+      "0": {
+        "badge": "Featured",
+        "sub": "2023 • Dubai • 1,103cc",
+        "finance": "or 2,500/mo",
+        "km": "2,800 km",
+        "type": "Sport",
+        "power": "215 hp"
+      },
+      "1": {
+        "badge": "Featured",
+        "sub": "2023 • Abu Dhabi • 1,254cc",
+        "finance": "or 1,372/mo",
+        "km": "12,400 km",
+        "type": "Adventure",
+        "power": "136 hp"
+      },
+      "2": {
+        "badge": "Hot Deal",
+        "sub": "2022 • Sharjah • 1,868cc",
+        "km": "8,200 km",
+        "type": "Touring",
+        "power": "90 hp"
+      },
+      "3": {
+        "badge": "New listing",
+        "sub": "2022 • Dubai • 998cc",
+        "finance": "or 1,015/mo",
+        "km": "6,800 km",
+        "type": "Sport",
+        "power": "200 hp"
+      }
     }
   },
   "makes": {
@@ -77,19 +128,57 @@
   "categories": {
     "title": "Shop by category",
     "sub": "Whatever your riding style, we've got the right bike",
-    "sport": { "title": "Sport bikes", "count": "3,420 listings" },
-    "cruisers": { "title": "Cruisers", "count": "1,890 listings" },
-    "adventure": { "title": "Adventure", "count": "2,140 listings" },
-    "classic": { "title": "Classic & Retro", "count": "980 listings" }
+    "sport": {
+      "title": "Sport bikes",
+      "count": "3,420 listings"
+    },
+    "cruisers": {
+      "title": "Cruisers",
+      "count": "1,890 listings"
+    },
+    "adventure": {
+      "title": "Adventure",
+      "count": "2,140 listings"
+    },
+    "classic": {
+      "title": "Classic & Retro",
+      "count": "980 listings"
+    }
   },
   "newly": {
     "title": "Newly listed bikes",
     "sub": "Fresh listings added in the last 7 days",
     "cards": {
-      "0": { "badge": "New", "photos": "14 photos", "sub": "2023 • Dubai • 1,301cc", "km": "3,200 km", "type": "Naked", "power": "180 hp" },
-      "1": { "photos": "18 photos", "sub": "2022 • Abu Dhabi • 1,200cc", "km": "9,400 km", "type": "Classic", "power": "80 hp" },
-      "2": { "photos": "16 photos", "sub": "2023 • Dubai • 890cc", "km": "4,200 km", "type": "Naked", "power": "119 hp" },
-      "3": { "badge": "Reduced", "photos": "22 photos", "sub": "2023 • Sharjah • 1,084cc", "km": "7,800 km", "type": "Adventure", "power": "102 hp" }
+      "0": {
+        "badge": "New",
+        "photos": "14 photos",
+        "sub": "2023 • Dubai • 1,301cc",
+        "km": "3,200 km",
+        "type": "Naked",
+        "power": "180 hp"
+      },
+      "1": {
+        "photos": "18 photos",
+        "sub": "2022 • Abu Dhabi • 1,200cc",
+        "km": "9,400 km",
+        "type": "Classic",
+        "power": "80 hp"
+      },
+      "2": {
+        "photos": "16 photos",
+        "sub": "2023 • Dubai • 890cc",
+        "km": "4,200 km",
+        "type": "Naked",
+        "power": "119 hp"
+      },
+      "3": {
+        "badge": "Reduced",
+        "photos": "22 photos",
+        "sub": "2023 • Sharjah • 1,084cc",
+        "km": "7,800 km",
+        "type": "Adventure",
+        "power": "102 hp"
+      }
     }
   },
   "gear": {
@@ -106,9 +195,38 @@
     "sub": "Reviews, guides, and bike market insights",
     "allArticles": "All articles",
     "articles": {
-      "0": { "tag": "Adventure", "title": "BMW R1250GS vs Ducati Multistrada V4: which adventure king wins the UAE dunes?", "date": "May 11, 2026", "read": "9 min read" },
-      "1": { "tag": "Buying Guide", "title": "Buying a sport bike in the UAE: 8 things every new rider should check first", "date": "May 9, 2026", "read": "7 min read" },
-      "2": { "tag": "Review", "title": "2024 Harley-Davidson Street Glide ST: a long-term review from Dubai to Hatta", "date": "May 7, 2026", "read": "11 min read" }
+      "0": {
+        "tag": "Adventure",
+        "title": "BMW R1250GS vs Ducati Multistrada V4: which adventure king wins the UAE dunes?",
+        "date": "May 11, 2026",
+        "read": "9 min read"
+      },
+      "1": {
+        "tag": "Buying Guide",
+        "title": "Buying a sport bike in the UAE: 8 things every new rider should check first",
+        "date": "May 9, 2026",
+        "read": "7 min read"
+      },
+      "2": {
+        "tag": "Review",
+        "title": "2024 Harley-Davidson Street Glide ST: a long-term review from Dubai to Hatta",
+        "date": "May 7, 2026",
+        "read": "11 min read"
+      }
     }
+  },
+  "results": {
+    "sortLabel": "Sort",
+    "count": "{{count}} bikes for sale",
+    "empty": "No bikes match your filters."
+  },
+  "sort": {
+    "newest": "Newest",
+    "priceAsc": "Price: low to high",
+    "priceDesc": "Price: high to low",
+    "mileageAsc": "Mileage: lowest"
+  },
+  "cta": {
+    "sell": "Selling a bike? List it free →"
   }
 }

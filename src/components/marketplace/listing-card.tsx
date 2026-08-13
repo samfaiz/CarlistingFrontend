@@ -4,7 +4,8 @@
  */
 import Link from "next/link";
 import * as React from "react";
-import { formatMileage, formatPrice, mediaUrl } from "@/lib/format";
+import { formatMileage, mediaUrl } from "@/lib/format";
+import { useCurrency } from "@/components/marketplace/currency-provider";
 import type { Card } from "@/lib/marketplace-api";
 
 const FUEL_LABEL: Record<string, string> = {
@@ -19,7 +20,8 @@ function initials(name: string): string {
   return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 }
 
-export function MarketplaceCard({ car }: { car: Card }) {
+export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBase?: string }) {
+  const { format } = useCurrency();
   // Defensive: some callers (e.g. /listings/mine) pass a leaner shape than the
   // search Card and may omit emirate / _count.
   const cover = car.media?.[0]?.variants?.card;
@@ -29,7 +31,7 @@ export function MarketplaceCard({ car }: { car: Card }) {
   const isFeatured = car.badges?.includes("featured");
 
   return (
-    <Link href={`/cars/${car.slug}`} className="card">
+    <Link href={`${hrefBase}/${car.slug}`} className="card">
       <div className="media">
         {cover ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -51,7 +53,7 @@ export function MarketplaceCard({ car }: { car: Card }) {
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <p className="card-sub">{car.year} • {car.emirate?.name ?? ""}</p>
-        <div className="price">{formatPrice(car.priceAed, "en")}</div>
+        <div className="price">{format(car.priceAed)}</div>
         <div className="specs">
           <span className="spec">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M6 9l-3 3 3 3M18 9l3 3-3 3" /></svg>{" "}

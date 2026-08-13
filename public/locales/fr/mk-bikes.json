@@ -47,24 +47,75 @@
   "types": {
     "title": "Parcourir par type de moto",
     "sub": "Trouvez la moto qui correspond à votre style",
-    "sport": { "name": "Sportive", "count": "3,420 motos" },
-    "cruiser": { "name": "Cruiser", "count": "1,890 motos" },
-    "adventure": { "name": "Aventure", "count": "2,140 motos" },
-    "naked": { "name": "Roadster", "count": "1,650 motos" },
-    "standard": { "name": "Standard", "count": "980 motos" },
-    "offroad": { "name": "Tout-terrain", "count": "620 motos" },
-    "touring": { "name": "Touring", "count": "420 motos" },
-    "scooter": { "name": "Scooter", "count": "1,180 motos" }
+    "sport": {
+      "name": "Sportive",
+      "count": "3,420 motos"
+    },
+    "cruiser": {
+      "name": "Cruiser",
+      "count": "1,890 motos"
+    },
+    "adventure": {
+      "name": "Aventure",
+      "count": "2,140 motos"
+    },
+    "naked": {
+      "name": "Roadster",
+      "count": "1,650 motos"
+    },
+    "standard": {
+      "name": "Standard",
+      "count": "980 motos"
+    },
+    "offroad": {
+      "name": "Tout-terrain",
+      "count": "620 motos"
+    },
+    "touring": {
+      "name": "Touring",
+      "count": "420 motos"
+    },
+    "scooter": {
+      "name": "Scooter",
+      "count": "1,180 motos"
+    }
   },
   "featured": {
     "title": "Motos en vedette",
     "sub": "Motos premium sélectionnées auprès de vendeurs vérifiés",
     "seeAll": "Voir toutes les vedettes",
     "cards": {
-      "0": { "badge": "En vedette", "sub": "2023 • Dubaï • 1,103cc", "finance": "ou 2,500/mois", "km": "2,800 km", "type": "Sportive", "power": "215 ch" },
-      "1": { "badge": "En vedette", "sub": "2023 • Abou Dabi • 1,254cc", "finance": "ou 1,372/mois", "km": "12,400 km", "type": "Aventure", "power": "136 ch" },
-      "2": { "badge": "Bon plan", "sub": "2022 • Sharjah • 1,868cc", "km": "8,200 km", "type": "Touring", "power": "90 ch" },
-      "3": { "badge": "Nouvelle annonce", "sub": "2022 • Dubaï • 998cc", "finance": "ou 1,015/mois", "km": "6,800 km", "type": "Sportive", "power": "200 ch" }
+      "0": {
+        "badge": "En vedette",
+        "sub": "2023 • Dubaï • 1,103cc",
+        "finance": "ou 2,500/mois",
+        "km": "2,800 km",
+        "type": "Sportive",
+        "power": "215 ch"
+      },
+      "1": {
+        "badge": "En vedette",
+        "sub": "2023 • Abou Dabi • 1,254cc",
+        "finance": "ou 1,372/mois",
+        "km": "12,400 km",
+        "type": "Aventure",
+        "power": "136 ch"
+      },
+      "2": {
+        "badge": "Bon plan",
+        "sub": "2022 • Sharjah • 1,868cc",
+        "km": "8,200 km",
+        "type": "Touring",
+        "power": "90 ch"
+      },
+      "3": {
+        "badge": "Nouvelle annonce",
+        "sub": "2022 • Dubaï • 998cc",
+        "finance": "ou 1,015/mois",
+        "km": "6,800 km",
+        "type": "Sportive",
+        "power": "200 ch"
+      }
     }
   },
   "makes": {
@@ -77,19 +128,57 @@
   "categories": {
     "title": "Acheter par catégorie",
     "sub": "Quel que soit votre style de conduite, nous avons la bonne moto",
-    "sport": { "title": "Motos sportives", "count": "3,420 annonces" },
-    "cruisers": { "title": "Cruisers", "count": "1,890 annonces" },
-    "adventure": { "title": "Aventure", "count": "2,140 annonces" },
-    "classic": { "title": "Classiques & Rétro", "count": "980 annonces" }
+    "sport": {
+      "title": "Motos sportives",
+      "count": "3,420 annonces"
+    },
+    "cruisers": {
+      "title": "Cruisers",
+      "count": "1,890 annonces"
+    },
+    "adventure": {
+      "title": "Aventure",
+      "count": "2,140 annonces"
+    },
+    "classic": {
+      "title": "Classiques & Rétro",
+      "count": "980 annonces"
+    }
   },
   "newly": {
     "title": "Motos récemment publiées",
     "sub": "Nouvelles annonces ajoutées ces 7 derniers jours",
     "cards": {
-      "0": { "badge": "Nouveau", "photos": "14 photos", "sub": "2023 • Dubaï • 1,301cc", "km": "3,200 km", "type": "Roadster", "power": "180 ch" },
-      "1": { "photos": "18 photos", "sub": "2022 • Abou Dabi • 1,200cc", "km": "9,400 km", "type": "Classique", "power": "80 ch" },
-      "2": { "photos": "16 photos", "sub": "2023 • Dubaï • 890cc", "km": "4,200 km", "type": "Roadster", "power": "119 ch" },
-      "3": { "badge": "Baisse de prix", "photos": "22 photos", "sub": "2023 • Sharjah • 1,084cc", "km": "7,800 km", "type": "Aventure", "power": "102 ch" }
+      "0": {
+        "badge": "Nouveau",
+        "photos": "14 photos",
+        "sub": "2023 • Dubaï • 1,301cc",
+        "km": "3,200 km",
+        "type": "Roadster",
+        "power": "180 ch"
+      },
+      "1": {
+        "photos": "18 photos",
+        "sub": "2022 • Abou Dabi • 1,200cc",
+        "km": "9,400 km",
+        "type": "Classique",
+        "power": "80 ch"
+      },
+      "2": {
+        "photos": "16 photos",
+        "sub": "2023 • Dubaï • 890cc",
+        "km": "4,200 km",
+        "type": "Roadster",
+        "power": "119 ch"
+      },
+      "3": {
+        "badge": "Baisse de prix",
+        "photos": "22 photos",
+        "sub": "2023 • Sharjah • 1,084cc",
+        "km": "7,800 km",
+        "type": "Aventure",
+        "power": "102 ch"
+      }
     }
   },
   "gear": {
@@ -106,9 +195,38 @@
     "sub": "Tests, guides et analyses du marché de la moto",
     "allArticles": "Tous les articles",
     "articles": {
-      "0": { "tag": "Aventure", "title": "BMW R1250GS vs Ducati Multistrada V4 : quel roi de l'aventure gagne dans les dunes des EAU ?", "date": "11 mai 2026", "read": "9 min de lecture" },
-      "1": { "tag": "Guide d'achat", "title": "Acheter une moto sportive aux EAU : 8 choses que tout nouveau motard doit vérifier d'abord", "date": "9 mai 2026", "read": "7 min de lecture" },
-      "2": { "tag": "Test", "title": "Harley-Davidson Street Glide ST 2024 : un essai longue durée de Dubaï à Hatta", "date": "7 mai 2026", "read": "11 min de lecture" }
+      "0": {
+        "tag": "Aventure",
+        "title": "BMW R1250GS vs Ducati Multistrada V4 : quel roi de l'aventure gagne dans les dunes des EAU ?",
+        "date": "11 mai 2026",
+        "read": "9 min de lecture"
+      },
+      "1": {
+        "tag": "Guide d'achat",
+        "title": "Acheter une moto sportive aux EAU : 8 choses que tout nouveau motard doit vérifier d'abord",
+        "date": "9 mai 2026",
+        "read": "7 min de lecture"
+      },
+      "2": {
+        "tag": "Test",
+        "title": "Harley-Davidson Street Glide ST 2024 : un essai longue durée de Dubaï à Hatta",
+        "date": "7 mai 2026",
+        "read": "11 min de lecture"
+      }
     }
+  },
+  "results": {
+    "sortLabel": "Trier",
+    "count": "{{count}} motos à vendre",
+    "empty": "Aucune moto ne correspond à vos filtres."
+  },
+  "sort": {
+    "newest": "Plus récentes",
+    "priceAsc": "Prix : croissant",
+    "priceDesc": "Prix : décroissant",
+    "mileageAsc": "Kilométrage : le plus bas"
+  },
+  "cta": {
+    "sell": "Vous vendez une moto ? Annonce gratuite →"
   }
 }

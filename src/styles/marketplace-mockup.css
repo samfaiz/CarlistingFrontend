@@ -2594,3 +2594,8 @@
 .mk .assistant-input input {flex:1;border:1px solid var(--divider,#e5e7eb);border-radius:8px;padding:8px 10px;font-size:13px}
 .mk .assistant-input button {background:var(--brand,#23416B);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
 .mk .assistant-input button:disabled {opacity:.5;cursor:default}
+
+/* P6-04 — header language + currency selects */
+.mk .chrome-select {height:36px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:8px;padding:0 8px;font-size:12.5px;cursor:pointer}
+.mk .chrome-select option {color:var(--ink,#23416B)}
+@media (max-width: 900px) { .mk .chrome-select {display:none} }

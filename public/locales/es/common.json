@@ -51,5 +51,37 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "pageOf": "Página {{page}} de {{pages}}"
+  },
+  "chrome": {
+    "nav": {
+      "usedCars": "Coches usados",
+      "newCars": "Coches nuevos",
+      "bikes": "Motos",
+      "dealers": "Concesionarios",
+      "compare": "Comparar",
+      "news": "Noticias"
+    },
+    "login": "Iniciar sesión",
+    "sell": "Vende tu coche",
+    "language": "Idioma",
+    "currency": "Moneda",
+    "tagline": "El mercado moderno de coches de los EAU. Compra, vende y descubre desde cualquier emirato.",
+    "footer": {
+      "buy": "Comprar",
+      "sell": "Vender",
+      "tools": "Herramientas",
+      "company": "Compañía",
+      "valuation": "Tasación",
+      "dealerSignup": "Alta de concesionarios",
+      "sellingTips": "Consejos de venta",
+      "help": "Centro de ayuda",
+      "contact": "Contacto",
+      "about": "Sobre Carsens",
+      "terms": "Términos",
+      "privacy": "Privacidad",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Carsens FZ-LLC. Todos los derechos reservados.",
+    "madeIn": "Hecho en Dubái, EAU 🇦🇪"
   }
 }

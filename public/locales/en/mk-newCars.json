@@ -10,40 +10,114 @@
   "qf": {
     "brand": {
       "label": "Brand",
-      "options": ["All brands", "Toyota", "BMW", "Mercedes-Benz", "Audi", "Lexus"]
+      "options": [
+        "All brands",
+        "Toyota",
+        "BMW",
+        "Mercedes-Benz",
+        "Audi",
+        "Lexus"
+      ]
     },
     "model": {
       "label": "Model",
-      "options": ["Any model"]
+      "options": [
+        "Any model"
+      ]
     },
     "body": {
       "label": "Body type",
-      "options": ["Any body", "SUV", "Sedan", "Coupe"]
+      "options": [
+        "Any body",
+        "SUV",
+        "Sedan",
+        "Coupe"
+      ]
     },
     "budget": {
       "label": "Budget (AED)",
-      "options": ["Any budget", "Under 100,000", "100K – 200K", "200K – 400K", "400K+"]
+      "options": [
+        "Any budget",
+        "Under 100,000",
+        "100K – 200K",
+        "200K – 400K",
+        "400K+"
+      ]
     },
     "cta": "Browse new cars",
-    "tags": ["Latest 2025 launches", "Hybrid & Electric", "Family SUVs", "Coming soon", "Special May offers"]
+    "tags": [
+      "Latest 2025 launches",
+      "Hybrid & Electric",
+      "Family SUVs",
+      "Coming soon",
+      "Special May offers"
+    ]
   },
   "brands": {
     "title": "Shop new cars by brand",
     "sub": "Authorized dealers • Official warranty • Latest model years",
     "viewAll": "All 42 brands",
     "cards": [
-      { "name": "Toyota", "models": "18 new models", "from": "From AED 56,900" },
-      { "name": "Nissan", "models": "14 new models", "from": "From AED 49,500" },
-      { "name": "Honda", "models": "9 new models", "from": "From AED 62,400" },
-      { "name": "Lexus", "models": "12 new models", "from": "From AED 168,000" },
-      { "name": "BMW", "models": "22 new models", "from": "From AED 178,000" },
-      { "name": "Mercedes-Benz", "models": "26 new models", "from": "From AED 198,000" },
-      { "name": "Audi", "models": "16 new models", "from": "From AED 174,000" },
-      { "name": "Hyundai", "models": "11 new models", "from": "From AED 52,900" },
-      { "name": "Kia", "models": "10 new models", "from": "From AED 54,000" },
-      { "name": "Porsche", "models": "9 new models", "from": "From AED 285,000" },
-      { "name": "Range Rover", "models": "7 new models", "from": "From AED 295,000" },
-      { "name": "Tesla", "models": "4 new models", "from": "From AED 169,000" }
+      {
+        "name": "Toyota",
+        "models": "18 new models",
+        "from": "From AED 56,900"
+      },
+      {
+        "name": "Nissan",
+        "models": "14 new models",
+        "from": "From AED 49,500"
+      },
+      {
+        "name": "Honda",
+        "models": "9 new models",
+        "from": "From AED 62,400"
+      },
+      {
+        "name": "Lexus",
+        "models": "12 new models",
+        "from": "From AED 168,000"
+      },
+      {
+        "name": "BMW",
+        "models": "22 new models",
+        "from": "From AED 178,000"
+      },
+      {
+        "name": "Mercedes-Benz",
+        "models": "26 new models",
+        "from": "From AED 198,000"
+      },
+      {
+        "name": "Audi",
+        "models": "16 new models",
+        "from": "From AED 174,000"
+      },
+      {
+        "name": "Hyundai",
+        "models": "11 new models",
+        "from": "From AED 52,900"
+      },
+      {
+        "name": "Kia",
+        "models": "10 new models",
+        "from": "From AED 54,000"
+      },
+      {
+        "name": "Porsche",
+        "models": "9 new models",
+        "from": "From AED 285,000"
+      },
+      {
+        "name": "Range Rover",
+        "models": "7 new models",
+        "from": "From AED 295,000"
+      },
+      {
+        "name": "Tesla",
+        "models": "4 new models",
+        "from": "From AED 169,000"
+      }
     ]
   },
   "browse": {
@@ -60,25 +134,63 @@
     },
     "bodyType": {
       "label": "Body type",
-      "chips": ["All", "SUV", "Sedan", "Coupe", "Hatchback", "Pickup", "Convertible"]
+      "chips": [
+        "All",
+        "SUV",
+        "Sedan",
+        "Coupe",
+        "Hatchback",
+        "Pickup",
+        "Convertible"
+      ]
     },
     "make": {
       "label": "Make",
       "more": "+ Show 34 more",
       "items": [
-        { "name": "Toyota", "count": "18" },
-        { "name": "Nissan", "count": "14" },
-        { "name": "Mercedes-Benz", "count": "26" },
-        { "name": "BMW", "count": "22" },
-        { "name": "Lexus", "count": "12" },
-        { "name": "Honda", "count": "9" },
-        { "name": "Audi", "count": "16" },
-        { "name": "Hyundai", "count": "11" }
+        {
+          "name": "Toyota",
+          "count": "18"
+        },
+        {
+          "name": "Nissan",
+          "count": "14"
+        },
+        {
+          "name": "Mercedes-Benz",
+          "count": "26"
+        },
+        {
+          "name": "BMW",
+          "count": "22"
+        },
+        {
+          "name": "Lexus",
+          "count": "12"
+        },
+        {
+          "name": "Honda",
+          "count": "9"
+        },
+        {
+          "name": "Audi",
+          "count": "16"
+        },
+        {
+          "name": "Hyundai",
+          "count": "11"
+        }
       ]
     },
     "model": {
       "label": "Model",
-      "options": ["Any model", "Land Cruiser", "Camry", "RAV4", "Corolla"]
+      "options": [
+        "Any model",
+        "Land Cruiser",
+        "Camry",
+        "RAV4",
+        "Corolla"
+      ]
     },
     "price": {
       "label": "Price (AED)",
@@ -88,76 +200,182 @@
     "year": {
       "label": "Model year",
       "items": [
-        { "name": "2025", "count": "684" },
-        { "name": "2024", "count": "736" }
+        {
+          "name": "2025",
+          "count": "684"
+        },
+        {
+          "name": "2024",
+          "count": "736"
+        }
       ]
     },
     "trim": {
       "label": "Trim level",
       "items": [
-        { "name": "Base", "count": "412" },
-        { "name": "Mid", "count": "624" },
-        { "name": "Premium", "count": "298" },
-        { "name": "Sport / Performance", "count": "86" }
+        {
+          "name": "Base",
+          "count": "412"
+        },
+        {
+          "name": "Mid",
+          "count": "624"
+        },
+        {
+          "name": "Premium",
+          "count": "298"
+        },
+        {
+          "name": "Sport / Performance",
+          "count": "86"
+        }
       ]
     },
     "transmission": {
       "label": "Transmission",
       "items": [
-        { "name": "Automatic", "count": "1,348" },
-        { "name": "CVT", "count": "186" },
-        { "name": "Manual", "count": "42" }
+        {
+          "name": "Automatic",
+          "count": "1,348"
+        },
+        {
+          "name": "CVT",
+          "count": "186"
+        },
+        {
+          "name": "Manual",
+          "count": "42"
+        }
       ]
     },
     "fuel": {
       "label": "Fuel type",
       "items": [
-        { "name": "Petrol", "count": "1,180" },
-        { "name": "Hybrid", "count": "186" },
-        { "name": "Electric (EV)", "count": "98" },
-        { "name": "Plug-in Hybrid", "count": "42" },
-        { "name": "Diesel", "count": "14" }
+        {
+          "name": "Petrol",
+          "count": "1,180"
+        },
+        {
+          "name": "Hybrid",
+          "count": "186"
+        },
+        {
+          "name": "Electric (EV)",
+          "count": "98"
+        },
+        {
+          "name": "Plug-in Hybrid",
+          "count": "42"
+        },
+        {
+          "name": "Diesel",
+          "count": "14"
+        }
       ]
     },
     "drive": {
       "label": "Drive type",
       "items": [
-        { "name": "Front-wheel drive", "count": "412" },
-        { "name": "Rear-wheel drive", "count": "298" },
-        { "name": "All-wheel drive", "count": "486" },
-        { "name": "Four-wheel drive", "count": "224" }
+        {
+          "name": "Front-wheel drive",
+          "count": "412"
+        },
+        {
+          "name": "Rear-wheel drive",
+          "count": "298"
+        },
+        {
+          "name": "All-wheel drive",
+          "count": "486"
+        },
+        {
+          "name": "Four-wheel drive",
+          "count": "224"
+        }
       ]
     },
     "seating": {
       "label": "Seating",
-      "chips": ["Any", "2", "4", "5", "7", "8+"]
+      "chips": [
+        "Any",
+        "2",
+        "4",
+        "5",
+        "7",
+        "8+"
+      ]
     },
     "color": {
       "label": "Exterior color",
-      "titles": ["White", "Black", "Silver", "Grey", "Red", "Blue", "Yellow", "Green", "Brown", "Orange", "Purple", "Other"]
+      "titles": [
+        "White",
+        "Black",
+        "Silver",
+        "Grey",
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green",
+        "Brown",
+        "Orange",
+        "Purple",
+        "Other"
+      ]
     },
     "offers": {
       "label": "Offers & deals",
       "items": [
-        { "name": "0% finance available", "count": "248" },
-        { "name": "Free service package", "count": "186" },
-        { "name": "Free registration", "count": "98" },
-        { "name": "Trade-in bonus", "count": "142" }
+        {
+          "name": "0% finance available",
+          "count": "248"
+        },
+        {
+          "name": "Free service package",
+          "count": "186"
+        },
+        {
+          "name": "Free registration",
+          "count": "98"
+        },
+        {
+          "name": "Trade-in bonus",
+          "count": "142"
+        }
       ]
     },
     "location": {
       "label": "Location",
       "items": [
-        { "name": "Dubai", "count": "820" },
-        { "name": "Abu Dhabi", "count": "412" },
-        { "name": "Sharjah", "count": "128" },
-        { "name": "Ajman", "count": "42" },
-        { "name": "Other emirates", "count": "18" }
+        {
+          "name": "Dubai",
+          "count": "820"
+        },
+        {
+          "name": "Abu Dhabi",
+          "count": "412"
+        },
+        {
+          "name": "Sharjah",
+          "count": "128"
+        },
+        {
+          "name": "Ajman",
+          "count": "42"
+        },
+        {
+          "name": "Other emirates",
+          "count": "18"
+        }
       ]
     }
   },
   "activeFilters": {
-    "chips": ["SUV", "Toyota", "2024–2025", "7-seat"],
+    "chips": [
+      "SUV",
+      "Toyota",
+      "2024–2025",
+      "7-seat"
+    ],
     "clearAll": "Clear all",
     "removeLabel": "remove"
   },
@@ -165,7 +383,13 @@
     "countStrong": "1,420 new cars",
     "countRest": "match your filters",
     "sortBy": "Sort by",
-    "sort": ["Most popular", "Newest model", "Price: low to high", "Price: high to low", "Latest releases"],
+    "sort": [
+      "Most popular",
+      "Newest model",
+      "Price: low to high",
+      "Price: high to low",
+      "Latest releases"
+    ],
     "gridTitle": "Grid",
     "listTitle": "List"
   },
@@ -177,14 +401,54 @@
     "viewTrims": "View trims →",
     "brochure": "Brochure",
     "cards": [
-      { "brand": "Toyota", "name": "Land Cruiser", "meta": "SUV • 7 trims available", "price": "AED 285,900" },
-      { "brand": "Mercedes-Benz", "name": "G-Class", "meta": "SUV • 4 trims available", "price": "AED 745,000" },
-      { "brand": "BMW", "name": "X5", "meta": "SUV • 6 trims • PHEV available", "price": "AED 298,000" },
-      { "brand": "Porsche", "name": "911 Carrera", "meta": "Coupe • 8 trims available", "price": "AED 485,000" },
-      { "brand": "Range Rover", "name": "Velar", "meta": "SUV • 5 trims • EV available", "price": "AED 318,000" },
-      { "brand": "Toyota", "name": "Camry", "meta": "Sedan • 5 trims • Hybrid only", "price": "AED 118,900" },
-      { "brand": "Tesla", "name": "Model Y", "meta": "SUV • 3 trims • 533 km range", "price": "AED 192,990" },
-      { "brand": "Nissan", "name": "Patrol", "meta": "SUV • 6 trims available", "price": "AED 248,500" }
+      {
+        "brand": "Toyota",
+        "name": "Land Cruiser",
+        "meta": "SUV • 7 trims available",
+        "price": "AED 285,900"
+      },
+      {
+        "brand": "Mercedes-Benz",
+        "name": "G-Class",
+        "meta": "SUV • 4 trims available",
+        "price": "AED 745,000"
+      },
+      {
+        "brand": "BMW",
+        "name": "X5",
+        "meta": "SUV • 6 trims • PHEV available",
+        "price": "AED 298,000"
+      },
+      {
+        "brand": "Porsche",
+        "name": "911 Carrera",
+        "meta": "Coupe • 8 trims available",
+        "price": "AED 485,000"
+      },
+      {
+        "brand": "Range Rover",
+        "name": "Velar",
+        "meta": "SUV • 5 trims • EV available",
+        "price": "AED 318,000"
+      },
+      {
+        "brand": "Toyota",
+        "name": "Camry",
+        "meta": "Sedan • 5 trims • Hybrid only",
+        "price": "AED 118,900"
+      },
+      {
+        "brand": "Tesla",
+        "name": "Model Y",
+        "meta": "SUV • 3 trims • 533 km range",
+        "price": "AED 192,990"
+      },
+      {
+        "brand": "Nissan",
+        "name": "Patrol",
+        "meta": "SUV • 6 trims available",
+        "price": "AED 248,500"
+      }
     ]
   },
   "pagination": {
@@ -195,14 +459,46 @@
     "title": "Shop by category",
     "sub": "Find the right type of car for how you drive",
     "cards": [
-      { "title": "Family SUVs", "desc": "7-seat comfort & space", "count": "82 models" },
-      { "title": "Sports & coupes", "desc": "Performance machines", "count": "38 models" },
-      { "title": "Luxury sedans", "desc": "Executive comfort", "count": "26 models" },
-      { "title": "Electric & hybrid", "desc": "Lower running costs", "count": "47 models" },
-      { "title": "Under AED 100K", "desc": "Best-value commuters", "count": "34 models" },
-      { "title": "Convertibles", "desc": "Open-top driving", "count": "14 models" },
-      { "title": "Pickups", "desc": "Work & weekend duty", "count": "11 models" },
-      { "title": "Premium AED 250K+", "desc": "Performance & luxury", "count": "128 models" }
+      {
+        "title": "Family SUVs",
+        "desc": "7-seat comfort & space",
+        "count": "82 models"
+      },
+      {
+        "title": "Sports & coupes",
+        "desc": "Performance machines",
+        "count": "38 models"
+      },
+      {
+        "title": "Luxury sedans",
+        "desc": "Executive comfort",
+        "count": "26 models"
+      },
+      {
+        "title": "Electric & hybrid",
+        "desc": "Lower running costs",
+        "count": "47 models"
+      },
+      {
+        "title": "Under AED 100K",
+        "desc": "Best-value commuters",
+        "count": "34 models"
+      },
+      {
+        "title": "Convertibles",
+        "desc": "Open-top driving",
+        "count": "14 models"
+      },
+      {
+        "title": "Pickups",
+        "desc": "Work & weekend duty",
+        "count": "11 models"
+      },
+      {
+        "title": "Premium AED 250K+",
+        "desc": "Performance & luxury",
+        "count": "128 models"
+      }
     ]
   },
   "coming": {
@@ -211,10 +507,30 @@
     "viewAll": "All upcoming",
     "notify": "Get notified when launched",
     "cards": [
-      { "brand": "BMW", "name": "Neue Klasse iX3", "desc": "All-new electric SUV — 500+ km WLTP range", "eta": "Q3 2026" },
-      { "brand": "Mercedes-Benz", "name": "CLA EV 2026", "desc": "New-gen EV with 750 km range", "eta": "Aug 2026" },
-      { "brand": "Toyota", "name": "FT-Se Concept", "desc": "Sports EV — expected late 2026", "eta": "Q4 2026" },
-      { "brand": "Range Rover", "name": "Electric Range Rover", "desc": "First all-electric flagship", "eta": "Jul 2026" }
+      {
+        "brand": "BMW",
+        "name": "Neue Klasse iX3",
+        "desc": "All-new electric SUV — 500+ km WLTP range",
+        "eta": "Q3 2026"
+      },
+      {
+        "brand": "Mercedes-Benz",
+        "name": "CLA EV 2026",
+        "desc": "New-gen EV with 750 km range",
+        "eta": "Aug 2026"
+      },
+      {
+        "brand": "Toyota",
+        "name": "FT-Se Concept",
+        "desc": "Sports EV — expected late 2026",
+        "eta": "Q4 2026"
+      },
+      {
+        "brand": "Range Rover",
+        "name": "Electric Range Rover",
+        "desc": "First all-electric flagship",
+        "eta": "Jul 2026"
+      }
     ]
   },
   "deals": {
@@ -223,10 +539,22 @@
     "text": "Exclusive deals from authorized dealers across the UAE. 0% finance, free service packages, accessory bundles, and registration covered.",
     "cta": "View all 247 offers",
     "stats": [
-      { "value": "247", "label": "Active offers" },
-      { "value": "0%", "label": "Finance available" },
-      { "value": "5-yr", "label": "Warranty included" },
-      { "value": "Free", "label": "Registration & insurance" }
+      {
+        "value": "247",
+        "label": "Active offers"
+      },
+      {
+        "value": "0%",
+        "label": "Finance available"
+      },
+      {
+        "value": "5-yr",
+        "label": "Warranty included"
+      },
+      {
+        "value": "Free",
+        "label": "Registration & insurance"
+      }
     ]
   },
   "reviews": {
@@ -234,9 +562,36 @@
     "sub": "Expert reviews and side-by-side comparisons",
     "viewAll": "All reviews",
     "cards": [
-      { "tag": "First Drive", "title": "2025 Toyota Land Cruiser GR-Sport: still the desert king?", "date": "May 11, 2026", "read": "8 min read" },
-      { "tag": "Comparison", "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins in the UAE?", "date": "May 9, 2026", "read": "11 min read" },
-      { "tag": "Review", "title": "BMW X5 PHEV long-term review: 6 months in Dubai heat", "date": "May 6, 2026", "read": "9 min read" }
+      {
+        "tag": "First Drive",
+        "title": "2025 Toyota Land Cruiser GR-Sport: still the desert king?",
+        "date": "May 11, 2026",
+        "read": "8 min read"
+      },
+      {
+        "tag": "Comparison",
+        "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins in the UAE?",
+        "date": "May 9, 2026",
+        "read": "11 min read"
+      },
+      {
+        "tag": "Review",
+        "title": "BMW X5 PHEV long-term review: 6 months in Dubai heat",
+        "date": "May 6, 2026",
+        "read": "9 min read"
+      }
     ]
+  },
+  "bp": {
+    "anyBrand": "Select brand",
+    "anyModel": "Select model",
+    "name": "Your name",
+    "namePh": "Full name",
+    "phone": "Mobile",
+    "sending": "Sending…",
+    "cta": "Get best price",
+    "sent": "Request sent — a dealer will contact you with their best price.",
+    "none": "No sellers list this model yet — try another model.",
+    "error": "Could not send your request. Please try again."
   }
 }

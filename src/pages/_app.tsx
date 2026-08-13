@@ -9,6 +9,7 @@ import { appWithTranslation } from "next-i18next/pages";
 import { CompareProvider } from "@/components/compare/compare-provider";
 import { CompareTray } from "@/components/compare/compare-tray";
 import { SavedProvider } from "@/components/saved/saved-provider";
+import { CurrencyProvider } from "@/components/marketplace/currency-provider";
 import { Toaster } from "@/components/ui/toast";
 import { ConsentBanner } from "@/components/consent/consent-banner";
 import { useAnalyticsRoutes } from "@/lib/analytics";
@@ -26,10 +27,12 @@ function App({
       {/* P1-09/P1-10 global state: saved-car ids + persistent compare tray. */}
       <SavedProvider>
         <CompareProvider>
+          <CurrencyProvider>
           <Component {...pageProps} />
           <CompareTray />
           <Toaster />
           <ConsentBanner />
+          </CurrencyProvider>
         </CompareProvider>
       </SavedProvider>
     </SessionProvider>

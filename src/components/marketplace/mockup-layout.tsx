@@ -11,14 +11,23 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
+import { useTranslation } from "next-i18next/pages";
+import { useCurrency } from "@/components/marketplace/currency-provider";
 
 const NAV = [
-  { href: "/cars", label: "Used Cars", match: /^\/(cars|used-cars)/ },
-  { href: "/new-cars", label: "New Cars", match: /^\/new-cars/ },
-  { href: "/bikes", label: "Bikes", match: /^\/bikes/ },
-  { href: "/dealers", label: "Dealers", match: /^\/dealers/ },
-  { href: "/compare", label: "Compare", match: /^\/compare/ },
-  { href: "/news", label: "News", match: /^\/news/ },
+  { href: "/cars", key: "usedCars", match: /^\/(cars|used-cars)/ },
+  { href: "/new-cars", key: "newCars", match: /^\/new-cars/ },
+  { href: "/bikes", key: "bikes", match: /^\/bikes/ },
+  { href: "/dealers", key: "dealers", match: /^\/dealers/ },
+  { href: "/compare", key: "compare", match: /^\/compare/ },
+  { href: "/news", key: "news", match: /^\/news/ },
+];
+
+const LOCALES = [
+  { code: "en", label: "EN" },
+  { code: "ar", label: "عربي" },
+  { code: "es", label: "ES" },
+  { code: "fr", label: "FR" },
 ];
 
 function Wordmark({ color }: { color?: string }) {
@@ -36,7 +45,13 @@ function Wordmark({ color }: { color?: string }) {
 
 export function MockupLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const { t } = useTranslation("common");
+  const { currency, setCurrency } = useCurrency();
   const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const switchLocale = (code: string) => {
+    void router.push({ pathname: router.pathname, query: router.query }, router.asPath, { locale: code });
+  };
 
   return (
     <div className="mk">
@@ -50,23 +65,41 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
                 href={item.href}
                 className={item.match.test(router.pathname) ? "active" : undefined}
               >
-                {item.label}
+                {t(`chrome.nav.${item.key}`)}
               </Link>
             ))}
           </nav>
           <div className="header-actions">
+            <select
+              className="chrome-select"
+              aria-label={t("chrome.language")}
+              value={router.locale ?? "en"}
+              onChange={(e) => switchLocale(e.target.value)}
+            >
+              {LOCALES.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
+            </select>
+            <select
+              className="chrome-select"
+              aria-label={t("chrome.currency")}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value as "AED" | "USD" | "EUR")}
+            >
+              <option value="AED">AED</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
             <Link className="btn btn-outline" href="/login">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
-              Login
+              {t("chrome.login")}
             </Link>
             <Link className="btn btn-primary" href="/sell">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M12 5v14M5 12h14" />
               </svg>
-              Sell Your Car
+              {t("chrome.sell")}
             </Link>
             <button
               className="mobile-toggle"
@@ -86,7 +119,7 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
             <div className="container">
               {NAV.map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                  {item.label}
+                  {t(`chrome.nav.${item.key}`)}
                 </Link>
               ))}
             </div>
@@ -101,10 +134,7 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
           <div className="grid">
             <div className="brand-col">
               <Wordmark color="#fff" />
-              <p>
-                The UAE&apos;s modern car marketplace. Buy, sell, rent, and discover
-                from anywhere in the Emirates.
-              </p>
+              <p>{t("chrome.tagline")}</p>
               <div className="socials">
                 <a href="#" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.8-.8-1.9-1.3-3.1-1.3-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .7.1 1C8 8.8 4.5 7 2.2 4.2c-.4.6-.6 1.3-.6 2.1 0 1.5.8 2.8 1.9 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2.1 2.9 4 2.9-1.4 1.1-3.3 1.8-5.3 1.8H1c1.8 1.2 4 1.9 6.3 1.9 7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z" /></svg></a>
                 <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z" /></svg></a>
@@ -112,14 +142,14 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
                 <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.3 18.3H5.7v-8h2.6v8zM7 9.2a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.1h-2.6v-4.4c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5h-2.6v-8h2.5v1.1c.4-.7 1.2-1.3 2.5-1.3 2.7 0 3.2 1.8 3.2 4v4.2z" /></svg></a>
               </div>
             </div>
-            <FooterCol title="Buy" links={[["Used cars", "/cars"], ["New cars", "/new-cars"], ["Classic cars", "/cars"], ["Bikes", "/bikes"], ["Dealers", "/dealers"]]} />
-            <FooterCol title="Sell" links={[["Sell your car", "/sell"], ["Car valuation", "/sell"], ["Dealer signup", "/dealers"], ["Selling tips", "/help"]]} />
-            <FooterCol title="Tools" links={[["Compare cars", "/compare"], ["Loan calculator", "/help"], ["Insurance", "/help"], ["Car inspection", "/help"]]} />
-            <FooterCol title="Company" links={[["About Carsens", "/help"], ["Contact", "/contact"], ["News", "/news"], ["Terms", "/legal/terms"], ["Privacy", "/legal/privacy"], ["Cookies", "/legal/cookie-policy"]]} />
+            <FooterCol title={t("chrome.footer.buy")} links={[[t("chrome.nav.usedCars"), "/cars"], [t("chrome.nav.newCars"), "/new-cars"], [t("chrome.nav.bikes"), "/bikes"], [t("chrome.nav.dealers"), "/dealers"]]} />
+            <FooterCol title={t("chrome.footer.sell")} links={[[t("chrome.sell"), "/sell"], [t("chrome.footer.valuation"), "/sell"], [t("chrome.footer.dealerSignup"), "/dealers"], [t("chrome.footer.sellingTips"), "/help"]]} />
+            <FooterCol title={t("chrome.footer.tools")} links={[[t("chrome.nav.compare"), "/compare"], [t("chrome.footer.help"), "/help"], [t("chrome.footer.contact"), "/contact"]]} />
+            <FooterCol title={t("chrome.footer.company")} links={[[t("chrome.footer.about"), "/help"], [t("chrome.nav.news"), "/news"], [t("chrome.footer.terms"), "/legal/terms"], [t("chrome.footer.privacy"), "/legal/privacy"], [t("chrome.footer.cookies"), "/legal/cookie-policy"]]} />
           </div>
           <div className="copyright">
-            <div>© 2026 Carsens FZ-LLC. All rights reserved.</div>
-            <div>Made in Dubai, UAE 🇦🇪</div>
+            <div>{t("chrome.copyright")}</div>
+            <div>{t("chrome.madeIn")}</div>
           </div>
         </div>
       </footer>

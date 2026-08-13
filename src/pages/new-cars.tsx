@@ -5,10 +5,44 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import {
+  getMakes,
+  getModels,
+  searchListings,
+  submitLeadForm,
+  type TaxonomyMake,
+  type TaxonomyModel,
+} from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MknewCarsPage() {
   const { t } = useTranslation("mk-newCars");
+  // P6-02 (AC-DLR-05): the hero quick-form is a REAL "Get best price" lead form.
+  const [makes, setMakes] = React.useState<TaxonomyMake[]>([]);
+  const [models, setModels] = React.useState<TaxonomyModel[]>([]);
+  const [form, setLead] = React.useState({ makeId: "", modelId: "", name: "", phone: "" });
+  const [leadState, setLeadState] = React.useState<"idle" | "busy" | "sent" | "none" | "error">("idle");
+  React.useEffect(() => { void getMakes("CAR").then(setMakes).catch(() => undefined); }, []);
+  const onBrand = async (makeId: string) => {
+    setLead((f) => ({ ...f, makeId, modelId: "" }));
+    setModels(makeId ? await getModels(makeId).catch(() => []) : []);
+  };
+  const submitBestPrice = async () => {
+    if (!form.makeId || !form.modelId || !form.name.trim()) return;
+    setLeadState("busy");
+    try {
+      // Route the lead to a dealer listing of this model (newest), else any listing.
+      const dealer = await searchListings({ makeId: form.makeId, modelId: form.modelId, sellerType: "DEALER", limit: 1, sort: "newest" });
+      const target = dealer.items[0] ?? (await searchListings({ makeId: form.makeId, modelId: form.modelId, limit: 1, sort: "newest" })).items[0];
+      if (!target) { setLeadState("none"); return; }
+      await submitLeadForm(target.id, {
+        name: form.name.trim(),
+        phone: form.phone.trim() || undefined,
+        message: `Get best price request (new cars) for ${target.year} ${target.make.name} ${target.model.name}`,
+      });
+      setLeadState("sent");
+    } catch { setLeadState("error"); }
+  };
   const list = (key: string) => t(key, { returnObjects: true }) as string[];
   const objs = <T,>(key: string) => t(key, { returnObjects: true }) as T[];
 
@@ -107,27 +141,35 @@ export default function MknewCarsPage() {
               <div className="qf-search">
                 <div className="qf-field">
                   <label>{t("qf.brand.label")}</label>
-                  <select>{list("qf.brand.options").map((o, i) => <option key={i}>{o}</option>)}</select>
+                  <select value={form.makeId} onChange={(e) => void onBrand(e.target.value)}>
+                    <option value="">{t("bp.anyBrand", { defaultValue: "Select brand" })}</option>
+                    {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+                  </select>
                 </div>
                 <div className="qf-field">
                   <label>{t("qf.model.label")}</label>
-                  <select>{list("qf.model.options").map((o, i) => <option key={i}>{o}</option>)}</select>
+                  <select value={form.modelId} onChange={(e) => setLead((f) => ({ ...f, modelId: e.target.value }))} disabled={!form.makeId}>
+                    <option value="">{t("bp.anyModel", { defaultValue: "Select model" })}</option>
+                    {models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+                  </select>
                 </div>
                 <div className="qf-field">
-                  <label>{t("qf.body.label")}</label>
-                  <select>{list("qf.body.options").map((o, i) => <option key={i}>{o}</option>)}</select>
+                  <label>{t("bp.name", { defaultValue: "Your name" })}</label>
+                  <input className="form-input" style={{ height: 42 }} value={form.name} onChange={(e) => setLead((f) => ({ ...f, name: e.target.value }))} placeholder={t("bp.namePh", { defaultValue: "Full name" })} />
                 </div>
                 <div className="qf-field">
-                  <label>{t("qf.budget.label")}</label>
-                  <select>{list("qf.budget.options").map((o, i) => <option key={i}>{o}</option>)}</select>
+                  <label>{t("bp.phone", { defaultValue: "Mobile" })}</label>
+                  <input className="form-input" style={{ height: 42 }} value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
                 </div>
                 <div className="qf-cta">
-                  <button className="btn btn-primary btn-lg">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
-                    {t("qf.cta")}
+                  <button className="btn btn-primary btn-lg" type="button" disabled={leadState === "busy" || !form.makeId || !form.modelId || !form.name.trim()} onClick={() => void submitBestPrice()}>
+                    {leadState === "busy" ? t("bp.sending", { defaultValue: "Sending…" }) : t("bp.cta", { defaultValue: "Get best price" })}
                   </button>
                 </div>
               </div>
+              {leadState === "sent" && <p role="status" style={{ color: "#7EE2A8", marginTop: 10, fontWeight: 600 }}>{t("bp.sent", { defaultValue: "Request sent — a dealer will contact you with their best price." })}</p>}
+              {leadState === "none" && <p role="alert" style={{ color: "#FFD48A", marginTop: 10 }}>{t("bp.none", { defaultValue: "No sellers list this model yet — try another model." })}</p>}
+              {leadState === "error" && <p role="alert" style={{ color: "#FFB4B4", marginTop: 10 }}>{t("bp.error", { defaultValue: "Could not send your request. Please try again." })}</p>}
 
               <div className="qf-tags">
                 <a href="#" className="tag-pill"><span className="dot"></span> {t("qf.tags.0")}</a>

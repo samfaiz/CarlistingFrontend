@@ -51,5 +51,37 @@
     "previous": "Précédent",
     "next": "Suivant",
     "pageOf": "Page {{page}} sur {{pages}}"
+  },
+  "chrome": {
+    "nav": {
+      "usedCars": "Voitures d'occasion",
+      "newCars": "Voitures neuves",
+      "bikes": "Motos",
+      "dealers": "Concessionnaires",
+      "compare": "Comparer",
+      "news": "Actualités"
+    },
+    "login": "Connexion",
+    "sell": "Vendez votre voiture",
+    "language": "Langue",
+    "currency": "Devise",
+    "tagline": "La place de marché automobile moderne des ÉAU. Achetez, vendez et explorez depuis tout l'émirat.",
+    "footer": {
+      "buy": "Acheter",
+      "sell": "Vendre",
+      "tools": "Outils",
+      "company": "Société",
+      "valuation": "Estimation",
+      "dealerSignup": "Inscription concessionnaire",
+      "sellingTips": "Conseils de vente",
+      "help": "Centre d'aide",
+      "contact": "Contact",
+      "about": "À propos de Carsens",
+      "terms": "Conditions",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Carsens FZ-LLC. Tous droits réservés.",
+    "madeIn": "Conçu à Dubaï, ÉAU 🇦🇪"
   }
 }

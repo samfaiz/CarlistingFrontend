@@ -51,5 +51,37 @@
     "previous": "Previous",
     "next": "Next",
     "pageOf": "Page {{page}} of {{pages}}"
+  },
+  "chrome": {
+    "nav": {
+      "usedCars": "Used Cars",
+      "newCars": "New Cars",
+      "bikes": "Bikes",
+      "dealers": "Dealers",
+      "compare": "Compare",
+      "news": "News"
+    },
+    "login": "Login",
+    "sell": "Sell Your Car",
+    "language": "Language",
+    "currency": "Currency",
+    "tagline": "The UAE's modern car marketplace. Buy, sell, and discover from anywhere in the Emirates.",
+    "footer": {
+      "buy": "Buy",
+      "sell": "Sell",
+      "tools": "Tools",
+      "company": "Company",
+      "valuation": "Car valuation",
+      "dealerSignup": "Dealer signup",
+      "sellingTips": "Selling tips",
+      "help": "Help centre",
+      "contact": "Contact",
+      "about": "About Carsens",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Carsens FZ-LLC. All rights reserved.",
+    "madeIn": "Made in Dubai, UAE 🇦🇪"
   }
 }
