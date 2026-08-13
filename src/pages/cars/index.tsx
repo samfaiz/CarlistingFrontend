@@ -1,22 +1,78 @@
-import type { GetStaticProps } from "next";
+/**
+ * /cars — search. The mockup's page-search design (`.mk` layer), wired to the
+ * real search API: SSR results + facet counts, URL-driven filters, sort and
+ * pagination. Copy stays in the mk-search i18n namespace (EN/AR/ES/FR + RTL).
+ */
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { MarketplaceCard } from "@/components/marketplace/listing-card";
+import {
+  getMakes,
+  getTaxonomyMeta,
+  searchListings,
+  type Card,
+  type FacetCount,
+  type SearchSort,
+  type TaxonomyMake,
+  type TaxonomyTerm,
+} from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
-export default function MksearchPage() {
+const PAGE_SIZE = 12;
+
+interface Props {
+  items: Card[];
+  total: number;
+  page: number;
+  facets: { makes: FacetCount[]; bodyTypes: FacetCount[]; emirates: FacetCount[] };
+  makes: TaxonomyMake[];
+  bodyTypes: TaxonomyTerm[];
+  emirates: TaxonomyTerm[];
+  query: Record<string, string>;
+}
+
+const SORTS = ["newest", "price_asc", "price_desc", "mileage_asc", "year_desc"] as const;
+const PRICE_BANDS: [string, string, string][] = [
+  ["", "", "any"], ["", "30000", "u30"], ["30000", "60000", "30_60"],
+  ["60000", "120000", "60_120"], ["120000", "250000", "120_250"], ["250000", "", "250p"],
+];
+
+export default function MksearchPage({
+  items, total, page, facets, makes, bodyTypes, emirates, query,
+}: Props) {
   const { t } = useTranslation("mk-search");
+  const router = useRouter();
+  const [kw, setKw] = React.useState(query.q ?? "");
+
+  // Push a new query — SSR re-runs and the URL is shareable/bookmarkable.
+  const apply = (patch: Record<string, string | undefined>, resetPage = true) => {
+    const next: Record<string, string> = { ...query };
+    for (const [k, v] of Object.entries(patch)) {
+      if (v === undefined || v === "") delete next[k];
+      else next[k] = v;
+    }
+    if (resetPage) delete next.page;
+    void router.push({ pathname: "/cars", query: next });
+  };
+
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
   return (
     <>
-      <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
+      <Head>
+        <title>{`${t("meta.title")} — Carsens`}</title>
+        <meta name="description" content={t("meta.title")} />
+      </Head>
       <MockupLayout>
         <main id="page-search" className="page">
           <div className="listings-wrap">
             <div className="container">
-
               <div className="breadcrumb">
                 <Link href="/">{t("breadcrumb.home")}</Link><span className="sep">›</span>
                 <Link href="/cars">{t("breadcrumb.usedCars")}</Link><span className="sep">›</span>
@@ -25,11 +81,17 @@ export default function MksearchPage() {
 
               <div className="title-row">
                 <div>
-                  <h1>{t("title.heading")} <span className="count">{t("title.count")}</span></h1>
-                  <p className="results-meta">{t("title.resultsMeta")}</p>
+                  <h1>{t("title.heading")} <span className="count">{total.toLocaleString()}</span></h1>
+                  <p className="results-meta">
+                    {t("title.showing", {
+                      from: total === 0 ? 0 : (page - 1) * PAGE_SIZE + 1,
+                      to: Math.min(page * PAGE_SIZE, total),
+                      total: total.toLocaleString(),
+                    })}
+                  </p>
                 </div>
-                <button className="save-search-btn">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+                <button className="save-search-btn" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" /></svg>
                   {t("title.saveSearch")}
                 </button>
               </div>
@@ -38,463 +100,136 @@ export default function MksearchPage() {
               <div className="compact-search">
                 <div className="compact-field">
                   <label>{t("compact.makeLabel")}</label>
-                  <select><option>{t("compact.makeOpt0")}</option><option>{t("compact.makeOpt1")}</option><option>{t("compact.makeOpt2")}</option><option>{t("compact.makeOpt3")}</option><option>{t("compact.makeOpt4")}</option></select>
-                </div>
-                <div className="compact-field">
-                  <label>{t("compact.modelLabel")}</label>
-                  <select><option>{t("compact.modelOpt0")}</option><option>{t("compact.modelOpt1")}</option><option>{t("compact.modelOpt2")}</option><option>{t("compact.modelOpt3")}</option></select>
+                  <select value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value, modelId: undefined })}>
+                    <option value="">{t("compact.makeOpt0")}</option>
+                    {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+                  </select>
                 </div>
                 <div className="compact-field">
                   <label>{t("compact.priceLabel")}</label>
-                  <select><option>{t("compact.priceOpt0")}</option><option>{t("compact.priceOpt1")}</option><option>{t("compact.priceOpt2")}</option><option>{t("compact.priceOpt3")}</option></select>
+                  <select
+                    value={`${query.priceMin ?? ""}_${query.priceMax ?? ""}`}
+                    onChange={(e) => {
+                      const [min, max] = e.target.value.split("_");
+                      apply({ priceMin: min || undefined, priceMax: max || undefined });
+                    }}
+                  >
+                    {PRICE_BANDS.map(([min, max, key]) => (
+                      <option key={key} value={`${min}_${max}`}>{t(`compact.price.${key}`)}</option>
+                    ))}
+                  </select>
                 </div>
                 <div className="compact-field">
                   <label>{t("compact.yearLabel")}</label>
-                  <select><option>{t("compact.yearOpt0")}</option><option>{t("compact.yearOpt1")}</option><option>{t("compact.yearOpt2")}</option><option>{t("compact.yearOpt3")}</option></select>
+                  <select value={query.yearMin ?? ""} onChange={(e) => apply({ yearMin: e.target.value })}>
+                    <option value="">{t("compact.yearOpt0")}</option>
+                    {[2024, 2023, 2022, 2021, 2020, 2019, 2018].map((y) => <option key={y} value={y}>{y}+</option>)}
+                  </select>
                 </div>
                 <div className="compact-field">
                   <label>{t("compact.emirateLabel")}</label>
-                  <select><option>{t("compact.emirateOpt0")}</option><option>{t("compact.emirateOpt1")}</option><option>{t("compact.emirateOpt2")}</option><option>{t("compact.emirateOpt3")}</option></select>
+                  <select value={query.emirateId ?? ""} onChange={(e) => apply({ emirateId: e.target.value })}>
+                    <option value="">{t("compact.emirateOpt0")}</option>
+                    {emirates.map((em) => <option key={em.id} value={em.id}>{em.name}</option>)}
+                  </select>
                 </div>
-                <button className="btn btn-primary btn-lg">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                <button className="btn btn-primary btn-lg" type="button" onClick={() => apply({ q: kw || undefined })}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
                   {t("compact.update")}
                 </button>
               </div>
 
-              {/* MAIN GRID: FILTERS + RESULTS */}
               <div className="search-grid">
-
-                {/* ============= FILTERS ============= */}
+                {/* FILTERS */}
                 <aside className="filters-card">
                   <div className="filters-head">
                     <h3>{t("filters.title")}</h3>
-                    <button className="reset">{t("filters.reset")}</button>
+                    <button className="reset" type="button" onClick={() => router.push("/cars")}>{t("filters.reset")}</button>
                   </div>
                   <div className="filters-body">
-
                     <div className="fgroup">
-                      <h4>{t("fg.keyword.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody"><input className="f-input" placeholder={t("fg.keyword.placeholder")}/></div>
+                      <h4>{t("fg.keyword.title")}</h4>
+                      <div className="fbody">
+                        <input
+                          className="f-input"
+                          placeholder={t("fg.keyword.placeholder")}
+                          value={kw}
+                          onChange={(e) => setKw(e.target.value)}
+                          onKeyDown={(e) => { if (e.key === "Enter") apply({ q: kw || undefined }); }}
+                        />
+                      </div>
                     </div>
 
                     <div className="fgroup">
-                      <h4>{t("fg.body.title")} <span className="chev">▾</span></h4>
+                      <h4>{t("fg.body.title")}</h4>
                       <div className="fbody">
                         <div className="chips">
-                          <span className="chip">{t("fg.body.all")}</span>
-                          <span className="chip active">{t("fg.body.suv")}</span>
-                          <span className="chip">{t("fg.body.sedan")}</span>
-                          <span className="chip">{t("fg.body.coupe")}</span>
-                          <span className="chip">{t("fg.body.hatchback")}</span>
-                          <span className="chip">{t("fg.body.pickup")}</span>
-                          <span className="chip">{t("fg.body.convertible")}</span>
-                          <span className="chip">{t("fg.body.van")}</span>
+                          <span className={`chip${!query.bodyTypeId ? " active" : ""}`} onClick={() => apply({ bodyTypeId: undefined })}>{t("fg.body.all")}</span>
+                          {bodyTypes.map((bt) => (
+                            <span key={bt.id} className={`chip${query.bodyTypeId === bt.id ? " active" : ""}`} onClick={() => apply({ bodyTypeId: bt.id })}>{bt.name}</span>
+                          ))}
                         </div>
                       </div>
                     </div>
 
                     <div className="fgroup">
-                      <h4>{t("fg.make.title")} <span className="chev">▾</span></h4>
+                      <h4>{t("fg.make.title")}</h4>
                       <div className="fbody">
                         <div className="check-list">
-                          <label className="check-row"><input type="checkbox" defaultChecked/> {t("fg.make.toyota")} <span className="cnt">8,432</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.nissan")} <span className="cnt">5,128</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.mercedes")} <span className="cnt">4,786</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.bmw")} <span className="cnt">3,921</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.lexus")} <span className="cnt">3,442</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.honda")} <span className="cnt">2,890</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.audi")} <span className="cnt">2,654</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.ford")} <span className="cnt">2,348</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.make.hyundai")} <span className="cnt">2,180</span></label>
-                        </div>
-                        <a className="more-link">{t("fg.make.more")}</a>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.model.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <select className="f-select"><option>{t("fg.model.opt0")}</option><option>{t("fg.model.opt1")}</option><option>{t("fg.model.opt2")}</option><option>{t("fg.model.opt3")}</option><option>{t("fg.model.opt4")}</option></select>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.price.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="range-row">
-                          <input className="f-input" placeholder={t("fg.price.min")}/><span>–</span><input className="f-input" placeholder={t("fg.price.max")}/>
+                          {(facets.makes.length ? facets.makes : makes.map((m) => ({ id: m.id, name: m.name, count: 0 }))).slice(0, 9).map((mk) => (
+                            <label className="check-row" key={mk.id}>
+                              <input type="checkbox" checked={query.makeId === mk.id} onChange={(e) => apply({ makeId: e.target.checked ? mk.id : undefined })} />
+                              {" "}{mk.name} <span className="cnt">{mk.count.toLocaleString()}</span>
+                            </label>
+                          ))}
                         </div>
                       </div>
                     </div>
 
                     <div className="fgroup">
-                      <h4>{t("fg.year.title")} <span className="chev">▾</span></h4>
+                      <h4>{t("fg.price.title")}</h4>
                       <div className="fbody">
                         <div className="range-row">
-                          <select className="f-select"><option>2020</option><option>2019</option><option>2018</option></select>
+                          <input className="f-input" placeholder={t("fg.price.min")} defaultValue={query.priceMin ?? ""} onBlur={(e) => apply({ priceMin: e.target.value || undefined })} />
                           <span>–</span>
-                          <select className="f-select"><option>2024</option><option>2023</option><option>2022</option></select>
+                          <input className="f-input" placeholder={t("fg.price.max")} defaultValue={query.priceMax ?? ""} onBlur={(e) => apply({ priceMax: e.target.value || undefined })} />
                         </div>
                       </div>
                     </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.mileage.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="range-row">
-                          <input className="f-input" placeholder="0"/><span>–</span><input className="f-input" placeholder="100,000"/>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.transmission.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          <label className="check-row"><input type="checkbox" defaultChecked/> {t("fg.transmission.automatic")} <span className="cnt">19,422</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.transmission.manual")} <span className="cnt">4,896</span></label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.fuel.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          <label className="check-row"><input type="checkbox"/> {t("fg.fuel.petrol")} <span className="cnt">21,840</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.fuel.diesel")} <span className="cnt">1,422</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.fuel.hybrid")} <span className="cnt">868</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.fuel.electric")} <span className="cnt">188</span></label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.color.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="swatches">
-                          <div className="swatch" style={{ background: "#FFFFFF", border: "1px solid var(--border)" }} title={t("fg.color.white")}></div>
-                          <div className="swatch active" style={{ background: "#111827" }} title={t("fg.color.black")}></div>
-                          <div className="swatch" style={{ background: "#9CA3AF" }} title={t("fg.color.silver")}></div>
-                          <div className="swatch" style={{ background: "#4B5563" }} title={t("fg.color.grey")}></div>
-                          <div className="swatch" style={{ background: "#DC2626" }} title={t("fg.color.red")}></div>
-                          <div className="swatch" style={{ background: "#23416B" }} title={t("fg.color.blue")}></div>
-                          <div className="swatch" style={{ background: "#EAB308" }} title={t("fg.color.yellow")}></div>
-                          <div className="swatch" style={{ background: "#22C55E" }} title={t("fg.color.green")}></div>
-                          <div className="swatch" style={{ background: "#7C3F00" }} title={t("fg.color.brown")}></div>
-                          <div className="swatch" style={{ background: "#E97700" }} title={t("fg.color.orange")}></div>
-                          <div className="swatch" style={{ background: "#A855F7" }} title={t("fg.color.purple")}></div>
-                          <div className="swatch" style={{ background: "linear-gradient(45deg,#fff 0 50%,#111 50% 100%)" }} title={t("fg.color.other")}></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.seller.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          <label className="check-row"><input type="checkbox" defaultChecked/> {t("fg.seller.dealer")} <span className="cnt">21,108</span></label>
-                          <label className="check-row"><input type="checkbox" defaultChecked/> {t("fg.seller.owner")} <span className="cnt">3,210</span></label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.location.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.dubai")} <span className="cnt">12,402</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.abuDhabi")} <span className="cnt">6,128</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.sharjah")} <span className="cnt">3,442</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.ajman")} <span className="cnt">1,128</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.rak")} <span className="cnt">684</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.location.fujairah")} <span className="cnt">312</span></label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.regional.title")} <span className="chev">▾</span></h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          <label className="check-row"><input type="checkbox"/> {t("fg.regional.gcc")} <span className="cnt">18,402</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.regional.american")} <span className="cnt">3,128</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.regional.european")} <span className="cnt">1,892</span></label>
-                          <label className="check-row"><input type="checkbox"/> {t("fg.regional.japanese")} <span className="cnt">896</span></label>
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
                 </aside>
 
-                {/* ============= RESULTS ============= */}
-                <div className="results-area">
-
-                  <div className="active-filters">
-                    <span className="filter-chip">{t("active.toyota")} <button aria-label={t("active.remove")}>×</button></span>
-                    <span className="filter-chip">{t("active.suv")} <button aria-label={t("active.remove")}>×</button></span>
-                    <span className="filter-chip">{t("active.automatic")} <button aria-label={t("active.remove")}>×</button></span>
-                    <span className="filter-chip">{t("active.black")} <button aria-label={t("active.remove")}>×</button></span>
-                    <button className="clear-all">{t("active.clearAll")}</button>
-                  </div>
-
-                  <div className="toolbar">
-                    <div className="left">
-                      <strong style={{ color: "var(--text)" }}>{t("toolbar.count")}</strong> {t("toolbar.match")}
-                    </div>
-                    <div className="right">
-                      <span className="muted">{t("toolbar.sortBy")}</span>
-                      <select className="sort-select">
-                        <option>{t("toolbar.sort0")}</option>
-                        <option>{t("toolbar.sort1")}</option>
-                        <option>{t("toolbar.sort2")}</option>
-                        <option>{t("toolbar.sort3")}</option>
-                        <option>{t("toolbar.sort4")}</option>
-                        <option>{t("toolbar.sort5")}</option>
+                {/* RESULTS */}
+                <div className="results">
+                  <div className="result-head">
+                    <div className="result-count"><strong>{total.toLocaleString()}</strong> {t("results.match")}</div>
+                    <div className="result-tools">
+                      <span className="sort-label">{t("results.sortBy")}</span>
+                      <select className="sort-select" value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
+                        {SORTS.map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
                       </select>
-                      <div className="view-toggle" id="viewToggle">
-                        <button className="active" data-view="grid" title={t("toolbar.gridView")}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                        </button>
-                        <button data-view="list" title={t("toolbar.listView")}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg>
-                        </button>
-                      </div>
                     </div>
                   </div>
 
-                  <div className="result-grid" id="resultGrid">
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=720&q=80&auto=format" alt="" />
-                        <span className="badge">{t("cards.0.badge")}</span>
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">22</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.0.title")}</h3>
-                        <p className="card-sub">{t("cards.0.sub")}</p>
-                        <div className="price">{t("cards.0.price")} <small>{t("cards.0.small")}</small></div>
-                        <div className="specs">
-                          <span className="spec">{t("cards.0.spec0")}</span><span className="spec">{t("cards.0.spec1")}</span><span className="spec">{t("cards.0.spec2")}</span>
-                        </div>
-                        <div className="card-foot">
-                          <div className="dealer"><span className="avatar">AT</span> {t("cards.0.dealer")}</div>
-                          <span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span>
-                        </div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?w=720&q=80&auto=format" alt="" />
-                        <span className="badge badge-warning">{t("cards.1.badge")}</span>
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">19</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.1.title")}</h3>
-                        <p className="card-sub">{t("cards.1.sub")}</p>
-                        <div className="price">{t("cards.1.price")} <small style={{ textDecoration: "line-through", color: "var(--text-3)", marginLeft: "6px" }}>{t("cards.1.small")}</small></div>
-                        <div className="specs">
-                          <span className="spec">{t("cards.1.spec0")}</span><span className="spec">{t("cards.1.spec1")}</span><span className="spec">{t("cards.1.spec2")}</span>
-                        </div>
-                        <div className="card-foot">
-                          <div className="dealer"><span className="avatar">NM</span> {t("cards.1.dealer")}</div>
-                          <span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span>
-                        </div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">16</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.2.title")}</h3>
-                        <p className="card-sub">{t("cards.2.sub")}</p>
-                        <div className="price">{t("cards.2.price")} <small>{t("cards.2.small")}</small></div>
-                        <div className="specs">
-                          <span className="spec">{t("cards.2.spec0")}</span><span className="spec">{t("cards.2.spec1")}</span><span className="spec">{t("cards.2.spec2")}</span>
-                        </div>
-                        <div className="card-foot">
-                          <div className="dealer"><span className="avatar">PA</span> {t("cards.2.dealer")}</div>
-                          <span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span>
-                        </div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=720&q=80&auto=format" alt="" />
-                        <span className="badge badge-success">{t("cards.3.badge")}</span>
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">14</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.3.title")}</h3>
-                        <p className="card-sub">{t("cards.3.sub")}</p>
-                        <div className="price">{t("cards.3.price")} <small>{t("cards.3.small")}</small></div>
-                        <div className="specs">
-                          <span className="spec">{t("cards.3.spec0")}</span><span className="spec">{t("cards.3.spec1")}</span><span className="spec">{t("cards.3.spec2")}</span>
-                        </div>
-                        <div className="card-foot">
-                          <div className="dealer"><span className="avatar">AM</span> {t("cards.3.dealer")}</div>
-                          <span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span>
-                        </div>
-                      </div>
-                    </Link>
-
-                    {/* PROMO CARD */}
-                    <div className="promo-card">
-                      <div>
-                        <h4>{t("promo.title")}</h4>
-                        <p>{t("promo.text")}</p>
-                      </div>
-                      <a className="btn btn-lg" href="#">{t("promo.cta")}</a>
+                  {items.length === 0 ? (
+                    <p className="results-empty" style={{ padding: "48px 0", textAlign: "center", color: "var(--text-3)" }}>{t("results.empty")}</p>
+                  ) : (
+                    <div className="result-grid">
+                      {items.map((car) => <MarketplaceCard key={car.id} car={car} />)}
                     </div>
+                  )}
 
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">12</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.4.title")}</h3>
-                        <p className="card-sub">{t("cards.4.sub")}</p>
-                        <div className="price">{t("cards.4.price")}</div>
-                        <div className="specs"><span className="spec">{t("cards.4.spec0")}</span><span className="spec">{t("cards.4.spec1")}</span><span className="spec">{t("cards.4.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">RS</span> {t("cards.4.dealer")}</div></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=720&q=80&auto=format" alt="" />
-                        <span className="badge">{t("cards.5.badge")}</span>
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">28</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.5.title")}</h3>
-                        <p className="card-sub">{t("cards.5.sub")}</p>
-                        <div className="price">{t("cards.5.price")} <small>{t("cards.5.small")}</small></div>
-                        <div className="specs"><span className="spec">{t("cards.5.spec0")}</span><span className="spec">{t("cards.5.spec1")}</span><span className="spec">{t("cards.5.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">SM</span> {t("cards.5.dealer")}</div><span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">17</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.6.title")}</h3>
-                        <p className="card-sub">{t("cards.6.sub")}</p>
-                        <div className="price">{t("cards.6.price")}</div>
-                        <div className="specs"><span className="spec">{t("cards.6.spec0")}</span><span className="spec">{t("cards.6.spec1")}</span><span className="spec">{t("cards.6.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">EM</span> {t("cards.6.dealer")}</div></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=720&q=80&auto=format" alt="" />
-                        <span className="badge badge-warning">{t("cards.7.badge")}</span>
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">21</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.7.title")}</h3>
-                        <p className="card-sub">{t("cards.7.sub")}</p>
-                        <div className="price">{t("cards.7.price")} <small style={{ textDecoration: "line-through", color: "var(--text-3)", marginLeft: "6px" }}>{t("cards.7.small")}</small></div>
-                        <div className="specs"><span className="spec">{t("cards.7.spec0")}</span><span className="spec">{t("cards.7.spec1")}</span><span className="spec">{t("cards.7.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">LX</span> {t("cards.7.dealer")}</div><span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">15</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.8.title")}</h3>
-                        <p className="card-sub">{t("cards.8.sub")}</p>
-                        <div className="price">{t("cards.8.price")}</div>
-                        <div className="specs"><span className="spec">{t("cards.8.spec0")}</span><span className="spec">{t("cards.8.spec1")}</span><span className="spec">{t("cards.8.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">AT</span> {t("cards.8.dealer")}</div></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1568844293986-8d0400bd4745?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">20</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.9.title")}</h3>
-                        <p className="card-sub">{t("cards.9.sub")}</p>
-                        <div className="price">{t("cards.9.price")} <small>{t("cards.9.small")}</small></div>
-                        <div className="specs"><span className="spec">{t("cards.9.spec0")}</span><span className="spec">{t("cards.9.spec1")}</span><span className="spec">{t("cards.9.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">PA</span> {t("cards.9.dealer")}</div><span style={{ color: "var(--success)", fontSize: "12px", fontWeight: 600 }}>{t("common.verified")}</span></div>
-                      </div>
-                    </Link>
-
-                    <Link href="/cars/demo" className="card">
-                      <div className="media">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=720&q=80&auto=format" alt="" />
-                        <button className="fav"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
-                        <span className="photo-count">18</span>
-                      </div>
-                      <div className="card-body">
-                        <h3 className="card-title">{t("cards.10.title")}</h3>
-                        <p className="card-sub">{t("cards.10.sub")}</p>
-                        <div className="price">{t("cards.10.price")}</div>
-                        <div className="specs"><span className="spec">{t("cards.10.spec0")}</span><span className="spec">{t("cards.10.spec1")}</span><span className="spec">{t("cards.10.spec2")}</span></div>
-                        <div className="card-foot"><div className="dealer"><span className="avatar">NM</span> {t("cards.10.dealer")}</div></div>
-                      </div>
-                    </Link>
-
-                  </div>
-
-                  {/* PAGINATION */}
-                  <div className="pagination">
-                    <a className="disabled">{t("pagination.prev")}</a>
-                    <a className="active">1</a>
-                    <a>2</a>
-                    <a>3</a>
-                    <a>4</a>
-                    <a>5</a>
-                    <span className="dots">…</span>
-                    <a>1,621</a>
-                    <a>{t("pagination.next")}</a>
-                  </div>
-
+                  {pages > 1 && (
+                    <div className="pagination">
+                      <button type="button" disabled={page <= 1} onClick={() => apply({ page: String(page - 1) }, false)}>‹</button>
+                      {Array.from({ length: Math.min(pages, 6) }, (_, i) => i + 1).map((n) => (
+                        <button key={n} type="button" className={n === page ? "active" : ""} onClick={() => apply({ page: String(n) }, false)}>{n}</button>
+                      ))}
+                      <button type="button" disabled={page >= pages} onClick={() => apply({ page: String(page + 1) }, false)}>›</button>
+                    </div>
+                  )}
                 </div>
               </div>
-
             </div>
           </div>
         </main>
@@ -503,12 +238,44 @@ export default function MksearchPage() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(
-      locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "mk-search"],
-      nextI18NextConfig,
-    )),
-  },
-});
+export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, query }) => {
+  const q = query as Record<string, string>;
+  const page = Math.max(1, Number(q.page) || 1);
+  const params = {
+    q: q.q, makeId: q.makeId, modelId: q.modelId, bodyTypeId: q.bodyTypeId,
+    emirateId: q.emirateId,
+    priceMin: q.priceMin ? Number(q.priceMin) : undefined,
+    priceMax: q.priceMax ? Number(q.priceMax) : undefined,
+    yearMin: q.yearMin ? Number(q.yearMin) : undefined,
+    sort: (q.sort as SearchSort) || undefined,
+    page, limit: PAGE_SIZE, facets: true,
+  };
+
+  const [res, meta, makes] = await Promise.all([
+    searchListings(params).catch(() => ({ items: [], total: 0, hasMore: false, facets: undefined })),
+    getTaxonomyMeta().catch(() => ({ bodyTypes: [], bikeTypes: [], emirates: [], specGroups: [] })),
+    getMakes("CAR").catch(() => []),
+  ]);
+
+  return {
+    props: {
+      items: res.items,
+      total: res.total,
+      page,
+      facets: {
+        makes: res.facets?.makes ?? [],
+        bodyTypes: res.facets?.bodyTypes ?? [],
+        emirates: res.facets?.emirates ?? [],
+      },
+      makes,
+      bodyTypes: meta.bodyTypes,
+      emirates: meta.emirates,
+      query: Object.fromEntries(Object.entries(q).filter(([, v]) => typeof v === "string")) as Record<string, string>,
+      ...(await serverSideTranslations(
+        locale ?? nextI18NextConfig.i18n.defaultLocale,
+        ["common", "mk-search"],
+        nextI18NextConfig,
+      )),
+    },
+  };
+};

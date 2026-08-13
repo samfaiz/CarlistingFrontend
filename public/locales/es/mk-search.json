@@ -11,7 +11,8 @@
     "heading": "Coches usados en EAU",
     "count": "24,318",
     "resultsMeta": "Mostrando 1–12 de 24,318 resultados",
-    "saveSearch": "Guardar esta búsqueda"
+    "saveSearch": "Guardar esta búsqueda",
+    "showing": "Mostrando {{from}}–{{to}} de {{total}} resultados"
   },
   "compact": {
     "makeLabel": "Marca",
@@ -40,7 +41,15 @@
     "emirateOpt1": "Dubái",
     "emirateOpt2": "Abu Dabi",
     "emirateOpt3": "Sharjah",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "price": {
+      "any": "Cualquier precio",
+      "u30": "Menos de 30.000",
+      "30_60": "30.000 – 60.000",
+      "60_120": "60.000 – 120.000",
+      "120_250": "120.000 – 250.000",
+      "250p": "250.000+"
+    }
   },
   "filters": {
     "title": "Filtros",
@@ -288,5 +297,17 @@
   "pagination": {
     "prev": "‹ Anterior",
     "next": "Siguiente ›"
+  },
+  "results": {
+    "match": "coches coinciden con tus filtros",
+    "sortBy": "Ordenar por",
+    "empty": "Ningún coche coincide. Prueba a ampliar los filtros.",
+    "sort": {
+      "newest": "Más recientes",
+      "price_asc": "Precio: de menor a mayor",
+      "price_desc": "Precio: de mayor a menor",
+      "mileage_asc": "Menor kilometraje",
+      "year_desc": "Año más nuevo"
+    }
   }
 }

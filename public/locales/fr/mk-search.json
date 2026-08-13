@@ -11,7 +11,8 @@
     "heading": "Voitures d'occasion aux EAU",
     "count": "24,318",
     "resultsMeta": "Affichage de 1–12 sur 24,318 résultats",
-    "saveSearch": "Enregistrer cette recherche"
+    "saveSearch": "Enregistrer cette recherche",
+    "showing": "Affichage de {{from}}–{{to}} sur {{total}} résultats"
   },
   "compact": {
     "makeLabel": "Marque",
@@ -40,7 +41,15 @@
     "emirateOpt1": "Dubaï",
     "emirateOpt2": "Abou Dabi",
     "emirateOpt3": "Sharjah",
-    "update": "Mettre à jour"
+    "update": "Mettre à jour",
+    "price": {
+      "any": "Tout prix",
+      "u30": "Moins de 30 000",
+      "30_60": "30 000 – 60 000",
+      "60_120": "60 000 – 120 000",
+      "120_250": "120 000 – 250 000",
+      "250p": "250 000+"
+    }
   },
   "filters": {
     "title": "Filtres",
@@ -288,5 +297,17 @@
   "pagination": {
     "prev": "‹ Préc.",
     "next": "Suivant ›"
+  },
+  "results": {
+    "match": "voitures correspondent à vos filtres",
+    "sortBy": "Trier par",
+    "empty": "Aucune voiture ne correspond. Essayez d'élargir les filtres.",
+    "sort": {
+      "newest": "Plus récentes",
+      "price_asc": "Prix : croissant",
+      "price_desc": "Prix : décroissant",
+      "mileage_asc": "Kilométrage le plus bas",
+      "year_desc": "Année la plus récente"
+    }
   }
 }

@@ -11,7 +11,8 @@
     "heading": "Used cars in UAE",
     "count": "24,318",
     "resultsMeta": "Showing 1–12 of 24,318 results",
-    "saveSearch": "Save this search"
+    "saveSearch": "Save this search",
+    "showing": "Showing {{from}}–{{to}} of {{total}} results"
   },
   "compact": {
     "makeLabel": "Make",
@@ -40,7 +41,15 @@
     "emirateOpt1": "Dubai",
     "emirateOpt2": "Abu Dhabi",
     "emirateOpt3": "Sharjah",
-    "update": "Update"
+    "update": "Update",
+    "price": {
+      "any": "Any price",
+      "u30": "Under 30,000",
+      "30_60": "30,000 – 60,000",
+      "60_120": "60,000 – 120,000",
+      "120_250": "120,000 – 250,000",
+      "250p": "250,000+"
+    }
   },
   "filters": {
     "title": "Filters",
@@ -288,5 +297,17 @@
   "pagination": {
     "prev": "‹ Prev",
     "next": "Next ›"
+  },
+  "results": {
+    "match": "cars match your filters",
+    "sortBy": "Sort by",
+    "empty": "No cars match your filters. Try widening them.",
+    "sort": {
+      "newest": "Most recent",
+      "price_asc": "Price: low to high",
+      "price_desc": "Price: high to low",
+      "mileage_asc": "Lowest mileage",
+      "year_desc": "Newest year"
+    }
   }
 }
