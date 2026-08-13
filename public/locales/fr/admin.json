@@ -59,7 +59,8 @@
       "regionalSpec": "Spécification régionale",
       "fuel": "Carburant",
       "transmission": "Transmission",
-      "sellerType": "Type de vendeur"
+      "sellerType": "Type de vendeur",
+      "diff": "Ce qui a changé"
     },
     "actions": {
       "approve": "Approuver",
@@ -83,7 +84,23 @@
       "unfeatured": "Badge « en avant » retiré.",
       "actionFailed": "L'action a échoué"
     },
-    "featuredBadge": "En avant"
+    "featuredBadge": "En avant",
+    "slaBreach": "SLA dépassé",
+    "editedLive": "Modifié en ligne",
+    "flags": {
+      "CONTACT_INFO": "Coordonnées dans le texte",
+      "SUSPICIOUS_PHRASE": "Phrase suspecte",
+      "PHOTOS_SEEN_BEFORE": "Photos déjà vues"
+    },
+    "bulk": {
+      "select": "Sélectionner {{title}}",
+      "count": "{{total}} dans la file",
+      "selected": "{{count}} sélectionnés",
+      "approve": "Approuver la sélection",
+      "reject": "Rejeter la sélection",
+      "defaultReason": "Ne respecte pas les règles des annonces",
+      "done": "{{done}} traités, {{failed}} échoués"
+    }
   },
   "verification": {
     "title": "Vérification des concessions",

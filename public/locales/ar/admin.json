@@ -59,7 +59,8 @@
       "regionalSpec": "المواصفات الإقليمية",
       "fuel": "الوقود",
       "transmission": "ناقل الحركة",
-      "sellerType": "نوع البائع"
+      "sellerType": "نوع البائع",
+      "diff": "ما الذي تغيّر"
     },
     "actions": {
       "approve": "موافقة",
@@ -83,7 +84,23 @@
       "unfeatured": "تمت إزالة شارة التمييز.",
       "actionFailed": "فشل الإجراء"
     },
-    "featuredBadge": "مميّز"
+    "featuredBadge": "مميّز",
+    "slaBreach": "تجاوز المهلة",
+    "editedLive": "عُدّل أثناء النشر",
+    "flags": {
+      "CONTACT_INFO": "بيانات تواصل في النص",
+      "SUSPICIOUS_PHRASE": "عبارة مشبوهة",
+      "PHOTOS_SEEN_BEFORE": "صور ظهرت سابقًا"
+    },
+    "bulk": {
+      "select": "تحديد {{title}}",
+      "count": "{{total}} في الطابور",
+      "selected": "{{count}} محدد",
+      "approve": "اعتماد المحدد",
+      "reject": "رفض المحدد",
+      "defaultReason": "لا يستوفي إرشادات الإعلانات",
+      "done": "تمت معالجة {{done}}، فشل {{failed}}"
+    }
   },
   "verification": {
     "title": "توثيق المعارض",

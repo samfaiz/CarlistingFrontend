@@ -59,7 +59,8 @@
       "regionalSpec": "Regional spec",
       "fuel": "Fuel",
       "transmission": "Transmission",
-      "sellerType": "Seller type"
+      "sellerType": "Seller type",
+      "diff": "What changed"
     },
     "actions": {
       "approve": "Approve",
@@ -83,7 +84,23 @@
       "unfeatured": "Featured badge removed.",
       "actionFailed": "The action failed"
     },
-    "featuredBadge": "Featured"
+    "featuredBadge": "Featured",
+    "slaBreach": "SLA breached",
+    "editedLive": "Edited while live",
+    "flags": {
+      "CONTACT_INFO": "Contact info in text",
+      "SUSPICIOUS_PHRASE": "Suspicious phrase",
+      "PHOTOS_SEEN_BEFORE": "Photos seen before"
+    },
+    "bulk": {
+      "select": "Select {{title}}",
+      "count": "{{total}} in the queue",
+      "selected": "{{count}} selected",
+      "approve": "Approve selected",
+      "reject": "Reject selected",
+      "defaultReason": "Does not meet the listing guidelines",
+      "done": "{{done}} processed, {{failed}} failed"
+    }
   },
   "verification": {
     "title": "Dealer verification",

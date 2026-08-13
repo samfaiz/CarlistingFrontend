@@ -59,7 +59,8 @@
       "regionalSpec": "Especificación regional",
       "fuel": "Combustible",
       "transmission": "Transmisión",
-      "sellerType": "Tipo de vendedor"
+      "sellerType": "Tipo de vendedor",
+      "diff": "Qué cambió"
     },
     "actions": {
       "approve": "Aprobar",
@@ -83,7 +84,23 @@
       "unfeatured": "Se quitó la insignia de destacado.",
       "actionFailed": "La acción falló"
     },
-    "featuredBadge": "Destacado"
+    "featuredBadge": "Destacado",
+    "slaBreach": "SLA incumplido",
+    "editedLive": "Editado en vivo",
+    "flags": {
+      "CONTACT_INFO": "Contacto en el texto",
+      "SUSPICIOUS_PHRASE": "Frase sospechosa",
+      "PHOTOS_SEEN_BEFORE": "Fotos ya vistas"
+    },
+    "bulk": {
+      "select": "Seleccionar {{title}}",
+      "count": "{{total}} en la cola",
+      "selected": "{{count}} seleccionados",
+      "approve": "Aprobar selección",
+      "reject": "Rechazar selección",
+      "defaultReason": "No cumple las normas de anuncios",
+      "done": "{{done}} procesados, {{failed}} fallidos"
+    }
   },
   "verification": {
     "title": "Verificación de concesionarios",

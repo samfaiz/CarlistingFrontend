@@ -57,17 +57,35 @@ export interface ModerationQueueItem {
   make: { name: string };
   model: { name: string };
   media: ModerationMedia[];
-  /** Not included by the current queue payload — kept optional and rendered
-   *  defensively so the UI lights up if the backend adds the relation. */
   descriptions?: { locale: string; text: string }[];
+  /** Non-blocking auto-check hits (P4-02). */
+  moderationFlags?: { rule: string; detail: string }[] | null;
+  /** Pre-edit LIVE values when a private-seller edit re-entered moderation. */
+  lastLiveSnapshot?: Record<string, unknown> | null;
 }
 
 export function getModerationQueue(
   accessToken: string,
-): Promise<ModerationQueueItem[]> {
-  return apiGet<ModerationQueueItem[]>("/moderation/listings/queue", {
-    token: accessToken,
-  });
+  params: { limit?: number; offset?: number } = {},
+): Promise<{ items: ModerationQueueItem[]; total: number; limit: number; offset: number }> {
+  const qs = new URLSearchParams();
+  if (params.limit != null) qs.set("limit", String(params.limit));
+  if (params.offset != null) qs.set("offset", String(params.offset));
+  const suffix = qs.toString() ? `?${qs}` : "";
+  return apiGet(`/moderation/listings/queue${suffix}`, { token: accessToken });
+}
+
+export function bulkModerate(
+  action: "approve" | "reject",
+  ids: string[],
+  reason: string | undefined,
+  accessToken: string,
+): Promise<{ done: string[]; failed: { id: string; reason: string }[] }> {
+  return apiPost(
+    `/moderation/listings/bulk-${action}`,
+    action === "reject" ? { ids, reason } : { ids },
+    { token: accessToken },
+  );
 }
 
 export function approveListing(
