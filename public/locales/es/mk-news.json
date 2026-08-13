@@ -194,5 +194,7 @@
       "articles": "38 artículos",
       "reads": "412K lecturas"
     }
-  }
+  },
+  "readMin": "{{count}} min de lectura",
+  "empty": "Aún no hay artículos, vuelve pronto."
 }

@@ -11,7 +11,9 @@
       "listings": "Listings",
       "leads": "Leads",
       "reports": "Reports",
-      "support": "Support"
+      "support": "Support",
+      "content": "Content",
+      "legal": "Legal pages"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -267,6 +269,80 @@
       "updated": "Ticket updated",
       "failed": "Action failed",
       "loadFailed": "Could not load tickets"
+    }
+  },
+  "content": {
+    "title": "Content",
+    "new": "New article",
+    "newTitle": "New article",
+    "editTitle": "Edit article",
+    "backToList": "Back to list",
+    "empty": "No articles yet.",
+    "needEnAndSlug": "A slug and an English title + body are required.",
+    "kind": {
+      "NEWS": "News",
+      "HELP": "Help"
+    },
+    "columns": {
+      "title": "Title",
+      "category": "Category",
+      "locales": "Locales",
+      "status": "Status",
+      "updated": "Updated",
+      "actions": "Actions"
+    },
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "delete": "Delete",
+    "confirmDelete": "Delete \"{{title}}\"? This cannot be undone.",
+    "save": "Save",
+    "publishing": "Publishing",
+    "scheduleFor": "Schedule for",
+    "schedule": "Schedule",
+    "archive": "Archive",
+    "seo": "SEO",
+    "markdownHint": "Markdown supported: **bold**, headings, - lists, [links](/url).",
+    "field": {
+      "title": "Title",
+      "excerpt": "Excerpt",
+      "body": "Body",
+      "kind": "Type",
+      "slug": "Slug",
+      "category": "Category",
+      "cover": "Cover image URL",
+      "featured": "Featured",
+      "seoTitle": "SEO title",
+      "seoDescription": "SEO description"
+    },
+    "toast": {
+      "loadFailed": "Could not load content.",
+      "statusChanged": "Status updated.",
+      "failed": "Something went wrong.",
+      "deleted": "Article deleted.",
+      "saved": "Changes saved.",
+      "created": "Article created."
+    }
+  },
+  "legal": {
+    "title": "Legal pages",
+    "needEn": "An English title and body are required.",
+    "version": "Version {{n}}",
+    "bumpVersion": "Bump version (records a change of terms)",
+    "save": "Save",
+    "hint": "Issued terms are corrected by publishing a new version, not by silent edits.",
+    "doc": {
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookie-policy": "Cookies"
+    },
+    "field": {
+      "title": "Title",
+      "body": "Body (Markdown)",
+      "effective": "Effective date"
+    },
+    "toast": {
+      "saved": "Legal page saved.",
+      "failed": "Could not save."
     }
   }
 }

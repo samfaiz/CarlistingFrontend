@@ -115,7 +115,7 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
             <FooterCol title="Buy" links={[["Used cars", "/cars"], ["New cars", "/new-cars"], ["Classic cars", "/cars"], ["Bikes", "/bikes"], ["Dealers", "/dealers"]]} />
             <FooterCol title="Sell" links={[["Sell your car", "/sell"], ["Car valuation", "/sell"], ["Dealer signup", "/dealers"], ["Selling tips", "/help"]]} />
             <FooterCol title="Tools" links={[["Compare cars", "/compare"], ["Loan calculator", "/help"], ["Insurance", "/help"], ["Car inspection", "/help"]]} />
-            <FooterCol title="Company" links={[["About Carsens", "/help"], ["Careers", "/help"], ["Contact", "/contact"], ["Privacy & terms", "/legal/privacy"]]} />
+            <FooterCol title="Company" links={[["About Carsens", "/help"], ["Contact", "/contact"], ["News", "/news"], ["Terms", "/legal/terms"], ["Privacy", "/legal/privacy"], ["Cookies", "/legal/cookie-policy"]]} />
           </div>
           <div className="copyright">
             <div>© 2026 Carsens FZ-LLC. All rights reserved.</div>

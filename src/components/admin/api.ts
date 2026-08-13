@@ -9,7 +9,7 @@
  * `moderationQueue()`: full Listing rows + user/make/model selects + ordered
  * media rows (variants may be null while the pipeline is processing).
  */
-import { apiGet, apiPost } from "@/lib/api";
+import { apiGet, apiPost, apiPut, apiDelete } from "@/lib/api";
 import type { MediaVariants, SpecGroups } from "@/lib/marketplace-api";
 
 export interface ModerationMedia {
@@ -397,4 +397,106 @@ export function updateTicket(
   accessToken: string,
 ): Promise<{ id: string; status: string }> {
   return apiPost(`/admin/support/${encodeURIComponent(id)}`, input, { token: accessToken });
+}
+
+/* ------------------------------------------------------------------ */
+/* Content CMS — admin (P4-05, FR-N1–N3, FR-H1–H2)                    */
+/* ------------------------------------------------------------------ */
+
+export interface CmsTranslation {
+  locale: string;
+  title: string;
+  excerpt?: string | null;
+  markdown: string;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+}
+
+export interface CmsArticleRow {
+  id: string;
+  kind: "NEWS" | "HELP";
+  slug: string;
+  status: string;
+  category: string | null;
+  featured: boolean;
+  publishedAt: string | null;
+  scheduledFor: string | null;
+  updatedAt: string;
+  author: { name: string } | null;
+  translations: { locale: string; title: string }[];
+}
+
+export interface CmsArticleFull extends CmsArticleRow {
+  coverImageUrl: string | null;
+  sortOrder: number;
+  translations: (CmsTranslation & { locale: string; title: string; bodyHtml?: string | null })[];
+}
+
+export interface UpsertArticleInput {
+  kind: "NEWS" | "HELP";
+  slug: string;
+  category?: string;
+  coverImageUrl?: string;
+  featured?: boolean;
+  sortOrder?: number;
+  translations: { locale: string; title: string; excerpt?: string; markdown: string; seoTitle?: string; seoDescription?: string }[];
+}
+
+export function getCmsArticles(
+  accessToken: string,
+  params: { kind?: string; status?: string; category?: string; limit?: number; offset?: number } = {},
+): Promise<{ items: CmsArticleRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) if (v != null && v !== "") qs.set(k, String(v));
+  return apiGet(`/admin/content/articles${qs.toString() ? `?${qs}` : ""}`, { token: accessToken });
+}
+
+export function getCmsArticle(id: string, accessToken: string): Promise<CmsArticleFull> {
+  return apiGet(`/admin/content/articles/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export function createCmsArticle(input: UpsertArticleInput, accessToken: string): Promise<{ id: string }> {
+  return apiPost(`/admin/content/articles`, input, { token: accessToken });
+}
+
+export function updateCmsArticle(id: string, input: UpsertArticleInput, accessToken: string): Promise<{ id: string }> {
+  return apiPut(`/admin/content/articles/${encodeURIComponent(id)}`, input, { token: accessToken });
+}
+
+export function setCmsArticleStatus(
+  id: string,
+  status: "DRAFT" | "PUBLISHED" | "ARCHIVED" | "SCHEDULED",
+  accessToken: string,
+  scheduledFor?: string,
+): Promise<{ id: string; status: string }> {
+  return apiPost(`/admin/content/articles/${encodeURIComponent(id)}/status`, { status, scheduledFor }, { token: accessToken });
+}
+
+export function deleteCmsArticle(id: string, accessToken: string): Promise<{ deleted: boolean }> {
+  return apiDelete(`/admin/content/articles/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export interface LegalDocRow {
+  id: string;
+  key: string;
+  version: number;
+  effectiveAt: string | null;
+  updatedAt: string;
+  translations: { locale: string; title?: string; bodyHtml?: string }[];
+}
+
+export function getLegalDocs(accessToken: string): Promise<LegalDocRow[]> {
+  return apiGet(`/admin/content/legal`, { token: accessToken });
+}
+
+export function getLegalDocAdmin(key: string, accessToken: string): Promise<LegalDocRow & { translations: { locale: string; title: string; bodyHtml: string }[] }> {
+  return apiGet(`/admin/content/legal/${encodeURIComponent(key)}`, { token: accessToken });
+}
+
+export function upsertLegalDoc(
+  key: string,
+  input: { effectiveAt?: string; bumpVersion?: boolean; translations: { locale: string; title: string; markdown: string }[] },
+  accessToken: string,
+): Promise<LegalDocRow> {
+  return apiPut(`/admin/content/legal/${encodeURIComponent(key)}`, input, { token: accessToken });
 }

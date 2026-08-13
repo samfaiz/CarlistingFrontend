@@ -11,7 +11,9 @@
       "listings": "Annonces",
       "leads": "Prospects",
       "reports": "Signalements",
-      "support": "Support"
+      "support": "Support",
+      "content": "Contenu",
+      "legal": "Pages légales"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -267,6 +269,80 @@
       "updated": "Ticket mis à jour",
       "failed": "Échec de l'action",
       "loadFailed": "Impossible de charger les tickets"
+    }
+  },
+  "content": {
+    "title": "Contenu",
+    "new": "Nouvel article",
+    "newTitle": "Nouvel article",
+    "editTitle": "Modifier l’article",
+    "backToList": "Retour à la liste",
+    "empty": "Aucun article pour l’instant.",
+    "needEnAndSlug": "Un slug et un titre + corps en anglais sont requis.",
+    "kind": {
+      "NEWS": "Actualités",
+      "HELP": "Aide"
+    },
+    "columns": {
+      "title": "Titre",
+      "category": "Catégorie",
+      "locales": "Langues",
+      "status": "Statut",
+      "updated": "Mis à jour",
+      "actions": "Actions"
+    },
+    "publish": "Publier",
+    "unpublish": "Dépublier",
+    "delete": "Supprimer",
+    "confirmDelete": "Supprimer « {{title}} » ? Action irréversible.",
+    "save": "Enregistrer",
+    "publishing": "Publication",
+    "scheduleFor": "Planifier pour",
+    "schedule": "Planifier",
+    "archive": "Archiver",
+    "seo": "SEO",
+    "markdownHint": "Markdown pris en charge : **gras**, titres, - listes, [liens](/url).",
+    "field": {
+      "title": "Titre",
+      "excerpt": "Extrait",
+      "body": "Corps",
+      "kind": "Type",
+      "slug": "Slug",
+      "category": "Catégorie",
+      "cover": "URL de l’image de couverture",
+      "featured": "En vedette",
+      "seoTitle": "Titre SEO",
+      "seoDescription": "Description SEO"
+    },
+    "toast": {
+      "loadFailed": "Impossible de charger le contenu.",
+      "statusChanged": "Statut mis à jour.",
+      "failed": "Une erreur est survenue.",
+      "deleted": "Article supprimé.",
+      "saved": "Modifications enregistrées.",
+      "created": "Article créé."
+    }
+  },
+  "legal": {
+    "title": "Pages légales",
+    "needEn": "Un titre et un corps en anglais sont requis.",
+    "version": "Version {{n}}",
+    "bumpVersion": "Incrémenter la version (enregistre un changement de conditions)",
+    "save": "Enregistrer",
+    "hint": "Les conditions émises se corrigent en publiant une nouvelle version, pas par des modifications silencieuses.",
+    "doc": {
+      "terms": "Conditions",
+      "privacy": "Confidentialité",
+      "cookie-policy": "Cookies"
+    },
+    "field": {
+      "title": "Titre",
+      "body": "Corps (Markdown)",
+      "effective": "Date d’effet"
+    },
+    "toast": {
+      "saved": "Page légale enregistrée.",
+      "failed": "Échec de l’enregistrement."
     }
   }
 }

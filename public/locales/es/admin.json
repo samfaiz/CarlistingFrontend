@@ -11,7 +11,9 @@
       "listings": "Anuncios",
       "leads": "Leads",
       "reports": "Reportes",
-      "support": "Soporte"
+      "support": "Soporte",
+      "content": "Contenido",
+      "legal": "Páginas legales"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -267,6 +269,80 @@
       "updated": "Ticket actualizado",
       "failed": "Acción fallida",
       "loadFailed": "No se pudieron cargar los tickets"
+    }
+  },
+  "content": {
+    "title": "Contenido",
+    "new": "Nuevo artículo",
+    "newTitle": "Nuevo artículo",
+    "editTitle": "Editar artículo",
+    "backToList": "Volver a la lista",
+    "empty": "Aún no hay artículos.",
+    "needEnAndSlug": "Se requieren un slug y título + cuerpo en inglés.",
+    "kind": {
+      "NEWS": "Noticias",
+      "HELP": "Ayuda"
+    },
+    "columns": {
+      "title": "Título",
+      "category": "Categoría",
+      "locales": "Idiomas",
+      "status": "Estado",
+      "updated": "Actualizado",
+      "actions": "Acciones"
+    },
+    "publish": "Publicar",
+    "unpublish": "Despublicar",
+    "delete": "Eliminar",
+    "confirmDelete": "¿Eliminar \"{{title}}\"? No se puede deshacer.",
+    "save": "Guardar",
+    "publishing": "Publicación",
+    "scheduleFor": "Programar para",
+    "schedule": "Programar",
+    "archive": "Archivar",
+    "seo": "SEO",
+    "markdownHint": "Markdown compatible: **negrita**, encabezados, - listas, [enlaces](/url).",
+    "field": {
+      "title": "Título",
+      "excerpt": "Extracto",
+      "body": "Cuerpo",
+      "kind": "Tipo",
+      "slug": "Slug",
+      "category": "Categoría",
+      "cover": "URL de imagen de portada",
+      "featured": "Destacado",
+      "seoTitle": "Título SEO",
+      "seoDescription": "Descripción SEO"
+    },
+    "toast": {
+      "loadFailed": "No se pudo cargar el contenido.",
+      "statusChanged": "Estado actualizado.",
+      "failed": "Algo salió mal.",
+      "deleted": "Artículo eliminado.",
+      "saved": "Cambios guardados.",
+      "created": "Artículo creado."
+    }
+  },
+  "legal": {
+    "title": "Páginas legales",
+    "needEn": "Se requieren un título y cuerpo en inglés.",
+    "version": "Versión {{n}}",
+    "bumpVersion": "Subir versión (registra un cambio de términos)",
+    "save": "Guardar",
+    "hint": "Los términos emitidos se corrigen publicando una nueva versión, no con ediciones silenciosas.",
+    "doc": {
+      "terms": "Términos",
+      "privacy": "Privacidad",
+      "cookie-policy": "Cookies"
+    },
+    "field": {
+      "title": "Título",
+      "body": "Cuerpo (Markdown)",
+      "effective": "Fecha de vigencia"
+    },
+    "toast": {
+      "saved": "Página legal guardada.",
+      "failed": "No se pudo guardar."
     }
   }
 }

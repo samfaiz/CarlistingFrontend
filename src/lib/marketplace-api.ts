@@ -1403,3 +1403,84 @@ export function submitSupportTicket(input: {
 }): Promise<{ id: string; status: string }> {
   return apiPost("/support/tickets", input);
 }
+
+/* ------------------------------------------------------------------ */
+/* Content CMS — public reads (P4-05, FR-N1–N3, FR-H1–H2)             */
+/* ------------------------------------------------------------------ */
+
+export interface ArticleCard {
+  id: string;
+  slug: string;
+  kind: "NEWS" | "HELP";
+  category: string | null;
+  coverImageUrl: string | null;
+  featured: boolean;
+  publishedAt: string | null;
+  author: string | null;
+  readMinutes: number | null;
+  locale: string;
+  title: string;
+  excerpt: string | null;
+}
+
+export interface ArticleDetail extends ArticleCard {
+  updatedAt: string;
+  bodyHtml: string;
+  seoTitle: string;
+  seoDescription: string | null;
+  availableLocales: string[];
+}
+
+export interface CategoryCount {
+  category: string;
+  count: number;
+}
+
+export interface LegalDoc {
+  key: string;
+  version: number;
+  effectiveAt: string | null;
+  updatedAt: string;
+  locale: string;
+  title: string;
+  bodyHtml: string;
+  availableLocales: string[];
+}
+
+type Paged<T> = { items: T[]; total: number; limit: number; offset: number };
+
+export function getNews(
+  locale: string,
+  opts: { category?: string; limit?: number; offset?: number } = {},
+): Promise<Paged<ArticleCard>> {
+  const p = new URLSearchParams({ locale });
+  if (opts.category) p.set("category", opts.category);
+  if (opts.limit != null) p.set("limit", String(opts.limit));
+  if (opts.offset != null) p.set("offset", String(opts.offset));
+  return apiGet(`/content/news?${p.toString()}`);
+}
+
+export function getNewsCategories(): Promise<CategoryCount[]> {
+  return apiGet(`/content/news/categories`);
+}
+
+export function getNewsArticle(slug: string, locale: string): Promise<ArticleDetail> {
+  return apiGet(`/content/news/${encodeURIComponent(slug)}?locale=${locale}`);
+}
+
+export function getHelpArticles(
+  locale: string,
+  opts: { category?: string } = {},
+): Promise<Paged<ArticleCard>> {
+  const p = new URLSearchParams({ locale });
+  if (opts.category) p.set("category", opts.category);
+  return apiGet(`/content/help?${p.toString()}`);
+}
+
+export function getHelpArticle(slug: string, locale: string): Promise<ArticleDetail> {
+  return apiGet(`/content/help/${encodeURIComponent(slug)}?locale=${locale}`);
+}
+
+export function getLegalDoc(key: string, locale: string): Promise<LegalDoc> {
+  return apiGet(`/content/legal/${encodeURIComponent(key)}?locale=${locale}`);
+}

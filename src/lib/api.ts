@@ -104,6 +104,18 @@ export function apiPatch<T>(
   });
 }
 
+export function apiPut<T>(
+  path: string,
+  body: unknown,
+  opts?: { token?: string },
+): Promise<T> {
+  return request<T>(path, {
+    method: "PUT",
+    body: JSON.stringify(body),
+    token: opts?.token,
+  });
+}
+
 /** DELETE carries a body for confirmation-guarded destructive calls (PDPL erasure). */
 export function apiDelete<T>(
   path: string,

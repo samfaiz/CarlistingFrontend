@@ -12,11 +12,13 @@ import * as React from "react";
 import {
   BadgeCheck,
   CarFront,
+  FileText,
   Flag,
   Inbox,
   KeyRound,
   LifeBuoy,
   LogOut,
+  Scale,
   ShieldCheck,
   Users,
 } from "lucide-react";
@@ -91,6 +93,16 @@ export function AdminLayout({
       href: "/admin/support",
       label: t("layout.nav.support"),
       icon: LifeBuoy,
+    },
+    {
+      href: "/admin/content",
+      label: t("layout.nav.content"),
+      icon: FileText,
+    },
+    {
+      href: "/admin/legal",
+      label: t("layout.nav.legal"),
+      icon: Scale,
     },
     {
       href: "/admin/security",

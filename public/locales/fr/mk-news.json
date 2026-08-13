@@ -194,5 +194,7 @@
       "articles": "38 articles",
       "reads": "412K lectures"
     }
-  }
+  },
+  "readMin": "{{count}} min de lecture",
+  "empty": "Aucun article pour l’instant — revenez bientôt."
 }

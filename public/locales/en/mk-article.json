@@ -60,26 +60,71 @@
     "h2_3": "Inside: GR touches, no compromise on luxury",
     "p9": "Open the door and the cabin gets all the standard Land Cruiser luxuries: 14-speaker JBL audio, panoramic moonroof, ventilated leather, multi-zone climate, and a 14-inch central touchscreen running Toyota's latest infotainment. The GR-Sport adds:",
     "list1": {
-      "0": { "strong": "Red contrast stitching", "text": " on the seats, dash, and steering wheel" },
-      "1": { "strong": "GR badging", "text": " on the headrests, sill plates, and instrument cluster" },
-      "2": { "pre": "A sportier ", "strong": "12.3-inch digital instrument cluster", "text": " with three GR-specific display layouts" },
-      "3": { "strong": "Alcantara-trimmed steering wheel", "text": " with red 12 o'clock marker" },
-      "4": { "text": "Carbon-effect dash inlays (real carbon is optional)" }
+      "0": {
+        "strong": "Red contrast stitching",
+        "text": " on the seats, dash, and steering wheel"
+      },
+      "1": {
+        "strong": "GR badging",
+        "text": " on the headrests, sill plates, and instrument cluster"
+      },
+      "2": {
+        "pre": "A sportier ",
+        "strong": "12.3-inch digital instrument cluster",
+        "text": " with three GR-specific display layouts"
+      },
+      "3": {
+        "strong": "Alcantara-trimmed steering wheel",
+        "text": " with red 12 o'clock marker"
+      },
+      "4": {
+        "text": "Carbon-effect dash inlays (real carbon is optional)"
+      }
     },
     "p10": "It's tastefully done, not cartoonish. If you've spent any time in Toyota's recent GR products, the language is consistent: red, black, Alcantara, and just enough badge to remind you what you're driving.",
     "specBox": {
       "title": "📋 Key specifications",
       "rows": {
-        "0": { "term": "Engine", "value": "3.5L Twin-Turbo V6" },
-        "1": { "term": "Power", "value": "409 hp @ 5,200 rpm" },
-        "2": { "term": "Torque", "value": "650 Nm" },
-        "3": { "term": "Transmission", "value": "10-speed automatic" },
-        "4": { "term": "0–100 km/h", "value": "6.7 sec" },
-        "5": { "term": "Top speed", "value": "210 km/h" },
-        "6": { "term": "Fuel economy", "value": "13.1 L/100km" },
-        "7": { "term": "Wheelbase", "value": "2,850 mm" },
-        "8": { "term": "Ground clearance", "value": "235 mm" },
-        "9": { "term": "Starting price", "value": "AED 285,900" }
+        "0": {
+          "term": "Engine",
+          "value": "3.5L Twin-Turbo V6"
+        },
+        "1": {
+          "term": "Power",
+          "value": "409 hp @ 5,200 rpm"
+        },
+        "2": {
+          "term": "Torque",
+          "value": "650 Nm"
+        },
+        "3": {
+          "term": "Transmission",
+          "value": "10-speed automatic"
+        },
+        "4": {
+          "term": "0–100 km/h",
+          "value": "6.7 sec"
+        },
+        "5": {
+          "term": "Top speed",
+          "value": "210 km/h"
+        },
+        "6": {
+          "term": "Fuel economy",
+          "value": "13.1 L/100km"
+        },
+        "7": {
+          "term": "Wheelbase",
+          "value": "2,850 mm"
+        },
+        "8": {
+          "term": "Ground clearance",
+          "value": "235 mm"
+        },
+        "9": {
+          "term": "Starting price",
+          "value": "AED 285,900"
+        }
       }
     },
     "h2_4": "On the road: surprisingly sharp",
@@ -251,5 +296,9 @@
       }
     },
     "loadMore": "Load 47 more comments"
+  },
+  "notFound": {
+    "title": "Article not found",
+    "back": "Back to news"
   }
 }

@@ -60,26 +60,71 @@
     "h2_3": "À l'intérieur : touches GR, sans compromis sur le luxe",
     "p9": "Ouvrez la portière et l'habitacle reçoit tous les luxes standard du Land Cruiser : audio JBL à 14 haut-parleurs, toit ouvrant panoramique, cuir ventilé, climatisation multizone et un écran tactile central de 14 pouces animé par le dernier système d'infodivertissement de Toyota. Le GR-Sport ajoute :",
     "list1": {
-      "0": { "strong": "Surpiqûres contrastées rouges", "text": " sur les sièges, la planche de bord et le volant" },
-      "1": { "strong": "Marquage GR", "text": " sur les appuie-tête, les seuils de porte et le combiné d'instruments" },
-      "2": { "pre": "Un ", "strong": "combiné numérique de 12,3 pouces", "text": " plus sportif avec trois affichages spécifiques à GR" },
-      "3": { "strong": "Volant gainé d'Alcantara", "text": " avec repère rouge à midi" },
-      "4": { "text": "Inserts de planche de bord effet carbone (le carbone véritable est en option)" }
+      "0": {
+        "strong": "Surpiqûres contrastées rouges",
+        "text": " sur les sièges, la planche de bord et le volant"
+      },
+      "1": {
+        "strong": "Marquage GR",
+        "text": " sur les appuie-tête, les seuils de porte et le combiné d'instruments"
+      },
+      "2": {
+        "pre": "Un ",
+        "strong": "combiné numérique de 12,3 pouces",
+        "text": " plus sportif avec trois affichages spécifiques à GR"
+      },
+      "3": {
+        "strong": "Volant gainé d'Alcantara",
+        "text": " avec repère rouge à midi"
+      },
+      "4": {
+        "text": "Inserts de planche de bord effet carbone (le carbone véritable est en option)"
+      }
     },
     "p10": "C'est fait avec goût, sans tomber dans la caricature. Si vous avez passé un peu de temps dans les récents produits GR de Toyota, le langage est cohérent : rouge, noir, Alcantara et juste ce qu'il faut de marquage pour vous rappeler ce que vous conduisez.",
     "specBox": {
       "title": "📋 Spécifications clés",
       "rows": {
-        "0": { "term": "Moteur", "value": "V6 biturbo 3,5 L" },
-        "1": { "term": "Puissance", "value": "409 ch à 5 200 tr/min" },
-        "2": { "term": "Couple", "value": "650 Nm" },
-        "3": { "term": "Transmission", "value": "Automatique à 10 rapports" },
-        "4": { "term": "0–100 km/h", "value": "6,7 s" },
-        "5": { "term": "Vitesse max", "value": "210 km/h" },
-        "6": { "term": "Consommation", "value": "13,1 L/100km" },
-        "7": { "term": "Empattement", "value": "2 850 mm" },
-        "8": { "term": "Garde au sol", "value": "235 mm" },
-        "9": { "term": "Prix de départ", "value": "AED 285,900" }
+        "0": {
+          "term": "Moteur",
+          "value": "V6 biturbo 3,5 L"
+        },
+        "1": {
+          "term": "Puissance",
+          "value": "409 ch à 5 200 tr/min"
+        },
+        "2": {
+          "term": "Couple",
+          "value": "650 Nm"
+        },
+        "3": {
+          "term": "Transmission",
+          "value": "Automatique à 10 rapports"
+        },
+        "4": {
+          "term": "0–100 km/h",
+          "value": "6,7 s"
+        },
+        "5": {
+          "term": "Vitesse max",
+          "value": "210 km/h"
+        },
+        "6": {
+          "term": "Consommation",
+          "value": "13,1 L/100km"
+        },
+        "7": {
+          "term": "Empattement",
+          "value": "2 850 mm"
+        },
+        "8": {
+          "term": "Garde au sol",
+          "value": "235 mm"
+        },
+        "9": {
+          "term": "Prix de départ",
+          "value": "AED 285,900"
+        }
       }
     },
     "h2_4": "Sur route : étonnamment incisif",
@@ -251,5 +296,9 @@
       }
     },
     "loadMore": "Charger 47 commentaires de plus"
+  },
+  "notFound": {
+    "title": "Article introuvable",
+    "back": "Retour aux actualités"
   }
 }

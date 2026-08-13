@@ -1,0 +1,9 @@
+{
+  "fallbackTitle": "Legal",
+  "unavailable": "Este documento se está actualizando. Vuelve a consultarlo pronto.",
+  "breadcrumb": {
+    "home": "Inicio"
+  },
+  "effective": "Vigente desde {{date}}",
+  "version": "Versión {{n}}"
+}

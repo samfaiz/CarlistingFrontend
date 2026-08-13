@@ -137,7 +137,8 @@
           }
         }
       }
-    }
+    },
+    "empty": "Los artículos de ayuda están en camino."
   },
   "contactBar": {
     "title": "¿No encuentras lo que buscas?",

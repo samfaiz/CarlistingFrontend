@@ -1,17 +1,41 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { getHelpArticles, getHelpArticle, type ArticleCard } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
-export default function MkhelpPage() {
+interface HelpFaq extends ArticleCard {
+  bodyHtml: string;
+}
+
+export default function MkhelpPage({ faqs }: { faqs: HelpFaq[] }) {
   const { t } = useTranslation("mk-help");
+  const faqJsonLd =
+    faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.title,
+            acceptedAnswer: { "@type": "Answer", text: (f.excerpt ?? f.title) },
+          })),
+        }
+      : null;
   return (
     <>
-      <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
+      <Head>
+        <title>{`${t("meta.title")} — Carsens`}</title>
+        {faqJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+        )}
+      </Head>
       <MockupLayout>
         <main id="page-help" className="page">
 
@@ -125,94 +149,18 @@ export default function MkhelpPage() {
                   <a href="#">{t("faq.viewAll")}</a>
                 </div>
                 <div className="faq-list" id="faqList">
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.0.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.0.a.0")}</p>
-                      <p>{t("faq.items.0.a.1")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.1.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p><strong>{t("faq.items.1.a.0.label")}</strong>{t("faq.items.1.a.0.text")}</p>
-                      <p><strong>{t("faq.items.1.a.1.label")}</strong>{t("faq.items.1.a.1.text")}</p>
-                      <p><strong>{t("faq.items.1.a.2.label")}</strong>{t("faq.items.1.a.2.text")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.2.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.2.a.0")}</p>
-                      <p><strong>{t("faq.items.2.a.1.label")}</strong>{t("faq.items.2.a.1.text")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.3.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.3.a.0")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.4.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.4.a.0")}</p>
-                      <p>{t("faq.items.4.a.1")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.5.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.5.a.0")}</p>
-                      <p>{t("faq.items.5.a.1")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.6.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.6.a.0.pre")}<Link href="/account">{t("faq.items.6.a.0.link")}</Link>{t("faq.items.6.a.0.post")}</p>
-                    </div>
-                  </div>
-
-                  <div className="faq-item">
-                    <button className="faq-q">
-                      {t("faq.items.7.q")}
-                      <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div className="faq-a">
-                      <p>{t("faq.items.7.a.0")}</p>
-                      <p>{t("faq.items.7.a.1.pre")}<a href="#">{t("faq.items.7.a.1.link")}</a>{t("faq.items.7.a.1.post")}</p>
-                    </div>
-                  </div>
-
+                  {faqs.length === 0 && (
+                    <p style={{ padding: "16px 0", color: "var(--text-2)" }}>{t("faq.empty", { defaultValue: "Help articles are on the way." })}</p>
+                  )}
+                  {faqs.map((f) => (
+                    <details className="faq-item" key={f.id}>
+                      <summary className="faq-q">
+                        {f.title}
+                        <svg className="faq-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polyline points="6 9 12 15 18 9"/></svg>
+                      </summary>
+                      <div className="faq-a" dangerouslySetInnerHTML={{ __html: f.bodyHtml }} />
+                    </details>
+                  ))}
                 </div>
               </div>
 
@@ -245,12 +193,30 @@ export default function MkhelpPage() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(
-      locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "mk-help"],
-      nextI18NextConfig,
-    )),
-  },
-});
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const locale = ctx.locale ?? nextI18NextConfig.i18n.defaultLocale;
+  let faqs: HelpFaq[] = [];
+  try {
+    const page = await getHelpArticles(locale);
+    // Pull each article's rendered body for the accordion + FAQ schema.
+    const full = await Promise.all(
+      page.items.slice(0, 12).map(async (a) => {
+        try {
+          const detail = await getHelpArticle(a.slug, locale);
+          return { ...a, bodyHtml: detail.bodyHtml };
+        } catch {
+          return { ...a, bodyHtml: "" };
+        }
+      }),
+    );
+    faqs = full;
+  } catch {
+    faqs = [];
+  }
+  return {
+    props: {
+      faqs,
+      ...(await serverSideTranslations(locale, ["common", "mk-help"], nextI18NextConfig)),
+    },
+  };
+};

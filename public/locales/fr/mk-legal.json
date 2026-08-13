@@ -1,0 +1,9 @@
+{
+  "fallbackTitle": "Mentions légales",
+  "unavailable": "Ce document est en cours de mise à jour. Revenez bientôt.",
+  "breadcrumb": {
+    "home": "Accueil"
+  },
+  "effective": "En vigueur le {{date}}",
+  "version": "Version {{n}}"
+}

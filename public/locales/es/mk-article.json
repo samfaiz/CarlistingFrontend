@@ -60,26 +60,71 @@
     "h2_3": "Por dentro: toques GR, sin renunciar al lujo",
     "p9": "Abre la puerta y el habitáculo recibe todos los lujos estándar del Land Cruiser: audio JBL de 14 altavoces, techo panorámico, cuero ventilado, climatización multizona y una pantalla táctil central de 14 pulgadas con el último infoentretenimiento de Toyota. El GR-Sport añade:",
     "list1": {
-      "0": { "strong": "Pespunte de contraste rojo", "text": " en los asientos, el salpicadero y el volante" },
-      "1": { "strong": "Distintivos GR", "text": " en los reposacabezas, las molduras de umbral y el cuadro de instrumentos" },
-      "2": { "pre": "Un ", "strong": "cuadro digital de 12,3 pulgadas", "text": " más deportivo con tres diseños de pantalla específicos de GR" },
-      "3": { "strong": "Volante forrado en Alcántara", "text": " con marca roja a las 12 en punto" },
-      "4": { "text": "Insertos del salpicadero con efecto carbono (el carbono real es opcional)" }
+      "0": {
+        "strong": "Pespunte de contraste rojo",
+        "text": " en los asientos, el salpicadero y el volante"
+      },
+      "1": {
+        "strong": "Distintivos GR",
+        "text": " en los reposacabezas, las molduras de umbral y el cuadro de instrumentos"
+      },
+      "2": {
+        "pre": "Un ",
+        "strong": "cuadro digital de 12,3 pulgadas",
+        "text": " más deportivo con tres diseños de pantalla específicos de GR"
+      },
+      "3": {
+        "strong": "Volante forrado en Alcántara",
+        "text": " con marca roja a las 12 en punto"
+      },
+      "4": {
+        "text": "Insertos del salpicadero con efecto carbono (el carbono real es opcional)"
+      }
     },
     "p10": "Está hecho con buen gusto, sin caer en lo caricaturesco. Si has pasado algo de tiempo en los productos GR recientes de Toyota, el lenguaje es coherente: rojo, negro, Alcántara y justo la insignia suficiente para recordarte qué estás conduciendo.",
     "specBox": {
       "title": "📋 Especificaciones clave",
       "rows": {
-        "0": { "term": "Motor", "value": "V6 biturbo 3,5 L" },
-        "1": { "term": "Potencia", "value": "409 CV a 5.200 rpm" },
-        "2": { "term": "Par", "value": "650 Nm" },
-        "3": { "term": "Transmisión", "value": "Automática de 10 velocidades" },
-        "4": { "term": "0–100 km/h", "value": "6,7 s" },
-        "5": { "term": "Velocidad máxima", "value": "210 km/h" },
-        "6": { "term": "Consumo", "value": "13,1 L/100km" },
-        "7": { "term": "Distancia entre ejes", "value": "2.850 mm" },
-        "8": { "term": "Altura libre al suelo", "value": "235 mm" },
-        "9": { "term": "Precio de salida", "value": "AED 285,900" }
+        "0": {
+          "term": "Motor",
+          "value": "V6 biturbo 3,5 L"
+        },
+        "1": {
+          "term": "Potencia",
+          "value": "409 CV a 5.200 rpm"
+        },
+        "2": {
+          "term": "Par",
+          "value": "650 Nm"
+        },
+        "3": {
+          "term": "Transmisión",
+          "value": "Automática de 10 velocidades"
+        },
+        "4": {
+          "term": "0–100 km/h",
+          "value": "6,7 s"
+        },
+        "5": {
+          "term": "Velocidad máxima",
+          "value": "210 km/h"
+        },
+        "6": {
+          "term": "Consumo",
+          "value": "13,1 L/100km"
+        },
+        "7": {
+          "term": "Distancia entre ejes",
+          "value": "2.850 mm"
+        },
+        "8": {
+          "term": "Altura libre al suelo",
+          "value": "235 mm"
+        },
+        "9": {
+          "term": "Precio de salida",
+          "value": "AED 285,900"
+        }
       }
     },
     "h2_4": "En carretera: sorprendentemente afilado",
@@ -251,5 +296,9 @@
       }
     },
     "loadMore": "Cargar 47 comentarios más"
+  },
+  "notFound": {
+    "title": "Artículo no encontrado",
+    "back": "Volver a noticias"
   }
 }
