@@ -29,12 +29,30 @@
     "viewAll": "View all 22 photos"
   },
   "quickSpecs": {
-    "year": { "label": "Year", "val": "2023" },
-    "mileage": { "label": "Mileage", "val": "18,200 km" },
-    "transmission": { "label": "Transmission", "val": "Automatic" },
-    "fuel": { "label": "Fuel", "val": "Petrol" },
-    "body": { "label": "Body", "val": "SUV" },
-    "specs": { "label": "Specs", "val": "GCC" }
+    "year": {
+      "label": "Year",
+      "val": "2023"
+    },
+    "mileage": {
+      "label": "Mileage",
+      "val": "18,200 km"
+    },
+    "transmission": {
+      "label": "Transmission",
+      "val": "Automatic"
+    },
+    "fuel": {
+      "label": "Fuel",
+      "val": "Petrol"
+    },
+    "body": {
+      "label": "Body",
+      "val": "SUV"
+    },
+    "specs": {
+      "label": "Specs",
+      "val": "GCC"
+    }
   },
   "description": {
     "title": "About this car",
@@ -66,12 +84,30 @@
     "score": "98",
     "outOf": "out of 100",
     "bars": {
-      "engine": { "label": "Engine & drivetrain", "pct": "96%" },
-      "body": { "label": "Body & paint", "pct": "100%" },
-      "interior": { "label": "Interior", "pct": "98%" },
-      "electronics": { "label": "Electronics", "pct": "95%" },
-      "tires": { "label": "Tires & brakes", "pct": "92%" },
-      "underbody": { "label": "Underbody", "pct": "100%" }
+      "engine": {
+        "label": "Engine & drivetrain",
+        "pct": "96%"
+      },
+      "body": {
+        "label": "Body & paint",
+        "pct": "100%"
+      },
+      "interior": {
+        "label": "Interior",
+        "pct": "98%"
+      },
+      "electronics": {
+        "label": "Electronics",
+        "pct": "95%"
+      },
+      "tires": {
+        "label": "Tires & brakes",
+        "pct": "92%"
+      },
+      "underbody": {
+        "label": "Underbody",
+        "pct": "100%"
+      }
     },
     "reportButton": "View full inspection report (PDF)"
   },
@@ -79,62 +115,171 @@
     "title": "Full specifications",
     "engine": {
       "title": "Engine & performance",
-      "engine": { "label": "Engine", "value": "3.5L Twin-Turbo V6" },
-      "hp": { "label": "Horsepower", "value": "409 hp @ 5,200 rpm" },
-      "torque": { "label": "Torque", "value": "650 Nm" },
-      "accel": { "label": "0–100 km/h", "value": "6.7 sec" },
-      "topSpeed": { "label": "Top speed", "value": "210 km/h" },
-      "economy": { "label": "Fuel economy", "value": "13.1 L/100km" },
-      "drivetrain": { "label": "Drivetrain", "value": "Full-time 4WD" },
-      "transmission": { "label": "Transmission", "value": "10-speed automatic" }
+      "engine": {
+        "label": "Engine",
+        "value": "3.5L Twin-Turbo V6"
+      },
+      "hp": {
+        "label": "Horsepower",
+        "value": "409 hp @ 5,200 rpm"
+      },
+      "torque": {
+        "label": "Torque",
+        "value": "650 Nm"
+      },
+      "accel": {
+        "label": "0–100 km/h",
+        "value": "6.7 sec"
+      },
+      "topSpeed": {
+        "label": "Top speed",
+        "value": "210 km/h"
+      },
+      "economy": {
+        "label": "Fuel economy",
+        "value": "13.1 L/100km"
+      },
+      "drivetrain": {
+        "label": "Drivetrain",
+        "value": "Full-time 4WD"
+      },
+      "transmission": {
+        "label": "Transmission",
+        "value": "10-speed automatic"
+      }
     },
     "dimensions": {
       "title": "Dimensions & capacity",
-      "length": { "label": "Length", "value": "4,985 mm" },
-      "width": { "label": "Width", "value": "1,990 mm" },
-      "height": { "label": "Height", "value": "1,925 mm" },
-      "wheelbase": { "label": "Wheelbase", "value": "2,850 mm" },
-      "clearance": { "label": "Ground clearance", "value": "235 mm" },
-      "seating": { "label": "Seating", "value": "7 passengers" },
-      "cargo": { "label": "Cargo", "value": "1,004 L (rear up)" },
-      "tank": { "label": "Fuel tank", "value": "110 L" }
+      "length": {
+        "label": "Length",
+        "value": "4,985 mm"
+      },
+      "width": {
+        "label": "Width",
+        "value": "1,990 mm"
+      },
+      "height": {
+        "label": "Height",
+        "value": "1,925 mm"
+      },
+      "wheelbase": {
+        "label": "Wheelbase",
+        "value": "2,850 mm"
+      },
+      "clearance": {
+        "label": "Ground clearance",
+        "value": "235 mm"
+      },
+      "seating": {
+        "label": "Seating",
+        "value": "7 passengers"
+      },
+      "cargo": {
+        "label": "Cargo",
+        "value": "1,004 L (rear up)"
+      },
+      "tank": {
+        "label": "Fuel tank",
+        "value": "110 L"
+      }
     },
     "exterior": {
       "title": "Exterior & interior",
-      "extColor": { "label": "Exterior color", "value": "Precious Black Pearl" },
-      "intColor": { "label": "Interior color", "value": "Black leather / red stitch" },
-      "wheels": { "label": "Wheels", "value": "18″ matte-black alloy" },
-      "headlights": { "label": "Headlights", "value": "LED matrix adaptive" },
-      "sunroof": { "label": "Sunroof", "value": "Panoramic moonroof" },
-      "doors": { "label": "Doors", "value": "5" }
+      "extColor": {
+        "label": "Exterior color",
+        "value": "Precious Black Pearl"
+      },
+      "intColor": {
+        "label": "Interior color",
+        "value": "Black leather / red stitch"
+      },
+      "wheels": {
+        "label": "Wheels",
+        "value": "18″ matte-black alloy"
+      },
+      "headlights": {
+        "label": "Headlights",
+        "value": "LED matrix adaptive"
+      },
+      "sunroof": {
+        "label": "Sunroof",
+        "value": "Panoramic moonroof"
+      },
+      "doors": {
+        "label": "Doors",
+        "value": "5"
+      }
     },
     "safety": {
       "title": "Safety & technology",
-      "airbags": { "label": "Airbags", "value": "10 (incl. knee airbags)" },
-      "preCollision": { "label": "Pre-collision system", "value": "Yes — Toyota Safety Sense 3.0" },
-      "adaptive": { "label": "Adaptive cruise control", "value": "Yes, full-speed" },
-      "lanekeep": { "label": "Lane keeping assist", "value": "Yes" },
-      "blindspot": { "label": "Blind spot monitor", "value": "Yes, with cross-traffic" },
-      "cam360": { "label": "360° camera", "value": "Yes, with underfloor view" },
-      "infotainment": { "label": "Infotainment", "value": "14″ touchscreen, JBL audio" },
-      "carplay": { "label": "Wireless CarPlay / AA", "value": "Yes" }
+      "airbags": {
+        "label": "Airbags",
+        "value": "10 (incl. knee airbags)"
+      },
+      "preCollision": {
+        "label": "Pre-collision system",
+        "value": "Yes — Toyota Safety Sense 3.0"
+      },
+      "adaptive": {
+        "label": "Adaptive cruise control",
+        "value": "Yes, full-speed"
+      },
+      "lanekeep": {
+        "label": "Lane keeping assist",
+        "value": "Yes"
+      },
+      "blindspot": {
+        "label": "Blind spot monitor",
+        "value": "Yes, with cross-traffic"
+      },
+      "cam360": {
+        "label": "360° camera",
+        "value": "Yes, with underfloor view"
+      },
+      "infotainment": {
+        "label": "Infotainment",
+        "value": "14″ touchscreen, JBL audio"
+      },
+      "carplay": {
+        "label": "Wireless CarPlay / AA",
+        "value": "Yes"
+      }
     }
   },
   "history": {
     "title": "Vehicle history",
-    "owner": { "title": "Single owner", "text": "Original owner from new" },
-    "accident": { "title": "No accident history", "text": "Clean RTA record" },
-    "service": { "title": "Service history", "text": "5 records at Al Tayer Toyota" },
-    "warranty": { "title": "Manufacturer warranty", "text": "Until Aug 2028 or 120,000 km" },
-    "gcc": { "title": "GCC specifications", "text": "Originally sold in UAE" },
-    "mulkiya": { "title": "RTA Mulkiya valid", "text": "Until Mar 2027" }
+    "owner": {
+      "title": "Single owner",
+      "text": "Original owner from new"
+    },
+    "accident": {
+      "title": "No accident history",
+      "text": "Clean RTA record"
+    },
+    "service": {
+      "title": "Service history",
+      "text": "5 records at Al Tayer Toyota"
+    },
+    "warranty": {
+      "title": "Manufacturer warranty",
+      "text": "Until Aug 2028 or 120,000 km"
+    },
+    "gcc": {
+      "title": "GCC specifications",
+      "text": "Originally sold in UAE"
+    },
+    "mulkiya": {
+      "title": "RTA Mulkiya valid",
+      "text": "Until Mar 2027"
+    }
   },
   "price": {
     "currency": "AED",
     "amount": "365,000",
     "subPre": "or",
     "subMonthly": "AED 5,440 / mo",
-    "subPost": "for 60 months"
+    "subPost": "for 60 months",
+    "negotiable": "Negotiable"
   },
   "dealer": {
     "logo": "AT",
@@ -142,7 +287,8 @@
     "rating": "★ 4.8",
     "reviews": "248 reviews",
     "stats": "432 cars listed • Abu Dhabi",
-    "viewAll": "View all listings from this dealer →"
+    "viewAll": "View all listings from this dealer →",
+    "private": "Private seller"
   },
   "contact": {
     "phone": "050 ••• 9842",
@@ -188,14 +334,38 @@
     "guide": "Read full safety guide →"
   },
   "similar": {
-    "title": "Similar cars you might like",
+    "title": "Similar cars",
     "subtitle": "Same body type & price range",
     "seeAll": "See all",
     "cars": {
-      "0": { "title": "Toyota Fortuner VX", "sub": "2022 • Sharjah", "price": "AED 138,000", "spec1": "42,800 km", "spec2": "Diesel" },
-      "1": { "title": "Toyota Prado VXR", "sub": "2021 • Dubai", "price": "AED 195,000", "spec1": "68,400 km", "spec2": "Petrol" },
-      "2": { "title": "Toyota Land Cruiser VXR", "sub": "2020 • Dubai", "price": "AED 248,000", "spec1": "86,400 km", "spec2": "Petrol" },
-      "3": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • Abu Dhabi", "price": "AED 985,000", "spec1": "4,800 km", "spec2": "Petrol" }
+      "0": {
+        "title": "Toyota Fortuner VX",
+        "sub": "2022 • Sharjah",
+        "price": "AED 138,000",
+        "spec1": "42,800 km",
+        "spec2": "Diesel"
+      },
+      "1": {
+        "title": "Toyota Prado VXR",
+        "sub": "2021 • Dubai",
+        "price": "AED 195,000",
+        "spec1": "68,400 km",
+        "spec2": "Petrol"
+      },
+      "2": {
+        "title": "Toyota Land Cruiser VXR",
+        "sub": "2020 • Dubai",
+        "price": "AED 248,000",
+        "spec1": "86,400 km",
+        "spec2": "Petrol"
+      },
+      "3": {
+        "title": "Mercedes-Benz G63 AMG",
+        "sub": "2024 • Abu Dhabi",
+        "price": "AED 985,000",
+        "spec1": "4,800 km",
+        "spec2": "Petrol"
+      }
     }
   }
 }

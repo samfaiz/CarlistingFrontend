@@ -29,12 +29,30 @@
     "viewAll": "Voir les 22 photos"
   },
   "quickSpecs": {
-    "year": { "label": "Année", "val": "2023" },
-    "mileage": { "label": "Kilométrage", "val": "18,200 km" },
-    "transmission": { "label": "Transmission", "val": "Automatique" },
-    "fuel": { "label": "Carburant", "val": "Essence" },
-    "body": { "label": "Carrosserie", "val": "SUV" },
-    "specs": { "label": "Spécifications", "val": "GCC" }
+    "year": {
+      "label": "Année",
+      "val": "2023"
+    },
+    "mileage": {
+      "label": "Kilométrage",
+      "val": "18,200 km"
+    },
+    "transmission": {
+      "label": "Transmission",
+      "val": "Automatique"
+    },
+    "fuel": {
+      "label": "Carburant",
+      "val": "Essence"
+    },
+    "body": {
+      "label": "Carrosserie",
+      "val": "SUV"
+    },
+    "specs": {
+      "label": "Spécifications",
+      "val": "GCC"
+    }
   },
   "description": {
     "title": "À propos de cette voiture",
@@ -66,12 +84,30 @@
     "score": "98",
     "outOf": "sur 100",
     "bars": {
-      "engine": { "label": "Moteur et transmission", "pct": "96%" },
-      "body": { "label": "Carrosserie et peinture", "pct": "100%" },
-      "interior": { "label": "Intérieur", "pct": "98%" },
-      "electronics": { "label": "Électronique", "pct": "95%" },
-      "tires": { "label": "Pneus et freins", "pct": "92%" },
-      "underbody": { "label": "Soubassement", "pct": "100%" }
+      "engine": {
+        "label": "Moteur et transmission",
+        "pct": "96%"
+      },
+      "body": {
+        "label": "Carrosserie et peinture",
+        "pct": "100%"
+      },
+      "interior": {
+        "label": "Intérieur",
+        "pct": "98%"
+      },
+      "electronics": {
+        "label": "Électronique",
+        "pct": "95%"
+      },
+      "tires": {
+        "label": "Pneus et freins",
+        "pct": "92%"
+      },
+      "underbody": {
+        "label": "Soubassement",
+        "pct": "100%"
+      }
     },
     "reportButton": "Voir le rapport d'inspection complet (PDF)"
   },
@@ -79,62 +115,171 @@
     "title": "Spécifications complètes",
     "engine": {
       "title": "Moteur et performances",
-      "engine": { "label": "Moteur", "value": "3.5L Twin-Turbo V6" },
-      "hp": { "label": "Puissance", "value": "409 ch @ 5,200 tr/min" },
-      "torque": { "label": "Couple", "value": "650 Nm" },
-      "accel": { "label": "0–100 km/h", "value": "6.7 sec" },
-      "topSpeed": { "label": "Vitesse maximale", "value": "210 km/h" },
-      "economy": { "label": "Consommation", "value": "13.1 L/100km" },
-      "drivetrain": { "label": "Transmission intégrale", "value": "4WD permanente" },
-      "transmission": { "label": "Boîte de vitesses", "value": "Automatique 10 rapports" }
+      "engine": {
+        "label": "Moteur",
+        "value": "3.5L Twin-Turbo V6"
+      },
+      "hp": {
+        "label": "Puissance",
+        "value": "409 ch @ 5,200 tr/min"
+      },
+      "torque": {
+        "label": "Couple",
+        "value": "650 Nm"
+      },
+      "accel": {
+        "label": "0–100 km/h",
+        "value": "6.7 sec"
+      },
+      "topSpeed": {
+        "label": "Vitesse maximale",
+        "value": "210 km/h"
+      },
+      "economy": {
+        "label": "Consommation",
+        "value": "13.1 L/100km"
+      },
+      "drivetrain": {
+        "label": "Transmission intégrale",
+        "value": "4WD permanente"
+      },
+      "transmission": {
+        "label": "Boîte de vitesses",
+        "value": "Automatique 10 rapports"
+      }
     },
     "dimensions": {
       "title": "Dimensions et capacité",
-      "length": { "label": "Longueur", "value": "4,985 mm" },
-      "width": { "label": "Largeur", "value": "1,990 mm" },
-      "height": { "label": "Hauteur", "value": "1,925 mm" },
-      "wheelbase": { "label": "Empattement", "value": "2,850 mm" },
-      "clearance": { "label": "Garde au sol", "value": "235 mm" },
-      "seating": { "label": "Places", "value": "7 passagers" },
-      "cargo": { "label": "Coffre", "value": "1,004 L (sièges relevés)" },
-      "tank": { "label": "Réservoir", "value": "110 L" }
+      "length": {
+        "label": "Longueur",
+        "value": "4,985 mm"
+      },
+      "width": {
+        "label": "Largeur",
+        "value": "1,990 mm"
+      },
+      "height": {
+        "label": "Hauteur",
+        "value": "1,925 mm"
+      },
+      "wheelbase": {
+        "label": "Empattement",
+        "value": "2,850 mm"
+      },
+      "clearance": {
+        "label": "Garde au sol",
+        "value": "235 mm"
+      },
+      "seating": {
+        "label": "Places",
+        "value": "7 passagers"
+      },
+      "cargo": {
+        "label": "Coffre",
+        "value": "1,004 L (sièges relevés)"
+      },
+      "tank": {
+        "label": "Réservoir",
+        "value": "110 L"
+      }
     },
     "exterior": {
       "title": "Extérieur et intérieur",
-      "extColor": { "label": "Couleur extérieure", "value": "Noir Perle Precious" },
-      "intColor": { "label": "Couleur intérieure", "value": "Cuir noir / surpiqûre rouge" },
-      "wheels": { "label": "Jantes", "value": "Alliage noir mat de 18″" },
-      "headlights": { "label": "Phares", "value": "LED matriciels adaptatifs" },
-      "sunroof": { "label": "Toit ouvrant", "value": "Toit ouvrant panoramique" },
-      "doors": { "label": "Portes", "value": "5" }
+      "extColor": {
+        "label": "Couleur extérieure",
+        "value": "Noir Perle Precious"
+      },
+      "intColor": {
+        "label": "Couleur intérieure",
+        "value": "Cuir noir / surpiqûre rouge"
+      },
+      "wheels": {
+        "label": "Jantes",
+        "value": "Alliage noir mat de 18″"
+      },
+      "headlights": {
+        "label": "Phares",
+        "value": "LED matriciels adaptatifs"
+      },
+      "sunroof": {
+        "label": "Toit ouvrant",
+        "value": "Toit ouvrant panoramique"
+      },
+      "doors": {
+        "label": "Portes",
+        "value": "5"
+      }
     },
     "safety": {
       "title": "Sécurité et technologie",
-      "airbags": { "label": "Airbags", "value": "10 (dont airbags genoux)" },
-      "preCollision": { "label": "Système anticollision", "value": "Oui — Toyota Safety Sense 3.0" },
-      "adaptive": { "label": "Régulateur adaptatif", "value": "Oui, pleine vitesse" },
-      "lanekeep": { "label": "Assistant de maintien de voie", "value": "Oui" },
-      "blindspot": { "label": "Surveillance d'angle mort", "value": "Oui, avec trafic transversal" },
-      "cam360": { "label": "Caméra 360°", "value": "Oui, avec vue sous le châssis" },
-      "infotainment": { "label": "Système multimédia", "value": "Écran tactile 14″, audio JBL" },
-      "carplay": { "label": "CarPlay / AA sans fil", "value": "Oui" }
+      "airbags": {
+        "label": "Airbags",
+        "value": "10 (dont airbags genoux)"
+      },
+      "preCollision": {
+        "label": "Système anticollision",
+        "value": "Oui — Toyota Safety Sense 3.0"
+      },
+      "adaptive": {
+        "label": "Régulateur adaptatif",
+        "value": "Oui, pleine vitesse"
+      },
+      "lanekeep": {
+        "label": "Assistant de maintien de voie",
+        "value": "Oui"
+      },
+      "blindspot": {
+        "label": "Surveillance d'angle mort",
+        "value": "Oui, avec trafic transversal"
+      },
+      "cam360": {
+        "label": "Caméra 360°",
+        "value": "Oui, avec vue sous le châssis"
+      },
+      "infotainment": {
+        "label": "Système multimédia",
+        "value": "Écran tactile 14″, audio JBL"
+      },
+      "carplay": {
+        "label": "CarPlay / AA sans fil",
+        "value": "Oui"
+      }
     }
   },
   "history": {
     "title": "Historique du véhicule",
-    "owner": { "title": "Unique propriétaire", "text": "Propriétaire d'origine depuis le neuf" },
-    "accident": { "title": "Aucun historique d'accident", "text": "Dossier RTA vierge" },
-    "service": { "title": "Historique d'entretien", "text": "5 enregistrements chez Al Tayer Toyota" },
-    "warranty": { "title": "Garantie constructeur", "text": "Jusqu'en août 2028 ou 120,000 km" },
-    "gcc": { "title": "Spécifications GCC", "text": "Vendue à l'origine aux EAU" },
-    "mulkiya": { "title": "Mulkiya RTA valide", "text": "Jusqu'en mars 2027" }
+    "owner": {
+      "title": "Unique propriétaire",
+      "text": "Propriétaire d'origine depuis le neuf"
+    },
+    "accident": {
+      "title": "Aucun historique d'accident",
+      "text": "Dossier RTA vierge"
+    },
+    "service": {
+      "title": "Historique d'entretien",
+      "text": "5 enregistrements chez Al Tayer Toyota"
+    },
+    "warranty": {
+      "title": "Garantie constructeur",
+      "text": "Jusqu'en août 2028 ou 120,000 km"
+    },
+    "gcc": {
+      "title": "Spécifications GCC",
+      "text": "Vendue à l'origine aux EAU"
+    },
+    "mulkiya": {
+      "title": "Mulkiya RTA valide",
+      "text": "Jusqu'en mars 2027"
+    }
   },
   "price": {
     "currency": "AED",
     "amount": "365,000",
     "subPre": "ou",
     "subMonthly": "AED 5,440 / mois",
-    "subPost": "sur 60 mois"
+    "subPost": "sur 60 mois",
+    "negotiable": "Négociable"
   },
   "dealer": {
     "logo": "AT",
@@ -142,7 +287,8 @@
     "rating": "★ 4.8",
     "reviews": "248 avis",
     "stats": "432 voitures listées • Abou Dabi",
-    "viewAll": "Voir toutes les annonces de ce concessionnaire →"
+    "viewAll": "Voir toutes les annonces de ce concessionnaire →",
+    "private": "Vendeur particulier"
   },
   "contact": {
     "phone": "050 ••• 9842",
@@ -188,14 +334,38 @@
     "guide": "Lire le guide de sécurité complet →"
   },
   "similar": {
-    "title": "Voitures similaires qui pourraient vous plaire",
+    "title": "Voitures similaires",
     "subtitle": "Même type de carrosserie et gamme de prix",
     "seeAll": "Tout voir",
     "cars": {
-      "0": { "title": "Toyota Fortuner VX", "sub": "2022 • Charjah", "price": "AED 138,000", "spec1": "42,800 km", "spec2": "Diesel" },
-      "1": { "title": "Toyota Prado VXR", "sub": "2021 • Dubaï", "price": "AED 195,000", "spec1": "68,400 km", "spec2": "Essence" },
-      "2": { "title": "Toyota Land Cruiser VXR", "sub": "2020 • Dubaï", "price": "AED 248,000", "spec1": "86,400 km", "spec2": "Essence" },
-      "3": { "title": "Mercedes-Benz G63 AMG", "sub": "2024 • Abou Dabi", "price": "AED 985,000", "spec1": "4,800 km", "spec2": "Essence" }
+      "0": {
+        "title": "Toyota Fortuner VX",
+        "sub": "2022 • Charjah",
+        "price": "AED 138,000",
+        "spec1": "42,800 km",
+        "spec2": "Diesel"
+      },
+      "1": {
+        "title": "Toyota Prado VXR",
+        "sub": "2021 • Dubaï",
+        "price": "AED 195,000",
+        "spec1": "68,400 km",
+        "spec2": "Essence"
+      },
+      "2": {
+        "title": "Toyota Land Cruiser VXR",
+        "sub": "2020 • Dubaï",
+        "price": "AED 248,000",
+        "spec1": "86,400 km",
+        "spec2": "Essence"
+      },
+      "3": {
+        "title": "Mercedes-Benz G63 AMG",
+        "sub": "2024 • Abou Dabi",
+        "price": "AED 985,000",
+        "spec1": "4,800 km",
+        "spec2": "Essence"
+      }
     }
   }
 }
