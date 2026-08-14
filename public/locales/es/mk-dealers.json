@@ -33,11 +33,25 @@
       "button": "Buscar concesionarios"
     },
     "stats": {
-      "dealers": { "value": "1,247", "label": "Concesionarios verificados" },
-      "listings": { "value": "60,432", "label": "Anuncios activos" },
-      "rating": { "value": "4.7★", "label": "Valoración media" },
-      "reply": { "value": "~2h", "label": "Tiempo medio de respuesta" }
-    }
+      "dealers": {
+        "value": "1,247",
+        "label": "Concesionarios verificados"
+      },
+      "listings": {
+        "value": "60,432",
+        "label": "Anuncios activos"
+      },
+      "rating": {
+        "value": "4.7★",
+        "label": "Valoración media"
+      },
+      "reply": {
+        "value": "~2h",
+        "label": "Tiempo medio de respuesta"
+      }
+    },
+    "searchPlaceholder": "Buscar concesionarios…",
+    "searchBtn": "Buscar"
   },
   "featured": {
     "title": "Concesionarios premium destacados",
@@ -48,24 +62,48 @@
         "rating": "★ 4.8",
         "reviews": "248 reseñas",
         "location": "Mussafah, Abu Dabi · +2 sucursales",
-        "tags": { "0": "Lujo", "1": "SUV", "2": "Deportivos" },
-        "stats": { "cars": "432", "active": "7 años", "reply": "98%" }
+        "tags": {
+          "0": "Lujo",
+          "1": "SUV",
+          "2": "Deportivos"
+        },
+        "stats": {
+          "cars": "432",
+          "active": "7 años",
+          "reply": "98%"
+        }
       },
       "1": {
         "name": "Emirates Auto",
         "rating": "★ 4.9",
         "reviews": "412 reseñas",
         "location": "Sheikh Zayed Rd, Dubái",
-        "tags": { "0": "Lujo", "1": "Exóticos", "2": "Coches nuevos" },
-        "stats": { "cars": "612", "active": "12 años", "reply": "99%" }
+        "tags": {
+          "0": "Lujo",
+          "1": "Exóticos",
+          "2": "Coches nuevos"
+        },
+        "stats": {
+          "cars": "612",
+          "active": "12 años",
+          "reply": "99%"
+        }
       },
       "2": {
         "name": "Premier Auto",
         "rating": "★ 4.7",
         "reviews": "186 reseñas",
         "location": "Al Quoz, Dubái",
-        "tags": { "0": "Lujo", "1": "Range Rover", "2": "SUV" },
-        "stats": { "cars": "286", "active": "9 años", "reply": "96%" }
+        "tags": {
+          "0": "Lujo",
+          "1": "Range Rover",
+          "2": "SUV"
+        },
+        "stats": {
+          "cars": "286",
+          "active": "9 años",
+          "reply": "96%"
+        }
       }
     }
   },
@@ -73,7 +111,11 @@
     "verifiedTitle": "Concesionario verificado",
     "view": "Ver concesionario →",
     "contact": "Contactar",
-    "stats": { "cars": "Coches", "active": "Activo", "reply": "Respuesta" }
+    "stats": {
+      "cars": "Coches",
+      "active": "Activo",
+      "reply": "Respuesta"
+    }
   },
   "filters": {
     "title": "Filtros",
@@ -150,77 +192,155 @@
         "rating": "★ 4.6",
         "reviews": "142 reseñas",
         "location": "Industrial Area 13, Sharjah",
-        "tags": { "0": "Deportivos", "1": "Coches usados" },
-        "stats": { "cars": "218", "active": "5 años", "reply": "94%" }
+        "tags": {
+          "0": "Deportivos",
+          "1": "Coches usados"
+        },
+        "stats": {
+          "cars": "218",
+          "active": "5 años",
+          "reply": "94%"
+        }
       },
       "1": {
         "name": "Nasser Motors",
         "rating": "★ 4.5",
         "reviews": "89 reseñas",
         "location": "Deira, Dubái · 2 sucursales",
-        "tags": { "0": "Familiar", "1": "SUV", "2": "Toyota" },
-        "stats": { "cars": "184", "active": "6 años", "reply": "92%" }
+        "tags": {
+          "0": "Familiar",
+          "1": "SUV",
+          "2": "Toyota"
+        },
+        "stats": {
+          "cars": "184",
+          "active": "6 años",
+          "reply": "92%"
+        }
       },
       "2": {
         "name": "Al Manar Motors",
         "rating": "★ 4.4",
         "reviews": "62 reseñas",
         "location": "Mussafah, Abu Dabi",
-        "tags": { "0": "Coches usados", "1": "Sedanes" },
-        "stats": { "cars": "142", "active": "4 años", "reply": "88%" }
+        "tags": {
+          "0": "Coches usados",
+          "1": "Sedanes"
+        },
+        "stats": {
+          "cars": "142",
+          "active": "4 años",
+          "reply": "88%"
+        }
       },
       "3": {
         "name": "Luxury Cars UAE",
         "rating": "★ 4.9",
         "reviews": "132 reseñas",
         "location": "DIFC, Dubái",
-        "tags": { "0": "Exóticos", "1": "Ferrari", "2": "Lambo" },
-        "stats": { "cars": "92", "active": "8 años", "reply": "100%" }
+        "tags": {
+          "0": "Exóticos",
+          "1": "Ferrari",
+          "2": "Lambo"
+        },
+        "stats": {
+          "cars": "92",
+          "active": "8 años",
+          "reply": "100%"
+        }
       },
       "4": {
         "name": "RS Garage",
         "rating": "★ 4.8",
         "reviews": "74 reseñas",
         "location": "Al Quoz, Dubái",
-        "tags": { "0": "Rendimiento", "1": "Audi", "2": "BMW" },
-        "stats": { "cars": "64", "active": "3 años", "reply": "97%" }
+        "tags": {
+          "0": "Rendimiento",
+          "1": "Audi",
+          "2": "BMW"
+        },
+        "stats": {
+          "cars": "64",
+          "active": "3 años",
+          "reply": "97%"
+        }
       },
       "5": {
         "name": "Auto Galaxy",
         "rating": "★ 4.3",
         "reviews": "54 reseñas",
         "location": "Industrial 13, Sharjah",
-        "tags": { "0": "Económico", "1": "Familiar" },
-        "stats": { "cars": "156", "active": "2 años", "reply": "85%" }
+        "tags": {
+          "0": "Económico",
+          "1": "Familiar"
+        },
+        "stats": {
+          "cars": "156",
+          "active": "2 años",
+          "reply": "85%"
+        }
       },
       "6": {
         "name": "Premium Wheels",
         "rating": "★ 4.7",
         "reviews": "198 reseñas",
         "location": "Jumeirah, Dubái · 2 sucursales",
-        "tags": { "0": "Lujo", "1": "SUV", "2": "Lexus" },
-        "stats": { "cars": "248", "active": "11 años", "reply": "96%" }
+        "tags": {
+          "0": "Lujo",
+          "1": "SUV",
+          "2": "Lexus"
+        },
+        "stats": {
+          "cars": "248",
+          "active": "11 años",
+          "reply": "96%"
+        }
       },
       "7": {
         "name": "UAE Motors Club",
         "rating": "★ 4.2",
         "reviews": "38 reseñas",
         "location": "Ajman",
-        "tags": { "0": "Sedanes", "1": "SUV" },
-        "stats": { "cars": "98", "active": "2 años", "reply": "82%" }
+        "tags": {
+          "0": "Sedanes",
+          "1": "SUV"
+        },
+        "stats": {
+          "cars": "98",
+          "active": "2 años",
+          "reply": "82%"
+        }
       },
       "8": {
         "name": "Gulf Auto",
         "rating": "★ 4.5",
         "reviews": "46 reseñas",
         "location": "Fujairah",
-        "tags": { "0": "Coches usados", "1": "Pickups" },
-        "stats": { "cars": "64", "active": "3 años", "reply": "90%" }
+        "tags": {
+          "0": "Coches usados",
+          "1": "Pickups"
+        },
+        "stats": {
+          "cars": "64",
+          "active": "3 años",
+          "reply": "90%"
+        }
       }
     }
   },
   "pagination": {
     "prev": "‹ Anterior",
     "next": "Siguiente ›"
+  },
+  "stats": {
+    "dealers": "concesionarios",
+    "verified": "verificados"
+  },
+  "empty": "Ningún concesionario coincide con tu búsqueda.",
+  "all": {
+    "title": "Todos los concesionarios"
+  },
+  "cta": {
+    "join": "¿Eres concesionario? Abre tu portal →"
   }
 }

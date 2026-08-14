@@ -138,7 +138,8 @@
         }
       }
     },
-    "empty": "Les articles d’aide arrivent bientôt."
+    "empty": "Les articles d’aide arrivent bientôt.",
+    "noMatch": "Aucune réponse ne correspond — essayez d'autres mots ou contactez-nous."
   },
   "contactBar": {
     "title": "Vous ne trouvez pas ce que vous cherchez ?",

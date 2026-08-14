@@ -19,7 +19,12 @@
     "exportPdf": "Exportar PDF",
     "exporting": "Exportando…",
     "aiVerdict": "Veredicto IA",
-    "thinking": "Pensando…"
+    "thinking": "Pensando…",
+    "quiz": "Cuestionario guiado",
+    "sharing": "Guardando…",
+    "weighted": "Puntuaciones ponderadas según tus prioridades.",
+    "resetWeights": "Restablecer",
+    "shared": "Enlace copiado:"
   },
   "cars": {
     "heading": "Comparar 3 coches",

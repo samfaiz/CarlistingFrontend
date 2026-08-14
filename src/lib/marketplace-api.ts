@@ -1509,3 +1509,16 @@ export interface ValuationResult {
 export function getValuation(input: { makeId: string; modelId: string; year: number; mileageKm?: number; locale?: string }): Promise<ValuationResult> {
   return apiPost("/ai/valuation", input);
 }
+
+/* ------------------------------------------------------------------ */
+/* Password reset — public (stub-cleanup batch)                       */
+/* ------------------------------------------------------------------ */
+
+/** Never discloses whether the account exists. */
+export function forgotPassword(email: string): Promise<{ ok: boolean }> {
+  return apiPost("/auth/forgot-password", { email });
+}
+
+export function resetPassword(token: string, password: string): Promise<{ ok: boolean }> {
+  return apiPost("/auth/reset-password", { token, password });
+}

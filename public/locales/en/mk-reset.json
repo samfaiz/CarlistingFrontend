@@ -24,5 +24,11 @@
     "subtitle": "Your password has been reset successfully. You can now log in with your new password.",
     "continue": "Continue to login",
     "tip": "You've been signed out on all other devices for security. Use your new password to sign back in."
+  },
+  "errors": {
+    "noToken": "This reset link is invalid — request a new one.",
+    "weak": "Use at least 8 characters with upper, lower and a digit.",
+    "mismatch": "Passwords do not match.",
+    "expired": "This reset link has expired or was already used — request a new one."
   }
 }

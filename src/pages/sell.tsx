@@ -22,11 +22,13 @@ import {
   getTaxonomyMeta,
   generateDescription,
   getValuation,
+  submitListing,
   type TaxonomyMake,
   type TaxonomyModel,
   type TaxonomyTerm,
   type ValuationResult,
 } from "@/lib/marketplace-api";
+import { StepPhotos, type PhotoItem } from "@/components/sell/step-photos";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
@@ -57,6 +59,11 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   const set = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }));
   const [aiBusy, setAiBusy] = React.useState(false);
   const [valuation, setValuation] = React.useState<ValuationResult | null>(null);
+  // Photos phase (P6 stub-cleanup): after the draft is created, upload photos
+  // right here and submit for review — no detour through the account area.
+  const [createdId, setCreatedId] = React.useState<string | null>(null);
+  const [photos, setPhotos] = React.useState<PhotoItem[]>([]);
+  const [submitBusy, setSubmitBusy] = React.useState(false);
 
   const onMake = async (makeId: string) => {
     set("makeId", makeId);
@@ -123,11 +130,25 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
         },
         token,
       );
-      void router.push(`/account?created=${created.id}`);
+      setCreatedId(created.id);
+      window.scrollTo({ top: 0 });
     } catch {
       setError(t("errors.generic", { defaultValue: "Could not create the listing. Check the fields and try again." }));
     } finally {
       setBusy(false);
+    }
+  };
+
+  const onSubmitForReview = async () => {
+    const token = session?.accessToken;
+    if (!token || !createdId) return;
+    setSubmitBusy(true);
+    try {
+      await submitListing(createdId, token);
+      void router.push(`/account?submitted=${createdId}`);
+    } catch {
+      setError(t("errors.submit", { defaultValue: "Could not submit for review — try again." }));
+      setSubmitBusy(false);
     }
   };
 
@@ -143,6 +164,29 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                 <p>{t("head.sub")}</p>
               </div>
 
+              {createdId && session?.accessToken ? (
+                <div className="sell-card" style={{ maxWidth: 860, margin: "0 auto" }}>
+                  <h2 className="step-heading">{t("photos.title", { defaultValue: "Add photos" })}</h2>
+                  <p style={{ color: "var(--text-2)", fontSize: 14, marginBottom: 14 }}>
+                    {t("photos.sub", { defaultValue: "Your draft is saved. Add at least 3 photos, then submit for review." })}
+                  </p>
+                  {error && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{error}</p>}
+                  <StepPhotos
+                    items={photos}
+                    setItems={setPhotos}
+                    listingId={createdId}
+                    accessToken={session.accessToken}
+                    onBack={() => void router.push("/account")}
+                    onNext={() => void onSubmitForReview()}
+                  />
+                  {submitBusy && <p style={{ color: "var(--text-2)", marginTop: 10 }}>{t("photos.submitting", { defaultValue: "Submitting for review…" })}</p>}
+                  <p style={{ marginTop: 12, fontSize: 13 }}>
+                    <a role="button" tabIndex={0} style={{ color: "var(--text-3)", textDecoration: "underline", cursor: "pointer" }} onClick={() => void router.push("/account")}>
+                      {t("photos.skip", { defaultValue: "Skip for now — finish from My Account" })}
+                    </a>
+                  </p>
+                </div>
+              ) : (
               <form className="sell-grid" onSubmit={onSubmit}>
                 <div className="sell-main">
                   {error && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{error}</p>}
@@ -267,6 +311,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                   </div>
                 </aside>
               </form>
+              )}
             </div>
           </div>
         </main>
@@ -295,7 +340,7 @@ export const getServerSideProps: GetServerSideProps<SellProps> = async (ctx) => 
       emirates: meta.emirates,
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
-        ["common", "mk-sell"],
+        ["common", "mk-sell", "sell"],
         nextI18NextConfig,
       )),
     },

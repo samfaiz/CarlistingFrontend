@@ -13,7 +13,10 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { useCompare } from "@/components/compare/compare-provider";
 import { formatPrice, mediaUrl } from "@/lib/format";
-import { buildCompare, type CompareResult } from "@/lib/marketplace-api";
+import { buildCompare, getCompareSet, saveCompareSet, type CompareResult } from "@/lib/marketplace-api";
+import { QuizDialog } from "@/components/compare/quiz-dialog";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { API_BASE_URL, apiPost } from "@/lib/api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
@@ -25,6 +28,30 @@ export default function MkcomparePage() {
   const [pdfBusy, setPdfBusy] = React.useState(false);
   const [verdictBusy, setVerdictBusy] = React.useState(false);
   const [verdict, setVerdict] = React.useState<{ text: string; disclaimer: string } | null>(null);
+  // Stub-cleanup batch: quiz weights + save/share, previously built but unmounted.
+  const router = useRouter();
+  const { data: session } = useSession();
+  const [quizOpen, setQuizOpen] = React.useState(false);
+  const [weights, setWeights] = React.useState<Record<string, number> | undefined>(undefined);
+  const [shareUrl, setShareUrl] = React.useState<string | null>(null);
+  const [shareBusy, setShareBusy] = React.useState(false);
+  const sharedSlug = typeof router.query.set === "string" ? router.query.set : null;
+
+  const share = async () => {
+    if (items.length < 2) return;
+    setShareBusy(true);
+    try {
+      const saved = await saveCompareSet(
+        items.map((i) => ({ kind: "LISTING" as const, listingSlug: i.slug })),
+        weights,
+        session?.accessToken,
+      );
+      const url = `${window.location.origin}/compare?set=${saved.sharedSlug}`;
+      setShareUrl(url);
+      await navigator.clipboard.writeText(url).catch(() => undefined);
+    } catch { /* button re-enables */ }
+    finally { setShareBusy(false); }
+  };
 
   // P5-05 compare export — fetch the PDF and open it in a new tab.
   const exportPdf = async () => {
@@ -57,13 +84,26 @@ export default function MkcomparePage() {
   };
 
   React.useEffect(() => {
+    // A shared link renders the saved set directly.
+    if (sharedSlug) {
+      setLoading(true);
+      getCompareSet(sharedSlug)
+        .then(setResult)
+        .catch(() => setResult(null))
+        .finally(() => setLoading(false));
+      return;
+    }
     if (items.length < 2) { setResult(null); return; }
     setLoading(true);
-    buildCompare(items.map((i) => ({ kind: "LISTING" as const, listingSlug: i.slug })))
+    buildCompare(items.map((i) => ({ kind: "LISTING" as const, listingSlug: i.slug })), weights)
       .then(setResult)
       .catch(() => setResult(null))
       .finally(() => setLoading(false));
-  }, [items]);
+  }, [items, weights, sharedSlug]);
+
+  // A shared ?set= link must render from the fetched set — the visitor's own
+  // compare tray is empty in a fresh browser, so never gate shared views on it.
+  const showTable = sharedSlug ? loading || result != null : items.length >= 2;
 
   // Group the flat rows by their section for the mockup's cmp-section layout.
   const groups = React.useMemo(() => {
@@ -95,7 +135,24 @@ export default function MkcomparePage() {
                     <button type="button" className="btn btn-outline" onClick={() => void getVerdict()} disabled={verdictBusy}>
                       ✨ {verdictBusy ? t("actions.thinking", { defaultValue: "Thinking…" }) : t("actions.aiVerdict", { defaultValue: "AI verdict" })}
                     </button>
+                    <button type="button" className="btn btn-outline" onClick={() => setQuizOpen(true)}>
+                      🎯 {t("actions.quiz", { defaultValue: "Guided quiz" })}
+                    </button>
+                    <button type="button" className="btn btn-outline" onClick={() => void share()} disabled={shareBusy}>
+                      🔗 {shareBusy ? t("actions.sharing", { defaultValue: "Saving…" }) : t("actions.share", { defaultValue: "Share" })}
+                    </button>
                   </div>
+                )}
+                {weights && (
+                  <p style={{ marginTop: 8, fontSize: 12.5, color: "var(--text-3)" }}>
+                    {t("actions.weighted", { defaultValue: "Scores weighted by your quiz priorities." })}{" "}
+                    <a role="button" tabIndex={0} style={{ textDecoration: "underline", cursor: "pointer" }} onClick={() => setWeights(undefined)}>{t("actions.resetWeights", { defaultValue: "Reset" })}</a>
+                  </p>
+                )}
+                {shareUrl && (
+                  <p role="status" style={{ marginTop: 8, fontSize: 12.5, color: "var(--success)" }}>
+                    {t("actions.shared", { defaultValue: "Link copied:" })} <span style={{ userSelect: "all" }}>{shareUrl}</span>
+                  </p>
                 )}
                 {verdict && (
                   <div style={{ marginTop: 14, padding: "12px 16px", background: "var(--surface-2, #f2f5fa)", borderRadius: 10, maxWidth: 720 }}>
@@ -105,7 +162,7 @@ export default function MkcomparePage() {
                 )}
               </div>
 
-              {items.length < 2 ? (
+              {!showTable ? (
                 <div className="compare-empty" style={{ textAlign: "center", padding: "64px 0", color: "var(--text-3)" }}>
                   <p style={{ fontSize: 16, marginBottom: 16 }}>{t("empty.text", { defaultValue: "Add at least two cars to compare — use the ⚖ button on any listing." })}</p>
                   <Link href="/cars" className="btn btn-primary btn-lg">{t("empty.cta", { defaultValue: "Browse cars" })}</Link>
@@ -171,6 +228,12 @@ export default function MkcomparePage() {
             </div>
           </div>
         </main>
+        <QuizDialog
+          open={quizOpen}
+          onOpenChange={setQuizOpen}
+          accessToken={session?.accessToken}
+          onComplete={(r) => { setWeights(r.weights as Record<string, number>); setQuizOpen(false); }}
+        />
       </MockupLayout>
     </>
   );

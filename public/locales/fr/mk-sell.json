@@ -386,7 +386,8 @@
   },
   "errors": {
     "generic": "Impossible de créer l'annonce. Vérifiez les champs et réessayez.",
-    "ai": "L'IA est indisponible pour le moment."
+    "ai": "L'IA est indisponible pour le moment.",
+    "submit": "Échec de l'envoi en relecture — réessayez."
   },
   "ai": {
     "generate": "Générer avec l'IA",
@@ -395,5 +396,11 @@
     "suggestPrice": "Suggérer un prix juste",
     "confidence": "confiance",
     "comparables": "comparables"
+  },
+  "photos": {
+    "title": "Ajoutez des photos",
+    "sub": "Brouillon enregistré. Ajoutez au moins 3 photos puis soumettez pour relecture.",
+    "submitting": "Envoi pour relecture…",
+    "skip": "Passer pour l'instant — terminez depuis Mon compte"
   }
 }

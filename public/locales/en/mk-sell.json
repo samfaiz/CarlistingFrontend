@@ -386,7 +386,8 @@
   },
   "errors": {
     "generic": "Could not create the listing. Check the fields and try again.",
-    "ai": "AI is unavailable right now."
+    "ai": "AI is unavailable right now.",
+    "submit": "Could not submit for review — try again."
   },
   "ai": {
     "generate": "Generate with AI",
@@ -395,5 +396,11 @@
     "suggestPrice": "Suggest a fair price",
     "confidence": "confidence",
     "comparables": "comparables"
+  },
+  "photos": {
+    "title": "Add photos",
+    "sub": "Your draft is saved. Add at least 3 photos, then submit for review.",
+    "submitting": "Submitting for review…",
+    "skip": "Skip for now — finish from My Account"
   }
 }

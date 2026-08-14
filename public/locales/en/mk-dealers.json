@@ -33,11 +33,25 @@
       "button": "Search dealers"
     },
     "stats": {
-      "dealers": { "value": "1,247", "label": "Verified dealers" },
-      "listings": { "value": "60,432", "label": "Active listings" },
-      "rating": { "value": "4.7★", "label": "Average rating" },
-      "reply": { "value": "~2h", "label": "Avg. reply time" }
-    }
+      "dealers": {
+        "value": "1,247",
+        "label": "Verified dealers"
+      },
+      "listings": {
+        "value": "60,432",
+        "label": "Active listings"
+      },
+      "rating": {
+        "value": "4.7★",
+        "label": "Average rating"
+      },
+      "reply": {
+        "value": "~2h",
+        "label": "Avg. reply time"
+      }
+    },
+    "searchPlaceholder": "Search dealerships…",
+    "searchBtn": "Search"
   },
   "featured": {
     "title": "Featured premium dealers",
@@ -48,24 +62,48 @@
         "rating": "★ 4.8",
         "reviews": "248 reviews",
         "location": "Mussafah, Abu Dhabi · +2 branches",
-        "tags": { "0": "Luxury", "1": "SUV", "2": "Sports" },
-        "stats": { "cars": "432", "active": "7 yrs", "reply": "98%" }
+        "tags": {
+          "0": "Luxury",
+          "1": "SUV",
+          "2": "Sports"
+        },
+        "stats": {
+          "cars": "432",
+          "active": "7 yrs",
+          "reply": "98%"
+        }
       },
       "1": {
         "name": "Emirates Auto",
         "rating": "★ 4.9",
         "reviews": "412 reviews",
         "location": "Sheikh Zayed Rd, Dubai",
-        "tags": { "0": "Luxury", "1": "Exotic", "2": "New Cars" },
-        "stats": { "cars": "612", "active": "12 yrs", "reply": "99%" }
+        "tags": {
+          "0": "Luxury",
+          "1": "Exotic",
+          "2": "New Cars"
+        },
+        "stats": {
+          "cars": "612",
+          "active": "12 yrs",
+          "reply": "99%"
+        }
       },
       "2": {
         "name": "Premier Auto",
         "rating": "★ 4.7",
         "reviews": "186 reviews",
         "location": "Al Quoz, Dubai",
-        "tags": { "0": "Luxury", "1": "Range Rover", "2": "SUV" },
-        "stats": { "cars": "286", "active": "9 yrs", "reply": "96%" }
+        "tags": {
+          "0": "Luxury",
+          "1": "Range Rover",
+          "2": "SUV"
+        },
+        "stats": {
+          "cars": "286",
+          "active": "9 yrs",
+          "reply": "96%"
+        }
       }
     }
   },
@@ -73,7 +111,11 @@
     "verifiedTitle": "Verified dealer",
     "view": "View dealer →",
     "contact": "Contact",
-    "stats": { "cars": "Cars", "active": "Active", "reply": "Reply" }
+    "stats": {
+      "cars": "Cars",
+      "active": "Active",
+      "reply": "Reply"
+    }
   },
   "filters": {
     "title": "Filters",
@@ -150,77 +192,155 @@
         "rating": "★ 4.6",
         "reviews": "142 reviews",
         "location": "Industrial Area 13, Sharjah",
-        "tags": { "0": "Sports", "1": "Used Cars" },
-        "stats": { "cars": "218", "active": "5 yrs", "reply": "94%" }
+        "tags": {
+          "0": "Sports",
+          "1": "Used Cars"
+        },
+        "stats": {
+          "cars": "218",
+          "active": "5 yrs",
+          "reply": "94%"
+        }
       },
       "1": {
         "name": "Nasser Motors",
         "rating": "★ 4.5",
         "reviews": "89 reviews",
         "location": "Deira, Dubai · 2 branches",
-        "tags": { "0": "Family", "1": "SUV", "2": "Toyota" },
-        "stats": { "cars": "184", "active": "6 yrs", "reply": "92%" }
+        "tags": {
+          "0": "Family",
+          "1": "SUV",
+          "2": "Toyota"
+        },
+        "stats": {
+          "cars": "184",
+          "active": "6 yrs",
+          "reply": "92%"
+        }
       },
       "2": {
         "name": "Al Manar Motors",
         "rating": "★ 4.4",
         "reviews": "62 reviews",
         "location": "Mussafah, Abu Dhabi",
-        "tags": { "0": "Used Cars", "1": "Sedans" },
-        "stats": { "cars": "142", "active": "4 yrs", "reply": "88%" }
+        "tags": {
+          "0": "Used Cars",
+          "1": "Sedans"
+        },
+        "stats": {
+          "cars": "142",
+          "active": "4 yrs",
+          "reply": "88%"
+        }
       },
       "3": {
         "name": "Luxury Cars UAE",
         "rating": "★ 4.9",
         "reviews": "132 reviews",
         "location": "DIFC, Dubai",
-        "tags": { "0": "Exotic", "1": "Ferrari", "2": "Lambo" },
-        "stats": { "cars": "92", "active": "8 yrs", "reply": "100%" }
+        "tags": {
+          "0": "Exotic",
+          "1": "Ferrari",
+          "2": "Lambo"
+        },
+        "stats": {
+          "cars": "92",
+          "active": "8 yrs",
+          "reply": "100%"
+        }
       },
       "4": {
         "name": "RS Garage",
         "rating": "★ 4.8",
         "reviews": "74 reviews",
         "location": "Al Quoz, Dubai",
-        "tags": { "0": "Performance", "1": "Audi", "2": "BMW" },
-        "stats": { "cars": "64", "active": "3 yrs", "reply": "97%" }
+        "tags": {
+          "0": "Performance",
+          "1": "Audi",
+          "2": "BMW"
+        },
+        "stats": {
+          "cars": "64",
+          "active": "3 yrs",
+          "reply": "97%"
+        }
       },
       "5": {
         "name": "Auto Galaxy",
         "rating": "★ 4.3",
         "reviews": "54 reviews",
         "location": "Industrial 13, Sharjah",
-        "tags": { "0": "Value", "1": "Family" },
-        "stats": { "cars": "156", "active": "2 yrs", "reply": "85%" }
+        "tags": {
+          "0": "Value",
+          "1": "Family"
+        },
+        "stats": {
+          "cars": "156",
+          "active": "2 yrs",
+          "reply": "85%"
+        }
       },
       "6": {
         "name": "Premium Wheels",
         "rating": "★ 4.7",
         "reviews": "198 reviews",
         "location": "Jumeirah, Dubai · 2 branches",
-        "tags": { "0": "Luxury", "1": "SUV", "2": "Lexus" },
-        "stats": { "cars": "248", "active": "11 yrs", "reply": "96%" }
+        "tags": {
+          "0": "Luxury",
+          "1": "SUV",
+          "2": "Lexus"
+        },
+        "stats": {
+          "cars": "248",
+          "active": "11 yrs",
+          "reply": "96%"
+        }
       },
       "7": {
         "name": "UAE Motors Club",
         "rating": "★ 4.2",
         "reviews": "38 reviews",
         "location": "Ajman",
-        "tags": { "0": "Sedans", "1": "SUV" },
-        "stats": { "cars": "98", "active": "2 yrs", "reply": "82%" }
+        "tags": {
+          "0": "Sedans",
+          "1": "SUV"
+        },
+        "stats": {
+          "cars": "98",
+          "active": "2 yrs",
+          "reply": "82%"
+        }
       },
       "8": {
         "name": "Gulf Auto",
         "rating": "★ 4.5",
         "reviews": "46 reviews",
         "location": "Fujairah",
-        "tags": { "0": "Used Cars", "1": "Pickups" },
-        "stats": { "cars": "64", "active": "3 yrs", "reply": "90%" }
+        "tags": {
+          "0": "Used Cars",
+          "1": "Pickups"
+        },
+        "stats": {
+          "cars": "64",
+          "active": "3 yrs",
+          "reply": "90%"
+        }
       }
     }
   },
   "pagination": {
     "prev": "‹ Prev",
     "next": "Next ›"
+  },
+  "stats": {
+    "dealers": "dealerships",
+    "verified": "verified"
+  },
+  "empty": "No dealerships match your search yet.",
+  "all": {
+    "title": "All dealerships"
+  },
+  "cta": {
+    "join": "Are you a dealer? Open your portal →"
   }
 }

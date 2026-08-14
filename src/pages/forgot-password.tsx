@@ -5,10 +5,22 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { forgotPassword } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkforgotPage() {
   const { t } = useTranslation("mk-forgot");
+  const [sent, setSent] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [busy, setBusy] = React.useState(false);
+  const onSend = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email.trim() || busy) return;
+    setBusy(true);
+    try { await forgotPassword(email.trim()); } catch { /* never disclose */ }
+    setSent(true);
+    setBusy(false);
+  };
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -18,19 +30,19 @@ export default function MkforgotPage() {
             <div className="auth-card">
 
               {/* STATE A: Email entry */}
-              <div className="auth-state active" data-fstate="enter">
+              <div className={`auth-state${sent ? "" : " active"}`} data-fstate="enter">
                 <div className="brand-mark">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                 </div>
                 <h1>{t("enter.title")}</h1>
                 <p className="auth-sub">{t("enter.subtitle")}</p>
 
-                <form id="forgotForm" onSubmit={(e) => e.preventDefault()}>
+                <form id="forgotForm" onSubmit={onSend}>
                   <div className="form-group">
                     <label>{t("enter.emailLabel")}</label>
-                    <input className="form-input" type="email" id="forgotEmail" placeholder={t("enter.emailPlaceholder")} autoComplete="email" required />
+                    <input className="form-input" type="email" id="forgotEmail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("enter.emailPlaceholder")} autoComplete="email" required />
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg btn-block" id="sendResetBtn">
+                  <button type="submit" className="btn btn-primary btn-lg btn-block" id="sendResetBtn" disabled={busy}>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                     {t("enter.sendBtn")}
                   </button>
@@ -47,7 +59,7 @@ export default function MkforgotPage() {
               </div>
 
               {/* STATE B: Sent confirmation */}
-              <div className="auth-state" data-fstate="sent">
+              <div className={`auth-state${sent ? " active" : ""}`} data-fstate="sent">
                 <div className="sent-icon">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
@@ -56,7 +68,7 @@ export default function MkforgotPage() {
                 <div style={{ textAlign: "center", margin: "14px 0 18px" }}>
                   <span className="sent-email-tag" id="sentEmailLabel">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    {t("sent.email")}
+                    {email || t("sent.email")}
                   </span>
                 </div>
                 <p className="auth-sub" style={{ marginBottom: "18px" }}>{t("sent.instructionPrefix")} <strong>{t("sent.validity")}</strong>{t("sent.instructionSuffix")}</p>

@@ -1,5 +1,6 @@
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
@@ -13,6 +14,13 @@ interface HelpFaq extends ArticleCard {
 
 export default function MkhelpPage({ faqs }: { faqs: HelpFaq[] }) {
   const { t } = useTranslation("mk-help");
+  // Stub-cleanup batch: the hero search now filters the live FAQ list.
+  const [helpQ, setHelpQ] = React.useState("");
+  const shown = React.useMemo(() => {
+    const q = helpQ.trim().toLowerCase();
+    if (!q) return faqs;
+    return faqs.filter((f) => f.title.toLowerCase().includes(q) || (f.bodyHtml ?? "").toLowerCase().includes(q));
+  }, [faqs, helpQ]);
   const faqJsonLd =
     faqs.length > 0
       ? {
@@ -47,16 +55,16 @@ export default function MkhelpPage({ faqs }: { faqs: HelpFaq[] }) {
 
               <div className="help-search">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-                <input type="text" placeholder={t("hero.searchPlaceholder")} />
-                <button>{t("hero.searchButton")}</button>
+                <input type="text" value={helpQ} onChange={(e) => setHelpQ(e.target.value)} placeholder={t("hero.searchPlaceholder")} />
+                <button type="button" onClick={() => document.getElementById("faqList")?.scrollIntoView({ behavior: "smooth" })}>{t("hero.searchButton")}</button>
               </div>
 
               <div className="help-suggestions">
                 <span>{t("hero.popular")}</span>
-                <a href="#">{t("hero.suggestions.0")}</a><span>·</span>
-                <a href="#">{t("hero.suggestions.1")}</a><span>·</span>
-                <a href="#">{t("hero.suggestions.2")}</a><span>·</span>
-                <a href="#">{t("hero.suggestions.3")}</a>
+                <a role="button" tabIndex={0} onClick={() => setHelpQ(t("hero.suggestions.0"))}>{t("hero.suggestions.0")}</a><span>·</span>
+                <a role="button" tabIndex={0} onClick={() => setHelpQ(t("hero.suggestions.1"))}>{t("hero.suggestions.1")}</a><span>·</span>
+                <a role="button" tabIndex={0} onClick={() => setHelpQ(t("hero.suggestions.2"))}>{t("hero.suggestions.2")}</a><span>·</span>
+                <a role="button" tabIndex={0} onClick={() => setHelpQ(t("hero.suggestions.3"))}>{t("hero.suggestions.3")}</a>
               </div>
             </div>
           </div>
@@ -149,10 +157,13 @@ export default function MkhelpPage({ faqs }: { faqs: HelpFaq[] }) {
                   <a href="#">{t("faq.viewAll")}</a>
                 </div>
                 <div className="faq-list" id="faqList">
+                  {faqs.length > 0 && shown.length === 0 && (
+                    <p style={{ padding: "16px 0", color: "var(--text-2)" }}>{t("faq.noMatch", { defaultValue: "No answers match your search — try different words or contact us." })}</p>
+                  )}
                   {faqs.length === 0 && (
                     <p style={{ padding: "16px 0", color: "var(--text-2)" }}>{t("faq.empty", { defaultValue: "Help articles are on the way." })}</p>
                   )}
-                  {faqs.map((f) => (
+                  {shown.map((f) => (
                     <details className="faq-item" key={f.id}>
                       <summary className="faq-q">
                         {f.title}
@@ -170,7 +181,7 @@ export default function MkhelpPage({ faqs }: { faqs: HelpFaq[] }) {
                   <h3>{t("contactBar.title")}</h3>
                   <p>{t("contactBar.subtitle")}</p>
                   <div className="actions">
-                    <a className="btn btn-xl" href="#/contact" style={{ background: "#fff", color: "var(--brand)" }}>{t("contactBar.contactBtn")}</a>
+                    <Link className="btn btn-xl" href="/contact" style={{ background: "#fff", color: "var(--brand)" }}>{t("contactBar.contactBtn")}</Link>
                     <a className="btn btn-xl btn-outline" href="#" style={{ background: "transparent", color: "#fff", borderColor: "rgba(255,255,255,.4)" }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1s-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.1-.2-.2-.5-.4zM12 21c-1.8 0-3.5-.5-5-1.4l-3.5 1 1-3.4c-1-1.6-1.5-3.4-1.5-5.2 0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
                       {t("contactBar.whatsapp")}

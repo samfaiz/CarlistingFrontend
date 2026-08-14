@@ -5,10 +5,34 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { useRouter } from "next/router";
+import { resetPassword } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkresetPage() {
   const { t } = useTranslation("mk-reset");
+  const router = useRouter();
+  const token = typeof router.query.token === "string" ? router.query.token : "";
+  const [pwd, setPwd] = React.useState("");
+  const [confirm, setConfirm] = React.useState("");
+  const [state, setState] = React.useState<"form" | "success">("form");
+  const [err, setErr] = React.useState<string | null>(null);
+  const [busy, setBusy] = React.useState(false);
+  const RULE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+  const onReset = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErr(null);
+    if (!token) { setErr(t("errors.noToken", { defaultValue: "This reset link is invalid — request a new one." })); return; }
+    if (!RULE.test(pwd)) { setErr(t("errors.weak", { defaultValue: "Use at least 8 characters with upper, lower and a digit." })); return; }
+    if (pwd !== confirm) { setErr(t("errors.mismatch", { defaultValue: "Passwords do not match." })); return; }
+    setBusy(true);
+    try {
+      await resetPassword(token, pwd);
+      setState("success");
+    } catch {
+      setErr(t("errors.expired", { defaultValue: "This reset link has expired or was already used — request a new one." }));
+    } finally { setBusy(false); }
+  };
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -18,18 +42,19 @@ export default function MkresetPage() {
             <div className="auth-card">
 
               {/* STATE A: New password form */}
-              <div className="auth-state active" data-rstate="form">
+              <div className={`auth-state${state === "form" ? " active" : ""}`} data-rstate="form">
                 <div className="brand-mark">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /><circle cx="12" cy="16" r="1.5" fill="currentColor" /></svg>
                 </div>
                 <h1>{t("form.title")}</h1>
                 <p className="auth-sub">{t("form.subtitle")}</p>
 
-                <form id="resetForm" onSubmit={(e) => e.preventDefault()}>
+                <form id="resetForm" onSubmit={onReset}>
+                  {err && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{err}</p>}
                   <div className="form-group">
                     <label>{t("form.newPassword.label")}</label>
                     <div className="pwd-wrap">
-                      <input className="form-input" type="password" id="newPwd" placeholder={t("form.newPassword.placeholder")} autoComplete="new-password" />
+                      <input className="form-input" type="password" id="newPwd" value={pwd} onChange={(e) => setPwd(e.target.value)} placeholder={t("form.newPassword.placeholder")} autoComplete="new-password" required />
                       <button className="pwd-toggle" type="button" data-target="newPwd" title={t("form.togglePassword")}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
@@ -46,7 +71,7 @@ export default function MkresetPage() {
                   <div className="form-group">
                     <label>{t("form.confirmPassword.label")}</label>
                     <div className="pwd-wrap">
-                      <input className="form-input" type="password" id="confirmPwd" placeholder={t("form.confirmPassword.placeholder")} autoComplete="new-password" />
+                      <input className="form-input" type="password" id="confirmPwd" value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder={t("form.confirmPassword.placeholder")} autoComplete="new-password" required />
                       <button className="pwd-toggle" type="button" data-target="confirmPwd" title={t("form.togglePassword")}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
@@ -54,7 +79,7 @@ export default function MkresetPage() {
                     <div className="match-indicator" id="matchIndicator"></div>
                   </div>
 
-                  <button type="submit" className="btn btn-primary btn-lg btn-block" id="updatePwdBtn">
+                  <button type="submit" className="btn btn-primary btn-lg btn-block" id="updatePwdBtn" disabled={busy}>
                     {t("form.submit")}
                   </button>
                 </form>
@@ -70,7 +95,7 @@ export default function MkresetPage() {
               </div>
 
               {/* STATE B: Success */}
-              <div className="auth-state" data-rstate="success">
+              <div className={`auth-state${state === "success" ? " active" : ""}`} data-rstate="success">
                 <div className="success-icon">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 13l4 4L19 7" /></svg>
                 </div>

@@ -138,7 +138,8 @@
         }
       }
     },
-    "empty": "Help articles are on the way."
+    "empty": "Help articles are on the way.",
+    "noMatch": "No answers match your search — try different words or contact us."
   },
   "contactBar": {
     "title": "Can't find what you're looking for?",

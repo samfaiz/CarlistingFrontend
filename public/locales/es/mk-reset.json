@@ -24,5 +24,11 @@
     "subtitle": "Tu contraseña se ha restablecido correctamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
     "continue": "Continuar al inicio de sesión",
     "tip": "Se ha cerrado tu sesión en todos los demás dispositivos por seguridad. Usa tu nueva contraseña para volver a iniciar sesión."
+  },
+  "errors": {
+    "noToken": "Este enlace no es válido; solicita uno nuevo.",
+    "weak": "Usa al menos 8 caracteres con mayúscula, minúscula y un dígito.",
+    "mismatch": "Las contraseñas no coinciden.",
+    "expired": "El enlace caducó o ya se usó; solicita uno nuevo."
   }
 }
