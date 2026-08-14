@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
+import { useSession } from "next-auth/react";
 import { useCurrency } from "@/components/marketplace/currency-provider";
 
 const NAV = [
@@ -46,6 +47,7 @@ function Wordmark({ color }: { color?: string }) {
 export function MockupLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { t } = useTranslation("common");
+  const { data: session } = useSession();
   const { currency, setCurrency } = useCurrency();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
@@ -88,12 +90,12 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
             </select>
-            <Link className="btn btn-outline" href="/login">
+            <Link className="btn btn-outline" href={session ? "/account" : "/login"}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                 <circle cx="12" cy="7" r="4" />
               </svg>
-              {t("chrome.login")}
+              {session ? t("chrome.myAccount") : t("chrome.login")}
             </Link>
             <Link className="btn btn-primary" href="/sell">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">

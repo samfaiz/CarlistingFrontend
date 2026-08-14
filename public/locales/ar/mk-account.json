@@ -24,7 +24,8 @@
     "profile": "إعدادات الملف الشخصي",
     "notifications": "الإشعارات",
     "security": "الأمان",
-    "signout": "تسجيل الخروج"
+    "signout": "تسجيل الخروج",
+    "adminPanel": "لوحة الإدارة"
   },
   "dashboard": {
     "welcome": "مرحبًا بعودتك يا فيصل 👋",

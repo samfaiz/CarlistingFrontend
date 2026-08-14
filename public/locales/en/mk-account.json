@@ -24,7 +24,8 @@
     "profile": "Profile settings",
     "notifications": "Notifications",
     "security": "Security",
-    "signout": "Sign out"
+    "signout": "Sign out",
+    "adminPanel": "Admin panel"
   },
   "dashboard": {
     "welcome": "Welcome back, Faisal 👋",

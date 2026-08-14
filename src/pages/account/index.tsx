@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import * as React from "react";
 import { getServerSession } from "next-auth/next";
+import { signOut } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
@@ -12,12 +13,16 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
 interface AccountProps {
-  user: { name: string; email: string; initials: string };
+  user: { name: string; email: string; initials: string; role: string };
   listings: Card[];
 }
 
 export default function MkaccountPage({ user, listings }: AccountProps) {
   const { t } = useTranslation("mk-account");
+  // The mockup's vanilla-JS tab switching, ported to React state (P6 fix —
+  // the sidebar anchors were dead on the live page).
+  const [tab, setTab] = React.useState("dashboard");
+  const isStaff = user.role === "ADMIN" || user.role === "SUPER_ADMIN";
   return (
     <>
       <Head><title>{`${t("meta.title")} — Carsens`}</title></Head>
@@ -36,45 +41,54 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                     <span className="acc-tier">{t("user.tier")}</span>
                   </div>
                   <div className="acc-menu" id="accMenu">
-                    <a data-tab="dashboard" className="active">
+                    {isStaff && (
+                      <>
+                        <Link href="/admin" style={{ fontWeight: 700 }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z" /></svg>
+                          {t("menu.adminPanel", { defaultValue: "Admin panel" })}
+                        </Link>
+                        <div className="menu-divider"></div>
+                      </>
+                    )}
+                    <a data-tab="dashboard" role="button" tabIndex={0} className={tab === "dashboard" ? "active" : undefined} onClick={() => setTab("dashboard")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
                       {t("menu.dashboard")}
                     </a>
-                    <a data-tab="saved">
+                    <a data-tab="saved" role="button" tabIndex={0} className={tab === "saved" ? "active" : undefined} onClick={() => setTab("saved")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
                       {t("menu.saved")} <span className="count-pill">{t("menu.savedCount")}</span>
                     </a>
-                    <a data-tab="searches">
+                    <a data-tab="searches" role="button" tabIndex={0} className={tab === "searches" ? "active" : undefined} onClick={() => setTab("searches")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
                       {t("menu.searches")} <span className="count-pill">{t("menu.searchesCount")}</span>
                     </a>
-                    <a data-tab="messages">
+                    <a data-tab="messages" role="button" tabIndex={0} className={tab === "messages" ? "active" : undefined} onClick={() => setTab("messages")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.5 8.5 0 018 8z" /></svg>
                       {t("menu.messages")} <span className="count-pill">{t("menu.messagesCount")}</span>
                     </a>
-                    <a data-tab="listings">
+                    <a data-tab="listings" role="button" tabIndex={0} className={tab === "listings" ? "active" : undefined} onClick={() => setTab("listings")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2" /></svg>
                       {t("menu.listings")} <span className="count-pill">{t("menu.listingsCount")}</span>
                     </a>
-                    <a data-tab="alerts">
+                    <a data-tab="alerts" role="button" tabIndex={0} className={tab === "alerts" ? "active" : undefined} onClick={() => setTab("alerts")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0" /></svg>
                       {t("menu.alerts")} <span className="count-pill">{t("menu.alertsCount")}</span>
                     </a>
                     <div className="menu-divider"></div>
-                    <a data-tab="profile">
+                    <a data-tab="profile" role="button" tabIndex={0} className={tab === "profile" ? "active" : undefined} onClick={() => setTab("profile")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                       {t("menu.profile")}
                     </a>
-                    <a data-tab="notifications">
+                    <a data-tab="notifications" role="button" tabIndex={0} className={tab === "notifications" ? "active" : undefined} onClick={() => setTab("notifications")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z" /></svg>
                       {t("menu.notifications")}
                     </a>
-                    <a data-tab="security">
+                    <a data-tab="security" role="button" tabIndex={0} className={tab === "security" ? "active" : undefined} onClick={() => setTab("security")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
                       {t("menu.security")}
                     </a>
                     <div className="menu-divider"></div>
-                    <a className="signout">
+                    <a className="signout" role="button" tabIndex={0} onClick={() => void signOut({ callbackUrl: "/" })}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" /></svg>
                       {t("menu.signout")}
                     </a>
@@ -85,7 +99,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                 <div className="account-main">
 
                   {/* DASHBOARD */}
-                  <section className="acc-section active" data-section="dashboard">
+                  <section className={`acc-section${tab === "dashboard" ? " active" : ""}`} data-section="dashboard">
                     <h2>{t("dashboard.welcome")}</h2>
                     <p className="section-sub">{t("dashboard.sub")}</p>
 
@@ -173,7 +187,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* SAVED CARS */}
-                  <section className="acc-section" data-section="saved">
+                  <section className={`acc-section${tab === "saved" ? " active" : ""}`} data-section="saved">
                     <h2>{t("saved.title")}</h2>
                     <p className="section-sub">{t("saved.sub")}</p>
                     <div className="activity-block" style={{ padding: "18px" }}>
@@ -225,7 +239,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* SAVED SEARCHES */}
-                  <section className="acc-section" data-section="searches">
+                  <section className={`acc-section${tab === "searches" ? " active" : ""}`} data-section="searches">
                     <h2>{t("searches.title")}</h2>
                     <p className="section-sub">{t("searches.sub")}</p>
 
@@ -281,7 +295,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* MESSAGES (2-pane chat layout) */}
-                  <section className="acc-section" data-section="messages">
+                  <section className={`acc-section${tab === "messages" ? " active" : ""}`} data-section="messages">
                     <h2>{t("messages.title")}</h2>
                     <p className="section-sub">{t("messages.sub")}</p>
 
@@ -718,7 +732,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* MY LISTINGS */}
-                  <section className="acc-section" data-section="listings">
+                  <section className={`acc-section${tab === "listings" ? " active" : ""}`} data-section="listings">
                     <h2>{t("listings.title")}</h2>
                     <p className="section-sub">{t("listings.sub")}</p>
 
@@ -744,7 +758,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* PRICE ALERTS */}
-                  <section className="acc-section" data-section="alerts">
+                  <section className={`acc-section${tab === "alerts" ? " active" : ""}`} data-section="alerts">
                     <h2>{t("alerts.title")}</h2>
                     <p className="section-sub">{t("alerts.sub")}</p>
                     <div className="activity-block" style={{ padding: "18px" }}>
@@ -770,7 +784,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* PROFILE SETTINGS */}
-                  <section className="acc-section" data-section="profile">
+                  <section className={`acc-section${tab === "profile" ? " active" : ""}`} data-section="profile">
                     <h2>{t("profile.title")}</h2>
                     <p className="section-sub">{t("profile.sub")}</p>
 
@@ -791,7 +805,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* NOTIFICATIONS */}
-                  <section className="acc-section" data-section="notifications">
+                  <section className={`acc-section${tab === "notifications" ? " active" : ""}`} data-section="notifications">
                     <h2>{t("notif.title")}</h2>
                     <p className="section-sub">{t("notif.sub")}</p>
 
@@ -824,7 +838,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                   </section>
 
                   {/* SECURITY */}
-                  <section className="acc-section" data-section="security">
+                  <section className={`acc-section${tab === "security" ? " active" : ""}`} data-section="security">
                     <h2>{t("security.title")}</h2>
                     <p className="section-sub">{t("security.sub")}</p>
 
@@ -890,7 +904,12 @@ export const getServerSideProps: GetServerSideProps<AccountProps> = async (ctx) 
 
   return {
     props: {
-      user: { name, email: session.user?.email ?? "", initials },
+      user: {
+        name,
+        email: session.user?.email ?? "",
+        initials,
+        role: (session.user as { role?: string } | undefined)?.role ?? "USER",
+      },
       listings: mine.items,
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,

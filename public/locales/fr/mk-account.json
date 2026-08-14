@@ -24,7 +24,8 @@
     "profile": "Paramètres du profil",
     "notifications": "Notifications",
     "security": "Sécurité",
-    "signout": "Se déconnecter"
+    "signout": "Se déconnecter",
+    "adminPanel": "Panneau d'administration"
   },
   "dashboard": {
     "welcome": "Bon retour, Faisal 👋",
