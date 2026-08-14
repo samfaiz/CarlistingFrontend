@@ -1522,3 +1522,70 @@ export function forgotPassword(email: string): Promise<{ ok: boolean }> {
 export function resetPassword(token: string, password: string): Promise<{ ok: boolean }> {
   return apiPost("/auth/reset-password", { token, password });
 }
+
+/* ------------------------------------------------------------------ */
+/* "X vs Y" SEO pages — task P6-03 (FR-CV7)                           */
+/* ------------------------------------------------------------------ */
+
+export interface VsModelMeta {
+  id: string;
+  name: string;
+  slug: string;
+  makeName: string;
+  makeSlug: string;
+  title: string;
+}
+
+export interface VsListingCard {
+  slug: string;
+  title: string;
+  year: number;
+  priceAed: number;
+  mileageKm: number;
+  coverKey: string | null;
+}
+
+export interface VsFacts {
+  avgPriceAed: [number, number] | null;
+  liveCounts: [number, number];
+  powerHp: [string, string] | null;
+  acceleration: [string, string] | null;
+  seats: [string, string] | null;
+  engine: [string, string] | null;
+  winner: number;
+  totals: (number | null)[];
+}
+
+export interface VsPage {
+  slug: string;
+  indexable: boolean;
+  source: "CURATED" | "AUTO";
+  intro: Record<string, string> | null;
+  vehicleType: "CAR" | "BIKE";
+  models: [VsModelMeta, VsModelMeta];
+  compare: CompareResult;
+  listings: [VsListingCard[], VsListingCard[]];
+  facts: VsFacts;
+  generatedAt: string;
+}
+
+export interface VsHubEntry {
+  slug: string;
+  title: string;
+  indexable: boolean;
+  source: "CURATED" | "AUTO";
+  compareCount: number;
+}
+
+/** {redirect} means the slug order was non-canonical — 301 to the value. */
+export function getVsPage(slug: string): Promise<VsPage | { redirect: string }> {
+  return apiGet(`/vs/${encodeURIComponent(slug)}`);
+}
+
+export function getVsHub(): Promise<{ curated: VsHubEntry[]; popular: VsHubEntry[] }> {
+  return apiGet("/vs");
+}
+
+export function getVsSitemapSlugs(): Promise<{ slugs: string[] }> {
+  return apiGet("/vs/sitemap");
+}

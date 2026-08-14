@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "{{a}} vs {{b}} — especificaciones, precios y veredicto",
+    "desc": "Comparativa cara a cara de {{a}} y {{b}} en EAU: especificaciones, precios medios de segunda mano, disponibilidad y un veredicto basado en datos."
+  },
+  "head": {
+    "title": "{{a}} vs {{b}}"
+  },
+  "intro": {
+    "generated": "¿Comparando el {{a}} con el {{b}}? Esta página los pone cara a cara con datos de mercado en vivo de Carsens — precios reales, disponibilidad real — más las diferencias de ficha técnica que importan."
+  },
+  "actions": {
+    "browse": "Ver {{model}} en venta",
+    "customize": "Crea tu propia comparativa"
+  },
+  "cars": {
+    "heading": "Cara a cara",
+    "hint": "El verde marca el mejor valor de cada fila."
+  },
+  "verdict": {
+    "title": "Mejor en conjunto (pesos equilibrados)"
+  },
+  "listings": {
+    "heading": "En venta ahora mismo"
+  },
+  "faq": {
+    "heading": "Preguntas frecuentes",
+    "priceQ": "¿Cuál es más barato de comprar usado en EAU: {{a}} o {{b}}?",
+    "priceA": "Según los anuncios activos, el precio medio solicitado es {{priceA}} para el {{a}} y {{priceB}} para el {{b}} — el {{cheaper}} es actualmente más barato de media.",
+    "availQ": "¿Cuál es más fácil de encontrar en venta ahora?",
+    "availA": "Carsens tiene actualmente {{countA}} anuncios activos del {{a}} y {{countB}} del {{b}} en EAU.",
+    "powerQ": "¿Cuál tiene más potencia: {{a}} o {{b}}?",
+    "powerA": "El {{a}} entrega {{hpA}} CV frente a {{hpB}} CV del {{b}} (versiones comparadas).",
+    "verdictQ": "¿Cuál es mejor en conjunto: {{a}} o {{b}}?",
+    "verdictA": "Con la puntuación equilibrada de Carsens entre precio, costes, practicidad y prestaciones, el {{winner}} queda por delante en las versiones comparadas. Tus prioridades pueden variar — usa el comparador para ponderar lo que te importa."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "vs": "Comparativas"
+  },
+  "hub": {
+    "metaTitle": "Comparativas de coches — X vs Y",
+    "metaDesc": "Comparativas cara a cara de los coches más cruzados en EAU: especificaciones, precios en vivo y veredictos basados en datos.",
+    "title": "Comparativas populares",
+    "sub": "Datos de mercado reales, cara a cara — elige un duelo o crea el tuyo.",
+    "curated": "Selección del editor",
+    "popular": "Las más comparadas por compradores",
+    "empty": "Estamos preparando las comparativas — mientras tanto crea la tuya."
+  }
+}

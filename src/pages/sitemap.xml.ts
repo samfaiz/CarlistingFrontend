@@ -4,6 +4,7 @@
  * Emits a <sitemapindex> pointing at:
  *   /sitemaps/static.xml         core static routes
  *   /sitemaps/landing.xml        make/model/emirate SEO landings (P1-06)
+ *   /sitemaps/vs.xml             /vs hub + curated "X vs Y" pairs (P6-03)
  *   /sitemaps/listings-{n}.xml   live listings, SITEMAP_PAGE_SIZE per sheet
  *
  * The listings sheet count comes from one cheap search call (limit 1 ->
@@ -37,6 +38,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const sheets = [
     { loc: `${SITE_URL}/sitemaps/static.xml`, lastmod },
     { loc: `${SITE_URL}/sitemaps/landing.xml`, lastmod },
+    { loc: `${SITE_URL}/sitemaps/vs.xml`, lastmod },
     ...Array.from({ length: listingsSheetCount(total ?? 1) }, (_, i) => ({
       loc: `${SITE_URL}/sitemaps/listings-${i + 1}.xml`,
       lastmod,

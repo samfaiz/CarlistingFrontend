@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "{{a}} vs {{b}} — specs, prices & verdict",
+    "desc": "Side-by-side {{a}} vs {{b}} comparison for the UAE: specs, average used prices, availability and a data-driven verdict."
+  },
+  "head": {
+    "title": "{{a}} vs {{b}}"
+  },
+  "intro": {
+    "generated": "Comparing the {{a}} and the {{b}}? This page puts both side by side using live Carsens market data — real asking prices, real availability — plus the spec sheet differences that matter."
+  },
+  "actions": {
+    "browse": "Browse {{model}} for sale",
+    "customize": "Build your own comparison"
+  },
+  "cars": {
+    "heading": "Side by side",
+    "hint": "Green marks the better value in each row."
+  },
+  "verdict": {
+    "title": "Best overall (balanced weights)"
+  },
+  "listings": {
+    "heading": "For sale right now"
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "priceQ": "Which is cheaper to buy used in the UAE — {{a}} or {{b}}?",
+    "priceA": "Based on current live listings, the average asking price is {{priceA}} for the {{a}} and {{priceB}} for the {{b}} — the {{cheaper}} is currently cheaper on average.",
+    "availQ": "Which is easier to find for sale right now?",
+    "availA": "Carsens currently lists {{countA}} live {{a}} and {{countB}} live {{b}} adverts in the UAE.",
+    "powerQ": "Which has more power — {{a}} or {{b}}?",
+    "powerA": "The {{a}} produces {{hpA}} hp against {{hpB}} hp for the {{b}} (compared trims).",
+    "verdictQ": "Which is better overall — {{a}} or {{b}}?",
+    "verdictA": "On Carsens's balanced scoring across price, running costs, practicality and performance, the {{winner}} comes out ahead for the compared trims. Your own priorities may differ — use the compare tool to weight what matters to you."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "vs": "Comparisons"
+  },
+  "hub": {
+    "metaTitle": "Car comparisons — X vs Y",
+    "metaDesc": "Side-by-side comparisons of the UAE's most cross-shopped cars: specs, live prices and data-driven verdicts.",
+    "title": "Popular comparisons",
+    "sub": "Real market data, side by side — pick a matchup or build your own.",
+    "curated": "Editor's picks",
+    "popular": "Most compared by shoppers",
+    "empty": "Comparisons are being prepared — meanwhile, build your own."
+  }
+}

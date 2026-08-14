@@ -795,3 +795,42 @@ export function getAiUsage(days: number, accessToken: string): Promise<AiUsageRo
 export function testAiProvider(accessToken: string): Promise<{ ok: boolean; provider: string; model?: string; detail?: string }> {
   return apiPost(`/super-admin/ai/test-provider`, {}, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* "X vs Y" pair curation — P6-03 (FR-CV7)                            */
+/* ------------------------------------------------------------------ */
+
+export interface VsPairRow {
+  id: string;
+  slug: string;
+  title: string;
+  source: "CURATED" | "AUTO";
+  indexable: boolean;
+  intro: Record<string, string> | null;
+  compareCount: number;
+  viewCount: number;
+  updatedAt: string;
+}
+
+export function adminListVsPairs(accessToken: string): Promise<{ items: VsPairRow[]; total: number }> {
+  return apiGet(`/admin/vs-pairs?limit=200`, { token: accessToken });
+}
+
+export function adminCreateVsPair(
+  input: { modelAId: string; modelBId: string; indexable?: boolean; intro?: Record<string, string> },
+  accessToken: string,
+): Promise<VsPairRow> {
+  return apiPost(`/admin/vs-pairs`, input, { token: accessToken });
+}
+
+export function adminUpdateVsPair(
+  id: string,
+  input: { indexable?: boolean; intro?: Record<string, string>; source?: "CURATED" | "AUTO" },
+  accessToken: string,
+): Promise<VsPairRow> {
+  return apiPut(`/admin/vs-pairs/${encodeURIComponent(id)}`, input, { token: accessToken });
+}
+
+export function adminDeleteVsPair(id: string, accessToken: string): Promise<{ deleted: boolean }> {
+  return apiDelete(`/admin/vs-pairs/${encodeURIComponent(id)}`, { token: accessToken });
+}

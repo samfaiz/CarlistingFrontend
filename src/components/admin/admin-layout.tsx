@@ -10,6 +10,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import * as React from "react";
 import {
+  ArrowLeftRight,
   BadgeCheck,
   CarFront,
   FileText,
@@ -114,6 +115,11 @@ export function AdminLayout({
       href: "/admin/banners",
       label: t("layout.nav.banners"),
       icon: ImageIcon,
+    },
+    {
+      href: "/admin/vs-pairs",
+      label: t("layout.nav.vsPairs"),
+      icon: ArrowLeftRight,
     },
     {
       href: "/admin/analytics",

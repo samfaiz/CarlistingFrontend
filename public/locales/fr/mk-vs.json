@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "{{a}} vs {{b}} — fiches techniques, prix et verdict",
+    "desc": "Comparatif face à face {{a}} vs {{b}} aux ÉAU : caractéristiques, prix moyens de l'occasion, disponibilité et un verdict fondé sur les données."
+  },
+  "head": {
+    "title": "{{a}} vs {{b}}"
+  },
+  "intro": {
+    "generated": "Vous hésitez entre le {{a}} et le {{b}} ? Cette page les met face à face avec les données de marché en direct de Carsens — prix demandés réels, disponibilité réelle — plus les différences de fiche technique qui comptent."
+  },
+  "actions": {
+    "browse": "Voir les {{model}} à vendre",
+    "customize": "Créez votre propre comparatif"
+  },
+  "cars": {
+    "heading": "Face à face",
+    "hint": "Le vert marque la meilleure valeur de chaque ligne."
+  },
+  "verdict": {
+    "title": "Meilleur au global (pondération équilibrée)"
+  },
+  "listings": {
+    "heading": "À vendre en ce moment"
+  },
+  "faq": {
+    "heading": "Questions fréquentes",
+    "priceQ": "Lequel est le moins cher en occasion aux ÉAU : {{a}} ou {{b}} ?",
+    "priceA": "D'après les annonces actives, le prix moyen demandé est de {{priceA}} pour le {{a}} et {{priceB}} pour le {{b}} — le {{cheaper}} est actuellement moins cher en moyenne.",
+    "availQ": "Lequel est le plus facile à trouver à la vente en ce moment ?",
+    "availA": "Carsens compte actuellement {{countA}} annonces actives de {{a}} et {{countB}} de {{b}} aux ÉAU.",
+    "powerQ": "Lequel est le plus puissant : {{a}} ou {{b}} ?",
+    "powerA": "Le {{a}} développe {{hpA}} ch contre {{hpB}} ch pour le {{b}} (versions comparées).",
+    "verdictQ": "Lequel est le meilleur au global : {{a}} ou {{b}} ?",
+    "verdictA": "Selon la notation équilibrée de Carsens entre prix, coûts d'usage, praticité et performances, le {{winner}} l'emporte pour les versions comparées. Vos priorités peuvent différer — utilisez le comparateur pour pondérer ce qui compte pour vous."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "vs": "Comparatifs"
+  },
+  "hub": {
+    "metaTitle": "Comparatifs automobiles — X vs Y",
+    "metaDesc": "Comparatifs face à face des voitures les plus mises en concurrence aux ÉAU : caractéristiques, prix en direct et verdicts fondés sur les données.",
+    "title": "Comparatifs populaires",
+    "sub": "De vraies données de marché, face à face — choisissez un duel ou créez le vôtre.",
+    "curated": "Choix de la rédaction",
+    "popular": "Les plus comparés par les acheteurs",
+    "empty": "Les comparatifs arrivent — en attendant, créez le vôtre."
+  }
+}

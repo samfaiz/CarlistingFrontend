@@ -19,7 +19,8 @@
       "system": "System",
       "spec": "Spec DB",
       "analytics": "Analytics",
-      "integrations": "Integrations"
+      "integrations": "Integrations",
+      "vsPairs": "VS pages"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -620,6 +621,37 @@
         "trim_draft": "Trim drafting",
         "spec_enrich": "Spec enrichment"
       }
+    }
+  },
+  "vsPairs": {
+    "title": "VS pages",
+    "hint": "Curated pairs are indexable and shipped in the sitemap. AUTO rows come from compare usage and stay noindex until promoted.",
+    "new": "Curate a pair",
+    "col": {
+      "pair": "Pair",
+      "source": "Source",
+      "indexable": "Indexable",
+      "usage": "Compares / views",
+      "actions": "Actions"
+    },
+    "empty": "No pairs yet — curate one, or wait for the popularity cron.",
+    "toggleIndex": "Toggle indexability",
+    "indexed": "indexed",
+    "intro": "Intro copy",
+    "delete": "Delete",
+    "modelA": "Model A",
+    "modelB": "Model B",
+    "cancel": "Cancel",
+    "create": "Create",
+    "save": "Save",
+    "introPlaceholder": "Optional — replaces the generated intro for this locale.",
+    "toast": {
+      "loadFailed": "Could not load pairs",
+      "created": "Pair curated",
+      "createFailed": "Could not create the pair",
+      "updateFailed": "Update failed",
+      "introSaved": "Intro copy saved",
+      "deleted": "Pair deleted"
     }
   }
 }

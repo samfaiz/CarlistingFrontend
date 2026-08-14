@@ -19,7 +19,8 @@
       "system": "Système",
       "spec": "BD spécifications",
       "analytics": "Analytique",
-      "integrations": "Intégrations"
+      "integrations": "Intégrations",
+      "vsPairs": "Pages VS"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -620,6 +621,37 @@
         "trim_draft": "Brouillon de finition",
         "spec_enrich": "Enrichissement des fiches"
       }
+    }
+  },
+  "vsPairs": {
+    "title": "Pages VS",
+    "hint": "Les paires éditorialisées sont indexables et incluses dans le sitemap. Les lignes AUTO viennent de l’usage du comparateur et restent noindex jusqu’à promotion.",
+    "new": "Éditorialiser une paire",
+    "col": {
+      "pair": "Paire",
+      "source": "Source",
+      "indexable": "Indexable",
+      "usage": "Comparaisons / vues",
+      "actions": "Actions"
+    },
+    "empty": "Aucune paire — créez-en une ou attendez le cron de popularité.",
+    "toggleIndex": "Basculer l’indexabilité",
+    "indexed": "indexée",
+    "intro": "Texte d’intro",
+    "delete": "Supprimer",
+    "modelA": "Modèle A",
+    "modelB": "Modèle B",
+    "cancel": "Annuler",
+    "create": "Créer",
+    "save": "Enregistrer",
+    "introPlaceholder": "Facultatif — remplace l’intro générée pour cette langue.",
+    "toast": {
+      "loadFailed": "Impossible de charger les paires",
+      "created": "Paire éditorialisée",
+      "createFailed": "Impossible de créer la paire",
+      "updateFailed": "Échec de la mise à jour",
+      "introSaved": "Intro enregistrée",
+      "deleted": "Paire supprimée"
     }
   }
 }

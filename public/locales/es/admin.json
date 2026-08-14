@@ -19,7 +19,8 @@
       "system": "Sistema",
       "spec": "BD de fichas",
       "analytics": "Analíticas",
-      "integrations": "Integraciones"
+      "integrations": "Integraciones",
+      "vsPairs": "Páginas VS"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -620,6 +621,37 @@
         "trim_draft": "Borrador de versiones",
         "spec_enrich": "Enriquecimiento de fichas"
       }
+    }
+  },
+  "vsPairs": {
+    "title": "Páginas VS",
+    "hint": "Los pares curados son indexables y van en el sitemap. Las filas AUTO vienen del uso del comparador y quedan noindex hasta promoverse.",
+    "new": "Curar un par",
+    "col": {
+      "pair": "Par",
+      "source": "Origen",
+      "indexable": "Indexable",
+      "usage": "Comparaciones / vistas",
+      "actions": "Acciones"
+    },
+    "empty": "Sin pares aún — cura uno o espera al cron de popularidad.",
+    "toggleIndex": "Alternar indexabilidad",
+    "indexed": "indexado",
+    "intro": "Texto de intro",
+    "delete": "Eliminar",
+    "modelA": "Modelo A",
+    "modelB": "Modelo B",
+    "cancel": "Cancelar",
+    "create": "Crear",
+    "save": "Guardar",
+    "introPlaceholder": "Opcional — sustituye la intro generada para este idioma.",
+    "toast": {
+      "loadFailed": "No se pudieron cargar los pares",
+      "created": "Par curado",
+      "createFailed": "No se pudo crear el par",
+      "updateFailed": "Error al actualizar",
+      "introSaved": "Intro guardada",
+      "deleted": "Par eliminado"
     }
   }
 }

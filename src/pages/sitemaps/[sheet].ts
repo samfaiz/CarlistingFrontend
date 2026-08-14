@@ -38,6 +38,7 @@ import {
   getMakes,
   getModels,
   getTaxonomyMeta,
+  getVsSitemapSlugs,
   searchListings,
 } from "@/lib/marketplace-api";
 
@@ -83,6 +84,18 @@ async function landingSheet(): Promise<{ urls: SitemapUrl[]; degraded: boolean }
     urls.push({ path: `/used-cars/emirate/${emirate.slug}` });
   }
   return { urls, degraded };
+}
+
+/** P6-03: /vs hub + curated, indexable pairs ONLY (SEO discipline §13.1). */
+async function vsSheet(): Promise<{ urls: SitemapUrl[]; degraded: boolean }> {
+  const { slugs } = await getVsSitemapSlugs();
+  return {
+    urls: [
+      { path: "/vs" },
+      ...slugs.map((slug) => ({ path: `/vs/${slug}` })),
+    ],
+    degraded: false,
+  };
 }
 
 async function listingsSheet(
@@ -166,6 +179,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params, res }) =>
       built = staticSheet();
     } else if (sheet === "landing.xml") {
       built = await landingSheet();
+    } else if (sheet === "vs.xml") {
+      built = await vsSheet();
     } else {
       const match = LISTINGS_SHEET_RE.exec(sheet);
       if (!match) return { notFound: true };

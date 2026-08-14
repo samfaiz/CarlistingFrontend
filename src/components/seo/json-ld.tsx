@@ -155,3 +155,27 @@ export function WebSiteJsonLd() {
   };
   return <JsonLd data={data} />;
 }
+
+/* ------------------------------------------------------------------ */
+/* FAQPage (vs pages — task P6-03, FR-CV7)                            */
+/* ------------------------------------------------------------------ */
+
+export interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+/** FAQPage block for the "X vs Y" pages — answers come from live data only. */
+export function FaqJsonLd({ faqs }: { faqs: FaqEntry[] }) {
+  if (faqs.length === 0) return null;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  return <JsonLd data={data} />;
+}
