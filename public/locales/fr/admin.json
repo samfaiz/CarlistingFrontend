@@ -21,7 +21,8 @@
       "analytics": "Analytique",
       "integrations": "Intégrations",
       "vsPairs": "Pages VS",
-      "rbac": "Rôles et permissions"
+      "rbac": "Rôles et permissions",
+      "crm": "CRM ventes"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -692,6 +693,29 @@
       "roleInUse": "Le rôle est encore assigné — réassignez ce personnel d’abord",
       "assigned": "Accès mis à jour",
       "grantAdded": "Accès temporaire ajouté"
+    }
+  },
+  "crm": {
+    "title": "CRM ventes",
+    "pipelineNew": "Nouvelles affaires",
+    "pipelineRenewals": "Renouvellements",
+    "totalOpen": "Ouvert",
+    "totalWon": "Gagné",
+    "newDeal": "Nouvelle affaire",
+    "ruleTitle": "Passer à « {{stage}} » demande des détails",
+    "ruleNote": "Note (obligatoire)",
+    "ruleNotePlaceholder": "Pourquoi cette affaire se ferme-t-elle ?",
+    "ruleReason": "Motif de perte (obligatoire)",
+    "ruleConfirm": "Déplacer l’affaire",
+    "account": "Compte",
+    "dealTitle": "Titre",
+    "dealValue": "Valeur (AED)",
+    "cancel": "Annuler",
+    "create": "Créer",
+    "toast": {
+      "loadFailed": "Impossible de charger le tableau",
+      "moveFailed": "Déplacement non autorisé",
+      "dealCreated": "Affaire créée"
     }
   }
 }

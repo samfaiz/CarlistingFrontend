@@ -925,3 +925,91 @@ export function rbacRevokeGrant(grantId: string, accessToken: string): Promise<u
 export function rbacMe(accessToken: string): Promise<{ permissions: string[]; dataScopes: Record<string, unknown> }> {
   return apiGet(`/admin/rbac/me`, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* Sales CRM — G1-02/03 (FR-SC1..SC3)                                 */
+/* ------------------------------------------------------------------ */
+
+export interface CrmAccountRow {
+  id: string;
+  kind: "DEALER" | "PROSPECT";
+  name: string;
+  phone: string | null;
+  email: string | null;
+  source: string;
+  sourceDetail: string | null;
+  dedupeStatus: string;
+  owner: { id: string; name: string } | null;
+  dealer: { slug: string; verificationStatus: string } | null;
+  _count?: { contacts: number };
+  updatedAt: string;
+}
+
+export interface CrmStageCol {
+  id: string;
+  slug: string;
+  name: string;
+  kind: "OPEN" | "WON" | "LOST";
+  probability: number;
+  rules: { requireNote?: boolean; requireReason?: boolean } | null;
+  deals: CrmDealCard[];
+}
+
+export interface CrmDealCard {
+  id: string;
+  title: string;
+  valueAed: number;
+  status: "OPEN" | "WON" | "LOST";
+  probability: number | null;
+  expectedCloseAt: string | null;
+  account: { id: string; name: string };
+  package: { id: string; tier: string; name: string } | null;
+  outcomeReason: { slug: string; label: string } | null;
+}
+
+export interface CrmBoard {
+  pipeline: { id: string; slug: string; name: string };
+  stages: CrmStageCol[];
+  totals: { open: number; won: number };
+}
+
+export interface CrmOutcomeReason {
+  id: string;
+  kind: "WON" | "LOST";
+  slug: string;
+  label: string;
+}
+
+export function crmListAccounts(accessToken: string, params: { search?: string; limit?: number } = {}): Promise<{ items: CrmAccountRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  if (params.search) qs.set("search", params.search);
+  qs.set("limit", String(params.limit ?? 50));
+  return apiGet(`/crm/accounts?${qs}`, { token: accessToken });
+}
+
+export function crmBoard(pipeline: string, accessToken: string): Promise<CrmBoard> {
+  return apiGet(`/crm/board?pipeline=${encodeURIComponent(pipeline)}`, { token: accessToken });
+}
+
+export function crmPipelines(accessToken: string): Promise<{ id: string; slug: string; name: string }[]> {
+  return apiGet(`/crm/pipelines`, { token: accessToken });
+}
+
+export function crmOutcomeReasons(accessToken: string): Promise<CrmOutcomeReason[]> {
+  return apiGet(`/crm/outcome-reasons`, { token: accessToken });
+}
+
+export function crmCreateDeal(
+  input: { accountId: string; title: string; valueAed?: number; packageId?: string; expectedCloseAt?: string },
+  accessToken: string,
+): Promise<CrmDealCard> {
+  return apiPost(`/crm/deals`, input, { token: accessToken });
+}
+
+export function crmMoveDeal(
+  dealId: string,
+  input: { stageId: string; sortIndex?: number; note?: string; reasonId?: string },
+  accessToken: string,
+): Promise<unknown> {
+  return apiPost(`/crm/deals/${encodeURIComponent(dealId)}/move`, input, { token: accessToken });
+}

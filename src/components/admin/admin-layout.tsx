@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next/pages";
 import * as React from "react";
 import {
   ArrowLeftRight,
+  Briefcase,
   BadgeCheck,
   CarFront,
   FileText,
@@ -145,6 +146,11 @@ export function AdminLayout({
       href: "/admin/integrations",
       label: t("layout.nav.integrations"),
       icon: Plug,
+    },
+    {
+      href: "/admin/crm",
+      label: t("layout.nav.crm"),
+      icon: Briefcase,
     },
     {
       href: "/admin/rbac",

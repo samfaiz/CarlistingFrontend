@@ -21,7 +21,8 @@
       "analytics": "التحليلات",
       "integrations": "عمليات التكامل",
       "vsPairs": "صفحات المقارنة",
-      "rbac": "الأدوار والصلاحيات"
+      "rbac": "الأدوار والصلاحيات",
+      "crm": "مبيعات CRM"
     },
     "signOut": "تسجيل الخروج",
     "stepUpRedirect": "جارٍ التحويل إلى التحقق بمفتاح المرور…"
@@ -692,6 +693,29 @@
       "roleInUse": "الدور لا يزال معينًا — أعد تعيين هؤلاء الموظفين أولًا",
       "assigned": "تم تحديث الوصول",
       "grantAdded": "تمت إضافة المنح المؤقت"
+    }
+  },
+  "crm": {
+    "title": "مبيعات CRM",
+    "pipelineNew": "أعمال جديدة",
+    "pipelineRenewals": "التجديدات",
+    "totalOpen": "مفتوح",
+    "totalWon": "مكسوب",
+    "newDeal": "صفقة جديدة",
+    "ruleTitle": "الانتقال إلى \"{{stage}}\" يتطلب تفاصيل",
+    "ruleNote": "ملاحظة (مطلوبة)",
+    "ruleNotePlaceholder": "لماذا تُغلق هذه الصفقة؟",
+    "ruleReason": "سبب الخسارة (مطلوب)",
+    "ruleConfirm": "نقل الصفقة",
+    "account": "الحساب",
+    "dealTitle": "العنوان",
+    "dealValue": "القيمة (درهم)",
+    "cancel": "إلغاء",
+    "create": "إنشاء",
+    "toast": {
+      "loadFailed": "تعذر تحميل اللوحة",
+      "moveFailed": "النقل غير مسموح",
+      "dealCreated": "تم إنشاء الصفقة"
     }
   }
 }

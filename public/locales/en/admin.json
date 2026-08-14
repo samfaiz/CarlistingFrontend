@@ -21,7 +21,8 @@
       "analytics": "Analytics",
       "integrations": "Integrations",
       "vsPairs": "VS pages",
-      "rbac": "Roles & permissions"
+      "rbac": "Roles & permissions",
+      "crm": "Sales CRM"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -692,6 +693,29 @@
       "roleInUse": "Role is still assigned — reassign those staff first",
       "assigned": "Access updated",
       "grantAdded": "Time-bound grant added"
+    }
+  },
+  "crm": {
+    "title": "Sales CRM",
+    "pipelineNew": "New Business",
+    "pipelineRenewals": "Renewals",
+    "totalOpen": "Open",
+    "totalWon": "Won",
+    "newDeal": "New deal",
+    "ruleTitle": "Moving to \"{{stage}}\" needs details",
+    "ruleNote": "Note (required)",
+    "ruleNotePlaceholder": "Why is this deal closing?",
+    "ruleReason": "Loss reason (required)",
+    "ruleConfirm": "Move deal",
+    "account": "Account",
+    "dealTitle": "Title",
+    "dealValue": "Value (AED)",
+    "cancel": "Cancel",
+    "create": "Create",
+    "toast": {
+      "loadFailed": "Could not load the board",
+      "moveFailed": "Move not allowed",
+      "dealCreated": "Deal created"
     }
   }
 }
