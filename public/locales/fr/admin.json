@@ -20,7 +20,8 @@
       "spec": "BD spécifications",
       "analytics": "Analytique",
       "integrations": "Intégrations",
-      "vsPairs": "Pages VS"
+      "vsPairs": "Pages VS",
+      "rbac": "Rôles et permissions"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"
@@ -652,6 +653,45 @@
       "updateFailed": "Échec de la mise à jour",
       "introSaved": "Intro enregistrée",
       "deleted": "Paire supprimée"
+    }
+  },
+  "rbac": {
+    "title": "Rôles et permissions",
+    "tabMatrix": "Matrice des permissions",
+    "tabStaff": "Accès du personnel",
+    "newRole": "Nouveau rôle",
+    "review": "Examiner les changements",
+    "colPermission": "Permission",
+    "template": "modèle",
+    "templateHint": "Modèle (lecture seule — clonez pour modifier)",
+    "superOnly": "super",
+    "delete": "supprimer",
+    "legacyRole": "Admin hérité (marketplace complet)",
+    "addGrant": "Accès temporaire",
+    "until": "jusqu’au",
+    "revoke": "Révoquer",
+    "reviewTitle": "Examiner les changements de permissions",
+    "assigned": "assignés",
+    "cancel": "Annuler",
+    "applyChanges": "Appliquer",
+    "roleName": "Nom du rôle",
+    "cloneFrom": "Partir de (modèle ou rôle)",
+    "blankRole": "Vierge",
+    "create": "Créer",
+    "grantTitle": "Accès temporaire",
+    "grantPerm": "Permission",
+    "grantHours": "Expire dans (heures)",
+    "grantReason": "Motif (audité)",
+    "grantAdd": "Accorder",
+    "toast": {
+      "loadFailed": "Impossible de charger la matrice",
+      "saved": "Matrice enregistrée",
+      "saveFailed": "Échec de l’enregistrement",
+      "roleCreated": "Rôle créé",
+      "roleDeleted": "Rôle supprimé",
+      "roleInUse": "Le rôle est encore assigné — réassignez ce personnel d’abord",
+      "assigned": "Accès mis à jour",
+      "grantAdded": "Accès temporaire ajouté"
     }
   }
 }

@@ -20,7 +20,8 @@
       "spec": "قاعدة المواصفات",
       "analytics": "التحليلات",
       "integrations": "عمليات التكامل",
-      "vsPairs": "صفحات المقارنة"
+      "vsPairs": "صفحات المقارنة",
+      "rbac": "الأدوار والصلاحيات"
     },
     "signOut": "تسجيل الخروج",
     "stepUpRedirect": "جارٍ التحويل إلى التحقق بمفتاح المرور…"
@@ -652,6 +653,45 @@
       "updateFailed": "فشل التحديث",
       "introSaved": "تم حفظ المقدمة",
       "deleted": "تم حذف الزوج"
+    }
+  },
+  "rbac": {
+    "title": "الأدوار والصلاحيات",
+    "tabMatrix": "مصفوفة الصلاحيات",
+    "tabStaff": "وصول الموظفين",
+    "newRole": "دور جديد",
+    "review": "مراجعة التغييرات",
+    "colPermission": "الصلاحية",
+    "template": "قالب",
+    "templateHint": "قالب (للقراءة فقط — انسخه للتعديل)",
+    "superOnly": "سوبر",
+    "delete": "حذف",
+    "legacyRole": "مشرف قديم (كامل السوق)",
+    "addGrant": "منح مؤقت",
+    "until": "حتى",
+    "revoke": "إلغاء",
+    "reviewTitle": "مراجعة تغييرات الصلاحيات",
+    "assigned": "معيّن",
+    "cancel": "إلغاء",
+    "applyChanges": "تطبيق التغييرات",
+    "roleName": "اسم الدور",
+    "cloneFrom": "ابدأ من (قالب أو دور)",
+    "blankRole": "فارغ",
+    "create": "إنشاء",
+    "grantTitle": "منح مؤقت",
+    "grantPerm": "الصلاحية",
+    "grantHours": "ينتهي خلال (ساعات)",
+    "grantReason": "السبب (مسجل)",
+    "grantAdd": "منح",
+    "toast": {
+      "loadFailed": "تعذر تحميل المصفوفة",
+      "saved": "تم حفظ المصفوفة",
+      "saveFailed": "فشل الحفظ",
+      "roleCreated": "تم إنشاء الدور",
+      "roleDeleted": "تم حذف الدور",
+      "roleInUse": "الدور لا يزال معينًا — أعد تعيين هؤلاء الموظفين أولًا",
+      "assigned": "تم تحديث الوصول",
+      "grantAdded": "تمت إضافة المنح المؤقت"
     }
   }
 }

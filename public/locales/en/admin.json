@@ -20,7 +20,8 @@
       "spec": "Spec DB",
       "analytics": "Analytics",
       "integrations": "Integrations",
-      "vsPairs": "VS pages"
+      "vsPairs": "VS pages",
+      "rbac": "Roles & permissions"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"
@@ -652,6 +653,45 @@
       "updateFailed": "Update failed",
       "introSaved": "Intro copy saved",
       "deleted": "Pair deleted"
+    }
+  },
+  "rbac": {
+    "title": "Roles & permissions",
+    "tabMatrix": "Permission matrix",
+    "tabStaff": "Staff access",
+    "newRole": "New role",
+    "review": "Review changes",
+    "colPermission": "Permission",
+    "template": "template",
+    "templateHint": "Template (read-only — clone to edit)",
+    "superOnly": "super",
+    "delete": "delete",
+    "legacyRole": "Legacy admin (full marketplace)",
+    "addGrant": "Time-bound grant",
+    "until": "until",
+    "revoke": "Revoke",
+    "reviewTitle": "Review permission changes",
+    "assigned": "assigned",
+    "cancel": "Cancel",
+    "applyChanges": "Apply changes",
+    "roleName": "Role name",
+    "cloneFrom": "Start from (template or role)",
+    "blankRole": "Blank",
+    "create": "Create",
+    "grantTitle": "Time-bound grant",
+    "grantPerm": "Permission",
+    "grantHours": "Expires in (hours)",
+    "grantReason": "Reason (audited)",
+    "grantAdd": "Grant",
+    "toast": {
+      "loadFailed": "Could not load the matrix",
+      "saved": "Matrix saved",
+      "saveFailed": "Save failed",
+      "roleCreated": "Role created",
+      "roleDeleted": "Role deleted",
+      "roleInUse": "Role is still assigned — reassign those staff first",
+      "assigned": "Access updated",
+      "grantAdded": "Time-bound grant added"
     }
   }
 }

@@ -20,7 +20,8 @@
       "spec": "BD de fichas",
       "analytics": "Analíticas",
       "integrations": "Integraciones",
-      "vsPairs": "Páginas VS"
+      "vsPairs": "Páginas VS",
+      "rbac": "Roles y permisos"
     },
     "signOut": "Cerrar sesión",
     "stepUpRedirect": "Redirigiendo a la verificación con passkey…"
@@ -652,6 +653,45 @@
       "updateFailed": "Error al actualizar",
       "introSaved": "Intro guardada",
       "deleted": "Par eliminado"
+    }
+  },
+  "rbac": {
+    "title": "Roles y permisos",
+    "tabMatrix": "Matriz de permisos",
+    "tabStaff": "Acceso del personal",
+    "newRole": "Nuevo rol",
+    "review": "Revisar cambios",
+    "colPermission": "Permiso",
+    "template": "plantilla",
+    "templateHint": "Plantilla (solo lectura — clónala para editar)",
+    "superOnly": "súper",
+    "delete": "eliminar",
+    "legacyRole": "Admin heredado (marketplace completo)",
+    "addGrant": "Permiso temporal",
+    "until": "hasta",
+    "revoke": "Revocar",
+    "reviewTitle": "Revisar cambios de permisos",
+    "assigned": "asignados",
+    "cancel": "Cancelar",
+    "applyChanges": "Aplicar cambios",
+    "roleName": "Nombre del rol",
+    "cloneFrom": "Partir de (plantilla o rol)",
+    "blankRole": "En blanco",
+    "create": "Crear",
+    "grantTitle": "Permiso temporal",
+    "grantPerm": "Permiso",
+    "grantHours": "Caduca en (horas)",
+    "grantReason": "Motivo (auditado)",
+    "grantAdd": "Conceder",
+    "toast": {
+      "loadFailed": "No se pudo cargar la matriz",
+      "saved": "Matriz guardada",
+      "saveFailed": "Error al guardar",
+      "roleCreated": "Rol creado",
+      "roleDeleted": "Rol eliminado",
+      "roleInUse": "El rol sigue asignado — reasigna a ese personal primero",
+      "assigned": "Acceso actualizado",
+      "grantAdded": "Permiso temporal añadido"
     }
   }
 }

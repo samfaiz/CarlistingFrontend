@@ -147,6 +147,11 @@ export function AdminLayout({
       icon: Plug,
     },
     {
+      href: "/admin/rbac",
+      label: t("layout.nav.rbac"),
+      icon: ShieldCheck,
+    },
+    {
       href: "/admin/security",
       label: t("layout.nav.security"),
       icon: KeyRound,

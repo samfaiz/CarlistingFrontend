@@ -834,3 +834,94 @@ export function adminUpdateVsPair(
 export function adminDeleteVsPair(id: string, accessToken: string): Promise<{ deleted: boolean }> {
   return apiDelete(`/admin/vs-pairs/${encodeURIComponent(id)}`, { token: accessToken });
 }
+
+/* ------------------------------------------------------------------ */
+/* RBAC v2 — G1-01 (FR-RB2..RB7)                                      */
+/* ------------------------------------------------------------------ */
+
+export interface RbacPermissionDef {
+  key: string;
+  label: string;
+  superAdminOnly?: boolean;
+}
+
+export interface RbacModuleDef {
+  key: string;
+  label: string;
+  permissions: RbacPermissionDef[];
+}
+
+export interface RbacRole {
+  id: string;
+  slug: string;
+  name: string;
+  description: string | null;
+  permissions: string[];
+  dataScopes: Record<string, unknown> | null;
+  isTemplate: boolean;
+  assignedUsers: number;
+}
+
+export interface RbacStaffMember {
+  id: string;
+  email: string;
+  name: string;
+  role: "ADMIN" | "SUPER_ADMIN";
+  status: string;
+  permissions: string[];
+  permissionDenials: string[];
+  dataScopes: Record<string, unknown> | null;
+  staffRole: { id: string; name: string; slug: string } | null;
+  permissionGrants: { id: string; permission: string; expiresAt: string; reason: string | null }[];
+}
+
+export function rbacMatrix(accessToken: string): Promise<{ modules: RbacModuleDef[]; roles: RbacRole[] }> {
+  return apiGet(`/admin/rbac/matrix`, { token: accessToken });
+}
+
+export function rbacCreateRole(
+  input: { name: string; description?: string; permissions: string[]; cloneFromId?: string; dataScopes?: Record<string, unknown> },
+  accessToken: string,
+): Promise<RbacRole> {
+  return apiPost(`/admin/rbac/roles`, input, { token: accessToken });
+}
+
+export function rbacUpdateRole(
+  id: string,
+  input: { name?: string; description?: string; permissions?: string[]; dataScopes?: Record<string, unknown> },
+  accessToken: string,
+): Promise<RbacRole> {
+  return apiPut(`/admin/rbac/roles/${encodeURIComponent(id)}`, input, { token: accessToken });
+}
+
+export function rbacDeleteRole(id: string, accessToken: string): Promise<{ deleted: boolean }> {
+  return apiDelete(`/admin/rbac/roles/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export function rbacStaff(accessToken: string): Promise<{ items: RbacStaffMember[] }> {
+  return apiGet(`/admin/rbac/staff`, { token: accessToken });
+}
+
+export function rbacUpdateStaff(
+  userId: string,
+  input: { staffRoleId?: string | null; grants?: string[]; denials?: string[]; dataScopes?: Record<string, unknown> | null },
+  accessToken: string,
+): Promise<unknown> {
+  return apiPut(`/admin/rbac/staff/${encodeURIComponent(userId)}`, input, { token: accessToken });
+}
+
+export function rbacAddGrant(
+  userId: string,
+  input: { permission: string; expiresAt: string; reason?: string },
+  accessToken: string,
+): Promise<unknown> {
+  return apiPost(`/admin/rbac/staff/${encodeURIComponent(userId)}/grants`, input, { token: accessToken });
+}
+
+export function rbacRevokeGrant(grantId: string, accessToken: string): Promise<unknown> {
+  return apiDelete(`/admin/rbac/grants/${encodeURIComponent(grantId)}`, { token: accessToken });
+}
+
+export function rbacMe(accessToken: string): Promise<{ permissions: string[]; dataScopes: Record<string, unknown> }> {
+  return apiGet(`/admin/rbac/me`, { token: accessToken });
+}
