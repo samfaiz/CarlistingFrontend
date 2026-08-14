@@ -155,7 +155,7 @@ export function AdminLayout({
       </Head>
 
       <div className="flex min-h-screen flex-col md:flex-row">
-        <aside className="flex w-full shrink-0 flex-col border-b border-line bg-card md:min-h-screen md:w-60 md:border-b-0 md:border-e">
+        <aside className="flex w-full shrink-0 flex-col border-b border-line bg-card md:sticky md:top-0 md:h-screen md:w-60 md:border-b-0 md:border-e">
           <div className="flex h-16 items-center gap-2 border-b border-line px-4">
             <Link
               href="/admin"
@@ -179,7 +179,7 @@ export function AdminLayout({
 
           <nav
             aria-label={t("layout.nav.label")}
-            className="flex flex-row gap-1 p-3 md:flex-1 md:flex-col"
+            className="flex flex-row flex-wrap gap-1 p-3 md:min-h-0 md:flex-1 md:flex-col md:flex-nowrap md:overflow-y-auto"
           >
             {nav.map((item) => {
               const active = router.pathname.startsWith(item.href);
