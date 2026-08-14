@@ -162,7 +162,8 @@
       "enrolled": "Passkey created — you are stepped up",
       "steppedUp": "Step-up verified",
       "failed": "The passkey ceremony did not complete"
-    }
+    },
+    "addHere": "Passkeys listed above may belong to another device. Add one for this device to step up here."
   },
   "users": {
     "title": "Users",

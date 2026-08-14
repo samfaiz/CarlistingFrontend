@@ -162,7 +162,8 @@
       "enrolled": "Passkey creada — verificación completada",
       "steppedUp": "Verificación completada",
       "failed": "La ceremonia de la passkey no se completó"
-    }
+    },
+    "addHere": "Las llaves de acceso listadas pueden pertenecer a otro dispositivo. Añade una para este dispositivo."
   },
   "users": {
     "title": "Usuarios",

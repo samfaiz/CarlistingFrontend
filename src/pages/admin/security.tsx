@@ -163,6 +163,37 @@ export default function AdminSecurityPage() {
                   {t("security.stepUp")}
                 </Button>
               )}
+              {/* Escape hatch: the listed passkeys may live on ANOTHER device
+                  (or be test artifacts). Always allow enrolling one here, so a
+                  staffer is never locked out of their own airlock. Registration
+                  is password-authenticated and doubles as the step-up — same
+                  backend policy as first-time enrolment. */}
+              <div className="mt-5 space-y-3 border-t border-line pt-4">
+                <p className="text-xs text-muted">{t("security.addHere")}</p>
+                <div>
+                  <Label htmlFor="passkey-label-extra">{t("security.labelField")}</Label>
+                  <Input
+                    id="passkey-label-extra"
+                    value={label}
+                    onChange={(event) => setLabel(event.target.value)}
+                    placeholder={t("security.labelPlaceholder")}
+                    maxLength={60}
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  disabled={busy || !supported}
+                  onClick={() => void enrol()}
+                >
+                  {busy ? (
+                    <Loader2 className="animate-spin" aria-hidden />
+                  ) : (
+                    <Fingerprint aria-hidden />
+                  )}
+                  {t("security.enrol")}
+                </Button>
+              </div>
             </>
           ) : (
             <div className="mt-4 space-y-3">
