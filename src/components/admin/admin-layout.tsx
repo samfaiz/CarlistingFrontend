@@ -11,7 +11,11 @@ import { useTranslation } from "next-i18next/pages";
 import * as React from "react";
 import {
   ArrowLeftRight,
+  Banknote,
+  Brain,
   Briefcase,
+  Palette,
+  TrendingUp,
   BadgeCheck,
   CarFront,
   FileText,
@@ -151,6 +155,26 @@ export function AdminLayout({
       href: "/admin/crm",
       label: t("layout.nav.crm"),
       icon: Briefcase,
+    },
+    {
+      href: "/admin/finance",
+      label: t("layout.nav.finance"),
+      icon: Banknote,
+    },
+    {
+      href: "/admin/growth",
+      label: t("layout.nav.growth"),
+      icon: TrendingUp,
+    },
+    {
+      href: "/admin/studio",
+      label: t("layout.nav.studio"),
+      icon: Palette,
+    },
+    {
+      href: "/admin/intelligence",
+      label: t("layout.nav.intelligence"),
+      icon: Brain,
     },
     {
       href: "/admin/rbac",

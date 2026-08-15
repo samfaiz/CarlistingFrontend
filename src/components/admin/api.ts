@@ -1221,3 +1221,315 @@ export function adsLinkCreative(
 export function adsRecordSpend(id: string, input: { day: string; spendAed: number }, accessToken: string): Promise<unknown> {
   return apiPost(`/ads/campaigns/${encodeURIComponent(id)}/spend`, input, { token: accessToken });
 }
+
+// ─────────────────────── G7/G8 Finance ───────────────────────
+
+export interface FinanceDashboards {
+  mrr: { series: { period: string; amountAed: number }[]; latestMonthAed: number; arrRunRateAed: number };
+  invoicedVsCollected: {
+    invoiced: { period: string; amountAed: number }[];
+    collected: { period: string; amountAed: number }[];
+    deferredBalanceAed: number;
+  };
+  dsoDays: number;
+  ceiPct: number;
+  agingHeatmap: {
+    totals: Record<string, number>;
+    totalArAed: number;
+    dealers: { dealerId: string; dealerName: string; totalAed: number; d1_30: number; d31_60: number; d61_90: number; d91_120: number; d120_plus: number }[];
+  };
+  commissionLiabilityAed: number;
+  cashPosition: { inAed: number; outAed: number; netAed: number; pdcDue30dAed: number };
+}
+
+export function financeDashboards(accessToken: string): Promise<FinanceDashboards> {
+  return apiGet(`/finance/dashboards`, { token: accessToken });
+}
+
+export interface CollectionRow {
+  id: string;
+  number: string | null;
+  dealerName: string;
+  remainingAed: number;
+  daysOverdue: number;
+  lastFollowUpAt: string | null;
+  openPromise: { promisedAt: string | null; amountAed: number | null } | null;
+}
+
+export function financeWorkqueue(accessToken: string): Promise<CollectionRow[]> {
+  return apiGet(`/finance/collections/workqueue`, { token: accessToken });
+}
+
+export interface PdcRow {
+  id: string;
+  chequeNumber: string;
+  draweeBank: string;
+  amountAed: string;
+  dueDate: string;
+  status: string;
+  dealer: { name: string };
+}
+
+export function financePdc(accessToken: string, status?: string): Promise<PdcRow[]> {
+  const qs = status ? `?status=${encodeURIComponent(status)}` : "";
+  return apiGet(`/finance/pdc${qs}`, { token: accessToken });
+}
+
+export function financePdcAction(id: string, action: "deposit" | "clear", accessToken: string): Promise<unknown> {
+  return apiPost(`/finance/pdc/${encodeURIComponent(id)}/${action}`, {}, { token: accessToken });
+}
+
+export function financePdcBounce(id: string, reason: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/finance/pdc/${encodeURIComponent(id)}/bounce`, { reason }, { token: accessToken });
+}
+
+export function financePeriods(accessToken: string): Promise<{ period: string; status: string; closedAt: string | null }[]> {
+  return apiGet(`/finance/periods`, { token: accessToken });
+}
+
+export function financeClosePeriod(period: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/finance/periods/close`, { period }, { token: accessToken });
+}
+
+export function financeSequenceAudit(accessToken: string): Promise<{
+  allGapFree: boolean;
+  invoices: { series: string; count: number; gaps: number[]; gapFree: boolean }[];
+  creditNotes: { series: string; count: number; gapFree: boolean }[];
+  receipts: { series: string; count: number; gapFree: boolean }[];
+}> {
+  return apiGet(`/finance/controls/sequence-audit`, { token: accessToken });
+}
+
+export interface TransmissionRow {
+  id: string;
+  documentKey: string;
+  status: string;
+  attempts: number;
+  lastError: string | null;
+  submittedAt: string | null;
+  tddReportedAt: string | null;
+}
+
+export function financeTransmissions(accessToken: string): Promise<TransmissionRow[]> {
+  return apiGet(`/finance/einvoicing`, { token: accessToken });
+}
+
+export function financeProcessTransmissions(accessToken: string): Promise<{ submitted: number; progressed: number; failed: number }> {
+  return apiPost(`/finance/einvoicing/process`, {}, { token: accessToken });
+}
+
+export function financeVat201(period: string, accessToken: string): Promise<{
+  period: string;
+  netVatDueAed: number;
+  boxes: {
+    box1ByEmirate: { emirate: string; amountAed: number; vatAed: number }[];
+    box1TotalVatAed: number;
+    box3RcmOutputVatAed: number;
+    box9InputVatAed: number;
+  };
+  reconciliations: { returnToRegister: { differenceAed: number }; returnToLedger: { ledgerClean: boolean } };
+}> {
+  return apiPost(`/finance/tax/vat201`, { period }, { token: accessToken });
+}
+
+// ─────────────────────── G2 Marketing ───────────────────────
+
+export function marketingDashboard(accessToken: string): Promise<Record<string, unknown>> {
+  return apiGet(`/marketing/dashboard`, { token: accessToken });
+}
+
+export interface MarketingLeadRow {
+  id: string;
+  name: string;
+  platform: string;
+  status: string;
+  campaignId: string | null;
+  utmCampaign: string | null;
+  createdAt: string;
+}
+
+export function marketingLeads(accessToken: string, status?: string): Promise<{ items: MarketingLeadRow[]; total: number }> {
+  const qs = status ? `?status=${encodeURIComponent(status)}` : "";
+  return apiGet(`/marketing/leads${qs}`, { token: accessToken });
+}
+
+// ─────────────────────── G3 SEO ───────────────────────
+
+export function seoDashboard(accessToken: string): Promise<Record<string, unknown>> {
+  return apiGet(`/seo/dashboard`, { token: accessToken });
+}
+
+export interface SeoKeywordRow {
+  id: string;
+  keyword: string;
+  locale: string;
+  latestPosition: number | null;
+  targetUrl: string | null;
+}
+
+export function seoKeywords(accessToken: string): Promise<SeoKeywordRow[]> {
+  return apiGet(`/seo/keywords`, { token: accessToken });
+}
+
+export function seoRunTracking(accessToken: string): Promise<{ tracked: number; totalCostUsd: number }> {
+  return apiPost(`/seo/rank/run`, {}, { token: accessToken });
+}
+
+export interface SeoTechRow {
+  id: string;
+  kind: string;
+  ok: boolean;
+  detail: string | null;
+  createdAt: string;
+}
+
+export function seoTech(accessToken: string): Promise<SeoTechRow[]> {
+  return apiGet(`/seo/tech`, { token: accessToken });
+}
+
+export function seoRunTech(accessToken: string): Promise<{ ran: number; failures: number }> {
+  return apiPost(`/seo/tech/run`, {}, { token: accessToken });
+}
+
+// ─────────────────────── G5 Intelligence ───────────────────────
+
+export interface SimPersona {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  locale: string;
+  active: boolean;
+  builtin: boolean;
+}
+
+export function intelPersonas(accessToken: string): Promise<SimPersona[]> {
+  return apiGet(`/intel/personas`, { token: accessToken });
+}
+
+export interface SimulationResult {
+  id: string;
+  aggregateScore: string | null;
+  disclaimer: string;
+  suggestions: { suggestion: string; personaVotes: number }[];
+  subjects: { key: string; label: string; kind: string; avgScore: number }[];
+  personaCount: number;
+}
+
+export function intelRunSimulation(
+  input: {
+    label?: string;
+    copy?: { headline: string; body?: string; cta?: string };
+    sceneId?: string;
+    competitorAdIds?: string[];
+    platform?: string;
+  },
+  accessToken: string,
+): Promise<SimulationResult> {
+  return apiPost(`/intel/simulations`, input, { token: accessToken });
+}
+
+export function intelSimulations(accessToken: string): Promise<{ disclaimer: string; runs: Record<string, unknown>[] }> {
+  return apiGet(`/intel/simulations`, { token: accessToken });
+}
+
+export function intelApplySuggestions(runId: string, accessToken: string): Promise<{ scene: { id: string; name: string } }> {
+  return apiPost(`/intel/simulations/${encodeURIComponent(runId)}/apply`, {}, { token: accessToken });
+}
+
+export interface CompetitorRow {
+  id: string;
+  name: string;
+  websiteUrl: string;
+  marketPosition: string | null;
+  active: boolean;
+  _count: { alerts: number; snapshots: number; reports: number };
+}
+
+export function intelCompetitors(accessToken: string): Promise<CompetitorRow[]> {
+  return apiGet(`/intel/competitors`, { token: accessToken });
+}
+
+export function intelAddCompetitor(
+  input: { name: string; websiteUrl: string; marketPosition?: string; watchUrls?: string[] },
+  accessToken: string,
+): Promise<CompetitorRow> {
+  return apiPost(`/intel/competitors`, input, { token: accessToken });
+}
+
+export function intelMonitor(accessToken: string): Promise<{ competitors: number; urlsChecked: number; changes: number; alerts: number }> {
+  return apiPost(`/intel/competitors/monitor`, {}, { token: accessToken });
+}
+
+export interface CompetitorAlertRow {
+  id: string;
+  kind: string;
+  title: string;
+  detail: string | null;
+  createdAt: string;
+  acknowledgedAt: string | null;
+  competitor: { name: string };
+}
+
+export function intelAlerts(accessToken: string): Promise<CompetitorAlertRow[]> {
+  return apiGet(`/intel/competitors/alerts/list`, { token: accessToken });
+}
+
+export function intelAckAlert(id: string, accessToken: string): Promise<unknown> {
+  return apiPost(`/intel/competitors/alerts/${encodeURIComponent(id)}/ack`, {}, { token: accessToken });
+}
+
+export function intelReport(competitorId: string, accessToken: string): Promise<{ id: string; promptPackVersion: number }> {
+  return apiPost(`/intel/competitors/${encodeURIComponent(competitorId)}/report`, {}, { token: accessToken });
+}
+
+export interface FeatureFlagRow {
+  key: string;
+  description: string | null;
+  enabled: boolean;
+  killed: boolean;
+  rolloutPct: number;
+  targeting: Record<string, string[]> | null;
+}
+
+export function intelFlags(accessToken: string): Promise<FeatureFlagRow[]> {
+  return apiGet(`/intel/flags`, { token: accessToken });
+}
+
+export function intelUpsertFlag(
+  input: { key: string; description?: string; enabled?: boolean; killed?: boolean; rolloutPct?: number },
+  accessToken: string,
+): Promise<FeatureFlagRow> {
+  return apiPut(`/intel/flags`, input, { token: accessToken });
+}
+
+export interface ExperimentRow {
+  key: string;
+  name: string;
+  surface: string;
+  status: string;
+  variants: { key: string; weight: number }[];
+  guardrails: { metricKey: string; direction: string; thresholdPct: number }[];
+  flaggedAt: string | null;
+  flaggedReason: string | null;
+}
+
+export function intelExperiments(accessToken: string): Promise<ExperimentRow[]> {
+  return apiGet(`/intel/experiments`, { token: accessToken });
+}
+
+export function intelExperimentResults(
+  key: string,
+  accessToken: string,
+): Promise<{
+  totalExposures: number;
+  variants: { key: string; weight: number; exposures: number; metrics: Record<string, { count: number; sum: number }> }[];
+  srm: { chiSquare: number; threshold: number; detected: boolean };
+  guardrails: { breaches: { variantKey: string; metricKey: string; deltaPct: number }[]; flagged: boolean };
+}> {
+  return apiGet(`/intel/experiments/${encodeURIComponent(key)}/results`, { token: accessToken });
+}
+
+export function intelExperimentAction(key: string, action: "start" | "stop", accessToken: string): Promise<unknown> {
+  return apiPost(`/intel/experiments/${encodeURIComponent(key)}/${action}`, {}, { token: accessToken });
+}
