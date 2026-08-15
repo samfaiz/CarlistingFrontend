@@ -14,6 +14,8 @@ export default function MkloginPage() {
   const router = useRouter();
   const [error, setError] = React.useState<string | null>(null);
   const [busy, setBusy] = React.useState(false);
+  // The mockup shipped a show/hide button with no handler — wire it for real.
+  const [showPassword, setShowPassword] = React.useState(false);
 
   // Keep the pixel-exact mockup form, but make it actually authenticate.
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,14 +53,29 @@ export default function MkloginPage() {
                   <p className="form-error" role="alert" style={{ color: "var(--error)", fontSize: 13, margin: "0 0 12px" }}>{error}</p>
                 )}
                 <div className="form-group">
-                  <label>{t("form.emailLabel")}</label>
-                  <input name="email" required className="form-input" type="email" placeholder={t("form.emailPlaceholder")} autoComplete="email" />
+                  <label htmlFor="email">{t("form.emailLabel")}</label>
+                  <input id="email" name="email" required className="form-input" type="email" placeholder={t("form.emailPlaceholder")} autoComplete="email" />
                 </div>
                 <div className="form-group">
-                  <label>{t("form.passwordLabel")}</label>
+                  <label htmlFor="password">{t("form.passwordLabel")}</label>
                   <div className="pwd-wrap">
-                    <input name="password" required className="form-input" type="password" id="loginPwd" placeholder="••••••••" autoComplete="current-password" />
-                    <button className="pwd-toggle" type="button" data-target="loginPwd" title={t("form.togglePassword")}>
+                    <input
+                      name="password"
+                      required
+                      className="form-input"
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      placeholder="••••••••"
+                      autoComplete="current-password"
+                    />
+                    <button
+                      className="pwd-toggle"
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      aria-pressed={showPassword}
+                      aria-label={t("form.togglePassword")}
+                      title={t("form.togglePassword")}
+                    >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                     </button>
                   </div>

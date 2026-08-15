@@ -1013,3 +1013,211 @@ export function crmMoveDeal(
 ): Promise<unknown> {
   return apiPost(`/crm/deals/${encodeURIComponent(dealId)}/move`, input, { token: accessToken });
 }
+
+// ─────────────────────── G4 Studio + Ads Manager ───────────────────────
+
+export interface StudioPreset {
+  key: string;
+  label: string;
+  width: number;
+  height: number;
+}
+
+export interface StudioLayer {
+  id: string;
+  type: "rect" | "circle" | "text" | "image";
+  x: number;
+  y: number;
+  width?: number;
+  height?: number;
+  radius?: number;
+  rotation?: number;
+  fill?: string;
+  stroke?: string;
+  strokeWidth?: number;
+  cornerRadius?: number;
+  opacity?: number;
+  text?: string;
+  fontSize?: number;
+  fontFamily?: string;
+  fontStyle?: string;
+  align?: string;
+  s3Key?: string;
+  role?: string;
+  name?: string;
+  visible?: boolean;
+}
+
+export interface StudioScene {
+  id: string;
+  versionGroupId: string;
+  version: number;
+  name: string;
+  kind: string;
+  presetKey: string;
+  width: number;
+  height: number;
+  scene: { layers: StudioLayer[] };
+  brief?: string | null;
+  locale?: string;
+  updatedAt: string;
+  versions?: { id: string; version: number; createdAt: string }[];
+}
+
+export interface StudioAssetRow {
+  id: string;
+  versionGroupId: string;
+  version: number;
+  name: string;
+  kind: string;
+  tags: string[];
+  mimeType: string;
+  s3Key: string;
+  origin: string;
+  createdAt: string;
+  versions?: { id: string; version: number; s3Key: string; createdAt: string }[];
+  usedInCampaigns?: { id: string; name: string; platform: string; status: string }[];
+}
+
+export interface FalModelRow {
+  key: string;
+  label: string;
+  costUsd: number;
+  tier: string;
+}
+
+export function studioPresets(accessToken: string): Promise<StudioPreset[]> {
+  return apiGet(`/studio/presets`, { token: accessToken });
+}
+
+export function studioScenes(accessToken: string, kind = "AD"): Promise<StudioScene[]> {
+  return apiGet(`/studio/scenes?kind=${encodeURIComponent(kind)}`, { token: accessToken });
+}
+
+export function studioScene(id: string, accessToken: string): Promise<StudioScene> {
+  return apiGet(`/studio/scenes/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export function studioSaveScene(
+  input: {
+    name: string;
+    presetKey: string;
+    scene: { layers: StudioLayer[] };
+    kind?: string;
+    versionGroupId?: string;
+    locale?: string;
+    dealerId?: string;
+  },
+  accessToken: string,
+): Promise<StudioScene> {
+  return apiPost(`/studio/scenes`, input, { token: accessToken });
+}
+
+export function studioRenderScene(
+  id: string,
+  input: { format?: "svg" | "png" | "jpg"; scale?: number; register?: boolean },
+  accessToken: string,
+): Promise<{ s3Key: string; mimeType: string; sizeBytes: number; width: number; height: number }> {
+  return apiPost(`/studio/scenes/${encodeURIComponent(id)}/render`, input, { token: accessToken });
+}
+
+export function studioAiModels(accessToken: string): Promise<FalModelRow[]> {
+  return apiGet(`/studio/ai/models`, { token: accessToken });
+}
+
+export function studioGenerateImage(
+  input: { modelKey: string; prompt: string; width?: number; height?: number },
+  accessToken: string,
+): Promise<{ s3Key: string; mimeType: string; provider: string; costUsd: number }> {
+  return apiPost(`/studio/ai/image`, input, { token: accessToken });
+}
+
+export function studioGenerateLayout(
+  input: { brief: string; presetKey: string; locale?: string; tone?: string; generateImagery?: boolean },
+  accessToken: string,
+): Promise<{ scene: StudioScene; copy: { headline: string; body: string; cta: string } }> {
+  return apiPost(`/studio/ai/layout`, input, { token: accessToken });
+}
+
+export function studioGenerateCopy(
+  input: { brief: string; platform: string; tone?: string; locales?: string[] },
+  accessToken: string,
+): Promise<{
+  platform: string;
+  tone: string;
+  limits: { headline: number; primary: number; cta: number };
+  variants: Record<string, { headline: string; primary: string; cta: string; withinLimits: boolean }>;
+}> {
+  return apiPost(`/studio/ai/copy`, input, { token: accessToken });
+}
+
+export function studioAssets(
+  accessToken: string,
+  params: { q?: string; kind?: string; tag?: string } = {},
+): Promise<{ items: StudioAssetRow[]; total: number }> {
+  const qs = new URLSearchParams();
+  if (params.q) qs.set("q", params.q);
+  if (params.kind) qs.set("kind", params.kind);
+  if (params.tag) qs.set("tag", params.tag);
+  return apiGet(`/studio/assets${qs.toString() ? `?${qs.toString()}` : ""}`, { token: accessToken });
+}
+
+export function studioAsset(id: string, accessToken: string): Promise<StudioAssetRow> {
+  return apiGet(`/studio/assets/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export function studioRegisterAsset(
+  input: { name: string; s3Key: string; mimeType: string; kind?: string; tags?: string[]; sizeBytes?: number; versionGroupId?: string },
+  accessToken: string,
+): Promise<StudioAssetRow> {
+  return apiPost(`/studio/assets`, input, { token: accessToken });
+}
+
+export interface AdCampaignRow {
+  id: string;
+  name: string;
+  platform: string;
+  objective: string;
+  status: string;
+  budgetAed: string | number;
+  spendAed?: number;
+  utmUrl?: string | null;
+  creativeCount?: number;
+  attribution?: { leads: number; conversions: number; cplAed: number | null; costPerConversionAed: number | null };
+  creatives?: {
+    id: string;
+    asset?: { id: string; name: string; s3Key: string; mimeType: string } | null;
+    scene?: { id: string; name: string; presetKey: string } | null;
+  }[];
+}
+
+export function adsCampaigns(accessToken: string): Promise<AdCampaignRow[]> {
+  return apiGet(`/ads/campaigns`, { token: accessToken });
+}
+
+export function adsCampaign(id: string, accessToken: string): Promise<AdCampaignRow> {
+  return apiGet(`/ads/campaigns/${encodeURIComponent(id)}`, { token: accessToken });
+}
+
+export function adsCreateCampaign(
+  input: { name: string; platform: string; objective?: string; budgetAed?: number; landingPath?: string; utmContent?: string },
+  accessToken: string,
+): Promise<AdCampaignRow> {
+  return apiPost(`/ads/campaigns`, input, { token: accessToken });
+}
+
+export function adsSetCampaignStatus(id: string, status: string, accessToken: string): Promise<AdCampaignRow> {
+  return apiPut(`/ads/campaigns/${encodeURIComponent(id)}/status`, { status }, { token: accessToken });
+}
+
+export function adsLinkCreative(
+  id: string,
+  input: { assetId?: string; sceneId?: string; note?: string },
+  accessToken: string,
+): Promise<unknown> {
+  return apiPost(`/ads/campaigns/${encodeURIComponent(id)}/creatives`, input, { token: accessToken });
+}
+
+export function adsRecordSpend(id: string, input: { day: string; spendAed: number }, accessToken: string): Promise<unknown> {
+  return apiPost(`/ads/campaigns/${encodeURIComponent(id)}/spend`, input, { token: accessToken });
+}
