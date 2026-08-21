@@ -15,6 +15,8 @@ export default function MkresetPage() {
   const token = typeof router.query.token === "string" ? router.query.token : "";
   const [pwd, setPwd] = React.useState("");
   const [confirm, setConfirm] = React.useState("");
+  const [showNew, setShowNew] = React.useState(false);
+  const [showConfirm, setShowConfirm] = React.useState(false);
   const [state, setState] = React.useState<"form" | "success">("form");
   const [err, setErr] = React.useState<string | null>(null);
   const [busy, setBusy] = React.useState(false);
@@ -52,10 +54,10 @@ export default function MkresetPage() {
                 <form id="resetForm" onSubmit={onReset}>
                   {err && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{err}</p>}
                   <div className="form-group">
-                    <label>{t("form.newPassword.label")}</label>
+                    <label htmlFor="newPwd">{t("form.newPassword.label")}</label>
                     <div className="pwd-wrap">
-                      <input className="form-input" type="password" id="newPwd" value={pwd} onChange={(e) => setPwd(e.target.value)} placeholder={t("form.newPassword.placeholder")} autoComplete="new-password" required />
-                      <button className="pwd-toggle" type="button" data-target="newPwd" title={t("form.togglePassword")}>
+                      <input className="form-input" type={showNew ? "text" : "password"} id="newPwd" value={pwd} onChange={(e) => setPwd(e.target.value)} placeholder={t("form.newPassword.placeholder")} autoComplete="new-password" required />
+                      <button className="pwd-toggle" type="button" onClick={() => setShowNew((v) => !v)} aria-pressed={showNew} aria-controls="newPwd" aria-label={t("form.togglePassword")} title={t("form.togglePassword")}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
                     </div>
@@ -69,10 +71,10 @@ export default function MkresetPage() {
                   </div>
 
                   <div className="form-group">
-                    <label>{t("form.confirmPassword.label")}</label>
+                    <label htmlFor="confirmPwd">{t("form.confirmPassword.label")}</label>
                     <div className="pwd-wrap">
-                      <input className="form-input" type="password" id="confirmPwd" value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder={t("form.confirmPassword.placeholder")} autoComplete="new-password" required />
-                      <button className="pwd-toggle" type="button" data-target="confirmPwd" title={t("form.togglePassword")}>
+                      <input className="form-input" type={showConfirm ? "text" : "password"} id="confirmPwd" value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder={t("form.confirmPassword.placeholder")} autoComplete="new-password" required />
+                      <button className="pwd-toggle" type="button" onClick={() => setShowConfirm((v) => !v)} aria-pressed={showConfirm} aria-controls="confirmPwd" aria-label={t("form.togglePassword")} title={t("form.togglePassword")}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
                     </div>

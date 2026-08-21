@@ -140,26 +140,26 @@ export default function MknewCarsPage() {
 
               <div className="qf-search">
                 <div className="qf-field">
-                  <label>{t("qf.brand.label")}</label>
-                  <select value={form.makeId} onChange={(e) => void onBrand(e.target.value)}>
+                  <label htmlFor="new-cars-qf-brand-label">{t("qf.brand.label")}</label>
+                  <select id="new-cars-qf-brand-label" value={form.makeId} onChange={(e) => void onBrand(e.target.value)}>
                     <option value="">{t("bp.anyBrand", { defaultValue: "Select brand" })}</option>
                     {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </div>
                 <div className="qf-field">
-                  <label>{t("qf.model.label")}</label>
-                  <select value={form.modelId} onChange={(e) => setLead((f) => ({ ...f, modelId: e.target.value }))} disabled={!form.makeId}>
+                  <label htmlFor="new-cars-qf-model-label">{t("qf.model.label")}</label>
+                  <select id="new-cars-qf-model-label" value={form.modelId} onChange={(e) => setLead((f) => ({ ...f, modelId: e.target.value }))} disabled={!form.makeId}>
                     <option value="">{t("bp.anyModel", { defaultValue: "Select model" })}</option>
                     {models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </div>
                 <div className="qf-field">
-                  <label>{t("bp.name", { defaultValue: "Your name" })}</label>
-                  <input className="form-input" style={{ height: 42 }} value={form.name} onChange={(e) => setLead((f) => ({ ...f, name: e.target.value }))} placeholder={t("bp.namePh", { defaultValue: "Full name" })} />
+                  <label htmlFor="new-cars-bp-name">{t("bp.name", { defaultValue: "Your name" })}</label>
+                  <input id="new-cars-bp-name" className="form-input" style={{ height: 42 }} value={form.name} onChange={(e) => setLead((f) => ({ ...f, name: e.target.value }))} placeholder={t("bp.namePh", { defaultValue: "Full name" })} />
                 </div>
                 <div className="qf-field">
-                  <label>{t("bp.phone", { defaultValue: "Mobile" })}</label>
-                  <input className="form-input" style={{ height: 42 }} value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
+                  <label htmlFor="new-cars-bp-phone">{t("bp.phone", { defaultValue: "Mobile" })}</label>
+                  <input id="new-cars-bp-phone" className="form-input" style={{ height: 42 }} value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
                 </div>
                 <div className="qf-cta">
                   <button className="btn btn-primary btn-lg" type="button" disabled={leadState === "busy" || !form.makeId || !form.modelId || !form.name.trim()} onClick={() => void submitBestPrice()}>
@@ -189,11 +189,11 @@ export default function MknewCarsPage() {
                   <h2>{t("brands.title")}</h2>
                   <p>{t("brands.sub")}</p>
                 </div>
-                <a href="#" className="view-all">{t("brands.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></a>
+                <Link href="/cars" className="view-all">{t("brands.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></Link>
               </div>
               <div className="new-brands">
                 {brandCards.map((b, i) => (
-                  <Link key={i} href="/new-cars" className="new-brand-card"><div className="logo-square">{brandLogos[i]}</div><div className="brand-name">{b.name}</div><div className="brand-models">{b.models}</div><div className="brand-from">{b.from}</div></Link>
+                  <Link key={i} href={`/cars?q=${encodeURIComponent(b.name)}`} className="new-brand-card"><div className="logo-square">{brandLogos[i]}</div><div className="brand-name">{b.name}</div><div className="brand-models">{b.models}</div><div className="brand-from">{b.from}</div></Link>
                 ))}
               </div>
             </div>
@@ -207,7 +207,7 @@ export default function MknewCarsPage() {
                   <h2>{t("browse.title")}</h2>
                   <p>{t("browse.sub")}</p>
                 </div>
-                <a href="#" className="view-all">{t("browse.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></a>
+                <Link href="/cars" className="view-all">{t("browse.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></Link>
               </div>
 
               <div className="search-grid">
@@ -394,7 +394,14 @@ export default function MknewCarsPage() {
                   <div className="model-grid">
 
                     {modelCards.map((c, i) => (
-                      <Link key={i} href="/cars/demo" className="model-card detail-link">
+                      // The new-car catalogue is not built yet (P5-07), so a model
+                      // card searches the real inventory for that brand+model
+                      // rather than linking to a listing id that never existed.
+                      <Link
+                        key={i}
+                        href={`/cars?q=${encodeURIComponent(`${modelCardText[i]?.brand ?? ""} ${modelCardText[i]?.name ?? ""}`.trim())}`}
+                        className="model-card detail-link"
+                      >
                         <div className="model-media">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={c.img} alt="" />
@@ -460,7 +467,7 @@ export default function MknewCarsPage() {
                   <h2>{t("coming.title")}</h2>
                   <p>{t("coming.sub")}</p>
                 </div>
-                <a href="#" className="view-all">{t("coming.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></a>
+                <Link href="/cars?sort=newest" className="view-all">{t("coming.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></Link>
               </div>
               <div className="coming-grid">
 
@@ -514,7 +521,7 @@ export default function MknewCarsPage() {
                   <h2>{t("reviews.title")}</h2>
                   <p>{t("reviews.sub")}</p>
                 </div>
-                <a href="#" className="view-all">{t("reviews.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></a>
+                <Link href="/news" className="view-all">{t("reviews.viewAll")} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M5 12h14M13 5l7 7-7 7" /></svg></Link>
               </div>
               <div className="articles">
                 {reviewCards.map((r, i) => (

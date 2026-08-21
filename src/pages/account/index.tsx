@@ -791,12 +791,12 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                     <div className="activity-block" style={{ padding: "22px 24px" }}>
                       <form>
                         <div className="profile-grid">
-                          <div className="form-group"><label>{t("profile.fullName")}</label><input className="form-input" defaultValue={t("profile.fullNameVal")} /></div>
-                          <div className="form-group"><label>{t("profile.mobile")}</label><input className="form-input" defaultValue={t("profile.mobileVal")} /></div>
-                          <div className="form-group full"><label>{t("profile.email")}</label><input className="form-input" type="email" defaultValue={t("profile.emailVal")} /></div>
-                          <div className="form-group"><label>{t("profile.city")}</label><select className="form-input" defaultValue={t("profile.cityOptions.0")}><option>{t("profile.cityOptions.0")}</option><option>{t("profile.cityOptions.1")}</option><option>{t("profile.cityOptions.2")}</option></select></div>
-                          <div className="form-group"><label>{t("profile.language")}</label><select className="form-input" defaultValue={t("profile.langOptions.0")}><option>{t("profile.langOptions.0")}</option><option>{t("profile.langOptions.1")}</option></select></div>
-                          <div className="form-group full"><label>{t("profile.bio")}</label><input className="form-input" placeholder={t("profile.bioPlaceholder")} /></div>
+                          <div className="form-group"><label htmlFor="account-profile-fullName">{t("profile.fullName")}</label><input id="account-profile-fullName" className="form-input" defaultValue={t("profile.fullNameVal")} /></div>
+                          <div className="form-group"><label htmlFor="account-profile-mobile">{t("profile.mobile")}</label><input id="account-profile-mobile" className="form-input" defaultValue={t("profile.mobileVal")} /></div>
+                          <div className="form-group full"><label htmlFor="account-profile-email">{t("profile.email")}</label><input id="account-profile-email" className="form-input" type="email" defaultValue={t("profile.emailVal")} /></div>
+                          <div className="form-group"><label htmlFor="account-profile-city">{t("profile.city")}</label><select id="account-profile-city" className="form-input" defaultValue={t("profile.cityOptions.0")}><option>{t("profile.cityOptions.0")}</option><option>{t("profile.cityOptions.1")}</option><option>{t("profile.cityOptions.2")}</option></select></div>
+                          <div className="form-group"><label htmlFor="account-profile-language">{t("profile.language")}</label><select id="account-profile-language" className="form-input" defaultValue={t("profile.langOptions.0")}><option>{t("profile.langOptions.0")}</option><option>{t("profile.langOptions.1")}</option></select></div>
+                          <div className="form-group full"><label htmlFor="account-profile-bio">{t("profile.bio")}</label><input id="account-profile-bio" className="form-input" placeholder={t("profile.bioPlaceholder")} /></div>
                         </div>
                         <button className="btn btn-primary" style={{ marginTop: "18px" }}>{t("profile.save")}</button>
                         <button type="button" className="btn btn-outline" style={{ marginTop: "18px", marginLeft: "6px" }}>{t("profile.cancel")}</button>
@@ -845,9 +845,9 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                     <div className="activity-block" style={{ padding: "22px 24px" }}>
                       <h3 style={{ margin: "0 0 14px", fontSize: "15px" }}>{t("security.changePw")}</h3>
                       <form>
-                        <div className="form-group"><label>{t("security.current")}</label><input className="form-input" type="password" placeholder={t("security.currentPh")} /></div>
-                        <div className="form-group"><label>{t("security.new")}</label><input className="form-input" type="password" placeholder={t("security.newPh")} /></div>
-                        <div className="form-group"><label>{t("security.confirm")}</label><input className="form-input" type="password" /></div>
+                        <div className="form-group"><label htmlFor="account-security-current">{t("security.current")}</label><input id="account-security-current" className="form-input" type="password" placeholder={t("security.currentPh")} /></div>
+                        <div className="form-group"><label htmlFor="account-security-new">{t("security.new")}</label><input id="account-security-new" className="form-input" type="password" placeholder={t("security.newPh")} /></div>
+                        <div className="form-group"><label htmlFor="account-security-confirm">{t("security.confirm")}</label><input id="account-security-confirm" className="form-input" type="password" /></div>
                         <button className="btn btn-primary" style={{ marginTop: "8px" }}>{t("security.updatePw")}</button>
                       </form>
                     </div>

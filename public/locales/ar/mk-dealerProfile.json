@@ -19,7 +19,10 @@
     "contact": "تواصل مع الوكيل",
     "follow": "متابعة",
     "share": "مشاركة",
-    "memberSinceYears": "{{count}} سنوات على كارسنس"
+    "memberSinceYears": "{{count}} سنوات على كارسنس",
+    "following": "متابَع",
+    "followed": "تمت المتابعة — سنعلمك بالسيارات الجديدة",
+    "followFailed": "تعذّرت متابعة هذا الوكيل"
   },
   "stats": {
     "activeVal": "432",

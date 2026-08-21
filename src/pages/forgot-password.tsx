@@ -39,7 +39,7 @@ export default function MkforgotPage() {
 
                 <form id="forgotForm" onSubmit={onSend}>
                   <div className="form-group">
-                    <label>{t("enter.emailLabel")}</label>
+                    <label htmlFor="forgotEmail">{t("enter.emailLabel")}</label>
                     <input className="form-input" type="email" id="forgotEmail" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("enter.emailPlaceholder")} autoComplete="email" required />
                   </div>
                   <button type="submit" className="btn btn-primary btn-lg btn-block" id="sendResetBtn" disabled={busy}>

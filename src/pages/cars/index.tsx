@@ -102,15 +102,15 @@ export default function MksearchPage({
               {/* COMPACT SEARCH */}
               <div className="compact-search">
                 <div className="compact-field">
-                  <label>{t("compact.makeLabel")}</label>
-                  <select value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value, modelId: undefined })}>
+                  <label htmlFor="index-compact-makeLabel">{t("compact.makeLabel")}</label>
+                  <select id="index-compact-makeLabel" value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value, modelId: undefined })}>
                     <option value="">{t("compact.makeOpt0")}</option>
                     {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </div>
                 <div className="compact-field">
-                  <label>{t("compact.priceLabel")}</label>
-                  <select
+                  <label htmlFor="index-compact-priceLabel">{t("compact.priceLabel")}</label>
+                  <select id="index-compact-priceLabel"
                     value={`${query.priceMin ?? ""}_${query.priceMax ?? ""}`}
                     onChange={(e) => {
                       const [min, max] = e.target.value.split("_");
@@ -123,15 +123,15 @@ export default function MksearchPage({
                   </select>
                 </div>
                 <div className="compact-field">
-                  <label>{t("compact.yearLabel")}</label>
-                  <select value={query.yearMin ?? ""} onChange={(e) => apply({ yearMin: e.target.value })}>
+                  <label htmlFor="index-compact-yearLabel">{t("compact.yearLabel")}</label>
+                  <select id="index-compact-yearLabel" value={query.yearMin ?? ""} onChange={(e) => apply({ yearMin: e.target.value })}>
                     <option value="">{t("compact.yearOpt0")}</option>
                     {[2024, 2023, 2022, 2021, 2020, 2019, 2018].map((y) => <option key={y} value={y}>{y}+</option>)}
                   </select>
                 </div>
                 <div className="compact-field">
-                  <label>{t("compact.emirateLabel")}</label>
-                  <select value={query.emirateId ?? ""} onChange={(e) => apply({ emirateId: e.target.value })}>
+                  <label htmlFor="index-compact-emirateLabel">{t("compact.emirateLabel")}</label>
+                  <select id="index-compact-emirateLabel" value={query.emirateId ?? ""} onChange={(e) => apply({ emirateId: e.target.value })}>
                     <option value="">{t("compact.emirateOpt0")}</option>
                     {emirates.map((em) => <option key={em.id} value={em.id}>{em.name}</option>)}
                   </select>

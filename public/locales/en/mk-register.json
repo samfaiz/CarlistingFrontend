@@ -38,7 +38,8 @@
       "placeholder": "At least 8 characters",
       "hint": "Use 8+ characters with letters & numbers"
     },
-    "submit": "Create account"
+    "submit": "Create account",
+    "togglePassword": "Show/hide password"
   },
   "terms": {
     "pre": "I agree to Carsens'",

@@ -84,5 +84,9 @@
     "copyright": "© 2026 Carsens FZ-LLC. All rights reserved.",
     "madeIn": "Made in Dubai, UAE 🇦🇪",
     "myAccount": "My Account"
+  },
+  "card": {
+    "save": "Save this car",
+    "unsave": "Remove from saved"
   }
 }

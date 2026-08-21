@@ -19,7 +19,10 @@
     "contact": "Contacter le concessionnaire",
     "follow": "Suivre",
     "share": "Partager",
-    "memberSinceYears": "{{count}} ans sur Carsens"
+    "memberSinceYears": "{{count}} ans sur Carsens",
+    "following": "Suivi",
+    "followed": "Suivi — vous serez averti des nouveaux véhicules",
+    "followFailed": "Impossible de suivre ce concessionnaire"
   },
   "stats": {
     "activeVal": "432",

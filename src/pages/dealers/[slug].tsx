@@ -6,14 +6,18 @@
  */
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { toast } from "@/components/ui/toast";
 import {
+  createSavedSearch,
   getPublicDealer,
+  getSavedSearches,
   searchListings,
   type Card,
   type DealerBranch,
@@ -31,9 +35,50 @@ export default function MkdealerProfilePage({
   dealer, listings, locale,
 }: { dealer: Dealer; listings: Card[]; locale: string }) {
   const { t } = useTranslation("mk-dealerProfile");
+  const router = useRouter();
+  const { data: session } = useSession();
+  const token = (session as { accessToken?: string } | null)?.accessToken;
+  const [following, setFollowing] = React.useState(false);
+  const [followBusy, setFollowBusy] = React.useState(false);
+
+  // "Follow" was a dead button with no model behind it. A saved search scoped
+  // to this dealer IS following them — it is the alert pipeline that already
+  // exists, rather than a second half-built one.
+  React.useEffect(() => {
+    if (!token) return;
+    getSavedSearches(token)
+      .then((rows) => setFollowing(rows.some((r) => r.query?.dealerId === dealer.id)))
+      .catch(() => undefined);
+  }, [token, dealer.id]);
+
+  const onFollow = async () => {
+    if (!token) {
+      void router.push(`/login?next=${encodeURIComponent(`/dealers/${dealer.slug}`)}`);
+      return;
+    }
+    if (following) {
+      void router.push("/account/saved-searches");
+      return;
+    }
+    setFollowBusy(true);
+    try {
+      await createSavedSearch(
+        { name: dealer.name, query: { dealerId: dealer.id }, frequency: "DAILY" },
+        token,
+      );
+      setFollowing(true);
+      toast({ title: t("header.followed", { defaultValue: "Following — you will hear about new stock" }) });
+    } catch {
+      toast({ title: t("header.followFailed", { defaultValue: "Could not follow this dealer" }), variant: "error" });
+    } finally {
+      setFollowBusy(false);
+    }
+  };
+
   const about = dealer.aboutI18n?.[locale] ?? dealer.aboutI18n?.en ?? "";
   const years = Math.max(1, new Date().getFullYear() - new Date(dealer.createdAt).getFullYear());
   const emirate = dealer.branches[0]?.emirate?.name ?? "UAE";
+  const primaryPhone = dealer.branches.find((b: DealerBranch) => b.phone)?.phone ?? null;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -52,7 +97,6 @@ export default function MkdealerProfilePage({
     <>
       <Head>
         <title>{`${dealer.name} — Carsens`}</title>
-        {/* eslint-disable-next-line react/no-danger */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
       <MockupLayout>
@@ -83,8 +127,26 @@ export default function MkdealerProfilePage({
                   </div>
                 </div>
                 <div className="dealer-actions">
-                  <button type="button" className="btn btn-primary">{t("header.contact")}</button>
-                  <button type="button" className="btn btn-outline">{t("header.follow")}</button>
+                  {/* Contact was inert. The branch phone is real data already on
+                      the page — call it, or fall back to the branches section. */}
+                  {primaryPhone ? (
+                    <a href={`tel:${primaryPhone.replace(/[^+\d]/g, "")}`} className="btn btn-primary">
+                      {t("header.contact")}
+                    </a>
+                  ) : (
+                    <a href="#dealer-branches" className="btn btn-primary">{t("header.contact")}</a>
+                  )}
+                  <button
+                    type="button"
+                    className={following ? "btn btn-primary" : "btn btn-outline"}
+                    onClick={() => void onFollow()}
+                    disabled={followBusy}
+                    aria-pressed={following}
+                  >
+                    {following
+                      ? t("header.following", { defaultValue: "Following" })
+                      : t("header.follow")}
+                  </button>
                 </div>
               </div>
 
@@ -120,7 +182,7 @@ export default function MkdealerProfilePage({
 
                 <aside className="dealer-sidebar">
                   {dealer.branches.length > 0 && (
-                    <div className="location-card">
+                    <div className="location-card" id="dealer-branches">
                       <h3>{t("locations.title", { defaultValue: "Locations" })}</h3>
                       {dealer.branches.map((b: DealerBranch) => (
                         <div key={b.id} className="loc-item" style={{ marginTop: 12 }}>

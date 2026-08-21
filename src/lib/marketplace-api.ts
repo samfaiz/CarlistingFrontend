@@ -106,6 +106,14 @@ export interface ListingDetail extends Omit<Card, "media"> {
   /** Present on owner-scoped reads (/listings/mine); null before publication. */
   expiresAt?: string | null;
   dealerId?: string | null;
+  /** Dealer profile on dealer-owned listings (public fields only). */
+  dealer?: {
+    id: string;
+    slug: string;
+    name: string;
+    logoKey: string | null;
+    verificationStatus: string;
+  } | null;
   userId?: string | null;
 }
 

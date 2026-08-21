@@ -1,6 +1,5 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
@@ -99,20 +98,20 @@ export default function MkcontactPage() {
                     {error && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{error}</p>}
                     <div className="contact-form-grid">
                       <div className="form-group">
-                        <label>{t("form.name.label")}</label>
-                        <input name="name" className="form-input" placeholder={t("form.name.placeholder")} required />
+                        <label htmlFor="contact-form-name-label">{t("form.name.label")}</label>
+                        <input id="contact-form-name-label" name="name" className="form-input" placeholder={t("form.name.placeholder")} required />
                       </div>
                       <div className="form-group">
-                        <label>{t("form.mobile.label")}</label>
-                        <input className="form-input" placeholder={t("form.mobile.placeholder")} />
+                        <label htmlFor="contact-form-mobile-label">{t("form.mobile.label")}</label>
+                        <input id="contact-form-mobile-label" className="form-input" placeholder={t("form.mobile.placeholder")} />
                       </div>
                       <div className="form-group full">
-                        <label>{t("form.email.label")}</label>
-                        <input name="email" className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
+                        <label htmlFor="contact-form-email-label">{t("form.email.label")}</label>
+                        <input id="contact-form-email-label" name="email" className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
                       </div>
                       <div className="form-group full">
-                        <label>{t("form.subject.label")}</label>
-                        <select name="subject" className="form-input" defaultValue="General">
+                        <label htmlFor="contact-form-subject-label">{t("form.subject.label")}</label>
+                        <select id="contact-form-subject-label" name="subject" className="form-input" defaultValue="General">
                           <option>{t("form.subject.options.general")}</option>
                           <option>{t("form.subject.options.listing")}</option>
                           <option>{t("form.subject.options.account")}</option>
@@ -123,8 +122,8 @@ export default function MkcontactPage() {
                         </select>
                       </div>
                       <div className="form-group full">
-                        <label>{t("form.message.label")}</label>
-                        <textarea name="message" minLength={10} placeholder={t("form.message.placeholder")} required></textarea>
+                        <label htmlFor="contact-form-message-label">{t("form.message.label")}</label>
+                        <textarea id="contact-form-message-label" name="message" minLength={10} placeholder={t("form.message.placeholder")} required></textarea>
                       </div>
                       <div className="form-group full">
                         <label className="terms" style={{ margin: 0 }}>

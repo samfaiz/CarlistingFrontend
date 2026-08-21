@@ -24,6 +24,7 @@ import {
   type Card,
   type ListingDetail,
 } from "@/lib/marketplace-api";
+import { BreadcrumbJsonLd, VehicleJsonLd } from "@/components/seo/json-ld";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
 const FUEL: Record<string, string> = { PETROL: "Petrol", DIESEL: "Diesel", HYBRID: "Hybrid", PLUGIN_HYBRID: "Plug-in Hybrid", ELECTRIC: "Electric", OTHER: "—" };
@@ -71,11 +72,31 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
   const photos = listing.media.map((m) => m.variants?.card).filter(Boolean) as string[];
   const cover = photos[active] ?? photos[0];
   const desc = listing.descriptions.find((d) => d.locale === "en")?.text ?? listing.descriptions[0]?.text ?? "";
-  const dealer = listing.sellerType === "DEALER" ? listing.make.name : t("dealer.private", { defaultValue: "Private seller" });
+  // Was listing.make.name — a dealer listing showed "Toyota" as the seller.
+  const dealer =
+    listing.sellerType === "DEALER"
+      ? (listing.dealer?.name ?? t("dealer.dealership", { defaultValue: "Dealership" }))
+      : t("dealer.private", { defaultValue: "Private seller" });
 
   return (
     <>
-      <Head><title>{`${title} — Carsens`}</title></Head>
+      <Head>
+        <title>{`${title} — Carsens`}</title>
+        <meta name="description" content={desc.slice(0, 160)} />
+      </Head>
+      {/* Vehicle + Offer and the breadcrumb trail. These render in the BODY on
+          purpose — see json-ld.tsx: next/head drops nested components on
+          client-side navigation, and Google parses JSON-LD anywhere. */}
+      <VehicleJsonLd listing={listing} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Carsens", path: "/" },
+          { name: t("breadcrumb.usedCars", { defaultValue: "Used cars" }), path: "/cars" },
+          { name: listing.make.name, path: `/cars?make=${listing.make.slug}` },
+          // Final crumb carries no path, per BreadcrumbItem's contract.
+          { name: title },
+        ]}
+      />
       <MockupLayout>
         <main id="page-detail" className="page">
           <div className="detail-wrap">
@@ -173,15 +194,16 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                         <div style={{ flex: "1" }}>
                           <div className="dealer-name">
                             {dealer}
-                            {listing.sellerType === "DEALER" && (
+                            {/* The tick means VERIFIED, not merely "is a dealer". */}
+                            {listing.dealer?.verificationStatus === "VERIFIED" && (
                               <svg className="v" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4 6.5-6.5L19 1 9 11 5 7 3 9z" /></svg>
                             )}
                           </div>
                           <div className="dealer-meta-2">{listing.emirate.name}</div>
                         </div>
                       </div>
-                      {listing.sellerType === "DEALER" && (
-                        <Link href="/dealers/demo" className="dealer-link">{t("dealer.viewAll")}</Link>
+                      {listing.dealer?.slug && (
+                        <Link href={`/dealers/${listing.dealer.slug}`} className="dealer-link">{t("dealer.viewAll")}</Link>
                       )}
                     </div>
 

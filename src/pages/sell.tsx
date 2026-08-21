@@ -195,29 +195,29 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     <h2 className="step-heading">{t("step1.title")}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
-                        <label>{t("step1.makeLabel")}</label>
-                        <select className="form-input" value={form.makeId} onChange={(e) => onMake(e.target.value)} required>
+                        <label htmlFor="sell-step1-makeLabel">{t("step1.makeLabel")}</label>
+                        <select id="sell-step1-makeLabel" className="form-input" value={form.makeId} onChange={(e) => onMake(e.target.value)} required>
                           <option value="">{t("step1.makePlaceholder")}</option>
                           {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">
-                        <label>{t("step1.modelLabel")}</label>
-                        <select className="form-input" value={form.modelId} onChange={(e) => set("modelId", e.target.value)} required disabled={!form.makeId}>
+                        <label htmlFor="sell-step1-modelLabel">{t("step1.modelLabel")}</label>
+                        <select id="sell-step1-modelLabel" className="form-input" value={form.modelId} onChange={(e) => set("modelId", e.target.value)} required disabled={!form.makeId}>
                           <option value="">{t("step1.modelPlaceholder")}</option>
                           {models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">
-                        <label>{t("step1.yearLabel")}</label>
-                        <select className="form-input" value={form.year} onChange={(e) => set("year", e.target.value)} required>
+                        <label htmlFor="sell-step1-yearLabel">{t("step1.yearLabel")}</label>
+                        <select id="sell-step1-yearLabel" className="form-input" value={form.year} onChange={(e) => set("year", e.target.value)} required>
                           <option value="">{t("step1.yearPlaceholder", { defaultValue: "Select year" })}</option>
                           {YEARS.map((y) => <option key={y} value={y}>{y}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">
-                        <label>{t("step1.bodyLabel")}</label>
-                        <select className="form-input" value={form.bodyTypeId} onChange={(e) => set("bodyTypeId", e.target.value)}>
+                        <label htmlFor="sell-step1-bodyLabel">{t("step1.bodyLabel")}</label>
+                        <select id="sell-step1-bodyLabel" className="form-input" value={form.bodyTypeId} onChange={(e) => set("bodyTypeId", e.target.value)}>
                           <option value="">{t("step1.bodyPlaceholder", { defaultValue: "Any" })}</option>
                           {bodyTypes.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}
                         </select>
@@ -229,24 +229,24 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     <h2 className="step-heading">{t("step2.title")}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
-                        <label>{t("step2.mileageLabel")}</label>
-                        <input className="form-input" type="number" min="0" value={form.mileageKm} onChange={(e) => set("mileageKm", e.target.value)} placeholder={t("step2.mileagePlaceholder")} required />
+                        <label htmlFor="sell-step2-mileageLabel">{t("step2.mileageLabel")}</label>
+                        <input id="sell-step2-mileageLabel" className="form-input" type="number" min="0" value={form.mileageKm} onChange={(e) => set("mileageKm", e.target.value)} placeholder={t("step2.mileagePlaceholder")} required />
                       </div>
                       <div className="ds-field">
-                        <label>{t("step2.transmissionLabel", { defaultValue: "Transmission" })}</label>
-                        <select className="form-input" value={form.transmission} onChange={(e) => set("transmission", e.target.value)}>
+                        <label htmlFor="sell-step2-transmissionLabel">{t("step2.transmissionLabel", { defaultValue: "Transmission" })}</label>
+                        <select id="sell-step2-transmissionLabel" className="form-input" value={form.transmission} onChange={(e) => set("transmission", e.target.value)}>
                           {TRANS.map((o) => <option key={o} value={o}>{o[0] + o.slice(1).toLowerCase()}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">
-                        <label>{t("step2.fuelLabel", { defaultValue: "Fuel" })}</label>
-                        <select className="form-input" value={form.fuelType} onChange={(e) => set("fuelType", e.target.value)}>
+                        <label htmlFor="sell-step2-fuelLabel">{t("step2.fuelLabel", { defaultValue: "Fuel" })}</label>
+                        <select id="sell-step2-fuelLabel" className="form-input" value={form.fuelType} onChange={(e) => set("fuelType", e.target.value)}>
                           {FUELS.map((o) => <option key={o} value={o}>{o.replace("_", " ")}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">
-                        <label>{t("step2.regionalLabel", { defaultValue: "Regional spec" })}</label>
-                        <select className="form-input" value={form.regionalSpec} onChange={(e) => set("regionalSpec", e.target.value)}>
+                        <label htmlFor="sell-step2-regionalLabel">{t("step2.regionalLabel", { defaultValue: "Regional spec" })}</label>
+                        <select id="sell-step2-regionalLabel" className="form-input" value={form.regionalSpec} onChange={(e) => set("regionalSpec", e.target.value)}>
                           {SPECS.map((o) => <option key={o} value={o}>{o}</option>)}
                         </select>
                       </div>
@@ -257,12 +257,12 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     <h2 className="step-heading">{t("step4.title", { defaultValue: "Price & location" })}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
-                        <label>{t("step4.priceLabel", { defaultValue: "Asking price (AED)" })}</label>
-                        <input className="form-input" type="number" min="0" value={form.priceAed} onChange={(e) => set("priceAed", e.target.value)} placeholder="0" required />
+                        <label htmlFor="sell-step4-priceLabel">{t("step4.priceLabel", { defaultValue: "Asking price (AED)" })}</label>
+                        <input id="sell-step4-priceLabel" className="form-input" type="number" min="0" value={form.priceAed} onChange={(e) => set("priceAed", e.target.value)} placeholder="0" required />
                       </div>
                       <div className="ds-field">
-                        <label>{t("step4.emirateLabel", { defaultValue: "Emirate" })}</label>
-                        <select className="form-input" value={form.emirateId} onChange={(e) => set("emirateId", e.target.value)} required>
+                        <label htmlFor="sell-step4-emirateLabel">{t("step4.emirateLabel", { defaultValue: "Emirate" })}</label>
+                        <select id="sell-step4-emirateLabel" className="form-input" value={form.emirateId} onChange={(e) => set("emirateId", e.target.value)} required>
                           <option value="">{t("step4.emiratePlaceholder", { defaultValue: "Select emirate" })}</option>
                           {emirates.map((em) => <option key={em.id} value={em.id}>{em.name}</option>)}
                         </select>
@@ -270,12 +270,12 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     </div>
                     <div className="ds-field full" style={{ marginTop: 12 }}>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                        <label>{t("step3.descLabel", { defaultValue: "Description" })}</label>
+                        <label htmlFor="sell-description">{t("step3.descLabel", { defaultValue: "Description" })}</label>
                         <button type="button" className="btn btn-outline btn-sm" disabled={!canAssist || aiBusy} onClick={() => void onGenerateDescription()}>
                           ✨ {aiBusy ? t("ai.working", { defaultValue: "Working…" }) : t("ai.generate", { defaultValue: "Generate with AI" })}
                         </button>
                       </div>
-                      <textarea className="form-input" rows={4} value={form.description} onChange={(e) => set("description", e.target.value)} placeholder={t("step3.descPlaceholder", { defaultValue: "Tell buyers about the car (min 20 characters)…" })} />
+                      <textarea id="sell-description" className="form-input" rows={4} value={form.description} onChange={(e) => set("description", e.target.value)} placeholder={t("step3.descPlaceholder", { defaultValue: "Tell buyers about the car (min 20 characters)…" })} />
                       <p style={{ color: "var(--text-3)", fontSize: 12, marginTop: 4 }}>{t("ai.descHint", { defaultValue: "AI drafts from your specs only — review before publishing." })}</p>
                     </div>
                     {canAssist && (

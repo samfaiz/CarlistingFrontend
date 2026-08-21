@@ -19,7 +19,10 @@
     "contact": "Contactar concesionario",
     "follow": "Seguir",
     "share": "Compartir",
-    "memberSinceYears": "{{count}} años en Carsens"
+    "memberSinceYears": "{{count}} años en Carsens",
+    "following": "Siguiendo",
+    "followed": "Siguiendo: te avisaremos del nuevo stock",
+    "followFailed": "No se pudo seguir a este concesionario"
   },
   "stats": {
     "activeVal": "432",

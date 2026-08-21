@@ -15,6 +15,7 @@ export default function MkregisterPage() {
   const [error, setError] = React.useState<string | null>(null);
   const [done, setDone] = React.useState(false);
   const [busy, setBusy] = React.useState(false);
+  const [showPwd, setShowPwd] = React.useState(false);
 
   // Keep the pixel-exact mockup form, but really create the account
   // (POST /auth/register → e-mail verification, matching the P0-05 contract).
@@ -83,22 +84,30 @@ export default function MkregisterPage() {
                 )}
                 <div className="profile-grid">
                   <div className="form-group">
-                    <label>{t("form.fullName.label")}</label>
-                    <input name="name" required className="form-input" placeholder={t("form.fullName.placeholder")} autoComplete="name" />
+                    <label htmlFor="register-form-fullName-label">{t("form.fullName.label")}</label>
+                    <input id="register-form-fullName-label" name="name" required className="form-input" placeholder={t("form.fullName.placeholder")} autoComplete="name" />
                   </div>
                   <div className="form-group">
-                    <label>{t("form.mobile.label")}</label>
-                    <input name="phone" className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
+                    <label htmlFor="register-form-mobile-label">{t("form.mobile.label")}</label>
+                    <input id="register-form-mobile-label" name="phone" className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
                   </div>
                   <div className="form-group full">
-                    <label>{t("form.email.label")}</label>
-                    <input name="email" required className="form-input" type="email" placeholder={t("form.email.placeholder")} autoComplete="email" />
+                    <label htmlFor="register-form-email-label">{t("form.email.label")}</label>
+                    <input id="register-form-email-label" name="email" required className="form-input" type="email" placeholder={t("form.email.placeholder")} autoComplete="email" />
                   </div>
                   <div className="form-group full">
-                    <label>{t("form.password.label")}</label>
+                    <label htmlFor="regPwd">{t("form.password.label")}</label>
                     <div className="pwd-wrap">
-                      <input name="password" required minLength={8} className="form-input" type="password" id="regPwd" placeholder={t("form.password.placeholder")} autoComplete="new-password" />
-                      <button className="pwd-toggle" type="button" data-target="regPwd">
+                      <input name="password" required minLength={8} className="form-input" type={showPwd ? "text" : "password"} id="regPwd" placeholder={t("form.password.placeholder")} autoComplete="new-password" />
+                      <button
+                        className="pwd-toggle"
+                        type="button"
+                        onClick={() => setShowPwd((v) => !v)}
+                        aria-pressed={showPwd}
+                        aria-controls="regPwd"
+                        aria-label={t("form.togglePassword")}
+                        title={t("form.togglePassword")}
+                      >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       </button>
                     </div>

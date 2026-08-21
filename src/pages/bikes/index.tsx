@@ -86,15 +86,15 @@ export default function BikesPage({ items, total, page, makes, bikeTypes, query 
               {/* Compact filters */}
               <div className="compact-search">
                 <div className="compact-field">
-                  <label>{t("filters.make")}</label>
-                  <select value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value })}>
+                  <label htmlFor="index-filters-make">{t("filters.make")}</label>
+                  <select id="index-filters-make" value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value })}>
                     <option value="">{t("filters.anyMake")}</option>
                     {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </div>
                 <div className="compact-field">
-                  <label>{t("filters.price")}</label>
-                  <select
+                  <label htmlFor="index-filters-price">{t("filters.price")}</label>
+                  <select id="index-filters-price"
                     value={`${query.priceMin ?? ""}_${query.priceMax ?? ""}`}
                     onChange={(e) => {
                       const [min, max] = e.target.value.split("_");
@@ -109,8 +109,8 @@ export default function BikesPage({ items, total, page, makes, bikeTypes, query 
                   </select>
                 </div>
                 <div className="compact-field">
-                  <label>{t("results.sortLabel", { defaultValue: "Sort" })}</label>
-                  <select value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
+                  <label htmlFor="index-results-sortLabel">{t("results.sortLabel", { defaultValue: "Sort" })}</label>
+                  <select id="index-results-sortLabel" value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
                     <option value="newest">{t("sort.newest", { defaultValue: "Newest" })}</option>
                     <option value="price_asc">{t("sort.priceAsc", { defaultValue: "Price: low to high" })}</option>
                     <option value="price_desc">{t("sort.priceDesc", { defaultValue: "Price: high to low" })}</option>

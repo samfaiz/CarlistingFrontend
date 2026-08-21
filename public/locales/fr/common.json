@@ -84,5 +84,9 @@
     "copyright": "© 2026 Carsens FZ-LLC. Tous droits réservés.",
     "madeIn": "Conçu à Dubaï, ÉAU 🇦🇪",
     "myAccount": "Mon compte"
+  },
+  "card": {
+    "save": "Enregistrer cette voiture",
+    "unsave": "Retirer des favoris"
   }
 }

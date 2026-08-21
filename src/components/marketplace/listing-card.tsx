@@ -5,7 +5,10 @@
 import Link from "next/link";
 import * as React from "react";
 import { formatMileage, mediaUrl } from "@/lib/format";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next/pages";
 import { useCurrency } from "@/components/marketplace/currency-provider";
+import { useSaved } from "@/components/saved/saved-provider";
 import type { Card } from "@/lib/marketplace-api";
 
 const FUEL_LABEL: Record<string, string> = {
@@ -22,6 +25,24 @@ function initials(name: string): string {
 
 export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBase?: string }) {
   const { format } = useCurrency();
+  const { t } = useTranslation("common");
+  const router = useRouter();
+  // The heart was inert: it only called preventDefault(). SavedProvider was
+  // already mounted and already says "heart buttons everywhere read/toggle it"
+  // — the card simply never consumed it.
+  const { authed, isSaved, toggle } = useSaved();
+  const saved = isSaved(car.id);
+
+  const onFav = (e: React.MouseEvent) => {
+    // Inside a <Link>: stop both the navigation and the bubble.
+    e.preventDefault();
+    e.stopPropagation();
+    if (!authed) {
+      void router.push(`/login?next=${encodeURIComponent(`${hrefBase}/${car.slug}`)}`);
+      return;
+    }
+    void toggle(car.id);
+  };
   // Defensive: some callers (e.g. /listings/mine) pass a leaner shape than the
   // search Card and may omit emirate / _count.
   const cover = car.media?.[0]?.variants?.card;
@@ -40,8 +61,15 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
           <div style={{ height: "100%", background: "var(--brand-surface)" }} />
         )}
         {isFeatured && <span className="badge">Featured</span>}
-        <button className="fav" type="button" aria-label="Save" onClick={(e) => e.preventDefault()}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <button
+          className={saved ? "fav is-saved" : "fav"}
+          type="button"
+          onClick={onFav}
+          aria-pressed={saved}
+          aria-label={saved ? t("card.unsave", { defaultValue: "Remove from saved" }) : t("card.save", { defaultValue: "Save this car" })}
+          title={saved ? t("card.unsave", { defaultValue: "Remove from saved" }) : t("card.save", { defaultValue: "Save this car" })}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
           </svg>
         </button>

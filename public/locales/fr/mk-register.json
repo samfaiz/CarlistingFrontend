@@ -38,7 +38,8 @@
       "placeholder": "Au moins 8 caractères",
       "hint": "Utilisez 8+ caractères avec lettres et chiffres"
     },
-    "submit": "Créer le compte"
+    "submit": "Créer le compte",
+    "togglePassword": "Afficher/masquer le mot de passe"
   },
   "terms": {
     "pre": "J'accepte les",

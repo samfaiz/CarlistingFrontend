@@ -19,7 +19,10 @@
     "contact": "Contact dealer",
     "follow": "Follow",
     "share": "Share",
-    "memberSinceYears": "{{count}} years on Carsens"
+    "memberSinceYears": "{{count}} years on Carsens",
+    "following": "Following",
+    "followed": "Following — you will hear about new stock",
+    "followFailed": "Could not follow this dealer"
   },
   "stats": {
     "activeVal": "432",
