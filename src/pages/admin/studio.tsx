@@ -94,6 +94,55 @@ export default function StudioPage() {
 
   const add = (layer: StudioLayer) => canvasRef.current?.addLayer(layer);
 
+  /**
+   * Keyboard shortcuts.
+   *
+   * A canvas editor where every action needs a mouse trip to a toolbar button
+   * is slow in a way that compounds: nudging one element into place was ten
+   * clicks. Ignored while a text field has focus, so typing a headline does not
+   * delete the layer.
+   */
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      const typing =
+        el &&
+        (el.tagName === "INPUT" ||
+          el.tagName === "TEXTAREA" ||
+          el.tagName === "SELECT" ||
+          el.isContentEditable);
+      if (typing) return;
+
+      const mod = e.ctrlKey || e.metaKey;
+      const c = canvasRef.current;
+      if (!c) return;
+
+      if (mod && e.key.toLowerCase() === "z") {
+        e.preventDefault();
+        if (e.shiftKey) c.redo();
+        else c.undo();
+        return;
+      }
+      if (mod && e.key.toLowerCase() === "y") { e.preventDefault(); c.redo(); return; }
+      if (mod && e.key.toLowerCase() === "d") { e.preventDefault(); c.duplicateSelected(); return; }
+      if (mod && e.key === "]") { e.preventDefault(); c.moveSelected("front"); return; }
+      if (mod && e.key === "[") { e.preventDefault(); c.moveSelected("back"); return; }
+
+      if (e.key === "Delete" || e.key === "Backspace") { e.preventDefault(); c.deleteSelected(); return; }
+
+      // Arrows nudge by 1px, or 10px with shift — the standard everywhere.
+      const step = e.shiftKey ? 10 : 1;
+      const nudges: Record<string, [number, number]> = {
+        ArrowLeft: [-step, 0], ArrowRight: [step, 0],
+        ArrowUp: [0, -step], ArrowDown: [0, step],
+      };
+      const n = nudges[e.key];
+      if (n) { e.preventDefault(); c.nudgeSelected(n[0], n[1]); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const addText = () =>
     add({
       id: uid(), type: "text", name: t("studio.textLayer", { defaultValue: "Text" }),
@@ -287,6 +336,27 @@ export default function StudioPage() {
               <Button size="sm" variant="outline" onClick={() => canvasRef.current?.moveSelected("back")}>{t("studio.back", { defaultValue: "Back" })}</Button>
               <Button size="sm" variant="outline" onClick={() => canvasRef.current?.duplicateSelected()}>{t("studio.duplicate", { defaultValue: "Duplicate" })}</Button>
               <Button size="sm" variant="outline" onClick={() => canvasRef.current?.deleteSelected()}>{t("studio.delete", { defaultValue: "Delete" })}</Button>
+              {/* One selected aligns to the artboard; several align to each
+                  other. Shift-click a second layer to multi-select. */}
+              {([
+                ["left", "studio.alignLeft", "⇤"],
+                ["hcenter", "studio.alignHCenter", "↔"],
+                ["right", "studio.alignRight", "⇥"],
+                ["top", "studio.alignTop", "⇧"],
+                ["vcenter", "studio.alignVCenter", "↕"],
+                ["bottom", "studio.alignBottom", "⇩"],
+              ] as const).map(([edge, key, glyph]) => (
+                <Button
+                  key={edge}
+                  size="sm"
+                  variant="outline"
+                  onClick={() => canvasRef.current?.alignSelected(edge)}
+                  title={t(key)}
+                  aria-label={t(key)}
+                >
+                  {glyph}
+                </Button>
+              ))}
             </div>
           </Card>
 

@@ -770,7 +770,13 @@
     "saveFailed": "Save failed",
     "saveFirst": "Save the scene first",
     "rendered": "Rendered {{w}}x{{h}} and added to the library",
-    "loadFailed": "Could not load the studio"
+    "loadFailed": "Could not load the studio",
+    "alignLeft": "Align left",
+    "alignHCenter": "Center horizontally",
+    "alignRight": "Align right",
+    "alignTop": "Align top",
+    "alignVCenter": "Center vertically",
+    "alignBottom": "Align bottom"
   },
   "finance": {
     "title": "Finance",

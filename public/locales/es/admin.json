@@ -770,7 +770,13 @@
     "saveFailed": "Error al guardar",
     "saveFirst": "Guarda la escena primero",
     "rendered": "Renderizado {{w}}x{{h}} y añadido a la biblioteca",
-    "loadFailed": "No se pudo cargar el estudio"
+    "loadFailed": "No se pudo cargar el estudio",
+    "alignLeft": "Alinear al inicio",
+    "alignHCenter": "Centrar horizontalmente",
+    "alignRight": "Alinear al final",
+    "alignTop": "Alinear arriba",
+    "alignVCenter": "Centrar verticalmente",
+    "alignBottom": "Alinear abajo"
   },
   "finance": {
     "title": "Finanzas",

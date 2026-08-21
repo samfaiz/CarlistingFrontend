@@ -770,7 +770,13 @@
     "saveFailed": "Échec de l’enregistrement",
     "saveFirst": "Enregistrez d’abord la scène",
     "rendered": "Rendu {{w}}x{{h}} et ajouté à la bibliothèque",
-    "loadFailed": "Impossible de charger le studio"
+    "loadFailed": "Impossible de charger le studio",
+    "alignLeft": "Aligner au début",
+    "alignHCenter": "Centrer horizontalement",
+    "alignRight": "Aligner à la fin",
+    "alignTop": "Aligner en haut",
+    "alignVCenter": "Centrer verticalement",
+    "alignBottom": "Aligner en bas"
   },
   "finance": {
     "title": "Finance",

@@ -770,7 +770,13 @@
     "saveFailed": "فشل الحفظ",
     "saveFirst": "احفظ المشهد أولاً",
     "rendered": "تمت المعالجة {{w}}x{{h}} وأُضيفت إلى المكتبة",
-    "loadFailed": "تعذر تحميل الاستوديو"
+    "loadFailed": "تعذر تحميل الاستوديو",
+    "alignLeft": "محاذاة للبداية",
+    "alignHCenter": "توسيط أفقي",
+    "alignRight": "محاذاة للنهاية",
+    "alignTop": "محاذاة للأعلى",
+    "alignVCenter": "توسيط رأسي",
+    "alignBottom": "محاذاة للأسفل"
   },
   "finance": {
     "title": "المالية",

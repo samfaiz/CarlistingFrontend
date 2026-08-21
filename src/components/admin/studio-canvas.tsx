@@ -18,6 +18,10 @@ export interface CanvasHandle {
   deleteSelected: () => void;
   duplicateSelected: () => void;
   moveSelected: (direction: "front" | "back") => void;
+  /** Align the selection to the artboard, or to each other when 2+ selected. */
+  alignSelected: (edge: "left" | "hcenter" | "right" | "top" | "vcenter" | "bottom") => void;
+  /** Move the selection by whole pixels (arrow keys). */
+  nudgeSelected: (dx: number, dy: number) => void;
   undo: () => void;
   redo: () => void;
   zoom: (factor: number | "fit") => void;
@@ -205,36 +209,70 @@ export const StudioCanvas = React.forwardRef<CanvasHandle, Props>(function Studi
     [resolveImage],
   );
 
-  /** Snapping guides against artboard edges + centres. */
+  /**
+   * Snapping guides.
+   *
+   * Artboard edges and centres, PLUS the edges and centres of every other
+   * layer. Artboard-only snapping is the easy half: what a designer actually
+   * does all day is line one element up with another one, and without object
+   * targets that is done by eye, one pixel at a time.
+   */
   const showGuides = React.useCallback(
     (node: Konva.Node) => {
       const guides = guideRef.current;
       if (!guides) return;
       guides.destroyChildren();
-      const box = node.getClientRect({ relativeTo: node.getStage() ?? undefined });
+      const stage = node.getStage() ?? undefined;
+      const box = node.getClientRect({ relativeTo: stage });
       const targets = [
         { v: 0, axis: "x" as const }, { v: width / 2, axis: "x" as const }, { v: width, axis: "x" as const },
         { v: 0, axis: "y" as const }, { v: height / 2, axis: "y" as const }, { v: height, axis: "y" as const },
       ];
-      for (const target of targets) {
-        const edges = target.axis === "x" ? [box.x, box.x + box.width / 2, box.x + box.width] : [box.y, box.y + box.height / 2, box.y + box.height];
-        for (const [i, edge] of edges.entries()) {
-          if (Math.abs(edge - target.v) > SNAP) continue;
-          const delta = target.v - edge;
-          if (target.axis === "x") node.x(node.x() + delta);
-          else node.y(node.y() + delta);
-          guides.add(
-            new Konva.Line({
-              points: target.axis === "x" ? [target.v, 0, target.v, height] : [0, target.v, width, target.v],
-              stroke: "#E8B84B",
-              strokeWidth: 1,
-              dash: [4, 4],
-              listening: false,
-            }),
-          );
-          void i;
-          break;
+
+      // Peers: every other layer contributes its start / centre / end on both
+      // axes. Skipping the dragged node itself avoids snapping to nowhere.
+      const peers = layerRef.current?.getChildren() ?? [];
+      for (const peer of peers) {
+        if (peer === node || peer.getClassName() === "Transformer") continue;
+        const pb = peer.getClientRect({ relativeTo: stage });
+        targets.push(
+          { v: pb.x, axis: "x" as const },
+          { v: pb.x + pb.width / 2, axis: "x" as const },
+          { v: pb.x + pb.width, axis: "x" as const },
+          { v: pb.y, axis: "y" as const },
+          { v: pb.y + pb.height / 2, axis: "y" as const },
+          { v: pb.y + pb.height, axis: "y" as const },
+        );
+      }
+      // Best match per axis, not first match: with peer targets in play the
+      // nearest guide is the one the designer meant, and snapping to several
+      // at once would fight itself.
+      for (const axis of ["x", "y"] as const) {
+        const edges =
+          axis === "x"
+            ? [box.x, box.x + box.width / 2, box.x + box.width]
+            : [box.y, box.y + box.height / 2, box.y + box.height];
+        let best: { delta: number; v: number; dist: number } | null = null;
+        for (const target of targets) {
+          if (target.axis !== axis) continue;
+          for (const edge of edges) {
+            const dist = Math.abs(edge - target.v);
+            if (dist > SNAP) continue;
+            if (!best || dist < best.dist) best = { delta: target.v - edge, v: target.v, dist };
+          }
         }
+        if (!best) continue;
+        if (axis === "x") node.x(node.x() + best.delta);
+        else node.y(node.y() + best.delta);
+        guides.add(
+          new Konva.Line({
+            points: axis === "x" ? [best.v, 0, best.v, height] : [0, best.v, width, best.v],
+            stroke: "#E8B84B",
+            strokeWidth: 1,
+            dash: [4, 4],
+            listening: false,
+          }),
+        );
       }
       guides.batchDraw();
     },
@@ -260,10 +298,26 @@ export const StudioCanvas = React.forwardRef<CanvasHandle, Props>(function Studi
           guideRef.current?.batchDraw();
           commit();
         });
-        node.on("click tap", () => {
-          tr.nodes([node]);
+        node.on("click tap", (e) => {
+          // Shift/Ctrl extends the selection — aligning things to each other is
+          // pointless if only one node can ever be selected.
+          const evt = e.evt as MouseEvent | undefined;
+          const additive = Boolean(evt?.shiftKey || evt?.ctrlKey || evt?.metaKey);
+          const current = tr.nodes();
+          if (additive) {
+            tr.nodes(current.includes(node) ? current.filter((n) => n !== node) : [...current, node]);
+          } else {
+            tr.nodes([node]);
+          }
           layer.batchDraw();
-          selectRef.current?.(modelRef.current.find((l) => l.id === node.id()) ?? null);
+          uiRef.current?.batchDraw();
+          const picked = tr.nodes();
+          // A multi-selection has no single inspector target.
+          selectRef.current?.(
+            picked.length === 1
+              ? (modelRef.current.find((l) => l.id === picked[0].id()) ?? null)
+              : null,
+          );
         });
         layer.add(node);
       }
@@ -367,6 +421,49 @@ export const StudioCanvas = React.forwardRef<CanvasHandle, Props>(function Studi
         if (!tr) return;
         tr.nodes().forEach((n) => (direction === "front" ? n.moveToTop() : n.moveToBottom()));
         layerRef.current?.batchDraw();
+        commit();
+      },
+      /**
+       * One node aligns to the artboard; several align to their shared bounding
+       * box, which is what "align these to each other" means in every editor.
+       */
+      alignSelected: (edge) => {
+        const tr = trRef.current;
+        const nodes = tr?.nodes() ?? [];
+        if (nodes.length === 0) return;
+        const stage = stageRef.current ?? undefined;
+        const boxes = nodes.map((n) => ({ n, b: n.getClientRect({ relativeTo: stage }) }));
+
+        let frame = { x: 0, y: 0, width, height };
+        if (boxes.length > 1) {
+          const x1 = Math.min(...boxes.map((e) => e.b.x));
+          const y1 = Math.min(...boxes.map((e) => e.b.y));
+          const x2 = Math.max(...boxes.map((e) => e.b.x + e.b.width));
+          const y2 = Math.max(...boxes.map((e) => e.b.y + e.b.height));
+          frame = { x: x1, y: y1, width: x2 - x1, height: y2 - y1 };
+        }
+
+        for (const { n, b } of boxes) {
+          switch (edge) {
+            case "left": n.x(n.x() + (frame.x - b.x)); break;
+            case "right": n.x(n.x() + (frame.x + frame.width - (b.x + b.width))); break;
+            case "hcenter": n.x(n.x() + (frame.x + frame.width / 2 - (b.x + b.width / 2))); break;
+            case "top": n.y(n.y() + (frame.y - b.y)); break;
+            case "bottom": n.y(n.y() + (frame.y + frame.height - (b.y + b.height))); break;
+            case "vcenter": n.y(n.y() + (frame.y + frame.height / 2 - (b.y + b.height / 2))); break;
+          }
+        }
+        layerRef.current?.batchDraw();
+        uiRef.current?.batchDraw();
+        commit();
+      },
+      nudgeSelected: (dx, dy) => {
+        const tr = trRef.current;
+        const nodes = tr?.nodes() ?? [];
+        if (nodes.length === 0) return;
+        nodes.forEach((n) => { n.x(n.x() + dx); n.y(n.y() + dy); });
+        layerRef.current?.batchDraw();
+        uiRef.current?.batchDraw();
         commit();
       },
       undo: () => {
