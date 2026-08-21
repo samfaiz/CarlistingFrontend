@@ -513,7 +513,7 @@ export const StudioCanvas = React.forwardRef<CanvasHandle, Props>(function Studi
         return stage.toDataURL({ mimeType: mime, pixelRatio: 1 / (stage.scaleX() || 1) });
       },
     }),
-    [buildNode, commit, height, paint, readModel, showGuides, width],
+    [commit, emit, height, paint, readModel, width],
   );
 
   return (
