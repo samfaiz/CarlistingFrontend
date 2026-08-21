@@ -33,6 +33,7 @@ import {
   ShieldCheck,
   SlidersHorizontal,
   Users,
+  LayoutTemplate,
 } from "lucide-react";
 import { decodeStaffStepUp } from "@/components/admin/api";
 import { Badge } from "@/components/ui/badge";
@@ -170,6 +171,11 @@ export function AdminLayout({
       href: "/admin/studio",
       label: t("layout.nav.studio"),
       icon: Palette,
+    },
+    {
+      href: "/admin/studio/homepage",
+      label: t("layout.nav.homepageStudio"),
+      icon: LayoutTemplate,
     },
     {
       href: "/admin/intelligence",
