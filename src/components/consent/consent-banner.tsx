@@ -55,12 +55,39 @@ export function ConsentBanner() {
 
   // Flag the banner on <body> so other bottom-fixed UI (the compare tray) can
   // lift above it instead of being covered — see globals.css.
+  const barRef = React.useRef<HTMLDivElement | null>(null);
+
   React.useEffect(() => {
     if (typeof document === "undefined") return;
     if (visible) document.body.dataset.consentOpen = "true";
     else delete document.body.dataset.consentOpen;
     return () => {
       delete document.body.dataset.consentOpen;
+    };
+  }, [visible]);
+
+  /*
+   * Publish the banner's REAL height as --consent-bar-height.
+   * Everything that lifts above it was using the fallback, which assumes one
+   * line of English. On a phone this wraps to three lines, and Arabic wraps
+   * differently again, so a fixed guess left the assistant FAB sitting on the
+   * Decline button. Measured, it is right at every width and in every locale.
+   */
+  React.useEffect(() => {
+    const el = barRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const publish = () => {
+      document.documentElement.style.setProperty(
+        "--consent-bar-height",
+        `${Math.ceil(el.getBoundingClientRect().height)}px`,
+      );
+    };
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      document.documentElement.style.removeProperty("--consent-bar-height");
     };
   }, [visible]);
 
@@ -82,6 +109,7 @@ export function ConsentBanner() {
 
   return (
     <div
+      ref={barRef}
       role="region"
       aria-label={copy("ariaLabel")}
       className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-card shadow-pop"

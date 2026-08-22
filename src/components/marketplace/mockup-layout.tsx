@@ -51,6 +51,14 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
   const { currency, setCurrency } = useCurrency();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
+  // Close the panel whenever the route changes. Tapping a link already closes
+  // it, but browser back/forward and in-page links did not.
+  React.useEffect(() => {
+    const close = () => setMenuOpen(false);
+    router.events.on("routeChangeComplete", close);
+    return () => router.events.off("routeChangeComplete", close);
+  }, [router.events]);
+
   const switchLocale = (code: string) => {
     void router.push({ pathname: router.pathname, query: router.query }, router.asPath, { locale: code });
   };
@@ -105,7 +113,9 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
             </Link>
             <button
               className="mobile-toggle"
-              aria-label="Menu"
+              aria-label={t("chrome.menu")}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
               onClick={() => setMenuOpen((v) => !v)}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -117,13 +127,61 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         {menuOpen && (
-          <nav className="mobile-menu" aria-label="Mobile navigation">
+          <nav id="mobile-menu" className="mobile-menu" aria-label={t("chrome.menuNav")}>
             <div className="container">
               {NAV.map((item) => (
-                <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={item.match.test(router.pathname) ? "active" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
                   {t(`chrome.nav.${item.key}`)}
                 </Link>
               ))}
+
+              {/*
+                Account, language and currency live ONLY in the desktop header,
+                where they are display:none below 900px. Without them here a
+                phone user cannot sign in at all, and cannot switch to Arabic —
+                on an Arabic-first, mobile-first market.
+              */}
+              <Link
+                className="mobile-menu-account"
+                href={session ? "/account" : "/login"}
+                onClick={() => setMenuOpen(false)}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                {session ? t("chrome.myAccount") : t("chrome.login")}
+              </Link>
+
+              <div className="mobile-menu-prefs">
+                <label htmlFor="m-lang">{t("chrome.language")}</label>
+                <select
+                  id="m-lang"
+                  value={router.locale ?? "en"}
+                  onChange={(e) => {
+                    setMenuOpen(false);
+                    switchLocale(e.target.value);
+                  }}
+                >
+                  {LOCALES.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
+                </select>
+
+                <label htmlFor="m-currency">{t("chrome.currency")}</label>
+                <select
+                  id="m-currency"
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value as "AED" | "USD" | "EUR")}
+                >
+                  <option value="AED">AED</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
             </div>
           </nav>
         )}

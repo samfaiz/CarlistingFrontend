@@ -75,6 +75,30 @@ body[data-consent-open="true"] .compare-tray {
   bottom: var(--consent-bar-height, 4.5rem);
 }
 
+/*
+ * The assistant FAB (z-60) is ABOVE the banner, so it did not get swallowed —
+ * it did the swallowing, covering the banner's Decline button on a phone, where
+ * the banner is tall (two lines of text) and the FAB sits inside its band.
+ * Same lift as the tray; the panel rides with it.
+ */
+body[data-consent-open="true"] .mk .assistant-fab {
+  inset-block-end: calc(var(--consent-bar-height, 4.5rem) + 1rem);
+}
+body[data-consent-open="true"] .mk .assistant-panel {
+  inset-block-end: calc(var(--consent-bar-height, 4.5rem) + 5rem);
+}
+
+/*
+ * On a phone the banner wraps to two or three lines, so a single fixed height
+ * is wrong. Measure it instead: the banner reports its own height.
+ */
+@media (max-width: 640px) {
+  body[data-consent-open="true"] .compare-tray,
+  body[data-consent-open="true"] .mk .assistant-fab {
+    inset-block-end: calc(var(--consent-bar-height, 7rem) + 0.75rem);
+  }
+}
+
 /* Page shell — mockup --container: 1240px */
 .container-shell {
   margin-inline: auto;

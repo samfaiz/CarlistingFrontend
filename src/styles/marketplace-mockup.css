@@ -380,13 +380,15 @@
 .mk .promo-card .btn {background:#fff;color:var(--brand)}
 .mk .promo-card .btn:hover {background:#f0f6ff}
 .mk .pagination {display:flex;justify-content:center;align-items:center;gap:6px;margin-top:32px;flex-wrap:wrap}
-.mk .pagination a {
+.mk .pagination a, .mk .pagination button {
     padding:8px 13px;border:1px solid var(--border);border-radius:8px;color:var(--text-2);
     font-size:13.5px;font-weight:600;background:#fff;min-width:38px;text-align:center;
   }
-.mk .pagination a:hover:not(.active):not(.disabled) {border-color:var(--brand-border);color:var(--brand)}
-.mk .pagination a.active {background:var(--brand);color:#fff;border-color:var(--brand)}
-.mk .pagination a.disabled {color:var(--text-3);background:#f7f8fb;cursor:not-allowed}
+.mk .pagination a:hover:not(.active):not(.disabled),
+.mk .pagination button:hover:not(.active):not(:disabled) {border-color:var(--brand-border);color:var(--brand)}
+.mk .pagination a.active, .mk .pagination button.active {background:var(--brand);color:#fff;border-color:var(--brand)}
+.mk .pagination a.disabled, .mk .pagination button:disabled {color:var(--text-3);background:#f7f8fb;cursor:not-allowed}
+.mk .pagination button {font-family:inherit;cursor:pointer;line-height:1.4}
 .mk .pagination .dots {color:var(--text-3);padding:0 4px}
 .mk .detail-wrap {background:#F7F8FB;padding:24px 0 64px;min-height:80vh}
 .mk .detail-head {display:flex;justify-content:space-between;align-items:flex-end;margin:14px 0 20px;flex-wrap:wrap;gap:14px}
@@ -2304,28 +2306,63 @@
   }
 .mk .mobile-toggle:hover {border-color:var(--brand-border);color:var(--brand)}
 .mk .mobile-toggle svg {transition:.2s}
-.mk body.mobile-nav-open .mobile-toggle svg {transform:rotate(90deg)}
+/* Driven by React state, not a body class nobody sets (see .mobile-menu below). */
+.mk .mobile-toggle[aria-expanded="true"] svg {transform:rotate(90deg)}
 @media (max-width: 900px) {
   .mk .mobile-toggle {display:flex}
   .mk .header .row {gap:12px}
-  .mk .nav {
-      position:fixed;top:108px;left:0;right:0;background:#fff;
-      flex-direction:column;align-items:stretch;gap:0;padding:0;
-      border-top:1px solid transparent;box-shadow:none;
-      max-height:0;overflow:hidden;
-      transition:max-height .3s ease, padding .25s ease, border-color .25s ease, box-shadow .25s ease;
-      z-index:99;visibility:hidden;
-    }
-  .mk body.mobile-nav-open .nav {
-      max-height:80vh;overflow:auto;padding:8px 0;
-      border-top-color:var(--border);
+  /* The desktop nav is replaced by .mobile-menu, not reflowed into one. It was
+     previously a fixed, full-width, z-99 panel that could never open — which is
+     also what pushed the document 4px past the viewport. */
+  .mk .nav {display:none}
+  .mk .mobile-menu {
+      border-top:1px solid var(--border);
+      background:#fff;
       box-shadow:0 12px 24px rgba(35,65,107,.12);
-      visibility:visible;
+      max-height:calc(100vh - 64px);
+      overflow-y:auto;
+      /* Momentum scrolling, and never trap the page scroll behind the panel. */
+      -webkit-overflow-scrolling:touch;
     }
-  .mk .nav a {
-      padding:14px 24px;border-radius:0;border-bottom:1px solid var(--divider);font-size:15px;
+  .mk .mobile-menu .container {padding-block:6px}
+  .mk .mobile-menu a {
+      /* display:inline was making six links run together as one text blob. */
+      display:flex;align-items:center;
+      min-height:52px;                     /* comfortably over the 44px target */
+      padding:12px 4px;
+      font-size:16px;font-weight:600;color:var(--text);
+      border-bottom:1px solid var(--divider);
     }
-  .mk .nav a.active {border-inline-start:3px solid var(--brand);padding-inline-start:21px}
+  .mk .mobile-menu a:last-child {border-bottom:0}
+  .mk .mobile-menu a:active {background:var(--brand-light)}
+  .mk .mobile-menu a.active {
+      color:var(--brand);
+      border-inline-start:3px solid var(--brand);
+      padding-inline-start:12px;
+    }
+  /* Account sits apart from navigation: it is a different kind of action. */
+  .mk .mobile-menu .mobile-menu-account {
+      gap:10px;color:var(--brand);
+      margin-block-start:4px;
+      border-block-start:1px solid var(--border);
+      border-bottom:0;
+    }
+  /* Language and currency — the only way to reach Arabic on a phone. */
+  .mk .mobile-menu-prefs {
+      display:grid;grid-template-columns:auto 1fr;align-items:center;
+      gap:10px 12px;
+      padding-block:12px 14px;
+      border-block-start:1px solid var(--border);
+    }
+  .mk .mobile-menu-prefs label {
+      font-size:13px;font-weight:600;color:var(--text-2);
+    }
+  .mk .mobile-menu-prefs select {
+      min-height:44px;font-size:16px;font-family:inherit;font-weight:600;
+      color:var(--text);background:#fff;
+      border:1px solid var(--border);border-radius:8px;
+      padding-inline:10px;width:100%;
+    }
   .mk .header-actions .btn-outline {display:none}
   .mk .header-actions .btn-primary {padding:9px 14px;font-size:13px}
   .mk .utility .links:first-child {display:none}
@@ -2599,3 +2636,107 @@
 .mk .chrome-select {height:36px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:8px;padding:0 8px;font-size:12.5px;cursor:pointer}
 .mk .chrome-select option {color:var(--ink,#23416B)}
 @media (max-width: 900px) { .mk .chrome-select {display:none} }
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MOBILE (phones)
+
+   The design layer above was ported from a desktop mockup and carries only a
+   handful of breakpoints, mostly at 1080px (tablet). This block is the phone
+   pass. It is LAST in the file on purpose: same-specificity rules above are
+   meant to be overridden here, so no !important is needed anywhere.
+
+   Logical properties only — RTL is a release gate.
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* ── Form controls ───────────────────────────────────────────────────────
+     iOS Safari ZOOMS the whole page when a control smaller than 16px takes
+     focus, and there is no way back out except pinching. Every control the
+     customer touches is therefore at least 16px here, regardless of what it
+     is on desktop. This is the reason for the rule, not a style preference. */
+  .mk input,
+  .mk select,
+  .mk textarea,
+  .mk .form-input,
+  .mk .f-input,
+  .mk .search-field select,
+  .mk .search-field input,
+  .mk .sort-select,
+  .mk .f-select,
+  .mk .fin-row select.f-select {
+    font-size: 16px;
+  }
+
+  /* Tap targets. A 21px-tall select is a coin toss on a phone; 44px is the
+     documented minimum for a finger. */
+  .mk input:not([type="checkbox"]):not([type="radio"]),
+  .mk select,
+  .mk .form-input,
+  .mk .f-input {
+    min-height: 44px;
+  }
+  .mk .search-field {padding-block: 10px}
+  .mk .search-field select,
+  .mk .search-field input {padding-block: 8px}
+
+  /* These two set the `font` SHORTHAND, which beats a plain font-size unless
+     the selector is at least as specific. */
+  .mk .compact-field select,
+  .mk .compact-field input {font: 600 16px Inter, sans-serif; padding-block: 8px}
+  .mk .compact-field label {font-size: 12px}
+
+  /* The pager is a row of buttons; 24px tall was a miss on a phone. */
+  .mk .pagination a,
+  .mk .pagination button {min-height: 44px; min-width: 44px; display: inline-flex;
+    align-items: center; justify-content: center}
+
+  .mk .btn {min-height: 44px; padding-inline: 16px}
+  .mk .btn-mini, .mk .btn-sm {min-height: 40px}
+
+  /* Icon-only controls: the visual circle can stay small, the touch area
+     cannot. A transparent inset pseudo-element grows the hit box without
+     changing the layout. */
+  .mk .fav,
+  .mk .pwd-toggle,
+  .mk .mobile-toggle,
+  .mk .compare-toggle {position: relative}
+  .mk .fav::after,
+  .mk .pwd-toggle::after,
+  .mk .compare-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+  }
+
+  /* Checkboxes and radios are 14px by default, which is unhittable. */
+  .mk input[type="checkbox"],
+  .mk input[type="radio"] {width: 20px; height: 20px}
+
+  /* ── Text legibility ─────────────────────────────────────────────────────
+     11px on a phone held at arm's length is not readable. Nothing customer
+     facing goes below 12px. */
+  .mk .count,
+  .mk .cmp-val,
+  .mk .card-sub,
+  .mk .spec,
+  .mk .dealer-meta-2 {font-size: 12.5px}
+  .mk .search-field label {font-size: 12px}
+
+  /* ── Rows that must not be cut off ───────────────────────────────────────
+     Anything inherently wider than a phone scrolls horizontally INSIDE its own
+     container rather than being clipped by the viewport. */
+  .mk .tabs,
+  .mk .chips,
+  .mk .filter-chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mk .tabs::-webkit-scrollbar,
+  .mk .chips::-webkit-scrollbar,
+  .mk .filter-chips::-webkit-scrollbar {display: none}
+  .mk .tabs .tab {flex: 0 0 auto}
+}
