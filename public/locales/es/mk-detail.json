@@ -297,7 +297,8 @@
     "whatsapp": "WhatsApp al concesionario",
     "message": "Enviar un mensaje",
     "testDrive": "Programar una prueba de conducción",
-    "pdf": "Descargar ficha técnica (PDF)"
+    "pdf": "Descargar ficha técnica (PDF)",
+    "priceLabel": "Precio"
   },
   "finance": {
     "title": "Calculadora de financiación",

@@ -52,6 +52,20 @@ export default function MksearchPage({
   const router = useRouter();
   const [kw, setKw] = React.useState(query.q ?? "");
 
+  /*
+   * On a phone the filter panel is ~700px tall and was always expanded, so the
+   * first car sat about 1000px down the page — a search results page where you
+   * cannot see a result. It now collapses behind a summary button that reports
+   * how many filters are active, and opens on demand. Desktop is unchanged:
+   * CSS keeps the panel open above the phone breakpoint.
+   */
+  const [filtersOpen, setFiltersOpen] = React.useState(false);
+  const activeFilterCount = React.useMemo(() => {
+    // Paging and sorting are not filters; counting them would always read >= 1.
+    const ignored = new Set(["page", "sort"]);
+    return Object.entries(query).filter(([k, v]) => !ignored.has(k) && v !== undefined && v !== "").length;
+  }, [query]);
+
   // Push a new query — SSR re-runs and the URL is shareable/bookmarkable.
   const apply = (patch: Record<string, string | undefined>, resetPage = true) => {
     const next: Record<string, string> = { ...query };
@@ -144,12 +158,28 @@ export default function MksearchPage({
 
               <div className="search-grid">
                 {/* FILTERS */}
-                <aside className="filters-card">
+                <aside className={filtersOpen ? "filters-card is-open" : "filters-card"}>
+                  {/* Mobile-only summary toggle; CSS hides it above the phone breakpoint. */}
+                  <button
+                    type="button"
+                    className="filters-toggle"
+                    aria-expanded={filtersOpen}
+                    aria-controls="filters-body"
+                    onClick={() => setFiltersOpen((v) => !v)}
+                  >
+                    <span>
+                      {t("filters.title")}
+                      {activeFilterCount > 0 ? <span className="filters-count">{activeFilterCount}</span> : null}
+                    </span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
                   <div className="filters-head">
                     <h3>{t("filters.title")}</h3>
                     <button className="reset" type="button" onClick={() => router.push("/cars")}>{t("filters.reset")}</button>
                   </div>
-                  <div className="filters-body">
+                  <div className="filters-body" id="filters-body">
                     <div className="fgroup">
                       <h4>{t("fg.keyword.title")}</h4>
                       <div className="fbody">

@@ -1509,11 +1509,6 @@
   }
 .mk .compare-toast.show {opacity:1;transform:translateX(-50%) translateY(0)}
 .mk .compare-toast .toast-icon {color:var(--warning)}
-@media (max-width: 600px) {
-  .mk .compare-pill {border-radius:14px;width:100%;flex-wrap:wrap;justify-content:center;padding:12px}
-  .mk .compare-pill-thumbs {display:none}
-  .mk .compare-pill-wrap {padding:0 12px 12px}
-}
 @media (max-width: 1080px) {
   .mk .dealers-layout {grid-template-columns:1fr}
   .mk .dealers-filters {position:static}
@@ -2308,6 +2303,75 @@
 .mk .mobile-toggle svg {transition:.2s}
 /* Driven by React state, not a body class nobody sets (see .mobile-menu below). */
 .mk .mobile-toggle[aria-expanded="true"] svg {transform:rotate(90deg)}
+/* Tablet. MUST stay above the narrower blocks below: equal-specificity
+   rules are decided by source order, so a wider block placed after a
+   narrower one silently wins at phone widths. */
+@media (max-width: 1080px) {
+  .mk .bodytypes {grid-template-columns:repeat(4,1fr)}
+  .mk .brands {grid-template-columns:repeat(4,1fr)}
+  .mk .cards {grid-template-columns:repeat(2,1fr)}
+  .mk .categories {grid-template-columns:repeat(2,1fr)}
+  .mk .articles {grid-template-columns:1fr}
+  .mk .search-body {grid-template-columns:1fr 1fr;}
+  .mk .search-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
+  .mk .search-cta {grid-column:1/-1}
+  .mk .why .why-grid {grid-template-columns:repeat(2,1fr)}
+  .mk .sell-banner {grid-template-columns:1fr}
+  .mk footer .grid {grid-template-columns:repeat(2,1fr)}
+  .mk .search-grid {grid-template-columns:1fr}
+  .mk .filters-card {position:static;max-height:none}
+  .mk .result-grid {grid-template-columns:repeat(2,1fr)}
+  .mk .compact-search {grid-template-columns:1fr 1fr}
+  .mk .compact-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
+  .mk .detail-grid {grid-template-columns:1fr}
+  .mk .detail-sidebar {position:static}
+  .mk .quick-specs {grid-template-columns:repeat(3,1fr);gap:14px}
+  .mk .qs {padding:0;border-inline-end:0;border-bottom:1px solid var(--divider);padding-bottom:10px}
+  .mk .spec-table {grid-template-columns:1fr}
+  .mk .features-grid {grid-template-columns:1fr 1fr}
+  .mk .history-grid {grid-template-columns:1fr}
+  .mk .similar-section .cards {grid-template-columns:repeat(2,1fr)}
+  .mk .new-brands {grid-template-columns:repeat(3,1fr)}
+  .mk .model-grid {grid-template-columns:repeat(2,1fr)}
+  .mk .new-cats {grid-template-columns:repeat(2,1fr)}
+  .mk .coming-grid {grid-template-columns:repeat(2,1fr)}
+  .mk .deals-banner {grid-template-columns:1fr}
+  .mk .qf-search {grid-template-columns:1fr 1fr}
+  .mk .qf-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
+  .mk .account-grid {grid-template-columns:1fr}
+  .mk .account-sidebar {position:static}
+  .mk .stats-grid {grid-template-columns:repeat(2,1fr)}
+  .mk .activity-block .cards {grid-template-columns:1fr 1fr}
+  .mk .profile-grid {grid-template-columns:1fr}
+  .mk .dealer-header {grid-template-columns:1fr;text-align:center}
+  .mk .dealer-logo-big {margin:-58px auto 0}
+  .mk .dealer-name-row {justify-content:center}
+  .mk .dealer-meta-row {justify-content:center}
+  .mk .dealer-actions {justify-content:center}
+  .mk .dealer-stats {grid-template-columns:repeat(2,1fr);gap:14px}
+  .mk .ds-item {border-inline-end:0;border-bottom:1px solid var(--divider);padding:8px 0}
+  .mk .dealer-grid {grid-template-columns:1fr}
+  .mk .dealer-sidebar {position:static}
+  .mk .review-summary {grid-template-columns:1fr;gap:18px}
+  .mk .rs-big {border-inline-end:0;border-bottom:1px solid var(--divider);padding-inline-end:0;padding-bottom:18px}
+  .mk .services-grid {grid-template-columns:1fr}
+  .mk .location-card {grid-template-columns:1fr}
+  .mk .sell-grid {grid-template-columns:1fr}
+  .mk .sell-sidebar {position:static}
+  .mk .form-grid {grid-template-columns:1fr}
+  .mk .condition-cards {grid-template-columns:repeat(2,1fr)}
+  .mk .feature-chips {grid-template-columns:1fr 1fr}
+  .mk .photo-recs {grid-template-columns:repeat(2,1fr)}
+  .mk .boost-cards {grid-template-columns:1fr}
+  .mk .plate-row {grid-template-columns:1fr}
+  .mk .compare-cars {grid-template-columns:160px repeat(3,1fr);overflow-x:auto}
+  .mk .cmp-row {grid-template-columns:160px repeat(3,1fr);font-size:12.5px;padding:10px 14px}
+  .mk .cmp-val {padding:6px 6px}
+  .mk .cmp-section-title {padding:14px 16px}
+  .mk .msg-layout {grid-template-columns:1fr;height:auto}
+  .mk .msg-list {border-inline-end:0;border-bottom:1px solid var(--divider);max-height:300px}
+}
+
 @media (max-width: 900px) {
   .mk .mobile-toggle {display:flex}
   .mk .header .row {gap:12px}
@@ -2477,15 +2541,11 @@
   .mk .compare-pill .btn {order:2}
   .mk .compare-pill-wrap {padding:0 10px 10px}
 }
-@media (max-width: 540px) {
-  .mk .help-cats {grid-template-columns:1fr}
-  .mk .bodytypes {grid-template-columns:repeat(2,1fr)}
-  .mk .brands {grid-template-columns:repeat(2,1fr)}
-  .mk .stats-grid {grid-template-columns:1fr 1fr}
-  .mk .similar-section .cards {grid-template-columns:1fr}
-  .mk .article-title {font-size:22px}
-  .mk .news-section-title {font-size:18px}
-  .mk .quick-specs {grid-template-columns:repeat(2,1fr)}
+
+@media (max-width: 600px) {
+  .mk .compare-pill {border-radius:14px;width:100%;flex-wrap:wrap;justify-content:center;padding:12px}
+  .mk .compare-pill-thumbs {display:none}
+  .mk .compare-pill-wrap {padding:0 12px 12px}
 }
 .mk .universal-search {
     background:#fff;border:1px solid var(--border);border-radius:14px;
@@ -2515,71 +2575,6 @@
 .mk .hero .universal-search, .mk .new-hero .universal-search, .mk .dealers-hero .universal-search {
     background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(0,0,0,.18);
   }
-@media (max-width: 1080px) {
-  .mk .bodytypes {grid-template-columns:repeat(4,1fr)}
-  .mk .brands {grid-template-columns:repeat(4,1fr)}
-  .mk .cards {grid-template-columns:repeat(2,1fr)}
-  .mk .categories {grid-template-columns:repeat(2,1fr)}
-  .mk .articles {grid-template-columns:1fr}
-  .mk .search-body {grid-template-columns:1fr 1fr;}
-  .mk .search-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
-  .mk .search-cta {grid-column:1/-1}
-  .mk .why .why-grid {grid-template-columns:repeat(2,1fr)}
-  .mk .sell-banner {grid-template-columns:1fr}
-  .mk footer .grid {grid-template-columns:repeat(2,1fr)}
-  .mk .search-grid {grid-template-columns:1fr}
-  .mk .filters-card {position:static;max-height:none}
-  .mk .result-grid {grid-template-columns:repeat(2,1fr)}
-  .mk .compact-search {grid-template-columns:1fr 1fr}
-  .mk .compact-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
-  .mk .detail-grid {grid-template-columns:1fr}
-  .mk .detail-sidebar {position:static}
-  .mk .quick-specs {grid-template-columns:repeat(3,1fr);gap:14px}
-  .mk .qs {padding:0;border-inline-end:0;border-bottom:1px solid var(--divider);padding-bottom:10px}
-  .mk .spec-table {grid-template-columns:1fr}
-  .mk .features-grid {grid-template-columns:1fr 1fr}
-  .mk .history-grid {grid-template-columns:1fr}
-  .mk .similar-section .cards {grid-template-columns:repeat(2,1fr)}
-  .mk .new-brands {grid-template-columns:repeat(3,1fr)}
-  .mk .model-grid {grid-template-columns:repeat(2,1fr)}
-  .mk .new-cats {grid-template-columns:repeat(2,1fr)}
-  .mk .coming-grid {grid-template-columns:repeat(2,1fr)}
-  .mk .deals-banner {grid-template-columns:1fr}
-  .mk .qf-search {grid-template-columns:1fr 1fr}
-  .mk .qf-field {border-inline-end:0;border-bottom:1px solid var(--divider)}
-  .mk .account-grid {grid-template-columns:1fr}
-  .mk .account-sidebar {position:static}
-  .mk .stats-grid {grid-template-columns:repeat(2,1fr)}
-  .mk .activity-block .cards {grid-template-columns:1fr 1fr}
-  .mk .profile-grid {grid-template-columns:1fr}
-  .mk .dealer-header {grid-template-columns:1fr;text-align:center}
-  .mk .dealer-logo-big {margin:-58px auto 0}
-  .mk .dealer-name-row {justify-content:center}
-  .mk .dealer-meta-row {justify-content:center}
-  .mk .dealer-actions {justify-content:center}
-  .mk .dealer-stats {grid-template-columns:repeat(2,1fr);gap:14px}
-  .mk .ds-item {border-inline-end:0;border-bottom:1px solid var(--divider);padding:8px 0}
-  .mk .dealer-grid {grid-template-columns:1fr}
-  .mk .dealer-sidebar {position:static}
-  .mk .review-summary {grid-template-columns:1fr;gap:18px}
-  .mk .rs-big {border-inline-end:0;border-bottom:1px solid var(--divider);padding-inline-end:0;padding-bottom:18px}
-  .mk .services-grid {grid-template-columns:1fr}
-  .mk .location-card {grid-template-columns:1fr}
-  .mk .sell-grid {grid-template-columns:1fr}
-  .mk .sell-sidebar {position:static}
-  .mk .form-grid {grid-template-columns:1fr}
-  .mk .condition-cards {grid-template-columns:repeat(2,1fr)}
-  .mk .feature-chips {grid-template-columns:1fr 1fr}
-  .mk .photo-recs {grid-template-columns:repeat(2,1fr)}
-  .mk .boost-cards {grid-template-columns:1fr}
-  .mk .plate-row {grid-template-columns:1fr}
-  .mk .compare-cars {grid-template-columns:160px repeat(3,1fr);overflow-x:auto}
-  .mk .cmp-row {grid-template-columns:160px repeat(3,1fr);font-size:12.5px;padding:10px 14px}
-  .mk .cmp-val {padding:6px 6px}
-  .mk .cmp-section-title {padding:14px 16px}
-  .mk .msg-layout {grid-template-columns:1fr;height:auto}
-  .mk .msg-list {border-inline-end:0;border-bottom:1px solid var(--divider);max-height:300px}
-}
 
 /* P4-05 Content CMS — legal pages (scoped, logical properties for RTL) */
 .mk .legal-crumb {font-size:13px;color:var(--text-2);margin-bottom:14px}
@@ -2636,6 +2631,9 @@
 .mk .chrome-select {height:36px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:8px;padding:0 8px;font-size:12.5px;cursor:pointer}
 .mk .chrome-select option {color:var(--ink,#23416B)}
 @media (max-width: 900px) { .mk .chrome-select {display:none} }
+
+.mk .filters-toggle {display:none}
+.mk .detail-action-bar {display:none}
 
 /* ════════════════════════════════════════════════════════════════════════════
    MOBILE (phones)
@@ -2739,4 +2737,110 @@
   .mk .chips::-webkit-scrollbar,
   .mk .filter-chips::-webkit-scrollbar {display: none}
   .mk .tabs .tab {flex: 0 0 auto}
+
+  /* ── Search filters ──────────────────────────────────────────────────────
+     The panel is ~700px tall. Left expanded it pushed the first result about
+     1000px down a RESULTS page. It collapses here and opens on demand. */
+  .mk .filters-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font: 700 15px Inter, sans-serif;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .mk .filters-toggle > span {display: inline-flex; align-items: center; gap: 8px}
+  .mk .filters-toggle svg {transition: transform .2s ease}
+  .mk .filters-card.is-open .filters-toggle svg {transform: rotate(180deg)}
+  .mk .filters-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 22px;
+    height: 22px;
+    padding-inline: 6px;
+    border-radius: 99px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  /* The panel's own heading duplicates the toggle on a phone. */
+  .mk .filters-card {padding: 0; border: 0; background: transparent; box-shadow: none}
+  .mk .filters-card .filters-head {display: none}
+  .mk .filters-card .filters-body {display: none}
+  .mk .filters-card.is-open .filters-body {
+    display: block;
+    margin-block-start: 10px;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  /* A facet list nested inside an already-scrolling page is hard to use; let
+     it grow instead and let the page do the scrolling. */
+  .mk .filters-card .fbody {max-height: none; overflow: visible}
+
+  /* Two-up, not stacked. Four full-width fields is ~130px of dead height above
+     a results list, and Make/Price and Year/Emirate pair naturally. */
+  .mk .compact-search {grid-template-columns: 1fr 1fr}
+  .mk .compact-field {border-inline-end: 1px solid var(--divider)}
+  .mk .compact-field:nth-child(2n) {border-inline-end: 0}
+  .mk .compact-search .btn {grid-column: 1 / -1; margin: 8px; min-width: 0}
+
+  /* ── Detail action bar ───────────────────────────────────────────────────
+     Pinned so the conversion action is never below the fold. It joins the
+     bottom-fixed stack, so it lifts over the consent banner using the same
+     measured height everything else keys off, and sits under the banner in
+     z-order rather than covering its buttons. */
+  .mk .detail-action-bar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 45;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    /* Clear of the iPhone home indicator. */
+    padding-block-end: max(10px, env(safe-area-inset-bottom));
+    background: #fff;
+    border-block-start: 1px solid var(--border);
+    box-shadow: 0 -6px 20px rgba(35, 65, 107, .12);
+  }
+  body[data-consent-open="true"] .mk .detail-action-bar {
+    inset-block-end: var(--consent-bar-height, 7rem);
+  }
+  .mk .dab-price {display: flex; flex-direction: column; line-height: 1.15; flex: 1; min-width: 0}
+  .mk .dab-price .dab-label {font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: .05em}
+  .mk .dab-price strong {font-size: 18px; font-weight: 800; color: var(--brand); white-space: nowrap}
+  .mk .detail-action-bar .btn {min-height: 46px}
+  .mk .dab-wa {width: 46px; padding: 0; flex: 0 0 auto}
+  .mk .dab-call {flex: 0 1 auto; padding-inline: 14px; max-width: 55%}
+  .mk .dab-call span {overflow: hidden; text-overflow: ellipsis; white-space: nowrap}
+
+  /* The page must be able to scroll clear of the pinned bar. The footer is a
+     SIBLING of the page main, so padding on the main alone still left the bar
+     sitting over the footer at the bottom of the scroll. */
+  .mk #page-detail {padding-block-end: 24px}
+  .mk #page-detail ~ footer {padding-block-end: 96px}
+  /* Two pinned bars on the detail page would fight; the tray yields. */
+  #page-detail ~ .compare-tray, .mk #page-detail ~ .compare-tray {display: none}
+}
+
+/* Narrowest last, so it wins where it applies. */
+@media (max-width: 540px) {
+  .mk .help-cats {grid-template-columns:1fr}
+  .mk .bodytypes {grid-template-columns:repeat(2,1fr)}
+  .mk .brands {grid-template-columns:repeat(2,1fr)}
+  .mk .stats-grid {grid-template-columns:1fr 1fr}
+  .mk .similar-section .cards {grid-template-columns:1fr}
+  .mk .article-title {font-size:22px}
+  .mk .news-section-title {font-size:18px}
+  .mk .quick-specs {grid-template-columns:repeat(2,1fr)}
 }

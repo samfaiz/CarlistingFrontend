@@ -297,7 +297,8 @@
     "whatsapp": "WhatsApp dealer",
     "message": "Send a message",
     "testDrive": "Schedule a test drive",
-    "pdf": "Download spec sheet (PDF)"
+    "pdf": "Download spec sheet (PDF)",
+    "priceLabel": "Price"
   },
   "finance": {
     "title": "Finance calculator",

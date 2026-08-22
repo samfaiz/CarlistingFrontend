@@ -297,7 +297,8 @@
     "whatsapp": "WhatsApp au concessionnaire",
     "message": "Envoyer un message",
     "testDrive": "Planifier un essai routier",
-    "pdf": "Télécharger la fiche technique (PDF)"
+    "pdf": "Télécharger la fiche technique (PDF)",
+    "priceLabel": "Prix"
   },
   "finance": {
     "title": "Calculateur de financement",
