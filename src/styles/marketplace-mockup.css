@@ -2226,12 +2226,22 @@
   }
 .mk .faq-q:hover {background:#fafbfd}
 .mk .faq-q .faq-chev {color:var(--text-3);transition:.2s;flex-shrink:0}
-.mk .faq-item.open .faq-q .faq-chev {transform:rotate(180deg);color:var(--brand)}
+
+/*
+ * The FAQ is a native <details>/<summary>, which hides its own content and
+ * exposes an `open` ATTRIBUTE. This waited on a `.open` CLASS that React never
+ * sets, so the answer stayed max-height:0 forever and no FAQ on /help or
+ * /vs/<pair> could be opened at all — at any viewport.
+ *
+ * <details> already does the showing and hiding, so there is no max-height
+ * mechanism here now; a fixed 500px cap would have clipped long answers anyway.
+ */
 .mk .faq-a {
-    max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
-    padding:0 22px;font-size:14px;color:var(--text-2);line-height:1.65;
+    padding:0 22px 18px;font-size:15px;color:var(--text-2);line-height:1.65;
   }
-.mk .faq-item.open .faq-a {max-height:500px;padding:0 22px 18px}
+.mk .faq-q {list-style:none}
+.mk .faq-q::-webkit-details-marker {display:none}
+.mk .faq-item[open] .faq-q .faq-chev {transform:rotate(180deg);color:var(--brand)}
 .mk .help-contact-bar {
     background:linear-gradient(135deg,var(--brand) 0%,var(--brand-mid) 100%);color:#fff;
     border-radius:16px;padding:32px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;
@@ -2831,6 +2841,55 @@
   .mk #page-detail ~ footer {padding-block-end: 96px}
   /* Two pinned bars on the detail page would fight; the tray yields. */
   #page-detail ~ .compare-tray, .mk #page-detail ~ .compare-tray {display: none}
+
+  /* ── Comparison ──────────────────────────────────────────────────────────
+     A side-by-side comparison is wider than a phone by definition. It was
+     being CLIPPED (`.cmp-section` is overflow:hidden and the grid columns
+     cannot shrink below their content), so on a two-car comparison the second
+     car was simply cut off the screen with no way to reach it.
+
+     Scroll it horizontally instead, with the label column pinned so you always
+     know which row you are reading. */
+  .mk .cmp-section {overflow: visible}
+  .mk .compare-cars,
+  .mk .cmp-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  /* Column count follows the ACTUAL number of cars. The fixed `repeat(3)`
+     reserved a third column on a two-car comparison and pushed the second car
+     off-screen for no reason (and mis-sized a four-car one, since COMPARE_MAX
+     is 4). auto-flow sizes to the children that are really there. */
+  .mk .compare-cars,
+  .mk .cmp-row {
+    grid-template-columns: 84px;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(118px, 1fr);
+    gap: 8px;
+  }
+  .mk .compare-cars {
+    position: static;              /* sticky and horizontal scroll fight */
+    padding: 10px;
+  }
+  .mk .cmp-row {padding: 10px 12px; font-size: 13.5px}
+  .mk .cmp-car, .mk .cmp-val {scroll-snap-align: start}
+  /* The ROW LABEL must stay put while the values scroll under it — otherwise
+     you cannot tell which spec you are reading. The header blurb is prose, not
+     a label, so it scrolls away with the cards instead of sitting on top of
+     the first one. */
+  .mk .cmp-label {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 2;
+    background: #fff;
+    padding-inline-end: 6px;
+  }
+  .mk .cmp-spec-col {padding: 12px; font-size: 12px}
+  .mk .cmp-spec-col h3 {font-size: 14px}
+  .mk .cmp-spec-col p {font-size: 11.5px}
+  .mk .cmp-val {font-size: 13px; padding: 8px 6px}
+  .mk .cmp-car h4 {font-size: 13px; min-height: 0}
 }
 
 /* Narrowest last, so it wins where it applies. */
