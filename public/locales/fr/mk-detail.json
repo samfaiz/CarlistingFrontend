@@ -26,7 +26,9 @@
   "gallery": {
     "featured": "En vedette",
     "photoNum": "1 / 6",
-    "viewAll": "Voir les 22 photos"
+    "viewAll": "Voir les 22 photos",
+    "previous": "Photo précédente",
+    "next": "Photo suivante"
   },
   "quickSpecs": {
     "year": {

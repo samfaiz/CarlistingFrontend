@@ -26,7 +26,9 @@
   "gallery": {
     "featured": "مميّزة",
     "photoNum": "1 / 6",
-    "viewAll": "عرض كل الصور الـ22"
+    "viewAll": "عرض كل الصور الـ22",
+    "previous": "الصورة السابقة",
+    "next": "الصورة التالية"
   },
   "quickSpecs": {
     "year": {

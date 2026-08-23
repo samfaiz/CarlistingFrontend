@@ -403,6 +403,37 @@
 .mk .detail-main {min-width:0;display:flex;flex-direction:column;gap:18px}
 .mk .gallery {background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .mk .gallery-main {position:relative;aspect-ratio:16/10;background:#0e1f3a;overflow:hidden}
+/* Scroll-snap carousel. The thumbnail strip is hidden on phones, so the track
+   itself has to be navigable — natively swipeable, and RTL-correct because it
+   is driven by scroll position rather than a transform. */
+.mk .gallery-track {
+    display:flex;height:100%;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;-ms-overflow-style:none;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;      /* do not chain to the page/back-swipe */
+  }
+.mk .gallery-track::-webkit-scrollbar {display:none}
+.mk .gallery-track img {
+    flex:0 0 100%;width:100%;height:100%;
+    object-fit:cover;display:block;
+    scroll-snap-align:center;
+    user-select:none;
+  }
+.mk .gallery-nav {
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:40px;height:40px;border-radius:99px;
+    background:rgba(255,255,255,.92);color:var(--text);
+    border:1px solid var(--border);
+    display:grid;place-items:center;cursor:pointer;z-index:2;
+    transition:.15s ease;
+  }
+.mk .gallery-nav:hover {background:#fff;color:var(--brand)}
+.mk .gallery-nav.prev {inset-inline-start:12px}
+.mk .gallery-nav.next {inset-inline-end:12px}
+/* The arrows mirror themselves in RTL along with the track. */
+.mk [dir="rtl"] .gallery-nav svg, [dir="rtl"] .mk .gallery-nav svg {transform:scaleX(-1)}
 .mk .gallery-main img {width:100%;height:100%;object-fit:cover;display:block}
 .mk .gal-nav {position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--text);cursor:pointer;backdrop-filter:blur(6px);transition:.15s}
 .mk .gal-nav:hover {background:#fff;transform:translateY(-50%) scale(1.05)}
@@ -2768,6 +2799,12 @@
   .mk .chips::-webkit-scrollbar,
   .mk .filter-chips::-webkit-scrollbar {display: none}
   .mk .tabs .tab {flex: 0 0 auto}
+
+  /* Gallery: the arrows are the visible affordance that the photos swipe. */
+  .mk .gallery-nav {width: 44px; height: 44px}
+  .mk .gallery-nav.prev {inset-inline-start: 8px}
+  .mk .gallery-nav.next {inset-inline-end: 8px}
+  .mk .photo-num-large {inset-block-end: 10px; inset-inline-start: 10px}
 
   /* ── Search filters ──────────────────────────────────────────────────────
      The panel is ~700px tall. Left expanded it pushed the first result about

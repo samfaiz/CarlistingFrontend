@@ -26,7 +26,9 @@
   "gallery": {
     "featured": "Destacado",
     "photoNum": "1 / 6",
-    "viewAll": "Ver las 22 fotos"
+    "viewAll": "Ver las 22 fotos",
+    "previous": "Foto anterior",
+    "next": "Foto siguiente"
   },
   "quickSpecs": {
     "year": {

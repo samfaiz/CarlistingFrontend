@@ -70,7 +70,35 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
 
   const title = `${listing.year} ${listing.make.name} ${listing.model.name}${listing.trim ? ` ${listing.trim.name}` : ""}`;
   const photos = listing.media.map((m) => m.variants?.card).filter(Boolean) as string[];
-  const cover = photos[active] ?? photos[0];
+
+  /*
+   * Gallery navigation. The track is a scroll-snap carousel, so moving between
+   * photos is a scroll rather than a state-driven swap — that keeps the native
+   * touch swipe, and scrollIntoView handles Arabic RTL without a direction
+   * branch. `active` is derived FROM the scroll position, not the other way
+   * round, so a swipe and a thumbnail click stay in agreement.
+   */
+  const trackRef = React.useRef<HTMLDivElement | null>(null);
+
+  const goToPhoto = React.useCallback(
+    (index: number) => {
+      const track = trackRef.current;
+      if (!track) return;
+      const clamped = Math.max(0, Math.min(index, track.children.length - 1));
+      const slide = track.children[clamped] as HTMLElement | undefined;
+      slide?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      setActive(clamped);
+    },
+    [],
+  );
+
+  const onTrackScroll = React.useCallback(() => {
+    const track = trackRef.current;
+    if (!track || track.clientWidth === 0) return;
+    // Math.abs: scrollLeft is negative in RTL in some engines.
+    const index = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
+    setActive((cur) => (cur === index ? cur : index));
+  }, []);
   const desc = listing.descriptions.find((d) => d.locale === "en")?.text ?? listing.descriptions[0]?.text ?? "";
   // Was listing.make.name — a dealer listing showed "Toyota" as the seller.
   const dealer =
@@ -123,19 +151,58 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                           {t("gallery.featured")}
                         </span>
                       )}
-                      {cover ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={mediaUrl(cover)} alt={title} />
+                      {photos.length > 0 ? (
+                        /*
+                          A scroll-snap track, not a single swapped <img>. The
+                          thumbnail strip is the ONLY way to change photo and it
+                          is display:none on phones, so photos 2..N were
+                          unreachable while the counter advertised them.
+                          Scroll-driven rather than transform-driven because
+                          scrollIntoView respects direction, so it is correct in
+                          Arabic RTL for free.
+                        */
+                        <div className="gallery-track" ref={trackRef} onScroll={onTrackScroll}>
+                          {photos.map((ph, i) => (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              key={i}
+                              src={mediaUrl(ph)}
+                              alt={`${title} — ${i + 1}/${photos.length}`}
+                              loading={i === 0 ? "eager" : "lazy"}
+                              draggable={false}
+                            />
+                          ))}
+                        </div>
                       ) : (
                         <div style={{ aspectRatio: "16/10", background: "var(--brand-surface)" }} />
                       )}
-                      <span className="photo-num-large">{active + 1}/{photos.length || 1}</span>
+                      {photos.length > 1 && (
+                        <>
+                          <button
+                            type="button"
+                            className="gallery-nav prev"
+                            aria-label={t("gallery.previous")}
+                            onClick={() => goToPhoto(active - 1)}
+                          >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M15 6l-6 6 6 6" /></svg>
+                          </button>
+                          <button
+                            type="button"
+                            className="gallery-nav next"
+                            aria-label={t("gallery.next")}
+                            onClick={() => goToPhoto(active + 1)}
+                          >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M9 6l6 6-6 6" /></svg>
+                          </button>
+                        </>
+                      )}
+                      <span className="photo-num-large" aria-live="polite">{active + 1}/{photos.length || 1}</span>
                     </div>
                     {photos.length > 1 && (
                       <div className="gallery-thumbs">
                         {photos.map((ph, i) => (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img key={i} className={`thumb${i === active ? " active" : ""}`} src={mediaUrl(ph)} alt="" onClick={() => setActive(i)} />
+                          <img key={i} className={`thumb${i === active ? " active" : ""}`} src={mediaUrl(ph)} alt="" onClick={() => goToPhoto(i)} />
                         ))}
                       </div>
                     )}
