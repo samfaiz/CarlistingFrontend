@@ -91,5 +91,10 @@
   "card": {
     "save": "Enregistrer cette voiture",
     "unsave": "Retirer des favoris"
+  },
+  "compare": {
+    "chip": "Comparer",
+    "chipLabel": "Comparer {{title}}",
+    "full": "La comparaison contient 4 voitures — retirez-en une"
   }
 }

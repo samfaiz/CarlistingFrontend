@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { useCurrency } from "@/components/marketplace/currency-provider";
 import { useSaved } from "@/components/saved/saved-provider";
+import { useCompare } from "@/components/compare/compare-provider";
+import { toast } from "@/components/ui/toast";
 import type { Card } from "@/lib/marketplace-api";
 
 const FUEL_LABEL: Record<string, string> = {
@@ -33,6 +35,33 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
   const { ready, authed, isSaved, toggle } = useSaved();
   const saved = isSaved(car.id);
 
+  /*
+   * Compare. The tray and /compare page have always worked, but nothing on the
+   * card could populate them — the mockup port styled `.compare-toggle` and
+   * `.card.in-compare` and then never rendered either, so compare was
+   * unreachable from search. Uses the design that was already there.
+   */
+  const { has: inCompare, toggle: toggleCompare } = useCompare();
+  const comparing = inCompare(car.id);
+
+  const onCompare = (e: React.MouseEvent) => {
+    // Inside the card's <Link>: stop the navigation and the bubble.
+    e.preventDefault();
+    e.stopPropagation();
+    const accepted = toggleCompare({
+      id: car.id,
+      slug: car.slug,
+      title,
+      year: car.year,
+      priceAed: car.priceAed,
+      thumb: car.media?.[0]?.variants?.card ?? null,
+    });
+    // toggle() returns false only when the tray is already at its max.
+    if (!accepted) {
+      toast({ title: t("compare.full", { defaultValue: "Compare holds 4 cars — remove one first" }), variant: "warning" });
+    }
+  };
+
   const onFav = (e: React.MouseEvent) => {
     // Inside a <Link>: stop both the navigation and the bubble.
     e.preventDefault();
@@ -56,7 +85,7 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
   const isFeatured = car.badges?.includes("featured");
 
   return (
-    <Link href={`${hrefBase}/${car.slug}`} className="card">
+    <Link href={`${hrefBase}/${car.slug}`} className={comparing ? "card in-compare" : "card"}>
       <div className="media">
         {cover ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -104,6 +133,26 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
           </span>
         </div>
         <div className="card-foot">
+          {/*
+            role="checkbox" + aria-checked, not a plain button: this is a
+            selection, and that is the contract /compare and the E2E expect.
+          */}
+          <button
+            type="button"
+            role="checkbox"
+            aria-checked={comparing}
+            data-testid="compare-chip"
+            className={comparing ? "compare-toggle added" : "compare-toggle"}
+            onClick={onCompare}
+            aria-label={t("compare.chipLabel", { title, defaultValue: `Compare ${title}` })}
+          >
+            <span className="ct-box" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5">
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </span>
+            {t("compare.chip", { defaultValue: "Compare" })}
+          </button>
           <div className="dealer"><span className="avatar">{initials(dealer)}</span> {dealer}</div>
           {car.sellerType === "DEALER" && (
             <span style={{ color: "var(--success)", fontSize: 12, fontWeight: 600, display: "inline-flex", alignItems: "center", gap: 4 }}>

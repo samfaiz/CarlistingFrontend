@@ -91,5 +91,10 @@
   "card": {
     "save": "Save this car",
     "unsave": "Remove from saved"
+  },
+  "compare": {
+    "chip": "Compare",
+    "chipLabel": "Compare {{title}}",
+    "full": "Compare holds 4 cars — remove one first"
   }
 }

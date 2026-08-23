@@ -1255,6 +1255,9 @@
 .mk .cmp-add p {margin:0 0 4px;font-size:13px;color:var(--brand);font-weight:700}
 .mk .cmp-add small {font-size:11px;color:var(--text-2);display:block;line-height:1.4}
 .mk .cmp-sections {display:flex;flex-direction:column;gap:14px}
+.mk .cmp-filter {padding:14px 0 4px}
+.mk .cmp-filter label {display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--text-2);cursor:pointer;min-height:44px}
+.mk .cmp-filter input {width:18px;height:18px;accent-color:var(--brand);cursor:pointer}
 .mk .cmp-section {background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .mk .cmp-section-title {
     padding:16px 22px;margin:0;font-size:15px;font-weight:700;
@@ -2797,6 +2800,8 @@
   .mk .tag-pill {min-height: 44px; display: inline-flex; align-items: center}
   .mk .coming-body .notify {min-height: 44px}
   .mk .model-actions .btn {min-height: 44px}
+  /* Compare toggle on cards: 28px is not a finger. */
+  .mk .compare-toggle {min-height: 44px; padding-inline: 14px; font-size: 13px}
   /* A 14x14 remove control on an active-filter chip is unhittable; grow the
      touch area without growing the chip. */
   .mk .filter-chip button {position: relative}

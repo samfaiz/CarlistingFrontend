@@ -382,5 +382,6 @@
   "loading": "Comparaison…",
   "verdict": {
     "title": "Meilleur au total"
-  }
+  },
+  "diffOnly": "Afficher seulement les différences"
 }

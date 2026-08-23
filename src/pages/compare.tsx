@@ -26,6 +26,13 @@ export default function MkcomparePage() {
   const [result, setResult] = React.useState<CompareResult | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [pdfBusy, setPdfBusy] = React.useState(false);
+  /*
+   * Show only the rows where the cars actually differ. The pre-mockup
+   * compare page had this and the port dropped it; on a phone it is the
+   * difference between scrolling every identical spec and seeing the ones
+   * that decide the choice. `identical` is already computed per row.
+   */
+  const [diffOnly, setDiffOnly] = React.useState(false);
   const [verdictBusy, setVerdictBusy] = React.useState(false);
   const [verdict, setVerdict] = React.useState<{ text: string; disclaimer: string } | null>(null);
   // Stub-cleanup batch: quiz weights + save/share, previously built but unmounted.
@@ -114,8 +121,12 @@ export default function MkcomparePage() {
       if (!by[r.group]) { by[r.group] = []; order.push(r.group); }
       by[r.group].push(r);
     }
-    return order.map((g) => ({ group: g, rows: by[g] }));
-  }, [result]);
+    return order
+      .map((g) => ({ group: g, rows: diffOnly ? by[g].filter((r) => !r.identical) : by[g] }))
+      // A group whose rows were all identical would otherwise render as an
+      // empty heading.
+      .filter((g) => g.rows.length > 0);
+  }, [result, diffOnly]);
 
   return (
     <>
@@ -194,6 +205,18 @@ export default function MkcomparePage() {
                   </div>
 
                   {loading && <p style={{ padding: 24, color: "var(--text-3)" }}>{t("loading", { defaultValue: "Comparing…" })}</p>}
+
+                  <div className="cmp-filter">
+                    <label htmlFor="cmp-diff-only">
+                      <input
+                        id="cmp-diff-only"
+                        type="checkbox"
+                        checked={diffOnly}
+                        onChange={(e) => setDiffOnly(e.target.checked)}
+                      />
+                      {t("diffOnly", { defaultValue: "Show differences only" })}
+                    </label>
+                  </div>
 
                   {/* SPEC ROWS BY GROUP */}
                   {groups.map(({ group, rows }) => (

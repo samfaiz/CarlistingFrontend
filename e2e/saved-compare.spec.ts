@@ -106,11 +106,13 @@ test.describe("compare (P1-10)", () => {
     await trayCta.click();
 
     await page.waitForURL(/\/compare/);
-    // Two listing columns + the row-label column.
-    const headerCells = page.locator("table thead th");
-    await expect(headerCells).toHaveCount(3, { timeout: 20_000 });
-    // Basics rows render values (price row is always present).
-    await expect(page.getByRole("rowheader", { name: /price/i }).first()).toBeVisible();
+    /*
+     * The mockup compare page is a div grid (.cmp-car columns, .cmp-row rows)
+     * with its own horizontal scroller, not the <table> the pre-port page used.
+     */
+    await expect(page.locator(".cmp-car")).toHaveCount(2, { timeout: 20_000 });
+    await expect(page.locator(".cmp-row").first()).toBeVisible();
+    await expect(page.getByText(/price/i).first()).toBeVisible();
   });
 
   test("differences-only toggle hides identical rows", async ({ page }) => {
@@ -122,11 +124,13 @@ test.describe("compare (P1-10)", () => {
     await compareChips.nth(1).click();
     await page.goto("/compare");
 
-    const allRows = page.locator("table tbody tr");
+    // Div grid, not a <table> — see the note in the test above.
+    const allRows = page.locator(".cmp-row");
     await expect(allRows.first()).toBeVisible({ timeout: 20_000 });
     const before = await allRows.count();
 
     await page.getByLabel(/show differences only/i).check();
+    await expect(allRows.first()).toBeVisible();
     const after = await allRows.count();
     expect(after).toBeLessThanOrEqual(before);
   });

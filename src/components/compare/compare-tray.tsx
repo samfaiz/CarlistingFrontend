@@ -24,11 +24,44 @@ export function CompareTray() {
   const router = useRouter();
   const { ready, items, remove, clear } = useCompare();
 
-  if (!ready || items.length === 0) return null;
-  if (router.pathname === "/compare") return null;
+  const visible = ready && items.length > 0 && router.pathname !== "/compare";
+
+  /*
+   * Publish the tray's real height and flag it on <body>, the same contract the
+   * consent banner uses, so anything else pinned to the bottom of a phone (the
+   * assistant FAB) can lift clear instead of sitting on the tray's CTA.
+   */
+  const trayRef = React.useRef<HTMLDivElement | null>(null);
+  React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (!visible) {
+      delete document.body.dataset.compareTrayOpen;
+      document.documentElement.style.removeProperty("--compare-tray-height");
+      return;
+    }
+    document.body.dataset.compareTrayOpen = "true";
+    const el = trayRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const publish = () =>
+      document.documentElement.style.setProperty(
+        "--compare-tray-height",
+        `${Math.ceil(el.getBoundingClientRect().height)}px`,
+      );
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      delete document.body.dataset.compareTrayOpen;
+      document.documentElement.style.removeProperty("--compare-tray-height");
+    };
+  }, [visible]);
+
+  if (!visible) return null;
 
   return (
     <div
+      ref={trayRef}
       role="region"
       aria-label={t("compareTray.label")}
       data-testid="compare-tray"

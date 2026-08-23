@@ -89,6 +89,24 @@ body[data-consent-open="true"] .mk .assistant-panel {
 }
 
 /*
+ * The compare tray is the other bottom-fixed layer. Same contract as the
+ * consent banner: it flags <body> and publishes its measured height, so the
+ * assistant FAB lifts clear instead of covering the tray's Compare button.
+ */
+body[data-compare-tray-open="true"] .mk .assistant-fab {
+  inset-block-end: calc(var(--compare-tray-height, 4.5rem) + 1rem);
+}
+body[data-compare-tray-open="true"] .mk .assistant-panel {
+  inset-block-end: calc(var(--compare-tray-height, 4.5rem) + 5rem);
+}
+/* Both open at once: clear the sum, not just the taller one. */
+body[data-consent-open="true"][data-compare-tray-open="true"] .mk .assistant-fab {
+  inset-block-end: calc(
+    var(--consent-bar-height, 7rem) + var(--compare-tray-height, 4.5rem) + 1rem
+  );
+}
+
+/*
  * On a phone the banner wraps to two or three lines, so a single fixed height
  * is wrong. Measure it instead: the banner reports its own height.
  */
