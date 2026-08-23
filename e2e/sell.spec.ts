@@ -17,7 +17,9 @@
  * Run only this file: npx playwright test e2e/sell.spec.ts
  */
 import { test, expect, request as pwRequest } from "@playwright/test";
-import enAuth from "../public/locales/en/auth.json";
+/* Login strings moved to mk-login in the mockup port: auth.json still says
+   "Sign in" where the page renders "Log in". */
+import enLogin from "../public/locales/en/mk-login.json";
 import enSell from "../public/locales/en/sell.json";
 
 const API_HEALTH_URL = "http://localhost:4000/health";
@@ -63,9 +65,9 @@ test.describe("sell wizard", () => {
 
     /* ---- login through the UI (auth-gated wizard) ---- */
     await page.goto("/login");
-    await page.getByLabel(enAuth.fields.email).fill(SEEDED_USER.email);
+    await page.getByLabel(enLogin.form.emailLabel).fill(SEEDED_USER.email);
     await page.locator("#password").fill(SEEDED_USER.password);
-    await page.getByRole("button", { name: enAuth.login.submit }).click();
+    await page.getByRole("button", { name: enLogin.form.submit }).click();
     await page.waitForURL("**/account");
 
     await page.goto("/sell");
