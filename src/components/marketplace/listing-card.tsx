@@ -30,13 +30,17 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
   // The heart was inert: it only called preventDefault(). SavedProvider was
   // already mounted and already says "heart buttons everywhere read/toggle it"
   // — the card simply never consumed it.
-  const { authed, isSaved, toggle } = useSaved();
+  const { ready, authed, isSaved, toggle } = useSaved();
   const saved = isSaved(car.id);
 
   const onFav = (e: React.MouseEvent) => {
     // Inside a <Link>: stop both the navigation and the bubble.
     e.preventDefault();
     e.stopPropagation();
+    // `authed` is false until the session resolves, so tapping during that
+    // window bounced a SIGNED-IN user to the login page. `ready` distinguishes
+    // "not signed in" from "not known yet".
+    if (!ready) return;
     if (!authed) {
       void router.push(`/login?next=${encodeURIComponent(`${hrefBase}/${car.slug}`)}`);
       return;
@@ -65,6 +69,7 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
           className={saved ? "fav is-saved" : "fav"}
           type="button"
           onClick={onFav}
+          disabled={!ready}
           aria-pressed={saved}
           aria-label={saved ? t("card.unsave", { defaultValue: "Remove from saved" }) : t("card.save", { defaultValue: "Save this car" })}
           title={saved ? t("card.unsave", { defaultValue: "Remove from saved" }) : t("card.save", { defaultValue: "Save this car" })}

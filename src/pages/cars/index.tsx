@@ -197,9 +197,9 @@ export default function MksearchPage({
                       <h4>{t("fg.body.title")}</h4>
                       <div className="fbody">
                         <div className="chips">
-                          <span className={`chip${!query.bodyTypeId ? " active" : ""}`} onClick={() => apply({ bodyTypeId: undefined })}>{t("fg.body.all")}</span>
+                          <button type="button" className={`chip${!query.bodyTypeId ? " active" : ""}`} aria-pressed={!query.bodyTypeId} onClick={() => apply({ bodyTypeId: undefined })}>{t("fg.body.all")}</button>
                           {bodyTypes.map((bt) => (
-                            <span key={bt.id} className={`chip${query.bodyTypeId === bt.id ? " active" : ""}`} onClick={() => apply({ bodyTypeId: bt.id })}>{bt.name}</span>
+                            <button type="button" key={bt.id} className={`chip${query.bodyTypeId === bt.id ? " active" : ""}`} aria-pressed={query.bodyTypeId === bt.id} onClick={() => apply({ bodyTypeId: bt.id })}>{bt.name}</button>
                           ))}
                         </div>
                       </div>

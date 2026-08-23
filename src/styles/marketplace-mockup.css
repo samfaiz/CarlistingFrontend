@@ -339,7 +339,7 @@
 .mk .check-row .cnt {color:var(--text-3);font-size:11.5px;margin-inline-start:auto}
 .mk .more-link {color:var(--brand);font-size:12.5px;font-weight:600;margin-top:8px;display:inline-block;cursor:pointer}
 .mk .chips {display:flex;flex-wrap:wrap;gap:6px}
-.mk .chip {padding:6px 11px;border-radius:999px;background:var(--divider);font-size:12px;cursor:pointer;color:var(--text-2);border:1px solid transparent;transition:.15s}
+.mk .chip {padding:6px 11px;border-radius:999px;background:var(--divider);font-family:inherit;font-size:12px;cursor:pointer;color:var(--text-2);border:1px solid transparent;transition:.15s}
 .mk .chip:hover {background:var(--brand-light);color:var(--brand)}
 .mk .chip.active {background:var(--brand);color:#fff}
 .mk .swatches {display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
@@ -2788,18 +2788,21 @@
   /* ── Rows that must not be cut off ───────────────────────────────────────
      Anything inherently wider than a phone scrolls horizontally INSIDE its own
      container rather than being clipped by the viewport. */
-  .mk .tabs,
-  .mk .chips,
-  .mk .filter-chips {
+  .mk .tabs {
     overflow-x: auto;
     flex-wrap: nowrap;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
-  .mk .tabs::-webkit-scrollbar,
-  .mk .chips::-webkit-scrollbar,
-  .mk .filter-chips::-webkit-scrollbar {display: none}
+  .mk .tabs::-webkit-scrollbar {display: none}
+  /* Filter chips WRAP rather than scroll: a filter row you have to swipe
+     sideways hides the options it exists to show. */
+  .mk .chips, .mk .filter-chips {flex-wrap: wrap}
+  .mk .chip {padding: 9px 14px; font-size: 13px}
   .mk .tabs .tab {flex: 0 0 auto}
+
+  /* Opt-out for controls that are a hazard under a thumb but fine with a mouse. */
+  .mk .hide-on-phone {display: none}
 
   /* ── Panel padding ───────────────────────────────────────────────────────
      48px of desktop padding on a 327px panel leaves 231px for content — 29%

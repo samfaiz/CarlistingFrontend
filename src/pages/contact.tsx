@@ -99,15 +99,26 @@ export default function MkcontactPage() {
                     <div className="contact-form-grid">
                       <div className="form-group">
                         <label htmlFor="contact-form-name-label">{t("form.name.label")}</label>
-                        <input id="contact-form-name-label" name="name" className="form-input" placeholder={t("form.name.placeholder")} required />
+                        <input id="contact-form-name-label" name="name" autoComplete="name" className="form-input" placeholder={t("form.name.placeholder")} required />
                       </div>
                       <div className="form-group">
                         <label htmlFor="contact-form-mobile-label">{t("form.mobile.label")}</label>
-                        <input id="contact-form-mobile-label" className="form-input" placeholder={t("form.mobile.placeholder")} />
+                        <input
+                          id="contact-form-mobile-label"
+                          /* Had no `name`, so the number the visitor typed was never
+                             submitted, and no `type`, so phones opened the alphabetic
+                             keyboard for a numeric field. */
+                          name="phone"
+                          type="tel"
+                          inputMode="tel"
+                          autoComplete="tel"
+                          className="form-input"
+                          placeholder={t("form.mobile.placeholder")}
+                        />
                       </div>
                       <div className="form-group full">
                         <label htmlFor="contact-form-email-label">{t("form.email.label")}</label>
-                        <input id="contact-form-email-label" name="email" className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
+                        <input id="contact-form-email-label" name="email" autoComplete="email" inputMode="email" className="form-input" type="email" placeholder={t("form.email.placeholder")} required />
                       </div>
                       <div className="form-group full">
                         <label htmlFor="contact-form-subject-label">{t("form.subject.label")}</label>
@@ -136,7 +147,9 @@ export default function MkcontactPage() {
                           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
                           {t("form.submit")}
                         </button>
-                        <button type="reset" className="btn btn-outline">{t("form.reset")}</button>
+                        {/* Reset sits a thumb-width from Submit on a phone and wipes
+                            everything with no undo. Desktop keeps it. */}
+                        <button type="reset" className="btn btn-outline hide-on-phone">{t("form.reset")}</button>
                       </div>
                     </div>
                   </form>

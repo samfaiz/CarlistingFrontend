@@ -99,7 +99,7 @@ export function Toaster() {
           }}
         />
       ))}
-      <ToastPrimitive.Viewport className="fixed bottom-4 end-4 z-[100] flex w-full max-w-sm flex-col gap-2 outline-none" />
+      <ToastPrimitive.Viewport className="fixed bottom-4 end-4 start-4 z-[100] flex flex-col gap-2 outline-none sm:start-auto sm:w-full sm:max-w-sm" />
     </ToastPrimitive.Provider>
   );
 }

@@ -89,7 +89,7 @@ export default function MkregisterPage() {
                   </div>
                   <div className="form-group">
                     <label htmlFor="register-form-mobile-label">{t("form.mobile.label")}</label>
-                    <input id="register-form-mobile-label" name="phone" className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
+                    <input id="register-form-mobile-label" name="phone" type="tel" inputMode="tel" className="form-input" placeholder={t("form.mobile.placeholder")} autoComplete="tel" />
                   </div>
                   <div className="form-group full">
                     <label htmlFor="register-form-email-label">{t("form.email.label")}</label>
@@ -121,10 +121,14 @@ export default function MkregisterPage() {
                   </div>
                 </div>
 
-                <label className="terms">
-                  <input type="checkbox" required />
-                  <span>{t("terms.pre")} <a href="#">{t("terms.tos")}</a> {t("terms.and")} <a href="#">{t("terms.privacy")}</a>{t("terms.post")}</span>
-                </label>
+                <div className="terms">
+                  {/* The links used to be href="#" inside the <label>: tapping
+                      "Terms" navigated nowhere AND toggled the consent box.
+                      Real routes, and the label is now associated by id so the
+                      browser suppresses label activation on the links. */}
+                  <input id="register-terms" type="checkbox" required />
+                  <label htmlFor="register-terms">{t("terms.pre")} <Link href="/legal/terms">{t("terms.tos")}</Link> {t("terms.and")} <Link href="/legal/privacy">{t("terms.privacy")}</Link>{t("terms.post")}</label>
+                </div>
 
                 <button type="submit" disabled={busy} className="btn btn-primary btn-lg btn-block">{t("form.submit")}</button>
               </form>
