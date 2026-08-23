@@ -6,6 +6,7 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { submitSupportTicket } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../next-i18next.config.js";
+import { SOCIALS } from "@/lib/socials";
 
 export default function MkcontactPage() {
   const { t } = useTranslation("mk-contact");
@@ -208,11 +209,31 @@ export default function MkcontactPage() {
                       {t("social.title")}
                     </h4>
                     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                      <a href="#" className="btn-icon" title={t("social.instagram")}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
-                      <a href="#" className="btn-icon" title={t("social.twitter")}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.8-.8-1.9-1.3-3.1-1.3-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .7.1 1C8 8.8 4.5 7 2.2 4.2c-.4.6-.6 1.3-.6 2.1 0 1.5.8 2.8 1.9 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2.1 2.9 4 2.9-1.4 1.1-3.3 1.8-5.3 1.8H1c1.8 1.2 4 1.9 6.3 1.9 7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z" /></svg></a>
-                      <a href="#" className="btn-icon" title={t("social.facebook")}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z" /></svg></a>
-                      <a href="#" className="btn-icon" title={t("social.linkedin")}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.3 18.3H5.7v-8h2.6v8zM7 9.2a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.1h-2.6v-4.4c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5h-2.6v-8h2.5v1.1c.4-.7 1.2-1.3 2.5-1.3 2.7 0 3.2 1.8 3.2 4v4.2z" /></svg></a>
-                      <a href="#" className="btn-icon" title={t("social.youtube")}><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.6s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.6 4 12 4 12 4s-4.6 0-7.9.3c-.5.1-1.4.1-2.2 1C1.2 6 1 7.6 1 7.6S.8 9.5.8 11.5v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1C6 20.4 12 20.5 12 20.5s4.6 0 7.9-.3c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 14.9V8.5l6 3.2-6 3.2z" /></svg></a>
+                      {SOCIALS["Instagram"] ? (
+                        <a href={SOCIALS["Instagram"]} className="btn-icon" title={t("social.instagram")} target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
+                      ) : (
+                        <span className="btn-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="4" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></span>
+                      )}
+                      {SOCIALS["X"] ? (
+                        <a href={SOCIALS["X"]} className="btn-icon" title={t("social.twitter")} target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.8-.8-1.9-1.3-3.1-1.3-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .7.1 1C8 8.8 4.5 7 2.2 4.2c-.4.6-.6 1.3-.6 2.1 0 1.5.8 2.8 1.9 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2.1 2.9 4 2.9-1.4 1.1-3.3 1.8-5.3 1.8H1c1.8 1.2 4 1.9 6.3 1.9 7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z" /></svg></a>
+                      ) : (
+                        <span className="btn-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1-.8-.8-1.9-1.3-3.1-1.3-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .7.1 1C8 8.8 4.5 7 2.2 4.2c-.4.6-.6 1.3-.6 2.1 0 1.5.8 2.8 1.9 3.5-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2.1 2.9 4 2.9-1.4 1.1-3.3 1.8-5.3 1.8H1c1.8 1.2 4 1.9 6.3 1.9 7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.1z" /></svg></span>
+                      )}
+                      {SOCIALS["Facebook"] ? (
+                        <a href={SOCIALS["Facebook"]} className="btn-icon" title={t("social.facebook")} target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z" /></svg></a>
+                      ) : (
+                        <span className="btn-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z" /></svg></span>
+                      )}
+                      {SOCIALS["LinkedIn"] ? (
+                        <a href={SOCIALS["LinkedIn"]} className="btn-icon" title={t("social.linkedin")} target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.3 18.3H5.7v-8h2.6v8zM7 9.2a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.1h-2.6v-4.4c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5h-2.6v-8h2.5v1.1c.4-.7 1.2-1.3 2.5-1.3 2.7 0 3.2 1.8 3.2 4v4.2z" /></svg></a>
+                      ) : (
+                        <span className="btn-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.3 18.3H5.7v-8h2.6v8zM7 9.2a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm11.3 9.1h-2.6v-4.4c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5h-2.6v-8h2.5v1.1c.4-.7 1.2-1.3 2.5-1.3 2.7 0 3.2 1.8 3.2 4v4.2z" /></svg></span>
+                      )}
+                      {SOCIALS["YouTube"] ? (
+                        <a href={SOCIALS["YouTube"]} className="btn-icon" title={t("social.youtube")} target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.6s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.6 4 12 4 12 4s-4.6 0-7.9.3c-.5.1-1.4.1-2.2 1C1.2 6 1 7.6 1 7.6S.8 9.5.8 11.5v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1C6 20.4 12 20.5 12 20.5s4.6 0 7.9-.3c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 14.9V8.5l6 3.2-6 3.2z" /></svg></a>
+                      ) : (
+                        <span className="btn-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.6s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.6 4 12 4 12 4s-4.6 0-7.9.3c-.5.1-1.4.1-2.2 1C1.2 6 1 7.6 1 7.6S.8 9.5.8 11.5v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1C6 20.4 12 20.5 12 20.5s4.6 0 7.9-.3c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 14.9V8.5l6 3.2-6 3.2z" /></svg></span>
+                      )}
                     </div>
                   </div>
 

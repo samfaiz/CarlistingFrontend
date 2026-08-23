@@ -159,7 +159,7 @@ export default function MknewCarsPage() {
                 </div>
                 <div className="qf-field">
                   <label htmlFor="new-cars-bp-phone">{t("bp.phone", { defaultValue: "Mobile" })}</label>
-                  <input id="new-cars-bp-phone" className="form-input" style={{ height: 42 }} value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
+                  <input id="new-cars-bp-phone" type="tel" inputMode="tel" autoComplete="tel" className="form-input" value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
                 </div>
                 <div className="qf-cta">
                   <button className="btn btn-primary btn-lg" type="button" disabled={leadState === "busy" || !form.makeId || !form.modelId || !form.name.trim()} onClick={() => void submitBestPrice()}>
@@ -172,11 +172,11 @@ export default function MknewCarsPage() {
               {leadState === "error" && <p role="alert" style={{ color: "#FFB4B4", marginTop: 10 }}>{t("bp.error", { defaultValue: "Could not send your request. Please try again." })}</p>}
 
               <div className="qf-tags">
-                <a href="#" className="tag-pill"><span className="dot"></span> {t("qf.tags.0")}</a>
-                <a href="#" className="tag-pill">{t("qf.tags.1")}</a>
-                <a href="#" className="tag-pill">{t("qf.tags.2")}</a>
-                <a href="#" className="tag-pill">{t("qf.tags.3")}</a>
-                <a href="#" className="tag-pill">{t("qf.tags.4")}</a>
+                <Link href="/cars?sort=newest&yearMin=2025" className="tag-pill"><span className="dot"></span> {t("qf.tags.0")}</Link>
+                <Link href="/cars?fuelType=HYBRID" className="tag-pill">{t("qf.tags.1")}</Link>
+                <Link href="/cars?bodyType=suv" className="tag-pill">{t("qf.tags.2")}</Link>
+                <Link href="/cars?sort=newest" className="tag-pill">{t("qf.tags.3")}</Link>
+                <Link href="/cars" className="tag-pill">{t("qf.tags.4")}</Link>
               </div>
             </div>
           </div>
@@ -502,7 +502,7 @@ export default function MknewCarsPage() {
                   <span className="deals-eyebrow">{t("deals.eyebrow")}</span>
                   <h2>{t("deals.title")}</h2>
                   <p>{t("deals.text")}</p>
-                  <a href="#" className="btn btn-xl">{t("deals.cta")} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M13 5l7 7-7 7" /></svg></a>
+                  <Link href="/cars" className="btn btn-xl">{t("deals.cta")} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M5 12h14M13 5l7 7-7 7" /></svg></Link>
                 </div>
                 <div className="deals-stats">
                   {dealsStats.map((s, i) => (
@@ -525,7 +525,7 @@ export default function MknewCarsPage() {
               </div>
               <div className="articles">
                 {reviewCards.map((r, i) => (
-                  <a key={i} href="#" className="article">
+                  <Link key={i} href="/news" className="article">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <div className="media"><img src={articleImgs[i]} alt="" /></div>
                     <div className="article-body">
@@ -533,7 +533,7 @@ export default function MknewCarsPage() {
                       <h3>{r.title}</h3>
                       <div className="meta"><span>{r.date}</span><span>•</span><span>{r.read}</span></div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

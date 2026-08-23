@@ -2248,7 +2248,8 @@
 .mk .help-section-head {display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
 .mk .help-section-head h2 {margin:0;font-size:20px;font-weight:700;letter-spacing:-.01em}
 .mk .help-section-head a {color:var(--brand);font-weight:600;font-size:13px}
-.mk .faq-list {background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+/* Anchored from the category tiles; clear the sticky header. */
+.mk .faq-list {scroll-margin-top:80px;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
 .mk .faq-item {border-bottom:1px solid var(--divider)}
 .mk .faq-item:last-child {border-bottom:0}
 .mk .faq-q {
@@ -2796,6 +2797,10 @@
   .mk .qf-field select,
   .mk .qf-field input {font: 600 16px Inter, sans-serif; min-height: 44px}
   .mk .qf-field label {font-size: 12px}
+  /* Two more nested inputs the bare `.mk input` floor could not reach. */
+  .mk .help-search input,
+  .mk .us-input-wrap input,
+  .mk .assistant-input input {font-size: 16px}
 
   /* ── Text legibility ─────────────────────────────────────────────────────
      11px on a phone held at arm's length is not readable. Nothing customer
