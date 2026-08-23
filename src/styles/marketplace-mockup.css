@@ -233,6 +233,7 @@
   }
 .mk .cat-card:hover .cta {background:#fff;transform:scale(1.05)}
 .mk .why {background:var(--brand);color:#fff;border-radius:24px;padding:48px}
+.mk .why-head {margin-bottom:32px}
 .mk .why .why-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .mk .why-item .ic {
     width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.1);
@@ -2799,6 +2800,16 @@
   .mk .chips::-webkit-scrollbar,
   .mk .filter-chips::-webkit-scrollbar {display: none}
   .mk .tabs .tab {flex: 0 0 auto}
+
+  /* ── Panel padding ───────────────────────────────────────────────────────
+     48px of desktop padding on a 327px panel leaves 231px for content — 29%
+     of the screen spent on inset. These panels are full-bleed cards, so the
+     page gutter already provides the breathing room. */
+  .mk .why,
+  .mk .sell-banner {padding: 24px 20px; border-radius: 16px}
+  .mk .why .why-grid {gap: 20px}
+  .mk .why-head {margin-bottom: 20px}
+  .mk .hero {padding-block: 32px 28px}
 
   /* Gallery: the arrows are the visible affordance that the photos swipe. */
   .mk .gallery-nav {width: 44px; height: 44px}

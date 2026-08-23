@@ -200,7 +200,7 @@ function WhyUs({ t, section }: { t: T; section?: ResolvedSection }) {
     <section style={style}>
       <div className="container">
         <div className="why">
-          <div style={{ marginBottom: 32 }}>
+          <div className="why-head">
             <h2 style={{ margin: "0 0 6px", fontSize: 28, fontWeight: 700, letterSpacing: "-.01em" }}>{t("why.title")}</h2>
             <p style={{ margin: 0, color: "#bccbe2", fontSize: 15 }}>{t("why.sub")}</p>
           </div>

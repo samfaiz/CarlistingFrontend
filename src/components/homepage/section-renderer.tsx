@@ -52,9 +52,30 @@ const FG: Record<string, string> = {
   inverse: "#fff",
   brand: "var(--brand, #23416B)",
 };
-const HEADING_PX: Record<string, number> = { sm: 20, md: 24, lg: 28, xl: 40 };
-const BODY_PX: Record<string, number> = { sm: 13, md: 15, lg: 17 };
-const PAD: Record<string, string> = { none: "0", tight: "0 0 40px", normal: "40px 0", loose: "64px 0" };
+/* Also inline, so also clamped rather than fixed. */
+const HEADING_SIZE: Record<string, string> = {
+  sm: "clamp(17px, 4.4vw, 20px)",
+  md: "clamp(19px, 5vw, 24px)",
+  lg: "clamp(21px, 5.6vw, 28px)",
+  xl: "clamp(26px, 8vw, 40px)",
+};
+const BODY_SIZE: Record<string, string> = {
+  sm: "13px",
+  md: "clamp(14px, 3.8vw, 15px)",
+  lg: "clamp(15px, 4.2vw, 17px)",
+};
+/*
+ * Section padding is written as an INLINE style, so no stylesheet can trim it
+ * on a phone — 64px top and bottom is a quarter of a small screen spent on
+ * whitespace. clamp() keeps the editor's choice while letting it scale with
+ * the viewport: the phone value on the left, the desktop value on the right.
+ */
+const PAD: Record<string, string> = {
+  none: "0",
+  tight: "0 0 clamp(24px, 6vw, 40px)",
+  normal: "clamp(24px, 6vw, 40px) 0",
+  loose: "clamp(28px, 8vw, 64px) 0",
+};
 const FONT: Record<string, string> = {
   sans: "var(--font-sans, 'Inter Variable', system-ui, sans-serif)",
   display: "var(--font-display, 'Inter Variable', system-ui, sans-serif)",
@@ -108,8 +129,8 @@ function SectionHead({
   const titleText = fieldText(title, t);
   const subText = fieldText(subtitle, t);
   const viewAllText = fieldText(viewAll, t);
-  const headingSize = HEADING_PX[String(style.headingSize ?? "lg")] ?? HEADING_PX.lg;
-  const bodySize = BODY_PX[String(style.bodySize ?? "md")] ?? BODY_PX.md;
+  const headingSize = HEADING_SIZE[String(style.headingSize ?? "lg")] ?? HEADING_SIZE.lg;
+  const bodySize = BODY_SIZE[String(style.bodySize ?? "md")] ?? BODY_SIZE.md;
   if (!titleText && !subText) return null;
   return (
     <div className="section-head">
@@ -303,8 +324,8 @@ export function HomepageSection({ section }: { section: ResolvedSection }) {
                   {badge}
                 </span>
               ) : null}
-              <h2 style={{ margin: 0, fontSize: HEADING_PX[String(style.headingSize ?? "lg")] ?? 28 }}>{title}</h2>
-              {subtitle ? <p style={{ margin: 0, fontSize: BODY_PX[String(style.bodySize ?? "md")] ?? 15, opacity: 0.9 }}>{subtitle}</p> : null}
+              <h2 style={{ margin: 0, fontSize: HEADING_SIZE[String(style.headingSize ?? "lg")] ?? HEADING_SIZE.lg }}>{title}</h2>
+              {subtitle ? <p style={{ margin: 0, fontSize: BODY_SIZE[String(style.bodySize ?? "md")] ?? BODY_SIZE.md, opacity: 0.9 }}>{subtitle}</p> : null}
               {cta ? (
                 <Link
                   href={href}
@@ -335,8 +356,8 @@ export function HomepageSection({ section }: { section: ResolvedSection }) {
       return (
         <section style={wrapper}>
           <div className={containerClass} style={inner}>
-            {title ? <h2 style={{ fontSize: HEADING_PX[String(style.headingSize ?? "lg")] ?? 28 }}>{title}</h2> : null}
-            {body ? <p style={{ fontSize: BODY_PX[String(style.bodySize ?? "md")] ?? 15, whiteSpace: "pre-wrap" }}>{body}</p> : null}
+            {title ? <h2 style={{ fontSize: HEADING_SIZE[String(style.headingSize ?? "lg")] ?? HEADING_SIZE.lg }}>{title}</h2> : null}
+            {body ? <p style={{ fontSize: BODY_SIZE[String(style.bodySize ?? "md")] ?? BODY_SIZE.md, whiteSpace: "pre-wrap" }}>{body}</p> : null}
           </div>
         </section>
       );
