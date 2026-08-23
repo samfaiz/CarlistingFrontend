@@ -61,7 +61,7 @@ async function loginAsDealer(page: Page) {
   }
   await page.goto("/login?next=/dealer");
   await page.getByLabel(/email/i).fill(DEALER_USER.email);
-  await page.getByLabel(/password/i).fill(DEALER_USER.password);
+  await page.locator("#password").fill(DEALER_USER.password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   // Match on the PATHNAME: a plain /\/dealer/ regex also matches
   // "/login?next=/dealer" and captures cookies before sign-in completes.
@@ -158,7 +158,7 @@ test("a customer without a dealership is routed to onboarding, not an error", as
   // The generic e2e customer has no dealer membership.
   await page.goto("/login?next=/dealer");
   await page.getByLabel(/email/i).fill("e2e@carsens.test");
-  await page.getByLabel(/password/i).fill("E2eStr0ngPass");
+  await page.locator("#password").fill("E2eStr0ngPass");
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   await page.waitForURL((url) => url.pathname.startsWith("/dealer"), {
     timeout: 30_000,

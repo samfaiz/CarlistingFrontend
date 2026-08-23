@@ -68,7 +68,7 @@ async function loginAsDealer(page: Page, next = "/dealer") {
   }
   await page.goto(`/login?next=${next}`);
   await page.getByLabel(/email/i).fill(DEALER_USER.email);
-  await page.getByLabel(/password/i).fill(DEALER_USER.password);
+  await page.locator("#password").fill(DEALER_USER.password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   await page.waitForURL((url) => url.pathname.startsWith("/dealer"), {
     timeout: 30_000,

@@ -275,7 +275,9 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                     </div>
 
                     <div className="contact-buttons">
-                      <button type="button" className="btn btn-primary btn-block btn-lg" disabled={leadBusy === "call"} onClick={() => void onCall()}>
+                      {/* data-testid because the accessible name is the MASKED number until the
+    reveal, so it cannot be matched by text (FR-D6 E2E). */}
+                      <button type="button" data-testid="reveal-phone" className="btn btn-primary btn-block btn-lg" disabled={leadBusy === "call"} onClick={() => void onCall()}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z" /></svg>
                         <span>{phone ?? t("contact.phone")}</span>
                       </button>
@@ -283,7 +285,7 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1s-1.3-.5-2.4-1.5c-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5 0-.1-.2-.2-.5-.4z" /></svg>
                         {t("contact.whatsapp")}
                       </button>
-                      <button type="button" className="btn btn-outline btn-block" disabled={leadBusy === "msg"} onClick={() => void onMessage()}>
+                      <button type="button" data-testid="start-chat" className="btn btn-outline btn-block" disabled={leadBusy === "msg"} onClick={() => void onMessage()}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                         {t("contact.message")}
                       </button>

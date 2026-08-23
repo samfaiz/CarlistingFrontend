@@ -68,6 +68,8 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
         <button
           className={saved ? "fav is-saved" : "fav"}
           type="button"
+          /* E2E hook for the save flow; the mockup port dropped it. */
+          data-testid="save-button"
           onClick={onFav}
           disabled={!ready}
           aria-pressed={saved}

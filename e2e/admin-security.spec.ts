@@ -75,7 +75,7 @@ test("staff hit the airlock, enrol a passkey, and admin surfaces unlock", async 
   // Password sign-in, then any admin page routes to the airlock.
   await page.goto("/login?next=/admin/moderation");
   await page.getByLabel(/email/i).fill(email);
-  await page.getByLabel(/password/i).fill(password);
+  await page.locator("#password").fill(password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   await page.waitForURL((url) => url.pathname.startsWith("/admin"), {
     timeout: 30_000,

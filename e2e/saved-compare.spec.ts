@@ -45,7 +45,7 @@ async function login(page: Page) {
   }
   await page.goto("/login");
   await page.getByLabel(/email/i).fill(E2E_USER.email);
-  await page.getByLabel(/password/i).fill(E2E_USER.password);
+  await page.locator("#password").fill(E2E_USER.password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   await page.waitForURL(/\/account(\?|$)/, { timeout: 30_000 });
   sessionCookies = await page.context().cookies();
