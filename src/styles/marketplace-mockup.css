@@ -2772,17 +2772,65 @@
   .mk footer ul li a {
     display: inline-flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 44px;
   }
+
+  /* ── Remaining sub-44px controls ─────────────────────────────────────────
+     Found by sweeping each page at 375px rather than by guessing. */
+  .mk .btn-mini, .mk .btn-sm {min-height: 44px}
+  .mk .tag-pill {min-height: 44px; display: inline-flex; align-items: center}
+  .mk .coming-body .notify {min-height: 44px}
+  .mk .model-actions .btn {min-height: 44px}
+  /* A 14x14 remove control on an active-filter chip is unhittable; grow the
+     touch area without growing the chip. */
+  .mk .filter-chip button {position: relative}
+  .mk .filter-chip button::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+  }
+
+  /* Same `font` shorthand problem as .compact-field — matched specificity. */
+  .mk .qf-field select,
+  .mk .qf-field input {font: 600 16px Inter, sans-serif; min-height: 44px}
+  .mk .qf-field label {font-size: 12px}
 
   /* ── Text legibility ─────────────────────────────────────────────────────
      11px on a phone held at arm's length is not readable. Nothing customer
      facing goes below 12px. */
-  .mk .count,
-  .mk .cmp-val,
-  .mk .card-sub,
-  .mk .spec,
-  .mk .dealer-meta-2 {font-size: 12.5px}
+  /*
+     A readability FLOOR, not a per-element override.
+     The base layer qualifies these by their card (.bt-card .count,
+     .new-brand-card .brand-models, .check-row .cnt …), so a bare `.mk .count`
+     loses on specificity no matter where it sits in the file. Repeating the
+     scope class — `.mk.mk` — buys one class of specificity without touching
+     the base rules or reaching for !important, so the floor wins once instead
+     of being chased selector by selector. */
+  .mk.mk .count,
+  .mk.mk .cnt,
+  .mk.mk .cmp-val,
+  .mk.mk .card-sub,
+  .mk.mk .spec,
+  .mk.mk .avatar,
+  .mk.mk .brand-models,
+  .mk.mk .brand-from,
+  .mk.mk .dc-premium,
+  .mk.mk .dc-tag,
+  .mk.mk .dcs-label,
+  .mk.mk .badge,
+  .mk.mk .dealer-meta-2 {font-size: 12.5px}
+
+  /* Badges and tags are short, high-contrast and conventionally small, so they
+     get a gentler floor than body text rather than the full 12.5px. */
+  .mk.mk .model-badge,
+  .mk.mk .model-brand,
+  .mk.mk .from,
+  .mk.mk .coming-eta,
+  .mk.mk .brand-tag,
+  .mk.mk .tag,
+  .mk.mk .perk {font-size: 12px}
   .mk .search-field label {font-size: 12px}
 
   /* ── Rows that must not be cut off ───────────────────────────────────────
