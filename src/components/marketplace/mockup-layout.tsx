@@ -106,11 +106,19 @@ export function MockupLayout({ children }: { children: React.ReactNode }) {
               </svg>
               {session ? t("chrome.myAccount") : t("chrome.login")}
             </Link>
-            <Link className="btn btn-primary" href="/sell">
+            <Link className="btn btn-primary sell-cta" href="/sell">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
                 <path d="M12 5v14M5 12h14" />
               </svg>
-              {t("chrome.sell")}
+              {/*
+                Two labels, swapped by CSS rather than by JS: on a phone the
+                full "Sell Your Car" is a 128px filled block sitting right next
+                to the wordmark, which is what makes the header feel packed.
+                Doing this in CSS keeps it SSR-safe — a matchMedia swap would
+                mismatch on hydration.
+              */}
+              <span className="sell-label-full">{t("chrome.sell")}</span>
+              <span className="sell-label-short">{t("chrome.sellShort")}</span>
             </Link>
             <button
               className="mobile-toggle"

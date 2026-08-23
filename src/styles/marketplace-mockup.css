@@ -90,6 +90,8 @@
 .mk .nav a:hover {background:var(--brand-light);color:var(--brand)}
 .mk .nav a.active {color:var(--brand);background:var(--brand-light)}
 .mk .header-actions {display:flex;gap:10px;align-items:center}
+/* The short label is a phone-only swap — see the mobile block. */
+.mk .sell-label-short {display:none}
 .mk .btn {
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;
@@ -2860,6 +2862,19 @@
 
   /* Opt-out for controls that are a hazard under a thumb but fine with a mouse. */
   .mk .hide-on-phone {display: none}
+
+  /* ── Header density ──────────────────────────────────────────────────────
+     The row carried a wordmark, a 128px filled "Sell Your Car" block and the
+     menu button all bunched together. Three changes: the CTA drops to "Sell",
+     the logo and the actions sit at opposite ends instead of clustering, and
+     the wordmark loses a little weight. */
+  .mk .sell-label-full {display: none}
+  .mk .sell-label-short {display: inline}
+  .mk .header .row {justify-content: space-between; gap: 8px}
+  .mk .header-actions {gap: 8px}
+  .mk .sell-cta {padding-inline: 14px}
+  .mk .logo {font-size: 19px; gap: 8px}
+  .mk .logo .mark {width: 30px; height: 30px}
 
   /* ── Panel padding ───────────────────────────────────────────────────────
      48px of desktop padding on a 327px panel leaves 231px for content — 29%
