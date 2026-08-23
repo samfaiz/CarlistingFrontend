@@ -165,7 +165,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
               </div>
 
               {createdId && session?.accessToken ? (
-                <div className="sell-card" style={{ maxWidth: 860, margin: "0 auto" }}>
+                <div className="sell-step-card" style={{ maxWidth: 860, margin: "0 auto" }}>
                   <h2 className="step-heading">{t("photos.title", { defaultValue: "Add photos" })}</h2>
                   <p style={{ color: "var(--text-2)", fontSize: 14, marginBottom: 14 }}>
                     {t("photos.sub", { defaultValue: "Your draft is saved. Add at least 3 photos, then submit for review." })}
@@ -191,7 +191,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                 <div className="sell-main">
                   {error && <p role="alert" style={{ color: "var(--error)", marginBottom: 12 }}>{error}</p>}
 
-                  <div className="sell-card">
+                  <div className="sell-step-card">
                     <h2 className="step-heading">{t("step1.title")}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
@@ -225,7 +225,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     </div>
                   </div>
 
-                  <div className="sell-card">
+                  <div className="sell-step-card">
                     <h2 className="step-heading">{t("step2.title")}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
@@ -253,7 +253,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     </div>
                   </div>
 
-                  <div className="sell-card">
+                  <div className="sell-step-card">
                     <h2 className="step-heading">{t("step4.title", { defaultValue: "Price & location" })}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
@@ -301,7 +301,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                 </div>
 
                 <aside className="sell-sidebar">
-                  <div className="sell-card">
+                  <div className="sell-step-card">
                     <h3>{t("sidebar.title", { defaultValue: "Why sell on Carsens" })}</h3>
                     <ul style={{ margin: "12px 0 0", paddingInlineStart: 18, color: "var(--text-2)", lineHeight: 1.9 }}>
                       <li>{t("sidebar.p1", { defaultValue: "Free for individuals" })}</li>

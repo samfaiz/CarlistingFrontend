@@ -1026,6 +1026,15 @@
     padding:28px 32px;
   }
 .mk .sell-step-card h2 {margin:0 0 6px;font-size:22px;font-weight:700;letter-spacing:-.02em}
+/* Page header. Had no rule at all, so the h1, the subtitle and the first
+   section heading all rendered as identical 16px/400 browser defaults and read
+   as one block of running text. */
+.mk .sell-head {padding:28px 0 18px}
+.mk .sell-head h1 {margin:0 0 6px;font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.mk .sell-head p {margin:0;color:var(--text-2);font-size:15px}
+/* Also unstyled; the card rule above covers headings inside a card, this
+   covers any that sit outside one. */
+.mk .step-heading {margin:0 0 14px;font-size:22px;font-weight:700;letter-spacing:-.02em}
 .mk .sell-step-card .step-sub {color:var(--text-2);font-size:14px;margin:0 0 22px}
 .mk .sell-step {display:none}
 .mk .sell-step.active {display:block;animation:fadeStep .25s ease}
@@ -2882,6 +2891,15 @@
      page gutter already provides the breathing room. */
   .mk .why,
   .mk .sell-banner {padding: 24px 20px; border-radius: 16px}
+
+  /* Sell wizard: the desktop card is 28px/32px inset and its heading 22px,
+     which is a lot of a 375px screen spent before the first field. */
+  .mk .sell-step-card {padding: 18px 16px; border-radius: 12px}
+  .mk .sell-step-card h2,
+  .mk .step-heading {font-size: 19px}
+  .mk .sell-head {padding: 20px 0 14px}
+  .mk .sell-head h1 {font-size: 24px}
+  .mk .sell-head p {font-size: 14px}
   .mk .why .why-grid {gap: 20px}
   .mk .why-head {margin-bottom: 20px}
   .mk .hero {padding-block: 32px 28px}
