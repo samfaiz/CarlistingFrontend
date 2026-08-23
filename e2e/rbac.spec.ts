@@ -13,10 +13,9 @@
  * exist); portal/admin/CRM rows arrive with their phases.
  */
 import { test, expect, request as pwRequest } from "@playwright/test";
-/* auth.json still supplies the FORM field/submit strings used by the
-   signed-in paths below; only the page HEADINGS moved to the mk-*
-   catalogues in the mockup port. */
-import enAuth from "../public/locales/en/auth.json";
+/* The mockup port moved BOTH the headings and the form strings onto the
+   mk-* catalogues. auth.json still says "Sign in" where the page renders
+   "Log in", which is why the signed-in paths timed out on the submit button. */
 import enLogin from "../public/locales/en/mk-login.json";
 import enAccount from "../public/locales/en/mk-account.json";
 
@@ -85,9 +84,9 @@ test.describe("E2E-14: RBAC denial matrix (skeleton — grows every phase)", () 
       // Production builds hydrate late: a click on the SSR'd button before
       // React attaches onSubmit would native-submit the form. Wait for idle.
       await page.waitForLoadState("networkidle");
-      await page.getByLabel(enAuth.fields.email).fill(SEEDED_USER.email);
+      await page.getByLabel(enLogin.form.emailLabel).fill(SEEDED_USER.email);
       await page.locator("#password").fill(SEEDED_USER.password);
-      await page.getByRole("button", { name: enAuth.login.submit }).click();
+      await page.getByRole("button", { name: enLogin.form.submit }).click();
       await page.waitForURL("**/account");
 
       const response = await page.goto("/admin");
@@ -111,9 +110,9 @@ test.describe("E2E-14: RBAC denial matrix (skeleton — grows every phase)", () 
       test.skip(!(await isApiUp()), "Backend API is not running.");
       await page.goto("/login?next=/dealer");
       await page.waitForLoadState("networkidle");
-      await page.getByLabel(enAuth.fields.email).fill("dealer@carsens.test");
+      await page.getByLabel(enLogin.form.emailLabel).fill("dealer@carsens.test");
       await page.locator("#password").fill("DealerStr0ngPass1");
-      await page.getByRole("button", { name: enAuth.login.submit }).click();
+      await page.getByRole("button", { name: enLogin.form.submit }).click();
       await page.waitForURL((url) => url.pathname.startsWith("/dealer"), {
         timeout: 30_000,
       });
