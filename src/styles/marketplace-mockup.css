@@ -17,7 +17,11 @@
     
     --text:#111827;
     --text-2:#4B5563;
-    --text-3:#9CA3AF;
+    /* Was #9CA3AF, which is 2.53:1 on white — a WCAG AA failure everywhere
+       this token is used (field labels, card subtitles, counts, meta).
+       #6B7280 is 4.83:1, still clearly a muted tone, and materially
+       easier to read on a phone in daylight. */
+    --text-3:#6B7280;
     --border:#E5E7EB;
     --divider:#F3F4F6;
 

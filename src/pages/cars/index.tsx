@@ -114,7 +114,7 @@ export default function MksearchPage({
               </div>
 
               {/* COMPACT SEARCH */}
-              <div className="compact-search">
+              <div className="compact-search" role="search" aria-label={t("compact.landmark")}>
                 <div className="compact-field">
                   <label htmlFor="index-compact-makeLabel">{t("compact.makeLabel")}</label>
                   <select id="index-compact-makeLabel" value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value, modelId: undefined })}>
@@ -237,8 +237,10 @@ export default function MksearchPage({
                   <div className="result-head">
                     <div className="result-count"><strong>{total.toLocaleString()}</strong> {t("results.match")}</div>
                     <div className="result-tools">
-                      <span className="sort-label">{t("results.sortBy")}</span>
-                      <select className="sort-select" value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
+                      {/* Was a <span>, so the select had no accessible name —
+                          axe flagged it critical. */}
+                      <label className="sort-label" htmlFor="sort-select">{t("results.sortBy")}</label>
+                      <select id="sort-select" className="sort-select" value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
                         {SORTS.map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
                       </select>
                     </div>
@@ -247,7 +249,9 @@ export default function MksearchPage({
                   {items.length === 0 ? (
                     <p className="results-empty" style={{ padding: "48px 0", textAlign: "center", color: "var(--text-3)" }}>{t("results.empty")}</p>
                   ) : (
-                    <div className="result-grid">
+                    /* data-testid is the E2E hook for the results grid; the
+                       mockup port dropped it, which broke three search specs. */
+                    <div className="result-grid" data-testid="search-results">
                       {items.map((car) => <MarketplaceCard key={car.id} car={car} />)}
                     </div>
                   )}

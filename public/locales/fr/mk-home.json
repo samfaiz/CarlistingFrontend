@@ -18,7 +18,8 @@
     "anyPrice": "Tout prix",
     "year": "Année",
     "anyYear": "Toute année",
-    "search": "Rechercher"
+    "search": "Rechercher",
+    "searchLandmark": "Rechercher des voitures"
   },
   "stats": {
     "listed": "voitures listées",

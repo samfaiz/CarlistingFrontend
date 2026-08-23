@@ -13,8 +13,8 @@
  *  3. axe gate (serious/critical) on both pages.
  */
 import { test, expect } from "@playwright/test";
-import arHome from "../public/locales/ar/home.json";
-import enHome from "../public/locales/en/home.json";
+import arHome from "../public/locales/ar/mk-home.json";
+import enHome from "../public/locales/en/mk-home.json";
 import enDetail from "../public/locales/en/detail.json";
 import { expectNoA11yViolations } from "./helpers/axe";
 
@@ -84,16 +84,21 @@ test.describe("home page", () => {
 
     // Hero copy comes from the catalog, not hardcoded strings.
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      enHome.hero.headline,
+      enHome.hero.title,
     );
     await expect(page.getByRole("search")).toBeVisible();
 
-    // Rail: section renders its localized heading and hydrates with cards.
-    const rail = page.locator('section[aria-labelledby="newly-listed-heading"]');
-    await expect(
-      rail.getByRole("heading", { name: enHome.newlyListed.heading }),
-    ).toBeVisible();
-    const cards = rail.locator('a[href*="/cars/"]');
+    /*
+     * The newly-listed rail. Located by its heading rather than by
+     * aria-labelledby: the home page is layout-driven now, so the section
+     * order is data, and the heading is the stable anchor in both the stock
+     * page and a published layout.
+     */
+    const rail = page
+      .locator("section")
+      .filter({ has: page.getByRole("heading", { name: enHome.fresh.title }) });
+    await expect(rail.first()).toBeVisible();
+    const cards = rail.first().locator('a[href*="/cars/"]');
     await expect(cards.first()).toBeVisible();
     expect(await cards.count()).toBeGreaterThan(0);
 
@@ -105,7 +110,7 @@ test.describe("home page", () => {
 
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      arHome.hero.headline,
+      arHome.hero.title,
     );
   });
 });

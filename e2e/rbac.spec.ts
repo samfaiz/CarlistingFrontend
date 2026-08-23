@@ -13,7 +13,12 @@
  * exist); portal/admin/CRM rows arrive with their phases.
  */
 import { test, expect, request as pwRequest } from "@playwright/test";
+/* auth.json still supplies the FORM field/submit strings used by the
+   signed-in paths below; only the page HEADINGS moved to the mk-*
+   catalogues in the mockup port. */
 import enAuth from "../public/locales/en/auth.json";
+import enLogin from "../public/locales/en/mk-login.json";
+import enAccount from "../public/locales/en/mk-account.json";
 
 const API_HEALTH_URL = "http://localhost:4000/health";
 const SEEDED_USER = { email: "e2e@carsens.test", password: "E2eStr0ngPass" };
@@ -40,11 +45,11 @@ test.describe("E2E-14: RBAC denial matrix (skeleton — grows every phase)", () 
       await page.goto("/account");
       await page.waitForURL(/\/login\?next=/);
       await expect(
-        page.getByRole("heading", { name: enAuth.login.title }),
+        page.getByRole("heading", { name: enLogin.hero.title }),
       ).toBeVisible();
       // Zero User-area content ever rendered.
       await expect(
-        page.getByRole("heading", { name: enAuth.account.title }),
+        page.getByRole("heading", { name: enAccount.dashboard.welcome }),
       ).toHaveCount(0);
     });
     // Promoted by P3-02: SSR guard on every /dealer page.
@@ -52,7 +57,7 @@ test.describe("E2E-14: RBAC denial matrix (skeleton — grows every phase)", () 
       await page.goto("/dealer/leads");
       await page.waitForURL(/\/login\?next=/);
       await expect(
-        page.getByRole("heading", { name: enAuth.login.title }),
+        page.getByRole("heading", { name: enLogin.hero.title }),
       ).toBeVisible();
     });
     test.fixme("guest visiting /admin gets denied (404/redirect — surface not even revealed)", async () => {
@@ -88,7 +93,7 @@ test.describe("E2E-14: RBAC denial matrix (skeleton — grows every phase)", () 
       const response = await page.goto("/admin");
       expect(response?.status()).toBe(404);
       await expect(
-        page.getByRole("heading", { name: enAuth.account.title }),
+        page.getByRole("heading", { name: enAccount.dashboard.welcome }),
       ).toHaveCount(0);
     });
     test.fixme("user cannot access /crm/*", async () => {});

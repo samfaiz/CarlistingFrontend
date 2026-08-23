@@ -77,7 +77,9 @@ function Hero({ t, section }: { t: T; section?: ResolvedSection }) {
         <h1>{title}</h1>
         <p className="sub">{sub}</p>
 
-        <form className="search-card" onSubmit={onSearch}>
+        {/* A search landmark: screen-reader users navigate by landmark,
+            and this is the primary action on the page. */}
+        <form className="search-card" role="search" aria-label={t("hero.searchLandmark")} onSubmit={onSearch}>
           <div className="tabs">
             <button type="button" className="tab active">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2" /></svg>

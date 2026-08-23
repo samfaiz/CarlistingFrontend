@@ -18,7 +18,8 @@
     "anyPrice": "Any price",
     "year": "Year",
     "anyYear": "Any year",
-    "search": "Search cars"
+    "search": "Search cars",
+    "searchLandmark": "Search cars"
   },
   "stats": {
     "listed": "cars listed",
