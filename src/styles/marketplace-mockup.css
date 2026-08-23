@@ -2710,6 +2710,8 @@
   .mk .compare-toggle {position: relative}
   .mk .fav::after,
   .mk .pwd-toggle::after,
+  .mk .mobile-toggle::after,
+  .mk .socials a::after,
   .mk .compare-toggle::after {
     content: "";
     position: absolute;
@@ -2718,9 +2720,28 @@
     width: 44px; height: 44px;
   }
 
+  .mk .socials a {position: relative}
+
   /* Checkboxes and radios are 14px by default, which is unhittable. */
   .mk input[type="checkbox"],
   .mk input[type="radio"] {width: 20px; height: 20px}
+
+  /* Text links that act as buttons: "View all" rows and the footer link
+     columns were 18-21px tall, which is a thumb-sized coin toss. Padding
+     rather than a hit box, so the spacing reads as deliberate. */
+  .mk .section-head .view-all,
+  .mk .view-all {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .mk footer .links a,
+  .mk footer ul li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
 
   /* ── Text legibility ─────────────────────────────────────────────────────
      11px on a phone held at arm's length is not readable. Nothing customer
