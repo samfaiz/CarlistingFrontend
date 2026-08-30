@@ -50,6 +50,7 @@ export interface Card {
   badges: string[];
   publishedAt: string | null;
   sellerType: string;
+  dealer?: { name: string; slug: string } | null;
   make: { name: string; slug: string };
   model: { name: string; slug: string };
   trim: { name: string } | null;

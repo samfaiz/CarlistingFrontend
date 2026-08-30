@@ -90,7 +90,9 @@
   },
   "card": {
     "save": "Enregistrer cette voiture",
-    "unsave": "Retirer des favoris"
+    "unsave": "Retirer des favoris",
+    "dealer": "Concessionnaire",
+    "privateSeller": "Vendeur particulier"
   },
   "compare": {
     "chip": "Comparer",

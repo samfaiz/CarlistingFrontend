@@ -19,6 +19,10 @@ interface AccountProps {
 
 export default function MkaccountPage({ user, listings }: AccountProps) {
   const { t } = useTranslation("mk-account");
+  // Saved / Messages / My listings are REAL pages (/account/saved, /account/messages,
+  // /account/listings, /account/notifications) carrying status filters and pause/sold/resume/renew actions that
+  // the mockup's in-page sections never had. Their sidebar entries navigate there; the
+  // mockup-only tabs still switch in place.
   // The mockup's vanilla-JS tab switching, ported to React state (P6 fix —
   // the sidebar anchors were dead on the live page).
   const [tab, setTab] = React.useState("dashboard");
@@ -54,22 +58,22 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
                       {t("menu.dashboard")}
                     </a>
-                    <a data-tab="saved" role="button" tabIndex={0} className={tab === "saved" ? "active" : undefined} onClick={() => setTab("saved")}>
+                    <Link href="/account/saved" className={tab === "saved" ? "active" : undefined}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
                       {t("menu.saved")} <span className="count-pill">{t("menu.savedCount")}</span>
-                    </a>
+                    </Link>
                     <a data-tab="searches" role="button" tabIndex={0} className={tab === "searches" ? "active" : undefined} onClick={() => setTab("searches")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
                       {t("menu.searches")} <span className="count-pill">{t("menu.searchesCount")}</span>
                     </a>
-                    <a data-tab="messages" role="button" tabIndex={0} className={tab === "messages" ? "active" : undefined} onClick={() => setTab("messages")}>
+                    <Link href="/account/messages" className={tab === "messages" ? "active" : undefined}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.5 8.5 0 018 8z" /></svg>
                       {t("menu.messages")} <span className="count-pill">{t("menu.messagesCount")}</span>
-                    </a>
-                    <a data-tab="listings" role="button" tabIndex={0} className={tab === "listings" ? "active" : undefined} onClick={() => setTab("listings")}>
+                    </Link>
+                    <Link href="/account/listings" className={tab === "listings" ? "active" : undefined}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2" /></svg>
                       {t("menu.listings")} <span className="count-pill">{t("menu.listingsCount")}</span>
-                    </a>
+                    </Link>
                     <a data-tab="alerts" role="button" tabIndex={0} className={tab === "alerts" ? "active" : undefined} onClick={() => setTab("alerts")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0" /></svg>
                       {t("menu.alerts")} <span className="count-pill">{t("menu.alertsCount")}</span>
@@ -79,10 +83,10 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                       {t("menu.profile")}
                     </a>
-                    <a data-tab="notifications" role="button" tabIndex={0} className={tab === "notifications" ? "active" : undefined} onClick={() => setTab("notifications")}>
+                    <Link href="/account/notifications" className={tab === "notifications" ? "active" : undefined}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z" /></svg>
                       {t("menu.notifications")}
-                    </a>
+                    </Link>
                     <a data-tab="security" role="button" tabIndex={0} className={tab === "security" ? "active" : undefined} onClick={() => setTab("security")}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" /></svg>
                       {t("menu.security")}
@@ -100,7 +104,7 @@ export default function MkaccountPage({ user, listings }: AccountProps) {
 
                   {/* DASHBOARD */}
                   <section className={`acc-section${tab === "dashboard" ? " active" : ""}`} data-section="dashboard">
-                    <h2>{t("dashboard.welcome")}</h2>
+                    <h2>{t("dashboard.welcome", { name: user.name?.split(" ")[0] || user.name })}</h2>
                     <p className="section-sub">{t("dashboard.sub")}</p>
 
                     <div className="stats-grid">

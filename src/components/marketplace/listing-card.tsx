@@ -80,7 +80,10 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
   // search Card and may omit emirate / _count.
   const cover = car.media?.[0]?.variants?.card;
   const title = `${car.year} ${car.make?.name ?? ""} ${car.model?.name ?? ""}${car.trim ? ` ${car.trim.name}` : ""}`.trim();
-  const dealer = car.sellerType === "DEALER" ? (car.make?.name ?? "Dealer") : "Private seller";
+  // The dealership's own name, never the make: `car.make.name` here printed
+  // "Toyota" where the seller belongs, on every dealer card on the site.
+  const dealer =
+    car.sellerType === "DEALER" ? (car.dealer?.name ?? t("card.dealer")) : t("card.privateSeller");
   const photoCount = car._count?.media ?? car.media?.length ?? 0;
   const isFeatured = car.badges?.includes("featured");
 

@@ -28,7 +28,7 @@
     "adminPanel": "Panneau d'administration"
   },
   "dashboard": {
-    "welcome": "Bon retour, Faisal 👋",
+    "welcome": "Bon retour, {{name}} 👋",
     "sub": "Voici ce qui s'est passé sur votre compte",
     "savedTitle": "Voitures enregistrées récemment",
     "viewAllSaved": "Tout voir (12) →",

@@ -266,7 +266,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(
       locale ?? nextI18NextConfig.i18n.defaultLocale,
-      ["common", "mk-compare"],
+      // QuizDialog reads the "compare" namespace — omitting it rendered every
+      // label in that dialog as a raw catalogue key ("quiz.usageOptions.family").
+      ["common", "mk-compare", "compare"],
       nextI18NextConfig,
     )),
   },

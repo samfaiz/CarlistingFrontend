@@ -28,7 +28,7 @@
     "adminPanel": "Panel de administración"
   },
   "dashboard": {
-    "welcome": "Bienvenido de nuevo, Faisal 👋",
+    "welcome": "Bienvenido de nuevo, {{name}} 👋",
     "sub": "Esto es lo que ha pasado con tu cuenta",
     "savedTitle": "Coches guardados recientemente",
     "viewAllSaved": "Ver todo (12) →",

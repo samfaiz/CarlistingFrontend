@@ -14,6 +14,7 @@ import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { BannerSlot } from "@/components/marketplace/banner-slot";
 import { AssistantWidget } from "@/components/marketplace/assistant-widget";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
+import { SaveSearchButton } from "@/components/saved/save-search-button";
 import {
   getMakes,
   getTaxonomyMeta,
@@ -50,6 +51,22 @@ export default function MksearchPage({
 }: Props) {
   const { t } = useTranslation("mk-search");
   const router = useRouter();
+
+  /**
+   * The search to remember when "Save search" is used. The URL *is* the query
+   * on this page — every filter control pushes it — so the params are the
+   * honest serialization. `page` is dropped: a saved search is a standing
+   * interest, not a position in a result list.
+   */
+  const savedSearchQuery = React.useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(router.query).filter(
+          ([key, value]) => key !== "page" && typeof value === "string" && value !== "",
+        ) as [string, string][],
+      ),
+    [router.query],
+  );
   const [kw, setKw] = React.useState(query.q ?? "");
 
   /*
@@ -107,10 +124,7 @@ export default function MksearchPage({
                     })}
                   </p>
                 </div>
-                <button className="save-search-btn" type="button">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" /></svg>
-                  {t("title.saveSearch")}
-                </button>
+                <SaveSearchButton query={savedSearchQuery} className="save-search-btn" />
               </div>
 
               {/* COMPACT SEARCH */}

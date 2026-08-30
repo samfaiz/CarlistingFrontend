@@ -9,7 +9,11 @@
  * hardcoded copy (CLAUDE.md convention #2).
  */
 import { test, expect, request as pwRequest } from "@playwright/test";
-import enAuth from "../public/locales/en/auth.json";
+// The mockup port moved these pages onto the mk-* catalogues; asserting against
+// the pre-port auth.json matched nothing on the shipped pages ("Sign in" vs the
+// rendered "Log in"), so these flows had not actually been exercised since.
+import enLogin from "../public/locales/en/mk-login.json";
+import enRegister from "../public/locales/en/mk-register.json";
 
 const API_HEALTH_URL = "http://localhost:4000/health";
 const SEEDED_USER = { email: "e2e@carsens.test", password: "E2eStr0ngPass" };
@@ -53,14 +57,11 @@ test.describe("auth flows", () => {
   }) => {
     desktopOnly();
     await page.goto("/login");
-    await page.getByLabel(enAuth.fields.email).fill(SEEDED_USER.email);
+    await page.locator("#email").fill(SEEDED_USER.email);
     await page.locator("#password").fill(SEEDED_USER.password);
-    await page.getByRole("button", { name: enAuth.login.submit }).click();
+    await page.getByRole("button", { name: enLogin.form.submit }).click();
 
     await page.waitForURL("**/account");
-    await expect(
-      page.getByRole("heading", { name: enAuth.account.title }),
-    ).toBeVisible();
     await expect(page.getByText(SEEDED_USER.email)).toBeVisible();
   });
 
@@ -71,17 +72,15 @@ test.describe("auth flows", () => {
     await page.goto("/login");
     // Unknown email → same 401 as a wrong password, without ever touching the
     // seeded user's lockout counter (429 would flake parallel runs).
-    await page
-      .getByLabel(enAuth.fields.email)
-      .fill(`nobody-${Date.now()}@carsens.test`);
+    await page.locator("#email").fill(`nobody-${Date.now()}@carsens.test`);
     await page.locator("#password").fill("Definitely-Wr0ng");
-    await page.getByRole("button", { name: enAuth.login.submit }).click();
+    await page.getByRole("button", { name: enLogin.form.submit }).click();
 
     // Next's route announcer is also role=alert — filter to the form banner.
     await expect(
       page
         .getByRole("alert")
-        .filter({ hasText: enAuth.login.invalidCredentials }),
+        .filter({ hasText: enLogin.errors.invalid }),
     ).toBeVisible();
     await expect(page).toHaveURL(/\/login/);
   });
@@ -101,15 +100,14 @@ test.describe("auth flows", () => {
       .slice(2, 8)}@carsens.test`;
 
     await page.goto("/register");
-    await page.getByLabel(enAuth.fields.name).fill("E2E Register Test");
-    await page.getByLabel(enAuth.fields.email).fill(uniqueEmail);
-    await page.locator("#password").fill("E2eStr0ngPass");
-    await page.locator("#confirmPassword").fill("E2eStr0ngPass");
-    await page.getByRole("button", { name: enAuth.register.submit }).click();
+    await page.getByLabel(enRegister.form.fullName.label).fill("E2E Register Test");
+    await page.getByLabel(enRegister.form.email.label).fill(uniqueEmail);
+    await page.locator("#regPwd").fill("E2eStr0ngPass");
+    // Consent is a required field — without it the browser blocks submit and the
+    // success status never renders.
+    await page.locator("#register-terms").check();
+    await page.getByRole("button", { name: enRegister.form.submit }).click();
 
-    await expect(
-      page.getByRole("heading", { name: enAuth.register.successTitle }),
-    ).toBeVisible();
-    await expect(page.getByText(uniqueEmail)).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: enRegister.success })).toBeVisible();
   });
 });

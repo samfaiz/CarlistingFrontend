@@ -90,7 +90,9 @@
   },
   "card": {
     "save": "Guardar este coche",
-    "unsave": "Quitar de guardados"
+    "unsave": "Quitar de guardados",
+    "dealer": "Concesionario",
+    "privateSeller": "Vendedor particular"
   },
   "compare": {
     "chip": "Comparar",

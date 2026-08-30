@@ -90,7 +90,9 @@
   },
   "card": {
     "save": "Save this car",
-    "unsave": "Remove from saved"
+    "unsave": "Remove from saved",
+    "dealer": "Dealer",
+    "privateSeller": "Private seller"
   },
   "compare": {
     "chip": "Compare",
