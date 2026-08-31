@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import * as React from "react";
 import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
+import { SpecStep, EMPTY_SPEC_STEP, type SpecStepValue } from "@/components/sell/spec-step";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
@@ -75,6 +76,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   // Photos phase (P6 stub-cleanup): after the draft is created, upload photos
   // right here and submit for review — no detour through the account area.
   const [createdId, setCreatedId] = React.useState<string | null>(null);
+  const [specs, setSpecs] = React.useState<SpecStepValue>(EMPTY_SPEC_STEP);
   const [photos, setPhotos] = React.useState<PhotoItem[]>([]);
   const [submitBusy, setSubmitBusy] = React.useState(false);
 
@@ -151,6 +153,19 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
           regionalSpec: form.regionalSpec || undefined,
           emirateId: form.emirateId,
           description: form.description.length >= 20 ? form.description : undefined,
+          // Only what the seller actually changed. Sending the auto-filled
+          // values back would freeze today's trim data onto the listing as if
+          // the seller had asserted it.
+          ...(Object.keys(specs.specOverrides).length
+            ? { specOverrides: specs.specOverrides }
+            : {}),
+          ...(specs.customSpecs.filter((c) => c.label.trim() && c.value.trim()).length
+            ? {
+                customSpecs: specs.customSpecs.filter(
+                  (c) => c.label.trim() && c.value.trim(),
+                ),
+              }
+            : {}),
         },
         token,
       );
@@ -284,6 +299,25 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                       </div>
                     </div>
                   </div>
+
+                  {/*
+                    The specification step. Rendered only once a model is
+                    chosen: without one there is no catalogue to auto-fill
+                    from, and an empty 90-row form is a wall, not a wizard.
+                  */}
+                  {form.modelId && (
+                    <div className="sell-step-card">
+                      <h2 className="step-heading">{t("specs.title")}</h2>
+                      <SpecStep
+                        vehicleType="CAR"
+                        trimId={form.trimId}
+                        year={form.year}
+                        regionalSpec={form.regionalSpec}
+                        value={specs}
+                        onChange={setSpecs}
+                      />
+                    </div>
+                  )}
 
                   <div className="sell-step-card">
                     <h2 className="step-heading">{t("step4.title", { defaultValue: "Price & location" })}</h2>

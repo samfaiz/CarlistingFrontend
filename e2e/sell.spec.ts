@@ -100,6 +100,39 @@ test.describe("sell wizard", () => {
     await page.locator("#sell-step2-mileageLabel").fill("21000");
     await page.selectOption("#sell-step2-fuelLabel", { index: 1 });
     await page.selectOption("#sell-step2-transmissionLabel", { index: 1 });
+    /*
+     * The specification step. It only appears once a model is chosen, and it
+     * offers the WHOLE catalogue — the wizard previously captured only the
+     * fields the trim happened to carry, so a seller could never list more
+     * than the trim knew.
+     */
+    const powerBox = page.locator("#sell-spec-power_hp");
+    await expect(powerBox).toBeVisible({ timeout: 20_000 });
+    // Auto-filled from the published GR-Sport TrimSpec, not typed by the test.
+    await expect(powerBox).toHaveValue("409");
+
+    // A field the trim has no value for is still offered.
+    await expect(page.locator("#sell-spec-power_rpm")).toBeVisible();
+
+    // Correcting an auto-filled value shows a revert control; reverting removes it.
+    await powerBox.fill("395");
+    const revert = page
+      .locator(".spec-step-field", { has: powerBox })
+      .locator(".spec-step-revert");
+    await expect(revert).toBeVisible();
+    await revert.click();
+    await expect(powerBox).toHaveValue("409");
+    await expect(revert).toHaveCount(0);
+
+    // Then make the edit that the created listing should actually carry.
+    await powerBox.fill("395");
+
+    // A trim-specific extra the generic catalogue has no key for.
+    await page.getByRole("button", { name: enSell.specs.customAdd }).click();
+    const customRow = page.locator(".spec-step-custom").first();
+    await customRow.locator("input").first().fill("Aftermarket exhaust");
+    await customRow.locator("input").nth(1).fill("Akrapovic, fitted 2025");
+
     await page.locator("#sell-step4-priceLabel").fill("259000");
     // Renamed from #sell-step4-emirateLabel: the field is "Location" now that
     // the site is not UAE-only. The API field is still emirateId.

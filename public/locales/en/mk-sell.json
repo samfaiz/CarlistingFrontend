@@ -394,5 +394,26 @@
     "sub": "Your draft is saved. Add at least 3 photos, then submit for review.",
     "submitting": "Submitting for review…",
     "skip": "Skip for now — finish from My Account"
+  },
+  "specs": {
+    "title": "Specifications",
+    "loading": "Loading the specification sheet…",
+    "autofilled": "We filled in {{filled}} of {{total}} specifications from the model data. Correct anything that does not match your car — what you enter wins.",
+    "noTrimData": "We hold no factory specification for this model year, so nothing was filled in. Anything you add here will show on your listing.",
+    "editedCount": "You have changed {{count}} specification(s).",
+    "filledCount": "{{filled}}/{{total}}",
+    "unset": "Not specified",
+    "yes": "Yes",
+    "no": "No",
+    "revert": "Undo your change to {{field}}",
+    "revertHint": "Put the model value back",
+    "customTitle": "Anything else",
+    "customHint": "Fitted extras and trim-specific details we have no field for — a tow bar, an aftermarket exhaust, a service pack.",
+    "customLabelPlaceholder": "What it is",
+    "customValuePlaceholder": "Details",
+    "customLabelAria": "Name of extra {{n}}",
+    "customValueAria": "Details of extra {{n}}",
+    "customRemove": "Remove extra {{n}}",
+    "customAdd": "Add another"
   }
 }

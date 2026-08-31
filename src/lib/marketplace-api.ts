@@ -332,6 +332,26 @@ export function getSpecSheet(slug: string): Promise<SpecSheet> {
   return apiGet<SpecSheet>(`/specs/listings/${encodeURIComponent(slug)}`);
 }
 
+/**
+ * The catalogue for a vehicle type with a trim's values filled in.
+ *
+ * Distinct from getSpecSheet, which resolves a saved listing. This one answers
+ * "what would we auto-fill if you picked this trim?", which is what the sell
+ * wizard needs before a listing exists.
+ */
+export function getSpecSheetForTrim(input: {
+  vehicleType: string;
+  trimId?: string;
+  year?: number;
+  regionalSpec?: string;
+}): Promise<SpecSheet> {
+  const q = new URLSearchParams({ vehicleType: input.vehicleType });
+  if (input.trimId) q.set("trimId", input.trimId);
+  if (input.year) q.set("year", String(input.year));
+  if (input.regionalSpec) q.set("regionalSpec", input.regionalSpec);
+  return apiGet<SpecSheet>(`/taxonomy/spec-sheet?${q.toString()}`);
+}
+
 export function getMakes(vehicleType?: string): Promise<TaxonomyMake[]> {
   const suffix = vehicleType
     ? `?vehicleType=${encodeURIComponent(vehicleType)}`

@@ -394,5 +394,26 @@
     "sub": "Borrador guardado. Añade al menos 3 fotos y envíalo a revisión.",
     "submitting": "Enviando a revisión…",
     "skip": "Omitir por ahora: termina desde Mi cuenta"
+  },
+  "specs": {
+    "title": "Especificaciones",
+    "loading": "Cargando la ficha de especificaciones…",
+    "autofilled": "Hemos rellenado {{filled}} de {{total}} especificaciones con los datos del modelo. Corrige lo que no coincida con tu coche: lo que tú indiques manda.",
+    "noTrimData": "No tenemos especificaciones de fábrica para este año, así que no se ha rellenado nada. Todo lo que añadas aquí aparecerá en tu anuncio.",
+    "editedCount": "Has cambiado {{count}} especificacion(es).",
+    "filledCount": "{{filled}}/{{total}}",
+    "unset": "Sin especificar",
+    "yes": "Sí",
+    "no": "No",
+    "revert": "Deshacer tu cambio en {{field}}",
+    "revertHint": "Restaurar el valor del modelo",
+    "customTitle": "Algo más",
+    "customHint": "Extras montados y detalles de acabado para los que no tenemos campo: una bola de remolque, un escape aftermarket, un paquete de mantenimiento.",
+    "customLabelPlaceholder": "Qué es",
+    "customValuePlaceholder": "Detalles",
+    "customLabelAria": "Nombre del extra {{n}}",
+    "customValueAria": "Detalles del extra {{n}}",
+    "customRemove": "Eliminar el extra {{n}}",
+    "customAdd": "Añadir otro"
   }
 }

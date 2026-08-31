@@ -394,5 +394,26 @@
     "sub": "Brouillon enregistré. Ajoutez au moins 3 photos puis soumettez pour relecture.",
     "submitting": "Envoi pour relecture…",
     "skip": "Passer pour l'instant — terminez depuis Mon compte"
+  },
+  "specs": {
+    "title": "Caractéristiques",
+    "loading": "Chargement de la fiche technique…",
+    "autofilled": "Nous avons rempli {{filled}} caractéristiques sur {{total}} à partir des données du modèle. Corrigez ce qui ne correspond pas à votre voiture : c'est votre saisie qui fait foi.",
+    "noTrimData": "Nous n'avons pas de caractéristiques constructeur pour ce millésime : rien n'a été rempli. Tout ce que vous ajoutez ici apparaîtra sur votre annonce.",
+    "editedCount": "Vous avez modifié {{count}} caractéristique(s).",
+    "filledCount": "{{filled}}/{{total}}",
+    "unset": "Non renseigné",
+    "yes": "Oui",
+    "no": "Non",
+    "revert": "Annuler votre modification de {{field}}",
+    "revertHint": "Rétablir la valeur du modèle",
+    "customTitle": "Autre chose",
+    "customHint": "Équipements installés et détails propres à la finition pour lesquels nous n'avons pas de champ : attelage, échappement adaptable, forfait entretien.",
+    "customLabelPlaceholder": "De quoi s'agit-il",
+    "customValuePlaceholder": "Détails",
+    "customLabelAria": "Nom de l'équipement {{n}}",
+    "customValueAria": "Détails de l'équipement {{n}}",
+    "customRemove": "Supprimer l'équipement {{n}}",
+    "customAdd": "En ajouter un autre"
   }
 }
