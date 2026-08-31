@@ -1,0 +1,190 @@
+/*
+ * Layout for the compare advisor conversation. Colour and buttons come from
+ * the `.mk` layer; this file positions the steps, the chips and the verdict,
+ * and enforces the 16px floor on the controls. Inline direction only.
+ */
+
+/*
+ * NOTE ON DOUBLED SELECTORS: the `.mk` sheet carries `.mk button {background:none;
+ * border:0}` at specificity (0,1,1), which outranks a single module class. Every
+ * rule below that styles a button (or beats `.mk .form-input`) repeats its class
+ * to win, regardless of which stylesheet the bundler emits first.
+ */
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--brand-border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.progress {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.heading {
+  margin: 0 0 4px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.heading:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.note {
+  margin: 0 0 14px;
+  font-size: 13.5px;
+  color: var(--text-3);
+}
+
+.field {
+  margin-bottom: 16px;
+  max-width: 320px;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+
+.control.control.control {
+  font-size: 16px;
+  min-height: 44px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.chip.chip {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-2);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.chipOn.chipOn.chipOn {
+  background: var(--brand-light);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── verdict ─────────────────────────────────────────────────────────────── */
+
+.pick {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+}
+
+.narrative {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.degraded {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--brand-surface);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.block {
+  margin-bottom: 14px;
+}
+
+.blockTitle {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.points li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 13.5px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.points li:last-child {
+  border-bottom: 0;
+}
+
+.pointLabel {
+  color: var(--text-2);
+  font-weight: 500;
+  min-width: 140px;
+}
+
+.pointValue {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.warnings {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #FFF7ED;
+  border: 1px solid #FED7AA;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  color: #9A3412;
+}
+
+.disclaimer {
+  margin: 0 0 14px;
+  font-size: 11.5px;
+  color: var(--text-3);
+}

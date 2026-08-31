@@ -12,7 +12,7 @@ import { useTranslation } from "next-i18next/pages";
 import { Check } from "lucide-react";
 import { toast } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
-import { useCompare, type CompareEntry } from "./compare-provider";
+import { useCompare, COMPARE_MAX, type CompareEntry } from "./compare-provider";
 
 export interface CompareChipProps {
   entry: CompareEntry;
@@ -29,7 +29,7 @@ export function CompareChip({ entry, className }: CompareChipProps) {
     event.stopPropagation();
     const accepted = toggle(entry);
     if (!accepted) {
-      toast({ title: t("compare.full"), variant: "warning" });
+      toast({ title: t("compare.full", { max: COMPARE_MAX }), variant: "warning" });
     }
   };
 

@@ -23,15 +23,7 @@
   "table": {
     "differencesOnly": "إظهار الاختلافات فقط",
     "remove": "إزالة من المقارنة",
-    "price": "السعر",
-    "year": "السنة",
-    "mileage": "المسافة المقطوعة",
-    "fuel": "نوع الوقود",
-    "transmission": "ناقل الحركة",
-    "regionalSpec": "المواصفات الإقليمية",
-    "location": "الموقع",
     "noValue": "—",
-    "basics": "الأساسيات",
     "rowHeader": "المواصفة",
     "winner": "الأفضل في هذا البند",
     "modelColumn": "{{count}} معروضة للبيع الآن"
@@ -40,64 +32,96 @@
   "sharedNotice": "أنت تشاهد مقارنة مُشارَكة. الأسعار محدّثة دائماً.",
   "groups": {
     "basics": "الأساسيات",
+    "ownership": "الصفقة والملكية",
     "engine_performance": "المحرك والأداء",
     "dimensions_capacity": "الأبعاد والسعة",
     "exterior_interior": "الخارج والداخل",
-    "safety_technology": "الأمان والتقنية"
+    "safety_technology": "الأمان والتقنية",
+    "bike_engine_performance": "المحرك والأداء",
+    "bike_transmission": "ناقل الحركة والدفع",
+    "bike_dimensions": "الأبعاد والوزن",
+    "bike_chassis": "الهيكل والمكابح",
+    "bike_electronics": "الإلكترونيات ومساعدات القيادة",
+    "additional": "مواصفات إضافية"
   },
   "rows": {
     "price": "السعر",
     "year": "السنة",
     "mileage": "المسافة المقطوعة",
     "condition": "الحالة",
+    "bodyType": "نوع الهيكل",
     "regionalSpec": "المواصفات الإقليمية",
     "transmission": "ناقل الحركة",
     "fuelType": "الوقود",
-    "bodyType": "نوع الهيكل",
+    "engineCc": "سعة المحرك",
+    "cylinders": "عدد الأسطوانات",
+    "exteriorColor": "اللون الخارجي",
+    "interiorColor": "اللون الداخلي",
     "emirate": "الموقع",
-    "sellerType": "البائع"
+    "sellerType": "البائع",
+    "negotiable": "السعر قابل للتفاوض",
+    "dealRating": "تقييم الصفقة",
+    "marketMedian": "وسيط السوق",
+    "listedOn": "تاريخ النشر",
+    "availability": "معروضة للبيع الآن"
+  },
+  "units": {
+    "km": "كم",
+    "cc": "سي سي"
+  },
+  "values": {
+    "condition": {
+      "USED": "مستعملة",
+      "NEW": "جديدة"
+    },
+    "regionalSpec": {
+      "GCC": "مواصفات خليجية",
+      "AMERICAN": "مواصفات أمريكية",
+      "EUROPEAN": "مواصفات أوروبية",
+      "JAPANESE": "مواصفات يابانية",
+      "CANADIAN": "مواصفات كندية",
+      "KOREAN": "مواصفات كورية",
+      "CHINESE": "مواصفات صينية",
+      "OTHER": "مواصفات أخرى"
+    },
+    "transmission": {
+      "AUTOMATIC": "أوتوماتيك",
+      "MANUAL": "يدوي",
+      "CVT": "CVT",
+      "SEMI_AUTOMATIC": "نصف أوتوماتيك"
+    },
+    "fuelType": {
+      "PETROL": "بنزين",
+      "DIESEL": "ديزل",
+      "HYBRID": "هجين",
+      "ELECTRIC": "كهربائية",
+      "PLUGIN_HYBRID": "هجين قابل للشحن"
+    },
+    "sellerType": {
+      "PRIVATE": "بائع فردي",
+      "DEALER": "معرض"
+    },
+    "negotiable": {
+      "YES": "قابل للتفاوض",
+      "NO": "سعر ثابت"
+    },
+    "dealRating": {
+      "GREAT": "صفقة ممتازة",
+      "GOOD": "صفقة جيدة",
+      "FAIR": "سعر عادل",
+      "HIGH": "أعلى من السوق"
+    }
   },
   "score": {
     "label": "درجة التوافق",
     "best": "الأنسب لك",
-    "personalised": "التقييم مبني على أولوياتك من الاختبار.",
-    "defaultWeights": "التقييم يعطي كل الأولويات وزناً متساوياً — أجرِ الاختبار لتخصيصه."
+    "personalised": "التقييم مبني على الأولويات التي ذكرتها للمستشار.",
+    "defaultWeights": "التقييم يعطي كل الأولويات وزناً متساوياً — أجب عن بضعة أسئلة لتخصيصه."
   },
   "share": {
     "button": "مشاركة",
     "copied": "تم نسخ رابط المشاركة.",
     "failed": "تعذّر إنشاء رابط المشاركة."
-  },
-  "quiz": {
-    "open": "اعثر على الأنسب لي",
-    "title": "اعثر على السيارة الأنسب",
-    "intro": "خمسة أسئلة سريعة، ثم نرتّب السيارات حسب ما يهمك.",
-    "budget": "أقصى ميزانية (درهم)",
-    "seats": "أقل عدد مقاعد",
-    "usage": "كيف ستستخدمها؟",
-    "usageOptions": {
-      "city": "قيادة داخل المدينة",
-      "family": "عائلية",
-      "offroad": "طرق وعرة",
-      "longDistance": "مسافات طويلة"
-    },
-    "priorities": "رتّب ما يهمك أكثر",
-    "prioritiesHint": "ضع أولويتك الأولى في المركز الأول.",
-    "priorityLabels": {
-      "price": "السعر",
-      "fuelEconomy": "تكاليف التشغيل",
-      "performance": "الأداء",
-      "space": "المساحة",
-      "tech": "التقنية",
-      "resale": "قيمة إعادة البيع"
-    },
-    "moveUp": "تحريك {{item}} للأعلى",
-    "moveDown": "تحريك {{item}} للأسفل",
-    "submit": "أظهر النتائج",
-    "cancel": "إلغاء",
-    "applied": "أُعيد تقييم المقارنة حسب أولوياتك.",
-    "failed": "تعذّر تنفيذ الاختبار. حاول مجدداً.",
-    "suggestionsTitle": "مقترحة لك — اضغط للإضافة إلى المقارنة"
   },
   "errors": {
     "buildFailed": "تعذّر بناء المقارنة. حاول مجدداً.",

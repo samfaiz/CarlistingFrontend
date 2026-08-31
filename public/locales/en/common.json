@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "carsens",
-    "tagline": "The UAE marketplace for cars and bikes."
+    "tagline": "The global marketplace for cars and bikes."
   },
   "home": {
     "scaffoldStatus": "Frontend scaffold ready — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
@@ -65,7 +65,7 @@
     "sell": "Sell Your Car",
     "language": "Language",
     "currency": "Currency",
-    "tagline": "The UAE's modern car marketplace. Buy, sell, and discover from anywhere in the Emirates.",
+    "tagline": "A modern car marketplace. Buy, sell, and discover from anywhere in the world.",
     "footer": {
       "buy": "Buy",
       "sell": "Sell",
@@ -82,7 +82,7 @@
       "cookies": "Cookies"
     },
     "copyright": "© 2026 Carsens FZ-LLC. All rights reserved.",
-    "madeIn": "Made in Dubai, UAE 🇦🇪",
+    "madeIn": "Built for buyers and sellers worldwide",
     "myAccount": "My Account",
     "menu": "Menu",
     "menuNav": "Main navigation",

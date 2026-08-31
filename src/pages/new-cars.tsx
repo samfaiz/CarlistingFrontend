@@ -159,7 +159,7 @@ export default function MknewCarsPage() {
                 </div>
                 <div className="qf-field">
                   <label htmlFor="new-cars-bp-phone">{t("bp.phone", { defaultValue: "Mobile" })}</label>
-                  <input id="new-cars-bp-phone" type="tel" inputMode="tel" autoComplete="tel" className="form-input" value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder="+971 5x xxx xxxx" />
+                  <input id="new-cars-bp-phone" type="tel" inputMode="tel" autoComplete="tel" className="form-input" value={form.phone} onChange={(e) => setLead((f) => ({ ...f, phone: e.target.value }))} placeholder={t("bp.phonePh", { defaultValue: "Include your country code" })} />
                 </div>
                 <div className="qf-cta">
                   <button className="btn btn-primary btn-lg" type="button" disabled={leadState === "busy" || !form.makeId || !form.modelId || !form.name.trim()} onClick={() => void submitBestPrice()}>

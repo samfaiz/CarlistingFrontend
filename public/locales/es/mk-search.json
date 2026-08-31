@@ -343,6 +343,7 @@
     "sortBy": "Ordenar por",
     "empty": "Ningún coche coincide. Prueba a ampliar los filtros.",
     "sort": {
+      "relevance": "Mejor coincidencia",
       "newest": "Más recientes",
       "price_asc": "Precio: de menor a mayor",
       "price_desc": "Precio: de mayor a menor",

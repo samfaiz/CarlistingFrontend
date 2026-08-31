@@ -7,7 +7,7 @@
   },
   "hero": {
     "title": "Vendez votre voiture. Gratuit. Rapide.",
-    "subtitle": "Publiez votre voiture en moins de 3 minutes et touchez plus de 2 millions d'acheteurs mensuels dans tous les Émirats.",
+    "subtitle": "Publiez votre voiture en moins de 3 minutes et touchez plus de 2 millions d'acheteurs mensuels dans le monde entier.",
     "stats": [
       {
         "value": "14 jours",
@@ -38,18 +38,9 @@
     "title": "Détails du véhicule",
     "sub": "Nous l'utiliserons pour estimer la valeur de votre voiture et vous mettre en relation avec les bons acheteurs.",
     "plateLabel": "⚡ Le moyen le plus rapide — recherchez votre voiture par plaque",
-    "emirates": [
-      "Dubaï",
-      "Abou Dabi",
-      "Sharjah",
-      "Ajman",
-      "RAK",
-      "Fujairah",
-      "UAQ"
-    ],
     "platePlaceholder": "Numéro de plaque (ex. A 12345)",
     "autofill": "Remplissage auto",
-    "plateHelper": "Nous remplirons automatiquement la marque, le modèle, l'année et les spécifications à partir des registres de la RTA.",
+    "plateHelper": "Nous remplirons automatiquement la marque, le modèle, l'année et les spécifications à partir des registres d'immatriculation officiels.",
     "plateHelperLink": "Comment cela fonctionne-t-il ?",
     "divider": "ou saisissez les détails manuellement",
     "makeLabel": "Marque",
@@ -116,7 +107,7 @@
   },
   "step2": {
     "title": "Caractéristiques",
-    "sub": "Aux Émirats, les acheteurs se soucient surtout du kilométrage, de la spécification GCC et de l'état. Soyez précis — cela inspire confiance.",
+    "sub": "Les acheteurs se soucient surtout du kilométrage, de la spécification régionale et de l'état. Soyez précis — cela inspire confiance.",
     "mileageLabel": "Kilométrage (km)",
     "mileagePlaceholder": "ex. 45000",
     "transmissionLabel": "Transmission",
@@ -207,7 +198,8 @@
       "Jantes alliage",
       "Démarrage sans clé"
     ],
-    "continue": "Continuer vers les photos"
+    "continue": "Continuer vers les photos",
+    "regionalPlaceholder": "Choisir la spécification régionale"
   },
   "step3": {
     "title": "Ajoutez des photos de votre voiture",
@@ -238,7 +230,7 @@
     "marketEstimate": "Estimation du marché",
     "estBasedOnPre": "Basé sur",
     "estBasedOnPost": "voitures similaires vendues sur Carsens au cours des 90 derniers jours.",
-    "askingLabel": "Votre prix demandé (AED) *",
+    "askingLabel": "Votre prix demandé *",
     "priceAdvice": "✓ Dans la fourchette recommandée — attendez-vous à un intérêt rapide",
     "bestOffer": "Meilleure offre acceptée",
     "hidePrice": "Masquer le prix (négociable sur demande)",
@@ -268,16 +260,16 @@
       }
     ],
     "continue": "Continuer vers la publication",
-    "priceLabel": "Prix demandé (AED)",
-    "emirateLabel": "Émirat",
-    "emiratePlaceholder": "Choisir l'émirat"
+    "priceLabel": "Prix demandé",
+    "locationLabel": "Lieu",
+    "locationPlaceholder": "Choisir le lieu"
   },
   "step5": {
     "title": "Détails finaux et publication",
     "sub": "Ajoutez une courte description, choisissez comment les acheteurs peuvent vous joindre, et vous êtes en ligne.",
     "descLabel": "Description (facultative mais recommandée)",
     "descPlaceholder": "Mentionnez l'historique d'entretien, la maintenance récente, ce qui rend votre voiture spéciale, la raison de la vente…",
-    "descValue": "Toyota Land Cruiser GR-Sport 2023. Un seul propriétaire, historique d'entretien complet chez Al Tayer Toyota. Toujours garée au garage et méticuleusement entretenue. Pack d'accents noirs GR-Sport en option, jantes noir mat de 18″, toit panoramique, audio premium JBL. Raison de la vente : passage à un nouveau modèle.",
+    "descValue": "Toyota Land Cruiser GR-Sport 2023. Un seul propriétaire, historique d'entretien complet chez un concessionnaire Toyota agréé. Toujours garée au garage et méticuleusement entretenue. Pack d'accents noirs GR-Sport en option, jantes noir mat de 18″, toit panoramique, audio premium JBL. Raison de la vente : passage à un nouveau modèle.",
     "charCount": "368 / 1 000 caractères · ✓ Bon niveau de détail",
     "contactDivider": "comment les acheteurs doivent-ils vous contacter ?",
     "contactNameLabel": "Nom de contact",
@@ -365,8 +357,8 @@
     "tips": {
       "title": "Conseil pour cette étape",
       "items": [
-        "Une année et une finition exactes donnent la bonne estimation — apportez votre Mulkiya en cas de doute.",
-        "Les acheteurs des Émirats accordent beaucoup d'importance au GCC par rapport à l'importé — soyez exact.",
+        "Une année et une finition exactes donnent la bonne estimation — apportez votre carte grise en cas de doute.",
+        "Les acheteurs accordent beaucoup d'importance à la spécification régionale par rapport à l'importé — soyez exact.",
         "Les annonces avec la combinaison complète marque + modèle + année obtiennent 5× plus de vues."
       ]
     },

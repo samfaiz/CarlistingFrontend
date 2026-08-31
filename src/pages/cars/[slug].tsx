@@ -68,6 +68,37 @@ export default function MkdetailPage({
   const [phone, setPhone] = React.useState<string | null>(null);
   const { currency, format } = useCurrency();
   const [leadBusy, setLeadBusy] = React.useState<string | null>(null);
+
+  /*
+   * Gallery navigation. The track is a scroll-snap carousel, so moving between
+   * photos is a scroll rather than a state-driven swap — that keeps the native
+   * touch swipe, and scrollIntoView handles Arabic RTL without a direction
+   * branch. `active` is derived FROM the scroll position, not the other way
+   * round, so a swipe and a thumbnail click stay in agreement.
+   *
+   * These three live up here with the other hooks, ABOVE the `gone` early
+   * return: a 410 render that skipped them changed the hook count between
+   * renders, which is a hard React error, not a lint nit.
+   */
+  const trackRef = React.useRef<HTMLDivElement | null>(null);
+
+  const goToPhoto = React.useCallback((index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const clamped = Math.max(0, Math.min(index, track.children.length - 1));
+    const slide = track.children[clamped] as HTMLElement | undefined;
+    slide?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    setActive(clamped);
+  }, []);
+
+  const onTrackScroll = React.useCallback(() => {
+    const track = trackRef.current;
+    if (!track || track.clientWidth === 0) return;
+    // Math.abs: scrollLeft is negative in RTL in some engines.
+    const index = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
+    setActive((cur) => (cur === index ? cur : index));
+  }, []);
+
   // Money and dates in the market panels format per locale (Latin digits are
   // forced inside formatPrice/formatRelativeTime, per FR-I5).
   const locale = router.locale ?? "en";
@@ -127,34 +158,6 @@ export default function MkdetailPage({
   const title = `${listing.year} ${listing.make.name} ${listing.model.name}${listing.trim ? ` ${listing.trim.name}` : ""}`;
   const photos = listing.media.map((m) => m.variants?.card).filter(Boolean) as string[];
 
-  /*
-   * Gallery navigation. The track is a scroll-snap carousel, so moving between
-   * photos is a scroll rather than a state-driven swap — that keeps the native
-   * touch swipe, and scrollIntoView handles Arabic RTL without a direction
-   * branch. `active` is derived FROM the scroll position, not the other way
-   * round, so a swipe and a thumbnail click stay in agreement.
-   */
-  const trackRef = React.useRef<HTMLDivElement | null>(null);
-
-  const goToPhoto = React.useCallback(
-    (index: number) => {
-      const track = trackRef.current;
-      if (!track) return;
-      const clamped = Math.max(0, Math.min(index, track.children.length - 1));
-      const slide = track.children[clamped] as HTMLElement | undefined;
-      slide?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-      setActive(clamped);
-    },
-    [],
-  );
-
-  const onTrackScroll = React.useCallback(() => {
-    const track = trackRef.current;
-    if (!track || track.clientWidth === 0) return;
-    // Math.abs: scrollLeft is negative in RTL in some engines.
-    const index = Math.round(Math.abs(track.scrollLeft) / track.clientWidth);
-    setActive((cur) => (cur === index ? cur : index));
-  }, []);
   const desc = listing.descriptions.find((d) => d.locale === "en")?.text ?? listing.descriptions[0]?.text ?? "";
   // Was listing.make.name — a dealer listing showed "Toyota" as the seller.
   const dealer =

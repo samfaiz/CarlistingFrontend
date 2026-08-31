@@ -4,7 +4,7 @@
   },
   "hero": {
     "eyebrow": "2024 & 2025 model years",
-    "title": "Brand new cars in the UAE",
+    "title": "Brand new cars",
     "sub": "Explore the latest models from 40+ manufacturers. Compare trims, book a test drive, find your nearest showroom."
   },
   "qf": {
@@ -35,7 +35,7 @@
       ]
     },
     "budget": {
-      "label": "Budget (AED)",
+      "label": "Budget",
       "options": [
         "Any budget",
         "Under 100,000",
@@ -193,7 +193,7 @@
       ]
     },
     "price": {
-      "label": "Price (AED)",
+      "label": "Price",
       "min": "Min",
       "max": "Max"
     },
@@ -347,23 +347,23 @@
       "label": "Location",
       "items": [
         {
-          "name": "Dubai",
+          "name": "Middle East",
           "count": "820"
         },
         {
-          "name": "Abu Dhabi",
+          "name": "Europe",
           "count": "412"
         },
         {
-          "name": "Sharjah",
+          "name": "North America",
           "count": "128"
         },
         {
-          "name": "Ajman",
+          "name": "Asia Pacific",
           "count": "42"
         },
         {
-          "name": "Other emirates",
+          "name": "Other regions",
           "count": "18"
         }
       ]
@@ -502,7 +502,7 @@
     ]
   },
   "coming": {
-    "title": "Coming soon to UAE showrooms",
+    "title": "Coming soon to showrooms",
     "sub": "Upcoming launches and pre-orders — be first in line",
     "viewAll": "All upcoming",
     "notify": "Get notified when launched",
@@ -535,8 +535,8 @@
   },
   "deals": {
     "eyebrow": "May 2026 Special",
-    "title": "New car offers — save up to AED 35,000",
-    "text": "Exclusive deals from authorized dealers across the UAE. 0% finance, free service packages, accessory bundles, and registration covered.",
+    "title": "New car offers — save thousands on your next car",
+    "text": "Exclusive deals from authorized dealers worldwide. 0% finance, free service packages, accessory bundles, and registration covered.",
     "cta": "View all 247 offers",
     "stats": [
       {
@@ -570,13 +570,13 @@
       },
       {
         "tag": "Comparison",
-        "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins in the UAE?",
+        "title": "Tesla Model Y vs Mercedes EQE SUV: which EV wins?",
         "date": "May 9, 2026",
         "read": "11 min read"
       },
       {
         "tag": "Review",
-        "title": "BMW X5 PHEV long-term review: 6 months in Dubai heat",
+        "title": "BMW X5 PHEV long-term review: 6 months in extreme heat",
         "date": "May 6, 2026",
         "read": "9 min read"
       }
@@ -592,6 +592,7 @@
     "cta": "Get best price",
     "sent": "Request sent — a dealer will contact you with their best price.",
     "none": "No sellers list this model yet — try another model.",
-    "error": "Could not send your request. Please try again."
+    "error": "Could not send your request. Please try again.",
+    "phonePh": "Include your country code"
   }
 }

@@ -7,7 +7,7 @@
   },
   "hero": {
     "title": "Vende tu coche. Gratis. Rápido.",
-    "subtitle": "Publica tu coche en menos de 3 minutos y llega a más de 2 millones de compradores mensuales en todos los EAU.",
+    "subtitle": "Publica tu coche en menos de 3 minutos y llega a más de 2 millones de compradores mensuales en todo el mundo.",
     "stats": [
       {
         "value": "14 días",
@@ -38,18 +38,9 @@
     "title": "Datos del coche",
     "sub": "Usaremos esto para estimar el valor de tu coche y conectarte con los compradores adecuados.",
     "plateLabel": "⚡ La forma más rápida: busca tu coche por matrícula",
-    "emirates": [
-      "Dubái",
-      "Abu Dabi",
-      "Sharjah",
-      "Ajman",
-      "RAK",
-      "Fujairah",
-      "UAQ"
-    ],
     "platePlaceholder": "Número de matrícula (ej. A 12345)",
     "autofill": "Autocompletar",
-    "plateHelper": "Autocompletaremos marca, modelo, año y especificaciones desde los registros de la RTA.",
+    "plateHelper": "Autocompletaremos marca, modelo, año y especificaciones desde los registros oficiales de matriculación.",
     "plateHelperLink": "¿Cómo funciona esto?",
     "divider": "o introduce los datos manualmente",
     "makeLabel": "Marca",
@@ -116,7 +107,7 @@
   },
   "step2": {
     "title": "Especificaciones",
-    "sub": "A los compradores en los EAU les importan sobre todo el kilometraje, la especificación GCC y el estado. Sé preciso: genera confianza.",
+    "sub": "A los compradores les importan sobre todo el kilometraje, la especificación regional y el estado. Sé preciso: genera confianza.",
     "mileageLabel": "Kilometraje (km)",
     "mileagePlaceholder": "p. ej. 45000",
     "transmissionLabel": "Transmisión",
@@ -207,7 +198,8 @@
       "Llantas de aleación",
       "Arranque por botón"
     ],
-    "continue": "Continuar a Fotos"
+    "continue": "Continuar a Fotos",
+    "regionalPlaceholder": "Selecciona la especificación regional"
   },
   "step3": {
     "title": "Añade fotos de tu coche",
@@ -238,7 +230,7 @@
     "marketEstimate": "Estimación de mercado",
     "estBasedOnPre": "Basado en",
     "estBasedOnPost": "coches similares vendidos en Carsens en los últimos 90 días.",
-    "askingLabel": "Tu precio de venta (AED) *",
+    "askingLabel": "Tu precio de venta *",
     "priceAdvice": "✓ Dentro del rango recomendado — espera interés rápido",
     "bestOffer": "Se acepta mejor oferta",
     "hidePrice": "Ocultar el precio (negociable a petición)",
@@ -268,16 +260,16 @@
       }
     ],
     "continue": "Continuar a Publicar",
-    "priceLabel": "Precio (AED)",
-    "emirateLabel": "Emirato",
-    "emiratePlaceholder": "Selecciona emirato"
+    "priceLabel": "Precio de venta",
+    "locationLabel": "Ubicación",
+    "locationPlaceholder": "Selecciona la ubicación"
   },
   "step5": {
     "title": "Detalles finales y publicar",
     "sub": "Añade una descripción breve, elige cómo pueden contactarte los compradores y estarás en línea.",
     "descLabel": "Descripción (opcional pero recomendada)",
     "descPlaceholder": "Menciona el historial de servicio, el mantenimiento reciente, qué hace especial a tu coche, el motivo de la venta…",
-    "descValue": "Toyota Land Cruiser GR-Sport 2023. Único propietario, historial de servicio completo en Al Tayer Toyota. Siempre guardado en garaje y mantenido con esmero. Paquete opcional de acentos negros GR-Sport, llantas negras mate de 18″, techo panorámico, audio premium JBL. Motivo de la venta: cambio a un modelo nuevo.",
+    "descValue": "Toyota Land Cruiser GR-Sport 2023. Único propietario, historial de servicio completo en un concesionario oficial Toyota. Siempre guardado en garaje y mantenido con esmero. Paquete opcional de acentos negros GR-Sport, llantas negras mate de 18″, techo panorámico, audio premium JBL. Motivo de la venta: cambio a un modelo nuevo.",
     "charCount": "368 / 1.000 caracteres · ✓ Buen detalle",
     "contactDivider": "¿cómo deben contactarte los compradores?",
     "contactNameLabel": "Nombre de contacto",
@@ -365,8 +357,8 @@
     "tips": {
       "title": "Consejo para este paso",
       "items": [
-        "Un año y acabado precisos dan la valoración correcta: trae tu Mulkiya si no estás seguro.",
-        "A los compradores de los EAU les importa mucho GCC frente a importado: acierta con esto.",
+        "Un año y acabado precisos dan la valoración correcta: trae el permiso de circulación si no estás seguro.",
+        "A los compradores les importa mucho la especificación regional frente a la importada: acierta con esto.",
         "Los anuncios con la combinación completa de marca + modelo + año reciben 5× más vistas."
       ]
     },

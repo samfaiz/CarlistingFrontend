@@ -3,10 +3,17 @@
     "title": "Contact"
   },
   "hero": {
+    "eyebrow": "Contact",
     "title": "Contactez Carsens",
-    "subtitle": "Contactez directement notre équipe aux Émirats — nous répondons généralement en moins de 2 heures, 7 jours sur 7."
+    "subtitle": "Contactez directement notre équipe aux Émirats — nous répondons généralement en moins de 2 heures, 7 jours sur 7.",
+    "actions": {
+      "call": "Appeler l'équipe",
+      "write": "Écrivez-nous"
+    }
   },
   "channels": {
+    "title": "Comment nous joindre",
+    "subtitle": "Choisissez ce qui vous convient — aucun de ces moyens ne demande de formulaire.",
     "call": {
       "title": "Appelez-nous",
       "desc": "Parlez directement à notre équipe — du dimanche au samedi, de 9 h à 21 h.",
@@ -21,25 +28,33 @@
     },
     "email": {
       "title": "Écrivez-nous",
-      "desc": "Pour les questions détaillées, les réclamations ou les demandes professionnelles. Nous répondons sous 4 heures.",
+      "desc": "Pour les questions détaillées, les réclamations ou les demandes commerciales. Nous répondons sous 4 heures.",
       "value": "hello@carsens.ae",
       "status": "Réponse moyenne : 2-4 h"
     }
   },
   "form": {
     "title": "Envoyez-nous un message",
-    "subtitle": "Remplissez le formulaire ci-dessous — nous transmettrons votre message à la bonne équipe.",
+    "subtitle": "Pour tout ce qui demande du détail — nous transmettrons votre message à la bonne équipe et répondrons par e-mail.",
+    "cardTitle": "Écrivez-nous",
+    "cardSubtitle": "Les champs marqués d'un * sont obligatoires.",
+    "groups": {
+      "about": "Vos coordonnées",
+      "enquiry": "Votre demande"
+    },
     "name": {
       "label": "Votre nom",
       "placeholder": "Ahmed Al Mansouri"
     },
     "mobile": {
       "label": "Numéro de mobile",
-      "placeholder": "+971 50 000 0000"
+      "placeholder": "+971 50 000 0000",
+      "hint": "Facultatif — indiquez-le si vous préférez que nous vous rappelions."
     },
     "email": {
       "label": "Adresse e-mail",
-      "placeholder": "vous@exemple.com"
+      "placeholder": "vous@exemple.com",
+      "hint": "Nous enverrons notre réponse à cette adresse."
     },
     "subject": {
       "label": "De quoi s'agit-il ?",
@@ -55,18 +70,62 @@
     },
     "message": {
       "label": "Votre message",
-      "placeholder": "Dites-nous comment nous pouvons vous aider…"
+      "placeholder": "Dites-nous comment nous pouvons vous aider…",
+      "hint": "Ajoutez les liens de l'annonce ou les numéros de référence si vous les avez.",
+      "counter": "{{current}} / {{max}} caractères"
     },
     "consent": "J'accepte la politique de confidentialité de Carsens et je consens à être contacté au sujet de ma demande.",
+    "privacyNote": "Nous utilisons ces informations uniquement pour répondre à votre demande.",
     "submit": "Envoyer le message",
-    "reset": "Réinitialiser",
+    "sending": "Envoi en cours…",
+    "reset": "Vider le formulaire",
+    "errors": {
+      "summary": "Veuillez vérifier les champs signalés ci-dessous.",
+      "nameRequired": "Saisissez votre nom.",
+      "nameShort": "Le nom doit comporter au moins 2 caractères.",
+      "emailRequired": "Saisissez votre adresse e-mail.",
+      "emailInvalid": "Saisissez une adresse e-mail valide, comme vous@exemple.com.",
+      "phoneInvalid": "Saisissez un numéro de mobile valide, par exemple +971 50 000 0000.",
+      "messageRequired": "Rédigez votre message.",
+      "messageShort": "Le message doit comporter au moins 10 caractères.",
+      "messageLong": "Votre message est trop long — restez sous {{max}} caractères.",
+      "consentRequired": "Acceptez la politique de confidentialité pour que nous puissions répondre."
+    },
     "success": {
       "title": "Message envoyé — merci !",
-      "desc": "Nous avons bien reçu votre message et vous répondrons sous 2-4 heures. Consultez votre e-mail pour notre réponse."
+      "desc": "Nous avons bien reçu votre message et vous répondrons sous 2-4 heures. Consultez votre e-mail pour notre réponse.",
+      "again": "Envoyer un autre message"
+    }
+  },
+  "support": {
+    "title": "Assistance",
+    "replyNote": "Les messages reçus en dehors de ces horaires reçoivent une réponse dès l'ouverture.",
+    "selfService": {
+      "title": "Vous préférez chercher vous-même ?",
+      "desc": "Les règles des annonces, les paiements et l'accès au compte sont expliqués dans le centre d'aide.",
+      "cta": "Ouvrir le centre d'aide"
+    }
+  },
+  "hours": {
+    "title": "Heures d'assistance",
+    "open": "● Ouvert",
+    "todayLabel": "Aujourd'hui",
+    "monThu": {
+      "day": "Lun – Jeu",
+      "time": "9 h – 21 h"
+    },
+    "friday": {
+      "day": "Vendredi",
+      "time": "14 h – 22 h"
+    },
+    "satSun": {
+      "day": "Sam – Dim",
+      "time": "10 h – 20 h"
     }
   },
   "offices": {
     "title": "Nos bureaux",
+    "subtitle": "Rendez-nous visite, ou appelez l'agence la plus proche.",
     "dubai": {
       "name": "Siège de Dubaï",
       "line1": "Boulevard Plaza Tower 2, 18e étage",
@@ -86,24 +145,17 @@
       "phone": "+971 6 555 9012"
     }
   },
-  "hours": {
-    "title": "Heures d'assistance",
-    "open": "● Ouvert",
-    "monThu": {
-      "day": "Lun – Jeu",
-      "time": "9 h – 21 h"
-    },
-    "today": {
-      "day": "Mar (aujourd'hui)",
-      "time": "9 h – 21 h"
-    },
-    "friday": {
-      "day": "Vendredi",
-      "time": "14 h – 22 h"
-    },
-    "satSun": {
-      "day": "Sam – Dim",
-      "time": "10 h – 20 h"
+  "legal": {
+    "title": "Informations sur la société",
+    "entity": "Carsens — une place de marché automobile en ligne opérant aux Émirats arabes unis.",
+    "registeredLabel": "Siège social",
+    "note": "Les informations de licence commerciale et de TRN figurent en intégralité sur chaque facture que nous émettons.",
+    "policiesTitle": "Politiques",
+    "links": {
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "cookies": "Politique relative aux cookies",
+      "help": "Centre d'aide"
     }
   },
   "social": {
@@ -114,7 +166,6 @@
     "linkedin": "LinkedIn",
     "youtube": "YouTube"
   },
-  "sent": "Merci — votre message a été envoyé. Nous répondrons par e-mail.",
   "errors": {
     "generic": "Impossible d'envoyer votre message. Veuillez réessayer."
   }

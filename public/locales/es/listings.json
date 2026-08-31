@@ -51,7 +51,7 @@
   "compare": {
     "chip": "Comparar",
     "chipLabel": "Añadir a comparar: {{title}}",
-    "full": "Puedes comparar hasta 4 coches"
+    "full": "Puedes comparar hasta {{max}} coches"
   },
   "status": {
     "DRAFT": "Borrador",

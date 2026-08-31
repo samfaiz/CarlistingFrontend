@@ -4,7 +4,7 @@
   },
   "hero": {
     "eyebrow": "Modelos 2024 y 2025",
-    "title": "Coches nuevos en los EAU",
+    "title": "Coches nuevos",
     "sub": "Explora los últimos modelos de más de 40 fabricantes. Compara acabados, reserva una prueba de conducción y encuentra tu concesionario más cercano."
   },
   "qf": {
@@ -35,7 +35,7 @@
       ]
     },
     "budget": {
-      "label": "Presupuesto (AED)",
+      "label": "Presupuesto",
       "options": [
         "Cualquier presupuesto",
         "Menos de 100,000",
@@ -193,7 +193,7 @@
       ]
     },
     "price": {
-      "label": "Precio (AED)",
+      "label": "Precio",
       "min": "Mín",
       "max": "Máx"
     },
@@ -347,23 +347,23 @@
       "label": "Ubicación",
       "items": [
         {
-          "name": "Dubái",
+          "name": "Oriente Medio",
           "count": "820"
         },
         {
-          "name": "Abu Dabi",
+          "name": "Europa",
           "count": "412"
         },
         {
-          "name": "Sharjah",
+          "name": "América del Norte",
           "count": "128"
         },
         {
-          "name": "Ajman",
+          "name": "Asia-Pacífico",
           "count": "42"
         },
         {
-          "name": "Otros emiratos",
+          "name": "Otras regiones",
           "count": "18"
         }
       ]
@@ -502,7 +502,7 @@
     ]
   },
   "coming": {
-    "title": "Próximamente en los concesionarios de los EAU",
+    "title": "Próximamente en los concesionarios",
     "sub": "Próximos lanzamientos y reservas — sé el primero en la fila",
     "viewAll": "Todos los próximos",
     "notify": "Recibir aviso al lanzamiento",
@@ -535,8 +535,8 @@
   },
   "deals": {
     "eyebrow": "Especial mayo 2026",
-    "title": "Ofertas de coches nuevos — ahorra hasta AED 35,000",
-    "text": "Ofertas exclusivas de concesionarios autorizados en todos los EAU. Financiación al 0%, paquetes de servicio gratis, packs de accesorios y matriculación cubierta.",
+    "title": "Ofertas de coches nuevos: ahorra miles en tu próximo coche",
+    "text": "Ofertas exclusivas de concesionarios autorizados de todo el mundo. Financiación al 0%, paquetes de servicio gratis, packs de accesorios y matriculación cubierta.",
     "cta": "Ver las 247 ofertas",
     "stats": [
       {
@@ -570,13 +570,13 @@
       },
       {
         "tag": "Comparativa",
-        "title": "Tesla Model Y vs Mercedes EQE SUV: ¿qué EV gana en los EAU?",
+        "title": "Tesla Model Y vs Mercedes EQE SUV: ¿qué EV gana?",
         "date": "9 may 2026",
         "read": "11 min de lectura"
       },
       {
         "tag": "Reseña",
-        "title": "BMW X5 PHEV a largo plazo: 6 meses en el calor de Dubái",
+        "title": "BMW X5 PHEV a largo plazo: 6 meses de calor extremo",
         "date": "6 may 2026",
         "read": "9 min de lectura"
       }
@@ -592,6 +592,7 @@
     "cta": "Consigue el mejor precio",
     "sent": "Solicitud enviada: un concesionario te contactará con su mejor precio.",
     "none": "Ningún vendedor ofrece este modelo aún; prueba otro.",
-    "error": "No se pudo enviar tu solicitud. Inténtalo de nuevo."
+    "error": "No se pudo enviar tu solicitud. Inténtalo de nuevo.",
+    "phonePh": "Incluye el prefijo de tu país"
   }
 }

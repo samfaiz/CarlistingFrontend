@@ -23,15 +23,7 @@
   "table": {
     "differencesOnly": "Afficher seulement les différences",
     "remove": "Retirer de la comparaison",
-    "price": "Prix",
-    "year": "Année",
-    "mileage": "Kilométrage",
-    "fuel": "Carburant",
-    "transmission": "Transmission",
-    "regionalSpec": "Spécification régionale",
-    "location": "Emplacement",
     "noValue": "—",
-    "basics": "Essentiels",
     "rowHeader": "Caractéristique",
     "winner": "meilleur sur cette ligne",
     "modelColumn": "{{count}} en vente actuellement"
@@ -40,64 +32,96 @@
   "sharedNotice": "Vous consultez une comparaison partagée. Les prix sont toujours à jour.",
   "groups": {
     "basics": "Essentiel",
+    "ownership": "Offre et détention",
     "engine_performance": "Moteur et performances",
     "dimensions_capacity": "Dimensions et capacité",
     "exterior_interior": "Extérieur et intérieur",
-    "safety_technology": "Sécurité et technologie"
+    "safety_technology": "Sécurité et technologie",
+    "bike_engine_performance": "Moteur et performances",
+    "bike_transmission": "Transmission et entraînement",
+    "bike_dimensions": "Dimensions et poids",
+    "bike_chassis": "Châssis et freins",
+    "bike_electronics": "Électronique et aides",
+    "additional": "Caractéristiques supplémentaires"
   },
   "rows": {
     "price": "Prix",
     "year": "Année",
     "mileage": "Kilométrage",
     "condition": "État",
+    "bodyType": "Carrosserie",
     "regionalSpec": "Spécification régionale",
     "transmission": "Boîte de vitesses",
     "fuelType": "Carburant",
-    "bodyType": "Carrosserie",
+    "engineCc": "Cylindrée",
+    "cylinders": "Cylindres",
+    "exteriorColor": "Couleur extérieure",
+    "interiorColor": "Couleur intérieure",
     "emirate": "Emplacement",
-    "sellerType": "Vendeur"
+    "sellerType": "Vendeur",
+    "negotiable": "Prix négociable",
+    "dealRating": "Évaluation de l'offre",
+    "marketMedian": "Médiane du marché",
+    "listedOn": "Publiée le",
+    "availability": "En vente actuellement"
+  },
+  "units": {
+    "km": "km",
+    "cc": "cm³"
+  },
+  "values": {
+    "condition": {
+      "USED": "Occasion",
+      "NEW": "Neuve"
+    },
+    "regionalSpec": {
+      "GCC": "Spécification GCC",
+      "AMERICAN": "Spécification américaine",
+      "EUROPEAN": "Spécification européenne",
+      "JAPANESE": "Spécification japonaise",
+      "CANADIAN": "Spécification canadienne",
+      "KOREAN": "Spécification coréenne",
+      "CHINESE": "Spécification chinoise",
+      "OTHER": "Autre spécification"
+    },
+    "transmission": {
+      "AUTOMATIC": "Automatique",
+      "MANUAL": "Manuelle",
+      "CVT": "CVT",
+      "SEMI_AUTOMATIC": "Semi-automatique"
+    },
+    "fuelType": {
+      "PETROL": "Essence",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybride",
+      "ELECTRIC": "Électrique",
+      "PLUGIN_HYBRID": "Hybride rechargeable"
+    },
+    "sellerType": {
+      "PRIVATE": "Vendeur particulier",
+      "DEALER": "Concessionnaire"
+    },
+    "negotiable": {
+      "YES": "Négociable",
+      "NO": "Prix ferme"
+    },
+    "dealRating": {
+      "GREAT": "Très bonne affaire",
+      "GOOD": "Bonne affaire",
+      "FAIR": "Prix correct",
+      "HIGH": "Au-dessus du marché"
+    }
   },
   "score": {
     "label": "Score",
     "best": "Meilleur choix",
-    "personalised": "Noté selon vos priorités issues du questionnaire.",
-    "defaultWeights": "Noté avec toutes les priorités à poids égal — faites le questionnaire pour personnaliser."
+    "personalised": "Noté selon les priorités que vous avez données au conseiller.",
+    "defaultWeights": "Noté avec toutes les priorités à poids égal — répondez à quelques questions pour personnaliser."
   },
   "share": {
     "button": "Partager",
     "copied": "Lien copié.",
     "failed": "Impossible de créer le lien."
-  },
-  "quiz": {
-    "open": "Trouver ma voiture",
-    "title": "Trouvez votre voiture",
-    "intro": "Cinq questions rapides, puis nous classons les voitures selon vos critères.",
-    "budget": "Budget maximum (AED)",
-    "seats": "Places minimum",
-    "usage": "Quel usage ?",
-    "usageOptions": {
-      "city": "En ville",
-      "family": "Famille",
-      "offroad": "Tout-terrain",
-      "longDistance": "Longs trajets"
-    },
-    "priorities": "Classez vos priorités",
-    "prioritiesHint": "Placez votre priorité principale en première position.",
-    "priorityLabels": {
-      "price": "Prix",
-      "fuelEconomy": "Coûts d'usage",
-      "performance": "Performances",
-      "space": "Espace",
-      "tech": "Technologie",
-      "resale": "Valeur de revente"
-    },
-    "moveUp": "Monter {{item}}",
-    "moveDown": "Descendre {{item}}",
-    "submit": "Voir les résultats",
-    "cancel": "Annuler",
-    "applied": "Comparaison recalculée selon vos priorités.",
-    "failed": "Le questionnaire a échoué. Réessayez.",
-    "suggestionsTitle": "Suggestions pour vous — touchez pour ajouter à la comparaison"
   },
   "errors": {
     "buildFailed": "Impossible de construire la comparaison. Réessayez.",

@@ -4,7 +4,7 @@
   },
   "hero": {
     "title": "Crea tu cuenta",
-    "subtitle": "Únete a 2,4 M de usuarios que compran y venden coches en los EAU"
+    "subtitle": "Únete a 2,4 M de usuarios que compran y venden coches"
   },
   "accType": {
     "buyer": {
@@ -24,11 +24,11 @@
   "form": {
     "fullName": {
       "label": "Nombre completo",
-      "placeholder": "Ahmed Al Mansouri"
+      "placeholder": "Escribe tu nombre completo"
     },
     "mobile": {
       "label": "Número de móvil",
-      "placeholder": "+971 50 000 0000"
+      "placeholder": "Incluye el prefijo de tu país"
     },
     "email": {
       "label": "Correo electrónico",

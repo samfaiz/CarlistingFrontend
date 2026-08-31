@@ -3,10 +3,17 @@
     "title": "Contacto"
   },
   "hero": {
+    "eyebrow": "Contacto",
     "title": "Contacta con Carsens",
-    "subtitle": "Comunícate directamente con nuestro equipo en los EAU — normalmente respondemos en menos de 2 horas, los 7 días de la semana."
+    "subtitle": "Comunícate directamente con nuestro equipo en los EAU — normalmente respondemos en menos de 2 horas, los 7 días de la semana.",
+    "actions": {
+      "call": "Llamar al equipo",
+      "write": "Escríbenos"
+    }
   },
   "channels": {
+    "title": "Formas de contactarnos",
+    "subtitle": "Elige la que prefieras — ninguna requiere rellenar un formulario.",
     "call": {
       "title": "Llámanos",
       "desc": "Habla directamente con nuestro equipo — de domingo a sábado, de 9 a. m. a 9 p. m.",
@@ -28,18 +35,26 @@
   },
   "form": {
     "title": "Envíanos un mensaje",
-    "subtitle": "Completa el formulario a continuación — dirigiremos tu mensaje al equipo adecuado.",
+    "subtitle": "Para todo lo que necesite detalle — dirigiremos tu mensaje al equipo adecuado y responderemos por correo.",
+    "cardTitle": "Escríbenos",
+    "cardSubtitle": "Los campos marcados con * son obligatorios.",
+    "groups": {
+      "about": "Tus datos",
+      "enquiry": "Tu consulta"
+    },
     "name": {
       "label": "Tu nombre",
       "placeholder": "Ahmed Al Mansouri"
     },
     "mobile": {
       "label": "Número de móvil",
-      "placeholder": "+971 50 000 0000"
+      "placeholder": "+971 50 000 0000",
+      "hint": "Opcional — añádelo si prefieres que te llamemos."
     },
     "email": {
       "label": "Correo electrónico",
-      "placeholder": "tu@ejemplo.com"
+      "placeholder": "tu@ejemplo.com",
+      "hint": "Enviaremos nuestra respuesta a esta dirección."
     },
     "subject": {
       "label": "¿De qué se trata?",
@@ -55,18 +70,62 @@
     },
     "message": {
       "label": "Tu mensaje",
-      "placeholder": "Cuéntanos cómo podemos ayudarte…"
+      "placeholder": "Cuéntanos cómo podemos ayudarte…",
+      "hint": "Incluye enlaces al anuncio o números de referencia si los tienes.",
+      "counter": "{{current}} / {{max}} caracteres"
     },
     "consent": "Acepto la política de privacidad de Carsens y consiento que se me contacte respecto a mi consulta.",
+    "privacyNote": "Usamos estos datos únicamente para responder a tu consulta.",
     "submit": "Enviar mensaje",
-    "reset": "Restablecer",
+    "sending": "Enviando…",
+    "reset": "Vaciar el formulario",
+    "errors": {
+      "summary": "Revisa los campos marcados a continuación.",
+      "nameRequired": "Introduce tu nombre.",
+      "nameShort": "El nombre debe tener al menos 2 caracteres.",
+      "emailRequired": "Introduce tu correo electrónico.",
+      "emailInvalid": "Introduce un correo electrónico válido, como tu@ejemplo.com.",
+      "phoneInvalid": "Introduce un número de móvil válido, por ejemplo +971 50 000 0000.",
+      "messageRequired": "Escribe tu mensaje.",
+      "messageShort": "El mensaje debe tener al menos 10 caracteres.",
+      "messageLong": "Tu mensaje es demasiado largo — no superes los {{max}} caracteres.",
+      "consentRequired": "Acepta la política de privacidad para que podamos responderte."
+    },
     "success": {
       "title": "Mensaje enviado — ¡gracias!",
-      "desc": "Hemos recibido tu mensaje y responderemos en 2-4 horas. Revisa tu correo electrónico para ver nuestra respuesta."
+      "desc": "Hemos recibido tu mensaje y responderemos en 2-4 horas. Revisa tu correo electrónico para ver nuestra respuesta.",
+      "again": "Enviar otro mensaje"
+    }
+  },
+  "support": {
+    "title": "Asistencia",
+    "replyNote": "Los mensajes recibidos fuera de este horario se responden en cuanto abre el equipo.",
+    "selfService": {
+      "title": "¿Prefieres consultarlo tú?",
+      "desc": "Las normas de los anuncios, los pagos y el acceso a la cuenta están explicados en el centro de ayuda.",
+      "cta": "Abrir el centro de ayuda"
+    }
+  },
+  "hours": {
+    "title": "Horario de atención",
+    "open": "● Abierto",
+    "todayLabel": "Hoy",
+    "monThu": {
+      "day": "Lun – Jue",
+      "time": "9 a. m. – 9 p. m."
+    },
+    "friday": {
+      "day": "Viernes",
+      "time": "2 p. m. – 10 p. m."
+    },
+    "satSun": {
+      "day": "Sáb – Dom",
+      "time": "10 a. m. – 8 p. m."
     }
   },
   "offices": {
     "title": "Nuestras oficinas",
+    "subtitle": "Visítanos en persona o llama a la sucursal más cercana.",
     "dubai": {
       "name": "Sede de Dubái",
       "line1": "Boulevard Plaza Tower 2, piso 18",
@@ -86,24 +145,17 @@
       "phone": "+971 6 555 9012"
     }
   },
-  "hours": {
-    "title": "Horario de atención",
-    "open": "● Abierto",
-    "monThu": {
-      "day": "Lun – Jue",
-      "time": "9 a. m. – 9 p. m."
-    },
-    "today": {
-      "day": "Mar (hoy)",
-      "time": "9 a. m. – 9 p. m."
-    },
-    "friday": {
-      "day": "Viernes",
-      "time": "2 p. m. – 10 p. m."
-    },
-    "satSun": {
-      "day": "Sáb – Dom",
-      "time": "10 a. m. – 8 p. m."
+  "legal": {
+    "title": "Datos de la empresa",
+    "entity": "Carsens — un mercado de vehículos en línea que opera en los Emiratos Árabes Unidos.",
+    "registeredLabel": "Domicilio social",
+    "note": "Los datos de la licencia comercial y del TRN figuran íntegros en cada factura que emitimos.",
+    "policiesTitle": "Políticas",
+    "links": {
+      "terms": "Términos de uso",
+      "privacy": "Política de privacidad",
+      "cookies": "Política de cookies",
+      "help": "Centro de ayuda"
     }
   },
   "social": {
@@ -114,7 +166,6 @@
     "linkedin": "LinkedIn",
     "youtube": "YouTube"
   },
-  "sent": "Gracias — tu mensaje ha sido enviado. Te responderemos por correo.",
   "errors": {
     "generic": "No se pudo enviar tu mensaje. Inténtalo de nuevo."
   }

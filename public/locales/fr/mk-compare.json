@@ -8,380 +8,131 @@
   },
   "head": {
     "title": "Comparer les voitures",
-    "subtitle": "Spécifications, équipements et prix côte à côte. La meilleure valeur de chaque ligne est surlignée en vert.",
-    "sub": "Voyez les caractéristiques côte à côte et trouvez la meilleure."
+    "sub": "Jusqu’à {{max}} voitures côte à côte — toutes les caractéristiques, la meilleure valeur de chaque ligne mise en avant."
   },
   "actions": {
-    "save": "Enregistrer",
+    "advisor": "Aidez-moi à choisir",
     "share": "Partager",
-    "print": "Imprimer",
-    "addCar": "Ajouter une voiture",
+    "sharing": "Enregistrement…",
+    "shared": "Lien copié :",
+    "shareFailed": "Impossible de créer le lien de partage. Réessayez.",
     "exportPdf": "Exporter en PDF",
     "exporting": "Export en cours…",
-    "aiVerdict": "Verdict IA",
-    "thinking": "Réflexion…",
-    "quiz": "Quiz guidé",
-    "sharing": "Enregistrement…",
-    "weighted": "Scores pondérés selon vos priorités.",
-    "resetWeights": "Réinitialiser",
-    "shared": "Lien copié :"
+    "pdfFailed": "Impossible de générer le PDF. Réessayez.",
+    "pdfLimit": "L’export PDF couvre jusqu’à {{max}} voitures.",
+    "weighted": "Les scores sont pondérés selon vos réponses.",
+    "resetWeights": "Revenir à une pondération égale"
   },
   "cars": {
-    "heading": "Comparer 3 voitures",
-    "hint": "Appuyez sur une section de spécifications pour la développer ou la réduire",
-    "limit": "3 sur 4 max.",
-    "remove": "Retirer de la comparaison",
-    "viewDetails": "Voir les détails"
-  },
-  "car1": {
-    "brand": "Toyota",
-    "name": "Land Cruiser GR-Sport",
-    "meta": "2023 • 18,200 km",
-    "price": "AED 365,000",
-    "dealer": "Al Tayer Motors"
-  },
-  "car2": {
-    "brand": "BMW",
-    "name": "X5 xDrive40i M-Sport",
-    "meta": "2023 • 38,200 km",
-    "price": "AED 285,000",
-    "dealer": "Al Manar Motors"
-  },
-  "car3": {
-    "brand": "Nissan",
-    "name": "Patrol Titanium",
-    "meta": "2021 • 62,000 km",
-    "price": "AED 215,000",
-    "dealer": "Nasser Motors"
+    "heading_one": "Comparaison de {{count}} voiture",
+    "heading_other": "Comparaison de {{count}} voitures",
+    "hint": "Ouvrez une section pour voir toutes les caractéristiques, ou faites défiler horizontalement.",
+    "removeNamed": "Retirer {{title}} de la comparaison",
+    "viewDetails": "Voir les détails",
+    "liveCount_one": "{{count}} en vente actuellement",
+    "liveCount_other": "{{count}} en vente actuellement"
   },
   "add": {
-    "title": "Ajouter une autre voiture",
-    "subtitle1": "Choisissez parmi vos voitures enregistrées,",
-    "subtitle2": "ou parcourez les annonces"
+    "title": "Ajouter une voiture",
+    "subtitle": "Depuis vos voitures enregistrées, une recherche enregistrée ou la recherche",
+    "panelLabel": "Ajouter une voiture à la comparaison",
+    "sourceLabel": "Où chercher",
+    "source": {
+      "saved": "Voitures enregistrées",
+      "searches": "Recherches enregistrées",
+      "search": "Rechercher"
+    },
+    "searchLabel": "Rechercher des annonces",
+    "searchPlaceholder": "Marque, modèle ou finition",
+    "savedSearchLabel": "Choisissez une recherche enregistrée",
+    "noSavedSearches": "Vous n’avez pas encore de recherche enregistrée",
+    "signInHint": "Connectez-vous pour choisir parmi vos voitures et recherches enregistrées.",
+    "trayFull": "La comparaison est complète — retirez une voiture avant d’en ajouter une autre.",
+    "loading": "Chargement…",
+    "failed": "Impossible de charger ces voitures. Réessayez.",
+    "empty": "Rien à ajouter ici pour l’instant.",
+    "add": "Ajouter",
+    "alreadyIn": "Déjà ajoutée",
+    "close": "Fermer"
   },
-  "glance": {
-    "title": "En un coup d'œil",
-    "year": {
-      "label": "Année",
-      "v1": "2023",
-      "v2": "2023",
-      "v3": "2021"
-    },
-    "body": {
-      "label": "Type de carrosserie",
-      "v1": "SUV",
-      "v2": "SUV",
-      "v3": "SUV"
-    },
-    "mileage": {
-      "label": "Kilométrage",
-      "v1": "18,200 km",
-      "v2": "38,200 km",
-      "v3": "62,000 km"
-    },
-    "specs": {
-      "label": "Spécifications",
-      "v1": "GCC",
-      "v2": "GCC",
-      "v3": "GCC"
-    },
-    "color": {
-      "label": "Couleur extérieure",
-      "v1": "Noir",
-      "v2": "Blanc",
-      "v3": "Argent"
-    },
-    "price": {
-      "label": "Prix demandé",
-      "v1": "AED 365,000",
-      "v2": "AED 285,000",
-      "v3": "AED 215,000"
-    },
-    "monthly": {
-      "label": "Mensualité est. (60 mois)",
-      "v1": "AED 5,440",
-      "v2": "AED 4,250",
-      "v3": "AED 3,200"
-    },
-    "location": {
-      "label": "Emplacement",
-      "v1": "Abou Dhabi",
-      "v2": "Dubaï",
-      "v3": "Sharjah"
-    }
+  "tiers": {
+    "basic": "Essentiel",
+    "core": "Fiche complète",
+    "advanced": "Avancé"
   },
-  "engine": {
-    "title": "Moteur et performances",
-    "engine": {
-      "label": "Moteur",
-      "v1": "3.5L Twin-Turbo V6",
-      "v2": "3.0L Twin-Turbo I6",
-      "v3": "5.6L V8"
-    },
-    "hp": {
-      "label": "Puissance",
-      "v1": "409 ch",
-      "v2": "375 ch",
-      "v3": "400 ch"
-    },
-    "torque": {
-      "label": "Couple",
-      "v1": "650 Nm",
-      "v2": "520 Nm",
-      "v3": "560 Nm"
-    },
-    "accel": {
-      "label": "0–100 km/h",
-      "v1": "6.7 s",
-      "v2": "5.4 s",
-      "v3": "6.6 s"
-    },
-    "topSpeed": {
-      "label": "Vitesse maximale",
-      "v1": "210 km/h",
-      "v2": "243 km/h",
-      "v3": "210 km/h"
-    },
-    "trans": {
-      "label": "Transmission",
-      "v1": "Auto 10 rapports",
-      "v2": "Auto ZF 8 rapports",
-      "v3": "Auto 7 rapports"
-    },
-    "drive": {
-      "label": "Transmission intégrale",
-      "v1": "4WD permanent",
-      "v2": "AWD (xDrive)",
-      "v3": "4WD à temps partiel"
-    }
-  },
-  "fuel": {
-    "title": "Carburant et autonomie",
-    "type": {
-      "label": "Type de carburant",
-      "v1": "Essence (95)",
-      "v2": "Essence (95)",
-      "v3": "Essence (95)"
-    },
-    "consumption": {
-      "label": "Consommation (mixte)",
-      "v1": "13.1 L/100km",
-      "v2": "10.4 L/100km",
-      "v3": "14.8 L/100km"
-    },
-    "tank": {
-      "label": "Réservoir de carburant",
-      "v1": "110 L",
-      "v2": "83 L",
-      "v3": "98 L"
-    },
-    "range": {
-      "label": "Autonomie théorique",
-      "v1": "~840 km",
-      "v2": "~800 km",
-      "v3": "~660 km"
-    },
-    "annualCost": {
-      "label": "Coût annuel de carburant est.",
-      "v1": "AED 8,500",
-      "v2": "AED 6,750",
-      "v3": "AED 9,600"
-    },
-    "co2": {
-      "label": "Émissions de CO₂",
-      "v1": "301 g/km",
-      "v2": "236 g/km",
-      "v3": "348 g/km"
-    }
-  },
-  "dimensions": {
-    "title": "Dimensions et capacité",
-    "length": {
-      "label": "Longueur",
-      "v1": "4,985 mm",
-      "v2": "4,922 mm",
-      "v3": "5,316 mm"
-    },
-    "width": {
-      "label": "Largeur",
-      "v1": "1,990 mm",
-      "v2": "2,004 mm",
-      "v3": "2,030 mm"
-    },
-    "height": {
-      "label": "Hauteur",
-      "v1": "1,925 mm",
-      "v2": "1,745 mm",
-      "v3": "1,955 mm"
-    },
-    "wheelbase": {
-      "label": "Empattement",
-      "v1": "2,850 mm",
-      "v2": "2,975 mm",
-      "v3": "3,075 mm"
-    },
-    "clearance": {
-      "label": "Garde au sol",
-      "v1": "235 mm",
-      "v2": "214 mm",
-      "v3": "232 mm"
-    },
-    "seating": {
-      "label": "Places",
-      "v1": "7 passagers",
-      "v2": "5 passagers",
-      "v3": "8 passagers"
-    },
-    "cargo": {
-      "label": "Coffre (sièges arrière relevés)",
-      "v1": "1,004 L",
-      "v2": "650 L",
-      "v3": "467 L"
-    },
-    "towing": {
-      "label": "Capacité de remorquage",
-      "v1": "3,500 kg",
-      "v2": "3,500 kg",
-      "v3": "3,500 kg"
-    }
-  },
-  "features": {
-    "title": "Confort et équipements",
-    "moonroof": {
-      "label": "Toit ouvrant panoramique"
-    },
-    "leather": {
-      "label": "Sièges en cuir"
-    },
-    "heatedCooled": {
-      "label": "Sièges chauffants/ventilés",
-      "v3": "Chauffants uniquement"
-    },
-    "carplay": {
-      "label": "Apple CarPlay / Android Auto",
-      "v1": "Sans fil",
-      "v2": "Sans fil",
-      "v3": "Filaire uniquement"
-    },
-    "audio": {
-      "label": "Audio premium",
-      "v1": "JBL 14 haut-parleurs",
-      "v2": "Harman Kardon 16 haut-parleurs",
-      "v3": "Bose 13 haut-parleurs"
-    },
-    "charging": {
-      "label": "Recharge sans fil"
-    },
-    "hud": {
-      "label": "Affichage tête haute"
-    },
-    "camera": {
-      "label": "Caméra 360°"
-    },
-    "terrain": {
-      "label": "Modes multi-terrain",
-      "v1": "6 modes + crawl",
-      "v2": "4 modes",
-      "v3": "5 modes"
-    }
-  },
-  "safety": {
-    "title": "Sécurité et technologie",
-    "airbags": {
-      "label": "Airbags",
-      "v1": "10",
-      "v2": "8",
-      "v3": "6"
-    },
-    "precollision": {
-      "label": "Système anti-collision"
-    },
-    "acc": {
-      "label": "Régulateur de vitesse adaptatif",
-      "v1": "Toutes vitesses",
-      "v2": "Toutes vitesses",
-      "v3": "Au-dessus de 30 km/h"
-    },
-    "lka": {
-      "label": "Assistant de maintien de voie"
-    },
-    "bsm": {
-      "label": "Surveillance des angles morts"
-    },
-    "aeb": {
-      "label": "Freinage d'urgence automatique"
-    },
-    "ncap": {
-      "label": "Note NCAP",
-      "v1": "★★★★★ (5)",
-      "v2": "★★★★★ (5)",
-      "v3": "★★★★☆ (4)"
-    }
-  },
-  "pricing": {
-    "title": "Prix et propriété",
-    "asking": {
-      "label": "Prix demandé",
-      "v1": "AED 365,000",
-      "v2": "AED 285,000",
-      "v3": "AED 215,000"
-    },
-    "monthly": {
-      "label": "Mensualité est. à 4.5%",
-      "v1": "AED 5,440",
-      "v2": "AED 4,250",
-      "v3": "AED 3,200"
-    },
-    "warranty": {
-      "label": "Garantie constructeur",
-      "v1": "Jusqu'en août 2028",
-      "v2": "Jusqu'en juin 2028",
-      "v3": "Expirée"
-    },
-    "service": {
-      "label": "Intervalle d'entretien",
-      "v1": "Tous les 10,000 km",
-      "v2": "Tous les 25,000 km",
-      "v3": "Tous les 10,000 km"
-    },
-    "annualService": {
-      "label": "Entretien annuel est.",
-      "v1": "AED 3,200",
-      "v2": "AED 2,800",
-      "v3": "AED 3,400"
-    },
-    "insurance": {
-      "label": "Catégorie d'assurance",
-      "v1": "8 / 10",
-      "v2": "7 / 10",
-      "v3": "7 / 10"
-    },
-    "depreciation": {
-      "label": "Dépréciation est. sur 5 ans",
-      "v1": "~32%",
-      "v2": "~48%",
-      "v3": "~52%"
-    },
-    "inspection": {
-      "label": "Rapport d'inspection",
-      "v1": "98/100",
-      "v2": "96/100",
-      "v3": "88/100"
-    }
-  },
-  "foot": {
-    "pickLabel": "Le choix de Carsens :",
-    "pickText": "Toyota Land Cruiser GR-Sport — l'emporte sur la garantie, la dépréciation et l'inspection. BMW X5 l'emporte sur les performances et l'économie de carburant. Le Patrol est le choix économique si le budget est serré.",
-    "downloadPdf": "Télécharger le PDF",
-    "saveAccount": "Enregistrer dans mon compte"
+  "rowCount_one": "{{count}} ligne",
+  "rowCount_other": "{{count}} lignes",
+  "notListed": "Non renseigné",
+  "noValue": "—",
+  "diffOnly": "Afficher uniquement les différences",
+  "loading": "Comparaison en cours…",
+  "verdict": {
+    "title": "Meilleur choix d’ensemble",
+    "score": "Score de correspondance {{score}} / 100"
   },
   "empty": {
-    "text": "Ajoutez au moins deux voitures à comparer — utilisez le bouton ⚖ sur une annonce.",
+    "text": "Ajoutez au moins deux voitures — utilisez le bouton Comparer sur n’importe quelle annonce.",
     "cta": "Parcourir les voitures"
   },
-  "loading": "Comparaison…",
-  "verdict": {
-    "title": "Meilleur au total"
-  },
-  "diffOnly": "Afficher seulement les différences"
+  "advisor": {
+    "title": "Aidez-moi à choisir",
+    "resultLabel": "Votre recommandation",
+    "progress": "Question {{step}} sur {{total}}",
+    "questions": {
+      "budget": "Quel est votre plafond ?",
+      "usage": "À quoi va-t-elle surtout servir ?",
+      "priority": "Qu’est-ce qui compte le plus pour vous ?",
+      "mustHaves": "Y a-t-il un impératif ?"
+    },
+    "hints": {
+      "budget": "Laissez vide si vous préférez ne pas le dire.",
+      "usage": "Choisissez ce qui correspond le mieux.",
+      "priority": "Une seule réponse — elle décide de la pondération des scores.",
+      "mustHaves": "Choisissez-en autant que vous voulez, ou aucune."
+    },
+    "budgetLabel": "Prix maximum (AED)",
+    "budgetPlaceholder": "150000",
+    "usageOptions": {
+      "commute": "Trajets quotidiens",
+      "family": "Voiture familiale",
+      "offroad": "Tout-terrain et désert",
+      "longDistance": "Longs trajets",
+      "weekend": "Plaisir du week-end"
+    },
+    "priorityOptions": {
+      "price": "Prix",
+      "fuelEconomy": "Coûts d’usage",
+      "performance": "Performances",
+      "space": "Espace",
+      "tech": "Technologie",
+      "resale": "Valeur de revente"
+    },
+    "mustHaveOptions": {
+      "sevenSeats": "Sept places ou plus",
+      "camera360": "Caméra 360°",
+      "adaptiveCruise": "Régulateur adaptatif",
+      "blindSpot": "Surveillance d’angle mort",
+      "laneAssist": "Aide au maintien de voie",
+      "sunroof": "Toit ouvrant",
+      "automatic": "Boîte automatique",
+      "gccSpec": "Spécification GCC",
+      "lowMileage": "Moins de 60 000 km"
+    },
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Afficher ma recommandation",
+    "thinking": "Analyse en cours…",
+    "close": "Fermer",
+    "restart": "Répondre à nouveau",
+    "pickLabel": "Notre choix pour vous",
+    "why": "Pourquoi celle-ci",
+    "tradeoff": "Ce que vous concédez",
+    "noTradeoff": "Rien de décisif — elle ne perd aucune ligne comparable.",
+    "versus": "{{pick}} contre {{rival}} sur la {{rivalTitle}}",
+    "overBudget": "Elle dépasse de {{amount}} le plafond que vous avez indiqué.",
+    "missingMustHaves": "Elle n’a pas : {{list}}.",
+    "unknownMustHaves": "Les données ne disent pas si elle a : {{list}}.",
+    "degraded": "Le texte rédigé par l’IA est indisponible pour le moment : cette recommandation repose donc sur les seules données — le choix, les raisons et la concession ci-dessous viennent directement de la comparaison.",
+    "failed": "Impossible d’obtenir une recommandation. Réessayez."
+  }
 }

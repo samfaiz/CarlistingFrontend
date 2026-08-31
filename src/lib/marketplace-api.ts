@@ -762,8 +762,12 @@ export function unsubscribeAllEmail(u: string, t: string): Promise<{ unsubscribe
 }
 
 /* ------------------------------------------------------------------ */
-/* Compare v2 — task P2-06 (FR-CV2–CV4, CV6)                          */
+/* Compare v3 — P2-06 + the comparison overhaul (FR-CV2–CV6)          */
 /* ------------------------------------------------------------------ */
+
+/** A comparison holds between two and six vehicles. */
+export const COMPARE_MIN_MEMBERS = 2;
+export const COMPARE_MAX_MEMBERS = 6;
 
 export type ComparePriority =
   | "price"
@@ -780,6 +784,45 @@ export const COMPARE_PRIORITIES: ComparePriority[] = [
   "space",
   "tech",
   "resale",
+];
+
+/** Answers the AI advisor asks for, in the order it asks them. */
+export type AdvisorUsage =
+  | "commute"
+  | "family"
+  | "offroad"
+  | "longDistance"
+  | "weekend";
+
+export const ADVISOR_USAGE_OPTIONS: AdvisorUsage[] = [
+  "commute",
+  "family",
+  "offroad",
+  "longDistance",
+  "weekend",
+];
+
+export type AdvisorMustHave =
+  | "sevenSeats"
+  | "camera360"
+  | "adaptiveCruise"
+  | "blindSpot"
+  | "laneAssist"
+  | "sunroof"
+  | "automatic"
+  | "gccSpec"
+  | "lowMileage";
+
+export const ADVISOR_MUST_HAVE_OPTIONS: AdvisorMustHave[] = [
+  "sevenSeats",
+  "camera360",
+  "adaptiveCruise",
+  "blindSpot",
+  "laneAssist",
+  "sunroof",
+  "automatic",
+  "gccSpec",
+  "lowMileage",
 ];
 
 export interface CompareMember {
@@ -810,10 +853,25 @@ export interface CompareRow {
   key: string;
   group: string;
   label: string;
+  /** Locale-keyed label when the source data carries one (spec rows). */
+  labelI18n: Record<string, string> | null;
   unit: string | null;
   values: (string | null)[];
   winners: number[];
+  /** Column indexes with no value at all — rendered as an honest gap. */
+  missing: number[];
   identical: boolean;
+  kind: "basic" | "spec";
+}
+
+/** Section header for the table — ordered basic → advanced, collapsible. */
+export interface CompareGroup {
+  key: string;
+  label: string;
+  labelI18n: Record<string, string> | null;
+  order: number;
+  tier: "basic" | "core" | "advanced";
+  rowKeys: string[];
 }
 
 export interface CompareScores {
@@ -827,6 +885,7 @@ export interface CompareResult {
   mode: "LISTING" | "MODEL" | "MIXED";
   columns: CompareColumn[];
   rows: CompareRow[];
+  groups: CompareGroup[];
   scores: CompareScores;
   sharedSlug?: string;
 }
@@ -838,27 +897,67 @@ export function buildCompare(
   return apiPost<CompareResult>("/compare/build", { members, weights });
 }
 
-export interface QuizAnswers {
-  vehicleType?: "CAR" | "BIKE";
-  bodyTypeId?: string;
-  budgetMin?: number;
-  budgetMax?: number;
-  seats?: number;
-  usage?: string[];
-  priorityRanking?: string[];
+export interface AdvisorAnswers {
+  budgetAed?: number;
+  usage?: AdvisorUsage;
+  priority?: ComparePriority;
+  mustHaves?: AdvisorMustHave[];
 }
 
-export interface QuizResponse {
+export interface AdvisorFit {
+  columnIndex: number;
+  title: string;
+  score: number | null;
+  overBudget: boolean;
+  budgetGapAed: number | null;
+  unmetMustHaves: AdvisorMustHave[];
+  /** Must-haves the spec sheet cannot answer — never counted as a failure. */
+  unknownMustHaves: AdvisorMustHave[];
+}
+
+export interface AdvisorPoint {
+  rowKey: string;
+  group: string;
+  label: string;
+  labelI18n: Record<string, string> | null;
+  unit: string | null;
+  pickValue: string;
+  rivalValue: string | null;
+  rivalIndex: number | null;
+}
+
+/**
+ * The recommendation. `narrative` is the only part a model writes: when it is
+ * null the page says the AI could not be reached and shows the structured
+ * reasons instead — it never invents a verdict.
+ */
+export interface AdvisorResult {
   weights: Record<ComparePriority, number>;
-  suggestions: { slug: string; title: string; score: number }[];
-  quizResultId: string | null;
+  pick: number;
+  pickKey: string;
+  pickTitle: string;
+  runnerUp: number | null;
+  fits: AdvisorFit[];
+  strengths: AdvisorPoint[];
+  tradeoffs: AdvisorPoint[];
+  narrative: string | null;
+  degraded: boolean;
+  provider: string;
+  disclaimer: string;
+  compare: CompareResult;
 }
 
-export function submitQuiz(
-  answers: QuizAnswers,
+export function askCompareAdvisor(
+  members: CompareMember[],
+  answers: AdvisorAnswers,
+  locale: string,
   accessToken?: string,
-): Promise<QuizResponse> {
-  return apiPost<QuizResponse>("/compare/quiz", answers, { token: accessToken });
+): Promise<AdvisorResult> {
+  return apiPost<AdvisorResult>(
+    "/compare/advisor",
+    { members, answers, locale },
+    { token: accessToken },
+  );
 }
 
 export function saveCompareSet(

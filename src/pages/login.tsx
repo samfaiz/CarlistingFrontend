@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
+import { UAE_PASS_ENABLED } from "@/components/marketplace/regional-auth";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 export default function MkloginPage() {
@@ -98,10 +99,14 @@ export default function MkloginPage() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.8c0-3.2 2.6-4.7 2.7-4.8-1.5-2.2-3.8-2.5-4.6-2.5-2-.2-3.8 1.1-4.8 1.1s-2.5-1.1-4.2-1.1c-2.2 0-4.2 1.3-5.3 3.3-2.3 4-.6 9.8 1.6 13 1.1 1.6 2.4 3.3 4.1 3.3 1.7-.1 2.3-1 4.3-1s2.6 1 4.3 1c1.8 0 2.9-1.6 4-3.2 1.3-1.8 1.8-3.6 1.8-3.7-.1-.1-3.4-1.3-3.4-5.1-.5-.3-.5-.3-.5-.3zM13.3 3.4c.9-1.1 1.5-2.6 1.3-4.1-1.3.1-2.8.9-3.8 2-.9 1-1.6 2.5-1.4 4 1.5.1 3-.8 3.9-1.9z" /></svg>
                   {t("social.apple")}
                 </button>
-                <button className="social-btn">
-                  <span style={{ fontWeight: 800, color: "#000", fontSize: "13px" }}>{t("social.uaePassBadge")}</span>
-                  {t("social.uaePass")}
-                </button>
+                {/* UAE Pass is a national identity scheme, not a global one —
+                    shown only where the deployment opts in. See regional-auth.ts. */}
+                {UAE_PASS_ENABLED && (
+                  <button className="social-btn">
+                    <span style={{ fontWeight: 800, color: "#000", fontSize: "13px" }}>{t("social.uaePassBadge")}</span>
+                    {t("social.uaePass")}
+                  </button>
+                )}
               </div>
 
               <p className="auth-switch">{t("switch.prompt")} <Link href="/register">{t("switch.link")}</Link></p>

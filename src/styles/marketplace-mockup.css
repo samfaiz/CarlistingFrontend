@@ -2309,52 +2309,201 @@
 .mk .hcb-stat {background:rgba(255,255,255,.08);padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.16)}
 .mk .hcb-stat strong {display:block;font-size:18px;font-weight:800;letter-spacing:-.02em}
 .mk .hcb-stat span {font-size:12px;color:#cfdcef}
-.mk .contact-wrap {background:#F7F8FB;padding:36px 0 60px;min-height:50vh}
+/* ── Contact page ─────────────────────────────────────────────────────────
+   Rebuilt 2026-09-01. It was nine sibling blocks with no headings and no
+   boundaries, so the eye had nowhere to land and a screen reader had nothing
+   to jump between. It is now four labelled regions — reach us / message us /
+   offices / company — each opened by a headed rule and built from outlined
+   cards. The responsive halves live in the 900px and 640px blocks below;
+   keep them there so the cascade stays in descending-width order. */
+.mk .contact-wrap {background:#F7F8FB;padding:36px 0 64px;min-height:50vh}
 .mk .contact-hero {
     background:linear-gradient(135deg,var(--brand) 0%,var(--brand-mid) 100%);
-    color:#fff;padding:48px 0 40px;
+    color:#fff;padding:44px 0 40px;
   }
-.mk .contact-hero h1 {margin:0 0 8px;font-size:32px;font-weight:800;letter-spacing:-.02em}
-.mk .contact-hero p {margin:0;color:#dbe7f7;font-size:15px;max-width:640px}
-.mk .contact-grid {display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:flex-start}
-.mk .channels-row {display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.mk .contact-hero .contact-eyebrow {
+    margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#a8c4e8;
+  }
+.mk .contact-hero h1 {margin:0 0 10px;font-size:32px;font-weight:800;letter-spacing:-.02em}
+.mk .contact-hero .contact-hero-sub {margin:0;color:#dbe7f7;font-size:15px;max-width:640px;line-height:1.6}
+.mk .contact-hero-actions {display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.mk .contact-hero-ghost {background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.mk .contact-hero-ghost:hover {background:rgba(255,255,255,.18)}
+
+/* Regions ---------------------------------------------------------------- */
+.mk .contact-sections {display:flex;flex-direction:column;gap:34px;padding-top:4px}
+/* `.mk section {padding:64px 0}` is a page-wide rule; these regions are spaced
+   by the flex gap instead, or every boundary becomes 162px of empty air. */
+.mk .contact-section {padding:0}
+.mk .contact-section-head {margin:0 0 16px;max-width:760px}
+.mk .contact-section-head h2 {
+    margin:0 0 4px;font-size:20px;font-weight:800;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:10px;
+  }
+/* The accent bar is the boundary cue the page was missing: every region opens
+   with one, so four parts read as four parts. */
+.mk .contact-section-head h2::before {
+    content:'';flex:0 0 auto;width:4px;height:19px;border-radius:2px;background:var(--brand);
+  }
+.mk .contact-section-head p {margin:0;color:var(--text-2);font-size:14px;line-height:1.6}
+
+/* 1 — ways to reach us --------------------------------------------------- */
+.mk .channels-row {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
 .mk .channel-card {
+    display:flex;flex-direction:column;align-items:flex-start;height:100%;
     background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;
-    cursor:pointer;transition:.2s;
+    color:inherit;transition:.2s;
   }
-.mk .channel-card:hover {transform:translateY(-3px);box-shadow:0 14px 28px rgba(35,65,107,.10)}
+.mk .channel-card:hover {transform:translateY(-3px);box-shadow:0 14px 28px rgba(35,65,107,.10);border-color:var(--brand-border)}
+.mk .channel-card:focus-visible {outline:2px solid var(--brand);outline-offset:3px}
 .mk .channel-card .ch-icon {
     width:44px;height:44px;border-radius:11px;background:var(--brand-light);color:var(--brand);
     display:grid;place-items:center;margin-bottom:14px;
   }
 .mk .channel-card .ch-icon.green {background:#DCFCE7;color:#15803D}
 .mk .channel-card .ch-icon.blue {background:#DBEAFE;color:#1D4ED8}
-.mk .channel-card h4 {margin:0 0 4px;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
-.mk .channel-card p {margin:0 0 10px;font-size:13px;color:var(--text-2);line-height:1.5}
-.mk .channel-card .ch-value {font-size:14px;font-weight:700;color:var(--brand);display:flex;align-items:center;gap:6px}
-.mk .channel-card .ch-status {display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--success);font-weight:600;margin-top:6px}
+.mk .channel-card h3 {margin:0 0 4px;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+.mk .channel-card p {margin:0 0 12px;font-size:13px;color:var(--text-2);line-height:1.55}
+/* A phone number stays LTR in an Arabic card, or the country code lands at
+   the wrong end of it. */
+.mk .channel-card .ch-value {
+    margin-top:auto;font-size:15px;font-weight:800;color:var(--brand);letter-spacing:-.01em;
+    direction:ltr;unicode-bidi:isolate;
+  }
+/* var(--success) is #22C55E — 2.3:1 on white, which axe flags as a serious
+   contrast failure for TEXT. The dot keeps the bright green (it is a shape,
+   not a word); the words take #15803D at 5.2:1. */
+.mk .channel-card .ch-status {
+    display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+    color:#15803D;margin-top:8px;
+  }
 .mk .channel-card .ch-status::before {content:'';width:7px;height:7px;border-radius:99px;background:var(--success)}
-.mk .contact-form-card {background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 32px}
-.mk .contact-form-card h2 {margin:0 0 4px;font-size:22px;font-weight:700;letter-spacing:-.01em}
-.mk .contact-form-card > p {margin:0 0 22px;color:var(--text-2);font-size:14px}
-.mk .contact-form-grid {display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mk .channel-card .ch-status.neutral {color:var(--text-2)}
+
+/* 2 — the message form, and what happens after you send it --------------- */
+.mk .contact-grid {display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:flex-start}
+.mk .contact-form-card {background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.mk .contact-form-head {padding:18px 24px;background:var(--brand-surface);border-bottom:1px solid var(--border)}
+.mk .contact-form-head h3 {margin:0 0 3px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.mk .contact-form-head p {margin:0;color:var(--text-2);font-size:13px}
+.mk .contact-form-body {padding:22px 24px 24px}
+/* Grouped, outlined field sets: who you are, then what you need. */
+.mk .contact-fieldset {border:1px solid var(--border);border-radius:12px;padding:16px 18px 18px;margin:0 0 18px;min-width:0}
+.mk .contact-fieldset > legend {
+    padding:0 8px;font-size:11.5px;font-weight:800;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--brand);
+  }
+/* 12 columns so a field can be sized to what it holds — a message box is not
+   the width of a mobile number. */
+.mk .contact-form-grid {display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px 16px}
+.mk .contact-form-grid .form-group {margin-bottom:0;min-width:0}
+.mk .contact-form-grid .span-5 {grid-column:span 5}
+.mk .contact-form-grid .span-6 {grid-column:span 6}
+.mk .contact-form-grid .span-7 {grid-column:span 7}
 .mk .contact-form-grid .full {grid-column:1/-1}
+.mk .contact-form-card label {font-size:13px;color:var(--text)}
+.mk .contact-form-card .req {color:var(--error);font-weight:700}
+.mk .contact-form-card .form-input {font-size:15px}
 .mk .contact-form-grid textarea {
-    width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:9px;
-    font:500 14px Inter,sans-serif;outline:none;resize:vertical;min-height:120px;line-height:1.5;
+    width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:9px;
+    font:500 15px Inter,sans-serif;color:var(--text);background:#fff;outline:none;
+    resize:vertical;min-height:170px;line-height:1.55;
   }
 .mk .contact-form-grid textarea:focus {border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-light)}
-.mk .office-card {
-    background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 22px;
+.mk .contact-form-grid textarea.error {border-color:var(--error)}
+.mk .contact-form-card .field-hint {margin:6px 0 0;font-size:12.5px;color:var(--text-3);line-height:1.45}
+.mk .contact-form-card .field-error {
+    display:flex;align-items:flex-start;gap:6px;margin:6px 0 0;
+    font-size:12.5px;font-weight:600;color:var(--error);line-height:1.45;
   }
-.mk .office-card h4 {margin:0 0 12px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px}
-.mk .office-row {
-    display:flex;flex-direction:column;gap:3px;padding:12px 0;border-bottom:1px solid var(--divider);
+.mk .contact-form-card .field-error svg {flex:0 0 auto;margin-top:1px}
+.mk .contact-form-card .field-foot {display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mk .contact-form-card .field-count {margin:6px 0 0;font-size:12px;color:var(--text-3);white-space:nowrap}
+.mk .contact-consent {margin:0;font-size:13px;align-items:flex-start}
+.mk .contact-consent input {accent-color:var(--brand);width:16px;height:16px;margin-top:2px;flex:0 0 auto}
+.mk .contact-alert {
+    display:flex;align-items:flex-start;gap:9px;border:1px solid;border-radius:10px;
+    padding:12px 14px;margin:0 0 16px;font-size:13.5px;font-weight:600;line-height:1.45;
   }
-.mk .office-row:last-child {border-bottom:0}
-.mk .office-row strong {font-size:13.5px;color:var(--text)}
-.mk .office-row .o-addr {font-size:12.5px;color:var(--text-2);line-height:1.5}
-.mk .office-row .o-phone {font-size:12.5px;color:var(--brand);font-weight:600;margin-top:2px}
+.mk .contact-alert svg {flex:0 0 auto;margin-top:1px}
+.mk .contact-alert.is-error {background:#FEF2F2;border-color:#FECACA;color:#991B1B}
+.mk .contact-form-actions {display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mk .contact-form-note {margin:0;font-size:12.5px;color:var(--text-3);line-height:1.45;flex:1 1 220px}
+.mk .contact-success {border:1px solid #BBF7D0;background:#F0FDF4;border-radius:12px;padding:26px 24px;text-align:center}
+.mk .contact-success .cs-icon {
+    width:54px;height:54px;border-radius:99px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#22C55E,#15803D);color:#fff;margin:0 auto 12px;
+  }
+.mk .contact-success h4 {margin:0 0 6px;font-size:17px;font-weight:800;color:#15803D}
+.mk .contact-success p {margin:0 0 16px;font-size:14px;color:#166534;line-height:1.55}
+
+/* Support column — deliberately a different card shape from the form. */
+.mk .contact-aside {display:flex;flex-direction:column;gap:14px}
+.mk .contact-aside-title {
+    margin:0;font-size:12.5px;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--text-2);
+  }
+.mk .contact-side-card {background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.mk .contact-side-head {
+    display:flex;align-items:center;gap:8px;padding:13px 18px;color:var(--brand);
+    background:#FAFBFD;border-bottom:1px solid var(--border);
+  }
+.mk .contact-side-head h4 {margin:0;font-size:14px;font-weight:700;color:var(--text)}
+/* Same contrast reason as .ch-status above. */
+.mk .contact-open-pill {margin-inline-start:auto;font-size:11.5px;font-weight:800;color:#15803D}
+.mk .contact-side-body {padding:14px 18px 16px}
+.mk .hours-list {margin:0;display:flex;flex-direction:column}
+.mk .hours-row {
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:8px 0;border-bottom:1px solid var(--divider);font-size:13.5px;
+  }
+.mk .hours-row:last-child {border-bottom:0}
+.mk .hours-row dt {margin:0;color:var(--text-2);display:flex;align-items:center;gap:8px}
+.mk .hours-row dd {margin:0;font-weight:700}
+.mk .hours-row.is-today {
+    background:var(--brand-light);border-bottom-color:transparent;border-radius:8px;
+    padding-inline:10px;margin-inline:-10px;
+  }
+.mk .hours-row.is-today dt, .mk .hours-row.is-today dd {color:var(--brand);font-weight:700}
+.mk .hours-today {
+    font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--brand);color:#fff;border-radius:99px;padding:2px 7px;
+  }
+.mk .contact-side-note {margin:12px 0 0;font-size:12.5px;color:var(--text-2);line-height:1.55}
+.mk .contact-side-body > .contact-side-note:first-child {margin-top:0}
+.mk .contact-side-body .btn-block {margin-top:12px}
+
+/* 3 — offices ------------------------------------------------------------ */
+.mk .offices-row {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.mk .office-card {background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.mk .office-card h3 {margin:0 0 8px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:7px}
+.mk .office-card h3 svg {color:var(--brand);flex:0 0 auto}
+.mk .office-card .o-addr {display:block;font-style:normal;font-size:13px;color:var(--text-2);line-height:1.6;margin:0 0 12px}
+.mk .office-card .o-phone {
+    display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--brand);
+    direction:ltr;unicode-bidi:isolate;
+  }
+.mk .office-card .o-phone:hover {color:var(--brand-hover);text-decoration:underline}
+
+/* 4 — company and legal — quieter than the rest, and clearly its own block. */
+.mk .contact-legal {
+    background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 24px;
+    display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px 32px;
+  }
+.mk .contact-legal h2 {margin:0 0 8px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.mk .contact-legal-entity {margin:0 0 6px;font-size:14px;font-weight:700}
+.mk .contact-legal-address {margin:0 0 8px;font-style:normal;font-size:13px;color:var(--text-2);line-height:1.6}
+.mk .contact-legal-note {margin:0;font-size:12.5px;color:var(--text-3);line-height:1.55}
+.mk .contact-legal-side h3 {
+    margin:0 0 10px;font-size:12.5px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--text-2);
+  }
+.mk .contact-legal-links {margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px}
+.mk .contact-legal-links a {font-size:13.5px;font-weight:600;color:var(--brand)}
+.mk .contact-legal-links a:hover {text-decoration:underline}
+.mk .contact-socials {margin-top:18px}
+.mk .contact-socials-row {display:flex;gap:8px;flex-wrap:wrap}
 .mk .mobile-toggle {
     display:none;width:40px;height:40px;border-radius:8px;background:none;
     border:1px solid var(--border);color:var(--text);align-items:center;justify-content:center;
@@ -2593,10 +2742,15 @@
   .mk .help-cats {grid-template-columns:1fr 1fr}
   .mk .help-contact-bar {grid-template-columns:1fr;padding:24px}
   .mk .hcb-stats {grid-template-columns:1fr 1fr}
+  /* Contact page: the form/support split stacks, and the company block stops
+     being two columns. The channel and office rows are auto-fit and reflow on
+     their own, so they are deliberately NOT forced to one column here — three
+     across still fits an 852px container. The 12-column field grid keeps its
+     halves until the 640px block collapses them. */
   .mk .contact-grid {grid-template-columns:1fr}
-  .mk .channels-row {grid-template-columns:1fr}
-  .mk .contact-form-grid {grid-template-columns:1fr}
-  .mk .contact-form-card {padding:22px}
+  .mk .contact-legal {grid-template-columns:1fr}
+  .mk .contact-form-head {padding:16px 20px}
+  .mk .contact-form-body {padding:20px}
   .mk .compare-pill {flex-wrap:wrap;justify-content:center;padding:10px 12px 10px 18px;gap:8px;border-radius:14px;width:100%}
   .mk .compare-pill-thumbs {order:3;width:100%;justify-content:center}
   .mk .compare-pill .btn {order:2}
@@ -3057,6 +3211,38 @@
   .mk .cmp-spec-col p {font-size: 11.5px}
   .mk .cmp-val {font-size: 13px; padding: 8px 6px}
   .mk .cmp-car h4 {font-size: 13px; min-height: 0}
+
+  /* ── Contact page ────────────────────────────────────────────────────────
+     Every field goes full width — a half-width "mobile number" on a 393px
+     screen is 150px of usable input. The textarea and the contact inputs set
+     their own font (the textarea via the `font` SHORTHAND, the inputs at a
+     3-class selector), so both beat the 16px floor above unless they are
+     matched here; below 16px iOS zooms the page on focus. */
+  .mk .contact-form-grid {grid-template-columns: 1fr; gap: 14px}
+  .mk .contact-form-grid .span-5,
+  .mk .contact-form-grid .span-6,
+  .mk .contact-form-grid .span-7 {grid-column: 1 / -1}
+  .mk .contact-form-card .form-input {font-size: 16px}
+  .mk .contact-form-grid textarea {font: 500 16px Inter, sans-serif; min-height: 150px}
+  .mk .contact-form-card .field-foot {flex-direction: column; gap: 0}
+  .mk .contact-form-card .field-count {white-space: normal}
+  .mk .contact-fieldset {padding: 14px 14px 16px}
+  .mk .contact-sections {gap: 28px}
+  .mk .contact-hero {padding: 30px 0 28px}
+  .mk .contact-hero h1 {font-size: 25px}
+  .mk .contact-hero-actions {gap: 8px}
+  .mk .contact-hero-actions .btn {flex: 1 1 100%}
+  .mk .contact-section-head h2 {font-size: 18px}
+  .mk .contact-form-actions .btn {width: 100%}
+  .mk .contact-legal {padding: 18px}
+  .mk .contact-side-body, .mk .contact-form-body {padding: 16px}
+  .mk .contact-side-head, .mk .contact-form-head {padding: 13px 16px}
+  /* The consent tick is the one control that must not be a 16px target. */
+  .mk .contact-consent input {width: 20px; height: 20px}
+  /* A branch phone number and a policy link are both things a thumb has to
+     hit; 18-20px of line box is not a target. */
+  .mk .office-card .o-phone,
+  .mk .contact-legal-links a {min-height: 44px; display: inline-flex; align-items: center}
 }
 
 /* Narrowest last, so it wins where it applies. */

@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "carsens",
-    "tagline": "El mercado de coches y motos de los EAU."
+    "tagline": "El mercado global de coches y motos."
   },
   "home": {
     "scaffoldStatus": "Base del frontend lista — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
@@ -65,7 +65,7 @@
     "sell": "Vende tu coche",
     "language": "Idioma",
     "currency": "Moneda",
-    "tagline": "El mercado moderno de coches de los EAU. Compra, vende y descubre desde cualquier emirato.",
+    "tagline": "Un mercado moderno de coches. Compra, vende y descubre desde cualquier lugar del mundo.",
     "footer": {
       "buy": "Comprar",
       "sell": "Vender",
@@ -82,7 +82,7 @@
       "cookies": "Cookies"
     },
     "copyright": "© 2026 Carsens FZ-LLC. Todos los derechos reservados.",
-    "madeIn": "Hecho en Dubái, EAU 🇦🇪",
+    "madeIn": "Creado para compradores y vendedores de todo el mundo",
     "myAccount": "Mi cuenta",
     "menu": "Menú",
     "menuNav": "Navegación principal",

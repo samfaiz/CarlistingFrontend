@@ -16,7 +16,6 @@
     }
   },
   "cats": {
-    "heading": "Browse help by topic",
     "0": {
       "title": "Buying a car",
       "desc": "Searching, viewing, financing, paperwork & more.",
@@ -49,14 +48,15 @@
     },
     "6": {
       "title": "Inspections & history",
-      "desc": "200-point inspections, RTA records, accident reports.",
+      "desc": "200-point inspections, registration records, accident reports.",
       "count": "10 articles"
     },
     "7": {
       "title": "Contact us",
       "desc": "Reach the team — phone, WhatsApp, email, or live chat.",
       "count": "Direct support"
-    }
+    },
+    "heading": "Browse help by topic"
   },
   "faq": {
     "heading": "Frequently asked questions",
@@ -92,7 +92,7 @@
           "0": "Verified dealers have a green ✓ checkmark next to their name. We verify their trade license, physical showroom, and a track record of at least 6 months on Carsens.",
           "1": {
             "label": "Premium partners",
-            "text": " additionally have a gold star — these dealers meet a higher standard for response time, customer reviews, and verified RTA registration."
+            "text": " additionally have a gold star — these dealers meet a higher standard for response time, customer reviews, and verified business registration."
           }
         }
       },
@@ -105,15 +105,15 @@
       "4": {
         "q": "How does the Carsens 200-point inspection work?",
         "a": {
-          "0": "For AED 350, a Carsens-certified inspector comes to the seller's location (anywhere in the UAE) and runs a 200-point check covering engine, body, interior, electronics, brakes, and tires. You get a PDF report within 24 hours, before any commitment.",
+          "0": "For AED 350, a Carsens-certified inspector comes to the seller's location (anywhere we operate) and runs a 200-point check covering engine, body, interior, electronics, brakes, and tires. You get a PDF report within 24 hours, before any commitment.",
           "1": "Many dealer listings already include a recent Carsens Inspection — look for the green inspection badge on the car detail page."
         }
       },
       "5": {
-        "q": "What payment methods are safe for car purchases in the UAE?",
+        "q": "What payment methods are safe for car purchases?",
         "a": {
-          "0": "For dealer purchases, always pay via UAE bank transfer to the dealer's registered business account — never to a personal account. Verify the trade license number matches.",
-          "1": "For private purchases, complete the transaction at an RTA office or bank branch — never wire money before transferring the Mulkiya. Avoid cash deals for high-value cars."
+          "0": "For dealer purchases, always pay by bank transfer to the dealer's registered business account — never to a personal account. Verify the trade license number matches.",
+          "1": "For private purchases, complete the transaction at the vehicle licensing authority or a bank branch — never wire money before the registration is transferred. Avoid cash deals for high-value cars."
         }
       },
       "6": {
@@ -161,7 +161,7 @@
       },
       "3": {
         "value": "4 languages",
-        "label": "EN · AR · UR · HI"
+        "label": "EN · AR · ES · FR"
       }
     }
   }

@@ -1,7 +1,7 @@
 /**
  * /sell — list your car. The mockup's page-sell design (`.mk` layer, mk-sell
  * i18n x4 + RTL) wired to the real listing API: auth-guarded, real taxonomy
- * dropdowns (make → model cascade, body type, emirate) and a working submit
+ * dropdowns (make → model cascade, body type, location) and a working submit
  * that creates a real DRAFT listing (createListing) and sends the seller to
  * their account. Photo upload + publish (the ClamAV media pipeline) is the
  * remaining step to move the draft to LIVE.
@@ -63,7 +63,10 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   const [form, setForm] = React.useState({
     makeId: "", modelId: "", trimId: "", year: "", priceAed: "", mileageKm: "",
     bodyTypeId: "", fuelType: "PETROL", transmission: "AUTOMATIC",
-    regionalSpec: "GCC", emirateId: "", description: "",
+    // No regional spec is pre-selected: defaulting every seller on a global
+    // marketplace to the Gulf spec quietly mislabels their car. It is optional
+    // on the API, so an unanswered select simply omits the field.
+    regionalSpec: "", emirateId: "", description: "",
   });
 
   const set = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -101,7 +104,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
         make: makeName, model: modelName, year: Number(form.year),
         mileageKm: form.mileageKm ? Number(form.mileageKm) : undefined,
         fuelType: form.fuelType, transmission: form.transmission,
-        regionalSpec: form.regionalSpec, tone: "professional",
+        regionalSpec: form.regionalSpec || undefined, tone: "professional",
         locale: router.locale ?? "en",
       });
       set("description", res.text);
@@ -143,7 +146,9 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
           bodyTypeId: form.bodyTypeId || undefined,
           fuelType: form.fuelType,
           transmission: form.transmission,
-          regionalSpec: form.regionalSpec,
+          // `@IsOptional()` only skips undefined — an empty string still hits
+          // the enum check and 400s, so an unanswered select must drop out.
+          regionalSpec: form.regionalSpec || undefined,
           emirateId: form.emirateId,
           description: form.description.length >= 20 ? form.description : undefined,
         },
@@ -273,6 +278,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                       <div className="ds-field">
                         <label htmlFor="sell-step2-regionalLabel">{t("step2.regionalLabel", { defaultValue: "Regional spec" })}</label>
                         <select id="sell-step2-regionalLabel" className="form-input" value={form.regionalSpec} onChange={(e) => set("regionalSpec", e.target.value)}>
+                          <option value="">{t("step2.regionalPlaceholder", { defaultValue: "Select regional spec" })}</option>
                           {SPECS.map((o) => <option key={o} value={o}>{o}</option>)}
                         </select>
                       </div>
@@ -283,13 +289,19 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                     <h2 className="step-heading">{t("step4.title", { defaultValue: "Price & location" })}</h2>
                     <div className="form-grid">
                       <div className="ds-field">
-                        <label htmlFor="sell-step4-priceLabel">{t("step4.priceLabel", { defaultValue: "Asking price (AED)" })}</label>
+                        <label htmlFor="sell-step4-priceLabel">{t("step4.priceLabel", { defaultValue: "Asking price" })}</label>
                         <input id="sell-step4-priceLabel" className="form-input" type="number" min="0" value={form.priceAed} onChange={(e) => set("priceAed", e.target.value)} placeholder="0" required />
                       </div>
                       <div className="ds-field">
-                        <label htmlFor="sell-step4-emirateLabel">{t("step4.emirateLabel", { defaultValue: "Emirate" })}</label>
-                        <select id="sell-step4-emirateLabel" className="form-input" value={form.emirateId} onChange={(e) => set("emirateId", e.target.value)} required>
-                          <option value="">{t("step4.emiratePlaceholder", { defaultValue: "Select emirate" })}</option>
+                        {/*
+                          The API field is still `emirateId` — that is the
+                          taxonomy's name and renaming it is a backend change.
+                          Only the label the seller reads is neutral, because
+                          this marketplace is not one country's.
+                        */}
+                        <label htmlFor="sell-step4-location">{t("step4.locationLabel", { defaultValue: "Location" })}</label>
+                        <select id="sell-step4-location" className="form-input" value={form.emirateId} onChange={(e) => set("emirateId", e.target.value)} required>
+                          <option value="">{t("step4.locationPlaceholder", { defaultValue: "Select location" })}</option>
                           {emirates.map((em) => <option key={em.id} value={em.id}>{em.name}</option>)}
                         </select>
                       </div>

@@ -4,7 +4,7 @@
   },
   "hero": {
     "eyebrow": "Millésimes 2024 et 2025",
-    "title": "Voitures neuves aux Émirats",
+    "title": "Voitures neuves",
     "sub": "Découvrez les derniers modèles de plus de 40 constructeurs. Comparez les finitions, réservez un essai, trouvez le showroom le plus proche."
   },
   "qf": {
@@ -35,7 +35,7 @@
       ]
     },
     "budget": {
-      "label": "Budget (AED)",
+      "label": "Budget",
       "options": [
         "Tout budget",
         "Moins de 100 000",
@@ -193,7 +193,7 @@
       ]
     },
     "price": {
-      "label": "Prix (AED)",
+      "label": "Prix",
       "min": "Min",
       "max": "Max"
     },
@@ -347,23 +347,23 @@
       "label": "Emplacement",
       "items": [
         {
-          "name": "Dubaï",
+          "name": "Moyen-Orient",
           "count": "820"
         },
         {
-          "name": "Abou Dabi",
+          "name": "Europe",
           "count": "412"
         },
         {
-          "name": "Sharjah",
+          "name": "Amérique du Nord",
           "count": "128"
         },
         {
-          "name": "Ajman",
+          "name": "Asie-Pacifique",
           "count": "42"
         },
         {
-          "name": "Autres émirats",
+          "name": "Autres régions",
           "count": "18"
         }
       ]
@@ -502,7 +502,7 @@
     ]
   },
   "coming": {
-    "title": "Bientôt dans les showrooms des Émirats",
+    "title": "Bientôt dans les showrooms",
     "sub": "Lancements à venir et précommandes — soyez le premier",
     "viewAll": "Tous les modèles à venir",
     "notify": "Être averti au lancement",
@@ -535,8 +535,8 @@
   },
   "deals": {
     "eyebrow": "Spécial mai 2026",
-    "title": "Offres voitures neuves — économisez jusqu'à AED 35,000",
-    "text": "Offres exclusives des concessionnaires agréés à travers les Émirats. Financement à 0%, forfaits d'entretien offerts, packs d'accessoires et immatriculation prise en charge.",
+    "title": "Offres voitures neuves — économisez des milliers sur votre prochaine voiture",
+    "text": "Offres exclusives des concessionnaires agréés dans le monde entier. Financement à 0%, forfaits d'entretien offerts, packs d'accessoires et immatriculation prise en charge.",
     "cta": "Voir les 247 offres",
     "stats": [
       {
@@ -570,13 +570,13 @@
       },
       {
         "tag": "Comparatif",
-        "title": "Tesla Model Y vs Mercedes EQE SUV : quel EV l'emporte aux Émirats ?",
+        "title": "Tesla Model Y vs Mercedes EQE SUV : quel EV l'emporte ?",
         "date": "9 mai 2026",
         "read": "11 min de lecture"
       },
       {
         "tag": "Essai",
-        "title": "BMW X5 PHEV essai longue durée : 6 mois sous la chaleur de Dubaï",
+        "title": "BMW X5 PHEV essai longue durée : 6 mois sous une chaleur extrême",
         "date": "6 mai 2026",
         "read": "9 min de lecture"
       }
@@ -592,6 +592,7 @@
     "cta": "Obtenir le meilleur prix",
     "sent": "Demande envoyée — un concessionnaire vous contactera avec son meilleur prix.",
     "none": "Aucun vendeur ne propose encore ce modèle — essayez-en un autre.",
-    "error": "Impossible d'envoyer votre demande. Veuillez réessayer."
+    "error": "Impossible d'envoyer votre demande. Veuillez réessayer.",
+    "phonePh": "Indiquez votre indicatif pays"
   }
 }

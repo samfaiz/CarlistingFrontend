@@ -343,6 +343,7 @@
     "sortBy": "Sort by",
     "empty": "No cars match your filters. Try widening them.",
     "sort": {
+      "relevance": "Best match",
       "newest": "Most recent",
       "price_asc": "Price: low to high",
       "price_desc": "Price: high to low",

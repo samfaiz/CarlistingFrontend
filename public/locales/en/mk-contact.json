@@ -3,10 +3,17 @@
     "title": "Contact"
   },
   "hero": {
+    "eyebrow": "Contact",
     "title": "Contact Carsens",
-    "subtitle": "Reach our UAE team directly — we typically reply in under 2 hours, 7 days a week."
+    "subtitle": "Reach our UAE team directly — we typically reply in under 2 hours, 7 days a week.",
+    "actions": {
+      "call": "Call the team",
+      "write": "Write to us"
+    }
   },
   "channels": {
+    "title": "Ways to reach us",
+    "subtitle": "Pick whichever suits you — none of these need a form.",
     "call": {
       "title": "Call us",
       "desc": "Speak with our team directly — Sunday to Saturday, 9 AM – 9 PM.",
@@ -28,18 +35,26 @@
   },
   "form": {
     "title": "Send us a message",
-    "subtitle": "Fill in the form below — we'll route your message to the right team.",
+    "subtitle": "For anything that needs detail — we'll route your message to the right team and reply by email.",
+    "cardTitle": "Write to us",
+    "cardSubtitle": "Fields marked with * are required.",
+    "groups": {
+      "about": "Your details",
+      "enquiry": "Your enquiry"
+    },
     "name": {
       "label": "Your name",
       "placeholder": "Ahmed Al Mansouri"
     },
     "mobile": {
       "label": "Mobile number",
-      "placeholder": "+971 50 000 0000"
+      "placeholder": "+971 50 000 0000",
+      "hint": "Optional — add it if you would rather we called you back."
     },
     "email": {
       "label": "Email address",
-      "placeholder": "you@example.com"
+      "placeholder": "you@example.com",
+      "hint": "We send our reply to this address."
     },
     "subject": {
       "label": "What's this about?",
@@ -55,18 +70,62 @@
     },
     "message": {
       "label": "Your message",
-      "placeholder": "Tell us how we can help…"
+      "placeholder": "Tell us how we can help…",
+      "hint": "Include listing links or reference numbers if you have them.",
+      "counter": "{{current}} / {{max}} characters"
     },
     "consent": "I agree to Carsens' privacy policy and consent to being contacted about my enquiry.",
+    "privacyNote": "We use these details only to answer your enquiry.",
     "submit": "Send message",
-    "reset": "Reset",
+    "sending": "Sending…",
+    "reset": "Clear the form",
+    "errors": {
+      "summary": "Please check the highlighted fields below.",
+      "nameRequired": "Enter your name.",
+      "nameShort": "Your name must be at least 2 characters.",
+      "emailRequired": "Enter your email address.",
+      "emailInvalid": "Enter a valid email address, like you@example.com.",
+      "phoneInvalid": "Enter a valid mobile number, for example +971 50 000 0000.",
+      "messageRequired": "Write your message.",
+      "messageShort": "Your message must be at least 10 characters.",
+      "messageLong": "Your message is too long — keep it under {{max}} characters.",
+      "consentRequired": "Please agree to the privacy policy so we can reply."
+    },
     "success": {
       "title": "Message sent — thank you!",
-      "desc": "We've received your message and will reply within 2-4 hours. Check your email for our response."
+      "desc": "We've received your message and will reply within 2-4 hours. Check your email for our response.",
+      "again": "Send another message"
+    }
+  },
+  "support": {
+    "title": "Support",
+    "replyNote": "Messages sent outside these hours are answered as soon as the desk opens.",
+    "selfService": {
+      "title": "Prefer to look it up?",
+      "desc": "Listing rules, payments and account access are all covered in the help centre.",
+      "cta": "Open the help centre"
+    }
+  },
+  "hours": {
+    "title": "Support hours",
+    "open": "● Open",
+    "todayLabel": "Today",
+    "monThu": {
+      "day": "Mon – Thu",
+      "time": "9 AM – 9 PM"
+    },
+    "friday": {
+      "day": "Friday",
+      "time": "2 PM – 10 PM"
+    },
+    "satSun": {
+      "day": "Sat – Sun",
+      "time": "10 AM – 8 PM"
     }
   },
   "offices": {
     "title": "Our offices",
+    "subtitle": "Visit us in person, or call the branch nearest you.",
     "dubai": {
       "name": "Dubai HQ",
       "line1": "Boulevard Plaza Tower 2, 18th Floor",
@@ -86,24 +145,17 @@
       "phone": "+971 6 555 9012"
     }
   },
-  "hours": {
-    "title": "Support hours",
-    "open": "● Open",
-    "monThu": {
-      "day": "Mon – Thu",
-      "time": "9 AM – 9 PM"
-    },
-    "today": {
-      "day": "Tue (today)",
-      "time": "9 AM – 9 PM"
-    },
-    "friday": {
-      "day": "Friday",
-      "time": "2 PM – 10 PM"
-    },
-    "satSun": {
-      "day": "Sat – Sun",
-      "time": "10 AM – 8 PM"
+  "legal": {
+    "title": "Company details",
+    "entity": "Carsens — an online vehicle marketplace operating in the United Arab Emirates.",
+    "registeredLabel": "Registered office",
+    "note": "Trade licence and TRN details appear in full on every invoice we issue.",
+    "policiesTitle": "Policies",
+    "links": {
+      "terms": "Terms of use",
+      "privacy": "Privacy policy",
+      "cookies": "Cookie policy",
+      "help": "Help centre"
     }
   },
   "social": {
@@ -114,7 +166,6 @@
     "linkedin": "LinkedIn",
     "youtube": "YouTube"
   },
-  "sent": "Thanks — your message has been sent. We’ll reply by email.",
   "errors": {
     "generic": "Could not send your message. Please try again."
   }

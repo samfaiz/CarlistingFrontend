@@ -26,12 +26,13 @@ import { MkActiveFilters } from "@/components/search/mk-active-filters";
 import { getCarModels } from "@/components/search/taxonomy-cascade";
 import {
   PAGE_SIZE,
-  SORT_OPTIONS,
   countActiveFilters,
   parseSearchQuery,
   serializeSearchQuery,
+  sortOptionsFor,
   toApiParams,
   type SearchFilters,
+  type SearchSortOption,
 } from "@/components/search/filter-state";
 import {
   getMakes,
@@ -40,7 +41,6 @@ import {
   searchListings,
   type Card,
   type Facets,
-  type SearchSort,
   type TaxonomyMake,
   type TaxonomyModel,
   type TaxonomyTerm,
@@ -156,7 +156,7 @@ export default function MksearchPage({
     push(serializeSearchQuery({ filters: { ...filters, ...patch }, sort: state.sort, page: 1 }));
   };
 
-  const applySort = (sort: SearchSort) => {
+  const applySort = (sort: SearchSortOption) => {
     push(serializeSearchQuery({ ...state, sort, page: 1 }));
   };
 
@@ -306,8 +306,10 @@ export default function MksearchPage({
                       {/* Was a <span>, so the select had no accessible name —
                           axe flagged it critical. */}
                       <label className="sort-label" htmlFor="sort-select">{t("results.sortBy")}</label>
-                      <select id="sort-select" className="sort-select" value={state.sort} onChange={(e) => applySort(e.target.value as SearchSort)}>
-                        {SORT_OPTIONS.map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
+                      {/* Relevance is only in the list when there is a phrase to
+                          rank; without one every row scores the same. */}
+                      <select id="sort-select" className="sort-select" value={state.sort} onChange={(e) => applySort(e.target.value as SearchSortOption)}>
+                        {sortOptionsFor(filters.q).map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
                       </select>
                     </div>
                   </div>

@@ -16,7 +16,6 @@
     }
   },
   "cats": {
-    "heading": "Parcourir l'aide par thème",
     "0": {
       "title": "Acheter une voiture",
       "desc": "Recherche, consultation, financement, démarches et plus.",
@@ -49,14 +48,15 @@
     },
     "6": {
       "title": "Inspections et historique",
-      "desc": "Inspections en 200 points, registres RTA, rapports d'accident.",
+      "desc": "Inspections en 200 points, registres d'immatriculation, rapports d'accident.",
       "count": "10 articles"
     },
     "7": {
       "title": "Contactez-nous",
       "desc": "Contactez l'équipe — téléphone, WhatsApp, e-mail ou chat en direct.",
       "count": "Support direct"
-    }
+    },
+    "heading": "Parcourir l'aide par thème"
   },
   "faq": {
     "heading": "Questions fréquentes",
@@ -92,7 +92,7 @@
           "0": "Les concessionnaires vérifiés ont une coche ✓ verte à côté de leur nom. Nous vérifions leur licence commerciale, leur showroom physique et un historique d'au moins 6 mois sur Carsens.",
           "1": {
             "label": "Les partenaires Premium",
-            "text": " ont en plus une étoile dorée — ces concessionnaires respectent une norme plus élevée en matière de temps de réponse, d'avis clients et d'enregistrement RTA vérifié."
+            "text": " ont en plus une étoile dorée — ces concessionnaires respectent une norme plus élevée en matière de temps de réponse, d'avis clients et d'enregistrement commercial vérifié."
           }
         }
       },
@@ -105,15 +105,15 @@
       "4": {
         "q": "Comment fonctionne l'inspection en 200 points de Carsens ?",
         "a": {
-          "0": "Pour 350 AED, un inspecteur certifié Carsens se rend chez le vendeur (partout aux EAU) et effectue une vérification en 200 points couvrant le moteur, la carrosserie, l'intérieur, l'électronique, les freins et les pneus. Vous recevez un rapport PDF sous 24 heures, avant tout engagement.",
+          "0": "Pour 350 AED, un inspecteur certifié Carsens se rend chez le vendeur (partout où nous opérons) et effectue une vérification en 200 points couvrant le moteur, la carrosserie, l'intérieur, l'électronique, les freins et les pneus. Vous recevez un rapport PDF sous 24 heures, avant tout engagement.",
           "1": "De nombreuses annonces de concessionnaires incluent déjà une inspection Carsens récente — cherchez le badge d'inspection vert sur la page de détails de la voiture."
         }
       },
       "5": {
-        "q": "Quels moyens de paiement sont sûrs pour acheter une voiture aux EAU ?",
+        "q": "Quels moyens de paiement sont sûrs pour acheter une voiture ?",
         "a": {
-          "0": "Pour les achats auprès de concessionnaires, payez toujours par virement bancaire des EAU sur le compte professionnel enregistré du concessionnaire — jamais sur un compte personnel. Vérifiez que le numéro de licence commerciale correspond.",
-          "1": "Pour les achats entre particuliers, effectuez la transaction dans un bureau de la RTA ou une agence bancaire — ne virez jamais d'argent avant le transfert de la Mulkiya. Évitez les transactions en espèces pour les voitures de grande valeur."
+          "0": "Pour les achats auprès de concessionnaires, payez toujours par virement bancaire sur le compte professionnel enregistré du concessionnaire — jamais sur un compte personnel. Vérifiez que le numéro de licence commerciale correspond.",
+          "1": "Pour les achats entre particuliers, effectuez la transaction auprès de l'autorité d'immatriculation ou dans une agence bancaire — ne virez jamais d'argent avant le transfert de la carte grise. Évitez les transactions en espèces pour les voitures de grande valeur."
         }
       },
       "6": {
@@ -161,7 +161,7 @@
       },
       "3": {
         "value": "4 langues",
-        "label": "EN · AR · UR · HI"
+        "label": "EN · AR · ES · FR"
       }
     }
   }

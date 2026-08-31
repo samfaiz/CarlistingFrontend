@@ -1,0 +1,37 @@
+/*
+ * Small page-level pieces the `.mk` compare sheet never defined: the notice
+ * line under the header, the inline reset link, and the empty state. Colour
+ * and buttons still come from `.mk`. Inline direction only.
+ */
+
+.notice {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.linkBtn.linkBtn {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--brand);
+  font-weight: 600;
+  min-height: 24px;
+}
+
+.linkBtn.linkBtn:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.empty {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--text-3);
+}
+
+.empty p {
+  font-size: 16px;
+  margin: 0 0 16px;
+}

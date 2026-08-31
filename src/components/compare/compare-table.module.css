@@ -1,0 +1,209 @@
+/*
+ * Compare table mechanics — the part the `.mk` design layer does not cover.
+ *
+ * The mockup's compare grid was written for exactly four columns
+ * (`grid-template-columns: 200px repeat(4,1fr)`), which stops working the
+ * moment a sixth car joins. This module keeps the mockup's visual language and
+ * replaces only the geometry: a column count driven by a custom property, a
+ * frame wide enough for however many cars there are, its own horizontal
+ * scroller, and a label column pinned to the inline start so a phone reader
+ * never loses track of which row they are on.
+ *
+ * Every override is doubled (`.x.x`) to out-specify `.mk .cmp-*`, because the
+ * order in which the global sheet and this module land is not guaranteed.
+ * Inline direction only — no left/right anywhere.
+ */
+
+.scroller {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* The car cards keep the mockup's sticky-to-the-top behaviour, so they get
+   their own scroller; the page syncs the two scroll offsets. */
+.headScroller {
+  position: sticky;
+  top: 88px;
+  z-index: 12;
+  margin-bottom: 18px;
+}
+
+.frame {
+  --cmp-label-w: 156px;
+  --cmp-col-w: 164px;
+  width: max(
+    100%,
+    calc(var(--cmp-label-w) + (var(--cmp-cols, 4) * var(--cmp-col-w)))
+  );
+}
+
+@media (min-width: 900px) {
+  .frame {
+    --cmp-label-w: 200px;
+    --cmp-col-w: 176px;
+  }
+}
+
+:global(.mk) .carsGrid.carsGrid {
+  position: static;
+  margin-bottom: 0;
+  grid-auto-flow: row;
+  grid-template-columns: var(--cmp-label-w) repeat(var(--cmp-cols, 4), 1fr);
+}
+
+:global(.mk) .section.section {
+  /* sticky label cells need an unclipped ancestor chain up to the scroller */
+  overflow: visible;
+  margin-bottom: 14px;
+}
+
+:global(.mk) .sectionTitle.sectionTitle {
+  border-start-start-radius: 14px;
+  border-start-end-radius: 14px;
+}
+
+/* Keep the group name readable while the values scroll past it. */
+/* `.left` is the mockup's own class, so it has to be escaped out of the
+   module's local scope or it would be hashed and match nothing. */
+:global(.mk) .sectionTitle.sectionTitle :global(.left) {
+  position: sticky;
+  inset-inline-start: 18px;
+  background: #fafbfd;
+  padding-inline-end: 8px;
+}
+
+:global(.mk) .row.row {
+  --cmp-label-bg: #fff;
+  grid-auto-flow: row;
+  grid-template-columns: var(--cmp-label-w) repeat(var(--cmp-cols, 4), 1fr);
+}
+
+:global(.mk) .row.row:hover {
+  --cmp-label-bg: #fafbfd;
+}
+
+:global(.mk) .labelCell.labelCell.labelCell {
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 2;
+  background: var(--cmp-label-bg, #fff);
+  /* the 18px the row would have given it is eaten by the sticky offset */
+  padding-inline-start: 18px;
+  margin-inline-start: -18px;
+  padding-inline-end: 8px;
+}
+
+/* A value the source data simply does not carry. Stated, never hidden. */
+:global(.mk) .gap.gap {
+  color: var(--text-3);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.groupTier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: var(--divider);
+  border-radius: 99px;
+  padding: 2px 8px;
+}
+
+.rowCount {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-3);
+}
+
+/*
+ * The mobile sheet gives `.compare-cars` and `.cmp-table` their own
+ * `overflow-x: auto` — a per-section scroller that predates six columns. This
+ * component scrolls the whole frame instead, and a nested scrollport that never
+ * actually scrolls is what breaks the pinned label: sticky resolves against the
+ * NEAREST scrolling ancestor, so the label would anchor to a box that never
+ * moves. Hand the axis back to the outer scroller.
+ */
+:global(.mk) .carsGrid.carsGrid,
+:global(.mk) .tableBody.tableBody {
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+:global(.mk) .tableBody.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The trailing column that sits under the "add a car" tile. */
+.spacerCell {
+  min-height: 1px;
+}
+
+/* The group header is a real button so the fold is keyboard- and SR-operable;
+   the mockup styled a bare <h3>, so the button has to disappear into it. */
+.toggle.toggle {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.toggle.toggle:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.toggleEnd {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* `.mk .cmp-add` is written for a <div>; as a button it needs the reset. */
+:global(.mk) .addTile.addTile {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  width: 100%;
+}
+
+.addTitle {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* Both ends of the group header pin, so the name and the fold control never
+   slide over one another while the values scroll. */
+:global(.mk) .sectionTitle.sectionTitle .toggleEnd {
+  position: sticky;
+  inset-inline-end: 0;
+  background: #fafbfd;
+  padding-inline-start: 8px;
+}
+
+/* On a phone the name and the fold control are all that fit; the row count and
+   the tier badge are reference, and they are the first to go. */
+@media (max-width: 640px) {
+  .rowCount,
+  .groupTier {
+    display: none;
+  }
+}

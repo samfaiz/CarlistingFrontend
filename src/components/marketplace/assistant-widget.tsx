@@ -135,7 +135,7 @@ export function AssistantWidget() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={t("placeholder", { defaultValue: "e.g. Toyota SUV under 120K in Dubai" })}
+              placeholder={t("placeholder", { defaultValue: "e.g. Toyota SUV under 120K, low mileage" })}
               maxLength={600}
             />
             <button type="submit" disabled={busy || !input.trim()}>{t("send", { defaultValue: "Send" })}</button>

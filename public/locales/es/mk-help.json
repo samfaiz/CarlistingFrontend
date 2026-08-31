@@ -16,7 +16,6 @@
     }
   },
   "cats": {
-    "heading": "Explora la ayuda por tema",
     "0": {
       "title": "Comprar un coche",
       "desc": "Búsqueda, visualización, financiación, trámites y más.",
@@ -49,14 +48,15 @@
     },
     "6": {
       "title": "Inspecciones e historial",
-      "desc": "Inspecciones de 200 puntos, registros de la RTA, informes de accidentes.",
+      "desc": "Inspecciones de 200 puntos, registros de matriculación, informes de accidentes.",
       "count": "10 artículos"
     },
     "7": {
       "title": "Contáctanos",
       "desc": "Contacta con el equipo — teléfono, WhatsApp, correo o chat en vivo.",
       "count": "Soporte directo"
-    }
+    },
+    "heading": "Explora la ayuda por tema"
   },
   "faq": {
     "heading": "Preguntas frecuentes",
@@ -92,7 +92,7 @@
           "0": "Los concesionarios verificados tienen una marca de verificación ✓ verde junto a su nombre. Verificamos su licencia comercial, su sala de exposición física y un historial de al menos 6 meses en Carsens.",
           "1": {
             "label": "Los socios Premium",
-            "text": " además tienen una estrella dorada — estos concesionarios cumplen un estándar más alto de tiempo de respuesta, opiniones de clientes y registro verificado en la RTA."
+            "text": " además tienen una estrella dorada — estos concesionarios cumplen un estándar más alto de tiempo de respuesta, opiniones de clientes y registro mercantil verificado."
           }
         }
       },
@@ -105,15 +105,15 @@
       "4": {
         "q": "¿Cómo funciona la inspección de 200 puntos de Carsens?",
         "a": {
-          "0": "Por AED 350, un inspector certificado por Carsens acude a la ubicación del vendedor (en cualquier lugar de los EAU) y realiza una comprobación de 200 puntos que abarca motor, carrocería, interior, electrónica, frenos y neumáticos. Recibes un informe en PDF en un plazo de 24 horas, antes de cualquier compromiso.",
+          "0": "Por AED 350, un inspector certificado por Carsens acude a la ubicación del vendedor (en cualquier lugar donde operamos) y realiza una comprobación de 200 puntos que abarca motor, carrocería, interior, electrónica, frenos y neumáticos. Recibes un informe en PDF en un plazo de 24 horas, antes de cualquier compromiso.",
           "1": "Muchos anuncios de concesionarios ya incluyen una inspección Carsens reciente — busca la insignia verde de inspección en la página de detalles del coche."
         }
       },
       "5": {
-        "q": "¿Qué métodos de pago son seguros para comprar coches en los EAU?",
+        "q": "¿Qué métodos de pago son seguros para comprar coches?",
         "a": {
-          "0": "Para las compras a concesionarios, paga siempre mediante transferencia bancaria de los EAU a la cuenta comercial registrada del concesionario — nunca a una cuenta personal. Verifica que el número de licencia comercial coincida.",
-          "1": "Para las compras particulares, completa la transacción en una oficina de la RTA o sucursal bancaria — nunca transfieras dinero antes de traspasar la Mulkiya. Evita las operaciones en efectivo para coches de alto valor."
+          "0": "Para las compras a concesionarios, paga siempre mediante transferencia bancaria a la cuenta comercial registrada del concesionario — nunca a una cuenta personal. Verifica que el número de licencia comercial coincida.",
+          "1": "Para las compras particulares, completa la transacción en la oficina de tráfico o en una sucursal bancaria — nunca transfieras dinero antes de que se traspase la matriculación. Evita las operaciones en efectivo para coches de alto valor."
         }
       },
       "6": {
@@ -161,7 +161,7 @@
       },
       "3": {
         "value": "4 idiomas",
-        "label": "EN · AR · UR · HI"
+        "label": "EN · AR · ES · FR"
       }
     }
   }

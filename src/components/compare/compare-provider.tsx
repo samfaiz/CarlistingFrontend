@@ -1,13 +1,13 @@
 /**
  * Compare v1 state — task P1-10 (FR-CV1).
  *
- * Context mounted once in _app.tsx. Holds up to 4 compare entries (cars only
+ * Context mounted once in _app.tsx. Holds up to COMPARE_MAX compare entries (cars only
  * for now — the entry shape is deliberately vehicle-agnostic so bikes slot in
  * later), persisted to localStorage so the tray survives navigation/reload.
  *
  * Hydration happens in an effect (never during SSR render) so server and
  * first client paint agree; `ready` gates consumers that would otherwise
- * flash an empty state. Weighted scores / guided quiz arrive with P2-06 —
+ * flash an empty state. Weighted scores come from the AI advisor on /compare —
  * keep this provider limited to membership state.
  */
 import * as React from "react";
@@ -24,7 +24,7 @@ export interface CompareEntry {
   thumb: string | null;
 }
 
-export const COMPARE_MAX = 4;
+export const COMPARE_MAX = 6;
 const STORAGE_KEY = "carsens.compare.v1";
 
 export interface CompareContextValue {
@@ -36,7 +36,7 @@ export interface CompareContextValue {
   full: boolean;
   /**
    * Add/remove an entry. Returns false when the tray is full and the entry
-   * is not already in it (caller surfaces the "max 4" toast).
+   * is not already in it (caller surfaces the "tray is full" toast).
    */
   toggle: (entry: CompareEntry) => boolean;
   remove: (listingId: string) => void;

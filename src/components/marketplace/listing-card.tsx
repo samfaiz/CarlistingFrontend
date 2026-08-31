@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next/pages";
 import { useCurrency } from "@/components/marketplace/currency-provider";
 import { useSaved } from "@/components/saved/saved-provider";
-import { useCompare } from "@/components/compare/compare-provider";
+import { useCompare, COMPARE_MAX } from "@/components/compare/compare-provider";
 import { toast } from "@/components/ui/toast";
 import type { Card } from "@/lib/marketplace-api";
 
@@ -58,7 +58,7 @@ export function MarketplaceCard({ car, hrefBase = "/cars" }: { car: Card; hrefBa
     });
     // toggle() returns false only when the tray is already at its max.
     if (!accepted) {
-      toast({ title: t("compare.full", { defaultValue: "Compare holds 4 cars — remove one first" }), variant: "warning" });
+      toast({ title: t("compare.full", { max: COMPARE_MAX }), variant: "warning" });
     }
   };
 

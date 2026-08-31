@@ -4,7 +4,7 @@
   },
   "hero": {
     "title": "Create your account",
-    "subtitle": "Join 2.4M users buying & selling cars in the UAE"
+    "subtitle": "Join 2.4M users buying & selling cars"
   },
   "accType": {
     "buyer": {
@@ -24,11 +24,11 @@
   "form": {
     "fullName": {
       "label": "Full name",
-      "placeholder": "Ahmed Al Mansouri"
+      "placeholder": "Enter your full name"
     },
     "mobile": {
       "label": "Mobile number",
-      "placeholder": "+971 50 000 0000"
+      "placeholder": "Include your country code"
     },
     "email": {
       "label": "Email address",

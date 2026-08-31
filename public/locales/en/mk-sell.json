@@ -7,7 +7,7 @@
   },
   "hero": {
     "title": "Sell your car. Free. Fast.",
-    "subtitle": "List your car in under 3 minutes and reach over 2 million monthly buyers across the UAE.",
+    "subtitle": "List your car in under 3 minutes and reach over 2 million monthly buyers worldwide.",
     "stats": [
       {
         "value": "14 days",
@@ -38,18 +38,9 @@
     "title": "Car details",
     "sub": "We'll use this to estimate your car's value and connect you with the right buyers.",
     "plateLabel": "⚡ Quickest way — look up your car by plate",
-    "emirates": [
-      "Dubai",
-      "Abu Dhabi",
-      "Sharjah",
-      "Ajman",
-      "RAK",
-      "Fujairah",
-      "UAQ"
-    ],
     "platePlaceholder": "Plate number (e.g. A 12345)",
     "autofill": "Auto-fill",
-    "plateHelper": "We'll auto-fill make, model, year, and specs from RTA records.",
+    "plateHelper": "We'll auto-fill make, model, year, and specs from official registration records.",
     "plateHelperLink": "How does this work?",
     "divider": "or enter details manually",
     "makeLabel": "Make",
@@ -116,7 +107,7 @@
   },
   "step2": {
     "title": "Specs",
-    "sub": "Buyers in the UAE care most about mileage, GCC spec, and condition. Be accurate — it builds trust.",
+    "sub": "Buyers care most about mileage, regional spec, and condition. Be accurate — it builds trust.",
     "mileageLabel": "Mileage (km)",
     "mileagePlaceholder": "e.g. 45000",
     "transmissionLabel": "Transmission",
@@ -207,7 +198,8 @@
       "Alloy wheels",
       "Push-to-start"
     ],
-    "continue": "Continue to Photos"
+    "continue": "Continue to Photos",
+    "regionalPlaceholder": "Select regional spec"
   },
   "step3": {
     "title": "Add photos of your car",
@@ -238,7 +230,7 @@
     "marketEstimate": "Market estimate",
     "estBasedOnPre": "Based on",
     "estBasedOnPost": "similar cars sold on Carsens in the last 90 days.",
-    "askingLabel": "Your asking price (AED) *",
+    "askingLabel": "Your asking price *",
     "priceAdvice": "✓ Within recommended range — expect fast interest",
     "bestOffer": "Best offer accepted",
     "hidePrice": "Hide the price (negotiable on request)",
@@ -268,16 +260,16 @@
       }
     ],
     "continue": "Continue to Publish",
-    "priceLabel": "Asking price (AED)",
-    "emirateLabel": "Emirate",
-    "emiratePlaceholder": "Select emirate"
+    "priceLabel": "Asking price",
+    "locationLabel": "Location",
+    "locationPlaceholder": "Select location"
   },
   "step5": {
     "title": "Final details & publish",
     "sub": "Add a short description, choose how buyers can reach you, and you're live.",
     "descLabel": "Description (optional but recommended)",
     "descPlaceholder": "Mention service history, recent maintenance, what makes your car special, reason for selling…",
-    "descValue": "2023 Toyota Land Cruiser GR-Sport. Single owner, full service history at Al Tayer Toyota. Always garage-kept and meticulously maintained. Optional GR-Sport black accent package, 18″ matte-black alloys, panoramic moonroof, JBL premium audio. Reason for selling: upgrading to a new model.",
+    "descValue": "2023 Toyota Land Cruiser GR-Sport. Single owner, full service history at an authorised Toyota dealer. Always garage-kept and meticulously maintained. Optional GR-Sport black accent package, 18″ matte-black alloys, panoramic moonroof, JBL premium audio. Reason for selling: upgrading to a new model.",
     "charCount": "368 / 1,000 characters · ✓ Good detail",
     "contactDivider": "how should buyers contact you?",
     "contactNameLabel": "Contact name",
@@ -365,8 +357,8 @@
     "tips": {
       "title": "Tip for this step",
       "items": [
-        "Accurate year & trim get the right valuation — bring your Mulkiya if you're unsure.",
-        "UAE buyers care a lot about GCC vs imported — get this right.",
+        "Accurate year & trim get the right valuation — bring your registration document if you're unsure.",
+        "Buyers care a lot about regional spec vs imported — get this right.",
         "Listings with full make + model + year combinations get 5× more views."
       ]
     },

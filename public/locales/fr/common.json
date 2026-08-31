@@ -1,7 +1,7 @@
 {
   "site": {
     "name": "carsens",
-    "tagline": "La place de marché des voitures et motos aux Émirats arabes unis."
+    "tagline": "La place de marché mondiale des voitures et motos."
   },
   "home": {
     "scaffoldStatus": "Socle frontend prêt — Next.js 15 (Pages Router) + React 19 + Tailwind v4.",
@@ -65,7 +65,7 @@
     "sell": "Vendez votre voiture",
     "language": "Langue",
     "currency": "Devise",
-    "tagline": "La place de marché automobile moderne des ÉAU. Achetez, vendez et explorez depuis tout l'émirat.",
+    "tagline": "Une place de marché automobile moderne. Achetez, vendez et explorez depuis partout dans le monde.",
     "footer": {
       "buy": "Acheter",
       "sell": "Vendre",
@@ -82,7 +82,7 @@
       "cookies": "Cookies"
     },
     "copyright": "© 2026 Carsens FZ-LLC. Tous droits réservés.",
-    "madeIn": "Conçu à Dubaï, ÉAU 🇦🇪",
+    "madeIn": "Conçu pour les acheteurs et vendeurs du monde entier",
     "myAccount": "Mon compte",
     "menu": "Menu",
     "menuNav": "Navigation principale",

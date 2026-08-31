@@ -48,7 +48,20 @@ export const SELLER_TYPES = ["PRIVATE", "DEALER"] as const;
 /** Prisma VehicleCondition. Single-select: a car is one or the other. */
 export const CONDITIONS = ["USED", "NEW"] as const;
 
+/**
+ * "relevance" is a real backend sort (ts_rank over the keyword match) but it is
+ * not yet in `SearchSort`, which lives in the shared API client. Widening it
+ * here keeps this surface honest until the client type catches up; the one
+ * cast is in `toApiParams`, where the value goes back out as a query string.
+ */
+export type SearchSortOption = SearchSort | "relevance";
+
+/**
+ * Every sort the control can offer. `relevance` is listed first because it is
+ * the default the moment there is a phrase to rank.
+ */
 export const SORT_OPTIONS = [
+  "relevance",
   "newest",
   "price_asc",
   "price_desc",
@@ -56,7 +69,26 @@ export const SORT_OPTIONS = [
   "mileage_desc",
   "year_desc",
   "year_asc",
-] as const satisfies readonly SearchSort[];
+] as const satisfies readonly SearchSortOption[];
+
+/**
+ * Ordering a keyword search by date buries its own best answer, so a phrase
+ * defaults to relevance and browsing still defaults to newest. The backend
+ * applies exactly this rule, so an unset `sort` param means the same thing on
+ * both sides and the URL stays clean.
+ */
+export function defaultSortFor(q?: string): SearchSortOption {
+  return q ? "relevance" : "newest";
+}
+
+/**
+ * Relevance is only offered when there is something to rank. Without a phrase
+ * every row scores the same, so the option would be a control that does
+ * nothing.
+ */
+export function sortOptionsFor(q?: string): readonly SearchSortOption[] {
+  return q ? SORT_OPTIONS : SORT_OPTIONS.filter((s) => s !== "relevance");
+}
 
 export interface SearchFilters {
   makeId?: string;
@@ -86,7 +118,7 @@ export interface SearchFilters {
 
 export interface SearchPageState {
   filters: SearchFilters;
-  sort: SearchSort;
+  sort: SearchSortOption;
   /**
    * 1-based offset page, serialized for every sort so the URL reports what the
    * user asked for. NOTE: the backend applies OFFSET only for non-"newest"
@@ -141,7 +173,12 @@ function csv(
 }
 
 export function parseSearchQuery(query: ParsedUrlQuery): SearchPageState {
-  const sort: SearchSort = oneOf(query.sort, SORT_OPTIONS) ?? "newest";
+  const q = (first(query.q) ?? "").trim() || undefined;
+  // A relevance sort left over from a search whose phrase has since been
+  // cleared would select an option the control no longer offers, and the
+  // select would render blank. Fall back to the default for what is actually
+  // being asked.
+  const asked = oneOf(query.sort, sortOptionsFor(q));
   return {
     filters: {
       makeId: id(query.makeId),
@@ -160,9 +197,9 @@ export function parseSearchQuery(query: ParsedUrlQuery): SearchPageState {
       fuelType: csv(query.fuelType, FUEL_TYPES),
       transmission: csv(query.transmission, TRANSMISSIONS),
       regionalSpec: csv(query.regionalSpec, REGIONAL_SPECS),
-      q: (first(query.q) ?? "").trim() || undefined,
+      q,
     },
-    sort,
+    sort: asked ?? defaultSortFor(q),
     page: Math.max(1, num(query.page) ?? 1),
   };
 }
@@ -192,7 +229,9 @@ export function serializeSearchQuery(state: SearchPageState): Record<string, str
   if (f.sellerType) q.sellerType = f.sellerType;
   if (f.condition) q.condition = f.condition;
   if (f.dealerId) q.dealerId = f.dealerId;
-  if (state.sort !== "newest") q.sort = state.sort;
+  // Omit the sort whenever it is what this search would default to anyway —
+  // that default now depends on whether there is a phrase.
+  if (state.sort !== defaultSortFor(f.q)) q.sort = state.sort;
   if (state.page > 1) q.page = String(state.page);
   return q;
 }
@@ -227,7 +266,9 @@ export function toApiParams(
     transmission: f.transmission.length > 0 ? f.transmission : undefined,
     regionalSpec: f.regionalSpec.length > 0 ? f.regionalSpec : undefined,
     q: f.q,
-    sort: state.sort,
+    // See SearchSortOption: the shared client's `SearchSort` has no
+    // "relevance" member yet. It travels as a query string either way.
+    sort: state.sort as SearchListingsParams["sort"],
     page: state.page > 1 ? state.page : undefined,
     limit: pageSize,
     facets: true,

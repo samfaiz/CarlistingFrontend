@@ -343,6 +343,7 @@
     "sortBy": "Trier par",
     "empty": "Aucune voiture ne correspond. Essayez d'élargir les filtres.",
     "sort": {
+      "relevance": "Correspondance la plus proche",
       "newest": "Plus récentes",
       "price_asc": "Prix : croissant",
       "price_desc": "Prix : décroissant",

@@ -23,15 +23,7 @@
   "table": {
     "differencesOnly": "Show differences only",
     "remove": "Remove from comparison",
-    "price": "Price",
-    "year": "Year",
-    "mileage": "Mileage",
-    "fuel": "Fuel type",
-    "transmission": "Transmission",
-    "regionalSpec": "Regional spec",
-    "location": "Location",
     "noValue": "—",
-    "basics": "Basics",
     "rowHeader": "Specification",
     "winner": "best in this row",
     "modelColumn": "{{count}} for sale now"
@@ -40,64 +32,96 @@
   "sharedNotice": "You are viewing a shared comparison. Prices are always current.",
   "groups": {
     "basics": "Basics",
+    "ownership": "Deal & ownership",
     "engine_performance": "Engine & performance",
     "dimensions_capacity": "Dimensions & capacity",
     "exterior_interior": "Exterior & interior",
-    "safety_technology": "Safety & technology"
+    "safety_technology": "Safety & technology",
+    "bike_engine_performance": "Engine & performance",
+    "bike_transmission": "Transmission & drive",
+    "bike_dimensions": "Dimensions & weight",
+    "bike_chassis": "Chassis & brakes",
+    "bike_electronics": "Electronics & rider aids",
+    "additional": "Additional specifications"
   },
   "rows": {
     "price": "Price",
     "year": "Year",
     "mileage": "Mileage",
     "condition": "Condition",
+    "bodyType": "Body type",
     "regionalSpec": "Regional spec",
     "transmission": "Transmission",
     "fuelType": "Fuel",
-    "bodyType": "Body type",
+    "engineCc": "Engine size",
+    "cylinders": "Cylinders",
+    "exteriorColor": "Exterior colour",
+    "interiorColor": "Interior colour",
     "emirate": "Location",
-    "sellerType": "Seller"
+    "sellerType": "Seller",
+    "negotiable": "Price negotiable",
+    "dealRating": "Deal rating",
+    "marketMedian": "Market median",
+    "listedOn": "Listed on",
+    "availability": "For sale now"
+  },
+  "units": {
+    "km": "km",
+    "cc": "cc"
+  },
+  "values": {
+    "condition": {
+      "USED": "Used",
+      "NEW": "New"
+    },
+    "regionalSpec": {
+      "GCC": "GCC specs",
+      "AMERICAN": "American specs",
+      "EUROPEAN": "European specs",
+      "JAPANESE": "Japanese specs",
+      "CANADIAN": "Canadian specs",
+      "KOREAN": "Korean specs",
+      "CHINESE": "Chinese specs",
+      "OTHER": "Other specs"
+    },
+    "transmission": {
+      "AUTOMATIC": "Automatic",
+      "MANUAL": "Manual",
+      "CVT": "CVT",
+      "SEMI_AUTOMATIC": "Semi-automatic"
+    },
+    "fuelType": {
+      "PETROL": "Petrol",
+      "DIESEL": "Diesel",
+      "HYBRID": "Hybrid",
+      "ELECTRIC": "Electric",
+      "PLUGIN_HYBRID": "Plug-in hybrid"
+    },
+    "sellerType": {
+      "PRIVATE": "Private seller",
+      "DEALER": "Dealer"
+    },
+    "negotiable": {
+      "YES": "Negotiable",
+      "NO": "Fixed price"
+    },
+    "dealRating": {
+      "GREAT": "Great deal",
+      "GOOD": "Good deal",
+      "FAIR": "Fair price",
+      "HIGH": "Above market"
+    }
   },
   "score": {
     "label": "Match score",
     "best": "Best match",
-    "personalised": "Scored against your priorities from the quiz.",
-    "defaultWeights": "Scored with every priority weighted equally — take the quiz to make it personal."
+    "personalised": "Scored against the priorities you gave the advisor.",
+    "defaultWeights": "Scored with every priority weighted equally — answer a few questions to make it personal."
   },
   "share": {
     "button": "Share",
     "copied": "Share link copied.",
     "failed": "Could not create a share link."
-  },
-  "quiz": {
-    "open": "Find my match",
-    "title": "Find your match",
-    "intro": "Five quick questions. We rank the cars against what matters to you.",
-    "budget": "Maximum budget (AED)",
-    "seats": "Minimum seats",
-    "usage": "How will you use it?",
-    "usageOptions": {
-      "city": "City driving",
-      "family": "Family",
-      "offroad": "Off-road",
-      "longDistance": "Long distance"
-    },
-    "priorities": "Rank what matters most",
-    "prioritiesHint": "Move your top priority to the first position.",
-    "priorityLabels": {
-      "price": "Price",
-      "fuelEconomy": "Running costs",
-      "performance": "Performance",
-      "space": "Space",
-      "tech": "Technology",
-      "resale": "Resale value"
-    },
-    "moveUp": "Move {{item}} up",
-    "moveDown": "Move {{item}} down",
-    "submit": "Show my matches",
-    "cancel": "Cancel",
-    "applied": "Comparison re-scored against your priorities.",
-    "failed": "Could not run the quiz. Try again.",
-    "suggestionsTitle": "Suggested for you — tap to add to the comparison"
   },
   "errors": {
     "buildFailed": "Could not build the comparison. Try again.",
