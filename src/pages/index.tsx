@@ -27,7 +27,14 @@ import {
   resolveFieldText,
   type ResolvedSection,
 } from "@/components/homepage/section-renderer";
-import { searchListings, type Card } from "@/lib/marketplace-api";
+import {
+  getMakes,
+  getModels,
+  searchListings,
+  type Card,
+  type TaxonomyMake,
+  type TaxonomyModel,
+} from "@/lib/marketplace-api";
 import { API_BASE_URL } from "@/lib/api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
@@ -53,12 +60,35 @@ type T = (key: string) => string;
 // ── Structural sections ───────────────────────────────────────────────────────
 
 function Hero({ t, section }: { t: T; section?: ResolvedSection }) {
+  /*
+   * Real taxonomy, fetched on mount. The make list used to be twelve hardcoded
+   * strings and the model select was permanently empty whatever you picked, so
+   * the most common search on the site — a make and a model — could not be
+   * started from the home page at all.
+   */
+  const [makes, setMakes] = React.useState<TaxonomyMake[]>([]);
+  const [heroMakeId, setHeroMakeId] = React.useState("");
+  const [heroModels, setHeroModels] = React.useState<TaxonomyModel[]>([]);
+  const [heroModelId, setHeroModelId] = React.useState("");
+
+  React.useEffect(() => {
+    void getMakes()
+      .then(setMakes)
+      .catch(() => setMakes([]));
+  }, []);
+
+  const onHeroMake = async (makeId: string) => {
+    setHeroMakeId(makeId);
+    setHeroModelId("");
+    setHeroModels(makeId ? await getModels(makeId).catch(() => []) : []);
+  };
+
   const router = useRouter();
   const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const params = new URLSearchParams();
-    for (const key of ["make", "priceMax", "yearMin"]) {
+    for (const key of ["makeId", "modelId", "priceMax", "yearMin"]) {
       const v = form.get(key);
       if (v) params.set(key, String(v));
     }
@@ -95,14 +125,42 @@ function Hero({ t, section }: { t: T; section?: ResolvedSection }) {
                 the field when clicked. */}
             <div className="search-field">
               <label htmlFor="home-make">{t("hero.make")}</label>
-              <select id="home-make" name="make" defaultValue="">
+              <select
+                id="home-make"
+                name="makeId"
+                value={heroMakeId}
+                onChange={(e) => void onHeroMake(e.target.value)}
+              >
                 <option value="">{t("hero.anyMake")}</option>
-                {MAKES.map((m) => <option key={m} value={m.toLowerCase().replace(/[^a-z]/g, "-")}>{m}</option>)}
+                {makes.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="search-field">
               <label htmlFor="home-model">{t("hero.model")}</label>
-              <select id="home-model" name="model" defaultValue=""><option value="">{t("hero.anyModel")}</option></select>
+              {/*
+                This select had exactly one option — "Any model" — and never
+                populated, whatever make was chosen. It also submitted `model`,
+                a parameter /cars does not read. Make and model now carry real
+                ids, which is what search actually filters on.
+              */}
+              <select
+                id="home-model"
+                name="modelId"
+                value={heroModelId}
+                onChange={(e) => setHeroModelId(e.target.value)}
+                disabled={!heroMakeId}
+              >
+                <option value="">{t("hero.anyModel")}</option>
+                {heroModels.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="search-field">
               <label htmlFor="home-price">{t("hero.price")}</label>
