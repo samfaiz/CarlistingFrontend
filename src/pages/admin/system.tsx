@@ -203,7 +203,7 @@ function PackagesTab({ token, t }: { token?: string; t: TF }) {
           <tbody>{rows.map((p) => (
             <tr key={p.id} className="border-t border-line">
               <td className="p-3"><span className="font-medium text-ink">{p.tier}</span> <span className="text-xs text-muted">{p.name}</span></td>
-              <td className="p-3">AED {(p.priceAed / 100).toLocaleString()}</td>
+              <td className="p-3">AED {p.priceAed.toLocaleString()}</td>
               <td className="p-3">{p.listingQuota}</td>
               <td className="p-3">{p.activeSubscriptions}</td>
               <td className="p-3"><Badge variant={p.isActive ? "green" : "neutral"}>{p.isActive ? t("system.on") : t("system.off")}</Badge></td>
@@ -221,7 +221,7 @@ function PackagesTab({ token, t }: { token?: string; t: TF }) {
             <div className="grid grid-cols-2 gap-3">
               <div><Label htmlFor="p-tier">{t("system.packages.tier")}</Label><Input id="p-tier" value={edit.tier} onChange={(e) => setEdit({ ...edit, tier: e.target.value })} disabled={Boolean(edit.id)} /></div>
               <div><Label htmlFor="p-name">{t("system.packages.name")}</Label><Input id="p-name" value={edit.name} onChange={(e) => setEdit({ ...edit, name: e.target.value })} /></div>
-              <div><Label htmlFor="p-price">{t("system.packages.priceFils")}</Label><Input id="p-price" type="number" value={edit.priceAed} onChange={(e) => setEdit({ ...edit, priceAed: Number(e.target.value) })} /></div>
+              <div><Label htmlFor="p-price">{t("system.packages.price")}</Label><Input id="p-price" type="number" value={edit.priceAed} onChange={(e) => setEdit({ ...edit, priceAed: Number(e.target.value) })} /></div>
               <div><Label htmlFor="p-quota">{t("system.packages.quota")}</Label><Input id="p-quota" type="number" value={edit.listingQuota} onChange={(e) => setEdit({ ...edit, listingQuota: Number(e.target.value) })} /></div>
               <div><Label htmlFor="p-boost">{t("system.packages.boostCredits")}</Label><Input id="p-boost" type="number" value={edit.boostCredits} onChange={(e) => setEdit({ ...edit, boostCredits: Number(e.target.value) })} /></div>
               <div><Label htmlFor="p-term">{t("system.packages.termMonths")}</Label><Input id="p-term" type="number" value={edit.termMonths} onChange={(e) => setEdit({ ...edit, termMonths: Number(e.target.value) })} /></div>
