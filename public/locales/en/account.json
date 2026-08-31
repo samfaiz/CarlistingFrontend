@@ -36,7 +36,11 @@
       "remove": "Remove",
       "removed": "Listing removed. You can restore it for 30 days.",
       "restore": "Restore",
-      "restored": "Listing restored. It is paused until you publish it again."
+      "restored": "Listing restored. It is paused until you publish it again.",
+      "unsell": "Not sold after all",
+      "unsold": "Back to paused",
+      "resubmit": "Resubmit for review",
+      "resubmitted": "Sent for review again"
     },
     "errors": {
       "load": "Could not load your listings.",
@@ -50,7 +54,8 @@
       "body": "“{{title}}” comes off the site straight away and buyers can no longer find it. Nothing is deleted — it moves to the Removed filter, where you can restore it for 30 days.",
       "confirm": "Remove listing",
       "cancel": "Keep it"
-    }
+    },
+    "rejectedBecause": "Rejected: {{reason}}"
   },
   "notifications": {
     "meta": {

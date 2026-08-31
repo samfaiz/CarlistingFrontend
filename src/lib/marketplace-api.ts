@@ -91,6 +91,8 @@ export interface ListingDescription {
 
 /** GET /listings/:slug — 404 unless LIVE (owner sees own). */
 export interface ListingDetail extends Omit<Card, "media"> {
+  /** Why a moderator rejected it. Present on /listings/mine; shown to the seller. */
+  rejectReason?: string | null;
   media: ListingMedia[];
   descriptions: ListingDescription[];
   specsSnapshot: SpecGroups | null;

@@ -58,6 +58,7 @@ import {
   markListingSold,
   myListings,
   pauseListing,
+  submitListing,
   renewListing,
   restoreListing,
   resumeListing,
@@ -240,6 +241,17 @@ export default function MyListingsPage() {
                           {tListings(`status.${l.status}`, { defaultValue: l.status })}
                         </Badge>
                       </div>
+                      {/*
+                        Why it was rejected. The moderator's reason has always
+                        been stored and sent on this payload, and the seller was
+                        shown a red badge and nothing else — left to guess what
+                        to change before resubmitting.
+                      */}
+                      {l.status === "REJECTED" && l.rejectReason ? (
+                        <p className="mt-1 rounded-card bg-danger-soft px-2 py-1 text-xs text-danger-strong">
+                          {t("listings.rejectedBecause", { reason: l.rejectReason })}
+                        </p>
+                      ) : null}
                       <p className="mt-1 text-xs text-muted">
                         {formatPrice(l.priceAed, "en")}
                         {l.publishedAt
@@ -320,6 +332,31 @@ export default function MyListingsPage() {
                         >
                           <RefreshCw aria-hidden />
                           {t("listings.actions.renew")}
+                        </Button>
+                      )}
+                      {l.status === "SOLD" && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          disabled={busy}
+                          onClick={() =>
+                            void act(l.id, () => pauseListing(l.id, accessToken!), "listings.actions.unsold")
+                          }
+                        >
+                          <Undo2 aria-hidden />
+                          {t("listings.actions.unsell")}
+                        </Button>
+                      )}
+                      {l.status === "REJECTED" && (
+                        <Button
+                          size="sm"
+                          disabled={busy}
+                          onClick={() =>
+                            void act(l.id, () => submitListing(l.id, accessToken!), "listings.actions.resubmitted")
+                          }
+                        >
+                          <RefreshCw aria-hidden />
+                          {t("listings.actions.resubmit")}
                         </Button>
                       )}
                       {archived && (

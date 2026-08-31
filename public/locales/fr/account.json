@@ -36,7 +36,11 @@
       "remove": "Retirer",
       "removed": "Annonce retirée. Vous pouvez la restaurer pendant 30 jours.",
       "restore": "Restaurer",
-      "restored": "Annonce restaurée. Elle reste en pause jusqu'à ce que vous la republiiez."
+      "restored": "Annonce restaurée. Elle reste en pause jusqu'à ce que vous la republiiez.",
+      "unsell": "Finalement pas vendu",
+      "unsold": "Repassé en pause",
+      "resubmit": "Renvoyer pour révision",
+      "resubmitted": "Renvoyé pour révision"
     },
     "errors": {
       "load": "Impossible de charger vos annonces.",
@@ -50,7 +54,8 @@
       "body": "« {{title}} » disparaît immédiatement du site et les acheteurs ne peuvent plus la trouver. Rien n'est supprimé : elle passe dans le filtre Retirées, où vous pouvez la restaurer pendant 30 jours.",
       "confirm": "Retirer l'annonce",
       "cancel": "La garder"
-    }
+    },
+    "rejectedBecause": "Refusé : {{reason}}"
   },
   "notifications": {
     "meta": {

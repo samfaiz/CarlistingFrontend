@@ -36,7 +36,11 @@
       "remove": "Retirar",
       "removed": "Anuncio retirado. Puedes restaurarlo durante 30 días.",
       "restore": "Restaurar",
-      "restored": "Anuncio restaurado. Queda en pausa hasta que vuelvas a publicarlo."
+      "restored": "Anuncio restaurado. Queda en pausa hasta que vuelvas a publicarlo.",
+      "unsell": "No se vendió",
+      "unsold": "Vuelve a pausado",
+      "resubmit": "Volver a enviar a revisión",
+      "resubmitted": "Enviado a revisión de nuevo"
     },
     "errors": {
       "load": "No se pudieron cargar tus anuncios.",
@@ -50,7 +54,8 @@
       "body": "«{{title}}» desaparece del sitio de inmediato y los compradores ya no podrán encontrarlo. No se borra nada: pasa al filtro Retirados, donde puedes restaurarlo durante 30 días.",
       "confirm": "Retirar anuncio",
       "cancel": "Mantenerlo"
-    }
+    },
+    "rejectedBecause": "Rechazado: {{reason}}"
   },
   "notifications": {
     "meta": {
