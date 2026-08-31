@@ -7,7 +7,7 @@
     "below": "{{pct}}% below median",
     "above": "{{pct}}% above median",
     "noData": "Not enough comparable cars to rate this price.",
-    "explain": "Compared with the median price of similar cars — same make, model and year range — listed in the UAE."
+    "explain": "Compared with the median price of similar cars — same make, model and year range — listed on Carsens."
   },
   "insight": {
     "title": "How this price compares",
@@ -42,7 +42,7 @@
     "totalCost": "Total cost",
     "preApproved": "Get pre-approved",
     "fromMonthly": "or {{monthly}} / month over {{months}} months",
-    "disclaimer": "Indicative only. UAE banks typically ask for {{downPct}}% down on a used vehicle, and your rate depends on salary, employer and credit history.",
+    "disclaimer": "Indicative only. Lenders typically ask for {{downPct}}% down on a used vehicle, and your rate depends on income, employer and credit history.",
     "leadTitle": "Leave your details and a finance partner will call you back.",
     "leadName": "Full name",
     "leadPhone": "Mobile number",

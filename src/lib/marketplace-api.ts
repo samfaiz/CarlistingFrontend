@@ -290,6 +290,48 @@ export function getListing(slug: string): Promise<ListingDetail> {
   return apiGet<ListingDetail>(`/listings/${encodeURIComponent(slug)}`);
 }
 
+/** One resolved spec value: trim data with the seller's corrections applied. */
+export interface SpecSheetField {
+  key: string;
+  name: string;
+  i18n: Record<string, string> | null;
+  unit: string | null;
+  valueType: string;
+  options: string[];
+  better: string | null;
+  value: string | null;
+  source: "SELLER" | "TRIM" | null;
+}
+
+export interface SpecSheetGroup {
+  key: string;
+  name: string;
+  i18n: Record<string, string> | null;
+  /** "basic" renders open; "advanced" starts collapsed. */
+  tier: string;
+  fields: SpecSheetField[];
+}
+
+export interface SpecSheet {
+  groups: SpecSheetGroup[];
+  custom: { label: string; value: string; group: string }[];
+  filled: number;
+  total: number;
+  matched: boolean;
+}
+
+/**
+ * The full specification sheet for a listing.
+ *
+ * Separate from getListing because it is a merge of three sources (snapshot,
+ * published trim data, the seller's overrides) that the detail page, the
+ * comparison and the PDF all have to agree on. The listing payload carries
+ * only its own snapshot, which is blank on most cars.
+ */
+export function getSpecSheet(slug: string): Promise<SpecSheet> {
+  return apiGet<SpecSheet>(`/specs/listings/${encodeURIComponent(slug)}`);
+}
+
 export function getMakes(vehicleType?: string): Promise<TaxonomyMake[]> {
   const suffix = vehicleType
     ? `?vehicleType=${encodeURIComponent(vehicleType)}`

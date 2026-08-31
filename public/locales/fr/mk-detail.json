@@ -114,7 +114,7 @@
     "reportButton": "Voir le rapport d'inspection complet (PDF)"
   },
   "specs": {
-    "title": "Spécifications complètes",
+    "title": "Caractéristiques",
     "engine": {
       "title": "Moteur et performances",
       "engine": {
@@ -246,7 +246,14 @@
         "label": "CarPlay / AA sans fil",
         "value": "Oui"
       }
-    }
+    },
+    "coverage": "{{filled}} caractéristiques sur {{total}} renseignées",
+    "filledCount": "{{filled}}/{{total}}",
+    "notSpecified": "Non renseigné",
+    "bySeller": "vendeur",
+    "bySellerHint": "Saisi par le vendeur pour cette voiture précise, et non repris des données du modèle.",
+    "noTrimData": "Nous n'avons pas de caractéristiques constructeur pour ce millésime et cette spécification régionale : tout ce qui figure ici a été saisi par le vendeur.",
+    "additional": "Caractéristiques supplémentaires"
   },
   "history": {
     "title": "Historique du véhicule",

@@ -7,7 +7,7 @@
     "below": "{{pct}} % por debajo de la mediana",
     "above": "{{pct}} % por encima de la mediana",
     "noData": "No hay suficientes coches comparables para valorar este precio.",
-    "explain": "Comparado con la mediana de precios de coches similares —misma marca, modelo y franja de año— publicados en los EAU."
+    "explain": "Comparado con el precio medio de coches similares — misma marca, modelo y rango de años — publicados en Carsens."
   },
   "insight": {
     "title": "Cómo se compara este precio",
@@ -45,7 +45,7 @@
     "totalCost": "Coste total",
     "preApproved": "Solicitar preaprobación",
     "fromMonthly": "o {{monthly}} al mes durante {{months}} meses",
-    "disclaimer": "Solo orientativo. Los bancos de los EAU suelen exigir una entrada del {{downPct}} % en vehículos usados, y tu tipo depende del salario, el empleador y el historial crediticio.",
+    "disclaimer": "Solo orientativo. Las entidades suelen pedir un {{downPct}}% de entrada en un vehículo usado, y tu tipo depende de los ingresos, el empleador y el historial crediticio.",
     "leadTitle": "Déjanos tus datos y un socio financiero te llamará.",
     "leadName": "Nombre completo",
     "leadPhone": "Número de móvil",

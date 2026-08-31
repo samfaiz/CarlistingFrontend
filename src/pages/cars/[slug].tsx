@@ -16,8 +16,11 @@ import { useSession } from "next-auth/react";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import { formatMileage, formatPrice, mediaUrl } from "@/lib/format";
 import { useCurrency } from "@/components/marketplace/currency-provider";
+import { SpecSheet } from "@/components/marketplace/spec-sheet";
+import type { SpecSheet as SpecSheetData } from "@/lib/marketplace-api";
 import {
   getListing,
+  getSpecSheet,
   openConversation,
   revealContact,
   searchListings,
@@ -44,10 +47,18 @@ export default function MkdetailPage({
   similar,
   signal,
   financeConfig,
+  specSheet,
   gone,
 }: {
   listing: ListingDetail;
   similar: Card[];
+  /**
+   * Optional for the same reason the market props are: /bikes/[slug] reuses
+   * this component with its own getServerSideProps and does not supply one.
+   * Null also covers "the spec endpoint was down", and the section renders
+   * nothing rather than an empty shell.
+   */
+  specSheet?: SpecSheetData | null;
   /*
    * Market signals are OPTIONAL props, and deliberately so. /bikes/[slug]
    * re-exports this component with its own getServerSideProps, which supplies
@@ -293,24 +304,7 @@ export default function MkdetailPage({
                   )}
 
                   {/* SPECIFICATIONS */}
-                  {listing.specsSnapshot?.groups?.length ? (
-                    <div className="detail-section">
-                      <h2>{t("specs.title")}</h2>
-                      {listing.specsSnapshot.groups.map((g) => (
-                        <div className="spec-group" key={g.key}>
-                          <h3>{g.name}</h3>
-                          <div className="spec-table">
-                            {g.fields.map((f) => (
-                              <div className="spec-row" key={f.key}>
-                                <span>{f.name}</span>
-                                <span>{f.value}{f.unit ? ` ${f.unit}` : ""}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
+                  <SpecSheet sheet={specSheet ?? null} />
                 </div>
 
                 {/* STICKY SIDEBAR */}
@@ -465,7 +459,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, params, r
    * which is what keeps it off the 120/min global throttle. Both are
    * `.catch(() => null)`: a market outage must cost the badge, not the page.
    */
-  const [signal, financeConfig, similarRes] = await Promise.all([
+  const [signal, financeConfig, similarRes, specSheet] = await Promise.all([
     getPriceSignal(listing.id).catch(() => null),
     getFinanceConfig().catch(() => null),
     searchListings({
@@ -474,6 +468,10 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, params, r
       limit: 4,
       sort: "newest",
     }).catch(() => ({ items: [] as Card[] })),
+    // Server-side so the specification table is in the HTML a crawler reads and
+    // the page does not reflow when it lands. A spec outage costs the table,
+    // not the car page.
+    getSpecSheet(slug).catch(() => null),
   ]);
   const similar = similarRes.items.filter((c) => c.slug !== slug).slice(0, 4);
 
@@ -483,6 +481,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, params, r
       similar,
       signal,
       financeConfig,
+      specSheet,
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
         ["common", "mk-detail", "market"],

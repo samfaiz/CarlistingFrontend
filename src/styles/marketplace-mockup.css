@@ -475,6 +475,24 @@
 .mk .spec-row {display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--divider);font-size:13.5px;gap:10px}
 .mk .spec-row span:first-child {color:var(--text-2)}
 .mk .spec-row span:last-child {color:var(--text);font-weight:600;text-align:end}
+
+/* Full specification sheet (90 fields / 8 groups).
+   Logical properties only — RTL is a release gate. */
+.mk .spec-head {display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mk .spec-coverage {font-size:12.5px;color:var(--text-2);font-weight:600}
+.mk .spec-nodata {margin:10px 0 0;padding:10px 12px;border-radius:10px;background:var(--brand-surface);color:var(--text-2);font-size:13px;line-height:1.5}
+.mk .spec-group-toggle {display:flex;align-items:center;gap:10px;width:100%;padding:0;margin:0 0 12px;background:none;border:0;cursor:pointer;text-align:start;color:inherit}
+.mk .spec-group-toggle h3 {margin:0;flex:1}
+.mk .spec-group-count {font-size:12px;font-weight:600;color:var(--text-3);font-variant-numeric:tabular-nums}
+.mk .spec-chevron {width:16px;height:16px;color:var(--text-2);flex-shrink:0;transition:transform .16s ease}
+/* Rotation is direction-agnostic, so it needs no RTL variant. */
+.mk .spec-chevron-open {transform:rotate(180deg)}
+.mk .spec-group-toggle:focus-visible {outline:2px solid var(--brand);outline-offset:3px;border-radius:6px}
+.mk .spec-value-empty {color:var(--text-3);font-weight:500}
+.mk .spec-by-seller {display:inline-block;margin-inline-start:6px;padding:1px 6px;border-radius:999px;background:var(--brand-surface);color:var(--brand);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;vertical-align:middle}
+@media (prefers-reduced-motion: reduce) {
+  .mk .spec-chevron {transition:none}
+}
 .mk .inspect-card {background:#F0FDF4;border:1px solid #BBF7D0;border-radius:14px;padding:24px}
 .mk .inspect-head {display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:16px;flex-wrap:wrap}
 .mk .inspect-head-left {display:flex;gap:14px;align-items:center}
@@ -514,7 +532,10 @@
 .mk .dealer-link {display:inline-block;margin-top:10px;color:var(--brand);font-weight:600;font-size:13px}
 .mk .dealer-link:hover {color:var(--brand-hover)}
 .mk .contact-buttons {display:flex;flex-direction:column;gap:8px;margin-top:6px}
-.mk .btn-whatsapp {background:#25D366;color:#fff;border:0}
+/* WhatsApp's own darker green. #25D366 with white text is 1.98:1 — the same
+   WCAG AA failure class as the --text-3 defect, and on a primary contact
+   button. #0F7A6C is 5.22:1 and still reads as WhatsApp. */
+.mk .btn-whatsapp {background:#0F7A6C;color:#fff;border:0}
 .mk .btn-whatsapp:hover {background:#1ea854}
 .mk .finance-card h3 {margin:0 0 4px;font-size:16px;font-weight:700}
 .mk .finance-card .muted {color:var(--text-2);font-size:13px;margin:0 0 16px}

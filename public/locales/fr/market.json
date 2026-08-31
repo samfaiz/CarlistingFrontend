@@ -7,7 +7,7 @@
     "below": "{{pct}} % sous la médiane",
     "above": "{{pct}} % au-dessus de la médiane",
     "noData": "Pas assez de voitures comparables pour évaluer ce prix.",
-    "explain": "Comparé au prix médian de voitures similaires — même marque, même modèle, même tranche d’années — publiées aux Émirats."
+    "explain": "Comparé au prix médian de voitures similaires — même marque, modèle et tranche d'années — publiées sur Carsens."
   },
   "insight": {
     "title": "Comment se situe ce prix",
@@ -45,7 +45,7 @@
     "totalCost": "Coût total",
     "preApproved": "Obtenir un accord de principe",
     "fromMonthly": "ou {{monthly}} / mois sur {{months}} mois",
-    "disclaimer": "À titre indicatif. Les banques des Émirats demandent généralement un apport de {{downPct}} % sur un véhicule d’occasion, et votre taux dépend du salaire, de l’employeur et de l’historique de crédit.",
+    "disclaimer": "À titre indicatif. Les prêteurs demandent généralement {{downPct}}% d'apport sur un véhicule d'occasion, et votre taux dépend des revenus, de l'employeur et de l'historique de crédit.",
     "leadTitle": "Laissez vos coordonnées et un partenaire financier vous rappellera.",
     "leadName": "Nom complet",
     "leadPhone": "Numéro de mobile",

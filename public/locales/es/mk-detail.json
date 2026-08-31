@@ -114,7 +114,7 @@
     "reportButton": "Ver el informe completo de inspección (PDF)"
   },
   "specs": {
-    "title": "Especificaciones completas",
+    "title": "Especificaciones",
     "engine": {
       "title": "Motor y rendimiento",
       "engine": {
@@ -246,7 +246,14 @@
         "label": "CarPlay / AA inalámbrico",
         "value": "Sí"
       }
-    }
+    },
+    "coverage": "{{filled}} de {{total}} especificaciones indicadas",
+    "filledCount": "{{filled}}/{{total}}",
+    "notSpecified": "Sin especificar",
+    "bySeller": "vendedor",
+    "bySellerHint": "Lo ha indicado el vendedor para este coche concreto; no procede de los datos del modelo.",
+    "noTrimData": "No tenemos especificaciones de fábrica para este año y esta especificación regional, así que todo lo que aparece aquí lo ha indicado el vendedor.",
+    "additional": "Especificaciones adicionales"
   },
   "history": {
     "title": "Historial del vehículo",

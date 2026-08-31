@@ -16,6 +16,7 @@ import { test, expect } from "@playwright/test";
 import arHome from "../public/locales/ar/mk-home.json";
 import enHome from "../public/locales/en/mk-home.json";
 import enDetail from "../public/locales/en/detail.json";
+import enMkDetail from "../public/locales/en/mk-detail.json";
 import { expectNoA11yViolations } from "./helpers/axe";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
@@ -155,6 +156,79 @@ test.describe("car detail page", () => {
     await expect(
       page.getByRole("heading", { name: enDetail.specs.heading }),
     ).toBeVisible();
+
+    await expectNoA11yViolations(page);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/* Full specification sheet                                            */
+/* ------------------------------------------------------------------ */
+
+test.describe("specification sheet", () => {
+  /*
+   * Deliberately NOT gated on specsSlug. The section used to render only from
+   * listing.specsSnapshot, which one seeded listing has, so it was invisible on
+   * every other car — and the old test skipped rather than catching it. The
+   * sheet now resolves from the trim catalogue too, so ANY listing must show it.
+   */
+  test("renders the whole catalogue, collapses advanced groups and says 'Not specified'", async ({
+    page,
+  }) => {
+    const slug = railItems[0]?.slug;
+    test.skip(!slug, "no rail listing to open");
+
+    await page.goto(`/cars/${slug}`);
+
+    const heading = page.getByRole("heading", {
+      name: enMkDetail.specs.title,
+      exact: true,
+    });
+    await expect(heading).toBeVisible({ timeout: 20_000 });
+
+    // "N of M specifications listed" — M is the catalogue, not what is filled.
+    const coverage = page.locator(".spec-coverage");
+    await expect(coverage).toBeVisible();
+    const total = Number((await coverage.textContent())?.match(/of (\d+)/)?.[1] ?? 0);
+    expect(total).toBeGreaterThanOrEqual(90);
+
+    const toggles = page.locator(".spec-group-toggle");
+    expect(await toggles.count()).toBeGreaterThanOrEqual(8);
+
+    // An unknown value reads "Not specified". Rendering "No" would be a claim
+    // about someone's car that nobody made.
+    const empties = page.locator(".spec-value-empty");
+    expect(await empties.count()).toBeGreaterThan(0);
+    await expect(empties.first()).toHaveText(enMkDetail.specs.notSpecified);
+
+    /*
+     * Advanced groups start closed and open on click.
+     *
+     * Anchored on the panel id, not on [aria-expanded="false"]: that selector
+     * stops matching the moment the button is clicked, so a locator built from
+     * it silently re-resolves to some OTHER still-collapsed group and the
+     * assertion measures the wrong element.
+     */
+    const collapsed = page.locator('.spec-group-toggle[aria-expanded="false"]').first();
+    await expect(collapsed).toBeVisible();
+    const panelId = await collapsed.getAttribute("aria-controls");
+    expect(panelId).toBeTruthy();
+    const toggle = page.locator(`[aria-controls="${panelId}"]`);
+    const panel = page.locator(`#${panelId}`);
+
+    // Collapsed: the panel is not in the DOM at all, so aria-controls dangles
+    // only while there is nothing to point at.
+    await expect(panel).toHaveCount(0);
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(panel).toBeVisible();
+    expect(await panel.locator(".spec-row").count()).toBeGreaterThan(0);
+
+    // And it closes again.
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(panel).toHaveCount(0);
 
     await expectNoA11yViolations(page);
   });

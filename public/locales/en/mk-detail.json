@@ -114,7 +114,7 @@
     "reportButton": "View full inspection report (PDF)"
   },
   "specs": {
-    "title": "Full specifications",
+    "title": "Specifications",
     "engine": {
       "title": "Engine & performance",
       "engine": {
@@ -246,7 +246,14 @@
         "label": "Wireless CarPlay / AA",
         "value": "Yes"
       }
-    }
+    },
+    "coverage": "{{filled}} of {{total}} specifications listed",
+    "filledCount": "{{filled}}/{{total}}",
+    "notSpecified": "Not specified",
+    "bySeller": "seller",
+    "bySellerHint": "Entered by the seller for this specific car, not taken from the model data.",
+    "noTrimData": "We hold no factory specification for this exact model year and regional spec, so anything shown here was entered by the seller.",
+    "additional": "Additional specifications"
   },
   "history": {
     "title": "Vehicle history",

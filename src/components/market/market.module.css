@@ -39,8 +39,13 @@
 .chipHigh  { background: #FEF3C7; color: #92400E }
 
 .chipDelta {
+  /*
+   * No opacity. The pairs above were picked because they clear 4.5:1, and
+   * `opacity: 0.85` quietly composited #15803D over #DCFCE7 into #339357 —
+   * 3.51:1, a WCAG AA failure that axe reports as serious. De-emphasis is the
+   * lighter weight; the colour has to stay exactly what it was measured as.
+   */
   font-weight: 600;
-  opacity: 0.85;
 }
 
 /* The "we cannot judge this price" line. No colour, no chip, no verdict. */
