@@ -75,6 +75,7 @@ const FILTERS = [
   "DRAFT",
   "PAUSED",
   "EXPIRED",
+  "SOLD",
   "REJECTED",
   // `mine` hides archived rows unless the status is asked for by name, so the
   // recycle bin only exists if it is a filter.
