@@ -22,11 +22,23 @@ import { apiPost } from "@/lib/api";
 import nextI18NextConfig from "../../next-i18next.config.js";
 
 type VerifyStatus = "pending" | "success" | "invalid" | "missing";
+type SignupIntent = "BUYER" | "SELLER" | "DEALER" | null;
+
+/**
+ * Where each intent goes next. The chooser on the register page asked what the
+ * person came to do; sending all three to the same login screen threw that
+ * answer away. Login still happens — `next` carries them onward afterwards.
+ */
+const NEXT_BY_INTENT: Record<"SELLER" | "DEALER", string> = {
+  SELLER: "/sell",
+  DEALER: "/dealer",
+};
 
 export default function VerifyEmailPage() {
   const router = useRouter();
   const { t } = useTranslation("auth");
   const [status, setStatus] = React.useState<VerifyStatus>("pending");
+  const [intent, setIntent] = React.useState<SignupIntent>(null);
   // StrictMode runs effects twice in dev — the token must be consumed once.
   const firedRef = React.useRef(false);
 
@@ -39,8 +51,14 @@ export default function VerifyEmailPage() {
       return;
     }
     firedRef.current = true;
-    apiPost<{ verified: boolean }>("/auth/verify-email", { token })
-      .then(() => setStatus("success"))
+    apiPost<{ verified: boolean; signupIntent?: SignupIntent }>(
+      "/auth/verify-email",
+      { token },
+    )
+      .then((res) => {
+        setIntent(res?.signupIntent ?? null);
+        setStatus("success");
+      })
       .catch(() => setStatus("invalid"));
   }, [router.isReady, router.query.token]);
 
@@ -75,7 +93,19 @@ export default function VerifyEmailPage() {
         ) : null}
         {status === "success" ? (
           <Button asChild className="w-full">
-            <Link href="/login">{t("verify.goToLogin")}</Link>
+            <Link
+              href={
+                intent === "SELLER" || intent === "DEALER"
+                  ? `/login?next=${encodeURIComponent(NEXT_BY_INTENT[intent])}`
+                  : "/login"
+              }
+            >
+              {intent === "DEALER"
+                ? t("verify.goToDealer")
+                : intent === "SELLER"
+                  ? t("verify.goToSell")
+                  : t("verify.goToLogin")}
+            </Link>
           </Button>
         ) : null}
         {status === "invalid" || status === "missing" ? (

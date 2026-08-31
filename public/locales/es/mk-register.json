@@ -18,7 +18,8 @@
     "dealer": {
       "label": "Concesionario",
       "sub": "Showroom/agente"
-    }
+    },
+    "legend": "¿Qué te trae a Carsens?"
   },
   "form": {
     "fullName": {

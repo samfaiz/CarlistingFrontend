@@ -63,6 +63,7 @@
     "PAUSED": "موقوف مؤقتاً",
     "SOLD": "مُباع",
     "EXPIRED": "منتهي",
-    "REJECTED": "مرفوض"
+    "REJECTED": "مرفوض",
+    "ARCHIVED": "محذوف"
   }
 }

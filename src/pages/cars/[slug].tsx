@@ -24,13 +24,40 @@ import {
   type Card,
   type ListingDetail,
 } from "@/lib/marketplace-api";
+import {
+  getFinanceConfig,
+  getPriceSignal,
+  type CalculatorConfig,
+  type PriceSignal,
+} from "@/lib/market-api";
+import { DealBadge } from "@/components/market/deal-badge";
+import { DaysOnMarketLine, PriceInsight } from "@/components/market/price-insight";
+import { FinanceCalculator, MonthlyFromPrice } from "@/components/market/finance-calculator";
 import { BreadcrumbJsonLd, VehicleJsonLd } from "@/components/seo/json-ld";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
 const FUEL: Record<string, string> = { PETROL: "Petrol", DIESEL: "Diesel", HYBRID: "Hybrid", PLUGIN_HYBRID: "Plug-in Hybrid", ELECTRIC: "Electric", OTHER: "—" };
 const TRANS: Record<string, string> = { AUTOMATIC: "Automatic", MANUAL: "Manual", CVT: "CVT", DCT: "DCT", OTHER: "—" };
 
-export default function MkdetailPage({ listing, similar }: { listing: ListingDetail; similar: Card[] }) {
+export default function MkdetailPage({
+  listing,
+  similar,
+  signal,
+  financeConfig,
+}: {
+  listing: ListingDetail;
+  similar: Card[];
+  /*
+   * Market signals are OPTIONAL props, and deliberately so. /bikes/[slug]
+   * re-exports this component with its own getServerSideProps, which supplies
+   * neither of these and does not load the `market` catalogue — so the market
+   * UI must be entirely prop-driven and render nothing at all when they are
+   * absent, rather than fetching client-side and painting raw keys. Undefined
+   * means "never fetched"; null means the market endpoint was down.
+   */
+  signal?: PriceSignal | null;
+  financeConfig?: CalculatorConfig | null;
+}) {
   const { t } = useTranslation("mk-detail");
   const [active, setActive] = React.useState(0);
   const router = useRouter();
@@ -38,6 +65,9 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
   const [phone, setPhone] = React.useState<string | null>(null);
   const { currency, format } = useCurrency();
   const [leadBusy, setLeadBusy] = React.useState<string | null>(null);
+  // Money and dates in the market panels format per locale (Latin digits are
+  // forced inside formatPrice/formatRelativeTime, per FR-I5).
+  const locale = router.locale ?? "en";
 
   // P6-02: contact buttons record REAL leads (CALL/WHATSAPP reveal + CHAT).
   const onCall = async () => {
@@ -141,7 +171,10 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
               </div>
 
               <div className="detail-grid">
-                <div>
+                {/* `.detail-main` is the mockup's own column class (flex,
+                    gap:18px). The port shipped a bare <div>, so every card in
+                    this column sat flush against the next one. */}
+                <div className="detail-main">
                   {/* GALLERY */}
                   <div className="gallery">
                     <div className="gallery-main">
@@ -218,6 +251,10 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                     <div className="qs"><div className="qs-label">{t("quickSpecs.specs.label")}</div><div className="qs-val">{listing.regionalSpec}</div></div>
                   </div>
 
+                  {/* HOW THIS PRICE COMPARES — deal rating, days on market,
+                      price history. Renders nothing without SSR'd signals. */}
+                  <PriceInsight signal={signal} locale={locale} />
+
                   {/* DESCRIPTION */}
                   {desc && (
                     <div className="detail-section">
@@ -253,6 +290,14 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                     <div className="price-block">
                       <div className="price-tag">{formatPrice(listing.priceAed, "en")}{currency !== "AED" && <span style={{ display: "block", fontSize: 14, color: "var(--text-2)", fontWeight: 600 }}>{format(listing.priceAed)}</span>}</div>
                       {listing.isNegotiable && <div className="price-sub">{t("price.negotiable", { defaultValue: "Negotiable" })}</div>}
+                      {/* Days on market, the deal verdict, then the monthly.
+                          The badge draws nothing at all unless the rating is
+                          trustworthy — see DealBadge. */}
+                      <DaysOnMarketLine signal={signal} />
+                      <DealBadge signal={signal} size="sm" />
+                      {financeConfig && (
+                        <MonthlyFromPrice priceAed={listing.priceAed} config={financeConfig} locale={locale} />
+                      )}
                     </div>
 
                     <div className="dealer-block">
@@ -299,6 +344,18 @@ export default function MkdetailPage({ listing, similar }: { listing: ListingDet
                       </a>
                     </div>
                   </div>
+
+                  {/* FINANCE CALCULATOR — a second sidebar card; `.detail-sidebar`
+                      is already a flex column with a gap, so no new CSS. */}
+                  {financeConfig && (
+                    <FinanceCalculator
+                      listingId={listing.id}
+                      priceAed={listing.priceAed}
+                      config={financeConfig}
+                      accessToken={session?.accessToken}
+                      locale={locale}
+                    />
+                  )}
                 </aside>
               </div>
 
@@ -361,21 +418,35 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, params })
   }
   if (!listing) return { notFound: true };
 
-  const similarRes = await searchListings({
-    makeId: listing.make.slug ? undefined : undefined,
-    vehicleType: listing.vehicleType,
-    limit: 4,
-    sort: "newest",
-  }).catch(() => ({ items: [] as Card[] }));
+  /*
+   * The market signals are fetched here rather than in the browser for three
+   * reasons: the deal badge is then in the HTML a crawler sees, there is no
+   * layout shift under the price, and — because the calculator's defaults
+   * arrive with the page — dragging its sliders makes ZERO client requests,
+   * which is what keeps it off the 120/min global throttle. Both are
+   * `.catch(() => null)`: a market outage must cost the badge, not the page.
+   */
+  const [signal, financeConfig, similarRes] = await Promise.all([
+    getPriceSignal(listing.id).catch(() => null),
+    getFinanceConfig().catch(() => null),
+    searchListings({
+      makeId: listing.make.slug ? undefined : undefined,
+      vehicleType: listing.vehicleType,
+      limit: 4,
+      sort: "newest",
+    }).catch(() => ({ items: [] as Card[] })),
+  ]);
   const similar = similarRes.items.filter((c) => c.slug !== slug).slice(0, 4);
 
   return {
     props: {
       listing,
       similar,
+      signal,
+      financeConfig,
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
-        ["common", "mk-detail"],
+        ["common", "mk-detail", "market"],
         nextI18NextConfig,
       )),
     },

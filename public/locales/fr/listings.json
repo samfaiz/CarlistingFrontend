@@ -60,6 +60,7 @@
     "PAUSED": "En pause",
     "SOLD": "Vendue",
     "EXPIRED": "Expirée",
-    "REJECTED": "Refusée"
+    "REJECTED": "Refusée",
+    "ARCHIVED": "Supprimé"
   }
 }

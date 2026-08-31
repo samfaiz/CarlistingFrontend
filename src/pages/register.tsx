@@ -16,6 +16,13 @@ export default function MkregisterPage() {
   const [done, setDone] = React.useState(false);
   const [busy, setBusy] = React.useState(false);
   const [showPwd, setShowPwd] = React.useState(false);
+  /**
+   * What the visitor says they came to do. The mockup shipped these three as
+   * decorative buttons — no handler, the first hardcoded "active", the choice
+   * never captured. It is advisory: it grants nothing, and only decides where
+   * they land once their email is verified.
+   */
+  const [intent, setIntent] = React.useState<"BUYER" | "SELLER" | "DEALER">("BUYER");
 
   // Keep the pixel-exact mockup form, but really create the account
   // (POST /auth/register → e-mail verification, matching the P0-05 contract).
@@ -31,6 +38,7 @@ export default function MkregisterPage() {
         password: String(form.get("password") ?? ""),
         phone: String(form.get("phone") ?? "") || undefined,
         locale: router.locale ?? "en",
+        signupIntent: intent,
       });
       setDone(true);
     } catch (err) {
@@ -57,18 +65,33 @@ export default function MkregisterPage() {
               <h1>{t("hero.title")}</h1>
               <p className="auth-sub">{t("hero.subtitle")}</p>
 
-              <div className="acc-type" id="accType">
-                <button type="button" className="acc-type-btn active">
+              <div className="acc-type" id="accType" role="group" aria-label={t("accType.legend")}>
+                <button
+                  type="button"
+                  className={intent === "BUYER" ? "acc-type-btn active" : "acc-type-btn"}
+                  aria-pressed={intent === "BUYER"}
+                  onClick={() => setIntent("BUYER")}
+                >
                   <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg></div>
                   <span className="at-label">{t("accType.buyer.label")}</span>
                   <span className="at-sub">{t("accType.buyer.sub")}</span>
                 </button>
-                <button type="button" className="acc-type-btn">
+                <button
+                  type="button"
+                  className={intent === "SELLER" ? "acc-type-btn active" : "acc-type-btn"}
+                  aria-pressed={intent === "SELLER"}
+                  onClick={() => setIntent("SELLER")}
+                >
                   <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 17h14M6 17l2-6h8l2 6M7 17v2M17 17v2" /></svg></div>
                   <span className="at-label">{t("accType.seller.label")}</span>
                   <span className="at-sub">{t("accType.seller.sub")}</span>
                 </button>
-                <button type="button" className="acc-type-btn">
+                <button
+                  type="button"
+                  className={intent === "DEALER" ? "acc-type-btn active" : "acc-type-btn"}
+                  aria-pressed={intent === "DEALER"}
+                  onClick={() => setIntent("DEALER")}
+                >
                   <div className="at-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><path d="M9 22V12h6v10" /></svg></div>
                   <span className="at-label">{t("accType.dealer.label")}</span>
                   <span className="at-sub">{t("accType.dealer.sub")}</span>

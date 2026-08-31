@@ -54,7 +54,9 @@
   },
   "filters": {
     "title": "عوامل التصفية",
-    "reset": "إعادة تعيين الكل"
+    "reset": "إعادة تعيين الكل",
+    "showResults": "عرض {{n}} نتيجة",
+    "clearAll": "مسح الكل"
   },
   "fg": {
     "keyword": {
@@ -83,7 +85,9 @@
       "audi": "Audi",
       "ford": "Ford",
       "hyundai": "Hyundai",
-      "more": "+ عرض 72 أخرى"
+      "more": "+ عرض 72 أخرى",
+      "showMore": "+ عرض {{n}} أخرى",
+      "showLess": "عرض أقل"
     },
     "model": {
       "title": "الطراز",
@@ -91,18 +95,28 @@
       "opt1": "Land Cruiser",
       "opt2": "Camry",
       "opt3": "Corolla",
-      "opt4": "RAV4"
+      "opt4": "RAV4",
+      "all": "أي طراز",
+      "pickMakeFirst": "اختر الماركة أولاً"
     },
     "price": {
       "title": "السعر (درهم)",
       "min": "الأدنى",
-      "max": "الأقصى"
+      "max": "الأقصى",
+      "minLabel": "أقل سعر بالدرهم",
+      "maxLabel": "أعلى سعر بالدرهم"
     },
     "year": {
-      "title": "السنة"
+      "title": "السنة",
+      "min": "من",
+      "max": "إلى",
+      "minLabel": "أقدم سنة",
+      "maxLabel": "أحدث سنة"
     },
     "mileage": {
-      "title": "المسافة المقطوعة (كم)"
+      "title": "المسافة المقطوعة (كم)",
+      "placeholder": "أقصى كم",
+      "maxLabel": "أقصى مسافة بالكيلومترات"
     },
     "transmission": {
       "title": "ناقل الحركة",
@@ -134,7 +148,10 @@
     "seller": {
       "title": "نوع البائع",
       "dealer": "معرض",
-      "owner": "مالك"
+      "owner": "مالك",
+      "all": "الكل",
+      "PRIVATE": "بائع فردي",
+      "DEALER": "معرض"
     },
     "location": {
       "title": "الموقع",
@@ -143,7 +160,8 @@
       "sharjah": "الشارقة",
       "ajman": "عجمان",
       "rak": "رأس الخيمة",
-      "fujairah": "الفجيرة"
+      "fujairah": "الفجيرة",
+      "all": "كل الإمارات"
     },
     "regional": {
       "title": "المواصفات الإقليمية",
@@ -151,6 +169,17 @@
       "american": "أمريكية",
       "european": "أوروبية",
       "japanese": "يابانية"
+    },
+    "condition": {
+      "title": "الحالة",
+      "all": "الكل",
+      "USED": "مستعملة",
+      "NEW": "جديدة"
+    },
+    "trim": {
+      "title": "الفئة",
+      "all": "أي فئة",
+      "pickModelFirst": "اختر الطراز أولاً"
     }
   },
   "active": {
@@ -159,7 +188,17 @@
     "automatic": "أوتوماتيك",
     "black": "أسود",
     "clearAll": "مسح الكل",
-    "remove": "إزالة"
+    "remove": "إزالة",
+    "title": "عوامل التصفية المطبقة",
+    "removeLabel": "إزالة {{label}}",
+    "keyword": "«{{value}}»",
+    "priceRange": "{{min}} – {{max}} درهم",
+    "priceFrom": "من {{min}} درهم",
+    "priceTo": "حتى {{max}} درهم",
+    "yearRange": "{{min}} – {{max}}",
+    "yearFrom": "{{min}} فأحدث",
+    "yearTo": "حتى {{max}}",
+    "mileageTo": "حتى {{max}} كم"
   },
   "toolbar": {
     "count": "24,318 سيارة",
@@ -308,7 +347,9 @@
       "price_asc": "السعر: من الأقل للأعلى",
       "price_desc": "السعر: من الأعلى للأقل",
       "mileage_asc": "الأقل مسافة",
-      "year_desc": "الأحدث سنة"
+      "year_desc": "الأحدث سنة",
+      "mileage_desc": "الأعلى مسافة",
+      "year_asc": "الأقدم سنة"
     }
   }
 }

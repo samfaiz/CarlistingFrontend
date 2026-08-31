@@ -54,7 +54,9 @@
   },
   "filters": {
     "title": "Filters",
-    "reset": "Reset all"
+    "reset": "Reset all",
+    "showResults": "Show {{n}} results",
+    "clearAll": "Clear all"
   },
   "fg": {
     "keyword": {
@@ -83,7 +85,9 @@
       "audi": "Audi",
       "ford": "Ford",
       "hyundai": "Hyundai",
-      "more": "+ Show 72 more"
+      "more": "+ Show 72 more",
+      "showMore": "+ Show {{n}} more",
+      "showLess": "Show fewer"
     },
     "model": {
       "title": "Model",
@@ -91,18 +95,28 @@
       "opt1": "Land Cruiser",
       "opt2": "Camry",
       "opt3": "Corolla",
-      "opt4": "RAV4"
+      "opt4": "RAV4",
+      "all": "Any model",
+      "pickMakeFirst": "Choose a make first"
     },
     "price": {
       "title": "Price (AED)",
       "min": "Min",
-      "max": "Max"
+      "max": "Max",
+      "minLabel": "Minimum price in AED",
+      "maxLabel": "Maximum price in AED"
     },
     "year": {
-      "title": "Year"
+      "title": "Year",
+      "min": "From",
+      "max": "To",
+      "minLabel": "Earliest year",
+      "maxLabel": "Latest year"
     },
     "mileage": {
-      "title": "Mileage (km)"
+      "title": "Mileage (km)",
+      "placeholder": "Max km",
+      "maxLabel": "Maximum mileage in km"
     },
     "transmission": {
       "title": "Transmission",
@@ -134,7 +148,10 @@
     "seller": {
       "title": "Seller type",
       "dealer": "Dealer",
-      "owner": "Owner"
+      "owner": "Owner",
+      "all": "All",
+      "PRIVATE": "Private seller",
+      "DEALER": "Dealer"
     },
     "location": {
       "title": "Location",
@@ -143,7 +160,8 @@
       "sharjah": "Sharjah",
       "ajman": "Ajman",
       "rak": "RAK",
-      "fujairah": "Fujairah"
+      "fujairah": "Fujairah",
+      "all": "All Emirates"
     },
     "regional": {
       "title": "Regional spec",
@@ -151,6 +169,17 @@
       "american": "American",
       "european": "European",
       "japanese": "Japanese"
+    },
+    "condition": {
+      "title": "Condition",
+      "all": "All",
+      "USED": "Used",
+      "NEW": "New"
+    },
+    "trim": {
+      "title": "Trim",
+      "all": "Any trim",
+      "pickModelFirst": "Choose a model first"
     }
   },
   "active": {
@@ -159,7 +188,17 @@
     "automatic": "Automatic",
     "black": "Black",
     "clearAll": "Clear all",
-    "remove": "remove"
+    "remove": "remove",
+    "title": "Active filters",
+    "removeLabel": "Remove {{label}}",
+    "keyword": "“{{value}}”",
+    "priceRange": "AED {{min}} – {{max}}",
+    "priceFrom": "From AED {{min}}",
+    "priceTo": "Up to AED {{max}}",
+    "yearRange": "{{min}} – {{max}}",
+    "yearFrom": "{{min}} and newer",
+    "yearTo": "Up to {{max}}",
+    "mileageTo": "Up to {{max}} km"
   },
   "toolbar": {
     "count": "24,318 cars",
@@ -308,7 +347,9 @@
       "price_asc": "Price: low to high",
       "price_desc": "Price: high to low",
       "mileage_asc": "Lowest mileage",
-      "year_desc": "Newest year"
+      "year_desc": "Newest year",
+      "mileage_desc": "Highest mileage",
+      "year_asc": "Oldest year"
     }
   }
 }

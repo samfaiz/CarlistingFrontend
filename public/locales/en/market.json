@@ -1,0 +1,55 @@
+{
+  "deal": {
+    "great": "Great price",
+    "good": "Good price",
+    "fair": "Fair price",
+    "high": "Priced above market",
+    "below": "{{pct}}% below median",
+    "above": "{{pct}}% above median",
+    "noData": "Not enough comparable cars to rate this price.",
+    "explain": "Compared with the median price of similar cars — same make, model and year range — listed in the UAE."
+  },
+  "insight": {
+    "title": "How this price compares",
+    "below": "This car is priced {{pct}}% below the median for comparable cars.",
+    "above": "This car is priced {{pct}}% above the median for comparable cars.",
+    "atMarket": "This car is priced in line with the median for comparable cars.",
+    "median": "Median price for comparable cars: {{amount}}",
+    "daysOnMarket_zero": "Listed today",
+    "daysOnMarket_one": "On the market for {{count}} day",
+    "daysOnMarket_other": "On the market for {{count}} days",
+    "priceDropToday": "Price dropped {{amount}} today",
+    "priceDrop_one": "Price dropped {{amount}} yesterday",
+    "priceDrop_other": "Price dropped {{amount}} {{count}} days ago"
+  },
+  "history": {
+    "title": "Price history"
+  },
+  "finance": {
+    "title": "Finance calculator",
+    "subtitle": "Estimate your monthly payment.",
+    "vehiclePrice": "Vehicle price",
+    "downPayment": "Down payment",
+    "downPaymentSlider": "Down payment slider",
+    "loanTerm": "Loan term",
+    "termOption_one": "{{count}} month",
+    "termOption_other": "{{count}} months",
+    "interestRate": "Interest rate",
+    "ratePercent": "{{pct}}%",
+    "monthlyPayment": "Monthly payment",
+    "loanAmount": "Loan amount",
+    "totalInterest": "Total interest",
+    "totalCost": "Total cost",
+    "preApproved": "Get pre-approved",
+    "fromMonthly": "or {{monthly}} / month over {{months}} months",
+    "disclaimer": "Indicative only. UAE banks typically ask for {{downPct}}% down on a used vehicle, and your rate depends on salary, employer and credit history.",
+    "leadTitle": "Leave your details and a finance partner will call you back.",
+    "leadName": "Full name",
+    "leadPhone": "Mobile number",
+    "leadEmail": "Email (optional)",
+    "leadSubmit": "Request pre-approval",
+    "leadSending": "Sending…",
+    "leadSuccess": "Thanks — we have your request. On the figures you chose, the indicative monthly payment is {{monthly}}. A finance partner will contact you.",
+    "leadError": "We could not send your request. Please check your details and try again."
+  }
+}

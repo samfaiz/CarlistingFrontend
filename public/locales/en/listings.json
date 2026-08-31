@@ -59,6 +59,7 @@
     "PAUSED": "Paused",
     "SOLD": "Sold",
     "EXPIRED": "Expired",
-    "REJECTED": "Rejected"
+    "REJECTED": "Rejected",
+    "ARCHIVED": "Removed"
   }
 }

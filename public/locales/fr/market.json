@@ -1,0 +1,58 @@
+{
+  "deal": {
+    "great": "Excellent prix",
+    "good": "Bon prix",
+    "fair": "Prix correct",
+    "high": "Au-dessus du marché",
+    "below": "{{pct}} % sous la médiane",
+    "above": "{{pct}} % au-dessus de la médiane",
+    "noData": "Pas assez de voitures comparables pour évaluer ce prix.",
+    "explain": "Comparé au prix médian de voitures similaires — même marque, même modèle, même tranche d’années — publiées aux Émirats."
+  },
+  "insight": {
+    "title": "Comment se situe ce prix",
+    "below": "Cette voiture est {{pct}} % sous la médiane des voitures comparables.",
+    "above": "Cette voiture est {{pct}} % au-dessus de la médiane des voitures comparables.",
+    "atMarket": "Cette voiture se situe au niveau de la médiane des voitures comparables.",
+    "median": "Prix médian des voitures comparables : {{amount}}",
+    "daysOnMarket_zero": "Mis en ligne aujourd’hui",
+    "daysOnMarket_one": "En ligne depuis {{count}} jour",
+    "daysOnMarket_many": "En ligne depuis {{count}} jours",
+    "daysOnMarket_other": "En ligne depuis {{count}} jours",
+    "priceDropToday": "Prix baissé de {{amount}} aujourd’hui",
+    "priceDrop_one": "Prix baissé de {{amount}} hier",
+    "priceDrop_many": "Prix baissé de {{amount}} il y a {{count}} jours",
+    "priceDrop_other": "Prix baissé de {{amount}} il y a {{count}} jours"
+  },
+  "history": {
+    "title": "Historique des prix"
+  },
+  "finance": {
+    "title": "Calculatrice de financement",
+    "subtitle": "Estimez votre mensualité.",
+    "vehiclePrice": "Prix du véhicule",
+    "downPayment": "Apport",
+    "downPaymentSlider": "Curseur d’apport",
+    "loanTerm": "Durée du financement",
+    "termOption_one": "{{count}} mois",
+    "termOption_many": "{{count}} mois",
+    "termOption_other": "{{count}} mois",
+    "interestRate": "Taux d’intérêt",
+    "ratePercent": "{{pct}} %",
+    "monthlyPayment": "Mensualité",
+    "loanAmount": "Montant financé",
+    "totalInterest": "Intérêts totaux",
+    "totalCost": "Coût total",
+    "preApproved": "Obtenir un accord de principe",
+    "fromMonthly": "ou {{monthly}} / mois sur {{months}} mois",
+    "disclaimer": "À titre indicatif. Les banques des Émirats demandent généralement un apport de {{downPct}} % sur un véhicule d’occasion, et votre taux dépend du salaire, de l’employeur et de l’historique de crédit.",
+    "leadTitle": "Laissez vos coordonnées et un partenaire financier vous rappellera.",
+    "leadName": "Nom complet",
+    "leadPhone": "Numéro de mobile",
+    "leadEmail": "E-mail (facultatif)",
+    "leadSubmit": "Demander un accord de principe",
+    "leadSending": "Envoi…",
+    "leadSuccess": "Merci — votre demande est enregistrée. D’après les montants que vous avez choisis, la mensualité indicative est de {{monthly}}. Un partenaire financier vous contactera.",
+    "leadError": "Impossible d’envoyer votre demande. Veuillez vérifier vos informations et réessayer."
+  }
+}

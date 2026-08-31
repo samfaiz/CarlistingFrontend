@@ -54,7 +54,9 @@
   },
   "filters": {
     "title": "Filtres",
-    "reset": "Tout réinitialiser"
+    "reset": "Tout réinitialiser",
+    "showResults": "Voir {{n}} résultats",
+    "clearAll": "Tout effacer"
   },
   "fg": {
     "keyword": {
@@ -83,7 +85,9 @@
       "audi": "Audi",
       "ford": "Ford",
       "hyundai": "Hyundai",
-      "more": "+ Afficher 72 de plus"
+      "more": "+ Afficher 72 de plus",
+      "showMore": "+ Afficher {{n}} de plus",
+      "showLess": "Afficher moins"
     },
     "model": {
       "title": "Modèle",
@@ -91,18 +95,28 @@
       "opt1": "Land Cruiser",
       "opt2": "Camry",
       "opt3": "Corolla",
-      "opt4": "RAV4"
+      "opt4": "RAV4",
+      "all": "Tout modèle",
+      "pickMakeFirst": "Choisissez d'abord une marque"
     },
     "price": {
       "title": "Prix (AED)",
       "min": "Min",
-      "max": "Max"
+      "max": "Max",
+      "minLabel": "Prix minimum en AED",
+      "maxLabel": "Prix maximum en AED"
     },
     "year": {
-      "title": "Année"
+      "title": "Année",
+      "min": "De",
+      "max": "À",
+      "minLabel": "Année la plus ancienne",
+      "maxLabel": "Année la plus récente"
     },
     "mileage": {
-      "title": "Kilométrage (km)"
+      "title": "Kilométrage (km)",
+      "placeholder": "Km max",
+      "maxLabel": "Kilométrage maximum en km"
     },
     "transmission": {
       "title": "Transmission",
@@ -134,7 +148,10 @@
     "seller": {
       "title": "Type de vendeur",
       "dealer": "Concessionnaire",
-      "owner": "Particulier"
+      "owner": "Particulier",
+      "all": "Tous",
+      "PRIVATE": "Particulier",
+      "DEALER": "Concessionnaire"
     },
     "location": {
       "title": "Emplacement",
@@ -143,7 +160,8 @@
       "sharjah": "Sharjah",
       "ajman": "Ajman",
       "rak": "RAK",
-      "fujairah": "Fujairah"
+      "fujairah": "Fujairah",
+      "all": "Tous les Émirats"
     },
     "regional": {
       "title": "Spécification régionale",
@@ -151,6 +169,17 @@
       "american": "Américaine",
       "european": "Européenne",
       "japanese": "Japonaise"
+    },
+    "condition": {
+      "title": "État",
+      "all": "Tous",
+      "USED": "Occasion",
+      "NEW": "Neuf"
+    },
+    "trim": {
+      "title": "Finition",
+      "all": "Toute finition",
+      "pickModelFirst": "Choisissez d'abord un modèle"
     }
   },
   "active": {
@@ -159,7 +188,17 @@
     "automatic": "Automatique",
     "black": "Noir",
     "clearAll": "Tout effacer",
-    "remove": "retirer"
+    "remove": "retirer",
+    "title": "Filtres appliqués",
+    "removeLabel": "Retirer {{label}}",
+    "keyword": "«{{value}}»",
+    "priceRange": "AED {{min}} – {{max}}",
+    "priceFrom": "À partir de AED {{min}}",
+    "priceTo": "Jusqu'à AED {{max}}",
+    "yearRange": "{{min}} – {{max}}",
+    "yearFrom": "{{min}} et plus récent",
+    "yearTo": "Jusqu'à {{max}}",
+    "mileageTo": "Jusqu'à {{max}} km"
   },
   "toolbar": {
     "count": "24,318 voitures",
@@ -308,7 +347,9 @@
       "price_asc": "Prix : croissant",
       "price_desc": "Prix : décroissant",
       "mileage_asc": "Kilométrage le plus bas",
-      "year_desc": "Année la plus récente"
+      "year_desc": "Année la plus récente",
+      "mileage_desc": "Kilométrage le plus élevé",
+      "year_asc": "Année la plus ancienne"
     }
   }
 }

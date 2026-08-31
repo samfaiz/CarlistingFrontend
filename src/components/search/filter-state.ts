@@ -10,9 +10,12 @@
 import type { ParsedUrlQuery } from "querystring";
 import type { SearchListingsParams, SearchSort } from "@/lib/marketplace-api";
 
-export const PAGE_SIZE = 24;
-/** Debounce for text/number filter inputs before the URL + fetch update. */
-export const TEXT_FILTER_DEBOUNCE_MS = 400;
+/**
+ * Results per page. /cars paginates by offset for every sort, so this is also
+ * the divisor its pagination math uses — one home for the number instead of a
+ * page-local copy that could drift from what the API was asked for.
+ */
+export const PAGE_SIZE = 12;
 
 export const FUEL_TYPES = [
   "PETROL",
@@ -42,6 +45,9 @@ export const REGIONAL_SPECS = [
 
 export const SELLER_TYPES = ["PRIVATE", "DEALER"] as const;
 
+/** Prisma VehicleCondition. Single-select: a car is one or the other. */
+export const CONDITIONS = ["USED", "NEW"] as const;
+
 export const SORT_OPTIONS = [
   "newest",
   "price_asc",
@@ -59,6 +65,14 @@ export interface SearchFilters {
   bodyTypeId?: string;
   emirateId?: string;
   sellerType?: string;
+  condition?: string;
+  /**
+   * Dealer stock scoping (FR-DP8). Carried through the URL so a link from a
+   * dealer profile keeps its scope, but deliberately given no control on /cars
+   * and excluded from the active-filter count — picking a dealership is a
+   * different feature with a different data source.
+   */
+  dealerId?: string;
   priceMin?: number;
   priceMax?: number;
   yearMin?: number;
@@ -73,7 +87,13 @@ export interface SearchFilters {
 export interface SearchPageState {
   filters: SearchFilters;
   sort: SearchSort;
-  /** 1-based; only meaningful for non-"newest" sorts (newest paginates by cursor). */
+  /**
+   * 1-based offset page, serialized for every sort so the URL reports what the
+   * user asked for. NOTE: the backend applies OFFSET only for non-"newest"
+   * sorts — `newest` is keyset-paged and ignores `page` (search.service.ts:34).
+   * /cars has always sent it regardless; the control is a no-op on the default
+   * sort until the cursor is plumbed through. Not this feature's fix.
+   */
   page: number;
 }
 
@@ -130,6 +150,8 @@ export function parseSearchQuery(query: ParsedUrlQuery): SearchPageState {
       bodyTypeId: id(query.bodyTypeId),
       emirateId: id(query.emirateId),
       sellerType: oneOf(query.sellerType, SELLER_TYPES),
+      condition: oneOf(query.condition, CONDITIONS),
+      dealerId: id(query.dealerId),
       priceMin: num(query.priceMin),
       priceMax: num(query.priceMax),
       yearMin: num(query.yearMin),
@@ -141,7 +163,7 @@ export function parseSearchQuery(query: ParsedUrlQuery): SearchPageState {
       q: (first(query.q) ?? "").trim() || undefined,
     },
     sort,
-    page: sort === "newest" ? 1 : Math.max(1, num(query.page) ?? 1),
+    page: Math.max(1, num(query.page) ?? 1),
   };
 }
 
@@ -168,8 +190,10 @@ export function serializeSearchQuery(state: SearchPageState): Record<string, str
   if (f.regionalSpec.length > 0) q.regionalSpec = f.regionalSpec.join(",");
   if (f.emirateId) q.emirateId = f.emirateId;
   if (f.sellerType) q.sellerType = f.sellerType;
+  if (f.condition) q.condition = f.condition;
+  if (f.dealerId) q.dealerId = f.dealerId;
   if (state.sort !== "newest") q.sort = state.sort;
-  if (state.sort !== "newest" && state.page > 1) q.page = String(state.page);
+  if (state.page > 1) q.page = String(state.page);
   return q;
 }
 
@@ -179,7 +203,10 @@ export function canonicalKey(state: SearchPageState): string {
 }
 
 /** Map page state to GET /search/listings params (always CAR, always facets). */
-export function toApiParams(state: SearchPageState): SearchListingsParams {
+export function toApiParams(
+  state: SearchPageState,
+  pageSize: number = PAGE_SIZE,
+): SearchListingsParams {
   const f = state.filters;
   return {
     vehicleType: "CAR",
@@ -189,6 +216,8 @@ export function toApiParams(state: SearchPageState): SearchListingsParams {
     bodyTypeId: f.bodyTypeId,
     emirateId: f.emirateId,
     sellerType: f.sellerType,
+    condition: f.condition,
+    dealerId: f.dealerId,
     priceMin: f.priceMin,
     priceMax: f.priceMax,
     yearMin: f.yearMin,
@@ -199,8 +228,8 @@ export function toApiParams(state: SearchPageState): SearchListingsParams {
     regionalSpec: f.regionalSpec.length > 0 ? f.regionalSpec : undefined,
     q: f.q,
     sort: state.sort,
-    page: state.sort !== "newest" && state.page > 1 ? state.page : undefined,
-    limit: PAGE_SIZE,
+    page: state.page > 1 ? state.page : undefined,
+    limit: pageSize,
     facets: true,
   };
 }
@@ -214,6 +243,7 @@ export function countActiveFilters(f: SearchFilters): number {
   if (f.bodyTypeId) n++;
   if (f.emirateId) n++;
   if (f.sellerType) n++;
+  if (f.condition) n++;
   if (f.q) n++;
   if (f.priceMin !== undefined || f.priceMax !== undefined) n++;
   if (f.yearMin !== undefined || f.yearMax !== undefined) n++;

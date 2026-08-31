@@ -190,13 +190,47 @@
     "ban": "Bannir",
     "reinstate": "Rétablir",
     "impersonate": "Emprunter l'identité",
+    "role": {
+      "change": "Changer le rôle",
+      "dialogTitle": "Changer le rôle",
+      "current": "Rôle actuel",
+      "next": "Nouveau rôle",
+      "options": {
+        "USER": "Client",
+        "ADMIN": "Administrateur",
+        "SUPER_ADMIN": "Super administrateur"
+      },
+      "staffRole": "Rôle interne nommé",
+      "staffRolePlaceholder": "Choisissez un rôle",
+      "staffRoleHint": "Obligatoire. Un administrateur sans rôle nommé hérite de toutes les permissions de la plateforme hors super administrateur.",
+      "staffRoleOptional": "Facultatif. Un super administrateur détient de toute façon toutes les permissions.",
+      "staffRoleNone": "Aucun rôle assignable pour l’instant. Clonez d’abord un modèle dans RBAC.",
+      "consequences": "Ce que cela entraîne",
+      "warnNoRevoke": "{{name}} conserve ses {{count}} session(s) ouverte(s) : le changement atteint son navigateur au prochain renouvellement du jeton, sous 15 minutes. Les sessions ne sont pas révoquées.",
+      "warnPasskey": "La connexion du personnel exige une passkey. Son prochain jeton n’ouvrira que l’enrôlement de passkey tant qu’il n’en a pas créé une.",
+      "warnListings": "Il possède {{count}} annonce(s). Ses pages client restent les siennes, mais les jetons du personnel sont soumis à une vérification renforcée.",
+      "warnCleanup": "Son rôle nommé, ses dérogations de permissions, ses portées de données et toute concession temporaire sont effacés au préalable.",
+      "warnAudited": "Le changement est inscrit au journal d’audit sous votre compte.",
+      "confirm": "Passer à {{role}}",
+      "cancel": "Annuler",
+      "lastSuperAdmin": "Le dernier super administrateur actif ne peut pas être rétrogradé.",
+      "errors": {
+        "self": "Vous ne pouvez pas changer votre propre rôle.",
+        "lastSuperAdmin": "Le dernier super administrateur actif ne peut pas être rétrogradé. Promouvez quelqu’un d’autre d’abord.",
+        "notFound": "Cet utilisateur n’existe plus.",
+        "template": "Il s’agit d’un rôle modèle. Clonez-le dans RBAC puis assignez la copie.",
+        "roleAssignFailed": "Le rôle a changé, mais le rôle interne n’a pas été attaché ({{reason}}). Terminez dans RBAC.",
+        "generic": "Le changement de rôle n’a pas pu être effectué."
+      }
+    },
     "empty": "Aucun utilisateur correspondant",
     "toast": {
       "suspend": "Suspendu — {{count}} session(s) révoquées",
       "ban": "Banni — {{count}} session(s) révoquées",
       "reinstate": "Rétabli",
       "failed": "L'action n'a pas pu être effectuée",
-      "loadFailed": "Impossible de charger les utilisateurs"
+      "loadFailed": "Impossible de charger les utilisateurs",
+      "roleChanged": "{{name}} est désormais {{role}}"
     },
     "impersonationDialog": {
       "title": "Session d'emprunt d'identité (1 heure)",

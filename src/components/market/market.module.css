@@ -1,0 +1,221 @@
+/*
+ * Styles for the market-signal surfaces (deal badge, price insight, finance
+ * lead form).
+ *
+ * A CSS Module rather than more rules in marketplace-mockup.css: that file is
+ * generated from the mockup ("do not hand-edit") and the mockup has no design
+ * for any of this. Everything the mockup DOES ship — .finance-card, .fin-row,
+ * .fin-result, .price-block — is used as-is from the `.mk` layer; only the
+ * genuinely new pieces live here. The `.mk` tokens (--brand, --text-2, …) are
+ * declared on :root, so they resolve inside these classes too.
+ *
+ * Logical properties only (margin-inline-*, inset-inline-*, text-align:end):
+ * RTL is a release gate.
+ */
+
+/* ── Deal chip ──────────────────────────────────────────────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+
+/*
+ * Colour pairs lifted from tokens already in the mockup (.history-item .h-icon
+ * is #DCFCE7 on #15803D, .conv-av.dealer-2 is #FEF3C7 on #92400E) because they
+ * clear 4.5:1. Deliberately NOT .badge-success / var(--success): white on
+ * #22C55E is ~2.3:1, the same WCAG AA failure class as the --text-3 defect.
+ */
+.chipGreat { background: #DCFCE7; color: #15803D }
+.chipGood  { background: #DCFCE7; color: #166534 }
+.chipFair  { background: var(--brand-light); color: var(--brand) }
+.chipHigh  { background: #FEF3C7; color: #92400E }
+
+.chipDelta {
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* The "we cannot judge this price" line. No colour, no chip, no verdict. */
+.dealNone {
+  color: var(--text-2);
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+/* ── Sidebar monthly-payment line under the price ───────────────────────── */
+
+.monthlyLink {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.monthlyLink strong {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.monthlyLink:hover strong {
+  color: var(--brand-hover);
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ── Price insight panel ────────────────────────────────────────────────── */
+
+.facts {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.fact strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.factIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand);
+}
+
+/* ── Price history sparkline ────────────────────────────────────────────── */
+
+.history {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--divider);
+}
+
+.historyTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.spark {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: 64px;
+  color: var(--brand);
+  overflow: visible;
+}
+
+.historyList {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.historyRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--text-2);
+  padding-block: 3px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.historyRow:last-child {
+  border-bottom: 0;
+}
+
+.historyRow span:last-child {
+  color: var(--text);
+  font-weight: 600;
+  text-align: end;
+}
+
+.down { color: #15803D; font-weight: 700 }
+.up { color: #92400E; font-weight: 700 }
+
+/* ── Finance lead form ──────────────────────────────────────────────────── */
+
+.leadForm {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leadField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.leadField label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.disclaimer {
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--text-3);
+  margin: 10px 0 0;
+}
+
+.ok {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #15803D;
+  background: #DCFCE7;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 14px 0 0;
+}
+
+.err {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #991B1B;
+  background: #FEE2E2;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0;
+}
+
+/* Deposit amount field sits directly above its slider in a `.fin-row`, which
+   has no inner spacing of its own. */
+.downAmount {
+  margin-bottom: 8px;
+}

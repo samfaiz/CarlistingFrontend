@@ -18,7 +18,8 @@
     "dealer": {
       "label": "Dealer",
       "sub": "Showroom/agent"
-    }
+    },
+    "legend": "What brings you to Carsens?"
   },
   "form": {
     "fullName": {

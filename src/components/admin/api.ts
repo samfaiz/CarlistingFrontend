@@ -603,7 +603,17 @@ export function getStaff(accessToken: string): Promise<StaffRow[]> {
 export function createStaff(input: { email: string; name: string; role: "ADMIN" | "SUPER_ADMIN"; permissions?: string[] }, accessToken: string): Promise<StaffRow & { mustResetPassword: boolean }> {
   return apiPost(`/super-admin/staff`, input, { token: accessToken });
 }
-export function setStaffRole(id: string, role: "USER" | "ADMIN" | "SUPER_ADMIN", accessToken: string): Promise<{ id: string; role: string }> {
+/**
+ * Change a user's role. The path says "staff", but the handler takes ANY user
+ * id — which is what makes promoting an existing customer possible at all
+ * (`createStaff` refuses an email that already exists, and `getStaff` only ever
+ * lists accounts that are already ADMIN/SUPER_ADMIN).
+ *
+ * The DTO is `{ role }` and nothing else: the API runs `forbidNonWhitelisted`,
+ * so an extra field (an audited reason, a staff-role id) is a 400, not an
+ * ignored property. Attaching an RBAC role is a separate `rbacUpdateStaff` call.
+ */
+export function setStaffRole(id: string, role: "USER" | "ADMIN" | "SUPER_ADMIN", accessToken: string): Promise<{ id: string; role: string; permissions: string[] }> {
   return apiPost(`/super-admin/staff/${encodeURIComponent(id)}/role`, { role }, { token: accessToken });
 }
 export function setStaffPermissions(id: string, permissions: string[], accessToken: string): Promise<{ id: string; permissions: string[] }> {

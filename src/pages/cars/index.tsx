@@ -2,6 +2,12 @@
  * /cars — search. The mockup's page-search design (`.mk` layer), wired to the
  * real search API: SSR results + facet counts, URL-driven filters, sort and
  * pagination. Copy stays in the mk-search i18n namespace (EN/AR/ES/FR + RTL).
+ *
+ * Every filter the backend accepts is a URL param and nothing else, so a
+ * refined search is shareable, the back button undoes exactly one step, and
+ * `SaveSearchButton` can serialize the search by reading the query alone.
+ * `components/search/filter-state.ts` is the only place that query is read or
+ * written — parse on the server, serialize on the client, one shape both ways.
  */
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
@@ -15,42 +21,62 @@ import { BannerSlot } from "@/components/marketplace/banner-slot";
 import { AssistantWidget } from "@/components/marketplace/assistant-widget";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
 import { SaveSearchButton } from "@/components/saved/save-search-button";
+import { MkFilterPanel } from "@/components/search/mk-filter-panel";
+import { MkActiveFilters } from "@/components/search/mk-active-filters";
+import { getCarModels } from "@/components/search/taxonomy-cascade";
+import {
+  PAGE_SIZE,
+  SORT_OPTIONS,
+  countActiveFilters,
+  parseSearchQuery,
+  serializeSearchQuery,
+  toApiParams,
+  type SearchFilters,
+} from "@/components/search/filter-state";
 import {
   getMakes,
   getTaxonomyMeta,
+  getTrims,
   searchListings,
   type Card,
-  type FacetCount,
+  type Facets,
   type SearchSort,
   type TaxonomyMake,
+  type TaxonomyModel,
   type TaxonomyTerm,
+  type TaxonomyTrim,
 } from "@/lib/marketplace-api";
 import nextI18NextConfig from "../../../next-i18next.config.js";
-
-const PAGE_SIZE = 12;
 
 interface Props {
   items: Card[];
   total: number;
   page: number;
-  facets: { makes: FacetCount[]; bodyTypes: FacetCount[]; emirates: FacetCount[] };
+  facets: Facets;
   makes: TaxonomyMake[];
+  models: TaxonomyModel[];
+  trims: TaxonomyTrim[];
   bodyTypes: TaxonomyTerm[];
   emirates: TaxonomyTerm[];
   query: Record<string, string>;
 }
 
-const SORTS = ["newest", "price_asc", "price_desc", "mileage_asc", "year_desc"] as const;
 const PRICE_BANDS: [string, string, string][] = [
   ["", "", "any"], ["", "30000", "u30"], ["30000", "60000", "30_60"],
   ["60000", "120000", "60_120"], ["120000", "250000", "120_250"], ["250000", "", "250p"],
 ];
 
 export default function MksearchPage({
-  items, total, page, facets, makes, bodyTypes, emirates, query,
+  items, total, page, facets, makes, models: ssrModels, trims: ssrTrims,
+  bodyTypes, emirates, query,
 }: Props) {
   const { t } = useTranslation("mk-search");
   const router = useRouter();
+
+  // The URL is the state. Parsing it here means the panel, the chips and the
+  // API call all read one object instead of three ad-hoc query lookups.
+  const state = React.useMemo(() => parseSearchQuery(query), [query]);
+  const filters = state.filters;
 
   /**
    * The search to remember when "Save search" is used. The URL *is* the query
@@ -58,16 +84,16 @@ export default function MksearchPage({
    * honest serialization. `page` is dropped: a saved search is a standing
    * interest, not a position in a result list.
    */
-  const savedSearchQuery = React.useMemo(
-    () =>
-      Object.fromEntries(
-        Object.entries(router.query).filter(
-          ([key, value]) => key !== "page" && typeof value === "string" && value !== "",
-        ) as [string, string][],
-      ),
-    [router.query],
-  );
-  const [kw, setKw] = React.useState(query.q ?? "");
+  const savedSearchQuery = React.useMemo(() => {
+    const q = serializeSearchQuery({ ...state, page: 1 });
+    delete q.page;
+    return q;
+  }, [state]);
+
+  const [kw, setKw] = React.useState(filters.q ?? "");
+  // Keeps the box honest when the keyword is dropped from elsewhere (its chip,
+  // "Reset all", the back button).
+  React.useEffect(() => setKw(filters.q ?? ""), [filters.q]);
 
   /*
    * On a phone the filter panel is ~700px tall and was always expanded, so the
@@ -77,21 +103,70 @@ export default function MksearchPage({
    * CSS keeps the panel open above the phone breakpoint.
    */
   const [filtersOpen, setFiltersOpen] = React.useState(false);
-  const activeFilterCount = React.useMemo(() => {
-    // Paging and sorting are not filters; counting them would always read >= 1.
-    const ignored = new Set(["page", "sort"]);
-    return Object.entries(query).filter(([k, v]) => !ignored.has(k) && v !== undefined && v !== "").length;
-  }, [query]);
+  const activeFilterCount = countActiveFilters(filters);
 
-  // Push a new query — SSR re-runs and the URL is shareable/bookmarkable.
-  const apply = (patch: Record<string, string | undefined>, resetPage = true) => {
-    const next: Record<string, string> = { ...query };
-    for (const [k, v] of Object.entries(patch)) {
-      if (v === undefined || v === "") delete next[k];
-      else next[k] = v;
+  /*
+   * Cascade lists. SSR seeds them so a shared ?makeId=X&modelId=Y link paints
+   * its selects correctly on the first byte and with JS off; the client tops
+   * them up on change so the Model select is usable before the navigation
+   * round-trip returns.
+   */
+  const [models, setModels] = React.useState<TaxonomyModel[]>(ssrModels);
+  const [trims, setTrims] = React.useState<TaxonomyTrim[]>(ssrTrims);
+  React.useEffect(() => setModels(ssrModels), [ssrModels]);
+  React.useEffect(() => setTrims(ssrTrims), [ssrTrims]);
+  // A slow response for the previous make must not repopulate the select after
+  // a newer one landed — the user would pick a model the make does not have.
+  const latestMakeRef = React.useRef<string | undefined>(filters.makeId);
+  const latestModelRef = React.useRef<string | undefined>(filters.modelId);
+
+  const push = (q: Record<string, string>) => {
+    // scroll:false — without it every checkbox tick throws a phone user back
+    // to the top of the page, above the panel they are still using.
+    void router.push({ pathname: "/cars", query: q }, undefined, { scroll: false });
+  };
+
+  const scrollToResults = () => {
+    document.getElementById("results")?.scrollIntoView({ block: "start" });
+  };
+
+  /** Patch the filters and re-navigate. Any filter change resets to page 1. */
+  const apply = (patch: Partial<SearchFilters>) => {
+    if ("makeId" in patch && patch.makeId !== filters.makeId) {
+      const makeId = patch.makeId;
+      latestMakeRef.current = makeId;
+      setModels([]);
+      setTrims([]);
+      if (makeId) {
+        void getCarModels(makeId)
+          .then((list) => { if (latestMakeRef.current === makeId) setModels(list); })
+          .catch(() => { /* SSR props will fill the select a moment later. */ });
+      }
     }
-    if (resetPage) delete next.page;
-    void router.push({ pathname: "/cars", query: next });
+    if ("modelId" in patch && patch.modelId !== filters.modelId) {
+      const modelId = patch.modelId;
+      latestModelRef.current = modelId;
+      setTrims([]);
+      if (modelId) {
+        void getTrims(modelId)
+          .then((list) => { if (latestModelRef.current === modelId) setTrims(list); })
+          .catch(() => { /* SSR props will fill the select a moment later. */ });
+      }
+    }
+    push(serializeSearchQuery({ filters: { ...filters, ...patch }, sort: state.sort, page: 1 }));
+  };
+
+  const applySort = (sort: SearchSort) => {
+    push(serializeSearchQuery({ ...state, sort, page: 1 }));
+  };
+
+  const goToPage = (next: number) => {
+    push(serializeSearchQuery({ ...state, page: next }));
+    scrollToResults();
+  };
+
+  const reset = () => {
+    void router.push("/cars", undefined, { scroll: false });
   };
 
   const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
@@ -127,22 +202,44 @@ export default function MksearchPage({
                 <SaveSearchButton query={savedSearchQuery} className="save-search-btn" />
               </div>
 
-              {/* COMPACT SEARCH */}
+              {/* COMPACT SEARCH — the mockup's 6-column grid: five fields and
+                  the button. Model was the field it always had room for. */}
               <div className="compact-search" role="search" aria-label={t("compact.landmark")}>
                 <div className="compact-field">
                   <label htmlFor="index-compact-makeLabel">{t("compact.makeLabel")}</label>
-                  <select id="index-compact-makeLabel" value={query.makeId ?? ""} onChange={(e) => apply({ makeId: e.target.value, modelId: undefined })}>
+                  <select
+                    id="index-compact-makeLabel"
+                    value={filters.makeId ?? ""}
+                    onChange={(e) =>
+                      apply({ makeId: e.target.value || undefined, modelId: undefined, trimId: undefined })
+                    }
+                  >
                     <option value="">{t("compact.makeOpt0")}</option>
                     {makes.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </div>
                 <div className="compact-field">
+                  <label htmlFor="index-compact-modelLabel">{t("compact.modelLabel")}</label>
+                  <select
+                    id="index-compact-modelLabel"
+                    value={filters.modelId ?? ""}
+                    disabled={!filters.makeId}
+                    onChange={(e) => apply({ modelId: e.target.value || undefined, trimId: undefined })}
+                  >
+                    <option value="">{t("compact.modelOpt0")}</option>
+                    {models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+                  </select>
+                </div>
+                <div className="compact-field">
                   <label htmlFor="index-compact-priceLabel">{t("compact.priceLabel")}</label>
                   <select id="index-compact-priceLabel"
-                    value={`${query.priceMin ?? ""}_${query.priceMax ?? ""}`}
+                    value={`${filters.priceMin ?? ""}_${filters.priceMax ?? ""}`}
                     onChange={(e) => {
                       const [min, max] = e.target.value.split("_");
-                      apply({ priceMin: min || undefined, priceMax: max || undefined });
+                      apply({
+                        priceMin: min ? Number(min) : undefined,
+                        priceMax: max ? Number(max) : undefined,
+                      });
                     }}
                   >
                     {PRICE_BANDS.map(([min, max, key]) => (
@@ -152,14 +249,14 @@ export default function MksearchPage({
                 </div>
                 <div className="compact-field">
                   <label htmlFor="index-compact-yearLabel">{t("compact.yearLabel")}</label>
-                  <select id="index-compact-yearLabel" value={query.yearMin ?? ""} onChange={(e) => apply({ yearMin: e.target.value })}>
+                  <select id="index-compact-yearLabel" value={filters.yearMin ?? ""} onChange={(e) => apply({ yearMin: e.target.value ? Number(e.target.value) : undefined })}>
                     <option value="">{t("compact.yearOpt0")}</option>
                     {[2024, 2023, 2022, 2021, 2020, 2019, 2018].map((y) => <option key={y} value={y}>{y}+</option>)}
                   </select>
                 </div>
                 <div className="compact-field">
                   <label htmlFor="index-compact-emirateLabel">{t("compact.emirateLabel")}</label>
-                  <select id="index-compact-emirateLabel" value={query.emirateId ?? ""} onChange={(e) => apply({ emirateId: e.target.value })}>
+                  <select id="index-compact-emirateLabel" value={filters.emirateId ?? ""} onChange={(e) => apply({ emirateId: e.target.value || undefined })}>
                     <option value="">{t("compact.emirateOpt0")}</option>
                     {emirates.map((em) => <option key={em.id} value={em.id}>{em.name}</option>)}
                   </select>
@@ -171,91 +268,46 @@ export default function MksearchPage({
               </div>
 
               <div className="search-grid">
-                {/* FILTERS */}
-                <aside className={filtersOpen ? "filters-card is-open" : "filters-card"}>
-                  {/* Mobile-only summary toggle; CSS hides it above the phone breakpoint. */}
-                  <button
-                    type="button"
-                    className="filters-toggle"
-                    aria-expanded={filtersOpen}
-                    aria-controls="filters-body"
-                    onClick={() => setFiltersOpen((v) => !v)}
-                  >
-                    <span>
-                      {t("filters.title")}
-                      {activeFilterCount > 0 ? <span className="filters-count">{activeFilterCount}</span> : null}
-                    </span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div className="filters-head">
-                    <h3>{t("filters.title")}</h3>
-                    <button className="reset" type="button" onClick={() => router.push("/cars")}>{t("filters.reset")}</button>
-                  </div>
-                  <div className="filters-body" id="filters-body">
-                    <div className="fgroup">
-                      <h4>{t("fg.keyword.title")}</h4>
-                      <div className="fbody">
-                        <input
-                          className="f-input"
-                          placeholder={t("fg.keyword.placeholder")}
-                          value={kw}
-                          onChange={(e) => setKw(e.target.value)}
-                          onKeyDown={(e) => { if (e.key === "Enter") apply({ q: kw || undefined }); }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.body.title")}</h4>
-                      <div className="fbody">
-                        <div className="chips">
-                          <button type="button" className={`chip${!query.bodyTypeId ? " active" : ""}`} aria-pressed={!query.bodyTypeId} onClick={() => apply({ bodyTypeId: undefined })}>{t("fg.body.all")}</button>
-                          {bodyTypes.map((bt) => (
-                            <button type="button" key={bt.id} className={`chip${query.bodyTypeId === bt.id ? " active" : ""}`} aria-pressed={query.bodyTypeId === bt.id} onClick={() => apply({ bodyTypeId: bt.id })}>{bt.name}</button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.make.title")}</h4>
-                      <div className="fbody">
-                        <div className="check-list">
-                          {(facets.makes.length ? facets.makes : makes.map((m) => ({ id: m.id, name: m.name, count: 0 }))).slice(0, 9).map((mk) => (
-                            <label className="check-row" key={mk.id}>
-                              <input type="checkbox" checked={query.makeId === mk.id} onChange={(e) => apply({ makeId: e.target.checked ? mk.id : undefined })} />
-                              {" "}{mk.name} <span className="cnt">{mk.count.toLocaleString()}</span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="fgroup">
-                      <h4>{t("fg.price.title")}</h4>
-                      <div className="fbody">
-                        <div className="range-row">
-                          <input className="f-input" placeholder={t("fg.price.min")} defaultValue={query.priceMin ?? ""} onBlur={(e) => apply({ priceMin: e.target.value || undefined })} />
-                          <span>–</span>
-                          <input className="f-input" placeholder={t("fg.price.max")} defaultValue={query.priceMax ?? ""} onBlur={(e) => apply({ priceMax: e.target.value || undefined })} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </aside>
+                <MkFilterPanel
+                  filters={filters}
+                  facets={facets}
+                  makes={makes}
+                  models={models}
+                  trims={trims}
+                  bodyTypes={bodyTypes}
+                  emirates={emirates}
+                  keyword={kw}
+                  onKeywordChange={setKw}
+                  total={total}
+                  activeCount={activeFilterCount}
+                  open={filtersOpen}
+                  onToggleOpen={() => setFiltersOpen((v) => !v)}
+                  onPatch={apply}
+                  onReset={reset}
+                  onShowResults={() => { setFiltersOpen(false); scrollToResults(); }}
+                />
 
                 {/* RESULTS */}
-                <div className="results">
+                <div className="results" id="results">
+                  <MkActiveFilters
+                    filters={filters}
+                    makes={makes}
+                    models={models}
+                    trims={trims}
+                    bodyTypes={bodyTypes}
+                    emirates={emirates}
+                    onPatch={apply}
+                    onReset={reset}
+                  />
+
                   <div className="result-head">
                     <div className="result-count"><strong>{total.toLocaleString()}</strong> {t("results.match")}</div>
                     <div className="result-tools">
                       {/* Was a <span>, so the select had no accessible name —
                           axe flagged it critical. */}
                       <label className="sort-label" htmlFor="sort-select">{t("results.sortBy")}</label>
-                      <select id="sort-select" className="sort-select" value={query.sort ?? "newest"} onChange={(e) => apply({ sort: e.target.value }, false)}>
-                        {SORTS.map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
+                      <select id="sort-select" className="sort-select" value={state.sort} onChange={(e) => applySort(e.target.value as SearchSort)}>
+                        {SORT_OPTIONS.map((s) => <option key={s} value={s}>{t(`results.sort.${s}`)}</option>)}
                       </select>
                     </div>
                   </div>
@@ -272,11 +324,11 @@ export default function MksearchPage({
 
                   {pages > 1 && (
                     <div className="pagination">
-                      <button type="button" disabled={page <= 1} onClick={() => apply({ page: String(page - 1) }, false)}>‹</button>
+                      <button type="button" disabled={page <= 1} onClick={() => goToPage(page - 1)}>‹</button>
                       {Array.from({ length: Math.min(pages, 6) }, (_, i) => i + 1).map((n) => (
-                        <button key={n} type="button" className={n === page ? "active" : ""} onClick={() => apply({ page: String(n) }, false)}>{n}</button>
+                        <button key={n} type="button" className={n === page ? "active" : ""} onClick={() => goToPage(n)}>{n}</button>
                       ))}
-                      <button type="button" disabled={page >= pages} onClick={() => apply({ page: String(page + 1) }, false)}>›</button>
+                      <button type="button" disabled={page >= pages} onClick={() => goToPage(page + 1)}>›</button>
                     </div>
                   )}
                 </div>
@@ -290,9 +342,10 @@ export default function MksearchPage({
   );
 }
 
+const EMPTY_FACETS: Facets = { makes: [], bodyTypes: [], fuelTypes: [], emirates: [] };
+
 export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, query }) => {
-  const q = query as Record<string, string>;
-  const page = Math.max(1, Number(q.page) || 1);
+  const state = parseSearchQuery(query);
 
   // Taxonomy first (Redis-cached, fast) so human-readable deep-links from the
   // home page — ?make=toyota, ?bodyType=suv — resolve to the ids the search
@@ -302,47 +355,53 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ locale, qu
     getMakes("CAR").catch(() => []),
   ]);
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "-");
-  const makeId =
-    q.makeId ??
-    (q.make ? makes.find((m) => m.slug === norm(q.make) || norm(m.name) === norm(q.make))?.id : undefined);
-  const bodyTypeId =
-    q.bodyTypeId ??
-    (q.bodyType ? meta.bodyTypes.find((b) => b.slug === norm(q.bodyType) || norm(b.name) === norm(q.bodyType))?.id : undefined);
+  const alias = (key: string) => (typeof query[key] === "string" ? (query[key] as string) : undefined);
+  const makeAlias = alias("make");
+  const bodyAlias = alias("bodyType");
+  if (!state.filters.makeId && makeAlias) {
+    state.filters.makeId = makes.find(
+      (m) => m.slug === norm(makeAlias) || norm(m.name) === norm(makeAlias),
+    )?.id;
+  }
+  if (!state.filters.bodyTypeId && bodyAlias) {
+    state.filters.bodyTypeId = meta.bodyTypes.find(
+      (b) => b.slug === norm(bodyAlias) || norm(b.name) === norm(bodyAlias),
+    )?.id;
+  }
 
-  const params = {
-    q: q.q, makeId, modelId: q.modelId, bodyTypeId,
-    emirateId: q.emirateId,
-    priceMin: q.priceMin ? Number(q.priceMin) : undefined,
-    priceMax: q.priceMax ? Number(q.priceMax) : undefined,
-    yearMin: q.yearMin ? Number(q.yearMin) : undefined,
-    sort: (q.sort as SearchSort) || undefined,
-    page, limit: PAGE_SIZE, facets: true,
-  };
-
-  const res = await searchListings(params).catch(() => ({ items: [], total: 0, hasMore: false, facets: undefined }));
+  // The cascade lists are part of the first paint: without them a shared
+  // ?makeId=X&modelId=Y link renders an empty Model select showing no value.
+  const [res, models, trims] = await Promise.all([
+    searchListings(toApiParams(state, PAGE_SIZE)).catch(() => ({
+      items: [], total: 0, hasMore: false, facets: undefined,
+    })),
+    state.filters.makeId ? getCarModels(state.filters.makeId).catch(() => []) : Promise.resolve([]),
+    state.filters.modelId ? getTrims(state.filters.modelId).catch(() => []) : Promise.resolve([]),
+  ]);
 
   return {
     props: {
       items: res.items,
       total: res.total,
-      page,
-      facets: {
-        makes: res.facets?.makes ?? [],
-        bodyTypes: res.facets?.bodyTypes ?? [],
-        emirates: res.facets?.emirates ?? [],
-      },
+      page: state.page,
+      facets: res.facets ?? EMPTY_FACETS,
       makes,
+      models,
+      trims,
       bodyTypes: meta.bodyTypes,
       emirates: meta.emirates,
-      // Reflect resolved ids back to the UI so the matching facet shows selected.
-      query: {
-        ...(Object.fromEntries(Object.entries(q).filter(([, v]) => typeof v === "string")) as Record<string, string>),
-        ...(makeId ? { makeId } : {}),
-        ...(bodyTypeId ? { bodyTypeId } : {}),
-      },
+      /*
+       * The canonical serialization, not the raw query. Reflecting the raw
+       * query kept `?make=toyota` alongside the resolved `makeId`, so picking
+       * BMW produced `?make=toyota&makeId=<bmw>` and a later "clear make"
+       * silently fell back to Toyota.
+       */
+      query: serializeSearchQuery(state),
       ...(await serverSideTranslations(
         locale ?? nextI18NextConfig.i18n.defaultLocale,
-        ["common", "mk-search", "mk-assistant"],
+        // `listings` carries the fuel/transmission/spec enum labels the filter
+        // panel and the chip row read; without it they render raw keys.
+        ["common", "mk-search", "mk-assistant", "listings"],
         nextI18NextConfig,
       )),
     },

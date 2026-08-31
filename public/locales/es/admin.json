@@ -190,13 +190,47 @@
     "ban": "Bloquear",
     "reinstate": "Restaurar",
     "impersonate": "Suplantar",
+    "role": {
+      "change": "Cambiar rol",
+      "dialogTitle": "Cambiar rol",
+      "current": "Rol actual",
+      "next": "Nuevo rol",
+      "options": {
+        "USER": "Cliente",
+        "ADMIN": "Administrador",
+        "SUPER_ADMIN": "Superadministrador"
+      },
+      "staffRole": "Rol de personal asignado",
+      "staffRolePlaceholder": "Elige un rol",
+      "staffRoleHint": "Obligatorio. Un administrador sin rol asignado hereda todos los permisos de la plataforma salvo los de superadministrador.",
+      "staffRoleOptional": "Opcional. Un superadministrador tiene todos los permisos igualmente.",
+      "staffRoleNone": "Todavía no hay roles asignables. Clona uno desde una plantilla en RBAC primero.",
+      "consequences": "Qué implica",
+      "warnNoRevoke": "{{name}} conserva sus {{count}} sesión(es) abiertas: el cambio llega a su navegador en la siguiente renovación del token, en menos de 15 minutos. Las sesiones no se revocan.",
+      "warnPasskey": "El acceso del personal exige una passkey. Su siguiente token solo llegará al registro de passkey hasta que cree una.",
+      "warnListings": "Tiene {{count}} anuncio(s). Sus páginas de cliente siguen siendo suyas, pero los tokens de personal exigen verificación reforzada.",
+      "warnCleanup": "Primero se borran su rol asignado, las excepciones de permisos, los ámbitos de datos y cualquier concesión temporal.",
+      "warnAudited": "El cambio se registra en el log de auditoría a nombre de tu cuenta.",
+      "confirm": "Cambiar a {{role}}",
+      "cancel": "Cancelar",
+      "lastSuperAdmin": "No se puede degradar al último superadministrador activo.",
+      "errors": {
+        "self": "No puedes cambiar tu propio rol.",
+        "lastSuperAdmin": "No se puede degradar al último superadministrador activo. Promociona a otra persona primero.",
+        "notFound": "Ese usuario ya no existe.",
+        "template": "Ese es un rol plantilla. Clónalo en RBAC y asigna la copia.",
+        "roleAssignFailed": "El rol cambió, pero no se pudo asignar el rol de personal ({{reason}}). Termínalo en RBAC.",
+        "generic": "No se pudo completar el cambio de rol."
+      }
+    },
     "empty": "Sin usuarios coincidentes",
     "toast": {
       "suspend": "Suspendido — {{count}} sesión(es) revocadas",
       "ban": "Bloqueado — {{count}} sesión(es) revocadas",
       "reinstate": "Restaurado",
       "failed": "No se pudo completar la acción",
-      "loadFailed": "No se pudieron cargar los usuarios"
+      "loadFailed": "No se pudieron cargar los usuarios",
+      "roleChanged": "{{name}} ahora es {{role}}"
     },
     "impersonationDialog": {
       "title": "Sesión de suplantación (1 hora)",

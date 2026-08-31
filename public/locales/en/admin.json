@@ -190,13 +190,47 @@
     "ban": "Ban",
     "reinstate": "Reinstate",
     "impersonate": "Impersonate",
+    "role": {
+      "change": "Change role",
+      "dialogTitle": "Change role",
+      "current": "Currently",
+      "next": "New role",
+      "options": {
+        "USER": "Customer",
+        "ADMIN": "Admin",
+        "SUPER_ADMIN": "Super Admin"
+      },
+      "staffRole": "Named staff role",
+      "staffRolePlaceholder": "Choose a role",
+      "staffRoleHint": "Required. An admin with no named role inherits every non-super-admin permission on the platform.",
+      "staffRoleOptional": "Optional. A Super Admin holds every permission regardless.",
+      "staffRoleNone": "No assignable roles exist yet. Clone one from a template in RBAC first.",
+      "consequences": "What this does",
+      "warnNoRevoke": "{{name}} keeps their {{count}} open session(s): the change reaches their browser at the next token refresh, within 15 minutes. Sessions are not revoked.",
+      "warnPasskey": "Staff sign-in is passkey-gated. Their next token only reaches passkey enrolment until they register one.",
+      "warnListings": "They own {{count}} listing(s). Their own customer pages stay theirs, but staff tokens are step-up gated.",
+      "warnCleanup": "Their named role, permission overrides, data scopes and any time-bound grants are cleared first.",
+      "warnAudited": "The change is written to the audit log against your account.",
+      "confirm": "Change to {{role}}",
+      "cancel": "Cancel",
+      "lastSuperAdmin": "The last active Super Admin cannot be demoted.",
+      "errors": {
+        "self": "You cannot change your own role.",
+        "lastSuperAdmin": "The last active Super Admin cannot be demoted. Promote someone else first.",
+        "notFound": "That user no longer exists.",
+        "template": "That is a template role. Clone it in RBAC, then assign the clone.",
+        "roleAssignFailed": "The role changed, but the named staff role was not attached ({{reason}}). Finish it in RBAC.",
+        "generic": "The role change could not be completed."
+      }
+    },
     "empty": "No users match",
     "toast": {
       "suspend": "Suspended — {{count}} session(s) revoked",
       "ban": "Banned — {{count}} session(s) revoked",
       "reinstate": "Reinstated",
       "failed": "The action could not be completed",
-      "loadFailed": "Could not load users"
+      "loadFailed": "Could not load users",
+      "roleChanged": "{{name}} is now {{role}}"
     },
     "impersonationDialog": {
       "title": "Impersonation session (1 hour)",

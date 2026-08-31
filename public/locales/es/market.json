@@ -1,0 +1,58 @@
+{
+  "deal": {
+    "great": "Gran precio",
+    "good": "Buen precio",
+    "fair": "Precio razonable",
+    "high": "Por encima del mercado",
+    "below": "{{pct}} % por debajo de la mediana",
+    "above": "{{pct}} % por encima de la mediana",
+    "noData": "No hay suficientes coches comparables para valorar este precio.",
+    "explain": "Comparado con la mediana de precios de coches similares —misma marca, modelo y franja de año— publicados en los EAU."
+  },
+  "insight": {
+    "title": "Cómo se compara este precio",
+    "below": "Este coche está un {{pct}} % por debajo de la mediana de coches comparables.",
+    "above": "Este coche está un {{pct}} % por encima de la mediana de coches comparables.",
+    "atMarket": "Este coche está en línea con la mediana de coches comparables.",
+    "median": "Precio mediano de coches comparables: {{amount}}",
+    "daysOnMarket_zero": "Publicado hoy",
+    "daysOnMarket_one": "Publicado desde hace {{count}} día",
+    "daysOnMarket_many": "Publicado desde hace {{count}} de días",
+    "daysOnMarket_other": "Publicado desde hace {{count}} días",
+    "priceDropToday": "El precio bajó {{amount}} hoy",
+    "priceDrop_one": "El precio bajó {{amount}} ayer",
+    "priceDrop_many": "El precio bajó {{amount}} hace {{count}} de días",
+    "priceDrop_other": "El precio bajó {{amount}} hace {{count}} días"
+  },
+  "history": {
+    "title": "Historial de precios"
+  },
+  "finance": {
+    "title": "Calculadora de financiación",
+    "subtitle": "Estima tu cuota mensual.",
+    "vehiclePrice": "Precio del vehículo",
+    "downPayment": "Entrada",
+    "downPaymentSlider": "Control deslizante de la entrada",
+    "loanTerm": "Plazo del préstamo",
+    "termOption_one": "{{count}} mes",
+    "termOption_many": "{{count}} de meses",
+    "termOption_other": "{{count}} meses",
+    "interestRate": "Tipo de interés",
+    "ratePercent": "{{pct}} %",
+    "monthlyPayment": "Cuota mensual",
+    "loanAmount": "Importe del préstamo",
+    "totalInterest": "Intereses totales",
+    "totalCost": "Coste total",
+    "preApproved": "Solicitar preaprobación",
+    "fromMonthly": "o {{monthly}} al mes durante {{months}} meses",
+    "disclaimer": "Solo orientativo. Los bancos de los EAU suelen exigir una entrada del {{downPct}} % en vehículos usados, y tu tipo depende del salario, el empleador y el historial crediticio.",
+    "leadTitle": "Déjanos tus datos y un socio financiero te llamará.",
+    "leadName": "Nombre completo",
+    "leadPhone": "Número de móvil",
+    "leadEmail": "Correo electrónico (opcional)",
+    "leadSubmit": "Solicitar preaprobación",
+    "leadSending": "Enviando…",
+    "leadSuccess": "Gracias: hemos recibido tu solicitud. Con las cifras que has elegido, la cuota mensual orientativa es {{monthly}}. Un socio financiero se pondrá en contacto contigo.",
+    "leadError": "No hemos podido enviar tu solicitud. Revisa tus datos e inténtalo de nuevo."
+  }
+}
