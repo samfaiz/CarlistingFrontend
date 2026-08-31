@@ -252,25 +252,43 @@ test("compare shows aligned rows, per-row winners and a match score", async ({ p
     .toBeLessThan(allRows);
 });
 
-test("the quiz re-scores the comparison against the user's priorities", async ({ page }) => {
+test("the AI advisor asks four questions and recommends one of the cars", async ({
+  page,
+}) => {
   await seedCompareTray(page);
   await page.goto("/compare");
 
-  // Pre-port copy: this asserted `compare:score.defaultWeights` and
-  // `compare:quiz.suggestionsTitle`. The mockup port renders mk-compare and
-  // dropped BOTH the "weighted equally" explainer and the suggestions block —
-  // they are a real coverage loss, tracked, not silently deleted here. What the
-  // shipped page does still prove is that the quiz changes the scoring.
+  // Replaces the guided-quiz test. The quiz is gone — its four questions are
+  // now the advisor's, feeding the SAME weights, so the table score and the
+  // spoken recommendation can never disagree. Asserting the advisor is
+  // therefore the honest successor to asserting the quiz.
   await expect(page.getByText(/best overall/i).first()).toBeVisible({ timeout: 20_000 });
 
-  await page.getByRole("button", { name: /guided quiz/i }).click();
-  await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByRole("button", { name: /^family$/i }).click();
-  await page.getByRole("button", { name: /show my matches/i }).click();
+  await page.getByRole("button", { name: /help me choose/i }).click();
+  const panel = page.getByTestId("compare-advisor");
+  await expect(panel).toBeVisible({ timeout: 20_000 });
 
-  await expect(page.getByText(/scores weighted by your quiz priorities/i)).toBeVisible({
-    timeout: 20_000,
-  });
+  // 1: budget. 2: usage. 3: the single priority that sets the weights.
+  await panel.getByLabel(/maximum price/i).fill("400000");
+  await panel.getByRole("button", { name: /^next$/i }).click();
+  await panel.getByRole("button", { name: /^family car$/i }).click();
+  await panel.getByRole("button", { name: /^next$/i }).click();
+  await panel.getByRole("button", { name: /^space$/i }).click();
+  await panel.getByRole("button", { name: /^next$/i }).click();
+
+  // 4: deal-breakers are optional — submitting none must still produce a pick.
+  await panel.getByRole("button", { name: /show my recommendation/i }).click();
+
+  const result = page.getByTestId("compare-advisor-result");
+  await expect(result).toBeVisible({ timeout: 60_000 });
+  await expect(result.getByText(/our pick for you/i)).toBeVisible();
+
+  // The pick must be one of the cars on the table, not prose about a car that
+  // is not in the comparison.
+  const titles = await page.locator(".cmp-car h4").allTextContents();
+  const pick = (await result.textContent()) ?? "";
+  expect(titles.length).toBeGreaterThan(0);
+  expect(titles.some((tt) => tt.trim() && pick.includes(tt.trim()))).toBe(true);
 });
 
 test("a shared compare link opens for a signed-out visitor", async ({ page, context }) => {

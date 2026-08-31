@@ -101,7 +101,9 @@ test.describe("sell wizard", () => {
     await page.selectOption("#sell-step2-fuelLabel", { index: 1 });
     await page.selectOption("#sell-step2-transmissionLabel", { index: 1 });
     await page.locator("#sell-step4-priceLabel").fill("259000");
-    await page.selectOption("#sell-step4-emirateLabel", { label: "Dubai" });
+    // Renamed from #sell-step4-emirateLabel: the field is "Location" now that
+    // the site is not UAE-only. The API field is still emirateId.
+    await page.selectOption("#sell-step4-location", { label: "Dubai" });
     await page
       .locator("#sell-description")
       .fill(
