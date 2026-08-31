@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
+import { mediaUrl } from "@/lib/format";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { toast } from "@/components/ui/toast";
@@ -104,7 +105,24 @@ export default function MkdealerProfilePage({
           <div className="dealer-profile-wrap">
             <div className="container">
               <div className="dealer-header">
-                <div className="dealer-logo-big">{initials(dealer.name)}</div>
+                {/*
+                  The uploaded logo, with initials as the fallback. logoKey has
+                  been written by the profile editor and returned by the public
+                  API all along, and nothing ever drew it — every dealership
+                  showed text initials no matter what they uploaded.
+                */}
+                <div className="dealer-logo-big">
+                  {dealer.logoKey ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={mediaUrl(dealer.logoKey)}
+                      alt={dealer.name}
+                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                    />
+                  ) : (
+                    initials(dealer.name)
+                  )}
+                </div>
                 <div className="dealer-info">
                   <div className="dealer-name-row">
                     <h1>{dealer.name}</h1>

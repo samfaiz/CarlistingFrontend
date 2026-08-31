@@ -19,7 +19,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { formatPrice, formatRelativeTime } from "@/lib/format";
-import { myListings, type ListingDetail } from "@/lib/marketplace-api";
+import {
+  getDealerAnalytics,
+  getDealerInventory,
+  type ListingDetail,
+} from "@/lib/marketplace-api";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { DealerOnboarding } from "@/components/dealer/dealer-onboarding";
 import nextI18NextConfig from "../../../next-i18next.config.js";
@@ -43,14 +47,31 @@ export default function DealerDashboardPage() {
   const [rows, setRows] = React.useState<ListingDetail[]>([]);
   const [total, setTotal] = React.useState(0);
   const [listLoading, setListLoading] = React.useState(true);
+  /** Real 7-day figures. These two tiles used to be the literal string "—". */
+  const [week, setWeek] = React.useState<{ leads: number; views: number } | null>(null);
 
   React.useEffect(() => {
-    if (!accessToken || !context?.dealer) return;
+    const dealer = context?.dealer;
+    if (!accessToken || !dealer) return;
     void (async () => {
       try {
-        const page = await myListings(accessToken, { limit: 8 });
-        setRows(page.items);
+        /*
+         * The DEALERSHIP's stock, not the signed-in person's. This called
+         * myListings(), which is scoped by userId and excludes dealer stock —
+         * so the table was permanently empty and the "expiring" tile always
+         * read 0, no matter how much inventory the business had.
+         */
+        const page = await getDealerInventory(dealer.id, accessToken, {
+          limit: 8,
+        });
+        setRows(page.items as unknown as ListingDetail[]);
         setTotal(page.total);
+        const stats = await getDealerAnalytics(dealer.id, 7, accessToken).catch(
+          () => null,
+        );
+        if (stats) {
+          setWeek({ leads: stats.totals.leads, views: stats.totals.views });
+        }
       } finally {
         setListLoading(false);
       }
@@ -127,8 +148,8 @@ export default function DealerDashboardPage() {
           hint={quota ? t("dashboard.quotaHint", { quota: quota.quota }) : undefined}
           tone={quota && !quota.canPublish ? "down" : "neutral"}
         />
-        <StatCard label={t("dashboard.leads7")} value="—" />
-        <StatCard label={t("dashboard.views7")} value="—" />
+        <StatCard label={t("dashboard.leads7")} value={week ? week.leads : "—"} />
+        <StatCard label={t("dashboard.views7")} value={week ? week.views : "—"} />
         <StatCard
           label={t("dashboard.expiring")}
           value={expiring.length}

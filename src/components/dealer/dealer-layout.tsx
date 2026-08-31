@@ -82,7 +82,13 @@ export function DealerLayout({
   const permissions = context.permissions;
 
   const canBill = permissions?.canManageBilling ?? false;
-  const canTeam = permissions?.canManageTeam ?? false;
+  /*
+   * Team and profile are gated on `elevated` (OWNER or MANAGER), not on
+   * canManageTeam (OWNER only): the backend lets a MANAGER invite people, edit
+   * the dealership and manage branches — assertRole('OWNER','MANAGER') — so an
+   * owner-only nav hid both pages from someone allowed to use them. The
+   * owner-only controls INSIDE those pages remain gated on canManageTeam.
+   */
   const elevated = permissions?.canSeeAllLeads ?? false;
 
   const groups: WorkspaceNavGroup[] = [
@@ -102,7 +108,7 @@ export function DealerLayout({
           href: "/dealer/team",
           label: t("nav.team"),
           icon: Building2,
-          visible: canTeam,
+          visible: elevated,
         },
         {
           // Editing the dealership had no entry point at all: PATCH /dealers
@@ -110,7 +116,7 @@ export function DealerLayout({
           href: "/dealer/profile",
           label: t("nav.profile"),
           icon: Store,
-          visible: canTeam,
+          visible: elevated,
         },
         {
           href: "/dealer/subscription",
