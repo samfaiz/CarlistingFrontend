@@ -28,11 +28,28 @@
       "paused": "Listing paused.",
       "resumed": "Listing is live again.",
       "markedSold": "Marked as sold.",
-      "renewed": "Listing renewed for another 60 days."
+      "renewed": "Listing renewed for another 60 days.",
+      "continue": "Continue",
+      "edit": "Edit",
+      "photos": "Photos ({{count}})",
+      "photos_other": "Photos ({{count}})",
+      "remove": "Remove",
+      "removed": "Listing removed. You can restore it for 30 days.",
+      "restore": "Restore",
+      "restored": "Listing restored. It is paused until you publish it again."
     },
     "errors": {
       "load": "Could not load your listings.",
       "action": "That action failed — try again."
+    },
+    "archivedHint": "Removed from the site. You can restore it for 30 days.",
+    "draftNeedsPhotos": "Draft — {{count}} photo added. At least 3 are needed before it can be reviewed.",
+    "draftNeedsPhotos_other": "Draft — {{count}} photos added. At least 3 are needed before it can be reviewed.",
+    "remove": {
+      "title": "Remove this listing?",
+      "body": "“{{title}}” comes off the site straight away and buyers can no longer find it. Nothing is deleted — it moves to the Removed filter, where you can restore it for 30 days.",
+      "confirm": "Remove listing",
+      "cancel": "Keep it"
     }
   },
   "notifications": {
@@ -92,5 +109,156 @@
     "managePrefs": "Manage notification settings",
     "invalid": "This unsubscribe link is not valid or has expired.",
     "missingLink": "Open this page from the link in your email."
+  },
+  "manage": {
+    "meta": {
+      "editTitle": "Edit listing — Carsens",
+      "photosTitle": "Listing photos — Carsens"
+    },
+    "back": "Back to my listings",
+    "loading": "Loading this listing…",
+    "cancel": "Cancel",
+    "save": "Save changes",
+    "discard": "Discard changes",
+    "noChanges": "No changes yet.",
+    "changedCount": "{{count}} field changed.",
+    "changedCount_other": "{{count}} fields changed.",
+    "tabs": {
+      "label": "Listing sections",
+      "details": "Details",
+      "photos": "Photos"
+    },
+    "notFound": {
+      "title": "We could not open this listing",
+      "body": "It may have been removed, or it may belong to someone else."
+    },
+    "errors": {
+      "load": "Could not load this listing.",
+      "saveTitle": "Your changes were not saved",
+      "saveGeneric": "Could not save your changes."
+    },
+    "saved": {
+      "ok": "Changes saved.",
+      "pending": "Changes saved. The listing is back in review and returns online once it is approved."
+    },
+    "frozen": {
+      "title": "This listing cannot be edited",
+      "body": "A listing that is {{status}} is read-only. Restore or renew it first."
+    },
+    "review": {
+      "bannerTitle": "Saving sends this listing back for review",
+      "bannerBody": "It is live right now. Any edit takes it out of the search results and back into moderation, and it returns online once a moderator approves it.",
+      "confirmTitle": "Save and send back for review?",
+      "confirmBody": "This listing is live. Saving takes it off the site, puts it back in the moderation queue, and buyers will not see it again until a moderator approves it.",
+      "confirmCta": "Save and re-submit"
+    },
+    "sections": {
+      "vehicle": "Vehicle",
+      "price": "Price",
+      "details": "Details",
+      "description": "Description"
+    },
+    "identity": {
+      "make": "Make",
+      "model": "Model",
+      "trim": "Trim",
+      "hint": "Make, model and trim are fixed once a listing exists. If this is a different car, create a new listing instead."
+    },
+    "fields": {
+      "notSet": "Not set",
+      "priceAed": "Price (AED)",
+      "priceHint": "Price changes show up on the car's price history.",
+      "isNegotiable": "Price is negotiable",
+      "year": "Year",
+      "mileageKm": "Mileage (km)",
+      "condition": "Condition",
+      "regionalSpec": "Regional spec",
+      "fuelType": "Fuel",
+      "transmission": "Transmission",
+      "cylinders": "Cylinders",
+      "optionalHint": "Optional. Leaving this empty keeps the current value.",
+      "bodyType": "Body type",
+      "exteriorColor": "Exterior colour",
+      "interiorColor": "Interior colour",
+      "vin": "VIN",
+      "vinHint": "A VIN that is already on another active listing is rejected at submission.",
+      "emirate": "Emirate",
+      "description": "Description",
+      "descriptionHint": "{{count}} of {{max}} characters. At least {{min}} if you change it.",
+      "descriptionUnavailable": "We could not read the current description. Anything you type here replaces it; leave it empty to keep it as it is."
+    },
+    "enum": {
+      "condition": {
+        "USED": "Used",
+        "NEW": "New"
+      }
+    },
+    "validation": {
+      "required": "This field cannot be empty.",
+      "wholeNumber": "Enter a whole number.",
+      "range": "Enter a value between {{min}} and {{max}}.",
+      "tooLong": "Use {{max}} characters or fewer.",
+      "descriptionShort": "A description needs at least {{min}} characters.",
+      "descriptionCannotClear": "A description cannot be removed once it exists — write at least {{min}} characters, or put the original text back."
+    },
+    "photos": {
+      "loading": "Loading photos…",
+      "empty": "No photos yet. Add at least 3 so buyers can see the car.",
+      "dropHint": "Drag photos here, or pick them from your device",
+      "formats": "JPG, PNG or WebP · up to {{max}} photos",
+      "browse": "Add photos",
+      "counter": "{{count}} photo of {{max}}.",
+      "counter_other": "{{count}} photos of {{max}}.",
+      "floor": "A published listing must keep at least {{min}}.",
+      "needMore": "Add {{count}} more before it can be reviewed.",
+      "needMore_other": "Add {{count}} more before it can be reviewed.",
+      "cover": "Cover",
+      "isCover": "Cover photo",
+      "setCover": "Make cover",
+      "setCoverLabel": "Make photo {{position}} the cover",
+      "coverSet": "Cover photo updated.",
+      "delete": "Delete",
+      "deleteLabel": "Delete photo {{position}}",
+      "deleteTitle": "Delete this photo?",
+      "deleteBody": "Photo {{position}} is removed from this listing for good, leaving {{remaining}}.",
+      "deleteCoverNote": "It is the cover, so the next clean photo takes over.",
+      "deleteFloorNote": "A published listing must keep at least {{min}} photos.",
+      "deleteConfirm": "Delete photo",
+      "deleted": "Photo deleted.",
+      "moveEarlierLabel": "Move photo {{position}} earlier",
+      "moveLaterLabel": "Move photo {{position}} later",
+      "thumbAlt": "Listing photo {{position}}",
+      "frozenBody": "Photos are read-only while the listing is in this state.",
+      "submitTitle": "Ready to publish?",
+      "submitReady": "Send this listing to our moderators. Reviews usually take a few hours.",
+      "submitBlocked": "Add at least {{min}} photos first.",
+      "submitCta": "Submit for review",
+      "submitDone": "Sent for review. We will let you know when it is approved.",
+      "scan": {
+        "pending": "Checking",
+        "pendingHint": "Still being scanned for viruses — it cannot be the cover until that finishes.",
+        "infected": "Failed scan",
+        "infectedHint": "This photo failed the virus scan and is never shown to buyers. Delete it."
+      },
+      "upload": {
+        "queued": "Waiting",
+        "processing": "Preparing",
+        "uploading": "Uploading {{percent}}%",
+        "attaching": "Attaching",
+        "retry": "Retry",
+        "discard": "Discard"
+      },
+      "errors": {
+        "load": "Could not load the photos for this listing.",
+        "upload": "That photo could not be uploaded.",
+        "tooLarge": "That image is too large to upload.",
+        "type": "Only JPG, PNG and WebP images can be uploaded.",
+        "max": "A listing can have at most {{max}} photos.",
+        "reorder": "Could not change the photo order",
+        "cover": "Could not change the cover photo",
+        "delete": "Could not delete that photo",
+        "submit": "Could not send this listing for review"
+      }
+    }
   }
 }

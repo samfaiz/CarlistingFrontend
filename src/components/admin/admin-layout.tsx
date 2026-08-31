@@ -34,6 +34,9 @@ import {
   SlidersHorizontal,
   Users,
   LayoutTemplate,
+  Building2,
+  CreditCard,
+  ReceiptText,
 } from "lucide-react";
 import { decodeStaffStepUp } from "@/components/admin/api";
 import { Badge } from "@/components/ui/badge";
@@ -81,6 +84,11 @@ export function AdminLayout({
       href: "/admin/verification",
       label: t("layout.nav.verification"),
       icon: BadgeCheck,
+    },
+    {
+      href: "/admin/dealers",
+      label: t("layout.nav.dealers"),
+      icon: Building2,
     },
     {
       href: "/admin/users",
@@ -156,6 +164,16 @@ export function AdminLayout({
       href: "/admin/crm",
       label: t("layout.nav.crm"),
       icon: Briefcase,
+    },
+    {
+      href: "/admin/subscriptions",
+      label: t("layout.nav.subscriptions"),
+      icon: CreditCard,
+    },
+    {
+      href: "/admin/billing",
+      label: t("layout.nav.billing"),
+      icon: ReceiptText,
     },
     {
       href: "/admin/finance",

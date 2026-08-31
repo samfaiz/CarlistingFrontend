@@ -1,0 +1,409 @@
+{
+  "title": "Facturation",
+  "subtitle": "Factures, avoirs, encaissements et paiements dans un seul espace de travail. Une facture émise ne peut jamais être modifiée : les corrections passent par un avoir, et confirmer un paiement déplace de l'argent réel.",
+  "common": {
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "loading": "Chargement…"
+  },
+  "tabs": {
+    "invoices": "Factures",
+    "creditNotes": "Avoirs",
+    "receipts": "Encaissements",
+    "payments": "Paiements"
+  },
+  "summary": {
+    "paymentsPending": "Paiements à confirmer",
+    "paymentsPendingHint": "Un concessionnaire déclare avoir envoyé les fonds",
+    "overdue": "Factures en retard",
+    "overdueHint": "Émises et échéance dépassée",
+    "receiptsPending": "Encaissements à approuver",
+    "receiptsPendingHint": "Marquage manuel comme payé, second approbateur requis",
+    "creditNotesPending": "Avoirs à approuver",
+    "creditNotesPendingHint": "Soumis, en attente d'un contrôleur",
+    "drafts": "Factures en brouillon",
+    "draftsHint": "Non émises — encore modifiables et annulables"
+  },
+  "status": {
+    "invoice": {
+      "DRAFT": "Brouillon",
+      "ISSUED": "Émise",
+      "PAID": "Payée",
+      "VOID": "Annulée"
+    },
+    "creditNote": {
+      "DRAFT": "Brouillon",
+      "PENDING_APPROVAL": "En attente d'approbation",
+      "ISSUED": "Émis",
+      "REJECTED": "Rejeté"
+    },
+    "receipt": {
+      "PENDING_APPROVAL": "En attente d'approbation",
+      "RECORDED": "Enregistré",
+      "REJECTED": "Rejeté"
+    },
+    "payment": {
+      "REQUIRES_ACTION": "En attente du payeur",
+      "PENDING_CONFIRMATION": "En attente de confirmation",
+      "PROCESSING": "En cours",
+      "SETTLED": "Réglé",
+      "FAILED": "Échoué",
+      "EXPIRED": "Expiré",
+      "CANCELLED": "Annulé",
+      "BLOCKED": "Bloqué"
+    }
+  },
+  "invoices": {
+    "caption": "Factures",
+    "immutabilityNote": "Seul un brouillon peut être modifié. Une fois émise, la facture est figée et porte un numéro fiscal séquentiel sans trou : corrigez-la par un avoir, jamais par une modification.",
+    "immutable": "Immuable",
+    "draftLabel": "Brouillon (pas encore de numéro)",
+    "newDraft": "Nouveau brouillon",
+    "filters": {
+      "ALL": "Toutes",
+      "DRAFT": "Brouillons",
+      "ISSUED": "Émises",
+      "PAID": "Payées",
+      "VOID": "Annulées",
+      "OVERDUE": "En retard"
+    },
+    "kinds": {
+      "SUBSCRIPTION": "Abonnement",
+      "BOOST_TOPUP": "Recharge de mise en avant",
+      "OTHER": "Autre"
+    },
+    "columns": {
+      "number": "Numéro",
+      "dealer": "Concession",
+      "status": "Statut",
+      "total": "Total",
+      "issued": "Émise le",
+      "due": "Échéance",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Aucune facture ici",
+      "hint": "Changez le filtre ou créez un brouillon de facture."
+    },
+    "actions": {
+      "issue": "Émettre",
+      "void": "Annuler",
+      "markPaid": "Marquer payée",
+      "creditNote": "Avoir",
+      "view": "Voir"
+    },
+    "issueDialog": {
+      "title": "Émettre cette facture ?",
+      "body": "{{dealer}} sera facturé {{amount}}.",
+      "warning": "L'émission est irréversible. Elle attribue le numéro suivant de la série fiscale sans trou et fige le document — ensuite, la seule correction possible est un avoir.",
+      "confirm": "Émettre la facture"
+    },
+    "voidDialog": {
+      "title": "Annuler ce brouillon ?",
+      "body": "Le brouillon de {{dealer}} d'un montant de {{amount}} sera retiré. Seuls les brouillons peuvent être annulés.",
+      "reason": "Motif",
+      "placeholder": "Créée pour la mauvaise concession",
+      "confirm": "Annuler le brouillon"
+    },
+    "markPaidDialog": {
+      "title": "Marquer cette facture comme payée",
+      "body": "{{number}} — {{dealer}}, {{amount}}.",
+      "paidAt": "Date de réception",
+      "method": "Moyen",
+      "ref": "Référence bancaire ou de chèque",
+      "refPlaceholder": "FT24123456789",
+      "note": "Note",
+      "warning": "Ceci enregistre les fonds comme reçus et active chaque période d'abonnement couverte par la facture.",
+      "confirm": "Marquer payée"
+    },
+    "create": {
+      "title": "Nouveau brouillon de facture",
+      "body": "Rien n'est encore émis — un brouillon n'a pas de numéro et peut être annulé.",
+      "dealer": "Concession",
+      "dealerPlaceholder": "Choisissez une concession",
+      "noTrn": "Cette concession n'a pas de TRN enregistré. L'émission sera refusée tant qu'il n'est pas saisi sur sa fiche : une facture fiscale B2B sans TRN acheteur est invalide.",
+      "emirate": "Émirat de fourniture",
+      "emiratePlaceholder": "Choisissez un émirat",
+      "emirateHint": "Détermine la ventilation de la case 1 du VAT201.",
+      "kind": "Type",
+      "dueDate": "Date d'échéance",
+      "lines": "Lignes",
+      "lineDescription": "Description",
+      "quantity": "Qté",
+      "unitPrice": "Prix unitaire (AED)",
+      "vatRate": "TVA %",
+      "vatCategory": "Cat.",
+      "exemptionCode": "Code du motif d'exonération de TVA",
+      "exemptionPlaceholder": "Obligatoire lorsque la catégorie n'est pas S",
+      "addLine": "Ajouter une ligne",
+      "removeLine": "Supprimer la ligne",
+      "notes": "Notes",
+      "subtotal": "Sous-total",
+      "vatTotal": "TVA",
+      "grandTotal": "Total",
+      "confirm": "Créer le brouillon"
+    },
+    "detail": {
+      "body": "{{dealer}} — TRN {{trn}}",
+      "linesCaption": "Lignes de la facture",
+      "line": "Ligne",
+      "qty": "Qté",
+      "unitPrice": "Prix unitaire",
+      "net": "Net",
+      "vat": "TVA",
+      "total": "Total",
+      "subtotal": "Sous-total",
+      "vatTotal": "Total TVA",
+      "grandTotal": "Total général",
+      "creditable": "Encore avoirable",
+      "emirate": "Émirat de fourniture",
+      "issueDate": "Date d'émission",
+      "creditNotes": "Avoirs sur cette facture",
+      "immutable": "Ce document est figé. Aucune modification n'est possible — émettez un avoir pour le corriger."
+    }
+  },
+  "creditNotes": {
+    "caption": "Avoirs",
+    "draftLabel": "Brouillon (pas encore de numéro)",
+    "makerCheckerNote": "Double validation : celui qui soumet un avoir ne peut pas l'approuver. L'approbation l'émet avec un numéro CN- et crédite la facture d'origine.",
+    "makerChecker": "Vous l'avez soumis — un autre administrateur doit l'approuver.",
+    "submittedOn": "Soumis le {{date}}",
+    "submittedByYou": "Soumis par vous le {{date}}",
+    "approvedOn": "Approuvé le {{date}}",
+    "filters": {
+      "ALL": "Tous",
+      "DRAFT": "Brouillons",
+      "PENDING_APPROVAL": "En attente d'approbation",
+      "ISSUED": "Émis",
+      "REJECTED": "Rejetés"
+    },
+    "reasons": {
+      "CANCELLATION": "Annulation",
+      "DOWNGRADE": "Passage à une offre inférieure",
+      "DISCOUNT": "Remise",
+      "BILLING_ERROR": "Erreur de facturation",
+      "BAD_DEBT": "Créance irrécouvrable"
+    },
+    "columns": {
+      "number": "Numéro",
+      "invoice": "Sur la facture",
+      "dealer": "Concession",
+      "reason": "Motif",
+      "total": "Total",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Aucun avoir ici",
+      "hint": "Les avoirs se rédigent depuis une facture émise."
+    },
+    "actions": {
+      "submit": "Soumettre",
+      "approve": "Approuver",
+      "reject": "Rejeter"
+    },
+    "create": {
+      "title": "Rédiger un avoir",
+      "body": "Sur {{number}}, initialement {{amount}}.",
+      "reason": "Motif",
+      "reasonText": "Explication",
+      "amount": "Montant à créditer (AED, hors TVA)",
+      "amountHint": "Saisissez-le en positif — le code de type 381 porte le signe.",
+      "description": "Description de la ligne",
+      "descriptionPlaceholder": "Par défaut, la description de la ligne d'origine",
+      "workflow": "Ceci crée un brouillon. Il doit encore être soumis, puis approuvé par un autre administrateur avant d'être émis.",
+      "confirm": "Créer le brouillon"
+    },
+    "approveDialog": {
+      "title": "Approuver et émettre cet avoir ?",
+      "body": "{{amount}} seront crédités à {{dealer}} sur la facture {{invoice}}.",
+      "warning": "L'approbation émet l'avoir avec un numéro CN- séquentiel sans trou et est irréversible.",
+      "confirm": "Approuver et émettre"
+    },
+    "rejectDialog": {
+      "title": "Rejeter cet avoir ?",
+      "body": "L'avoir de {{amount}} ne sera pas émis.",
+      "reason": "Motif",
+      "confirm": "Rejeter"
+    }
+  },
+  "receipts": {
+    "caption": "Encaissements",
+    "record": "Enregistrer un encaissement",
+    "unnumbered": "Sans numéro (en attente)",
+    "noAllocations": "Non affecté",
+    "allocationLine": "{{amount}} → {{invoice}}",
+    "makerChecker": "Vous l'avez enregistré — un autre administrateur doit l'approuver.",
+    "filters": {
+      "ALL": "Tous",
+      "PENDING_APPROVAL": "En attente d'approbation",
+      "RECORDED": "Enregistrés",
+      "REJECTED": "Rejetés"
+    },
+    "methods": {
+      "BANK_TRANSFER": "Virement bancaire",
+      "CHEQUE": "Chèque",
+      "CASH": "Espèces",
+      "CARD": "Carte",
+      "OTHER": "Autre"
+    },
+    "columns": {
+      "number": "Numéro",
+      "dealer": "Concession",
+      "amount": "Montant",
+      "allocations": "Affecté à",
+      "method": "Moyen",
+      "received": "Reçu le",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Aucun encaissement ici",
+      "hint": "Enregistrez-en un à l'arrivée des fonds et répartissez-le sur les factures ouvertes."
+    },
+    "actions": {
+      "approve": "Approuver",
+      "reject": "Rejeter"
+    },
+    "create": {
+      "title": "Enregistrer un encaissement",
+      "body": "Un paiement, réparti sur autant de factures qu'il couvre.",
+      "dealer": "Concession",
+      "dealerPlaceholder": "Choisissez une concession",
+      "amount": "Montant reçu (AED)",
+      "method": "Moyen",
+      "receivedAt": "Date de réception",
+      "reference": "Référence bancaire ou de virement",
+      "referencePlaceholder": "FT24123456789",
+      "note": "Note",
+      "allocation": "Affectation",
+      "allocationHint": "Affectez les fonds aux factures ouvertes de la concession. Le serveur refuse une affectation supérieure au solde restant d'une facture.",
+      "outstanding": "{{amount}} restant sur {{total}}",
+      "applyAmount": "Affecter (AED)",
+      "applyFull": "Affecter le solde",
+      "nothingOutstanding": "Cette concession n'a aucune facture émise avec un solde.",
+      "receiptAmount": "Encaissement",
+      "allocated": "Affecté",
+      "unallocated": "Non affecté",
+      "overAllocated": "Le montant affecté dépasse le montant reçu. Réduisez une affectation avant d'enregistrer.",
+      "manual": "Marquage manuel comme payé, sans justificatif bancaire",
+      "manualHint": "Envoie l'encaissement à un second approbateur au lieu de l'enregistrer immédiatement.",
+      "confirm": "Enregistrer l'encaissement"
+    },
+    "approveDialog": {
+      "title": "Approuver cet encaissement ?",
+      "body": "{{amount}} de {{dealer}}, sur {{allocations}} affectation(s) de facture.",
+      "warning": "Approuver traite les fonds comme reçus et règle les factures auxquelles ils sont affectés.",
+      "confirm": "Approuver l'encaissement"
+    },
+    "rejectDialog": {
+      "title": "Rejeter cet encaissement ?",
+      "body": "Le marquage payé de {{amount}} ne sera pas enregistré et les factures resteront ouvertes.",
+      "reason": "Motif",
+      "confirm": "Rejeter"
+    }
+  },
+  "payments": {
+    "caption": "Paiements",
+    "declaredRef": "Référence du payeur : {{ref}}",
+    "declaredOn": "Déclaré le {{date}}",
+    "filters": {
+      "ALL": "Tous",
+      "PENDING_CONFIRMATION": "En attente de confirmation",
+      "REQUIRES_ACTION": "En attente du payeur",
+      "PROCESSING": "En cours",
+      "SETTLED": "Réglés",
+      "FAILED": "Échoués",
+      "BLOCKED": "Bloqués"
+    },
+    "columns": {
+      "reference": "Référence",
+      "dealer": "Concession",
+      "invoice": "Facture",
+      "amount": "Montant",
+      "route": "Circuit",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Rien en attente",
+      "hint": "Les virements déclarés apparaissent ici pour qu'une personne les confirme."
+    },
+    "actions": {
+      "confirm": "Confirmer",
+      "reject": "Rejeter"
+    },
+    "confirmDialog": {
+      "title": "Confirmer que les fonds sont arrivés ?",
+      "body": "{{amount}} de {{dealer}} sur la facture {{invoice}}.",
+      "warning": "Il s'agit d'argent réel. Ne confirmez qu'après avoir vu les fonds sur le relevé bancaire — cela écrit l'encaissement et règle la facture.",
+      "declaredRef": "Le payeur a indiqué la référence {{ref}}.",
+      "confirm": "Oui, les fonds sont arrivés"
+    },
+    "rejectDialog": {
+      "title": "Rejeter ce paiement ?",
+      "body": "Les {{amount}} déclarés par {{dealer}} seront marqués comme jamais reçus.",
+      "reason": "Motif",
+      "placeholder": "Aucun crédit correspondant sur le relevé bancaire",
+      "hint": "Ce motif est communiqué au payeur.",
+      "confirm": "Rejeter le paiement"
+    }
+  },
+  "provider": {
+    "title": "Prestataire de paiement",
+    "canCharge": "Peut encaisser",
+    "cannotCharge": "Ne peut pas encaisser",
+    "implemented": "Connecteur implémenté",
+    "notImplemented": "Aucun connecteur",
+    "credentials": "Identifiants :",
+    "apiKeyPresent": "Clé d'API renseignée",
+    "apiKeyAbsent": "Clé d'API manquante",
+    "webhookPresent": "Secret de webhook renseigné",
+    "webhookAbsent": "Secret de webhook manquant",
+    "presenceOnly": "Présence uniquement. Les valeurs secrètes restent dans le coffre Super Admin et ne sont jamais lisibles ici.",
+    "blockedTitle": "La plateforme ne peut pas encaisser.",
+    "change": "Changer de prestataire",
+    "choosePlaceholder": "Choisissez un prestataire",
+    "noAdapter": "pas encore de connecteur",
+    "apply": "Appliquer",
+    "changeWarning": "Désigner un prestataire sans identifiants arrête totalement l'encaissement plutôt que de basculer silencieusement ailleurs.",
+    "blocked": "Bloqué"
+  },
+  "toast": {
+    "summaryFailed": "Impossible de charger le résumé de facturation",
+    "invoicesFailed": "Impossible de charger les factures",
+    "detailFailed": "Impossible d'ouvrir la facture",
+    "draftCreated": "Brouillon de facture créé",
+    "draftFailed": "Impossible de créer le brouillon",
+    "invoiceIssued": "Facture émise",
+    "invoiceIssueFailed": "Impossible d'émettre la facture",
+    "invoiceVoided": "Brouillon annulé",
+    "invoiceVoidFailed": "Impossible d'annuler le brouillon",
+    "invoicePaid": "Facture marquée comme payée",
+    "invoicePayFailed": "Impossible de marquer la facture comme payée",
+    "creditNotesFailed": "Impossible de charger les avoirs",
+    "creditNoteCreated": "Avoir rédigé",
+    "creditNoteCreateFailed": "Impossible de rédiger l'avoir",
+    "creditNoteSubmitted": "Avoir soumis pour approbation",
+    "creditNoteSubmitFailed": "Impossible de soumettre l'avoir",
+    "creditNoteApproved": "Avoir approuvé et émis",
+    "creditNoteApproveFailed": "Impossible d'approuver l'avoir",
+    "creditNoteRejected": "Avoir rejeté",
+    "creditNoteRejectFailed": "Impossible de rejeter l'avoir",
+    "receiptsFailed": "Impossible de charger les encaissements",
+    "outstandingFailed": "Impossible de charger les factures ouvertes",
+    "receiptRecorded": "Encaissement enregistré",
+    "receiptFailed": "Impossible d'enregistrer l'encaissement",
+    "receiptApproved": "Encaissement approuvé",
+    "receiptApproveFailed": "Impossible d'approuver l'encaissement",
+    "receiptRejected": "Encaissement rejeté",
+    "receiptRejectFailed": "Impossible de rejeter l'encaissement",
+    "paymentsFailed": "Impossible de charger les paiements",
+    "paymentConfirmed": "Paiement confirmé et facture réglée",
+    "paymentConfirmFailed": "Impossible de confirmer le paiement",
+    "paymentRejected": "Paiement rejeté",
+    "paymentRejectFailed": "Impossible de rejeter le paiement",
+    "providerChanged": "Prestataire de paiement mis à jour",
+    "providerFailed": "Impossible de changer de prestataire de paiement"
+  }
+}

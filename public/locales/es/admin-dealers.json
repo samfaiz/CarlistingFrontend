@@ -1,0 +1,154 @@
+{
+  "title": "Directorio de concesionarios",
+  "intro": "Todos los concesionarios de la plataforma, sea cual sea su estado de verificación o de actividad. La verificación trata de los documentos; el estado comercial, de si pueden vender hoy.",
+  "count_one": "{{count}} concesionario",
+  "count_other": "{{count}} concesionarios",
+  "verification": {
+    "UNVERIFIED": "Sin verificar",
+    "PENDING": "Pendiente de revisión",
+    "VERIFIED": "Verificado",
+    "REJECTED": "Rechazado"
+  },
+  "trading": {
+    "ACTIVE": "Operando",
+    "SUSPENDED": "Suspendido"
+  },
+  "summary": {
+    "all": "Concesionarios",
+    "verified": "Verificados",
+    "verifiedHint": "Documentos aprobados",
+    "pending": "Pendientes de revisión",
+    "pendingHint": "En la cola de verificación",
+    "suspended": "Suspendidos",
+    "suspendedHint": "Sin permiso para vender"
+  },
+  "filters": {
+    "trading": {
+      "ALL": "Todos los estados"
+    },
+    "verificationLabel": "Verificación",
+    "verification": {
+      "ALL": "Cualquier verificación"
+    },
+    "sortLabel": "Orden",
+    "sort": {
+      "recent": "Más recientes primero",
+      "name": "Nombre (A–Z)",
+      "listings": "Más stock publicado"
+    }
+  },
+  "columns": {
+    "dealer": "Concesionario",
+    "trn": "TRN",
+    "verification": "Verificación",
+    "trading": "Actividad",
+    "live": "Stock publicado",
+    "team": "Equipo",
+    "joined": "Alta",
+    "actions": "Acciones"
+  },
+  "actions": {
+    "view": "Abrir",
+    "suspend": "Suspender",
+    "reinstate": "Reactivar",
+    "viewPublic": "Perfil público",
+    "cancel": "Cancelar"
+  },
+  "empty": {
+    "title": "Ningún concesionario coincide",
+    "hint": "Borra la búsqueda o amplía los filtros de verificación y actividad."
+  },
+  "toast": {
+    "loadFailed": "No se pudo cargar el directorio de concesionarios.",
+    "detailFailed": "No se pudo cargar este concesionario.",
+    "actionFailed": "No se pudo aplicar el cambio.",
+    "suspended": "{{name}} ha sido suspendido",
+    "suspendedDetail_one": "Se pausó {{count}} anuncio publicado.",
+    "suspendedDetail_other": "Se pausaron {{count}} anuncios publicados.",
+    "reinstated": "{{name}} vuelve a operar",
+    "reinstatedDetail_one": "Se restauró {{count}} anuncio.",
+    "reinstatedDetail_other": "Se restauraron {{count}} anuncios."
+  },
+  "detail": {
+    "title": "Concesionario",
+    "subtitle": "Perfil, sucursales, equipo, paquete y stock.",
+    "loading": "Cargando concesionario…",
+    "suspendedTitle": "Suspendido de la actividad comercial",
+    "noReason": "No se registró ningún motivo.",
+    "suspendedMeta": "Suspendido {{when}} por {{by}}. El concesionario ve este motivo.",
+    "unknownActor": "un miembro del personal",
+    "verificationLabel": "Estado de verificación",
+    "verificationHint": "Si se han comprobado su licencia comercial y su TRN.",
+    "tradingLabel": "Estado comercial",
+    "tradingHint": "Si puede publicar y vender en la plataforma ahora mismo.",
+    "trn": "TRN",
+    "slug": "Identificador del perfil",
+    "joined": "Alta",
+    "brands": "Marcas",
+    "none": "—",
+    "stock": "Stock por estado",
+    "noStock": "Este concesionario aún no tiene anuncios.",
+    "package": "Paquete",
+    "packageTerms": "{{quota}} plazas de anuncio · {{boosts}} créditos de impulso",
+    "packageRenews": "Termina {{when}}",
+    "noPackage": "Sin suscripción activa.",
+    "branches_one": "{{count}} sucursal",
+    "branches_other": "{{count}} sucursales",
+    "noBranches": "No hay sucursales registradas.",
+    "team_one": "{{count}} miembro del equipo",
+    "team_other": "{{count}} miembros del equipo",
+    "memberName": "Miembro",
+    "memberRole": "Rol",
+    "memberStatus": "Cuenta"
+  },
+  "listingStatus": {
+    "DRAFT": "Borrador",
+    "PENDING_REVIEW": "Pendiente de revisión",
+    "LIVE": "Publicado",
+    "PAUSED": "Pausado",
+    "SOLD": "Vendido",
+    "EXPIRED": "Caducado",
+    "REJECTED": "Rechazado",
+    "ARCHIVED": "Archivado"
+  },
+  "subscriptionStatus": {
+    "PENDING_PAYMENT": "Pendiente de pago",
+    "ACTIVE": "Activa",
+    "GRACE": "Periodo de gracia",
+    "EXPIRED": "Caducada",
+    "CANCELLED": "Cancelada",
+    "SUSPENDED": "Suspendida"
+  },
+  "memberRole": {
+    "OWNER": "Propietario",
+    "MANAGER": "Gerente",
+    "SALES": "Ventas"
+  },
+  "userStatus": {
+    "ACTIVE": "Activa",
+    "SUSPENDED": "Suspendida",
+    "BANNED": "Bloqueada",
+    "DELETED": "Eliminada"
+  },
+  "suspend": {
+    "title": "¿Suspender a {{name}}?",
+    "description": "Esto detiene su actividad comercial de inmediato. No cambia su estado de verificación.",
+    "effectPause_one": "Pausa su stock publicado: {{count}} anuncio deja de verse para los compradores al instante.",
+    "effectPause_other": "Pausa su stock publicado: {{count}} anuncios dejan de verse para los compradores al instante.",
+    "effectPublish": "Impide al concesionario publicar o renovar nada mientras esté suspendido.",
+    "effectNotify": "Avisa a los propietarios por correo y en la aplicación, con el motivo indicado abajo.",
+    "effectSessions": "Su equipo sigue con la sesión iniciada: solo se bloquean las acciones de concesionario, no el marketplace.",
+    "reasonLabel": "Motivo que verá el concesionario",
+    "reasonPlaceholder": "Escríbelo para que lo lean los propietarios: lo verán palabra por palabra.",
+    "reasonHint": "Obligatorio, de 3 a {{max}} caracteres. Se envía a los propietarios tal cual.",
+    "confirm": "Suspender actividad"
+  },
+  "reinstate": {
+    "title": "¿Reactivar a {{name}}?",
+    "description": "Esto permite al concesionario volver a operar y deshace la pausa que aplicó esta suspensión.",
+    "effectRestore": "Restaura exactamente los anuncios que pausó esta suspensión: el stock que pausaron ellos mismos sigue pausado, y lo que caducó entretanto no se recupera.",
+    "effectPublish": "Permite al concesionario volver a publicar, renovar y gestionar su stock.",
+    "effectNotify": "Avisa a los propietarios de que vuelven a estar activos.",
+    "confirm": "Reactivar actividad"
+  }
+}

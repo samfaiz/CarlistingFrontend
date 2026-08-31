@@ -27,7 +27,10 @@
       "growth": "النمو",
       "studio": "الاستوديو",
       "intelligence": "الذكاء",
-      "homepageStudio": "استوديو الصفحة الرئيسية"
+      "homepageStudio": "استوديو الصفحة الرئيسية",
+      "dealers": "المعارض",
+      "subscriptions": "الاشتراكات",
+      "billing": "الفوترة"
     },
     "signOut": "تسجيل الخروج",
     "stepUpRedirect": "جارٍ التحويل إلى التحقق بمفتاح المرور…"

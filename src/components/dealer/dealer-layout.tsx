@@ -105,6 +105,14 @@ export function DealerLayout({
           visible: canTeam,
         },
         {
+          // Editing the dealership had no entry point at all: PATCH /dealers
+          // and the updateDealer client both existed with nothing calling them.
+          href: "/dealer/profile",
+          label: t("nav.profile"),
+          icon: Store,
+          visible: canTeam,
+        },
+        {
           href: "/dealer/subscription",
           label: t("nav.subscription"),
           icon: CreditCard,

@@ -1,0 +1,154 @@
+{
+  "title": "Suscripciones",
+  "subtitle": "Solicitudes de plan de los concesionarios y todos los periodos de suscripción de la plataforma. Un periodo empieza como Pendiente de pago, que no otorga cupo de anuncios: el concesionario solo puede publicar cuando la suscripción está activa.",
+  "summary": {
+    "pendingRequests": "Solicitudes pendientes de decisión",
+    "pendingRequestsHint": "Concesionarios esperando al equipo",
+    "active": "Suscripciones activas",
+    "activeHint": "El cupo está en vigor",
+    "pendingPayment": "Pendientes de pago",
+    "pendingPaymentHint": "Asignadas pero sin otorgar cupo",
+    "grace": "En periodo de gracia",
+    "graceHint": "Sin pagar, todavía en servicio"
+  },
+  "tabs": {
+    "requests": "Solicitudes de plan ({{n}})",
+    "subscriptions": "Todas las suscripciones"
+  },
+  "filters": {
+    "all": "Todas"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "keep": "Mantener la suscripción"
+  },
+  "status": {
+    "PENDING_PAYMENT": "Pendiente de pago",
+    "ACTIVE": "Activa",
+    "GRACE": "Periodo de gracia",
+    "EXPIRED": "Caducada",
+    "CANCELLED": "Cancelada",
+    "SUSPENDED": "Suspendida"
+  },
+  "requestStatus": {
+    "PENDING": "Pendiente de decisión",
+    "APPROVED": "Aprobada",
+    "DECLINED": "Rechazada",
+    "WITHDRAWN": "Retirada"
+  },
+  "verification": {
+    "UNVERIFIED": "Sin verificar",
+    "PENDING": "Verificación pendiente",
+    "VERIFIED": "Verificado",
+    "REJECTED": "Verificación rechazada"
+  },
+  "requests": {
+    "caption": "Solicitudes de plan de los concesionarios",
+    "count": "{{n}} solicitudes",
+    "loadFailed": "No se pudieron cargar las solicitudes de plan",
+    "approve": "Aprobar",
+    "decline": "Rechazar",
+    "columns": {
+      "dealer": "Concesionario",
+      "package": "Paquete solicitado",
+      "note": "Nota del concesionario",
+      "waiting": "Esperando desde",
+      "status": "Estado",
+      "actions": "Decisión"
+    },
+    "empty": {
+      "title": "No hay solicitudes aquí",
+      "hint": "Los concesionarios que piden un plan aparecen en esta cola, primero los que llevan más tiempo esperando."
+    }
+  },
+  "subs": {
+    "caption": "Todos los periodos de suscripción",
+    "count": "{{n}} suscripciones",
+    "loadFailed": "No se pudieron cargar las suscripciones",
+    "assign": "Asignar un paquete",
+    "cancel": "Cancelar",
+    "noQuotaChip": "Aún sin cupo",
+    "cancelScheduledChip": "Termina al final del periodo",
+    "pendingPaymentCallout": "Pendiente de pago no otorga cupo de anuncios. Un concesionario con un periodo asignado sin pagar sigue sin poder publicar: el cupo empieza cuando se paga la factura de la suscripción y el periodo pasa a activo.",
+    "termRange": "{{start}} → {{end}}",
+    "endsIn": "Termina {{when}}",
+    "termMonths": "Periodo de {{n}} meses",
+    "noSnapshot": "Sin precio registrado",
+    "noSnapshotHint": "Este periodo es anterior al registro de precios, así que no se guardó un precio acordado.",
+    "quotaWithheld": "0 de {{quota}}",
+    "columns": {
+      "dealer": "Concesionario",
+      "package": "Paquete",
+      "status": "Estado",
+      "term": "Periodo",
+      "price": "Precio acordado",
+      "quota": "Cupo de anuncios",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "Ninguna suscripción coincide",
+      "hint": "Cambia el filtro de estado o asigna un paquete a un concesionario."
+    }
+  },
+  "assign": {
+    "title": "Asignar un paquete",
+    "description": "El periodo se crea pendiente de pago y no otorga cupo hasta que se pague la factura de la suscripción.",
+    "dealerLabel": "Concesionario",
+    "dealerPlaceholder": "Buscar por nombre, identificador o TRN",
+    "dealerMeta": "TRN {{trn}} · {{live}} anuncios publicados",
+    "searching": "Buscando concesionarios…",
+    "noDealers": "Ningún concesionario coincide con esa búsqueda.",
+    "dealerSearchFailed": "No se pudo buscar en el directorio de concesionarios",
+    "dealerIdLabel": "O pega un identificador de concesionario",
+    "dealerIdPlaceholder": "cm…",
+    "dealerIdHint": "Úsalo si no puedes consultar el directorio: asignar un paquete no requiere acceso al directorio.",
+    "packageLabel": "Paquete",
+    "packageMeta": "{{quota}} anuncios · periodo de {{months}} meses",
+    "startsAt": "Empieza el",
+    "startsAtHint": "Déjalo vacío para empezar hoy.",
+    "termMonths": "Duración en meses",
+    "termMonthsHint": "Déjalo vacío para usar la duración propia del paquete. De 1 a 60.",
+    "priceOverride": "Precio negociado (AED)",
+    "priceOverrideHint": "Déjalo vacío para cobrar el precio del paquete.",
+    "snapshotNote": "El paquete y el precio se guardan como copia fija en este periodo. Cambiar el precio del paquete más adelante nunca cambia lo que paga este concesionario, y este periodo no se puede editar después, así que fija ahora el precio negociado.",
+    "summary": "{{package}} — {{price}} durante {{months}} meses, fijado en este periodo.",
+    "confirm": "Asignar el paquete"
+  },
+  "approve": {
+    "title": "Aprobar la solicitud de {{dealer}}",
+    "description": "Pidieron {{package}} por {{price}}. Puedes conceder condiciones distintas.",
+    "noteLabel": "Lo que nos contaron",
+    "pendingPaymentNote": "Aprobar crea el periodo pendiente de pago. El concesionario podrá publicar cuando se pague la factura de la suscripción.",
+    "confirm": "Aprobar y conceder el periodo"
+  },
+  "decline": {
+    "title": "Rechazar la solicitud de {{dealer}}",
+    "description": "El motivo se envía al concesionario, así que escríbelo para que lo lea.",
+    "reasonLabel": "Motivo",
+    "placeholder": "p. ej. necesitamos verificar la licencia comercial antes de conceder un plan",
+    "reasonHint": "Entre {{min}} y {{max}} caracteres.",
+    "confirm": "Rechazar la solicitud"
+  },
+  "cancelDialog": {
+    "title": "Cancelar la suscripción de {{dealer}}",
+    "description": "Elige si el concesionario conserva lo que pagó o lo pierde ahora.",
+    "legend": "Cuándo surte efecto la cancelación",
+    "atPeriodEnd": "Al final del periodo",
+    "atPeriodEndHint": "Siguen publicando hasta el {{date}} y después el periodo no se renueva.",
+    "immediate": "Inmediatamente",
+    "immediateHint": "El periodo termina ahora y se pausan todos los anuncios publicados de este concesionario.",
+    "confirmScheduled": "{{dealer}} conservará su cupo hasta el {{date}} y el periodo no se renovará.",
+    "confirmImmediate": "{{dealer}} pierde su cupo ahora y todos sus anuncios publicados se pausan de inmediato.",
+    "confirmScheduledButton": "Cancelar al final del periodo",
+    "confirmImmediateButton": "Cancelar ahora y pausar anuncios"
+  },
+  "toast": {
+    "failed": "No ha funcionado",
+    "packagesFailed": "No se pudieron cargar los paquetes",
+    "assigned": "Paquete asignado: el periodo queda pendiente de pago",
+    "approved": "Solicitud aprobada: el periodo queda pendiente de pago",
+    "declined": "Solicitud rechazada y concesionario notificado",
+    "cancelScheduled": "La suscripción terminará al final del periodo",
+    "cancelledNow": "Suscripción cancelada y anuncios publicados pausados"
+  }
+}

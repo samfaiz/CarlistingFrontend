@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Invitación al equipo"
+  },
+  "hero": {
+    "title": "Te han invitado",
+    "subtitle": "Únete al equipo de un concesionario en Carsens."
+  },
+  "invite": {
+    "dealerLabel": "Concesionario",
+    "roleLabel": "Tu función",
+    "emailLabel": "Correo invitado",
+    "expiresLabel": "Caduca el"
+  },
+  "roles": {
+    "OWNER": "Propietario",
+    "MANAGER": "Gerente",
+    "SALES": "Agente de ventas"
+  },
+  "states": {
+    "loading": {
+      "body": "Comprobando tu invitación…"
+    },
+    "noToken": {
+      "title": "Falta el enlace de invitación",
+      "body": "Esta página necesita el enlace del correo de invitación. Abre ese correo de nuevo y pulsa el botón que contiene."
+    },
+    "dead": {
+      "title": "Esta invitación no se puede usar",
+      "body": "Puede haber caducado, haber sido retirada o ya haberse aceptado. Pide al concesionario que te envíe una nueva."
+    },
+    "signIn": {
+      "title": "Inicia sesión para aceptar",
+      "body": "Ya existe una cuenta de Carsens para {{email}}. Inicia sesión y te traeremos de vuelta aquí."
+    },
+    "create": {
+      "title": "Crea tu cuenta",
+      "body": "Elige un nombre y una contraseña para {{email}}. Este enlace ya confirma tu correo, así que no hay nada más que verificar.",
+      "haveAccount": "¿Ya tienes una cuenta?"
+    },
+    "accept": {
+      "title": "Acepta tu invitación",
+      "body": "{{dealerName}} está esperando que te unas.",
+      "signedInAs": "Sesión iniciada como {{email}}"
+    },
+    "wrongAccount": {
+      "title": "Esa es otra cuenta",
+      "body": "Esta invitación se envió a {{invited}}, pero has iniciado sesión como {{current}}. Solo la dirección invitada puede aceptarla."
+    },
+    "joined": {
+      "title": "Ya estás dentro",
+      "body": "Bienvenido a {{dealerName}}: te llevamos al portal del concesionario."
+    },
+    "signInFallback": {
+      "title": "Cuenta creada",
+      "body": "Tu cuenta para {{email}} está lista y ya formas parte del equipo, pero no pudimos iniciar tu sesión automáticamente. Inicia sesión con la contraseña que acabas de elegir."
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Nombre completo",
+      "placeholder": "Faisal Khan"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "hint": "La invitación está vinculada a esta dirección y no se puede trasladar a otra."
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "••••••••",
+      "hint": "Al menos 8 caracteres, con una mayúscula, una minúscula y un dígito."
+    },
+    "togglePassword": "Mostrar/ocultar contraseña"
+  },
+  "actions": {
+    "backHome": "Volver a Carsens",
+    "openPortal": "Abrir el portal del concesionario",
+    "goToSignIn": "Ir a iniciar sesión",
+    "signInAndAccept": "Iniciar sesión y aceptar",
+    "signInInstead": "Iniciar sesión",
+    "join": "Unirme a {{dealerName}}",
+    "joining": "Uniéndote…",
+    "createAndJoin": "Crear cuenta y unirme",
+    "creating": "Creando tu cuenta…",
+    "signOutAndSwitch": "Cerrar sesión e iniciar como {{invited}}"
+  },
+  "errors": {
+    "generic": "Algo ha salido mal. Inténtalo de nuevo."
+  }
+}

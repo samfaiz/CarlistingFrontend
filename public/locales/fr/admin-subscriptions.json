@@ -1,0 +1,154 @@
+{
+  "title": "Abonnements",
+  "subtitle": "Demandes de forfait des concessions et toutes les périodes d'abonnement de la plateforme. Une période démarre en attente de paiement, ce qui n'accorde aucun quota d'annonces : la concession ne peut publier qu'une fois l'abonnement actif.",
+  "summary": {
+    "pendingRequests": "Demandes en attente de décision",
+    "pendingRequestsHint": "Concessions qui attendent l'équipe",
+    "active": "Abonnements actifs",
+    "activeHint": "Le quota est servi",
+    "pendingPayment": "En attente de paiement",
+    "pendingPaymentHint": "Attribués mais sans quota",
+    "grace": "En période de grâce",
+    "graceHint": "Impayés, encore servis pour l'instant"
+  },
+  "tabs": {
+    "requests": "Demandes de forfait ({{n}})",
+    "subscriptions": "Tous les abonnements"
+  },
+  "filters": {
+    "all": "Tous"
+  },
+  "actions": {
+    "cancel": "Annuler",
+    "keep": "Conserver l'abonnement"
+  },
+  "status": {
+    "PENDING_PAYMENT": "En attente de paiement",
+    "ACTIVE": "Actif",
+    "GRACE": "Période de grâce",
+    "EXPIRED": "Expiré",
+    "CANCELLED": "Résilié",
+    "SUSPENDED": "Suspendu"
+  },
+  "requestStatus": {
+    "PENDING": "En attente de décision",
+    "APPROVED": "Approuvée",
+    "DECLINED": "Refusée",
+    "WITHDRAWN": "Retirée"
+  },
+  "verification": {
+    "UNVERIFIED": "Non vérifiée",
+    "PENDING": "Vérification en cours",
+    "VERIFIED": "Vérifiée",
+    "REJECTED": "Vérification refusée"
+  },
+  "requests": {
+    "caption": "Demandes de forfait des concessions",
+    "count": "{{n}} demandes",
+    "loadFailed": "Impossible de charger les demandes de forfait",
+    "approve": "Approuver",
+    "decline": "Refuser",
+    "columns": {
+      "dealer": "Concession",
+      "package": "Forfait demandé",
+      "note": "Note de la concession",
+      "waiting": "En attente depuis",
+      "status": "Statut",
+      "actions": "Décision"
+    },
+    "empty": {
+      "title": "Aucune demande ici",
+      "hint": "Les concessions qui demandent un forfait apparaissent dans cette file, les plus anciennes d'abord."
+    }
+  },
+  "subs": {
+    "caption": "Toutes les périodes d'abonnement",
+    "count": "{{n}} abonnements",
+    "loadFailed": "Impossible de charger les abonnements",
+    "assign": "Attribuer un forfait",
+    "cancel": "Résilier",
+    "noQuotaChip": "Pas encore de quota",
+    "cancelScheduledChip": "Se termine en fin de période",
+    "pendingPaymentCallout": "En attente de paiement n'accorde aucun quota d'annonces. Une concession dont la période est attribuée mais impayée ne peut toujours pas publier : le quota démarre au paiement de la facture d'abonnement, lorsque la période devient active.",
+    "termRange": "{{start}} → {{end}}",
+    "endsIn": "Se termine {{when}}",
+    "termMonths": "Période de {{n}} mois",
+    "noSnapshot": "Aucun prix figé",
+    "noSnapshotHint": "Cette période est antérieure au figeage des prix : aucun prix convenu n'y a été enregistré.",
+    "quotaWithheld": "0 sur {{quota}}",
+    "columns": {
+      "dealer": "Concession",
+      "package": "Forfait",
+      "status": "Statut",
+      "term": "Période",
+      "price": "Prix convenu",
+      "quota": "Quota d'annonces",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Aucun abonnement correspondant",
+      "hint": "Changez le filtre de statut, ou attribuez un forfait à une concession."
+    }
+  },
+  "assign": {
+    "title": "Attribuer un forfait",
+    "description": "La période est créée en attente de paiement et n'accorde aucun quota tant que la facture d'abonnement n'est pas réglée.",
+    "dealerLabel": "Concession",
+    "dealerPlaceholder": "Rechercher par nom, identifiant ou TRN",
+    "dealerMeta": "TRN {{trn}} · {{live}} annonces publiées",
+    "searching": "Recherche des concessions…",
+    "noDealers": "Aucune concession ne correspond à cette recherche.",
+    "dealerSearchFailed": "Impossible d'interroger l'annuaire des concessions",
+    "dealerIdLabel": "Ou collez un identifiant de concession",
+    "dealerIdPlaceholder": "cm…",
+    "dealerIdHint": "À utiliser si l'annuaire vous est inaccessible : attribuer un forfait n'exige pas cet accès.",
+    "packageLabel": "Forfait",
+    "packageMeta": "{{quota}} annonces · période de {{months}} mois",
+    "startsAt": "Commence le",
+    "startsAtHint": "Laissez vide pour commencer aujourd'hui.",
+    "termMonths": "Durée en mois",
+    "termMonthsHint": "Laissez vide pour utiliser la durée propre au forfait. De 1 à 60.",
+    "priceOverride": "Prix négocié (AED)",
+    "priceOverrideHint": "Laissez vide pour facturer le prix du forfait.",
+    "snapshotNote": "Le forfait et le prix sont figés sur cette période. Modifier le prix du forfait plus tard ne change jamais ce que paie cette concession — et cette période ne pourra pas être modifiée ensuite, alors fixez le prix négocié maintenant.",
+    "summary": "{{package}} — {{price}} pour {{months}} mois, figé sur cette période.",
+    "confirm": "Attribuer le forfait"
+  },
+  "approve": {
+    "title": "Approuver la demande de {{dealer}}",
+    "description": "Ils ont demandé {{package}} à {{price}}. Vous pouvez accorder d'autres conditions.",
+    "noteLabel": "Ce qu'ils nous ont dit",
+    "pendingPaymentNote": "L'approbation crée la période en attente de paiement. La concession pourra publier une fois la facture d'abonnement réglée.",
+    "confirm": "Approuver et accorder la période"
+  },
+  "decline": {
+    "title": "Refuser la demande de {{dealer}}",
+    "description": "Le motif est envoyé à la concession : écrivez-le pour qu'elle le lise.",
+    "reasonLabel": "Motif",
+    "placeholder": "ex. la licence commerciale doit être vérifiée avant d'accorder un forfait",
+    "reasonHint": "Entre {{min}} et {{max}} caractères.",
+    "confirm": "Refuser la demande"
+  },
+  "cancelDialog": {
+    "title": "Résilier l'abonnement de {{dealer}}",
+    "description": "Choisissez si la concession conserve ce qu'elle a payé ou le perd immédiatement.",
+    "legend": "Quand la résiliation prend effet",
+    "atPeriodEnd": "À la fin de la période",
+    "atPeriodEndHint": "Ils publient jusqu'au {{date}}, puis la période n'est pas renouvelée.",
+    "immediate": "Immédiatement",
+    "immediateHint": "La période se termine maintenant et toutes les annonces publiées de cette concession sont mises en pause.",
+    "confirmScheduled": "{{dealer}} conservera son quota jusqu'au {{date}}, et la période ne sera pas renouvelée.",
+    "confirmImmediate": "{{dealer}} perd son quota maintenant et toutes ses annonces publiées sont mises en pause immédiatement.",
+    "confirmScheduledButton": "Résilier en fin de période",
+    "confirmImmediateButton": "Résilier maintenant et mettre en pause"
+  },
+  "toast": {
+    "failed": "Cela n'a pas fonctionné",
+    "packagesFailed": "Impossible de charger les forfaits",
+    "assigned": "Forfait attribué — la période est en attente de paiement",
+    "approved": "Demande approuvée — la période est en attente de paiement",
+    "declined": "Demande refusée et concession notifiée",
+    "cancelScheduled": "L'abonnement se terminera à la fin de la période",
+    "cancelledNow": "Abonnement résilié et annonces publiées mises en pause"
+  }
+}

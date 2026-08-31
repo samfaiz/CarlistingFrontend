@@ -27,7 +27,10 @@
       "growth": "Croissance",
       "studio": "Studio",
       "intelligence": "Intelligence",
-      "homepageStudio": "Studio d’accueil"
+      "homepageStudio": "Studio d’accueil",
+      "dealers": "Concessionnaires",
+      "subscriptions": "Abonnements",
+      "billing": "Facturation"
     },
     "signOut": "Se déconnecter",
     "stepUpRedirect": "Redirection vers la vérification par passkey…"

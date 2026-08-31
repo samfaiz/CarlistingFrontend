@@ -12,6 +12,7 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 import { getServerSession } from "next-auth/next";
 import * as React from "react";
 import { Loader2, MapPin, Plus, Trash2 } from "lucide-react";
+import { TeamInvites } from "@/components/dealer/team-invites";
 import { DealerLayout } from "@/components/dealer/dealer-layout";
 import { DealerOnboarding } from "@/components/dealer/dealer-onboarding";
 import { useDealer } from "@/components/dealer/use-dealer";
@@ -224,6 +225,19 @@ export default function DealerTeamPage() {
 
   return (
     <DealerLayout context={context} quota={quota} title={t("team.title")}>
+      {/*
+        Adding a colleague was the one thing this screen could not do: roles
+        could be changed and members removed, but dealerMember.create only ever
+        ran for the founder, so a team of one stayed a team of one.
+      */}
+      <TeamInvites
+        dealerId={context.dealer.id}
+        accessToken={accessToken!}
+        canInvite={canManage}
+        canInviteOwner={context.role === "OWNER"}
+        onChanged={() => void loadMembers()}
+      />
+
       <section>
         <div className="mb-2 flex items-center justify-between">
           <h2 className="text-sm font-bold text-ink">{t("team.branches")}</h2>

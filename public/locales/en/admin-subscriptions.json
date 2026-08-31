@@ -1,0 +1,154 @@
+{
+  "title": "Subscriptions",
+  "subtitle": "Plan requests from dealerships and every subscription term on the platform. A term starts as Awaiting payment, which grants no listing quota — the dealership can only publish once the subscription is active.",
+  "summary": {
+    "pendingRequests": "Requests awaiting a decision",
+    "pendingRequestsHint": "Dealerships waiting on staff",
+    "active": "Active subscriptions",
+    "activeHint": "Quota is being served",
+    "pendingPayment": "Awaiting payment",
+    "pendingPaymentHint": "Assigned but granting no quota",
+    "grace": "In grace",
+    "graceHint": "Unpaid, still serving for now"
+  },
+  "tabs": {
+    "requests": "Plan requests ({{n}})",
+    "subscriptions": "All subscriptions"
+  },
+  "filters": {
+    "all": "All"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "keep": "Keep the subscription"
+  },
+  "status": {
+    "PENDING_PAYMENT": "Awaiting payment",
+    "ACTIVE": "Active",
+    "GRACE": "Grace period",
+    "EXPIRED": "Expired",
+    "CANCELLED": "Cancelled",
+    "SUSPENDED": "Suspended"
+  },
+  "requestStatus": {
+    "PENDING": "Awaiting decision",
+    "APPROVED": "Approved",
+    "DECLINED": "Declined",
+    "WITHDRAWN": "Withdrawn"
+  },
+  "verification": {
+    "UNVERIFIED": "Not verified",
+    "PENDING": "Verification pending",
+    "VERIFIED": "Verified",
+    "REJECTED": "Verification rejected"
+  },
+  "requests": {
+    "caption": "Plan requests from dealerships",
+    "count": "{{n}} requests",
+    "loadFailed": "Could not load the plan requests",
+    "approve": "Approve",
+    "decline": "Decline",
+    "columns": {
+      "dealer": "Dealership",
+      "package": "Package asked for",
+      "note": "Note from the dealership",
+      "waiting": "Waiting since",
+      "status": "Status",
+      "actions": "Decision"
+    },
+    "empty": {
+      "title": "No requests here",
+      "hint": "Dealerships that ask for a plan appear in this queue, longest wait first."
+    }
+  },
+  "subs": {
+    "caption": "All subscription terms",
+    "count": "{{n}} subscriptions",
+    "loadFailed": "Could not load the subscriptions",
+    "assign": "Assign a package",
+    "cancel": "Cancel",
+    "noQuotaChip": "No quota yet",
+    "cancelScheduledChip": "Ends at period end",
+    "pendingPaymentCallout": "Awaiting payment grants no listing quota. A dealership with an assigned but unpaid term still cannot publish — the quota starts when the subscription invoice is paid and the term turns active.",
+    "termRange": "{{start}} → {{end}}",
+    "endsIn": "Ends {{when}}",
+    "termMonths": "{{n}} month term",
+    "noSnapshot": "No price snapshot",
+    "noSnapshotHint": "This term predates price snapshotting, so no agreed price was recorded on it.",
+    "quotaWithheld": "0 of {{quota}}",
+    "columns": {
+      "dealer": "Dealership",
+      "package": "Package",
+      "status": "Status",
+      "term": "Term",
+      "price": "Agreed price",
+      "quota": "Listing quota",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No subscriptions match",
+      "hint": "Change the status filter, or assign a package to a dealership."
+    }
+  },
+  "assign": {
+    "title": "Assign a package",
+    "description": "The term is created awaiting payment and grants no quota until the subscription invoice is paid.",
+    "dealerLabel": "Dealership",
+    "dealerPlaceholder": "Search by name, slug or TRN",
+    "dealerMeta": "TRN {{trn}} · {{live}} live listings",
+    "searching": "Searching dealerships…",
+    "noDealers": "No dealership matches that search.",
+    "dealerSearchFailed": "The dealership directory could not be searched",
+    "dealerIdLabel": "Or paste a dealership ID",
+    "dealerIdPlaceholder": "cm…",
+    "dealerIdHint": "Use this if you cannot search the directory — assigning a package does not require directory access.",
+    "packageLabel": "Package",
+    "packageMeta": "{{quota}} listings · {{months}} month term",
+    "startsAt": "Starts on",
+    "startsAtHint": "Leave empty to start today.",
+    "termMonths": "Term in months",
+    "termMonthsHint": "Leave empty to use the package's own term. 1 to 60.",
+    "priceOverride": "Negotiated price (AED)",
+    "priceOverrideHint": "Leave empty to charge the package price.",
+    "snapshotNote": "The package and the price are snapshotted onto this term. Re-pricing the package later never changes what this dealership pays — and editing this term afterwards is not possible, so set the negotiated price now.",
+    "summary": "{{package}} — {{price}} for {{months}} months, snapshotted onto this term.",
+    "confirm": "Assign the package"
+  },
+  "approve": {
+    "title": "Approve the request from {{dealer}}",
+    "description": "They asked for {{package}} at {{price}}. You can grant different terms.",
+    "noteLabel": "What they told us",
+    "pendingPaymentNote": "Approving creates the term awaiting payment. The dealership can publish once the subscription invoice is paid.",
+    "confirm": "Approve and grant the term"
+  },
+  "decline": {
+    "title": "Decline the request from {{dealer}}",
+    "description": "The reason is sent to the dealership, so write it for them to read.",
+    "reasonLabel": "Reason",
+    "placeholder": "e.g. we need the trade licence verified before granting a plan",
+    "reasonHint": "Between {{min}} and {{max}} characters.",
+    "confirm": "Decline the request"
+  },
+  "cancelDialog": {
+    "title": "Cancel the subscription for {{dealer}}",
+    "description": "Choose whether the dealership keeps what it paid for, or loses it now.",
+    "legend": "When the cancellation takes effect",
+    "atPeriodEnd": "At the end of the term",
+    "atPeriodEndHint": "They keep publishing until {{date}}, then the term is not renewed.",
+    "immediate": "Immediately",
+    "immediateHint": "The term ends now and every live listing this dealership has is paused.",
+    "confirmScheduled": "{{dealer}} will keep their quota until {{date}}, and the term will not renew.",
+    "confirmImmediate": "{{dealer}} loses their quota now and all of their live listings are paused immediately.",
+    "confirmScheduledButton": "Cancel at period end",
+    "confirmImmediateButton": "Cancel now and pause listings"
+  },
+  "toast": {
+    "failed": "That did not work",
+    "packagesFailed": "Could not load the package tiers",
+    "assigned": "Package assigned — the term is awaiting payment",
+    "approved": "Request approved — the term is awaiting payment",
+    "declined": "Request declined and the dealership notified",
+    "cancelScheduled": "The subscription will end at the end of the term",
+    "cancelledNow": "Subscription cancelled and live listings paused"
+  }
+}

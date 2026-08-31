@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Team invitation"
+  },
+  "hero": {
+    "title": "You've been invited",
+    "subtitle": "Join a dealership team on Carsens."
+  },
+  "invite": {
+    "dealerLabel": "Dealership",
+    "roleLabel": "Your role",
+    "emailLabel": "Invited email",
+    "expiresLabel": "Expires"
+  },
+  "roles": {
+    "OWNER": "Owner",
+    "MANAGER": "Manager",
+    "SALES": "Sales agent"
+  },
+  "states": {
+    "loading": {
+      "body": "Checking your invitation…"
+    },
+    "noToken": {
+      "title": "No invitation link",
+      "body": "This page needs the link from your invitation email. Open that email again and tap the button inside it."
+    },
+    "dead": {
+      "title": "This invitation can't be used",
+      "body": "It may have expired, been withdrawn, or already been accepted. Ask the dealership to send you a new invitation."
+    },
+    "signIn": {
+      "title": "Sign in to accept",
+      "body": "There's already a Carsens account for {{email}}. Sign in and we'll bring you straight back here."
+    },
+    "create": {
+      "title": "Create your account",
+      "body": "Pick a name and password for {{email}}. This link is proof of your email address, so there's nothing else to confirm.",
+      "haveAccount": "Already have an account?"
+    },
+    "accept": {
+      "title": "Accept your invitation",
+      "body": "{{dealerName}} is waiting for you to join.",
+      "signedInAs": "Signed in as {{email}}"
+    },
+    "wrongAccount": {
+      "title": "That's a different account",
+      "body": "This invitation was sent to {{invited}}, but you're signed in as {{current}}. Only the invited address can accept it."
+    },
+    "joined": {
+      "title": "You're in",
+      "body": "Welcome to {{dealerName}} — taking you to the dealer portal."
+    },
+    "signInFallback": {
+      "title": "Account created",
+      "body": "Your account for {{email}} is ready and you've joined the team, but we couldn't sign you in automatically. Sign in with the password you just chose."
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Full name",
+      "placeholder": "Faisal Khan"
+    },
+    "email": {
+      "label": "Email address",
+      "hint": "The invitation is tied to this address and can't be moved to another."
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "••••••••",
+      "hint": "At least 8 characters, with an uppercase letter, a lowercase letter and a digit."
+    },
+    "togglePassword": "Show/hide password"
+  },
+  "actions": {
+    "backHome": "Back to Carsens",
+    "openPortal": "Open the dealer portal",
+    "goToSignIn": "Go to sign in",
+    "signInAndAccept": "Sign in and accept",
+    "signInInstead": "Sign in instead",
+    "join": "Join {{dealerName}}",
+    "joining": "Joining…",
+    "createAndJoin": "Create account and join",
+    "creating": "Creating your account…",
+    "signOutAndSwitch": "Sign out and sign in as {{invited}}"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again."
+  }
+}

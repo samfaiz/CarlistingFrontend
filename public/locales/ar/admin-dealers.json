@@ -1,0 +1,178 @@
+{
+  "title": "دليل المعارض",
+  "intro": "كل معرض على المنصة، مهما كانت حالة توثيقه أو تداوله. التوثيق يخصّ المستندات، وحالة التداول تخصّ ما إذا كان مسموحاً له بالبيع اليوم.",
+  "count_zero": "لا توجد معارض",
+  "count_one": "معرض واحد",
+  "count_two": "معرضان",
+  "count_few": "{{count}} معارض",
+  "count_many": "{{count}} معرضاً",
+  "count_other": "{{count}} معرض",
+  "verification": {
+    "UNVERIFIED": "غير موثّق",
+    "PENDING": "بانتظار المراجعة",
+    "VERIFIED": "موثّق",
+    "REJECTED": "مرفوض"
+  },
+  "trading": {
+    "ACTIVE": "يزاول البيع",
+    "SUSPENDED": "معلّق"
+  },
+  "summary": {
+    "all": "المعارض",
+    "verified": "موثّقة",
+    "verifiedHint": "تمت الموافقة على المستندات",
+    "pending": "بانتظار المراجعة",
+    "pendingHint": "في قائمة التوثيق",
+    "suspended": "معلّقة",
+    "suspendedHint": "ممنوعة من البيع"
+  },
+  "filters": {
+    "trading": {
+      "ALL": "كل حالات التداول"
+    },
+    "verificationLabel": "التوثيق",
+    "verification": {
+      "ALL": "أي حالة توثيق"
+    },
+    "sortLabel": "الترتيب",
+    "sort": {
+      "recent": "الأحدث أولاً",
+      "name": "الاسم (أ–ي)",
+      "listings": "الأكثر إعلانات منشورة"
+    }
+  },
+  "columns": {
+    "dealer": "المعرض",
+    "trn": "الرقم الضريبي",
+    "verification": "التوثيق",
+    "trading": "التداول",
+    "live": "إعلانات منشورة",
+    "team": "الفريق",
+    "joined": "تاريخ الانضمام",
+    "actions": "إجراءات"
+  },
+  "actions": {
+    "view": "فتح",
+    "suspend": "تعليق",
+    "reinstate": "إعادة التفعيل",
+    "viewPublic": "الصفحة العامة",
+    "cancel": "إلغاء"
+  },
+  "empty": {
+    "title": "لا توجد معارض مطابقة",
+    "hint": "امسح البحث أو وسّع مرشّحات التوثيق والتداول."
+  },
+  "toast": {
+    "loadFailed": "تعذّر تحميل دليل المعارض.",
+    "detailFailed": "تعذّر تحميل بيانات هذا المعرض.",
+    "actionFailed": "تعذّر تطبيق التغيير.",
+    "suspended": "تم تعليق {{name}}",
+    "suspendedDetail_zero": "لم يتم إيقاف أي إعلان.",
+    "suspendedDetail_one": "تم إيقاف إعلان واحد منشور.",
+    "suspendedDetail_two": "تم إيقاف إعلانين منشورين.",
+    "suspendedDetail_few": "تم إيقاف {{count}} إعلانات منشورة.",
+    "suspendedDetail_many": "تم إيقاف {{count}} إعلاناً منشوراً.",
+    "suspendedDetail_other": "تم إيقاف {{count}} إعلان منشور.",
+    "reinstated": "عاد {{name}} إلى مزاولة البيع",
+    "reinstatedDetail_zero": "لم تتم استعادة أي إعلان.",
+    "reinstatedDetail_one": "تمت استعادة إعلان واحد.",
+    "reinstatedDetail_two": "تمت استعادة إعلانين.",
+    "reinstatedDetail_few": "تمت استعادة {{count}} إعلانات.",
+    "reinstatedDetail_many": "تمت استعادة {{count}} إعلاناً.",
+    "reinstatedDetail_other": "تمت استعادة {{count}} إعلان."
+  },
+  "detail": {
+    "title": "المعرض",
+    "subtitle": "الملف والفروع والفريق والباقة والمخزون.",
+    "loading": "جارٍ تحميل بيانات المعرض…",
+    "suspendedTitle": "معلّق عن البيع",
+    "noReason": "لم يُسجَّل أي سبب.",
+    "suspendedMeta": "تم التعليق {{when}} بواسطة {{by}}. يرى المعرض هذا السبب.",
+    "unknownActor": "أحد الموظفين",
+    "verificationLabel": "حالة التوثيق",
+    "verificationHint": "ما إذا تم التحقق من الرخصة التجارية والرقم الضريبي.",
+    "tradingLabel": "حالة التداول",
+    "tradingHint": "ما إذا كان مسموحاً له بالنشر والبيع على المنصة الآن.",
+    "trn": "الرقم الضريبي",
+    "slug": "معرّف الصفحة",
+    "joined": "تاريخ الانضمام",
+    "brands": "العلامات التجارية",
+    "none": "—",
+    "stock": "المخزون حسب الحالة",
+    "noStock": "لا توجد إعلانات لهذا المعرض بعد.",
+    "package": "الباقة",
+    "packageTerms": "{{quota}} خانة إعلان · {{boosts}} رصيد ترويج",
+    "packageRenews": "تنتهي {{when}}",
+    "noPackage": "لا يوجد اشتراك نشط.",
+    "branches_zero": "لا توجد فروع",
+    "branches_one": "فرع واحد",
+    "branches_two": "فرعان",
+    "branches_few": "{{count}} فروع",
+    "branches_many": "{{count}} فرعاً",
+    "branches_other": "{{count}} فرع",
+    "noBranches": "لم تُسجَّل أي فروع.",
+    "team_zero": "لا يوجد أعضاء",
+    "team_one": "عضو واحد في الفريق",
+    "team_two": "عضوان في الفريق",
+    "team_few": "{{count}} أعضاء في الفريق",
+    "team_many": "{{count}} عضواً في الفريق",
+    "team_other": "{{count}} عضو في الفريق",
+    "memberName": "العضو",
+    "memberRole": "الدور",
+    "memberStatus": "الحساب"
+  },
+  "listingStatus": {
+    "DRAFT": "مسودة",
+    "PENDING_REVIEW": "بانتظار المراجعة",
+    "LIVE": "منشور",
+    "PAUSED": "موقوف",
+    "SOLD": "مُباع",
+    "EXPIRED": "منتهي",
+    "REJECTED": "مرفوض",
+    "ARCHIVED": "مؤرشف"
+  },
+  "subscriptionStatus": {
+    "PENDING_PAYMENT": "بانتظار الدفع",
+    "ACTIVE": "نشط",
+    "GRACE": "فترة سماح",
+    "EXPIRED": "منتهي",
+    "CANCELLED": "ملغى",
+    "SUSPENDED": "معلّق"
+  },
+  "memberRole": {
+    "OWNER": "المالك",
+    "MANAGER": "مدير",
+    "SALES": "مبيعات"
+  },
+  "userStatus": {
+    "ACTIVE": "نشط",
+    "SUSPENDED": "معلّق",
+    "BANNED": "محظور",
+    "DELETED": "محذوف"
+  },
+  "suspend": {
+    "title": "تعليق {{name}}؟",
+    "description": "يوقف هذا مزاولة المعرض للبيع فوراً، ولا يغيّر حالة توثيقه.",
+    "effectPause_zero": "يوقف المخزون المنشور: لا توجد إعلانات منشورة حالياً.",
+    "effectPause_one": "يوقف المخزون المنشور: إعلان واحد سيختفي عن المشترين فوراً.",
+    "effectPause_two": "يوقف المخزون المنشور: إعلانان سيختفيان عن المشترين فوراً.",
+    "effectPause_few": "يوقف المخزون المنشور: {{count}} إعلانات ستختفي عن المشترين فوراً.",
+    "effectPause_many": "يوقف المخزون المنشور: {{count}} إعلاناً ستختفي عن المشترين فوراً.",
+    "effectPause_other": "يوقف المخزون المنشور: {{count}} إعلان سيختفي عن المشترين فوراً.",
+    "effectPublish": "يمنع المعرض من النشر أو التجديد طوال فترة التعليق.",
+    "effectNotify": "يُشعر مالكي المعرض بالبريد وداخل التطبيق، مع السبب أدناه.",
+    "effectSessions": "يبقى الفريق مسجّل الدخول — تُمنع إجراءات المعرض فقط وليس استخدام السوق.",
+    "reasonLabel": "السبب الذي سيراه المعرض",
+    "reasonPlaceholder": "اكتبه ليقرأه المالكون — سيرونه حرفياً كما هو.",
+    "reasonHint": "مطلوب، من 3 إلى {{max}} حرفاً. يُرسَل إلى المالكين كما كُتب تماماً.",
+    "confirm": "تعليق التداول"
+  },
+  "reinstate": {
+    "title": "إعادة تفعيل {{name}}؟",
+    "description": "يتيح هذا للمعرض مزاولة البيع مجدداً ويلغي الإيقاف الذي طبّقه هذا التعليق.",
+    "effectRestore": "يستعيد بالضبط الإعلانات التي أوقفها هذا التعليق — يبقى ما أوقفه المعرض بنفسه موقوفاً، ولا تُستعاد الإعلانات التي انتهت في هذه الأثناء.",
+    "effectPublish": "يتيح للمعرض النشر والتجديد وإدارة مخزونه مجدداً.",
+    "effectNotify": "يُشعر مالكي المعرض بأنهم عادوا إلى النشاط.",
+    "confirm": "إعادة تفعيل التداول"
+  }
+}

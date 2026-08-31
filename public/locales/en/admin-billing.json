@@ -1,0 +1,409 @@
+{
+  "title": "Billing",
+  "subtitle": "Invoices, credit notes, receipts and payments in one workspace. An issued invoice can never be edited — corrections go through a credit note, and confirming a payment moves real money.",
+  "common": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading…"
+  },
+  "tabs": {
+    "invoices": "Invoices",
+    "creditNotes": "Credit notes",
+    "receipts": "Receipts",
+    "payments": "Payments"
+  },
+  "summary": {
+    "paymentsPending": "Payments awaiting confirmation",
+    "paymentsPendingHint": "A dealership says the money was sent",
+    "overdue": "Overdue invoices",
+    "overdueHint": "Issued and past their due date",
+    "receiptsPending": "Receipts awaiting approval",
+    "receiptsPendingHint": "Manual mark-paid, needs a second approver",
+    "creditNotesPending": "Credit notes awaiting approval",
+    "creditNotesPendingHint": "Submitted, waiting on a checker",
+    "drafts": "Draft invoices",
+    "draftsHint": "Not issued — still editable and voidable"
+  },
+  "status": {
+    "invoice": {
+      "DRAFT": "Draft",
+      "ISSUED": "Issued",
+      "PAID": "Paid",
+      "VOID": "Void"
+    },
+    "creditNote": {
+      "DRAFT": "Draft",
+      "PENDING_APPROVAL": "Awaiting approval",
+      "ISSUED": "Issued",
+      "REJECTED": "Rejected"
+    },
+    "receipt": {
+      "PENDING_APPROVAL": "Awaiting approval",
+      "RECORDED": "Recorded",
+      "REJECTED": "Rejected"
+    },
+    "payment": {
+      "REQUIRES_ACTION": "Awaiting the payer",
+      "PENDING_CONFIRMATION": "Awaiting confirmation",
+      "PROCESSING": "Processing",
+      "SETTLED": "Settled",
+      "FAILED": "Failed",
+      "EXPIRED": "Expired",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    }
+  },
+  "invoices": {
+    "caption": "Invoices",
+    "immutabilityNote": "Only a draft can be changed. Once issued, an invoice is frozen and carries a gap-free tax number — correct it with a credit note, never an edit.",
+    "immutable": "Immutable",
+    "draftLabel": "Draft (no number yet)",
+    "newDraft": "New draft",
+    "filters": {
+      "ALL": "All",
+      "DRAFT": "Drafts",
+      "ISSUED": "Issued",
+      "PAID": "Paid",
+      "VOID": "Void",
+      "OVERDUE": "Overdue"
+    },
+    "kinds": {
+      "SUBSCRIPTION": "Subscription",
+      "BOOST_TOPUP": "Boost top-up",
+      "OTHER": "Other"
+    },
+    "columns": {
+      "number": "Number",
+      "dealer": "Dealership",
+      "status": "Status",
+      "total": "Total",
+      "issued": "Issued",
+      "due": "Due",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No invoices here",
+      "hint": "Change the filter, or draft a new invoice."
+    },
+    "actions": {
+      "issue": "Issue",
+      "void": "Void",
+      "markPaid": "Mark paid",
+      "creditNote": "Credit note",
+      "view": "View"
+    },
+    "issueDialog": {
+      "title": "Issue this invoice?",
+      "body": "{{dealer}} will be invoiced {{amount}}.",
+      "warning": "Issuing is irreversible. It allocates the next number in the gap-free tax series and freezes the document — after this the only correction is a credit note.",
+      "confirm": "Issue invoice"
+    },
+    "voidDialog": {
+      "title": "Void this draft?",
+      "body": "The draft for {{dealer}} worth {{amount}} will be retired. Only drafts can be voided.",
+      "reason": "Reason",
+      "placeholder": "Created against the wrong dealership",
+      "confirm": "Void draft"
+    },
+    "markPaidDialog": {
+      "title": "Mark this invoice paid",
+      "body": "{{number}} — {{dealer}}, {{amount}}.",
+      "paidAt": "Date received",
+      "method": "Method",
+      "ref": "Bank or cheque reference",
+      "refPlaceholder": "FT24123456789",
+      "note": "Note",
+      "warning": "This records the money as received and activates every subscription term the invoice covers.",
+      "confirm": "Mark paid"
+    },
+    "create": {
+      "title": "New invoice draft",
+      "body": "Nothing is issued yet — a draft carries no number and can be voided.",
+      "dealer": "Dealership",
+      "dealerPlaceholder": "Choose a dealership",
+      "noTrn": "This dealership has no TRN on file. Issuance will be refused until one is captured on its profile — a B2B tax invoice without a buyer TRN is invalid.",
+      "emirate": "Emirate of supply",
+      "emiratePlaceholder": "Choose an emirate",
+      "emirateHint": "Drives the VAT201 Box 1 breakdown.",
+      "kind": "Kind",
+      "dueDate": "Due date",
+      "lines": "Lines",
+      "lineDescription": "Description",
+      "quantity": "Qty",
+      "unitPrice": "Unit price (AED)",
+      "vatRate": "VAT %",
+      "vatCategory": "Cat.",
+      "exemptionCode": "VAT exemption reason code",
+      "exemptionPlaceholder": "Mandatory when the category is not S",
+      "addLine": "Add line",
+      "removeLine": "Remove line",
+      "notes": "Notes",
+      "subtotal": "Subtotal",
+      "vatTotal": "VAT",
+      "grandTotal": "Total",
+      "confirm": "Create draft"
+    },
+    "detail": {
+      "body": "{{dealer}} — TRN {{trn}}",
+      "linesCaption": "Invoice lines",
+      "line": "Line",
+      "qty": "Qty",
+      "unitPrice": "Unit price",
+      "net": "Net",
+      "vat": "VAT",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "vatTotal": "VAT total",
+      "grandTotal": "Grand total",
+      "creditable": "Still creditable",
+      "emirate": "Emirate of supply",
+      "issueDate": "Issue date",
+      "creditNotes": "Credit notes against this invoice",
+      "immutable": "This document is frozen. There is no edit — issue a credit note to correct it."
+    }
+  },
+  "creditNotes": {
+    "caption": "Credit notes",
+    "draftLabel": "Draft (no number yet)",
+    "makerCheckerNote": "Maker–checker: whoever submits a credit note cannot approve it. Approval issues it with a CN- number and credits the original invoice.",
+    "makerChecker": "You submitted this — another admin must approve it.",
+    "submittedOn": "Submitted {{date}}",
+    "submittedByYou": "Submitted by you {{date}}",
+    "approvedOn": "Approved {{date}}",
+    "filters": {
+      "ALL": "All",
+      "DRAFT": "Drafts",
+      "PENDING_APPROVAL": "Awaiting approval",
+      "ISSUED": "Issued",
+      "REJECTED": "Rejected"
+    },
+    "reasons": {
+      "CANCELLATION": "Cancellation",
+      "DOWNGRADE": "Downgrade",
+      "DISCOUNT": "Discount",
+      "BILLING_ERROR": "Billing error",
+      "BAD_DEBT": "Bad debt"
+    },
+    "columns": {
+      "number": "Number",
+      "invoice": "Against invoice",
+      "dealer": "Dealership",
+      "reason": "Reason",
+      "total": "Total",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No credit notes here",
+      "hint": "Credit notes are drafted from an issued invoice."
+    },
+    "actions": {
+      "submit": "Submit",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "create": {
+      "title": "Draft a credit note",
+      "body": "Against {{number}}, originally {{amount}}.",
+      "reason": "Reason",
+      "reasonText": "Explanation",
+      "amount": "Amount to credit (AED, excl. VAT)",
+      "amountHint": "Enter it as a positive figure — the 381 type code carries the sign.",
+      "description": "Line description",
+      "descriptionPlaceholder": "Defaults to the original line description",
+      "workflow": "This creates a draft. It still has to be submitted, then approved by a different admin before it is issued.",
+      "confirm": "Create draft"
+    },
+    "approveDialog": {
+      "title": "Approve and issue this credit note?",
+      "body": "{{amount}} will be credited to {{dealer}} against invoice {{invoice}}.",
+      "warning": "Approval issues the credit note with a gap-free CN- number and is irreversible.",
+      "confirm": "Approve and issue"
+    },
+    "rejectDialog": {
+      "title": "Reject this credit note?",
+      "body": "The {{amount}} credit will not be issued.",
+      "reason": "Reason",
+      "confirm": "Reject"
+    }
+  },
+  "receipts": {
+    "caption": "Receipts",
+    "record": "Record a receipt",
+    "unnumbered": "Unnumbered (pending)",
+    "noAllocations": "Not allocated",
+    "allocationLine": "{{amount}} → {{invoice}}",
+    "makerChecker": "You recorded this — another admin must approve it.",
+    "filters": {
+      "ALL": "All",
+      "PENDING_APPROVAL": "Awaiting approval",
+      "RECORDED": "Recorded",
+      "REJECTED": "Rejected"
+    },
+    "methods": {
+      "BANK_TRANSFER": "Bank transfer",
+      "CHEQUE": "Cheque",
+      "CASH": "Cash",
+      "CARD": "Card",
+      "OTHER": "Other"
+    },
+    "columns": {
+      "number": "Number",
+      "dealer": "Dealership",
+      "amount": "Amount",
+      "allocations": "Allocated to",
+      "method": "Method",
+      "received": "Received",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No receipts here",
+      "hint": "Record one when money arrives, and split it across the outstanding invoices."
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "create": {
+      "title": "Record a receipt",
+      "body": "One payment, split across as many invoices as it covers.",
+      "dealer": "Dealership",
+      "dealerPlaceholder": "Choose a dealership",
+      "amount": "Amount received (AED)",
+      "method": "Method",
+      "receivedAt": "Date received",
+      "reference": "Bank or transfer reference",
+      "referencePlaceholder": "FT24123456789",
+      "note": "Note",
+      "allocation": "Allocation",
+      "allocationHint": "Apply the money to the dealership's outstanding invoices. The server refuses an allocation larger than what an invoice still owes.",
+      "outstanding": "{{amount}} outstanding of {{total}}",
+      "applyAmount": "Apply (AED)",
+      "applyFull": "Apply the balance",
+      "nothingOutstanding": "This dealership has no issued invoice with a balance.",
+      "receiptAmount": "Receipt",
+      "allocated": "Allocated",
+      "unallocated": "Unallocated",
+      "overAllocated": "More has been allocated than was received. Reduce an allocation before saving.",
+      "manual": "Manual mark-paid, no bank evidence",
+      "manualHint": "Sends the receipt for a second approver instead of recording it straight away.",
+      "confirm": "Record receipt"
+    },
+    "approveDialog": {
+      "title": "Approve this receipt?",
+      "body": "{{amount}} from {{dealer}}, across {{allocations}} invoice allocation(s).",
+      "warning": "Approving treats the money as received and settles the invoices it is allocated to.",
+      "confirm": "Approve receipt"
+    },
+    "rejectDialog": {
+      "title": "Reject this receipt?",
+      "body": "The {{amount}} mark-paid will not be recorded and the invoices stay outstanding.",
+      "reason": "Reason",
+      "confirm": "Reject"
+    }
+  },
+  "payments": {
+    "caption": "Payments",
+    "declaredRef": "Payer's reference: {{ref}}",
+    "declaredOn": "Declared {{date}}",
+    "filters": {
+      "ALL": "All",
+      "PENDING_CONFIRMATION": "Awaiting confirmation",
+      "REQUIRES_ACTION": "Awaiting the payer",
+      "PROCESSING": "Processing",
+      "SETTLED": "Settled",
+      "FAILED": "Failed",
+      "BLOCKED": "Blocked"
+    },
+    "columns": {
+      "reference": "Reference",
+      "dealer": "Dealership",
+      "invoice": "Invoice",
+      "amount": "Amount",
+      "route": "Route",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "Nothing waiting",
+      "hint": "Declared transfers appear here for a human to confirm."
+    },
+    "actions": {
+      "confirm": "Confirm",
+      "reject": "Reject"
+    },
+    "confirmDialog": {
+      "title": "Confirm the money arrived?",
+      "body": "{{amount}} from {{dealer}} against invoice {{invoice}}.",
+      "warning": "This is real money. Only confirm once you have seen the funds on the bank statement — it writes the receipt and settles the invoice.",
+      "declaredRef": "The payer quoted reference {{ref}}.",
+      "confirm": "Yes, the money arrived"
+    },
+    "rejectDialog": {
+      "title": "Reject this payment?",
+      "body": "{{amount}} declared by {{dealer}} will be marked as never received.",
+      "reason": "Reason",
+      "placeholder": "No matching credit on the bank statement",
+      "hint": "The payer is shown this reason.",
+      "confirm": "Reject payment"
+    }
+  },
+  "provider": {
+    "title": "Payment provider",
+    "canCharge": "Can take payment",
+    "cannotCharge": "Cannot take payment",
+    "implemented": "Adapter implemented",
+    "notImplemented": "No adapter",
+    "credentials": "Credentials:",
+    "apiKeyPresent": "API key set",
+    "apiKeyAbsent": "API key missing",
+    "webhookPresent": "Webhook secret set",
+    "webhookAbsent": "Webhook secret missing",
+    "presenceOnly": "Presence only. Secret values live in the Super Admin vault and are never readable from here.",
+    "blockedTitle": "The platform cannot take payment.",
+    "change": "Change provider",
+    "choosePlaceholder": "Choose a provider",
+    "noAdapter": "no adapter yet",
+    "apply": "Apply",
+    "changeWarning": "Naming a provider with no credentials stops payment collection entirely rather than falling back silently.",
+    "blocked": "Blocked"
+  },
+  "toast": {
+    "summaryFailed": "Could not load the billing summary",
+    "invoicesFailed": "Could not load invoices",
+    "detailFailed": "Could not open the invoice",
+    "draftCreated": "Draft invoice created",
+    "draftFailed": "Could not create the draft",
+    "invoiceIssued": "Invoice issued",
+    "invoiceIssueFailed": "Could not issue the invoice",
+    "invoiceVoided": "Draft voided",
+    "invoiceVoidFailed": "Could not void the draft",
+    "invoicePaid": "Invoice marked paid",
+    "invoicePayFailed": "Could not mark the invoice paid",
+    "creditNotesFailed": "Could not load credit notes",
+    "creditNoteCreated": "Credit note drafted",
+    "creditNoteCreateFailed": "Could not draft the credit note",
+    "creditNoteSubmitted": "Credit note submitted for approval",
+    "creditNoteSubmitFailed": "Could not submit the credit note",
+    "creditNoteApproved": "Credit note approved and issued",
+    "creditNoteApproveFailed": "Could not approve the credit note",
+    "creditNoteRejected": "Credit note rejected",
+    "creditNoteRejectFailed": "Could not reject the credit note",
+    "receiptsFailed": "Could not load receipts",
+    "outstandingFailed": "Could not load the outstanding invoices",
+    "receiptRecorded": "Receipt recorded",
+    "receiptFailed": "Could not record the receipt",
+    "receiptApproved": "Receipt approved",
+    "receiptApproveFailed": "Could not approve the receipt",
+    "receiptRejected": "Receipt rejected",
+    "receiptRejectFailed": "Could not reject the receipt",
+    "paymentsFailed": "Could not load payments",
+    "paymentConfirmed": "Payment confirmed and the invoice settled",
+    "paymentConfirmFailed": "Could not confirm the payment",
+    "paymentRejected": "Payment rejected",
+    "paymentRejectFailed": "Could not reject the payment",
+    "providerChanged": "Payment provider updated",
+    "providerFailed": "Could not change the payment provider"
+  }
+}

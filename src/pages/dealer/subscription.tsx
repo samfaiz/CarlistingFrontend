@@ -13,6 +13,8 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 import { getServerSession } from "next-auth/next";
 import * as React from "react";
 import { Loader2, Zap } from "lucide-react";
+import { PlanChooser } from "@/components/dealer/plan-chooser";
+import { BillingPanel } from "@/components/dealer/billing-panel";
 import { DealerLayout } from "@/components/dealer/dealer-layout";
 import { DealerOnboarding } from "@/components/dealer/dealer-onboarding";
 import { useDealer } from "@/components/dealer/use-dealer";
@@ -51,6 +53,12 @@ export default function DealerSubscriptionPage() {
   const [boosts, setBoosts] = React.useState<BoostRow[]>([]);
   const [boostBalance, setBoostBalance] = React.useState(0);
   const [boostBusyId, setBoostBusyId] = React.useState<string | null>(null);
+  /**
+   * Bumped when a plan is requested or a payment settles: both change the
+   * subscription and the invoice list, and the loader below is an inline effect
+   * with no handle to call.
+   */
+  const [reloadKey, setReloadKey] = React.useState(0);
 
   const dealerId = context?.dealer?.id;
 
@@ -82,7 +90,7 @@ export default function DealerSubscriptionPage() {
         setPageLoading(false);
       }
     })();
-  }, [accessToken, dealerId, offset, loadBoosts]);
+  }, [accessToken, dealerId, offset, loadBoosts, reloadKey]);
 
   const stopBoost = async (id: string) => {
     if (!accessToken || !dealerId) return;
@@ -144,6 +152,32 @@ export default function DealerSubscriptionPage() {
 
   return (
     <DealerLayout context={context} quota={quota} title={t("subscription.title")}>
+      {/*
+        Until now this screen could only REPORT a plan. A dealership had no way
+        to ask for one and no way to pay, so a subscription existed only if an
+        engineer ran a request by hand — and a dealership without one cannot
+        publish at all.
+      */}
+      <PlanChooser
+        dealerId={dealerId!}
+        accessToken={accessToken!}
+        currentTier={current?.package?.tier ?? null}
+        onChanged={() => {
+          setReloadKey((n) => n + 1);
+          void refresh();
+        }}
+      />
+
+      <BillingPanel
+        dealerId={dealerId!}
+        accessToken={accessToken!}
+        canPay={context.permissions?.canManageBilling ?? false}
+        onChanged={() => {
+          setReloadKey((n) => n + 1);
+          void refresh();
+        }}
+      />
+
       <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
         <Panel className="p-4">
           <p className="text-xs text-muted">{t("subscription.current")}</p>

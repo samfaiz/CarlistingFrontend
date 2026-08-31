@@ -1,0 +1,409 @@
+{
+  "title": "Facturación",
+  "subtitle": "Facturas, notas de crédito, recibos y pagos en un solo espacio de trabajo. Una factura emitida no se puede editar nunca: las correcciones pasan por una nota de crédito, y confirmar un pago mueve dinero real.",
+  "common": {
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "loading": "Cargando…"
+  },
+  "tabs": {
+    "invoices": "Facturas",
+    "creditNotes": "Notas de crédito",
+    "receipts": "Recibos",
+    "payments": "Pagos"
+  },
+  "summary": {
+    "paymentsPending": "Pagos pendientes de confirmar",
+    "paymentsPendingHint": "Un concesionario dice haber enviado el dinero",
+    "overdue": "Facturas vencidas",
+    "overdueHint": "Emitidas y pasada su fecha de vencimiento",
+    "receiptsPending": "Recibos pendientes de aprobación",
+    "receiptsPendingHint": "Marcado manual como pagado, requiere un segundo aprobador",
+    "creditNotesPending": "Notas de crédito pendientes de aprobación",
+    "creditNotesPendingHint": "Enviadas, a la espera de un verificador",
+    "drafts": "Facturas en borrador",
+    "draftsHint": "Sin emitir: aún editables y anulables"
+  },
+  "status": {
+    "invoice": {
+      "DRAFT": "Borrador",
+      "ISSUED": "Emitida",
+      "PAID": "Pagada",
+      "VOID": "Anulada"
+    },
+    "creditNote": {
+      "DRAFT": "Borrador",
+      "PENDING_APPROVAL": "Pendiente de aprobación",
+      "ISSUED": "Emitida",
+      "REJECTED": "Rechazada"
+    },
+    "receipt": {
+      "PENDING_APPROVAL": "Pendiente de aprobación",
+      "RECORDED": "Registrado",
+      "REJECTED": "Rechazado"
+    },
+    "payment": {
+      "REQUIRES_ACTION": "A la espera del pagador",
+      "PENDING_CONFIRMATION": "Pendiente de confirmación",
+      "PROCESSING": "En proceso",
+      "SETTLED": "Liquidado",
+      "FAILED": "Fallido",
+      "EXPIRED": "Caducado",
+      "CANCELLED": "Cancelado",
+      "BLOCKED": "Bloqueado"
+    }
+  },
+  "invoices": {
+    "caption": "Facturas",
+    "immutabilityNote": "Solo un borrador se puede cambiar. Una vez emitida, la factura queda congelada y lleva un número fiscal correlativo sin huecos: corrígela con una nota de crédito, nunca editándola.",
+    "immutable": "Inmutable",
+    "draftLabel": "Borrador (aún sin número)",
+    "newDraft": "Nuevo borrador",
+    "filters": {
+      "ALL": "Todas",
+      "DRAFT": "Borradores",
+      "ISSUED": "Emitidas",
+      "PAID": "Pagadas",
+      "VOID": "Anuladas",
+      "OVERDUE": "Vencidas"
+    },
+    "kinds": {
+      "SUBSCRIPTION": "Suscripción",
+      "BOOST_TOPUP": "Recarga de impulso",
+      "OTHER": "Otro"
+    },
+    "columns": {
+      "number": "Número",
+      "dealer": "Concesionario",
+      "status": "Estado",
+      "total": "Total",
+      "issued": "Emitida",
+      "due": "Vencimiento",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "No hay facturas aquí",
+      "hint": "Cambia el filtro o crea un borrador de factura."
+    },
+    "actions": {
+      "issue": "Emitir",
+      "void": "Anular",
+      "markPaid": "Marcar pagada",
+      "creditNote": "Nota de crédito",
+      "view": "Ver"
+    },
+    "issueDialog": {
+      "title": "¿Emitir esta factura?",
+      "body": "Se facturará {{amount}} a {{dealer}}.",
+      "warning": "La emisión es irreversible. Asigna el siguiente número de la serie fiscal sin huecos y congela el documento: después, la única corrección es una nota de crédito.",
+      "confirm": "Emitir factura"
+    },
+    "voidDialog": {
+      "title": "¿Anular este borrador?",
+      "body": "Se retirará el borrador de {{dealer}} por {{amount}}. Solo se pueden anular borradores.",
+      "reason": "Motivo",
+      "placeholder": "Creada para el concesionario equivocado",
+      "confirm": "Anular borrador"
+    },
+    "markPaidDialog": {
+      "title": "Marcar esta factura como pagada",
+      "body": "{{number}} — {{dealer}}, {{amount}}.",
+      "paidAt": "Fecha de recepción",
+      "method": "Método",
+      "ref": "Referencia bancaria o de cheque",
+      "refPlaceholder": "FT24123456789",
+      "note": "Nota",
+      "warning": "Esto registra el dinero como recibido y activa cada periodo de suscripción que cubre la factura.",
+      "confirm": "Marcar pagada"
+    },
+    "create": {
+      "title": "Nuevo borrador de factura",
+      "body": "Todavía no se emite nada: un borrador no lleva número y se puede anular.",
+      "dealer": "Concesionario",
+      "dealerPlaceholder": "Elige un concesionario",
+      "noTrn": "Este concesionario no tiene TRN registrado. La emisión se rechazará hasta que se capture en su perfil: una factura fiscal B2B sin TRN del comprador no es válida.",
+      "emirate": "Emirato de suministro",
+      "emiratePlaceholder": "Elige un emirato",
+      "emirateHint": "Determina el desglose de la casilla 1 del VAT201.",
+      "kind": "Tipo",
+      "dueDate": "Fecha de vencimiento",
+      "lines": "Líneas",
+      "lineDescription": "Descripción",
+      "quantity": "Cant.",
+      "unitPrice": "Precio unitario (AED)",
+      "vatRate": "IVA %",
+      "vatCategory": "Cat.",
+      "exemptionCode": "Código de motivo de exención de IVA",
+      "exemptionPlaceholder": "Obligatorio cuando la categoría no es S",
+      "addLine": "Añadir línea",
+      "removeLine": "Eliminar línea",
+      "notes": "Notas",
+      "subtotal": "Subtotal",
+      "vatTotal": "IVA",
+      "grandTotal": "Total",
+      "confirm": "Crear borrador"
+    },
+    "detail": {
+      "body": "{{dealer}} — TRN {{trn}}",
+      "linesCaption": "Líneas de la factura",
+      "line": "Línea",
+      "qty": "Cant.",
+      "unitPrice": "Precio unitario",
+      "net": "Neto",
+      "vat": "IVA",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "vatTotal": "Total IVA",
+      "grandTotal": "Total general",
+      "creditable": "Aún acreditable",
+      "emirate": "Emirato de suministro",
+      "issueDate": "Fecha de emisión",
+      "creditNotes": "Notas de crédito contra esta factura",
+      "immutable": "Este documento está congelado. No hay edición: emite una nota de crédito para corregirlo."
+    }
+  },
+  "creditNotes": {
+    "caption": "Notas de crédito",
+    "draftLabel": "Borrador (aún sin número)",
+    "makerCheckerNote": "Doble control: quien envía una nota de crédito no puede aprobarla. La aprobación la emite con un número CN- y acredita la factura original.",
+    "makerChecker": "Tú la enviaste: debe aprobarla otro administrador.",
+    "submittedOn": "Enviada el {{date}}",
+    "submittedByYou": "Enviada por ti el {{date}}",
+    "approvedOn": "Aprobada el {{date}}",
+    "filters": {
+      "ALL": "Todas",
+      "DRAFT": "Borradores",
+      "PENDING_APPROVAL": "Pendientes de aprobación",
+      "ISSUED": "Emitidas",
+      "REJECTED": "Rechazadas"
+    },
+    "reasons": {
+      "CANCELLATION": "Cancelación",
+      "DOWNGRADE": "Bajada de plan",
+      "DISCOUNT": "Descuento",
+      "BILLING_ERROR": "Error de facturación",
+      "BAD_DEBT": "Deuda incobrable"
+    },
+    "columns": {
+      "number": "Número",
+      "invoice": "Contra la factura",
+      "dealer": "Concesionario",
+      "reason": "Motivo",
+      "total": "Total",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "No hay notas de crédito aquí",
+      "hint": "Las notas de crédito se redactan desde una factura emitida."
+    },
+    "actions": {
+      "submit": "Enviar",
+      "approve": "Aprobar",
+      "reject": "Rechazar"
+    },
+    "create": {
+      "title": "Redactar una nota de crédito",
+      "body": "Contra {{number}}, originalmente {{amount}}.",
+      "reason": "Motivo",
+      "reasonText": "Explicación",
+      "amount": "Importe a acreditar (AED, sin IVA)",
+      "amountHint": "Introdúcelo en positivo: el código de tipo 381 lleva el signo.",
+      "description": "Descripción de la línea",
+      "descriptionPlaceholder": "Por defecto, la descripción de la línea original",
+      "workflow": "Esto crea un borrador. Todavía hay que enviarlo y que lo apruebe otro administrador antes de emitirlo.",
+      "confirm": "Crear borrador"
+    },
+    "approveDialog": {
+      "title": "¿Aprobar y emitir esta nota de crédito?",
+      "body": "Se acreditarán {{amount}} a {{dealer}} contra la factura {{invoice}}.",
+      "warning": "La aprobación emite la nota de crédito con un número CN- correlativo sin huecos y es irreversible.",
+      "confirm": "Aprobar y emitir"
+    },
+    "rejectDialog": {
+      "title": "¿Rechazar esta nota de crédito?",
+      "body": "El crédito de {{amount}} no se emitirá.",
+      "reason": "Motivo",
+      "confirm": "Rechazar"
+    }
+  },
+  "receipts": {
+    "caption": "Recibos",
+    "record": "Registrar un recibo",
+    "unnumbered": "Sin número (pendiente)",
+    "noAllocations": "Sin asignar",
+    "allocationLine": "{{amount}} → {{invoice}}",
+    "makerChecker": "Tú lo registraste: debe aprobarlo otro administrador.",
+    "filters": {
+      "ALL": "Todos",
+      "PENDING_APPROVAL": "Pendientes de aprobación",
+      "RECORDED": "Registrados",
+      "REJECTED": "Rechazados"
+    },
+    "methods": {
+      "BANK_TRANSFER": "Transferencia bancaria",
+      "CHEQUE": "Cheque",
+      "CASH": "Efectivo",
+      "CARD": "Tarjeta",
+      "OTHER": "Otro"
+    },
+    "columns": {
+      "number": "Número",
+      "dealer": "Concesionario",
+      "amount": "Importe",
+      "allocations": "Asignado a",
+      "method": "Método",
+      "received": "Recibido",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "No hay recibos aquí",
+      "hint": "Registra uno cuando llegue el dinero y repártelo entre las facturas pendientes."
+    },
+    "actions": {
+      "approve": "Aprobar",
+      "reject": "Rechazar"
+    },
+    "create": {
+      "title": "Registrar un recibo",
+      "body": "Un pago, repartido entre todas las facturas que cubra.",
+      "dealer": "Concesionario",
+      "dealerPlaceholder": "Elige un concesionario",
+      "amount": "Importe recibido (AED)",
+      "method": "Método",
+      "receivedAt": "Fecha de recepción",
+      "reference": "Referencia bancaria o de transferencia",
+      "referencePlaceholder": "FT24123456789",
+      "note": "Nota",
+      "allocation": "Asignación",
+      "allocationHint": "Aplica el dinero a las facturas pendientes del concesionario. El servidor rechaza una asignación mayor que lo que la factura aún debe.",
+      "outstanding": "{{amount}} pendiente de {{total}}",
+      "applyAmount": "Aplicar (AED)",
+      "applyFull": "Aplicar el saldo",
+      "nothingOutstanding": "Este concesionario no tiene ninguna factura emitida con saldo.",
+      "receiptAmount": "Recibo",
+      "allocated": "Asignado",
+      "unallocated": "Sin asignar",
+      "overAllocated": "Se ha asignado más de lo recibido. Reduce una asignación antes de guardar.",
+      "manual": "Marcado manual como pagado, sin justificante bancario",
+      "manualHint": "Envía el recibo a un segundo aprobador en lugar de registrarlo directamente.",
+      "confirm": "Registrar recibo"
+    },
+    "approveDialog": {
+      "title": "¿Aprobar este recibo?",
+      "body": "{{amount}} de {{dealer}}, en {{allocations}} asignación(es) a facturas.",
+      "warning": "Aprobarlo trata el dinero como recibido y liquida las facturas a las que está asignado.",
+      "confirm": "Aprobar recibo"
+    },
+    "rejectDialog": {
+      "title": "¿Rechazar este recibo?",
+      "body": "El marcado como pagado de {{amount}} no se registrará y las facturas seguirán pendientes.",
+      "reason": "Motivo",
+      "confirm": "Rechazar"
+    }
+  },
+  "payments": {
+    "caption": "Pagos",
+    "declaredRef": "Referencia del pagador: {{ref}}",
+    "declaredOn": "Declarado el {{date}}",
+    "filters": {
+      "ALL": "Todos",
+      "PENDING_CONFIRMATION": "Pendientes de confirmación",
+      "REQUIRES_ACTION": "A la espera del pagador",
+      "PROCESSING": "En proceso",
+      "SETTLED": "Liquidados",
+      "FAILED": "Fallidos",
+      "BLOCKED": "Bloqueados"
+    },
+    "columns": {
+      "reference": "Referencia",
+      "dealer": "Concesionario",
+      "invoice": "Factura",
+      "amount": "Importe",
+      "route": "Ruta",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "empty": {
+      "title": "Nada en espera",
+      "hint": "Las transferencias declaradas aparecen aquí para que una persona las confirme."
+    },
+    "actions": {
+      "confirm": "Confirmar",
+      "reject": "Rechazar"
+    },
+    "confirmDialog": {
+      "title": "¿Confirmar que el dinero llegó?",
+      "body": "{{amount}} de {{dealer}} contra la factura {{invoice}}.",
+      "warning": "Esto es dinero real. Confirma solo cuando hayas visto los fondos en el extracto bancario: se genera el recibo y se liquida la factura.",
+      "declaredRef": "El pagador indicó la referencia {{ref}}.",
+      "confirm": "Sí, el dinero llegó"
+    },
+    "rejectDialog": {
+      "title": "¿Rechazar este pago?",
+      "body": "Los {{amount}} declarados por {{dealer}} se marcarán como nunca recibidos.",
+      "reason": "Motivo",
+      "placeholder": "No hay ningún abono coincidente en el extracto bancario",
+      "hint": "Al pagador se le muestra este motivo.",
+      "confirm": "Rechazar pago"
+    }
+  },
+  "provider": {
+    "title": "Proveedor de pago",
+    "canCharge": "Puede cobrar",
+    "cannotCharge": "No puede cobrar",
+    "implemented": "Adaptador implementado",
+    "notImplemented": "Sin adaptador",
+    "credentials": "Credenciales:",
+    "apiKeyPresent": "Clave de API configurada",
+    "apiKeyAbsent": "Falta la clave de API",
+    "webhookPresent": "Secreto de webhook configurado",
+    "webhookAbsent": "Falta el secreto de webhook",
+    "presenceOnly": "Solo presencia. Los valores secretos viven en la bóveda del Super Admin y nunca se pueden leer desde aquí.",
+    "blockedTitle": "La plataforma no puede cobrar.",
+    "change": "Cambiar de proveedor",
+    "choosePlaceholder": "Elige un proveedor",
+    "noAdapter": "aún sin adaptador",
+    "apply": "Aplicar",
+    "changeWarning": "Nombrar un proveedor sin credenciales detiene el cobro por completo en lugar de recurrir a otro en silencio.",
+    "blocked": "Bloqueado"
+  },
+  "toast": {
+    "summaryFailed": "No se pudo cargar el resumen de facturación",
+    "invoicesFailed": "No se pudieron cargar las facturas",
+    "detailFailed": "No se pudo abrir la factura",
+    "draftCreated": "Borrador de factura creado",
+    "draftFailed": "No se pudo crear el borrador",
+    "invoiceIssued": "Factura emitida",
+    "invoiceIssueFailed": "No se pudo emitir la factura",
+    "invoiceVoided": "Borrador anulado",
+    "invoiceVoidFailed": "No se pudo anular el borrador",
+    "invoicePaid": "Factura marcada como pagada",
+    "invoicePayFailed": "No se pudo marcar la factura como pagada",
+    "creditNotesFailed": "No se pudieron cargar las notas de crédito",
+    "creditNoteCreated": "Nota de crédito redactada",
+    "creditNoteCreateFailed": "No se pudo redactar la nota de crédito",
+    "creditNoteSubmitted": "Nota de crédito enviada para aprobación",
+    "creditNoteSubmitFailed": "No se pudo enviar la nota de crédito",
+    "creditNoteApproved": "Nota de crédito aprobada y emitida",
+    "creditNoteApproveFailed": "No se pudo aprobar la nota de crédito",
+    "creditNoteRejected": "Nota de crédito rechazada",
+    "creditNoteRejectFailed": "No se pudo rechazar la nota de crédito",
+    "receiptsFailed": "No se pudieron cargar los recibos",
+    "outstandingFailed": "No se pudieron cargar las facturas pendientes",
+    "receiptRecorded": "Recibo registrado",
+    "receiptFailed": "No se pudo registrar el recibo",
+    "receiptApproved": "Recibo aprobado",
+    "receiptApproveFailed": "No se pudo aprobar el recibo",
+    "receiptRejected": "Recibo rechazado",
+    "receiptRejectFailed": "No se pudo rechazar el recibo",
+    "paymentsFailed": "No se pudieron cargar los pagos",
+    "paymentConfirmed": "Pago confirmado y factura liquidada",
+    "paymentConfirmFailed": "No se pudo confirmar el pago",
+    "paymentRejected": "Pago rechazado",
+    "paymentRejectFailed": "No se pudo rechazar el pago",
+    "providerChanged": "Proveedor de pago actualizado",
+    "providerFailed": "No se pudo cambiar el proveedor de pago"
+  }
+}

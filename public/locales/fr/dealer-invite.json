@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Invitation à l'équipe"
+  },
+  "hero": {
+    "title": "Vous avez été invité",
+    "subtitle": "Rejoignez l'équipe d'une concession sur Carsens."
+  },
+  "invite": {
+    "dealerLabel": "Concession",
+    "roleLabel": "Votre rôle",
+    "emailLabel": "E-mail invité",
+    "expiresLabel": "Expire le"
+  },
+  "roles": {
+    "OWNER": "Propriétaire",
+    "MANAGER": "Gestionnaire",
+    "SALES": "Agent commercial"
+  },
+  "states": {
+    "loading": {
+      "body": "Vérification de votre invitation…"
+    },
+    "noToken": {
+      "title": "Lien d'invitation manquant",
+      "body": "Cette page a besoin du lien figurant dans votre e-mail d'invitation. Rouvrez cet e-mail et appuyez sur le bouton qu'il contient."
+    },
+    "dead": {
+      "title": "Cette invitation est inutilisable",
+      "body": "Elle a peut-être expiré, été retirée ou déjà été acceptée. Demandez à la concession de vous en envoyer une nouvelle."
+    },
+    "signIn": {
+      "title": "Connectez-vous pour accepter",
+      "body": "Un compte Carsens existe déjà pour {{email}}. Connectez-vous et nous vous ramènerons directement ici."
+    },
+    "create": {
+      "title": "Créez votre compte",
+      "body": "Choisissez un nom et un mot de passe pour {{email}}. Ce lien prouve déjà votre adresse e-mail, il n'y a rien d'autre à confirmer.",
+      "haveAccount": "Vous avez déjà un compte ?"
+    },
+    "accept": {
+      "title": "Acceptez votre invitation",
+      "body": "{{dealerName}} attend que vous rejoigniez l'équipe.",
+      "signedInAs": "Connecté en tant que {{email}}"
+    },
+    "wrongAccount": {
+      "title": "Ce n'est pas le bon compte",
+      "body": "Cette invitation a été envoyée à {{invited}}, mais vous êtes connecté en tant que {{current}}. Seule l'adresse invitée peut l'accepter."
+    },
+    "joined": {
+      "title": "C'est fait",
+      "body": "Bienvenue chez {{dealerName}} — direction le portail concession."
+    },
+    "signInFallback": {
+      "title": "Compte créé",
+      "body": "Votre compte pour {{email}} est prêt et vous avez rejoint l'équipe, mais nous n'avons pas pu vous connecter automatiquement. Connectez-vous avec le mot de passe que vous venez de choisir."
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Nom complet",
+      "placeholder": "Faisal Khan"
+    },
+    "email": {
+      "label": "Adresse e-mail",
+      "hint": "L'invitation est liée à cette adresse et ne peut pas être transférée à une autre."
+    },
+    "password": {
+      "label": "Mot de passe",
+      "placeholder": "••••••••",
+      "hint": "Au moins 8 caractères, avec une majuscule, une minuscule et un chiffre."
+    },
+    "togglePassword": "Afficher/masquer le mot de passe"
+  },
+  "actions": {
+    "backHome": "Retour à Carsens",
+    "openPortal": "Ouvrir le portail concession",
+    "goToSignIn": "Aller à la connexion",
+    "signInAndAccept": "Se connecter et accepter",
+    "signInInstead": "Se connecter",
+    "join": "Rejoindre {{dealerName}}",
+    "joining": "Adhésion en cours…",
+    "createAndJoin": "Créer le compte et rejoindre",
+    "creating": "Création de votre compte…",
+    "signOutAndSwitch": "Se déconnecter et se connecter en tant que {{invited}}"
+  },
+  "errors": {
+    "generic": "Une erreur est survenue. Veuillez réessayer."
+  }
+}

@@ -8,7 +8,8 @@
     "analytics": "Analíticas",
     "team": "Sucursales y equipo",
     "subscription": "Suscripción",
-    "publicProfile": "Perfil público"
+    "publicProfile": "Perfil público",
+    "profile": "Perfil del concesionario"
   },
   "quota": {
     "label": "Anuncios",
@@ -91,16 +92,45 @@
       "pause": "Pausar",
       "resume": "Reanudar",
       "sold": "Marcar vendido",
-      "renew": "Renovar"
+      "renew": "Renovar",
+      "archive": "Quitar",
+      "restore": "Restaurar",
+      "edit": "Editar",
+      "photos": "Fotos"
     },
     "toast": {
       "paused": "Anuncio pausado.",
       "resumed": "El anuncio vuelve a estar activo.",
       "sold": "Marcado como vendido.",
       "renewed": "Renovado por 60 días más.",
-      "failed": "La acción falló: inténtalo de nuevo."
+      "failed": "La acción falló: inténtalo de nuevo.",
+      "archived": "Anuncio quitado.",
+      "restored": "Anuncio restaurado: queda en pausa hasta que lo reanudes."
     },
-    "quotaBlocked": "Has alcanzado el límite de tu paquete. Pausa un anuncio o mejora el plan."
+    "quotaBlocked": "Has alcanzado el límite de tu paquete. Pausa un anuncio o mejora el plan.",
+    "archive": {
+      "title": "¿Quitar este anuncio?",
+      "lead": "Vas a quitar {{listing}}. Esto es exactamente lo que ocurre:",
+      "effects": {
+        "offSite": "Sale del sitio de inmediato: los compradores ya no podrán encontrarlo ni abrirlo.",
+        "slot": "Libera una plaza de la cuota de tu paquete, así puedes publicar otro coche.",
+        "boost": "Se cancela cualquier impulso activo y los créditos de impulso no se devuelven.",
+        "restore": "Queda en tu lista de Quitados durante 30 días y puedes restaurarlo desde ahí."
+      },
+      "reasonLabel": "Motivo (opcional: queda en tu registro de auditoría)",
+      "reasonPlaceholder": "Vendido en otro sitio, publicado por error…",
+      "confirm": "Quitar anuncio",
+      "cancel": "Conservarlo"
+    },
+    "restore": {
+      "title": "¿Restaurar este anuncio?",
+      "body": "{{listing}} vuelve en pausa, no publicado. Revisa el precio y las fotos y reanúdalo cuando quieras: solo ocupa una plaza de cuota cuando vuelva a estar publicado.",
+      "confirm": "Restaurar anuncio",
+      "cancel": "Cancelar"
+    },
+    "archivedHint": "Los anuncios quitados se conservan 30 días. Al restaurar uno, vuelve en pausa.",
+    "draftHint": "Los borradores solo los ve tu equipo. Termina uno y envíalo para publicarlo.",
+    "openMenu": "Más acciones para {{listing}}"
   },
   "subscription": {
     "title": "Suscripción",
@@ -273,6 +303,190 @@
       "applied": "Impulso aplicado",
       "cancelled": "Impulso detenido",
       "failed": "No se pudo actualizar el impulso"
+    }
+  },
+  "invites": {
+    "title": "Invitaciones",
+    "invite": "Invitar a un compañero",
+    "dialogTitle": "Invitar a un compañero",
+    "dialogHint": "Recibirá un correo con un enlace válido durante 7 días. Quien invites podrá ver el stock de este concesionario.",
+    "emailLabel": "Correo electrónico",
+    "roleLabel": "Rol",
+    "send": "Enviar invitación",
+    "cancel": "Cancelar",
+    "columns": {
+      "email": "Correo",
+      "role": "Rol",
+      "status": "Estado",
+      "expires": "Caduca",
+      "actions": "Acciones"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "ACCEPTED": "Aceptada",
+      "REVOKED": "Revocada",
+      "EXPIRED": "Caducada"
+    },
+    "resend": "Reenviar",
+    "revoke": "Revocar",
+    "resendAria": "Reenviar la invitación a {{email}}",
+    "revokeAria": "Revocar la invitación a {{email}}",
+    "empty": "Todavía no hay invitaciones.",
+    "sent": "Invitación enviada a {{email}}.",
+    "resent": "Un enlace nuevo va camino de {{email}}: el anterior ya no funciona.",
+    "revoked": "Invitación revocada.",
+    "failed": "No se pudo enviar la invitación.",
+    "notAllowed": "Solo un propietario o un gerente puede invitar a este concesionario.",
+    "expired": "Caducada",
+    "revokeConfirm": {
+      "title": "¿Revocar esta invitación?",
+      "body": "El enlace enviado a {{email}} deja de funcionar de inmediato y no podrá unirse. Puedes volver a invitarle más adelante.",
+      "confirm": "Revocar invitación",
+      "cancel": "Conservarla"
+    },
+    "resendConfirm": {
+      "title": "¿Enviar un enlace nuevo?",
+      "body": "Se envía una invitación nueva a {{email}} y la caducidad vuelve a 7 días. El enlace del correo anterior deja de funcionar.",
+      "confirm": "Enviar enlace nuevo",
+      "cancel": "Cancelar"
+    }
+  },
+  "plans": {
+    "title": "Paquetes",
+    "hint": "Elige el paquete que quieras y lo preparamos. Aquí no se cobra nada: emitimos una factura cuando lo aprobamos.",
+    "quota": "{{count}} plaza de anuncio",
+    "quota_other": "{{count}} plazas de anuncio",
+    "boosts": "{{count}} crédito de impulso",
+    "boosts_other": "{{count}} créditos de impulso",
+    "term": "al mes",
+    "term_other": "cada {{count}} meses",
+    "choose": "Solicitar este paquete",
+    "chooseAria": "Solicitar el paquete {{plan}}",
+    "dialogTitle": "Solicitar {{plan}}",
+    "dialogBody": "Lo revisaremos y te responderemos. Tus anuncios actuales no se ven afectados mientras esperas.",
+    "noteLabel": "¿Algo que debamos saber? (opcional)",
+    "notePlaceholder": "Fecha de inicio, contacto de facturación, una pregunta…",
+    "submit": "Enviar solicitud",
+    "cancel": "Cancelar",
+    "requested": "Solicitud enviada: te responderemos.",
+    "withdrawn": "Solicitud retirada.",
+    "failed": "No se pudo enviar la solicitud.",
+    "currentBadge": "Tu paquete",
+    "openTitle": "Tu solicitud de paquete",
+    "pendingSince": "Enviada el {{date}}: pendiente de decisión.",
+    "decidedOn": "Resuelta el {{date}}.",
+    "declineReason": "Motivo indicado: {{reason}}",
+    "yourNote": "Tu nota: {{note}}",
+    "withdraw": "Retirar solicitud",
+    "withdrawConfirm": {
+      "title": "¿Retirar esta solicitud?",
+      "body": "Dejamos de revisarla y no se prepara nada. Puedes volver a solicitar un paquete enseguida.",
+      "confirm": "Retirar solicitud",
+      "cancel": "Conservarla"
+    },
+    "requestStatus": {
+      "PENDING": "Pendiente de decisión",
+      "APPROVED": "Aprobada",
+      "DECLINED": "Rechazada",
+      "WITHDRAWN": "Retirada"
+    },
+    "noneOpen": "No tienes ninguna solicitud abierta.",
+    "unknownPackage": "Paquete"
+  },
+  "payment": {
+    "title": "Pagos",
+    "pay": "Pagar esta factura",
+    "payAria": "Pagar la factura {{number}}",
+    "preparing": "Preparando…",
+    "transferTitle": "Instrucciones de transferencia bancaria",
+    "beneficiary": "Beneficiario",
+    "iban": "IBAN",
+    "bank": "Banco",
+    "trn": "TRN",
+    "amount": "Importe",
+    "reference": "Referencia de pago",
+    "referenceHint": "Indica esta referencia en la transferencia. Sin ella el dinero llega sin identificar y no podemos asociarlo a tu cuenta.",
+    "copy": "Copiar",
+    "copyAria": "Copiar {{field}}",
+    "copied": "{{field}} copiado.",
+    "copyFailed": "No se pudo copiar: selecciona el texto y cópialo manualmente.",
+    "missingIban": "Todavía no hemos publicado nuestros datos bancarios. Escríbenos y te los enviamos.",
+    "checkout": "Continuar al pago",
+    "declare": "Ya lo he enviado",
+    "declareTitle": "Confirma que has enviado la transferencia",
+    "declareBody": "Esto avisa a nuestro equipo financiero para que busque tu transferencia. No es un pago: tu paquete empieza solo cuando confirmemos que el dinero ha llegado.",
+    "declareRefLabel": "Referencia de tu banco (opcional)",
+    "declareRefPlaceholder": "p. ej. FT26082900123456",
+    "declareSubmit": "Sí, la he enviado",
+    "declareCancel": "Todavía no",
+    "declared": "Gracias: te confirmaremos en cuanto llegue la transferencia.",
+    "cancelPayment": "Cancelar pago",
+    "cancelTitle": "¿Cancelar este pago?",
+    "cancelBody": "La referencia {{reference}} deja de ser válida. Si ya has enviado la transferencia, no canceles: avísanos. Después puedes iniciar un pago nuevo para la misma factura.",
+    "cancelConfirm": "Cancelar pago",
+    "cancelKeep": "Conservarlo",
+    "cancelled": "Pago cancelado.",
+    "blockedTitle": "Ahora mismo no podemos aceptar el pago",
+    "blockedBody": "No se ha cobrado nada y no debes nada más. Escríbenos y lo gestionamos manualmente.",
+    "blockedReason": "Motivo: {{reason}}",
+    "failed": "Ese paso del pago falló.",
+    "none": "Todavía no has iniciado ningún pago.",
+    "columns": {
+      "reference": "Referencia",
+      "invoice": "Factura",
+      "amount": "Importe",
+      "status": "Estado",
+      "actions": "Acciones"
+    },
+    "status": {
+      "REQUIRES_ACTION": "Esperando tu transferencia",
+      "PENDING_CONFIRMATION": "Esperando nuestra confirmación",
+      "PROCESSING": "Procesando",
+      "SETTLED": "Pagado",
+      "FAILED": "Fallido",
+      "EXPIRED": "Caducado",
+      "CANCELLED": "Cancelado",
+      "BLOCKED": "Bloqueado"
+    },
+    "pendingNotice": "Nos has dicho que la transferencia está en camino. No cuenta como pagada hasta que nuestro equipo financiero confirme que ha llegado.",
+    "settledNotice": "Confirmado y liquidado."
+  },
+  "editProfile": {
+    "title": "Perfil del concesionario",
+    "hint": "Esto es lo que ven los compradores en tu página pública.",
+    "nameLabel": "Nombre del concesionario",
+    "aboutLabel": "Descripción",
+    "aboutHint": "Se muestra en tu página pública. En inglés: nuestro equipo añade los demás idiomas.",
+    "trnLabel": "Número de registro fiscal",
+    "trnHint": "Exactamente 15 dígitos. Sin él no podemos emitirte una factura.",
+    "brandsLabel": "Marcas que vendes",
+    "servicesLabel": "Servicios que ofreces",
+    "listHint": "Escribe un valor y pulsa Intro para añadirlo.",
+    "addAria": "Añadir a {{field}}",
+    "removeChip": "Quitar {{value}}",
+    "emptyList": "Todavía no has añadido nada.",
+    "save": "Guardar cambios",
+    "saved": "Perfil guardado.",
+    "failed": "No se pudo guardar el perfil.",
+    "readOnly": "Solo un propietario o un gerente puede editar el perfil del concesionario.",
+    "publicLink": "Ver página pública",
+    "logo": {
+      "title": "Logotipo",
+      "hint": "Una imagen cuadrada funciona mejor. JPG, PNG o WebP.",
+      "upload": "Subir un logotipo",
+      "replace": "Cambiar logotipo",
+      "remove": "Quitar logotipo",
+      "removeTitle": "¿Quitar el logotipo?",
+      "removeBody": "Tu concesionario volverá a mostrar sus iniciales en todos los sitios donde aparece el logotipo: tu página pública, el directorio de concesionarios y cada coche que publicas. Puedes subir otro cuando quieras.",
+      "removeConfirm": "Quitar logotipo",
+      "removeCancel": "Conservarlo",
+      "removed": "Logotipo quitado.",
+      "processing": "Procesando tu logotipo…",
+      "uploaded": "Logotipo actualizado.",
+      "failed": "No se pudo subir el logotipo.",
+      "badType": "Usa una imagen JPG, PNG o WebP.",
+      "tooBig": "Esa imagen es demasiado grande.",
+      "alt": "Logotipo de {{name}}"
     }
   }
 }

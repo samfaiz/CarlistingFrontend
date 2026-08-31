@@ -1,0 +1,154 @@
+{
+  "title": "Dealer directory",
+  "intro": "Every dealership on the platform, whatever its verification or trading state. Verification is about documents; trading status is about whether they may sell today.",
+  "count_one": "{{count}} dealership",
+  "count_other": "{{count}} dealerships",
+  "verification": {
+    "UNVERIFIED": "Unverified",
+    "PENDING": "Awaiting review",
+    "VERIFIED": "Verified",
+    "REJECTED": "Rejected"
+  },
+  "trading": {
+    "ACTIVE": "Trading",
+    "SUSPENDED": "Suspended"
+  },
+  "summary": {
+    "all": "Dealerships",
+    "verified": "Verified",
+    "verifiedHint": "Documents approved",
+    "pending": "Awaiting review",
+    "pendingHint": "In the verification queue",
+    "suspended": "Suspended",
+    "suspendedHint": "Blocked from trading"
+  },
+  "filters": {
+    "trading": {
+      "ALL": "All trading states"
+    },
+    "verificationLabel": "Verification",
+    "verification": {
+      "ALL": "Any verification"
+    },
+    "sortLabel": "Sort",
+    "sort": {
+      "recent": "Newest first",
+      "name": "Name (A–Z)",
+      "listings": "Most live stock"
+    }
+  },
+  "columns": {
+    "dealer": "Dealership",
+    "trn": "TRN",
+    "verification": "Verification",
+    "trading": "Trading",
+    "live": "Live stock",
+    "team": "Team",
+    "joined": "Joined",
+    "actions": "Actions"
+  },
+  "actions": {
+    "view": "Open",
+    "suspend": "Suspend",
+    "reinstate": "Reinstate",
+    "viewPublic": "Public profile",
+    "cancel": "Cancel"
+  },
+  "empty": {
+    "title": "No dealerships match",
+    "hint": "Clear the search, or widen the verification and trading filters."
+  },
+  "toast": {
+    "loadFailed": "Could not load the dealer directory.",
+    "detailFailed": "Could not load this dealership.",
+    "actionFailed": "The change could not be applied.",
+    "suspended": "{{name}} has been suspended",
+    "suspendedDetail_one": "{{count}} live listing was paused.",
+    "suspendedDetail_other": "{{count}} live listings were paused.",
+    "reinstated": "{{name}} is trading again",
+    "reinstatedDetail_one": "{{count}} listing was restored.",
+    "reinstatedDetail_other": "{{count}} listings were restored."
+  },
+  "detail": {
+    "title": "Dealership",
+    "subtitle": "Profile, branches, team, package and stock.",
+    "loading": "Loading dealership…",
+    "suspendedTitle": "Suspended from trading",
+    "noReason": "No reason was recorded.",
+    "suspendedMeta": "Suspended {{when}} by {{by}}. The dealership sees this reason.",
+    "unknownActor": "a staff member",
+    "verificationLabel": "Verification status",
+    "verificationHint": "Whether their trade licence and TRN have been checked.",
+    "tradingLabel": "Trading status",
+    "tradingHint": "Whether they may publish and sell on the platform right now.",
+    "trn": "TRN",
+    "slug": "Profile slug",
+    "joined": "Joined",
+    "brands": "Brands",
+    "none": "—",
+    "stock": "Stock by status",
+    "noStock": "This dealership has no listings yet.",
+    "package": "Package",
+    "packageTerms": "{{quota}} listing slots · {{boosts}} boost credits",
+    "packageRenews": "Ends {{when}}",
+    "noPackage": "No active subscription.",
+    "branches_one": "{{count}} branch",
+    "branches_other": "{{count}} branches",
+    "noBranches": "No branches recorded.",
+    "team_one": "{{count}} team member",
+    "team_other": "{{count}} team members",
+    "memberName": "Member",
+    "memberRole": "Role",
+    "memberStatus": "Account"
+  },
+  "listingStatus": {
+    "DRAFT": "Draft",
+    "PENDING_REVIEW": "Awaiting review",
+    "LIVE": "Live",
+    "PAUSED": "Paused",
+    "SOLD": "Sold",
+    "EXPIRED": "Expired",
+    "REJECTED": "Rejected",
+    "ARCHIVED": "Archived"
+  },
+  "subscriptionStatus": {
+    "PENDING_PAYMENT": "Awaiting payment",
+    "ACTIVE": "Active",
+    "GRACE": "Grace period",
+    "EXPIRED": "Expired",
+    "CANCELLED": "Cancelled",
+    "SUSPENDED": "Suspended"
+  },
+  "memberRole": {
+    "OWNER": "Owner",
+    "MANAGER": "Manager",
+    "SALES": "Sales"
+  },
+  "userStatus": {
+    "ACTIVE": "Active",
+    "SUSPENDED": "Suspended",
+    "BANNED": "Banned",
+    "DELETED": "Deleted"
+  },
+  "suspend": {
+    "title": "Suspend {{name}}?",
+    "description": "This stops the dealership trading immediately. It does not change their verification status.",
+    "effectPause_one": "Pauses their live stock: {{count}} listing stops showing to buyers at once.",
+    "effectPause_other": "Pauses their live stock: {{count}} listings stop showing to buyers at once.",
+    "effectPublish": "Blocks the dealership from publishing or renewing anything while suspended.",
+    "effectNotify": "Notifies the dealership owners by email and in-app, with the reason below.",
+    "effectSessions": "Their team stays signed in — only dealer actions are blocked, not the marketplace.",
+    "reasonLabel": "Reason shown to the dealership",
+    "reasonPlaceholder": "Write this for the owners to read — they will see it word for word.",
+    "reasonHint": "Required, 3–{{max}} characters. Sent to the owners exactly as written.",
+    "confirm": "Suspend trading"
+  },
+  "reinstate": {
+    "title": "Reinstate {{name}}?",
+    "description": "This lets the dealership trade again and undoes the pause this suspension applied.",
+    "effectRestore": "Restores exactly the listings this suspension paused — stock they paused themselves stays paused, and anything that expired meanwhile is not brought back.",
+    "effectPublish": "Lets the dealership publish, renew and manage its stock again.",
+    "effectNotify": "Notifies the dealership owners that they are active again.",
+    "confirm": "Reinstate trading"
+  }
+}

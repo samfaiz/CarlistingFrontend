@@ -28,11 +28,28 @@
       "paused": "Anuncio pausado.",
       "resumed": "El anuncio vuelve a estar activo.",
       "markedSold": "Marcado como vendido.",
-      "renewed": "Anuncio renovado por 60 días más."
+      "renewed": "Anuncio renovado por 60 días más.",
+      "continue": "Continuar",
+      "edit": "Editar",
+      "photos": "Fotos ({{count}})",
+      "photos_other": "Fotos ({{count}})",
+      "remove": "Retirar",
+      "removed": "Anuncio retirado. Puedes restaurarlo durante 30 días.",
+      "restore": "Restaurar",
+      "restored": "Anuncio restaurado. Queda en pausa hasta que vuelvas a publicarlo."
     },
     "errors": {
       "load": "No se pudieron cargar tus anuncios.",
       "action": "La acción falló: inténtalo de nuevo."
+    },
+    "archivedHint": "Retirado del sitio. Puedes restaurarlo durante 30 días.",
+    "draftNeedsPhotos": "Borrador: {{count}} foto añadida. Se necesitan al menos 3 antes de la revisión.",
+    "draftNeedsPhotos_other": "Borrador: {{count}} fotos añadidas. Se necesitan al menos 3 antes de la revisión.",
+    "remove": {
+      "title": "¿Retirar este anuncio?",
+      "body": "«{{title}}» desaparece del sitio de inmediato y los compradores ya no podrán encontrarlo. No se borra nada: pasa al filtro Retirados, donde puedes restaurarlo durante 30 días.",
+      "confirm": "Retirar anuncio",
+      "cancel": "Mantenerlo"
     }
   },
   "notifications": {
@@ -92,5 +109,156 @@
     "managePrefs": "Gestionar notificaciones",
     "invalid": "Este enlace no es válido o ha caducado.",
     "missingLink": "Abre esta página desde el enlace de tu correo."
+  },
+  "manage": {
+    "meta": {
+      "editTitle": "Editar anuncio — Carsens",
+      "photosTitle": "Fotos del anuncio — Carsens"
+    },
+    "back": "Volver a mis anuncios",
+    "loading": "Cargando este anuncio…",
+    "cancel": "Cancelar",
+    "save": "Guardar cambios",
+    "discard": "Descartar cambios",
+    "noChanges": "Todavía no hay cambios.",
+    "changedCount": "{{count}} campo modificado.",
+    "changedCount_other": "{{count}} campos modificados.",
+    "tabs": {
+      "label": "Secciones del anuncio",
+      "details": "Detalles",
+      "photos": "Fotos"
+    },
+    "notFound": {
+      "title": "No hemos podido abrir este anuncio",
+      "body": "Puede que se haya retirado o que pertenezca a otra persona."
+    },
+    "errors": {
+      "load": "No se ha podido cargar este anuncio.",
+      "saveTitle": "No se guardaron tus cambios",
+      "saveGeneric": "No se han podido guardar los cambios."
+    },
+    "saved": {
+      "ok": "Cambios guardados.",
+      "pending": "Cambios guardados. El anuncio vuelve a revisión y se publicará de nuevo cuando se apruebe."
+    },
+    "frozen": {
+      "title": "Este anuncio no se puede editar",
+      "body": "Un anuncio en estado {{status}} es de solo lectura. Restauráralo o renúvalo primero."
+    },
+    "review": {
+      "bannerTitle": "Guardar envía este anuncio de nuevo a revisión",
+      "bannerBody": "Ahora está publicado. Cualquier edición lo retira de los resultados de búsqueda y lo devuelve a moderación; vuelve a publicarse cuando un moderador lo aprueba.",
+      "confirmTitle": "¿Guardar y enviar de nuevo a revisión?",
+      "confirmBody": "Este anuncio está publicado. Al guardar sale del sitio y vuelve a la cola de moderación, y los compradores no volverán a verlo hasta que un moderador lo apruebe.",
+      "confirmCta": "Guardar y reenviar"
+    },
+    "sections": {
+      "vehicle": "Vehículo",
+      "price": "Precio",
+      "details": "Detalles",
+      "description": "Descripción"
+    },
+    "identity": {
+      "make": "Marca",
+      "model": "Modelo",
+      "trim": "Versión",
+      "hint": "La marca, el modelo y la versión quedan fijos una vez creado el anuncio. Si el coche es otro, crea un anuncio nuevo."
+    },
+    "fields": {
+      "notSet": "Sin definir",
+      "priceAed": "Precio (AED)",
+      "priceHint": "Los cambios de precio aparecen en el historial de precios del coche.",
+      "isNegotiable": "Precio negociable",
+      "year": "Año",
+      "mileageKm": "Kilometraje (km)",
+      "condition": "Estado",
+      "regionalSpec": "Especificación regional",
+      "fuelType": "Combustible",
+      "transmission": "Transmisión",
+      "cylinders": "Cilindros",
+      "optionalHint": "Opcional. Si lo dejas vacío se mantiene el valor actual.",
+      "bodyType": "Carrocería",
+      "exteriorColor": "Color exterior",
+      "interiorColor": "Color interior",
+      "vin": "VIN",
+      "vinHint": "Un VIN que ya esté en otro anuncio activo se rechaza al enviarlo.",
+      "emirate": "Emirato",
+      "description": "Descripción",
+      "descriptionHint": "{{count}} de {{max}} caracteres. Al menos {{min}} si la cambias.",
+      "descriptionUnavailable": "No hemos podido leer la descripción actual. Lo que escribas aquí la sustituirá; déjalo vacío para mantenerla tal cual."
+    },
+    "enum": {
+      "condition": {
+        "USED": "Usado",
+        "NEW": "Nuevo"
+      }
+    },
+    "validation": {
+      "required": "Este campo no puede quedar vacío.",
+      "wholeNumber": "Introduce un número entero.",
+      "range": "Introduce un valor entre {{min}} y {{max}}.",
+      "tooLong": "Usa {{max}} caracteres o menos.",
+      "descriptionShort": "La descripción necesita al menos {{min}} caracteres.",
+      "descriptionCannotClear": "Una descripción no se puede eliminar una vez añadida: escribe al menos {{min}} caracteres o restaura el texto original."
+    },
+    "photos": {
+      "loading": "Cargando fotos…",
+      "empty": "Aún no hay fotos. Añade al menos 3 para que los compradores vean el coche.",
+      "dropHint": "Arrastra las fotos aquí o eliégelas desde tu dispositivo",
+      "formats": "JPG, PNG o WebP · hasta {{max}} fotos",
+      "browse": "Añadir fotos",
+      "counter": "{{count}} foto de {{max}}.",
+      "counter_other": "{{count}} fotos de {{max}}.",
+      "floor": "Un anuncio publicado debe conservar al menos {{min}}.",
+      "needMore": "Añade {{count}} más para poder enviarlo a revisión.",
+      "needMore_other": "Añade {{count}} más para poder enviarlo a revisión.",
+      "cover": "Portada",
+      "isCover": "Foto de portada",
+      "setCover": "Usar de portada",
+      "setCoverLabel": "Usar la foto {{position}} como portada",
+      "coverSet": "Foto de portada actualizada.",
+      "delete": "Eliminar",
+      "deleteLabel": "Eliminar la foto {{position}}",
+      "deleteTitle": "¿Eliminar esta foto?",
+      "deleteBody": "La foto {{position}} se elimina definitivamente de este anuncio y quedan {{remaining}}.",
+      "deleteCoverNote": "Es la portada, así que la siguiente foto verificada ocupará su lugar.",
+      "deleteFloorNote": "Un anuncio publicado debe conservar al menos {{min}} fotos.",
+      "deleteConfirm": "Eliminar foto",
+      "deleted": "Foto eliminada.",
+      "moveEarlierLabel": "Mover la foto {{position}} hacia delante",
+      "moveLaterLabel": "Mover la foto {{position}} hacia atrás",
+      "thumbAlt": "Foto {{position}} del anuncio",
+      "frozenBody": "Las fotos son de solo lectura mientras el anuncio esté en este estado.",
+      "submitTitle": "¿Listo para publicar?",
+      "submitReady": "Envía este anuncio a nuestros moderadores. La revisión suele tardar unas horas.",
+      "submitBlocked": "Añade al menos {{min}} fotos primero.",
+      "submitCta": "Enviar a revisión",
+      "submitDone": "Enviado a revisión. Te avisaremos cuando se apruebe.",
+      "scan": {
+        "pending": "Comprobando",
+        "pendingHint": "Todavía se está analizando en busca de virus: no puede ser la portada hasta que termine.",
+        "infected": "Análisis fallido",
+        "infectedHint": "Esta foto no superó el análisis antivirus y nunca se muestra a los compradores. Elimínala."
+      },
+      "upload": {
+        "queued": "En espera",
+        "processing": "Preparando",
+        "uploading": "Subiendo {{percent}}%",
+        "attaching": "Adjuntando",
+        "retry": "Reintentar",
+        "discard": "Descartar"
+      },
+      "errors": {
+        "load": "No se han podido cargar las fotos de este anuncio.",
+        "upload": "No se ha podido subir esa foto.",
+        "tooLarge": "Esa imagen es demasiado grande para subirla.",
+        "type": "Solo se pueden subir imágenes JPG, PNG y WebP.",
+        "max": "Un anuncio puede tener como máximo {{max}} fotos.",
+        "reorder": "No se ha podido cambiar el orden de las fotos",
+        "cover": "No se ha podido cambiar la foto de portada",
+        "delete": "No se ha podido eliminar esa foto",
+        "submit": "No se ha podido enviar este anuncio a revisión"
+      }
+    }
   }
 }

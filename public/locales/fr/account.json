@@ -28,11 +28,28 @@
       "paused": "Annonce mise en pause.",
       "resumed": "L'annonce est de nouveau en ligne.",
       "markedSold": "Marquée comme vendue.",
-      "renewed": "Annonce renouvelée pour 60 jours."
+      "renewed": "Annonce renouvelée pour 60 jours.",
+      "continue": "Continuer",
+      "edit": "Modifier",
+      "photos": "Photos ({{count}})",
+      "photos_other": "Photos ({{count}})",
+      "remove": "Retirer",
+      "removed": "Annonce retirée. Vous pouvez la restaurer pendant 30 jours.",
+      "restore": "Restaurer",
+      "restored": "Annonce restaurée. Elle reste en pause jusqu'à ce que vous la republiiez."
     },
     "errors": {
       "load": "Impossible de charger vos annonces.",
       "action": "L'action a échoué — réessayez."
+    },
+    "archivedHint": "Retirée du site. Vous pouvez la restaurer pendant 30 jours.",
+    "draftNeedsPhotos": "Brouillon — {{count}} photo ajoutée. Il en faut au moins 3 avant la modération.",
+    "draftNeedsPhotos_other": "Brouillon — {{count}} photos ajoutées. Il en faut au moins 3 avant la modération.",
+    "remove": {
+      "title": "Retirer cette annonce ?",
+      "body": "« {{title}} » disparaît immédiatement du site et les acheteurs ne peuvent plus la trouver. Rien n'est supprimé : elle passe dans le filtre Retirées, où vous pouvez la restaurer pendant 30 jours.",
+      "confirm": "Retirer l'annonce",
+      "cancel": "La garder"
     }
   },
   "notifications": {
@@ -92,5 +109,156 @@
     "managePrefs": "Gérer les notifications",
     "invalid": "Ce lien de désabonnement n'est pas valide ou a expiré.",
     "missingLink": "Ouvrez cette page depuis le lien de votre e-mail."
+  },
+  "manage": {
+    "meta": {
+      "editTitle": "Modifier l'annonce — Carsens",
+      "photosTitle": "Photos de l'annonce — Carsens"
+    },
+    "back": "Retour à mes annonces",
+    "loading": "Chargement de l'annonce…",
+    "cancel": "Annuler",
+    "save": "Enregistrer les modifications",
+    "discard": "Abandonner les modifications",
+    "noChanges": "Aucune modification pour l'instant.",
+    "changedCount": "{{count}} champ modifié.",
+    "changedCount_other": "{{count}} champs modifiés.",
+    "tabs": {
+      "label": "Sections de l'annonce",
+      "details": "Détails",
+      "photos": "Photos"
+    },
+    "notFound": {
+      "title": "Impossible d'ouvrir cette annonce",
+      "body": "Elle a peut-être été retirée, ou elle appartient à quelqu'un d'autre."
+    },
+    "errors": {
+      "load": "Impossible de charger cette annonce.",
+      "saveTitle": "Vos modifications n'ont pas été enregistrées",
+      "saveGeneric": "Impossible d'enregistrer les modifications."
+    },
+    "saved": {
+      "ok": "Modifications enregistrées.",
+      "pending": "Modifications enregistrées. L'annonce repasse en modération et reviendra en ligne une fois approuvée."
+    },
+    "frozen": {
+      "title": "Cette annonce ne peut pas être modifiée",
+      "body": "Une annonce au statut {{status}} est en lecture seule. Restaurez-la ou renouvelez-la d'abord."
+    },
+    "review": {
+      "bannerTitle": "Enregistrer renvoie cette annonce en modération",
+      "bannerBody": "Elle est en ligne actuellement. Toute modification la retire des résultats de recherche et la renvoie en modération ; elle revient en ligne dès qu'un modérateur l'approuve.",
+      "confirmTitle": "Enregistrer et renvoyer en modération ?",
+      "confirmBody": "Cette annonce est en ligne. L'enregistrement la retire du site, la replace dans la file de modération, et les acheteurs ne la reverront pas avant l'approbation d'un modérateur.",
+      "confirmCta": "Enregistrer et renvoyer"
+    },
+    "sections": {
+      "vehicle": "Véhicule",
+      "price": "Prix",
+      "details": "Détails",
+      "description": "Description"
+    },
+    "identity": {
+      "make": "Marque",
+      "model": "Modèle",
+      "trim": "Finition",
+      "hint": "La marque, le modèle et la finition sont figés une fois l'annonce créée. S'il s'agit d'une autre voiture, créez une nouvelle annonce."
+    },
+    "fields": {
+      "notSet": "Non renseigné",
+      "priceAed": "Prix (AED)",
+      "priceHint": "Les changements de prix apparaissent dans l'historique des prix du véhicule.",
+      "isNegotiable": "Prix négociable",
+      "year": "Année",
+      "mileageKm": "Kilométrage (km)",
+      "condition": "État",
+      "regionalSpec": "Spécification régionale",
+      "fuelType": "Carburant",
+      "transmission": "Boîte de vitesses",
+      "cylinders": "Cylindres",
+      "optionalHint": "Facultatif. Laisser vide conserve la valeur actuelle.",
+      "bodyType": "Carrosserie",
+      "exteriorColor": "Couleur extérieure",
+      "interiorColor": "Couleur intérieure",
+      "vin": "VIN",
+      "vinHint": "Un VIN déjà présent sur une autre annonce active est refusé à l'envoi.",
+      "emirate": "Émirat",
+      "description": "Description",
+      "descriptionHint": "{{count}} sur {{max}} caractères. Au moins {{min}} si vous la modifiez.",
+      "descriptionUnavailable": "Impossible de lire la description actuelle. Ce que vous saisissez ici la remplacera ; laissez le champ vide pour la conserver telle quelle."
+    },
+    "enum": {
+      "condition": {
+        "USED": "Occasion",
+        "NEW": "Neuf"
+      }
+    },
+    "validation": {
+      "required": "Ce champ ne peut pas être vide.",
+      "wholeNumber": "Saisissez un nombre entier.",
+      "range": "Saisissez une valeur entre {{min}} et {{max}}.",
+      "tooLong": "Utilisez {{max}} caractères ou moins.",
+      "descriptionShort": "Une description doit compter au moins {{min}} caractères.",
+      "descriptionCannotClear": "Une description ne peut pas être supprimée une fois ajoutée — saisissez au moins {{min}} caractères, ou remettez le texte d'origine."
+    },
+    "photos": {
+      "loading": "Chargement des photos…",
+      "empty": "Aucune photo pour l'instant. Ajoutez-en au moins 3 pour que les acheteurs voient la voiture.",
+      "dropHint": "Faites glisser les photos ici, ou choisissez-les depuis votre appareil",
+      "formats": "JPG, PNG ou WebP · jusqu'à {{max}} photos",
+      "browse": "Ajouter des photos",
+      "counter": "{{count}} photo sur {{max}}.",
+      "counter_other": "{{count}} photos sur {{max}}.",
+      "floor": "Une annonce publiée doit en conserver au moins {{min}}.",
+      "needMore": "Ajoutez-en {{count}} de plus avant la modération.",
+      "needMore_other": "Ajoutez-en {{count}} de plus avant la modération.",
+      "cover": "Couverture",
+      "isCover": "Photo de couverture",
+      "setCover": "Définir en couverture",
+      "setCoverLabel": "Définir la photo {{position}} comme couverture",
+      "coverSet": "Photo de couverture mise à jour.",
+      "delete": "Supprimer",
+      "deleteLabel": "Supprimer la photo {{position}}",
+      "deleteTitle": "Supprimer cette photo ?",
+      "deleteBody": "La photo {{position}} est retirée définitivement de cette annonce, il en restera {{remaining}}.",
+      "deleteCoverNote": "C'est la couverture : la prochaine photo vérifiée prendra le relais.",
+      "deleteFloorNote": "Une annonce publiée doit conserver au moins {{min}} photos.",
+      "deleteConfirm": "Supprimer la photo",
+      "deleted": "Photo supprimée.",
+      "moveEarlierLabel": "Déplacer la photo {{position}} vers l'avant",
+      "moveLaterLabel": "Déplacer la photo {{position}} vers l'arrière",
+      "thumbAlt": "Photo {{position}} de l'annonce",
+      "frozenBody": "Les photos sont en lecture seule tant que l'annonce est dans cet état.",
+      "submitTitle": "Prêt à publier ?",
+      "submitReady": "Envoyez cette annonce à nos modérateurs. La modération prend généralement quelques heures.",
+      "submitBlocked": "Ajoutez d'abord au moins {{min}} photos.",
+      "submitCta": "Envoyer en modération",
+      "submitDone": "Envoyée en modération. Nous vous préviendrons dès l'approbation.",
+      "scan": {
+        "pending": "Vérification",
+        "pendingHint": "Analyse antivirus encore en cours — elle ne peut pas servir de couverture avant la fin.",
+        "infected": "Analyse échouée",
+        "infectedHint": "Cette photo a échoué à l'analyse antivirus et n'est jamais montrée aux acheteurs. Supprimez-la."
+      },
+      "upload": {
+        "queued": "En attente",
+        "processing": "Préparation",
+        "uploading": "Envoi {{percent}}%",
+        "attaching": "Rattachement",
+        "retry": "Réessayer",
+        "discard": "Abandonner"
+      },
+      "errors": {
+        "load": "Impossible de charger les photos de cette annonce.",
+        "upload": "Cette photo n'a pas pu être envoyée.",
+        "tooLarge": "Cette image est trop volumineuse pour être envoyée.",
+        "type": "Seules les images JPG, PNG et WebP peuvent être envoyées.",
+        "max": "Une annonce peut contenir au maximum {{max}} photos.",
+        "reorder": "Impossible de modifier l'ordre des photos",
+        "cover": "Impossible de changer la photo de couverture",
+        "delete": "Impossible de supprimer cette photo",
+        "submit": "Impossible d'envoyer cette annonce en modération"
+      }
+    }
   }
 }

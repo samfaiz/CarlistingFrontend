@@ -8,7 +8,8 @@
     "analytics": "Analytics",
     "team": "Branches & team",
     "subscription": "Subscription",
-    "publicProfile": "Public profile"
+    "publicProfile": "Public profile",
+    "profile": "Dealership profile"
   },
   "quota": {
     "label": "Listings",
@@ -91,16 +92,45 @@
       "pause": "Pause",
       "resume": "Resume",
       "sold": "Mark sold",
-      "renew": "Renew"
+      "renew": "Renew",
+      "archive": "Remove",
+      "restore": "Restore",
+      "edit": "Edit",
+      "photos": "Photos"
     },
     "toast": {
       "paused": "Listing paused.",
       "resumed": "Listing is live again.",
       "sold": "Marked as sold.",
       "renewed": "Renewed for another 60 days.",
-      "failed": "That action failed — try again."
+      "failed": "That action failed — try again.",
+      "archived": "Listing removed.",
+      "restored": "Listing restored — it is paused until you resume it."
     },
-    "quotaBlocked": "You are at your package limit. Pause a listing or upgrade to publish another."
+    "quotaBlocked": "You are at your package limit. Pause a listing or upgrade to publish another.",
+    "archive": {
+      "title": "Remove this listing?",
+      "lead": "You are about to remove {{listing}}. Here is exactly what happens:",
+      "effects": {
+        "offSite": "It comes off the site straight away — buyers can no longer find or open it.",
+        "slot": "It frees one slot in your package quota, so you can publish another car.",
+        "boost": "Any boost running on it is cancelled, and boost credits are not refunded.",
+        "restore": "It stays in your Removed list for 30 days, and you can restore it from there."
+      },
+      "reasonLabel": "Reason (optional — kept in your audit trail)",
+      "reasonPlaceholder": "Sold elsewhere, listed by mistake…",
+      "confirm": "Remove listing",
+      "cancel": "Keep it"
+    },
+    "restore": {
+      "title": "Restore this listing?",
+      "body": "{{listing}} comes back paused, not live. Check the price and photos, then resume it when you are ready — it only takes a quota slot once it goes live again.",
+      "confirm": "Restore listing",
+      "cancel": "Cancel"
+    },
+    "archivedHint": "Removed listings are kept for 30 days. Restore one and it comes back paused.",
+    "draftHint": "Drafts are only visible to your team. Finish one and submit it to publish.",
+    "openMenu": "More actions for {{listing}}"
   },
   "subscription": {
     "title": "Subscription",
@@ -273,6 +303,190 @@
       "applied": "Boost applied",
       "cancelled": "Boost stopped",
       "failed": "The boost could not be updated"
+    }
+  },
+  "invites": {
+    "title": "Invitations",
+    "invite": "Invite a colleague",
+    "dialogTitle": "Invite a colleague",
+    "dialogHint": "They get an email with a link that works for 7 days. Anyone you invite can see this dealership’s stock.",
+    "emailLabel": "Email address",
+    "roleLabel": "Role",
+    "send": "Send invitation",
+    "cancel": "Cancel",
+    "columns": {
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "expires": "Expires",
+      "actions": "Actions"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "ACCEPTED": "Accepted",
+      "REVOKED": "Revoked",
+      "EXPIRED": "Expired"
+    },
+    "resend": "Resend",
+    "revoke": "Revoke",
+    "resendAria": "Resend the invitation to {{email}}",
+    "revokeAria": "Revoke the invitation to {{email}}",
+    "empty": "No invitations yet.",
+    "sent": "Invitation sent to {{email}}.",
+    "resent": "A new link is on its way to {{email}} — the previous link no longer works.",
+    "revoked": "Invitation revoked.",
+    "failed": "The invitation could not be sent.",
+    "notAllowed": "Only an owner or manager can invite people to this dealership.",
+    "expired": "Expired",
+    "revokeConfirm": {
+      "title": "Revoke this invitation?",
+      "body": "The link sent to {{email}} stops working immediately, and they will not be able to join. You can invite them again later.",
+      "confirm": "Revoke invitation",
+      "cancel": "Keep it"
+    },
+    "resendConfirm": {
+      "title": "Send a new link?",
+      "body": "A fresh invitation goes to {{email}} and the expiry resets to 7 days. The link in the earlier email stops working.",
+      "confirm": "Send new link",
+      "cancel": "Cancel"
+    }
+  },
+  "plans": {
+    "title": "Plans",
+    "hint": "Pick the package you want and we will set it up for you. Nothing is charged here — we issue an invoice once we approve it.",
+    "quota": "{{count}} listing slot",
+    "quota_other": "{{count}} listing slots",
+    "boosts": "{{count}} boost credit",
+    "boosts_other": "{{count}} boost credits",
+    "term": "per month",
+    "term_other": "per {{count}} months",
+    "choose": "Ask for this plan",
+    "chooseAria": "Ask for the {{plan}} plan",
+    "dialogTitle": "Ask for {{plan}}",
+    "dialogBody": "We will review this and come back to you. Your current listings are not affected while you wait.",
+    "noteLabel": "Anything we should know? (optional)",
+    "notePlaceholder": "Start date, billing contact, a question…",
+    "submit": "Send request",
+    "cancel": "Cancel",
+    "requested": "Request sent — we will come back to you.",
+    "withdrawn": "Request withdrawn.",
+    "failed": "The request could not be sent.",
+    "currentBadge": "Your plan",
+    "openTitle": "Your plan request",
+    "pendingSince": "Sent {{date}} — waiting for a decision.",
+    "decidedOn": "Decided {{date}}.",
+    "declineReason": "Reason given: {{reason}}",
+    "yourNote": "Your note: {{note}}",
+    "withdraw": "Withdraw request",
+    "withdrawConfirm": {
+      "title": "Withdraw this request?",
+      "body": "We stop reviewing it and nothing is set up. You can ask for a plan again straight away.",
+      "confirm": "Withdraw request",
+      "cancel": "Keep it"
+    },
+    "requestStatus": {
+      "PENDING": "Awaiting decision",
+      "APPROVED": "Approved",
+      "DECLINED": "Declined",
+      "WITHDRAWN": "Withdrawn"
+    },
+    "noneOpen": "You have no open plan request.",
+    "unknownPackage": "Package"
+  },
+  "payment": {
+    "title": "Payments",
+    "pay": "Pay this invoice",
+    "payAria": "Pay invoice {{number}}",
+    "preparing": "Preparing…",
+    "transferTitle": "Bank transfer instructions",
+    "beneficiary": "Beneficiary",
+    "iban": "IBAN",
+    "bank": "Bank",
+    "trn": "TRN",
+    "amount": "Amount",
+    "reference": "Payment reference",
+    "referenceHint": "Put this reference on the transfer. Without it your payment arrives unattributed and cannot be matched to your account.",
+    "copy": "Copy",
+    "copyAria": "Copy {{field}}",
+    "copied": "{{field}} copied.",
+    "copyFailed": "Could not copy — select the text and copy it manually.",
+    "missingIban": "Our bank details are not published yet. Contact us and we will send them to you.",
+    "checkout": "Continue to checkout",
+    "declare": "I have sent it",
+    "declareTitle": "Confirm you have sent the transfer",
+    "declareBody": "This tells our finance team to look out for your transfer. It is not payment: your package starts only after we confirm the money arrived.",
+    "declareRefLabel": "Your bank’s reference (optional)",
+    "declareRefPlaceholder": "e.g. FT26082900123456",
+    "declareSubmit": "Yes, I have sent it",
+    "declareCancel": "Not yet",
+    "declared": "Thank you — we will confirm once the transfer arrives.",
+    "cancelPayment": "Cancel payment",
+    "cancelTitle": "Cancel this payment?",
+    "cancelBody": "Reference {{reference}} stops being valid. If you have already sent the transfer, do not cancel — tell us instead. You can start a new payment for the same invoice afterwards.",
+    "cancelConfirm": "Cancel payment",
+    "cancelKeep": "Keep it",
+    "cancelled": "Payment cancelled.",
+    "blockedTitle": "We cannot take payment right now",
+    "blockedBody": "Nothing has been charged and you owe nothing extra. Get in touch and we will arrange it manually.",
+    "blockedReason": "Reason: {{reason}}",
+    "failed": "That payment step failed.",
+    "none": "No payments started yet.",
+    "columns": {
+      "reference": "Reference",
+      "invoice": "Invoice",
+      "amount": "Amount",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "REQUIRES_ACTION": "Awaiting your transfer",
+      "PENDING_CONFIRMATION": "Awaiting our confirmation",
+      "PROCESSING": "Processing",
+      "SETTLED": "Paid",
+      "FAILED": "Failed",
+      "EXPIRED": "Expired",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "pendingNotice": "You told us this transfer is on its way. It is not paid until our finance team confirms it arrived.",
+    "settledNotice": "Confirmed and settled."
+  },
+  "editProfile": {
+    "title": "Dealership profile",
+    "hint": "This is what buyers see on your public dealer page.",
+    "nameLabel": "Dealership name",
+    "aboutLabel": "About",
+    "aboutHint": "Shown on your public page. English — other languages are added by our team.",
+    "trnLabel": "Tax Registration Number",
+    "trnHint": "Exactly 15 digits. We cannot issue you an invoice without it.",
+    "brandsLabel": "Brands you sell",
+    "servicesLabel": "Services you offer",
+    "listHint": "Type a value and press Enter to add it.",
+    "addAria": "Add to {{field}}",
+    "removeChip": "Remove {{value}}",
+    "emptyList": "Nothing added yet.",
+    "save": "Save changes",
+    "saved": "Profile saved.",
+    "failed": "The profile could not be saved.",
+    "readOnly": "Only an owner or manager can edit the dealership profile.",
+    "publicLink": "View public page",
+    "logo": {
+      "title": "Logo",
+      "hint": "A square image works best. JPG, PNG or WebP.",
+      "upload": "Upload a logo",
+      "replace": "Replace logo",
+      "remove": "Remove logo",
+      "removeTitle": "Remove the logo?",
+      "removeBody": "Your dealership goes back to showing its initials everywhere the logo appears — your public page, the dealer directory and every car you list. You can upload a new one at any time.",
+      "removeConfirm": "Remove logo",
+      "removeCancel": "Keep it",
+      "removed": "Logo removed.",
+      "processing": "Processing your logo…",
+      "uploaded": "Logo updated.",
+      "failed": "The logo could not be uploaded.",
+      "badType": "Use a JPG, PNG or WebP image.",
+      "tooBig": "That image is too large.",
+      "alt": "{{name}} logo"
     }
   }
 }

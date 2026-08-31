@@ -8,7 +8,8 @@
     "analytics": "Analyses",
     "team": "Agences et équipe",
     "subscription": "Abonnement",
-    "publicProfile": "Profil public"
+    "publicProfile": "Profil public",
+    "profile": "Profil du concessionnaire"
   },
   "quota": {
     "label": "Annonces",
@@ -91,16 +92,45 @@
       "pause": "Mettre en pause",
       "resume": "Reprendre",
       "sold": "Marquer vendue",
-      "renew": "Renouveler"
+      "renew": "Renouveler",
+      "archive": "Retirer",
+      "restore": "Restaurer",
+      "edit": "Modifier",
+      "photos": "Photos"
     },
     "toast": {
       "paused": "Annonce mise en pause.",
       "resumed": "L’annonce est de nouveau en ligne.",
       "sold": "Marquée comme vendue.",
       "renewed": "Renouvelée pour 60 jours.",
-      "failed": "L’action a échoué — réessayez."
+      "failed": "L’action a échoué — réessayez.",
+      "archived": "Annonce retirée.",
+      "restored": "Annonce restaurée : elle reste en pause jusqu’à ce que vous la repreniez."
     },
-    "quotaBlocked": "Vous avez atteint la limite de votre forfait. Mettez une annonce en pause ou passez à un forfait supérieur."
+    "quotaBlocked": "Vous avez atteint la limite de votre forfait. Mettez une annonce en pause ou passez à un forfait supérieur.",
+    "archive": {
+      "title": "Retirer cette annonce ?",
+      "lead": "Vous êtes sur le point de retirer {{listing}}. Voici exactement ce qui se passe :",
+      "effects": {
+        "offSite": "Elle quitte le site immédiatement : les acheteurs ne peuvent plus la trouver ni l’ouvrir.",
+        "slot": "Elle libère une place dans le quota de votre forfait, vous pouvez donc publier une autre voiture.",
+        "boost": "Tout boost en cours est annulé et les crédits de boost ne sont pas remboursés.",
+        "restore": "Elle reste dans votre liste Retirées pendant 30 jours et vous pouvez la restaurer depuis là."
+      },
+      "reasonLabel": "Motif (facultatif — conservé dans votre journal d’audit)",
+      "reasonPlaceholder": "Vendue ailleurs, publiée par erreur…",
+      "confirm": "Retirer l’annonce",
+      "cancel": "La conserver"
+    },
+    "restore": {
+      "title": "Restaurer cette annonce ?",
+      "body": "{{listing}} revient en pause, pas en ligne. Vérifiez le prix et les photos, puis reprenez-la quand vous êtes prêt : elle n’occupe une place de quota qu’une fois remise en ligne.",
+      "confirm": "Restaurer l’annonce",
+      "cancel": "Annuler"
+    },
+    "archivedHint": "Les annonces retirées sont conservées 30 jours. Une annonce restaurée revient en pause.",
+    "draftHint": "Les brouillons ne sont visibles que par votre équipe. Terminez-en un et envoyez-le pour publication.",
+    "openMenu": "Autres actions pour {{listing}}"
   },
   "subscription": {
     "title": "Abonnement",
@@ -273,6 +303,190 @@
       "applied": "Boost appliqué",
       "cancelled": "Boost arrêté",
       "failed": "Le boost n'a pas pu être mis à jour"
+    }
+  },
+  "invites": {
+    "title": "Invitations",
+    "invite": "Inviter un collègue",
+    "dialogTitle": "Inviter un collègue",
+    "dialogHint": "Il recevra un e-mail contenant un lien valable 7 jours. Toute personne invitée verra le stock de ce concessionnaire.",
+    "emailLabel": "Adresse e-mail",
+    "roleLabel": "Rôle",
+    "send": "Envoyer l’invitation",
+    "cancel": "Annuler",
+    "columns": {
+      "email": "E-mail",
+      "role": "Rôle",
+      "status": "Statut",
+      "expires": "Expire",
+      "actions": "Actions"
+    },
+    "status": {
+      "PENDING": "En attente",
+      "ACCEPTED": "Acceptée",
+      "REVOKED": "Révoquée",
+      "EXPIRED": "Expirée"
+    },
+    "resend": "Renvoyer",
+    "revoke": "Révoquer",
+    "resendAria": "Renvoyer l’invitation à {{email}}",
+    "revokeAria": "Révoquer l’invitation à {{email}}",
+    "empty": "Aucune invitation pour l’instant.",
+    "sent": "Invitation envoyée à {{email}}.",
+    "resent": "Un nouveau lien part vers {{email}} — le lien précédent ne fonctionne plus.",
+    "revoked": "Invitation révoquée.",
+    "failed": "L’invitation n’a pas pu être envoyée.",
+    "notAllowed": "Seul un propriétaire ou un responsable peut inviter des personnes dans ce concessionnaire.",
+    "expired": "Expirée",
+    "revokeConfirm": {
+      "title": "Révoquer cette invitation ?",
+      "body": "Le lien envoyé à {{email}} cesse de fonctionner immédiatement et la personne ne pourra pas rejoindre l’équipe. Vous pourrez l’inviter à nouveau plus tard.",
+      "confirm": "Révoquer l’invitation",
+      "cancel": "La conserver"
+    },
+    "resendConfirm": {
+      "title": "Envoyer un nouveau lien ?",
+      "body": "Une nouvelle invitation part vers {{email}} et l’expiration repasse à 7 jours. Le lien du premier e-mail cesse de fonctionner.",
+      "confirm": "Envoyer un nouveau lien",
+      "cancel": "Annuler"
+    }
+  },
+  "plans": {
+    "title": "Forfaits",
+    "hint": "Choisissez le forfait souhaité et nous le mettons en place. Rien n’est débité ici : nous émettons une facture une fois la demande approuvée.",
+    "quota": "{{count}} place d’annonce",
+    "quota_other": "{{count}} places d’annonce",
+    "boosts": "{{count}} crédit de boost",
+    "boosts_other": "{{count}} crédits de boost",
+    "term": "par mois",
+    "term_other": "par {{count}} mois",
+    "choose": "Demander ce forfait",
+    "chooseAria": "Demander le forfait {{plan}}",
+    "dialogTitle": "Demander {{plan}}",
+    "dialogBody": "Nous examinons votre demande et revenons vers vous. Vos annonces actuelles ne sont pas affectées pendant l’attente.",
+    "noteLabel": "Quelque chose à nous signaler ? (facultatif)",
+    "notePlaceholder": "Date de début, contact de facturation, une question…",
+    "submit": "Envoyer la demande",
+    "cancel": "Annuler",
+    "requested": "Demande envoyée — nous revenons vers vous.",
+    "withdrawn": "Demande retirée.",
+    "failed": "La demande n’a pas pu être envoyée.",
+    "currentBadge": "Votre forfait",
+    "openTitle": "Votre demande de forfait",
+    "pendingSince": "Envoyée le {{date}} — en attente d’une décision.",
+    "decidedOn": "Traitée le {{date}}.",
+    "declineReason": "Motif indiqué : {{reason}}",
+    "yourNote": "Votre note : {{note}}",
+    "withdraw": "Retirer la demande",
+    "withdrawConfirm": {
+      "title": "Retirer cette demande ?",
+      "body": "Nous cessons de l’examiner et rien n’est mis en place. Vous pouvez redemander un forfait immédiatement.",
+      "confirm": "Retirer la demande",
+      "cancel": "La conserver"
+    },
+    "requestStatus": {
+      "PENDING": "En attente de décision",
+      "APPROVED": "Approuvée",
+      "DECLINED": "Refusée",
+      "WITHDRAWN": "Retirée"
+    },
+    "noneOpen": "Vous n’avez aucune demande de forfait en cours.",
+    "unknownPackage": "Forfait"
+  },
+  "payment": {
+    "title": "Paiements",
+    "pay": "Payer cette facture",
+    "payAria": "Payer la facture {{number}}",
+    "preparing": "Préparation…",
+    "transferTitle": "Instructions de virement bancaire",
+    "beneficiary": "Bénéficiaire",
+    "iban": "IBAN",
+    "bank": "Banque",
+    "trn": "TRN",
+    "amount": "Montant",
+    "reference": "Référence de paiement",
+    "referenceHint": "Indiquez cette référence sur le virement. Sans elle, votre paiement arrive sans identification et ne peut pas être rattaché à votre compte.",
+    "copy": "Copier",
+    "copyAria": "Copier {{field}}",
+    "copied": "{{field}} copié.",
+    "copyFailed": "Copie impossible — sélectionnez le texte et copiez-le manuellement.",
+    "missingIban": "Nos coordonnées bancaires ne sont pas encore publiées. Contactez-nous et nous vous les enverrons.",
+    "checkout": "Continuer vers le paiement",
+    "declare": "Je l’ai envoyé",
+    "declareTitle": "Confirmez que vous avez envoyé le virement",
+    "declareBody": "Cela indique à notre équipe financière de guetter votre virement. Ce n’est pas un paiement : votre forfait ne démarre qu’une fois que nous avons confirmé la réception des fonds.",
+    "declareRefLabel": "Référence de votre banque (facultatif)",
+    "declareRefPlaceholder": "ex. FT26082900123456",
+    "declareSubmit": "Oui, je l’ai envoyé",
+    "declareCancel": "Pas encore",
+    "declared": "Merci — nous confirmerons dès l’arrivée du virement.",
+    "cancelPayment": "Annuler le paiement",
+    "cancelTitle": "Annuler ce paiement ?",
+    "cancelBody": "La référence {{reference}} cesse d’être valable. Si vous avez déjà envoyé le virement, n’annulez pas — prévenez-nous. Vous pourrez ensuite lancer un nouveau paiement pour la même facture.",
+    "cancelConfirm": "Annuler le paiement",
+    "cancelKeep": "Le conserver",
+    "cancelled": "Paiement annulé.",
+    "blockedTitle": "Nous ne pouvons pas encaisser pour le moment",
+    "blockedBody": "Rien n’a été débité et vous ne devez rien de plus. Contactez-nous et nous organiserons le paiement manuellement.",
+    "blockedReason": "Motif : {{reason}}",
+    "failed": "Cette étape du paiement a échoué.",
+    "none": "Aucun paiement lancé pour l’instant.",
+    "columns": {
+      "reference": "Référence",
+      "invoice": "Facture",
+      "amount": "Montant",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "status": {
+      "REQUIRES_ACTION": "En attente de votre virement",
+      "PENDING_CONFIRMATION": "En attente de notre confirmation",
+      "PROCESSING": "En cours de traitement",
+      "SETTLED": "Payé",
+      "FAILED": "Échoué",
+      "EXPIRED": "Expiré",
+      "CANCELLED": "Annulé",
+      "BLOCKED": "Bloqué"
+    },
+    "pendingNotice": "Vous nous avez indiqué que le virement est en route. Il n’est pas considéré comme payé tant que notre équipe financière n’a pas confirmé sa réception.",
+    "settledNotice": "Confirmé et soldé."
+  },
+  "editProfile": {
+    "title": "Profil du concessionnaire",
+    "hint": "C’est ce que les acheteurs voient sur votre page publique.",
+    "nameLabel": "Nom du concessionnaire",
+    "aboutLabel": "À propos",
+    "aboutHint": "Affiché sur votre page publique. En anglais — notre équipe ajoute les autres langues.",
+    "trnLabel": "Numéro d’enregistrement fiscal",
+    "trnHint": "Exactement 15 chiffres. Sans lui, nous ne pouvons pas vous facturer.",
+    "brandsLabel": "Marques que vous vendez",
+    "servicesLabel": "Services que vous proposez",
+    "listHint": "Saisissez une valeur et appuyez sur Entrée pour l’ajouter.",
+    "addAria": "Ajouter à {{field}}",
+    "removeChip": "Retirer {{value}}",
+    "emptyList": "Rien d’ajouté pour l’instant.",
+    "save": "Enregistrer les modifications",
+    "saved": "Profil enregistré.",
+    "failed": "Le profil n’a pas pu être enregistré.",
+    "readOnly": "Seul un propriétaire ou un responsable peut modifier le profil du concessionnaire.",
+    "publicLink": "Voir la page publique",
+    "logo": {
+      "title": "Logo",
+      "hint": "Une image carrée fonctionne le mieux. JPG, PNG ou WebP.",
+      "upload": "Téléverser un logo",
+      "replace": "Remplacer le logo",
+      "remove": "Retirer le logo",
+      "removeTitle": "Retirer le logo ?",
+      "removeBody": "Votre concessionnaire réaffichera ses initiales partout où le logo apparaît : votre page publique, l’annuaire des concessionnaires et chacune de vos voitures. Vous pourrez en téléverser un nouveau à tout moment.",
+      "removeConfirm": "Retirer le logo",
+      "removeCancel": "Le conserver",
+      "removed": "Logo retiré.",
+      "processing": "Traitement de votre logo…",
+      "uploaded": "Logo mis à jour.",
+      "failed": "Le logo n’a pas pu être téléversé.",
+      "badType": "Utilisez une image JPG, PNG ou WebP.",
+      "tooBig": "Cette image est trop volumineuse.",
+      "alt": "Logo de {{name}}"
     }
   }
 }

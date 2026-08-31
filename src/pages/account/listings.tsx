@@ -5,6 +5,16 @@
  * actions the backend state machine allows for each status. Every action
  * refetches rather than patching local state, so the row can never claim a
  * transition the server refused.
+ *
+ * Rows now also reach the two management screens this list used to imply but
+ * never linked to: /listings/[slug]/edit and /listings/[slug]/photos. DRAFT
+ * rows in particular had NO action at all, which is what stranded a draft that
+ * left the sell wizard before its photos were uploaded — their "Continue" goes
+ * straight to the photo manager, which can also submit it for review.
+ *
+ * Remove (archive) and Restore complete the lifecycle. Archive is a soft
+ * delete: the row and its slug survive so the public URL retires instead of
+ * 404ing, and the owner can undo it for 30 days.
  */
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
@@ -14,18 +24,42 @@ import { useSession } from "next-auth/react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import * as React from "react";
-import { CarFront, Loader2, Pause, Play, RefreshCw, Tag } from "lucide-react";
+import {
+  ArrowRight,
+  CarFront,
+  Images,
+  Loader2,
+  Pause,
+  Pencil,
+  Play,
+  RefreshCw,
+  Tag,
+  Trash2,
+  Undo2,
+} from "lucide-react";
 import { SiteHeader } from "@/components/home/site-header";
+import { isFrozen } from "@/components/listing-manage/api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Panel } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { toast } from "@/components/ui/toast";
+import { ApiError } from "@/lib/api";
 import { formatPrice, formatRelativeTime } from "@/lib/format";
 import {
+  archiveListing,
   markListingSold,
   myListings,
   pauseListing,
   renewListing,
+  restoreListing,
   resumeListing,
   type ListingDetail,
 } from "@/lib/marketplace-api";
@@ -33,7 +67,18 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import nextI18NextConfig from "../../../next-i18next.config.js";
 
 const PAGE_SIZE = 10;
-const FILTERS = ["ALL", "LIVE", "PENDING_REVIEW", "DRAFT", "PAUSED", "EXPIRED", "REJECTED"] as const;
+const FILTERS = [
+  "ALL",
+  "LIVE",
+  "PENDING_REVIEW",
+  "DRAFT",
+  "PAUSED",
+  "EXPIRED",
+  "REJECTED",
+  // `mine` hides archived rows unless the status is asked for by name, so the
+  // recycle bin only exists if it is a filter.
+  "ARCHIVED",
+] as const;
 
 const STATUS_VARIANT: Record<string, "navy" | "green" | "amber" | "red" | "neutral"> = {
   LIVE: "green",
@@ -43,6 +88,7 @@ const STATUS_VARIANT: Record<string, "navy" | "green" | "amber" | "red" | "neutr
   SOLD: "navy",
   EXPIRED: "neutral",
   REJECTED: "red",
+  ARCHIVED: "neutral",
 };
 
 export default function MyListingsPage() {
@@ -57,6 +103,8 @@ export default function MyListingsPage() {
   const [total, setTotal] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
   const [busyId, setBusyId] = React.useState<string | null>(null);
+  const [pendingRemove, setPendingRemove] = React.useState<ListingDetail | null>(null);
+  const [removing, setRemoving] = React.useState(false);
 
   const load = React.useCallback(async () => {
     if (!accessToken) return;
@@ -86,10 +134,38 @@ export default function MyListingsPage() {
       await action();
       toast({ title: t(successKey), variant: "success" });
       await load();
-    } catch {
-      toast({ title: t("listings.errors.action"), variant: "warning" });
+    } catch (err) {
+      // The backend refuses with a specific reason — "Private sellers can have
+      // at most 2 active listings (FR-L1)", "Removed listings can be restored
+      // for 30 days" — and swallowing it leaves the seller with nothing to act
+      // on.
+      toast({
+        title: t("listings.errors.action"),
+        description: err instanceof ApiError ? err.message : undefined,
+        variant: "warning",
+      });
     } finally {
       setBusyId(null);
+    }
+  };
+
+  const removeListing = async () => {
+    if (!pendingRemove) return;
+    setRemoving(true);
+    try {
+      await archiveListing(pendingRemove.id, accessToken!);
+      toast({ title: t("listings.actions.removed"), variant: "success" });
+      setPendingRemove(null);
+      await load();
+    } catch (err) {
+      toast({
+        title: t("listings.errors.action"),
+        description: err instanceof ApiError ? err.message : undefined,
+        variant: "warning",
+      });
+      setPendingRemove(null);
+    } finally {
+      setRemoving(false);
     }
   };
 
@@ -144,6 +220,11 @@ export default function MyListingsPage() {
             {rows.map((l) => {
               const title = `${l.year} ${l.make.name} ${l.model.name}`;
               const busy = busyId === l.id;
+              const archived = l.status === "ARCHIVED";
+              // SOLD/EXPIRED/ARCHIVED are frozen server-side (assertEditable),
+              // so offering Edit/Photos on them would only lead to a 400.
+              const manageable = !isFrozen(l.status);
+              const photoCount = l._count?.media ?? 0;
               return (
                 <li key={l.id}>
                   <Panel className="flex flex-wrap items-center justify-between gap-3 p-4">
@@ -167,9 +248,29 @@ export default function MyListingsPage() {
                             })}`
                           : ""}
                       </p>
+                      {archived ? (
+                        <p className="mt-1 text-xs text-muted">{t("listings.archivedHint")}</p>
+                      ) : null}
+                      {l.status === "DRAFT" && photoCount < 3 ? (
+                        <p className="mt-1 text-xs text-warning-strong">
+                          {t("listings.draftNeedsPhotos", { count: photoCount })}
+                        </p>
+                      ) : null}
                     </div>
 
                     <div className="flex flex-wrap gap-2">
+                      {l.status === "DRAFT" && (
+                        <Button
+                          size="sm"
+                          disabled={busy}
+                          asChild
+                        >
+                          <Link href={`/listings/${l.slug}/photos`}>
+                            {t("listings.actions.continue")}
+                            <ArrowRight className="rtl:rotate-180" aria-hidden />
+                          </Link>
+                        </Button>
+                      )}
                       {l.status === "LIVE" && (
                         <>
                           <Button
@@ -221,6 +322,50 @@ export default function MyListingsPage() {
                           {t("listings.actions.renew")}
                         </Button>
                       )}
+                      {archived && (
+                        <Button
+                          size="sm"
+                          disabled={busy}
+                          onClick={() =>
+                            void act(
+                              l.id,
+                              () => restoreListing(l.id, accessToken!),
+                              "listings.actions.restored",
+                            )
+                          }
+                        >
+                          <Undo2 aria-hidden />
+                          {t("listings.actions.restore")}
+                        </Button>
+                      )}
+                      {manageable && (
+                        <Button size="sm" variant="outline" asChild>
+                          <Link href={`/listings/${l.slug}/edit`}>
+                            <Pencil aria-hidden />
+                            {t("listings.actions.edit")}
+                          </Link>
+                        </Button>
+                      )}
+                      {manageable && l.status !== "DRAFT" && (
+                        <Button size="sm" variant="outline" asChild>
+                          <Link href={`/listings/${l.slug}/photos`}>
+                            <Images aria-hidden />
+                            {t("listings.actions.photos", { count: photoCount })}
+                          </Link>
+                        </Button>
+                      )}
+                      {!archived && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-danger"
+                          disabled={busy}
+                          onClick={() => setPendingRemove(l)}
+                        >
+                          <Trash2 aria-hidden />
+                          {t("listings.actions.remove")}
+                        </Button>
+                      )}
                     </div>
                   </Panel>
                 </li>
@@ -255,6 +400,42 @@ export default function MyListingsPage() {
             </Button>
           </nav>
         )}
+
+        <Dialog
+          open={pendingRemove !== null}
+          onOpenChange={(open) => !removing && !open && setPendingRemove(null)}
+        >
+          <DialogContent aria-describedby="remove-listing-body">
+            <DialogHeader>
+              <DialogTitle>{t("listings.remove.title")}</DialogTitle>
+              <DialogDescription id="remove-listing-body">
+                {t("listings.remove.body", {
+                  title: pendingRemove
+                    ? `${pendingRemove.year} ${pendingRemove.make.name} ${pendingRemove.model.name}`
+                    : "",
+                })}
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={removing}
+                onClick={() => setPendingRemove(null)}
+              >
+                {t("listings.remove.cancel")}
+              </Button>
+              <Button
+                type="button"
+                variant="danger"
+                loading={removing}
+                onClick={() => void removeListing()}
+              >
+                {t("listings.remove.confirm")}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </main>
     </>
   );

@@ -1,0 +1,154 @@
+{
+  "title": "Annuaire des concessions",
+  "intro": "Toutes les concessions de la plateforme, quel que soit leur état de vérification ou d’activité. La vérification porte sur les documents ; le statut commercial, sur le droit de vendre aujourd’hui.",
+  "count_one": "{{count}} concession",
+  "count_other": "{{count}} concessions",
+  "verification": {
+    "UNVERIFIED": "Non vérifiée",
+    "PENDING": "En attente d’examen",
+    "VERIFIED": "Vérifiée",
+    "REJECTED": "Refusée"
+  },
+  "trading": {
+    "ACTIVE": "En activité",
+    "SUSPENDED": "Suspendue"
+  },
+  "summary": {
+    "all": "Concessions",
+    "verified": "Vérifiées",
+    "verifiedHint": "Documents approuvés",
+    "pending": "En attente d’examen",
+    "pendingHint": "Dans la file de vérification",
+    "suspended": "Suspendues",
+    "suspendedHint": "Interdites de vente"
+  },
+  "filters": {
+    "trading": {
+      "ALL": "Tous les statuts"
+    },
+    "verificationLabel": "Vérification",
+    "verification": {
+      "ALL": "Toute vérification"
+    },
+    "sortLabel": "Tri",
+    "sort": {
+      "recent": "Plus récentes d’abord",
+      "name": "Nom (A–Z)",
+      "listings": "Plus de stock en ligne"
+    }
+  },
+  "columns": {
+    "dealer": "Concession",
+    "trn": "TRN",
+    "verification": "Vérification",
+    "trading": "Activité",
+    "live": "Stock en ligne",
+    "team": "Équipe",
+    "joined": "Inscription",
+    "actions": "Actions"
+  },
+  "actions": {
+    "view": "Ouvrir",
+    "suspend": "Suspendre",
+    "reinstate": "Réactiver",
+    "viewPublic": "Profil public",
+    "cancel": "Annuler"
+  },
+  "empty": {
+    "title": "Aucune concession ne correspond",
+    "hint": "Effacez la recherche ou élargissez les filtres de vérification et d’activité."
+  },
+  "toast": {
+    "loadFailed": "Impossible de charger l’annuaire des concessions.",
+    "detailFailed": "Impossible de charger cette concession.",
+    "actionFailed": "La modification n’a pas pu être appliquée.",
+    "suspended": "{{name}} a été suspendue",
+    "suspendedDetail_one": "{{count}} annonce en ligne a été mise en pause.",
+    "suspendedDetail_other": "{{count}} annonces en ligne ont été mises en pause.",
+    "reinstated": "{{name}} est de nouveau en activité",
+    "reinstatedDetail_one": "{{count}} annonce a été rétablie.",
+    "reinstatedDetail_other": "{{count}} annonces ont été rétablies."
+  },
+  "detail": {
+    "title": "Concession",
+    "subtitle": "Profil, succursales, équipe, forfait et stock.",
+    "loading": "Chargement de la concession…",
+    "suspendedTitle": "Suspendue d’activité",
+    "noReason": "Aucun motif enregistré.",
+    "suspendedMeta": "Suspendue {{when}} par {{by}}. La concession voit ce motif.",
+    "unknownActor": "un membre du personnel",
+    "verificationLabel": "Statut de vérification",
+    "verificationHint": "Si sa licence commerciale et son TRN ont été contrôlés.",
+    "tradingLabel": "Statut commercial",
+    "tradingHint": "Si elle peut publier et vendre sur la plateforme en ce moment.",
+    "trn": "TRN",
+    "slug": "Identifiant du profil",
+    "joined": "Inscription",
+    "brands": "Marques",
+    "none": "—",
+    "stock": "Stock par statut",
+    "noStock": "Cette concession n’a encore aucune annonce.",
+    "package": "Forfait",
+    "packageTerms": "{{quota}} emplacements d’annonce · {{boosts}} crédits de mise en avant",
+    "packageRenews": "Se termine {{when}}",
+    "noPackage": "Aucun abonnement actif.",
+    "branches_one": "{{count}} succursale",
+    "branches_other": "{{count}} succursales",
+    "noBranches": "Aucune succursale enregistrée.",
+    "team_one": "{{count}} membre de l’équipe",
+    "team_other": "{{count}} membres de l’équipe",
+    "memberName": "Membre",
+    "memberRole": "Rôle",
+    "memberStatus": "Compte"
+  },
+  "listingStatus": {
+    "DRAFT": "Brouillon",
+    "PENDING_REVIEW": "En attente d’examen",
+    "LIVE": "En ligne",
+    "PAUSED": "En pause",
+    "SOLD": "Vendue",
+    "EXPIRED": "Expirée",
+    "REJECTED": "Refusée",
+    "ARCHIVED": "Archivée"
+  },
+  "subscriptionStatus": {
+    "PENDING_PAYMENT": "En attente de paiement",
+    "ACTIVE": "Actif",
+    "GRACE": "Période de grâce",
+    "EXPIRED": "Expiré",
+    "CANCELLED": "Annulé",
+    "SUSPENDED": "Suspendu"
+  },
+  "memberRole": {
+    "OWNER": "Propriétaire",
+    "MANAGER": "Responsable",
+    "SALES": "Vente"
+  },
+  "userStatus": {
+    "ACTIVE": "Actif",
+    "SUSPENDED": "Suspendu",
+    "BANNED": "Banni",
+    "DELETED": "Supprimé"
+  },
+  "suspend": {
+    "title": "Suspendre {{name}} ?",
+    "description": "Cela arrête immédiatement son activité commerciale. Son statut de vérification reste inchangé.",
+    "effectPause_one": "Met son stock en ligne en pause : {{count}} annonce disparaît aussitôt pour les acheteurs.",
+    "effectPause_other": "Met son stock en ligne en pause : {{count}} annonces disparaissent aussitôt pour les acheteurs.",
+    "effectPublish": "Empêche la concession de publier ou de renouveler quoi que ce soit pendant la suspension.",
+    "effectNotify": "Prévient les propriétaires par e-mail et dans l’application, avec le motif ci-dessous.",
+    "effectSessions": "Son équipe reste connectée : seules les actions de concession sont bloquées, pas la place de marché.",
+    "reasonLabel": "Motif communiqué à la concession",
+    "reasonPlaceholder": "Rédigez-le pour les propriétaires : ils le liront mot pour mot.",
+    "reasonHint": "Obligatoire, de 3 à {{max}} caractères. Transmis aux propriétaires tel quel.",
+    "confirm": "Suspendre l’activité"
+  },
+  "reinstate": {
+    "title": "Réactiver {{name}} ?",
+    "description": "Cela permet à la concession de vendre de nouveau et annule la pause appliquée par cette suspension.",
+    "effectRestore": "Rétablit exactement les annonces mises en pause par cette suspension : le stock qu’elle a mis en pause elle-même le reste, et ce qui a expiré entre-temps n’est pas rétabli.",
+    "effectPublish": "Lui permet de publier, renouveler et gérer son stock à nouveau.",
+    "effectNotify": "Prévient les propriétaires qu’ils sont de nouveau actifs.",
+    "confirm": "Réactiver l’activité"
+  }
+}

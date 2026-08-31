@@ -27,7 +27,10 @@
       "growth": "Growth",
       "studio": "Studio",
       "intelligence": "Intelligence",
-      "homepageStudio": "Homepage Studio"
+      "homepageStudio": "Homepage Studio",
+      "dealers": "Dealerships",
+      "subscriptions": "Subscriptions",
+      "billing": "Billing"
     },
     "signOut": "Sign out",
     "stepUpRedirect": "Redirecting to the passkey step-up…"

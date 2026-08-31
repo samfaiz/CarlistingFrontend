@@ -1,0 +1,409 @@
+{
+  "title": "الفوترة",
+  "subtitle": "الفواتير وإشعارات الدائن والإيصالات والمدفوعات في مساحة عمل واحدة. لا يمكن تعديل فاتورة صادرة أبدًا — تتم التصحيحات عبر إشعار دائن، وتأكيد الدفعة يحرّك أموالًا حقيقية.",
+  "common": {
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل…"
+  },
+  "tabs": {
+    "invoices": "الفواتير",
+    "creditNotes": "إشعارات الدائن",
+    "receipts": "الإيصالات",
+    "payments": "المدفوعات"
+  },
+  "summary": {
+    "paymentsPending": "مدفوعات بانتظار التأكيد",
+    "paymentsPendingHint": "معرض يقول إنه أرسل المبلغ",
+    "overdue": "فواتير متأخرة",
+    "overdueHint": "صادرة وتجاوزت تاريخ الاستحقاق",
+    "receiptsPending": "إيصالات بانتظار الموافقة",
+    "receiptsPendingHint": "تعليم يدوي كمدفوع، يحتاج معتمدًا ثانيًا",
+    "creditNotesPending": "إشعارات دائن بانتظار الموافقة",
+    "creditNotesPendingHint": "مُرسلة وتنتظر المدقق",
+    "drafts": "فواتير مسودة",
+    "draftsHint": "غير صادرة — لا تزال قابلة للتعديل والإلغاء"
+  },
+  "status": {
+    "invoice": {
+      "DRAFT": "مسودة",
+      "ISSUED": "صادرة",
+      "PAID": "مدفوعة",
+      "VOID": "ملغاة"
+    },
+    "creditNote": {
+      "DRAFT": "مسودة",
+      "PENDING_APPROVAL": "بانتظار الموافقة",
+      "ISSUED": "صادر",
+      "REJECTED": "مرفوض"
+    },
+    "receipt": {
+      "PENDING_APPROVAL": "بانتظار الموافقة",
+      "RECORDED": "مسجّل",
+      "REJECTED": "مرفوض"
+    },
+    "payment": {
+      "REQUIRES_ACTION": "بانتظار الدافع",
+      "PENDING_CONFIRMATION": "بانتظار التأكيد",
+      "PROCESSING": "قيد المعالجة",
+      "SETTLED": "مسوّاة",
+      "FAILED": "فاشلة",
+      "EXPIRED": "منتهية",
+      "CANCELLED": "ملغاة",
+      "BLOCKED": "محجوبة"
+    }
+  },
+  "invoices": {
+    "caption": "الفواتير",
+    "immutabilityNote": "المسودة وحدها قابلة للتغيير. بعد الإصدار تُجمّد الفاتورة وتحمل رقمًا ضريبيًا متسلسلًا دون فجوات — صحّحها بإشعار دائن، لا بالتعديل.",
+    "immutable": "غير قابلة للتغيير",
+    "draftLabel": "مسودة (بلا رقم بعد)",
+    "newDraft": "مسودة جديدة",
+    "filters": {
+      "ALL": "الكل",
+      "DRAFT": "المسودات",
+      "ISSUED": "الصادرة",
+      "PAID": "المدفوعة",
+      "VOID": "الملغاة",
+      "OVERDUE": "المتأخرة"
+    },
+    "kinds": {
+      "SUBSCRIPTION": "اشتراك",
+      "BOOST_TOPUP": "شحن تعزيز",
+      "OTHER": "أخرى"
+    },
+    "columns": {
+      "number": "الرقم",
+      "dealer": "المعرض",
+      "status": "الحالة",
+      "total": "الإجمالي",
+      "issued": "تاريخ الإصدار",
+      "due": "الاستحقاق",
+      "actions": "إجراءات"
+    },
+    "empty": {
+      "title": "لا فواتير هنا",
+      "hint": "غيّر عامل التصفية أو أنشئ مسودة فاتورة."
+    },
+    "actions": {
+      "issue": "إصدار",
+      "void": "إلغاء",
+      "markPaid": "تعليم كمدفوعة",
+      "creditNote": "إشعار دائن",
+      "view": "عرض"
+    },
+    "issueDialog": {
+      "title": "إصدار هذه الفاتورة؟",
+      "body": "ستُصدر فاتورة بمبلغ {{amount}} إلى {{dealer}}.",
+      "warning": "الإصدار لا رجعة فيه. يخصص الرقم التالي في السلسلة الضريبية المتصلة ويجمّد المستند — بعده يكون التصحيح الوحيد إشعار دائن.",
+      "confirm": "إصدار الفاتورة"
+    },
+    "voidDialog": {
+      "title": "إلغاء هذه المسودة؟",
+      "body": "ستُلغى مسودة {{dealer}} بقيمة {{amount}}. المسودات وحدها يمكن إلغاؤها.",
+      "reason": "السبب",
+      "placeholder": "أُنشئت لمعرض خاطئ",
+      "confirm": "إلغاء المسودة"
+    },
+    "markPaidDialog": {
+      "title": "تعليم الفاتورة كمدفوعة",
+      "body": "{{number}} — {{dealer}}، {{amount}}.",
+      "paidAt": "تاريخ الاستلام",
+      "method": "الطريقة",
+      "ref": "مرجع البنك أو الشيك",
+      "refPlaceholder": "FT24123456789",
+      "note": "ملاحظة",
+      "warning": "يسجّل هذا استلام المبلغ ويفعّل كل فترة اشتراك تغطيها الفاتورة.",
+      "confirm": "تعليم كمدفوعة"
+    },
+    "create": {
+      "title": "مسودة فاتورة جديدة",
+      "body": "لم يصدر شيء بعد — المسودة بلا رقم ويمكن إلغاؤها.",
+      "dealer": "المعرض",
+      "dealerPlaceholder": "اختر معرضًا",
+      "noTrn": "لا يوجد رقم تسجيل ضريبي لهذا المعرض. سيُرفض الإصدار حتى يُسجَّل في ملفه — فاتورة ضريبية بين شركتين بلا رقم ضريبي للمشتري غير صالحة.",
+      "emirate": "إمارة التوريد",
+      "emiratePlaceholder": "اختر إمارة",
+      "emirateHint": "تحدد تفصيل الخانة 1 في إقرار VAT201.",
+      "kind": "النوع",
+      "dueDate": "تاريخ الاستحقاق",
+      "lines": "البنود",
+      "lineDescription": "الوصف",
+      "quantity": "الكمية",
+      "unitPrice": "سعر الوحدة (درهم)",
+      "vatRate": "ضريبة %",
+      "vatCategory": "الفئة",
+      "exemptionCode": "رمز سبب الإعفاء الضريبي",
+      "exemptionPlaceholder": "إلزامي عندما لا تكون الفئة S",
+      "addLine": "إضافة بند",
+      "removeLine": "حذف البند",
+      "notes": "ملاحظات",
+      "subtotal": "المجموع الفرعي",
+      "vatTotal": "الضريبة",
+      "grandTotal": "الإجمالي",
+      "confirm": "إنشاء المسودة"
+    },
+    "detail": {
+      "body": "{{dealer}} — الرقم الضريبي {{trn}}",
+      "linesCaption": "بنود الفاتورة",
+      "line": "البند",
+      "qty": "الكمية",
+      "unitPrice": "سعر الوحدة",
+      "net": "الصافي",
+      "vat": "الضريبة",
+      "total": "الإجمالي",
+      "subtotal": "المجموع الفرعي",
+      "vatTotal": "إجمالي الضريبة",
+      "grandTotal": "الإجمالي الكلي",
+      "creditable": "القابل للإضافة الدائنة",
+      "emirate": "إمارة التوريد",
+      "issueDate": "تاريخ الإصدار",
+      "creditNotes": "إشعارات الدائن على هذه الفاتورة",
+      "immutable": "هذا المستند مجمّد. لا يوجد تعديل — أصدر إشعار دائن لتصحيحه."
+    }
+  },
+  "creditNotes": {
+    "caption": "إشعارات الدائن",
+    "draftLabel": "مسودة (بلا رقم بعد)",
+    "makerCheckerNote": "مبدأ المُنشئ والمدقق: من يرسل إشعار الدائن لا يستطيع الموافقة عليه. الموافقة تصدره برقم ‏CN- وتُضيفه دائنًا للفاتورة الأصلية.",
+    "makerChecker": "أنت من أرسله — يجب أن يوافق عليه مسؤول آخر.",
+    "submittedOn": "أُرسل في {{date}}",
+    "submittedByYou": "أرسلته أنت في {{date}}",
+    "approvedOn": "اعتُمد في {{date}}",
+    "filters": {
+      "ALL": "الكل",
+      "DRAFT": "المسودات",
+      "PENDING_APPROVAL": "بانتظار الموافقة",
+      "ISSUED": "الصادرة",
+      "REJECTED": "المرفوضة"
+    },
+    "reasons": {
+      "CANCELLATION": "إلغاء",
+      "DOWNGRADE": "خفض الباقة",
+      "DISCOUNT": "خصم",
+      "BILLING_ERROR": "خطأ في الفوترة",
+      "BAD_DEBT": "دين معدوم"
+    },
+    "columns": {
+      "number": "الرقم",
+      "invoice": "على الفاتورة",
+      "dealer": "المعرض",
+      "reason": "السبب",
+      "total": "الإجمالي",
+      "status": "الحالة",
+      "actions": "إجراءات"
+    },
+    "empty": {
+      "title": "لا إشعارات دائن هنا",
+      "hint": "تُنشأ إشعارات الدائن من فاتورة صادرة."
+    },
+    "actions": {
+      "submit": "إرسال",
+      "approve": "موافقة",
+      "reject": "رفض"
+    },
+    "create": {
+      "title": "إنشاء مسودة إشعار دائن",
+      "body": "على {{number}}، وقيمتها الأصلية {{amount}}.",
+      "reason": "السبب",
+      "reasonText": "الشرح",
+      "amount": "المبلغ الدائن (درهم، بدون ضريبة)",
+      "amountHint": "أدخله كرقم موجب — رمز النوع 381 يحمل الإشارة.",
+      "description": "وصف البند",
+      "descriptionPlaceholder": "الافتراضي هو وصف البند الأصلي",
+      "workflow": "ينشئ هذا مسودة. لا بد من إرسالها ثم موافقة مسؤول آخر عليها قبل إصدارها.",
+      "confirm": "إنشاء المسودة"
+    },
+    "approveDialog": {
+      "title": "الموافقة على إشعار الدائن وإصداره؟",
+      "body": "سيُضاف {{amount}} دائنًا إلى {{dealer}} على الفاتورة {{invoice}}.",
+      "warning": "الموافقة تصدر إشعار الدائن برقم ‏CN- متسلسل دون فجوات ولا رجعة فيها.",
+      "confirm": "الموافقة والإصدار"
+    },
+    "rejectDialog": {
+      "title": "رفض إشعار الدائن؟",
+      "body": "لن يصدر الإشعار الدائن بقيمة {{amount}}.",
+      "reason": "السبب",
+      "confirm": "رفض"
+    }
+  },
+  "receipts": {
+    "caption": "الإيصالات",
+    "record": "تسجيل إيصال",
+    "unnumbered": "بلا رقم (معلّق)",
+    "noAllocations": "غير موزّع",
+    "allocationLine": "{{amount}} ← {{invoice}}",
+    "makerChecker": "أنت من سجّله — يجب أن يوافق عليه مسؤول آخر.",
+    "filters": {
+      "ALL": "الكل",
+      "PENDING_APPROVAL": "بانتظار الموافقة",
+      "RECORDED": "المسجّلة",
+      "REJECTED": "المرفوضة"
+    },
+    "methods": {
+      "BANK_TRANSFER": "تحويل بنكي",
+      "CHEQUE": "شيك",
+      "CASH": "نقدًا",
+      "CARD": "بطاقة",
+      "OTHER": "أخرى"
+    },
+    "columns": {
+      "number": "الرقم",
+      "dealer": "المعرض",
+      "amount": "المبلغ",
+      "allocations": "موزّع على",
+      "method": "الطريقة",
+      "received": "تاريخ الاستلام",
+      "status": "الحالة",
+      "actions": "إجراءات"
+    },
+    "empty": {
+      "title": "لا إيصالات هنا",
+      "hint": "سجّل إيصالًا عند وصول المبلغ ووزّعه على الفواتير المستحقة."
+    },
+    "actions": {
+      "approve": "موافقة",
+      "reject": "رفض"
+    },
+    "create": {
+      "title": "تسجيل إيصال",
+      "body": "دفعة واحدة، موزّعة على كل الفواتير التي تغطيها.",
+      "dealer": "المعرض",
+      "dealerPlaceholder": "اختر معرضًا",
+      "amount": "المبلغ المستلم (درهم)",
+      "method": "الطريقة",
+      "receivedAt": "تاريخ الاستلام",
+      "reference": "مرجع البنك أو التحويل",
+      "referencePlaceholder": "FT24123456789",
+      "note": "ملاحظة",
+      "allocation": "التوزيع",
+      "allocationHint": "وزّع المبلغ على الفواتير المستحقة للمعرض. يرفض الخادم أي توزيع يتجاوز رصيد الفاتورة المتبقي.",
+      "outstanding": "{{amount}} مستحق من أصل {{total}}",
+      "applyAmount": "المبلغ (درهم)",
+      "applyFull": "تطبيق الرصيد كاملًا",
+      "nothingOutstanding": "لا توجد فاتورة صادرة بها رصيد لهذا المعرض.",
+      "receiptAmount": "الإيصال",
+      "allocated": "الموزّع",
+      "unallocated": "غير الموزّع",
+      "overAllocated": "الموزّع أكبر من المستلم. قلّل أحد التوزيعات قبل الحفظ.",
+      "manual": "تعليم يدوي كمدفوع، بلا إثبات بنكي",
+      "manualHint": "يُرسل الإيصال إلى معتمد ثانٍ بدل تسجيله مباشرة.",
+      "confirm": "تسجيل الإيصال"
+    },
+    "approveDialog": {
+      "title": "الموافقة على هذا الإيصال؟",
+      "body": "{{amount}} من {{dealer}}، على {{allocations}} توزيع على الفواتير.",
+      "warning": "الموافقة تعتبر المبلغ مستلمًا وتسوّي الفواتير الموزّع عليها.",
+      "confirm": "الموافقة على الإيصال"
+    },
+    "rejectDialog": {
+      "title": "رفض هذا الإيصال؟",
+      "body": "لن يُسجَّل التعليم كمدفوع بقيمة {{amount}} وتبقى الفواتير مستحقة.",
+      "reason": "السبب",
+      "confirm": "رفض"
+    }
+  },
+  "payments": {
+    "caption": "المدفوعات",
+    "declaredRef": "مرجع الدافع: {{ref}}",
+    "declaredOn": "أُعلن في {{date}}",
+    "filters": {
+      "ALL": "الكل",
+      "PENDING_CONFIRMATION": "بانتظار التأكيد",
+      "REQUIRES_ACTION": "بانتظار الدافع",
+      "PROCESSING": "قيد المعالجة",
+      "SETTLED": "المسوّاة",
+      "FAILED": "الفاشلة",
+      "BLOCKED": "المحجوبة"
+    },
+    "columns": {
+      "reference": "المرجع",
+      "dealer": "المعرض",
+      "invoice": "الفاتورة",
+      "amount": "المبلغ",
+      "route": "المسار",
+      "status": "الحالة",
+      "actions": "إجراءات"
+    },
+    "empty": {
+      "title": "لا شيء ينتظر",
+      "hint": "تظهر هنا التحويلات المعلَنة ليؤكدها شخص."
+    },
+    "actions": {
+      "confirm": "تأكيد",
+      "reject": "رفض"
+    },
+    "confirmDialog": {
+      "title": "تأكيد وصول المبلغ؟",
+      "body": "{{amount}} من {{dealer}} على الفاتورة {{invoice}}.",
+      "warning": "هذه أموال حقيقية. لا تؤكد إلا بعد رؤية المبلغ في كشف الحساب البنكي — التأكيد يسجّل الإيصال ويسوّي الفاتورة.",
+      "declaredRef": "ذكر الدافع المرجع {{ref}}.",
+      "confirm": "نعم، وصل المبلغ"
+    },
+    "rejectDialog": {
+      "title": "رفض هذه الدفعة؟",
+      "body": "سيُعلَّم مبلغ {{amount}} الذي أعلنه {{dealer}} على أنه لم يصل.",
+      "reason": "السبب",
+      "placeholder": "لا يوجد إيداع مطابق في كشف الحساب",
+      "hint": "يُعرض هذا السبب على الدافع.",
+      "confirm": "رفض الدفعة"
+    }
+  },
+  "provider": {
+    "title": "مزوّد الدفع",
+    "canCharge": "يمكنه تحصيل المدفوعات",
+    "cannotCharge": "لا يمكنه تحصيل المدفوعات",
+    "implemented": "المحوّل مُنفَّذ",
+    "notImplemented": "لا يوجد محوّل",
+    "credentials": "بيانات الاعتماد:",
+    "apiKeyPresent": "مفتاح الواجهة مضبوط",
+    "apiKeyAbsent": "مفتاح الواجهة مفقود",
+    "webhookPresent": "سر الويب هوك مضبوط",
+    "webhookAbsent": "سر الويب هوك مفقود",
+    "presenceOnly": "وجود فقط. القيم السرية تبقى في خزنة المدير الأعلى ولا يمكن قراءتها من هنا.",
+    "blockedTitle": "المنصة لا تستطيع تحصيل المدفوعات.",
+    "change": "تغيير المزوّد",
+    "choosePlaceholder": "اختر مزوّدًا",
+    "noAdapter": "لا يوجد محوّل بعد",
+    "apply": "تطبيق",
+    "changeWarning": "اختيار مزوّد بلا بيانات اعتماد يوقف التحصيل تمامًا بدل التحويل الصامت إلى بديل.",
+    "blocked": "محجوب"
+  },
+  "toast": {
+    "summaryFailed": "تعذّر تحميل ملخص الفوترة",
+    "invoicesFailed": "تعذّر تحميل الفواتير",
+    "detailFailed": "تعذّر فتح الفاتورة",
+    "draftCreated": "أُنشئت مسودة الفاتورة",
+    "draftFailed": "تعذّر إنشاء المسودة",
+    "invoiceIssued": "صدرت الفاتورة",
+    "invoiceIssueFailed": "تعذّر إصدار الفاتورة",
+    "invoiceVoided": "أُلغيت المسودة",
+    "invoiceVoidFailed": "تعذّر إلغاء المسودة",
+    "invoicePaid": "عُلّمت الفاتورة كمدفوعة",
+    "invoicePayFailed": "تعذّر تعليم الفاتورة كمدفوعة",
+    "creditNotesFailed": "تعذّر تحميل إشعارات الدائن",
+    "creditNoteCreated": "أُنشئت مسودة إشعار الدائن",
+    "creditNoteCreateFailed": "تعذّر إنشاء مسودة إشعار الدائن",
+    "creditNoteSubmitted": "أُرسل إشعار الدائن للموافقة",
+    "creditNoteSubmitFailed": "تعذّر إرسال إشعار الدائن",
+    "creditNoteApproved": "اعتُمد إشعار الدائن وصدر",
+    "creditNoteApproveFailed": "تعذّرت الموافقة على إشعار الدائن",
+    "creditNoteRejected": "رُفض إشعار الدائن",
+    "creditNoteRejectFailed": "تعذّر رفض إشعار الدائن",
+    "receiptsFailed": "تعذّر تحميل الإيصالات",
+    "outstandingFailed": "تعذّر تحميل الفواتير المستحقة",
+    "receiptRecorded": "سُجّل الإيصال",
+    "receiptFailed": "تعذّر تسجيل الإيصال",
+    "receiptApproved": "اعتُمد الإيصال",
+    "receiptApproveFailed": "تعذّرت الموافقة على الإيصال",
+    "receiptRejected": "رُفض الإيصال",
+    "receiptRejectFailed": "تعذّر رفض الإيصال",
+    "paymentsFailed": "تعذّر تحميل المدفوعات",
+    "paymentConfirmed": "أُكدت الدفعة وسُوّيت الفاتورة",
+    "paymentConfirmFailed": "تعذّر تأكيد الدفعة",
+    "paymentRejected": "رُفضت الدفعة",
+    "paymentRejectFailed": "تعذّر رفض الدفعة",
+    "providerChanged": "حُدّث مزوّد الدفع",
+    "providerFailed": "تعذّر تغيير مزوّد الدفع"
+  }
+}
