@@ -133,6 +133,23 @@ test.describe("sell wizard", () => {
     await customRow.locator("input").first().fill("Aftermarket exhaust");
     await customRow.locator("input").nth(1).fill("Akrapovic, fitted 2025");
 
+    /*
+     * The AI draft describes the car the seller just described to us.
+     *
+     * It used to be handed six fields — make, model, year, mileage, fuel,
+     * transmission — so it could not mention the trim, the colour, or anything
+     * from the specification sheet. It now receives the resolved sheet, so a
+     * value only present there has to reach the draft.
+     */
+    await page.getByRole("button", { name: enSell.ai.generate }).click();
+    const description = page.locator("#sell-description");
+    await expect
+      .poll(async () => (await description.inputValue()).length, { timeout: 30_000 })
+      .toBeGreaterThan(40);
+    const draft = await description.inputValue();
+    // GR-Sport is the trim, which the old six-field payload never carried.
+    expect(draft).toMatch(/GR-Sport/i);
+
     await page.locator("#sell-step4-priceLabel").fill("259000");
     // Renamed from #sell-step4-emirateLabel: the field is "Location" now that
     // the site is not UAE-only. The API field is still emirateId.

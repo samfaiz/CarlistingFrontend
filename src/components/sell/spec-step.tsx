@@ -39,6 +39,7 @@ export function SpecStep({
   regionalSpec,
   value,
   onChange,
+  onSheetLoaded,
 }: {
   vehicleType: string;
   trimId: string;
@@ -46,6 +47,12 @@ export function SpecStep({
   regionalSpec: string;
   value: SpecStepValue;
   onChange: (next: SpecStepValue) => void;
+  /**
+   * The loaded catalogue, handed up so the page can describe the car from what
+   * the seller actually entered. Without it the AI draft only ever saw six
+   * fields and could not mention the sunroof the seller had just ticked.
+   */
+  onSheetLoaded?: (sheet: SpecSheet | null) => void;
 }) {
   const { t } = useTranslation("mk-sell");
   const [sheet, setSheet] = React.useState<SpecSheet | null>(null);
@@ -65,10 +72,14 @@ export function SpecStep({
       regionalSpec: regionalSpec || undefined,
     })
       .then((next) => {
-        if (!cancelled) setSheet(next);
+        if (cancelled) return;
+        setSheet(next);
+        onSheetLoaded?.(next);
       })
       .catch(() => {
-        if (!cancelled) setSheet(null);
+        if (cancelled) return;
+        setSheet(null);
+        onSheetLoaded?.(null);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -76,6 +87,9 @@ export function SpecStep({
     return () => {
       cancelled = true;
     };
+    // onSheetLoaded is deliberately out of the deps: it is a fresh closure on
+    // every parent render, and including it would refetch the sheet in a loop.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vehicleType, trimId, year, regionalSpec]);
 
   /** What the box shows: the seller's edit if there is one, else the trim. */

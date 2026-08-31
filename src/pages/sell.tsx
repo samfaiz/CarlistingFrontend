@@ -13,6 +13,7 @@ import * as React from "react";
 import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
 import { SpecStep, EMPTY_SPEC_STEP, type SpecStepValue } from "@/components/sell/spec-step";
+import type { SpecSheet } from "@/lib/marketplace-api";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
@@ -77,6 +78,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   // right here and submit for review — no detour through the account area.
   const [createdId, setCreatedId] = React.useState<string | null>(null);
   const [specs, setSpecs] = React.useState<SpecStepValue>(EMPTY_SPEC_STEP);
+  const [specSheet, setSpecSheet] = React.useState<SpecSheet | null>(null);
   const [photos, setPhotos] = React.useState<PhotoItem[]>([]);
   const [submitBusy, setSubmitBusy] = React.useState(false);
 
@@ -96,7 +98,54 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
 
   const makeName = makes.find((m) => m.id === form.makeId)?.name ?? "";
   const modelName = models.find((m) => m.id === form.modelId)?.name ?? "";
+  const trimName = trims.find((tr) => tr.id === form.trimId)?.name ?? "";
+  const bodyTypeName = bodyTypes.find((b) => b.id === form.bodyTypeId)?.name ?? "";
   const canAssist = Boolean(form.makeId && form.modelId && form.year);
+
+  /** One resolved spec value: the seller's override if any, else the trim's. */
+  const specValue = (key: string): string | undefined => {
+    if (Object.prototype.hasOwnProperty.call(specs.specOverrides, key)) {
+      return specs.specOverrides[key] ?? undefined;
+    }
+    for (const g of specSheet?.groups ?? []) {
+      const f = g.fields.find((x) => x.key === key);
+      if (f) return f.value ?? undefined;
+    }
+    return undefined;
+  };
+
+  /**
+   * The car's notable specs as short phrases, for the description generator.
+   *
+   * Reads the same three layers the sheet does — catalogue value, the seller's
+   * override, and their custom rows — so the draft describes the car the
+   * seller has just described to us, not the trim's generic self.
+   *
+   * "No" and blanks are dropped: a description should say what a car HAS.
+   * Capped at 24 so the prompt stays about this car rather than becoming a
+   * data dump, and the AI guardrail can still check every number against it.
+   */
+  const describeFeatures = (): string[] => {
+    const out: string[] = [];
+    for (const group of specSheet?.groups ?? []) {
+      for (const f of group.fields) {
+        const raw = Object.prototype.hasOwnProperty.call(specs.specOverrides, f.key)
+          ? specs.specOverrides[f.key]
+          : f.value;
+        const v = (raw ?? "").trim();
+        if (!v || v.toLowerCase() === "no") continue;
+        out.push(
+          v.toLowerCase() === "yes"
+            ? f.name
+            : `${f.name}: ${v}${f.unit ? ` ${f.unit}` : ""}`,
+        );
+      }
+    }
+    for (const c of specs.customSpecs) {
+      if (c.label.trim() && c.value.trim()) out.push(`${c.label.trim()}: ${c.value.trim()}`);
+    }
+    return out.slice(0, 24);
+  };
 
   const onGenerateDescription = async () => {
     if (!canAssist) return;
@@ -104,9 +153,20 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
     try {
       const res = await generateDescription({
         make: makeName, model: modelName, year: Number(form.year),
+        trim: trimName || undefined,
+        bodyType: bodyTypeName || undefined,
         mileageKm: form.mileageKm ? Number(form.mileageKm) : undefined,
         fuelType: form.fuelType, transmission: form.transmission,
-        regionalSpec: form.regionalSpec || undefined, tone: "professional",
+        regionalSpec: form.regionalSpec || undefined,
+        // The wizard has no colour inputs of its own — they are catalogue
+        // fields, so the seller sets them in the specification step.
+        exteriorColor: specValue("exterior_colour"),
+        interiorColor: specValue("interior_colour"),
+        // Everything the seller actually filled in. The draft used to see six
+        // fields, so it could not mention the sunroof they had just ticked —
+        // and a description that ignores the spec sheet reads like a template.
+        features: describeFeatures(),
+        tone: "professional",
         locale: router.locale ?? "en",
       });
       set("description", res.text);
@@ -315,6 +375,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                         regionalSpec={form.regionalSpec}
                         value={specs}
                         onChange={setSpecs}
+                        onSheetLoaded={setSpecSheet}
                       />
                     </div>
                   )}
