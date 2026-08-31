@@ -1598,3 +1598,345 @@ export function getVsHub(): Promise<{ curated: VsHubEntry[]; popular: VsHubEntry
 export function getVsSitemapSlugs(): Promise<{ slugs: string[] }> {
   return apiGet("/vs/sitemap");
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Dealer stock, listing lifecycle and photos
+//
+// Dealer inventory is deliberately NOT `myListings`: that is scoped by userId,
+// which is right for a private seller and wrong for a business — it showed the
+// owner their personal ads and showed a colleague nothing.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface ListingMediaRow {
+  id: string;
+  s3Key: string;
+  variants: MediaVariants | null;
+  sortOrder: number;
+  isCover: boolean;
+  scanStatus: string;
+  width: number | null;
+  height: number | null;
+}
+
+export function getDealerInventory(
+  dealerId: string,
+  accessToken: string,
+  params: { status?: string; limit?: number; offset?: number } = {},
+): Promise<MyListingsPage> {
+  const q = new URLSearchParams();
+  if (params.status) q.set("status", params.status);
+  if (params.limit != null) q.set("limit", String(params.limit));
+  if (params.offset != null) q.set("offset", String(params.offset));
+  const qs = q.toString();
+  return apiGet(
+    `/dealers/${encodeURIComponent(dealerId)}/listings${qs ? `?${qs}` : ""}`,
+    { token: accessToken },
+  );
+}
+
+/** Soft delete. The row is kept so the slug stays reserved and the URL retires. */
+export function archiveListing(
+  id: string,
+  accessToken: string,
+  reason?: string,
+): Promise<ListingDetail> {
+  return apiDelete(`/listings/${encodeURIComponent(id)}`, {
+    token: accessToken,
+    body: reason ? { reason } : {},
+  });
+}
+
+/** Comes back as PAUSED, never straight to LIVE. */
+export function restoreListing(id: string, accessToken: string): Promise<ListingDetail> {
+  return apiPost(`/listings/${encodeURIComponent(id)}/restore`, {}, { token: accessToken });
+}
+
+export function getListingMedia(
+  id: string,
+  accessToken: string,
+): Promise<{ items: ListingMediaRow[] }> {
+  return apiGet(`/listings/${encodeURIComponent(id)}/media`, { token: accessToken });
+}
+
+/** `ids` must be an exact permutation of the listing's photos. */
+export function reorderListingMedia(
+  id: string,
+  ids: string[],
+  accessToken: string,
+): Promise<{ items: ListingMediaRow[] }> {
+  return apiPatch(
+    `/listings/${encodeURIComponent(id)}/media/order`,
+    { ids },
+    { token: accessToken },
+  );
+}
+
+export function setListingCover(
+  id: string,
+  mediaId: string,
+  accessToken: string,
+): Promise<{ items: ListingMediaRow[] }> {
+  return apiPatch(
+    `/listings/${encodeURIComponent(id)}/media/${encodeURIComponent(mediaId)}/cover`,
+    {},
+    { token: accessToken },
+  );
+}
+
+export function deleteListingMedia(
+  id: string,
+  mediaId: string,
+  accessToken: string,
+): Promise<{ items: ListingMediaRow[] }> {
+  return apiDelete(
+    `/listings/${encodeURIComponent(id)}/media/${encodeURIComponent(mediaId)}`,
+    { token: accessToken },
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Dealership team invitations
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface DealerInviteRow {
+  id: string;
+  email: string;
+  role: DealerMemberRole;
+  status: "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED";
+  expiresAt: string;
+  createdAt: string;
+  acceptedAt: string | null;
+}
+
+export function listDealerInvites(
+  dealerId: string,
+  accessToken: string,
+  status?: string,
+): Promise<{ items: DealerInviteRow[] }> {
+  const qs = status ? `?status=${encodeURIComponent(status)}` : "";
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/invites${qs}`, {
+    token: accessToken,
+  });
+}
+
+export function inviteDealerMember(
+  dealerId: string,
+  input: { email: string; role: DealerMemberRole },
+  accessToken: string,
+): Promise<DealerInviteRow> {
+  return apiPost(`/dealers/${encodeURIComponent(dealerId)}/invites`, input, {
+    token: accessToken,
+  });
+}
+
+export function resendDealerInvite(
+  dealerId: string,
+  inviteId: string,
+  accessToken: string,
+): Promise<DealerInviteRow> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/invites/${encodeURIComponent(inviteId)}/resend`,
+    {},
+    { token: accessToken },
+  );
+}
+
+export function revokeDealerInvite(
+  dealerId: string,
+  inviteId: string,
+  accessToken: string,
+): Promise<DealerInviteRow> {
+  return apiDelete(
+    `/dealers/${encodeURIComponent(dealerId)}/invites/${encodeURIComponent(inviteId)}`,
+    { token: accessToken },
+  );
+}
+
+/** Public: what an invitation is for, before anyone signs in. */
+export function previewDealerInvite(token: string): Promise<{
+  dealerName: string;
+  role: DealerMemberRole;
+  email: string;
+  hasAccount: boolean;
+  expiresAt: string;
+}> {
+  return apiPost("/dealer-invites/preview", { token });
+}
+
+export function acceptDealerInvite(
+  token: string,
+  accessToken: string,
+): Promise<{
+  accepted: boolean;
+  dealerId: string;
+  dealerSlug: string;
+  role: DealerMemberRole;
+}> {
+  return apiPost("/dealer-invites/accept", { token }, { token: accessToken });
+}
+
+/**
+ * Accepting with no account yet. Returns no tokens on purpose — the page signs
+ * in with the password the visitor just chose.
+ */
+export function acceptDealerInviteAsNewUser(input: {
+  token: string;
+  name: string;
+  password: string;
+}): Promise<{ accepted: boolean; email: string }> {
+  return apiPost("/dealer-invites/accept-new", input);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Plans a dealership can ask for
+//
+// Self-serve checkout is a documented v1 exclusion, so a dealership states what
+// it wants and staff decide — rather than a plan existing only once an engineer
+// runs a request by hand.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface SellablePackage {
+  id: string;
+  tier: string;
+  name: string;
+  priceAed: number;
+  listingQuota: number;
+  boostCredits: number;
+  termMonths: number;
+}
+
+export interface PlanRequest {
+  id: string;
+  packageId: string;
+  status: "PENDING" | "APPROVED" | "DECLINED" | "WITHDRAWN";
+  note: string | null;
+  declineReason: string | null;
+  createdAt: string;
+  decidedAt: string | null;
+}
+
+export function getSellablePackages(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ items: SellablePackage[] }> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/subscription/packages`, {
+    token: accessToken,
+  });
+}
+
+export function getPlanRequest(
+  dealerId: string,
+  accessToken: string,
+): Promise<PlanRequest | null> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/subscription/request`, {
+    token: accessToken,
+  });
+}
+
+export function requestPlan(
+  dealerId: string,
+  input: { packageId: string; note?: string },
+  accessToken: string,
+): Promise<PlanRequest> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/subscription/request`,
+    input,
+    { token: accessToken },
+  );
+}
+
+export function withdrawPlanRequest(
+  dealerId: string,
+  accessToken: string,
+): Promise<PlanRequest> {
+  return apiDelete(`/dealers/${encodeURIComponent(dealerId)}/subscription/request`, {
+    token: accessToken,
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Paying an invoice
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface PaymentInstructions {
+  beneficiary: string;
+  iban: string;
+  trn?: string;
+  bank?: string;
+  /** What the payer must put in the transfer reference so it can be matched. */
+  quoteReference: string;
+  note: string;
+}
+
+export interface PaymentIntent {
+  id: string;
+  reference: string;
+  status:
+    | "REQUIRES_ACTION"
+    | "PENDING_CONFIRMATION"
+    | "PROCESSING"
+    | "SETTLED"
+    | "FAILED"
+    | "EXPIRED"
+    | "CANCELLED"
+    | "BLOCKED";
+  method: string;
+  provider: string;
+  amountAed: number;
+  currency: string;
+  checkoutUrl: string | null;
+  instructions: PaymentInstructions | null;
+  invoiceId: string | null;
+  declaredAt: string | null;
+  settledAt: string | null;
+  expiresAt: string | null;
+  /** Set when a provider is selected but cannot charge. */
+  blockedReason: string | null;
+}
+
+export function listDealerPayments(
+  dealerId: string,
+  accessToken: string,
+): Promise<{ items: PaymentIntent[]; total: number }> {
+  return apiGet(`/dealers/${encodeURIComponent(dealerId)}/payments`, {
+    token: accessToken,
+  });
+}
+
+export function startPayment(
+  dealerId: string,
+  invoiceId: string,
+  accessToken: string,
+): Promise<PaymentIntent> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/payments`,
+    { invoiceId },
+    { token: accessToken },
+  );
+}
+
+/** The payer's word that they sent it — staff still have to confirm. */
+export function declarePayment(
+  dealerId: string,
+  intentId: string,
+  input: { reference?: string; evidenceKey?: string },
+  accessToken: string,
+): Promise<PaymentIntent> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/payments/${encodeURIComponent(intentId)}/declare`,
+    input,
+    { token: accessToken },
+  );
+}
+
+export function cancelPayment(
+  dealerId: string,
+  intentId: string,
+  accessToken: string,
+): Promise<PaymentIntent> {
+  return apiPost(
+    `/dealers/${encodeURIComponent(dealerId)}/payments/${encodeURIComponent(intentId)}/cancel`,
+    {},
+    { token: accessToken },
+  );
+}
