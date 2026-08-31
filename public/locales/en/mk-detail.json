@@ -372,5 +372,10 @@
         "spec2": "Petrol"
       }
     }
+  },
+  "gone": {
+    "title": "This listing has been removed",
+    "body": "The car is no longer advertised on Carsens. It may have sold, or the seller took it down.",
+    "cta": "Browse similar cars"
   }
 }

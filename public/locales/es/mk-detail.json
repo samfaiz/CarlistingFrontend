@@ -372,5 +372,10 @@
         "spec2": "Gasolina"
       }
     }
+  },
+  "gone": {
+    "title": "Este anuncio se ha eliminado",
+    "body": "El coche ya no se anuncia en Carsens. Puede que se haya vendido o que el vendedor lo retirara.",
+    "cta": "Ver coches similares"
   }
 }

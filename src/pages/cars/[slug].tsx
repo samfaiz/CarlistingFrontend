@@ -10,7 +10,7 @@ import * as React from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { MockupLayout } from "@/components/marketplace/mockup-layout";
-import { API_BASE_URL } from "@/lib/api";
+import { API_BASE_URL, ApiError } from "@/lib/api";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { MarketplaceCard } from "@/components/marketplace/listing-card";
@@ -44,6 +44,7 @@ export default function MkdetailPage({
   similar,
   signal,
   financeConfig,
+  gone,
 }: {
   listing: ListingDetail;
   similar: Card[];
@@ -55,6 +56,8 @@ export default function MkdetailPage({
    * absent, rather than fetching client-side and painting raw keys. Undefined
    * means "never fetched"; null means the market endpoint was down.
    */
+  /** The listing was removed: the page answers 410 and says so. */
+  gone?: boolean;
   signal?: PriceSignal | null;
   financeConfig?: CalculatorConfig | null;
 }) {
@@ -97,6 +100,29 @@ export default function MkdetailPage({
     } catch { /* noop */ }
     finally { setLeadBusy(null); }
   };
+
+  /*
+   * A removed listing. This sits AFTER every hook — React requires the same
+   * hooks on every render — and BEFORE the first `listing.` dereference, since
+   * a 410 response carries no listing at all.
+   */
+  if (gone || !listing) {
+    return (
+      <MockupLayout>
+        <Head>
+          <title>{`${t("gone.title")} — Carsens`}</title>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <main className="page" style={{ padding: "48px 20px", textAlign: "center" }}>
+          <h1 style={{ marginBottom: 8 }}>{t("gone.title")}</h1>
+          <p style={{ color: "var(--text-3)", marginBottom: 24 }}>{t("gone.body")}</p>
+          <Link href="/cars" className="btn btn-primary">
+            {t("gone.cta")}
+          </Link>
+        </main>
+      </MockupLayout>
+    );
+  }
 
   const title = `${listing.year} ${listing.make.name} ${listing.model.name}${listing.trim ? ` ${listing.trim.name}` : ""}`;
   const photos = listing.media.map((m) => m.variants?.card).filter(Boolean) as string[];
@@ -408,12 +434,22 @@ export default function MkdetailPage({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale, params, res }) => {
   const slug = String(params?.slug ?? "");
   let listing: ListingDetail | null = null;
   try {
     listing = await getListing(slug);
-  } catch {
+  } catch (error) {
+    /*
+     * A removed listing answers 410 Gone, not 404. The row is never deleted, so
+     * the slug stays reserved forever and the URL is permanently retired —
+     * which is exactly what 410 tells a crawler, and 404 does not. Funnelling
+     * it into notFound() threw that signal away and left the car in the index.
+     */
+    if (error instanceof ApiError && error.statusCode === 410) {
+      res.statusCode = 410;
+      return { props: { gone: true, ...(await serverSideTranslations(locale ?? "en", ["common", "mk-detail"], nextI18NextConfig)) } };
+    }
     listing = null;
   }
   if (!listing) return { notFound: true };

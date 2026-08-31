@@ -372,5 +372,10 @@
         "spec2": "Essence"
       }
     }
+  },
+  "gone": {
+    "title": "Cette annonce a été retirée",
+    "body": "La voiture n'est plus proposée sur Carsens. Elle a peut-être été vendue, ou le vendeur l'a retirée.",
+    "cta": "Voir des voitures similaires"
   }
 }
