@@ -18,12 +18,14 @@ import { MockupLayout } from "@/components/marketplace/mockup-layout";
 import {
   createListing,
   getModels,
+  getTrims,
   getMakes,
   getTaxonomyMeta,
   generateDescription,
   getValuation,
   submitListing,
   type TaxonomyMake,
+  type TaxonomyTrim,
   type TaxonomyModel,
   type TaxonomyTerm,
   type ValuationResult,
@@ -48,10 +50,18 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   const router = useRouter();
   const { data: session } = useSession();
   const [models, setModels] = React.useState<TaxonomyModel[]>([]);
+  /**
+   * Trims. Without this select the seller cannot name a variant, and
+   * createDraft only snapshots the spec sheet when a trimId arrives — so the
+   * FR-VS3 auto-fill, the whole reason the taxonomy carries trim specs, could
+   * never fire from the product. Every listing created here had empty
+   * specifications on its detail page.
+   */
+  const [trims, setTrims] = React.useState<TaxonomyTrim[]>([]);
   const [busy, setBusy] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [form, setForm] = React.useState({
-    makeId: "", modelId: "", year: "", priceAed: "", mileageKm: "",
+    makeId: "", modelId: "", trimId: "", year: "", priceAed: "", mileageKm: "",
     bodyTypeId: "", fuelType: "PETROL", transmission: "AUTOMATIC",
     regionalSpec: "GCC", emirateId: "", description: "",
   });
@@ -68,7 +78,15 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
   const onMake = async (makeId: string) => {
     set("makeId", makeId);
     set("modelId", "");
+    set("trimId", "");
+    setTrims([]);
     setModels(makeId ? await getModels(makeId).catch(() => []) : []);
+  };
+
+  const onModel = async (modelId: string) => {
+    set("modelId", modelId);
+    set("trimId", "");
+    setTrims(modelId ? await getTrims(modelId).catch(() => []) : []);
   };
 
   const makeName = makes.find((m) => m.id === form.makeId)?.name ?? "";
@@ -118,6 +136,7 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
           vehicleType: "CAR",
           makeId: form.makeId,
           modelId: form.modelId,
+          ...(form.trimId ? { trimId: form.trimId } : {}),
           year: Number(form.year),
           priceAed: Number(form.priceAed),
           mileageKm: Number(form.mileageKm),
@@ -203,9 +222,16 @@ export default function MksellPage({ makes, bodyTypes, emirates }: SellProps) {
                       </div>
                       <div className="ds-field">
                         <label htmlFor="sell-step1-modelLabel">{t("step1.modelLabel")}</label>
-                        <select id="sell-step1-modelLabel" className="form-input" value={form.modelId} onChange={(e) => set("modelId", e.target.value)} required disabled={!form.makeId}>
+                        <select id="sell-step1-modelLabel" className="form-input" value={form.modelId} onChange={(e) => void onModel(e.target.value)} required disabled={!form.makeId}>
                           <option value="">{t("step1.modelPlaceholder")}</option>
                           {models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
+                        </select>
+                      </div>
+                      <div className="ds-field">
+                        <label htmlFor="sell-step1-trimLabel">{t("step1.trimLabel")}</label>
+                        <select id="sell-step1-trimLabel" className="form-input" value={form.trimId} onChange={(e) => set("trimId", e.target.value)} disabled={!form.modelId}>
+                          <option value="">{t("step1.trimPlaceholder")}</option>
+                          {trims.map((tr) => <option key={tr.id} value={tr.id}>{tr.name}</option>)}
                         </select>
                       </div>
                       <div className="ds-field">

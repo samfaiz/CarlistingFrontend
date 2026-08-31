@@ -179,7 +179,11 @@ export default function DealerSubscriptionPage() {
       />
 
       <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
-        <Panel className="p-4">
+        {/*
+          Anchored for the E2E: the plan chooser above also renders tier names,
+          so a bare "the paragraph containing Gold" now matches the wrong card.
+        */}
+        <Panel className="p-4" data-testid="current-plan">
           <p className="text-xs text-muted">{t("subscription.current")}</p>
           {current ? (
             <>

@@ -107,8 +107,13 @@ test("subscription page shows the ACTIVE package, quota and the paid invoice", a
   await page.goto("/dealer/subscription");
 
   // "Gold" and the ACTIVE badge share one <p>, so an exact-text locator cannot
-  // match the text node alone — scope to the paragraph instead.
-  const packageLine = page.locator("p", { hasText: "Gold" }).first();
+  // match the text node alone — scope to the paragraph instead. Scoped to the
+  // current-plan panel as well, because the plan chooser above this one also
+  // renders tier names and would otherwise match first.
+  const packageLine = page
+    .getByTestId("current-plan")
+    .locator("p", { hasText: "Gold" })
+    .first();
   await expect(packageLine).toBeVisible({ timeout: 20_000 });
   await expect(packageLine).toContainText("ACTIVE");
 
