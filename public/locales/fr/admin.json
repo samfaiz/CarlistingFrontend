@@ -480,7 +480,8 @@
       "packages": "Forfaits",
       "settings": "Paramètres",
       "translations": "Traductions",
-      "taxonomy": "Taxonomie"
+      "taxonomy": "Taxonomie",
+      "mail": "E-mail"
     },
     "health": {
       "database": "Base de données",
@@ -545,6 +546,46 @@
       "active": "Actif",
       "reindex": "Réindexer",
       "reindexed": "{{n}} annonces réindexées"
+    },
+    "mail": {
+      "serverTitle": "Serveur de messagerie",
+      "host": "Hôte SMTP",
+      "hostHint": "Uniquement le nom d'hôte : sans https://, sans port ni identifiant.",
+      "port": "Port",
+      "portHint": "587 pour STARTTLS, 465 pour TLS implicite, 25 sans chiffrement.",
+      "fromName": "Nom de l'expéditeur",
+      "fromEmail": "Adresse de l'expéditeur",
+      "secure": "TLS implicite (port 465)",
+      "enabled": "Envoi activé",
+      "tlsNote": "La connexion est toujours chiffrée et le certificat toujours vérifié. Aucune option ne permet de le désactiver.",
+      "save": "Enregistrer le serveur",
+      "saved": "Serveur de messagerie enregistré",
+      "credentialsTitle": "Identifiants",
+      "credentialsHint": "Stockés chiffrés. Le mot de passe n'est plus affiché — remplacez-le pour le changer.",
+      "user": "Identifiant",
+      "password": "Mot de passe",
+      "saveCredentials": "Enregistrer les identifiants",
+      "credentialsSaved": "Identifiants enregistrés",
+      "clearCredentials": "Supprimer les identifiants",
+      "credentialsCleared": "Identifiants supprimés",
+      "credentialsSet": "Identifiants définis",
+      "credentialsUnset": "Aucun identifiant",
+      "testTitle": "Envoyer un test",
+      "testHint": "Un vrai message, maintenant, indiquant exactement la réponse du serveur.",
+      "testTo": "Envoyer à",
+      "sendTest": "Envoyer le test",
+      "envManaged": "Ces réglages proviennent de variables d'environnement et sont donc en lecture seule ici. Enregistrez un serveur ci-dessous pour le gérer depuis ce panneau.",
+      "state": {
+        "loggingOnly": "Le courrier n'est pas distribué",
+        "loggingOnlyHint": "Aucun serveur de messagerie n'est configuré : chaque message est écrit dans le journal au lieu d'être envoyé. Cela concerne les liens de vérification, les invitations et les alertes.",
+        "sending": "Le courrier est distribué",
+        "sendingHint": "Les messages partent via {{host}}."
+      },
+      "source": {
+        "database": "Configuré ici",
+        "environment": "Depuis l'environnement",
+        "none": "Non configuré"
+      }
     }
   },
   "spec": {

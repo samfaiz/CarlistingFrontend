@@ -480,7 +480,8 @@
       "packages": "Packages",
       "settings": "Settings",
       "translations": "Translations",
-      "taxonomy": "Taxonomy"
+      "taxonomy": "Taxonomy",
+      "mail": "Email"
     },
     "health": {
       "database": "Database",
@@ -545,6 +546,46 @@
       "active": "Active",
       "reindex": "Reindex",
       "reindexed": "Reindexed {{n}} listings"
+    },
+    "mail": {
+      "serverTitle": "Mail server",
+      "host": "SMTP host",
+      "hostHint": "Just the hostname — no https://, no port, no username.",
+      "port": "Port",
+      "portHint": "587 for STARTTLS, 465 for implicit TLS, 25 unencrypted.",
+      "fromName": "From name",
+      "fromEmail": "From address",
+      "secure": "Implicit TLS (port 465)",
+      "enabled": "Sending enabled",
+      "tlsNote": "The connection is always encrypted and the certificate is always verified. There is no option to turn that off.",
+      "save": "Save mail server",
+      "saved": "Mail server saved",
+      "credentialsTitle": "Credentials",
+      "credentialsHint": "Stored encrypted. The password is never shown again — replace it to change it.",
+      "user": "Username",
+      "password": "Password",
+      "saveCredentials": "Save credentials",
+      "credentialsSaved": "Credentials saved",
+      "clearCredentials": "Remove credentials",
+      "credentialsCleared": "Credentials removed",
+      "credentialsSet": "Credentials set",
+      "credentialsUnset": "No credentials",
+      "testTitle": "Send a test",
+      "testHint": "One real message, right now, reporting exactly what the mail server says back.",
+      "testTo": "Send to",
+      "sendTest": "Send test",
+      "envManaged": "These settings currently come from environment variables, so they are read-only here. Save a mail server below to manage it from this panel instead.",
+      "state": {
+        "loggingOnly": "Mail is not being delivered",
+        "loggingOnlyHint": "No mail server is configured, so every message is written to the log instead of sent. Verification links, invitations and alerts are all affected.",
+        "sending": "Mail is being delivered",
+        "sendingHint": "Messages are sent through {{host}}."
+      },
+      "source": {
+        "database": "Configured here",
+        "environment": "From environment",
+        "none": "Not configured"
+      }
     }
   },
   "spec": {

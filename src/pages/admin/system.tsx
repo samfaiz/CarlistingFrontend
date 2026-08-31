@@ -19,6 +19,7 @@ import {
   getAdminTaxonomy, upsertMake, reindexMake, type AdminTaxonomy,
 } from "@/components/admin/api";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MailTab } from "@/components/admin/mail-tab";
 import { Button } from "@/components/ui/button";
 import { Input, Textarea } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -40,6 +41,7 @@ export default function SystemPage() {
           <TabsTrigger value="health">{t("system.tabs.health")}</TabsTrigger>
           <TabsTrigger value="staff">{t("system.tabs.staff")}</TabsTrigger>
           <TabsTrigger value="packages">{t("system.tabs.packages")}</TabsTrigger>
+          <TabsTrigger value="mail">{t("system.tabs.mail")}</TabsTrigger>
           <TabsTrigger value="settings">{t("system.tabs.settings")}</TabsTrigger>
           <TabsTrigger value="translations">{t("system.tabs.translations")}</TabsTrigger>
           <TabsTrigger value="taxonomy">{t("system.tabs.taxonomy")}</TabsTrigger>
@@ -47,6 +49,7 @@ export default function SystemPage() {
         <TabsContent value="health"><HealthTab token={token} t={t} /></TabsContent>
         <TabsContent value="staff"><StaffTab token={token} t={t} /></TabsContent>
         <TabsContent value="packages"><PackagesTab token={token} t={t} /></TabsContent>
+        <TabsContent value="mail"><MailTab token={token} t={t} /></TabsContent>
         <TabsContent value="settings"><SettingsTab token={token} t={t} /></TabsContent>
         <TabsContent value="translations"><TranslationsTab token={token} t={t} /></TabsContent>
         <TabsContent value="taxonomy"><TaxonomyTab token={token} t={t} /></TabsContent>

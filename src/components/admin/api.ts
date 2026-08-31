@@ -1543,3 +1543,59 @@ export function intelExperimentResults(
 export function intelExperimentAction(key: string, action: "start" | "stop", accessToken: string): Promise<unknown> {
   return apiPost(`/intel/experiments/${encodeURIComponent(key)}/${action}`, {}, { token: accessToken });
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Outbound email (SMTP)
+//
+// The password is deliberately absent from every type here: the API returns
+// credential PRESENCE only, and there is no endpoint that reads a secret back.
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface MailSettings {
+  host: string;
+  port: number;
+  secure: boolean;
+  fromName: string;
+  fromEmail: string;
+  enabled: boolean;
+}
+
+export interface MailStatus {
+  configured: boolean;
+  /** Where the live settings come from. `environment` is read-only here. */
+  source: "database" | "environment" | "none";
+  editable: boolean;
+  settings: MailSettings | null;
+  credentials: { user: boolean; password: boolean };
+  /** True while mail is logged instead of sent — the state people miss. */
+  loggingOnly: boolean;
+}
+
+export function getMailConfig(token: string): Promise<MailStatus> {
+  return apiGet("/admin/mail/config", { token });
+}
+
+export function saveMailConfig(
+  settings: MailSettings,
+  token: string,
+): Promise<MailStatus> {
+  return apiPut("/admin/mail/config", settings, { token });
+}
+
+export function saveMailCredentials(
+  input: { user: string; password: string },
+  token: string,
+): Promise<MailStatus> {
+  return apiPut("/admin/mail/credentials", input, { token });
+}
+
+export function clearMailCredentials(token: string): Promise<MailStatus> {
+  return apiDelete("/admin/mail/credentials", { token });
+}
+
+export function sendMailTest(
+  input: { to: string; locale?: string },
+  token: string,
+): Promise<{ ok: boolean; detail: string; loggingOnly: boolean; source: string }> {
+  return apiPost("/admin/mail/test", input, { token });
+}

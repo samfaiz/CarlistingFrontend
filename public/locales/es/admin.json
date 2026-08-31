@@ -480,7 +480,8 @@
       "packages": "Paquetes",
       "settings": "Ajustes",
       "translations": "Traducciones",
-      "taxonomy": "Taxonomía"
+      "taxonomy": "Taxonomía",
+      "mail": "Correo"
     },
     "health": {
       "database": "Base de datos",
@@ -545,6 +546,46 @@
       "active": "Activo",
       "reindex": "Reindexar",
       "reindexed": "Reindexados {{n}} anuncios"
+    },
+    "mail": {
+      "serverTitle": "Servidor de correo",
+      "host": "Servidor SMTP",
+      "hostHint": "Solo el nombre del host: sin https://, sin puerto ni usuario.",
+      "port": "Puerto",
+      "portHint": "587 para STARTTLS, 465 para TLS implícito, 25 sin cifrar.",
+      "fromName": "Nombre del remitente",
+      "fromEmail": "Dirección del remitente",
+      "secure": "TLS implícito (puerto 465)",
+      "enabled": "Envío activado",
+      "tlsNote": "La conexión siempre va cifrada y el certificado siempre se verifica. No hay opción para desactivarlo.",
+      "save": "Guardar servidor",
+      "saved": "Servidor de correo guardado",
+      "credentialsTitle": "Credenciales",
+      "credentialsHint": "Se guardan cifradas. La contraseña no se vuelve a mostrar: sustitúyela para cambiarla.",
+      "user": "Usuario",
+      "password": "Contraseña",
+      "saveCredentials": "Guardar credenciales",
+      "credentialsSaved": "Credenciales guardadas",
+      "clearCredentials": "Eliminar credenciales",
+      "credentialsCleared": "Credenciales eliminadas",
+      "credentialsSet": "Credenciales configuradas",
+      "credentialsUnset": "Sin credenciales",
+      "testTitle": "Enviar una prueba",
+      "testHint": "Un mensaje real, ahora mismo, mostrando exactamente lo que responde el servidor.",
+      "testTo": "Enviar a",
+      "sendTest": "Enviar prueba",
+      "envManaged": "Estos ajustes provienen de variables de entorno, así que aquí son de solo lectura. Guarda un servidor abajo para gestionarlo desde este panel.",
+      "state": {
+        "loggingOnly": "El correo no se está entregando",
+        "loggingOnlyHint": "No hay servidor de correo configurado, así que cada mensaje se escribe en el registro en lugar de enviarse. Afecta a enlaces de verificación, invitaciones y alertas.",
+        "sending": "El correo se está entregando",
+        "sendingHint": "Los mensajes se envían a través de {{host}}."
+      },
+      "source": {
+        "database": "Configurado aquí",
+        "environment": "Desde el entorno",
+        "none": "Sin configurar"
+      }
     }
   },
   "spec": {
